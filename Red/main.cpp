@@ -3,10 +3,10 @@
 #include <string.h>
 #include "RakPeerInterface.h"
 #include "MessageIdentifiers.h"
-#include "BitStream.h"
+#include "BitStream.h" 
 #include "RakNetTypes.h"  // MessageID
 
-#define MAX_CLIENTS 10
+#define MAX_CLIENTS 1
 #define SERVER_PORT 60000
 
 enum GameMessages

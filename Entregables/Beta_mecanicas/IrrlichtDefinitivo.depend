@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1480439293 source:c:\codesource\irrlichtdefinitivo\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	<Box2D/Common/b2Math.h>
+	<vector>
+	<bala.h>
+
+1480439354 c:\codesource\irrlichtdefinitivo\include\bala.h
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	<Box2D/Common/b2Math.h>
+	<vector>
+

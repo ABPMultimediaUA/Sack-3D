@@ -2,7 +2,7 @@
 #define PHYSICWORLD_H
 #include <Box2D/Box2D.h>
 #include <iostream>
-#include "PhysicBody.h"
+#include "PhysicWorld.h"
 #include "cuboMierda.h"
 #include "Player.h"
 
@@ -20,13 +20,15 @@ class PhysicWorld{
         b2Body* CreateBox(int x,int y);
         void Step(float DeltaTime);
         void ClearForces();
+        void setPlayer(Player* jugador);
+        Player* getPlayer();
         virtual ~PhysicWorld();
 
     private:
-    static PhysicWorld* pinstance;
-	b2World* world;
-    std::vector<cuboMierda*>* cubos;
-    std::vector<Player*>* players;
+        static PhysicWorld* pinstance;
+        b2World* world;
+        std::vector<cuboMierda*>* cubos;
+        Player* jugador1 = 0;
 };
 
 #endif // PHYSICWORLD_H

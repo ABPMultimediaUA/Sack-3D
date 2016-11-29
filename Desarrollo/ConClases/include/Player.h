@@ -3,8 +3,6 @@
 
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
-#include <IrrManager.h>
-#include <PhysicWorld.h>
 
 using namespace irr;
 using namespace core;
@@ -18,7 +16,8 @@ class Player
     public:
         Player();
         void update();
-        void mover(b2Vec2 vel);
+        void mover(int);
+        void saltar();
         virtual ~Player();
 
     protected:
@@ -32,6 +31,7 @@ class Player
 
         int x;
         int y;
+        int vel;
 };
 
 #endif // PLAYER_H

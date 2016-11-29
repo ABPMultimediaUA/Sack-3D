@@ -15,14 +15,15 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
           }
           if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
                if(event.KeyInput.PressedDown == true){
-                    b2Vec2 vel;
                     switch(event.KeyInput.Key){
                        case KEY_KEY_A:
-
+                            PhysicWorld::Instance()->getPlayer()->mover(-1);
                        break;
                        case KEY_KEY_D:
+                            PhysicWorld::Instance()->getPlayer()->mover(1);
                        break;
                        case KEY_SPACE:
+                           PhysicWorld::Instance()->getPlayer()->saltar();
                        break;
                    }
                }
@@ -30,8 +31,10 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                b2Vec2 vel;
                switch(event.KeyInput.Key){
                        case KEY_KEY_A:
+                           PhysicWorld::Instance()->getPlayer()->mover(0);
                        break;
                        case KEY_KEY_D:
+                           PhysicWorld::Instance()->getPlayer()->mover(0);
                        break;
                }
           }

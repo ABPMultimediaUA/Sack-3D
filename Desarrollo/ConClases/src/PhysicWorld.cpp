@@ -1,6 +1,5 @@
 #include "PhysicWorld.h"
 
-
 PhysicWorld* PhysicWorld::pinstance = 0;
 PhysicWorld* PhysicWorld::Instance(){
 	if(pinstance == 0){
@@ -11,7 +10,6 @@ PhysicWorld* PhysicWorld::Instance(){
 PhysicWorld::PhysicWorld(){
 	world = new b2World(b2Vec2(0.0f, -10.0f));
 	cubos = new std::vector<cuboMierda*>();
-	//players = new std::vector<Player*>();
 }
 b2World* PhysicWorld::GetWorld(){return world;}
 b2Body* PhysicWorld::CreateBox(int x , int y){
@@ -32,4 +30,6 @@ b2Body* PhysicWorld::CreateBox(int x , int y){
 std::vector<cuboMierda*>* PhysicWorld::GetCubos(){return cubos;}
 void PhysicWorld::Step(float DeltaTime){ world->Step(DeltaTime*TIMESTEP, VELITER, POSITER);}
 void PhysicWorld::ClearForces(){world->ClearForces();}
+void PhysicWorld::setPlayer(Player* p){jugador1 = p;}
+Player* PhysicWorld::getPlayer(){return jugador1;}
 PhysicWorld::~PhysicWorld(){}

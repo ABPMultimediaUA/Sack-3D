@@ -1,8 +1,8 @@
 #include <iostream>
 #include <irrlicht.h>
 #include <Box2D/Common/b2Math.h>
+#include "Player.h"
 #include "PhysicWorld.h"
-#include "PhysicBody.h"
 #include "cuboMierda.h"
 #include "IrrManager.h"
 #include "Platform.h"
@@ -23,6 +23,7 @@ int main(){
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     Platform(vector3df(0,-80,0),vector3df(300, 5, 40),SColor(255,100,255,0));
     Player* cubo1 = new Player();
+    PhysicWorld::Instance()->setPlayer(cubo1);
      while(IrrManager::Instance()->getDevice()->run()){
             IrrManager::Instance()->beginScene();
             DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;

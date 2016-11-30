@@ -1,9 +1,9 @@
-#ifndef CUBOMIERDA_H
-#define CUBOMIERDA_H
+#ifndef ARMA_H
+#define ARMA_H
+
 
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
-
 
 using namespace irr;
 using namespace core;
@@ -12,21 +12,19 @@ using namespace video;
 using namespace io;
 using namespace gui;
 
-
-class cuboMierda{
+class Arma
+{
     public:
-        cuboMierda(int x, int y);
+        Arma();
         void actualiza();
         b2Body* getBody();
-        virtual ~cuboMierda();
+        virtual ~Arma();
 
     protected:
 
     private:
-		IMeshSceneNode* node;
+        IMeshSceneNode* node;
 	    b2Body* body;
-        int x;
-        int y;
 };
 
-#endif // CUBOMIERDA_H
+#endif // ARMA_H

@@ -1385,3 +1385,101 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1480544646 source:c:\codesource\conclases\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Player.h"
+	"Arma.h"
+
+1480537904 c:\codesource\conclases\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480540929 c:\codesource\conclases\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1480534865 c:\codesource\conclases\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480441248 c:\codesource\conclases\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480441248 c:\codesource\conclases\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1480441248 c:\codesource\conclases\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480536622 source:c:\codesource\conclases\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480441248 source:c:\codesource\conclases\src\irrmanager.cpp
+	"IrrManager.h"
+
+1480541460 source:c:\codesource\conclases\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1480540972 source:c:\codesource\conclases\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1480532249 source:c:\codesource\conclases\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480538199 source:c:\codesource\conclases\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480526366 c:\codesource\conclases\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1480538075 source:c:\codesource\conclases\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1480536364 c:\codesource\conclases\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480539256 source:c:\codesource\conclases\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480541747 source:c:\codesource\conclases\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480544560 c:\codesource\conclases\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+

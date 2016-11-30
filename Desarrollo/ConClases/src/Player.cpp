@@ -5,8 +5,10 @@
 Player::Player(){
 
     vel = 40;
+    cogiendo = false;
+    puedoCoger = false;
 
-    mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(10);
+    mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(32);
     mesh->setPosition(vector3df(0,0,0));
 
     b2BodyDef bodyDef;
@@ -18,12 +20,17 @@ Player::Player(){
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(16/2,16/2);
+    polyShape.SetAsBox(16,16);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.3f;
     fixtureDef.density  = 10.f;
     body->CreateFixture(&fixtureDef);
+
+    polyShape.SetAsBox(32,32);
+    fixtureDef.isSensor = true;
+    b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
+    personajeSensorFixture->SetUserData((void*)100);
 }
 
 void Player::update(){
@@ -41,6 +48,10 @@ void Player::saltar(){
     b2Vec2 velV = body->GetLinearVelocity();
     velV.y = vel;
     body->SetLinearVelocity(velV);
+}
+
+b2Body* Player::getBody(){
+    return body;
 }
 
 Player::~Player(){}

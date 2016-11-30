@@ -18,7 +18,11 @@ class Player
         void update();
         void mover(int);
         void saltar();
+        b2Body* getBody();
         virtual ~Player();
+
+        bool cogiendo;
+        bool puedoCoger;
 
     protected:
 

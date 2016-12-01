@@ -11,6 +11,7 @@ Player::Player(){
     salto = false;
     doblesalto = false;
     fingiendoMuerte = false;
+    jointDef = NULL;
 
     mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(4);
     mesh->setPosition(vector3df(0,0,0));
@@ -123,6 +124,33 @@ void Player::fingirMuerte(){
         mesh->remove();
         mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(4);
     }
+}
+
+void Player::crearJoint(b2Body* a, b2Body* b){
+    b2RevoluteJointDef jointDef;
+    jointDef.bodyA = a;
+    jointDef.bodyB = b;
+    //jointDef.collideConnected = false;
+    //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
+    jointDef.localAnchorA.Set(0,0);
+    jointDef.localAnchorB.Set(0,0);
+    joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
+    joint->EnableMotor(true);
+    joint->SetMaxMotorTorque(50.3f);
+    cogiendo = true;
+
+}
+
+void Player::romperJoint(){
+    PhysicWorld::Instance()->GetWorld()->DestroyJoint(joint);
+    joint = NULL;
+    b2Vec2 vel = body->GetLinearVelocity();
+    vel.x +=20;
+    vel.y +=20;
+    vel.x *=100;
+    vel.y *=100;
+    PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
+    cogiendo = false;
 }
 
 Player::~Player(){}

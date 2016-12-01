@@ -33,30 +33,12 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                        case KEY_KEY_E:
 
                             if(PhysicWorld::Instance()->getPlayer()->puedoCoger && !PhysicWorld::Instance()->getPlayer()->cogiendo){
-                                b2RevoluteJointDef jointDef;
-                                jointDef.bodyA = PhysicWorld::Instance()->getPlayer()->getBody();
-                                jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
-                                //jointDef.collideConnected = false;
-                                //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
-                                jointDef.localAnchorA.Set(0,0);
-                                jointDef.localAnchorB.Set(0,0);
-                                PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
-                                PhysicWorld::Instance()->joint->EnableMotor(true);
-                                PhysicWorld::Instance()->joint->SetMaxMotorTorque(50.3f);
-                                PhysicWorld::Instance()->getPlayer()->cogiendo = true;
+                                PhysicWorld::Instance()->getPlayer()->crearJoint(PhysicWorld::Instance()->getPlayer()->getBody(), PhysicWorld::Instance()->getArma()->getBody());
                                 std::cout<<"ESTOY COGIENDO"<<std::endl;
                             }
 
                             else if(PhysicWorld::Instance()->getPlayer()->cogiendo){
-                                PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
-                                PhysicWorld::Instance()->joint = NULL;
-                                b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
-                                vel.x +=20;
-                                vel.y +=20;
-                                vel.x *=100;
-                                vel.y *=100;
-                                PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
-                                PhysicWorld::Instance()->getPlayer()->cogiendo = false;
+                                PhysicWorld::Instance()->getPlayer()->romperJoint();
                                 std::cout<<"NO ESTOY COGIENDO"<<std::endl;
                             }
                        break;

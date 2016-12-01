@@ -25,11 +25,15 @@ class Player
         b2Body* getBody();
         int getDireccion();
         void fingirMuerte();
+        void crearJoint(b2Body*, b2Body*);
+        void romperJoint();
         virtual ~Player();
 
         bool cogiendo;
         bool puedoCoger;
 
+        b2RevoluteJoint* joint;
+        b2RevoluteJointDef* jointDef;
     protected:
 
     private:

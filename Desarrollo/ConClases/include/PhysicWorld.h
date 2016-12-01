@@ -33,8 +33,6 @@ class PhysicWorld{
 
 
 
-        b2RevoluteJoint* joint;
-
     private:
         static PhysicWorld* pinstance;
         b2World* world;

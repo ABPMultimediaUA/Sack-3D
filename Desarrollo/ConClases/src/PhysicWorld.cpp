@@ -8,7 +8,7 @@ PhysicWorld* PhysicWorld::Instance(){
 	return pinstance;
 }
 PhysicWorld::PhysicWorld(){
-	world = new b2World(b2Vec2(0.0f, -20.0f));
+	world = new b2World(b2Vec2(0.0f, -20.0f), true);
 	cubos = new std::vector<cuboMierda*>();
 	balas = new std::vector<Bala*>();
 	myContactListenerInstance = new MyContactListener();

@@ -18,7 +18,7 @@ IrrManager::IrrManager(){
     smgr = device->getSceneManager();
     guienv = device->getGUIEnvironment();
     guienv->addStaticText(L"Box2D integrated with Irrlicht", rect<s32>(10,10,130,22), true);
-	smgr->addCameraSceneNode(0, vector3df(0,0,-140), vector3df(0,0,0));
+	smgr->addCameraSceneNode(0, vector3df(0,-40,-50), vector3df(0,-50,0));
 	smgr->addLightSceneNode(0, vector3df(0,100,-100), video::SColorf(1,1,1), 40.f);
     timer = device->getTimer();
 

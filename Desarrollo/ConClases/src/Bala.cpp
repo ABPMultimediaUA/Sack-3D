@@ -2,25 +2,30 @@
 #include "PhysicWorld.h"
 #include "IrrManager.h"
 
-Bala::Bala()
+Bala::Bala(int tvida, int vel, int desviacion)
 {
     //ctor
-    tiempoVida = 1000;
-    velocidad = 1000;
+    tiempoVida = tvida;
+    velocidad = vel;
+    desv = desviacion;
+    int separacion=2;
+
+    if(PhysicWorld::Instance()->getPlayer()->direccion == 1){separacion = separacion;}
+    else if (PhysicWorld::Instance()->getPlayer()->direccion == -1){separacion = -separacion;}
 
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
 
-    node = IrrManager::Instance()->addCubeSceneNode(8, SColor(255, 255,0 ,0));
-    node->setPosition(vector3df(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y,0));
+    node = IrrManager::Instance()->addCubeSceneNode(1, SColor(255, 255,0 ,0));
+    node->setPosition(vector3df(PhysicWorld::Instance()->getArma()->getBody()->GetPosition().x,PhysicWorld::Instance()->getArma()->getBody()->GetPosition().y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+20,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y);
+    bodyDef.position.Set(PhysicWorld::Instance()->getArma()->getBody()->GetPosition().x+separacion,PhysicWorld::Instance()->getArma()->getBody()->GetPosition().y);
     bodyDef.type = b2_kinematicBody;
     bodyDef.bullet = true;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(8/2,8/2);
+    polyShape.SetAsBox(1,1);
     fixtureDef.shape = &polyShape;
 
     fixtureDef.friction = 10.5f;
@@ -28,10 +33,25 @@ Bala::Bala()
     fixtureDef.density  = 10.f;
     balaFixture = body->CreateFixture(&fixtureDef);
 
-    polyShape.SetAsBox(10,10);
+    polyShape.SetAsBox(2,2);
     fixtureDef.isSensor = true;
     b2Fixture* balaSensorFixture = body->CreateFixture(&fixtureDef);
     balaSensorFixture->SetUserData((void*)40);
+
+    b2Vec2 velo = body->GetLinearVelocity();
+    if(PhysicWorld::Instance()->getPlayer()->direccion == 1)
+    {
+            velo.x = vel;
+    } else if (PhysicWorld::Instance()->getPlayer()->direccion == -1)
+    {
+            velo.x = -vel;
+    }
+
+    if(desv != 0 )velo.y = (((rand()% 10000) / 10000.0)*desv)-(desv/2);
+    body->SetLinearVelocity(velo);
+
+
+
 }
 void Bala::actualiza(){
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));

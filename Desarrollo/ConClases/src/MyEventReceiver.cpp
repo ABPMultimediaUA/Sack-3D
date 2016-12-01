@@ -23,7 +23,12 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                             PhysicWorld::Instance()->getPlayer()->mover(1);
                        break;
                        case KEY_SPACE:
-                           PhysicWorld::Instance()->getPlayer()->saltar();
+                           if(!PhysicWorld::Instance()->getPlayer()->salto || !PhysicWorld::Instance()->getPlayer()->doblesalto){
+                                if(PhysicWorld::Instance()->getPlayer()->salto && !PhysicWorld::Instance()->getPlayer()->doblesalto){
+                                        PhysicWorld::Instance()->getPlayer()->doblesalto=true;
+                                }
+                                PhysicWorld::Instance()->getPlayer()->saltar();
+                           }
                        break;
                        case KEY_KEY_E:
 
@@ -33,7 +38,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                                 jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
                                 //jointDef.collideConnected = false;
                                 //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
-                                jointDef.localAnchorA.Set(16,16);
+                                jointDef.localAnchorA.Set(0,0);
                                 jointDef.localAnchorB.Set(0,0);
                                 PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
                                 PhysicWorld::Instance()->joint->EnableMotor(true);
@@ -46,10 +51,10 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                                 PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
                                 PhysicWorld::Instance()->joint = NULL;
                                 b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
-                                vel.x +=400;
-                                vel.y +=400;
-                                vel.x *=400;
-                                vel.y *=400;
+                                vel.x +=20;
+                                vel.y +=20;
+                                vel.x *=100;
+                                vel.y *=100;
                                 PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
                                 PhysicWorld::Instance()->getPlayer()->cogiendo = false;
                                 std::cout<<"NO ESTOY COGIENDO"<<std::endl;
@@ -57,17 +62,8 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                        break;
                        case KEY_RETURN:
                            if(PhysicWorld::Instance()->getPlayer()->cogiendo){
-
-                                Bala* bala = new Bala();
-
-                                b2Vec2 vel = bala->getBody()->GetLinearVelocity();
-
-                                vel.x = bala->velocidad;
-
-                                bala->getBody()->SetLinearVelocity(vel);
-
+                                Bala* bala = new Bala(2000, 1000, 100);
                                 PhysicWorld::Instance()->GetBalas()->push_back(bala);
-
                        		}
                        break;
                    }

@@ -23,6 +23,9 @@ class Player
 
         bool cogiendo;
         bool puedoCoger;
+        int direccion;
+        bool salto;
+        bool doblesalto;
 
     protected:
 

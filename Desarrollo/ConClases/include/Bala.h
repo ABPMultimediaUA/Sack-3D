@@ -14,7 +14,7 @@ using namespace gui;
 class Bala
 {
     public:
-        Bala();
+        Bala(int, int, int);
         void actualiza();
         b2Body* getBody();
         IMeshSceneNode* getNode();
@@ -25,13 +25,14 @@ class Bala
 
         int tiempoVida;
         int velocidad;
+        int desv;
         f32 timerbala;
         ITimer* timerIrr;
 
     protected:
         IMeshSceneNode* node;
 	    b2Body* body;
-	     b2Fixture* balaFixture;
+        b2Fixture* balaFixture;
 
     private:
 };

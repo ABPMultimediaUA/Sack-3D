@@ -3,7 +3,7 @@
 #include "IrrManager.h"
 
 cuboMierda::cuboMierda(int x, int y){
-	node = IrrManager::Instance()->addCubeSceneNode(16, SColor(255, rand()%255, rand()%255, rand()%255));
+	node = IrrManager::Instance()->addCubeSceneNode(2, SColor(255, rand()%255, rand()%255, rand()%255));
     node->setPosition(vector3df(x,y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -11,10 +11,10 @@ cuboMierda::cuboMierda(int x, int y){
     bodyDef.type = b2_dynamicBody;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(16/2,16/2);
+    polyShape.SetAsBox(1,1);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
+    fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.2f;
     fixtureDef.density  = 10.f;
     body->CreateFixture(&fixtureDef);
 

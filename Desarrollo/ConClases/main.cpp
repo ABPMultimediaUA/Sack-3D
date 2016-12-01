@@ -23,7 +23,7 @@ int main(){
     std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
-    Platform(vector3df(0,-80,0),vector3df(300, 5, 40),SColor(255,100,255,0));
+    Platform(vector3df(0,-80,0),vector3df(300, 5, 40),SColor(255,0,255,0));
     //ESTA MIERDA DEBE IR FUERA
     Player* cubo1 = new Player();
     Arma* arma = new Arma();

@@ -10,8 +10,8 @@ Bala::Bala(int tvida, int vel, int desviacion)
     desv = desviacion;
     int separacion=2;
 
-    if(PhysicWorld::Instance()->getPlayer()->direccion == 1){separacion = separacion;}
-    else if (PhysicWorld::Instance()->getPlayer()->direccion == -1){separacion = -separacion;}
+    if(PhysicWorld::Instance()->getPlayer()->getDireccion() == 1){separacion = separacion;}
+    else if (PhysicWorld::Instance()->getPlayer()->getDireccion() == -1){separacion = -separacion;}
 
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
@@ -39,10 +39,10 @@ Bala::Bala(int tvida, int vel, int desviacion)
     balaSensorFixture->SetUserData((void*)40);
 
     b2Vec2 velo = body->GetLinearVelocity();
-    if(PhysicWorld::Instance()->getPlayer()->direccion == 1)
+    if(PhysicWorld::Instance()->getPlayer()->getDireccion() == 1)
     {
             velo.x = vel;
-    } else if (PhysicWorld::Instance()->getPlayer()->direccion == -1)
+    } else if (PhysicWorld::Instance()->getPlayer()->getDireccion() == -1)
     {
             velo.x = -vel;
     }

@@ -1315,7 +1315,7 @@
 	<IrrManager.h>
 	<PhysicWorld.h>
 
-1480444907 source:c:\users\esgar\desktop\conclases\main.cpp
+1480611136 source:c:\users\esgar\desktop\conclases\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -1325,23 +1325,28 @@
 	"IrrManager.h"
 	"Platform.h"
 	"Player.h"
+	"Arma.h"
 
-1480445132 c:\users\esgar\desktop\conclases\include\physicworld.h
+1480610319 c:\users\esgar\desktop\conclases\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
 	"cuboMierda.h"
 	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
 
 1480279452 c:\users\esgar\desktop\conclases\include\physicbody.h
 	<Box2D/Box2D.h>
 	<iostream>
 
-1480429744 c:\users\esgar\desktop\conclases\include\cubomierda.h
+1480610319 c:\users\esgar\desktop\conclases\include\cubomierda.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1480445766 c:\users\esgar\desktop\conclases\include\player.h
+1480616509 c:\users\esgar\desktop\conclases\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -1359,28 +1364,29 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1480431841 source:c:\users\esgar\desktop\conclases\src\cubomierda.cpp
+1480610319 source:c:\users\esgar\desktop\conclases\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1480434693 source:c:\users\esgar\desktop\conclases\src\irrmanager.cpp
+1480611391 source:c:\users\esgar\desktop\conclases\src\irrmanager.cpp
 	"IrrManager.h"
 
-1480445513 source:c:\users\esgar\desktop\conclases\src\myeventreceiver.cpp
+1480616262 source:c:\users\esgar\desktop\conclases\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1480445163 source:c:\users\esgar\desktop\conclases\src\physicworld.cpp
+1480610984 source:c:\users\esgar\desktop\conclases\src\physicworld.cpp
 	"PhysicWorld.h"
+	"MyContactListener.h"
 
-1480432267 source:c:\users\esgar\desktop\conclases\src\platform.cpp
+1480610319 source:c:\users\esgar\desktop\conclases\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1480445441 source:c:\users\esgar\desktop\conclases\src\player.cpp
+1480619061 source:c:\users\esgar\desktop\conclases\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -1482,4 +1488,30 @@
 1480593049 c:\codesource\conclases\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
+
+1480610319 c:\users\esgar\desktop\conclases\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1480610319 c:\users\esgar\desktop\conclases\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480610319 c:\users\esgar\desktop\conclases\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480610319 source:c:\users\esgar\desktop\conclases\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480613669 source:c:\users\esgar\desktop\conclases\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480614319 source:c:\users\esgar\desktop\conclases\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
 

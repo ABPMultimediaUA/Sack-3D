@@ -18,14 +18,17 @@ class Player
         void update();
         void mover(int);
         void saltar();
+        void setSaltando(bool);
+        void setDobleSaltando(bool);
+        bool getSaltando();
+        bool getDobleSaltando();
         b2Body* getBody();
+        int getDireccion();
+        void fingirMuerte();
         virtual ~Player();
 
         bool cogiendo;
         bool puedoCoger;
-        int direccion;
-        bool salto;
-        bool doblesalto;
 
     protected:
 
@@ -34,11 +37,16 @@ class Player
 
 	    b2Body* body;
         b2PolygonShape* polyShape;
-        b2Fixture* personFixture;
+        b2Fixture* playerFixture;
 
         int x;
         int y;
         int vel;
+
+        int direccion;
+        bool salto;
+        bool doblesalto;
+        bool fingiendoMuerte;
 };
 
 #endif // PLAYER_H

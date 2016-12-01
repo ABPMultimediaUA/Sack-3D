@@ -23,9 +23,9 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                             PhysicWorld::Instance()->getPlayer()->mover(1);
                        break;
                        case KEY_SPACE:
-                           if(!PhysicWorld::Instance()->getPlayer()->salto || !PhysicWorld::Instance()->getPlayer()->doblesalto){
-                                if(PhysicWorld::Instance()->getPlayer()->salto && !PhysicWorld::Instance()->getPlayer()->doblesalto){
-                                        PhysicWorld::Instance()->getPlayer()->doblesalto=true;
+                           if(!PhysicWorld::Instance()->getPlayer()->getSaltando() || !PhysicWorld::Instance()->getPlayer()->getDobleSaltando()){
+                                if(PhysicWorld::Instance()->getPlayer()->getSaltando() && !PhysicWorld::Instance()->getPlayer()->getDobleSaltando()){
+                                        PhysicWorld::Instance()->getPlayer()->setDobleSaltando(true);
                                 }
                                 PhysicWorld::Instance()->getPlayer()->saltar();
                            }
@@ -66,11 +66,13 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                                 PhysicWorld::Instance()->GetBalas()->push_back(bala);
                        		}
                        break;
+                       case KEY_KEY_Q:
+                            PhysicWorld::Instance()->getPlayer()->fingirMuerte();
+                        break;
                    }
-               }
-          else{
-               b2Vec2 vel;
-               switch(event.KeyInput.Key){
+               }else{
+                    b2Vec2 vel;
+                    switch(event.KeyInput.Key){
                        case KEY_KEY_A:
                            PhysicWorld::Instance()->getPlayer()->mover(0);
                        break;

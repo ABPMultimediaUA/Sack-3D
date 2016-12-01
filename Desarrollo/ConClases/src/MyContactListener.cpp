@@ -14,14 +14,14 @@ void MyContactListener::BeginContact(b2Contact* contact){
     //DETECTAR SALTO(JUGADOR-SUELO)
 	if((unsigned long)fixtureUserDataA == 100 && (unsigned long)fixtureUserDataB== 20){
 	    std::cout<<"Esta en el suelo"<<std::endl;
-	     PhysicWorld::Instance()->getPlayer()->salto = false;
-	     PhysicWorld::Instance()->getPlayer()->doblesalto = false;
+	     PhysicWorld::Instance()->getPlayer()->setSaltando(false);
+	     PhysicWorld::Instance()->getPlayer()->setDobleSaltando(false);
 	}
 
 	if((unsigned long)fixtureUserDataB == 100 && (unsigned long)fixtureUserDataA == 20){
 	    std::cout<<"Esta en el suelo"<<std::endl;
-	     PhysicWorld::Instance()->getPlayer()->salto = false;
-	     PhysicWorld::Instance()->getPlayer()->doblesalto = false;
+	     PhysicWorld::Instance()->getPlayer()->setSaltando(false);
+	     PhysicWorld::Instance()->getPlayer()->setDobleSaltando(false);
 	}
 
     //DETECTAR COGER(JUGADOR-CUBO)
@@ -42,12 +42,12 @@ void MyContactListener::EndContact(b2Contact* contact){
 
     //DETECTAR SALTO(JUGADOR-SUELO)
 	if((unsigned long) fixtureUserDataA== 100 && (unsigned long)fixtureUserDataB== 20){
-        PhysicWorld::Instance()->getPlayer()->salto = true;
+        PhysicWorld::Instance()->getPlayer()->setSaltando(true);
 	    std::cout<<"Esta saltando"<<std::endl;
 	}
 
 	if((unsigned long)fixtureUserDataB == 100 && (unsigned long)fixtureUserDataA == 20){
-        PhysicWorld::Instance()->getPlayer()->salto = true;
+        PhysicWorld::Instance()->getPlayer()->setSaltando(true);
 	    std::cout<<"Esta saltando"<<std::endl;
 	}
 

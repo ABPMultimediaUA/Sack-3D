@@ -9,11 +9,7 @@
 #include "MyContactListener.h"
 #include "Arma.h"
 #include "Bala.h"
-
 #include <vector>
-#define VELITER 6              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
-#define POSITER 2              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
-#define TIMESTEP 1.0f / 250.0f     //TIEMPO DE REFRESCO
 
 class PhysicWorld{
     public:

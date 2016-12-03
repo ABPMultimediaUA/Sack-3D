@@ -3,9 +3,7 @@
 
 //100->Cubs que se crean con el click
 //20->Muelle
-MyContactListener::MyContactListener(){
-
-}
+MyContactListener::MyContactListener(){}
 
 void MyContactListener::BeginContact(b2Contact* contact){
 	 void* fixtureUserDataA = contact->GetFixtureA()->GetUserData();

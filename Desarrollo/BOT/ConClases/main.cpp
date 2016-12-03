@@ -7,8 +7,9 @@
 #include "IrrManager.h"
 #include "Platform.h"
 #include "Bot.h"
-
 #include "Arma.h"
+#include "Map.h"
+#include "Camera.h"
 
 using namespace irr;
 using namespace core;
@@ -20,19 +21,19 @@ using namespace gui;
 int main(){
     PhysicWorld::Instance();
     IrrManager::Instance();
+    Camera* camera = new Camera();
     std::vector<cuboMierda*>* cubos = PhysicWorld::Instance()->GetCubos();
     std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
-    Platform(vector3df(0,-80,0),vector3df(300, 5, 40),SColor(255,100,255,0));
     //ESTA MIERDA DEBE IR FUERA
-    Player* cubo1 = new Player(vector3df(40,0,0));
-    Bot* bot1  = new Bot(vector3df(-80,0,0));
+    Player* player = new Player(vector3df(40,0,0));
+    //Bot* bot1  = new Bot(vector3df(-80,0,0));
     Arma* arma = new Arma();
-    PhysicWorld::Instance()->setPlayer(cubo1);
-    PhysicWorld::Instance()->setBot(bot1);
-
+    PhysicWorld::Instance()->setPlayer(player);
+    //PhysicWorld::Instance()->setBot(bot1);
     PhysicWorld::Instance()->setArma(arma);
+    Map* mapa = new Map("media/Map.tmx");
     ///////////////////////////
      while(IrrManager::Instance()->getDevice()->run()){
             IrrManager::Instance()->beginScene();
@@ -50,9 +51,11 @@ int main(){
          }
             }
             //ESTA MIERDA DEBE IR FUERA
-            cubo1->update();
+            player->update();
+            camera->setTarget(player->getPosition());
+            camera->setPosition(vector3df(player->getPosition().X,player->getPosition().Y, -100));
             arma->actualiza();
-            bot1->update();
+            //bot1->update();
             /////////////////////////////
 
 

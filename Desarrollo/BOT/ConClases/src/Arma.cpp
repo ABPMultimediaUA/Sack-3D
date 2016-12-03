@@ -2,10 +2,9 @@
 #include "PhysicWorld.h"
 #include "IrrManager.h"
 
-Arma::Arma()
-{
-    //ctor
-    node = IrrManager::Instance()->addCubeSceneNode(16, SColor(255, 0, 255, 0));
+Arma::Arma(){
+    int tam = 8;
+    node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, 0, 255, 0));
     node->setPosition(vector3df(0,0,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -14,7 +13,7 @@ Arma::Arma()
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(16/2,16/2);
+    polyShape.SetAsBox(tam/2,tam/2);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.3f;

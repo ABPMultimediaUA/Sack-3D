@@ -34,6 +34,7 @@ class Bot : public Player
     	int cerca;
     	int intermedio;
     	int lejos;
+        IMeshSceneNode* mesh;
 };
 
 #endif // BOT_H

@@ -5,13 +5,13 @@ using namespace std;
 
 
 
-Bot::Bot(vector3df pos):Player(pos)
-{
+Bot::Bot(vector3df pos):Player(pos){
     IrrManager::Instance()->getManager()->getMeshManipulator()->setVertexColors(mesh->getMesh(), SColor(255,255,0,0));
     distancia = 0;
 }
 
 void Bot::update(){
+    //mover();
     mesh->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     mesh->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 
@@ -92,7 +92,9 @@ int Bot::getMemership(float d){
 	return abs(x);
 }
 void Bot::huir(int dir){
-	mover(dir);
+	b2Vec2 velV = body->GetLinearVelocity();
+    velV.x = vel*dir;
+    body->SetLinearVelocity(velV);
 }
 void Bot::quieto(){
 

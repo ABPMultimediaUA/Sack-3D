@@ -3,13 +3,12 @@
 #include "IrrManager.h"
 
 Player::Player(vector3df pos){
-
-    vel = 40;
+    vel = 20;
     cogiendo = false;
     puedoCoger = false;
-
-    mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(32);
-    mesh->setPosition(pos);
+    tam = vector3df(8, 16,4);
+    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 124, 150));
+    node->setPosition(pos);
 
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -20,9 +19,9 @@ Player::Player(vector3df pos){
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(16,16);
+    polyShape.SetAsBox(tam.X/2,tam.Y/2);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
+    fixtureDef.friction = 0;
     fixtureDef.restitution  = 0.3f;
     fixtureDef.density  = 10.f;
     body->CreateFixture(&fixtureDef);
@@ -31,17 +30,21 @@ Player::Player(vector3df pos){
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
+
+    eventReceiver = IrrManager::Instance()->getEventReciever();
 }
 
 void Player::update(){
-    mesh->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    mesh->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
+    mover();
+    node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 }
 
-void Player::mover(int dir){
-    b2Vec2 velV = body->GetLinearVelocity();
-    velV.x = vel*dir;
-    body->SetLinearVelocity(velV);
+void Player::mover(){
+    int dir = 0;
+    if(eventReceiver->IsKeyDown(KEY_KEY_A))dir = -1;
+    else if(eventReceiver->IsKeyDown(KEY_KEY_D))dir = 1;
+    body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
 }
 
 void Player::saltar(){
@@ -53,5 +56,5 @@ void Player::saltar(){
 b2Body* Player::getBody(){
     return body;
 }
-
+vector3df Player::getPosition(){return vector3df(body->GetPosition().x,body->GetPosition().y,0);}
 Player::~Player(){}

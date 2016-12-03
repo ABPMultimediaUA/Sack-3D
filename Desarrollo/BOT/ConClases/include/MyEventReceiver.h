@@ -18,8 +18,9 @@ class MyEventReceiver: public IEventReceiver{
      	MyEventReceiver();
      	virtual bool OnEvent(const SEvent& event);
         virtual ~MyEventReceiver();
-
+		virtual bool IsKeyDown(EKEY_CODE keyCode)const; 
     private:
+    	bool KeyIsDown[KEY_KEY_CODES_COUNT];
 };
 
 #endif // MYEVENTRECEIVER_H

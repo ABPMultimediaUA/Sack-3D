@@ -24,6 +24,8 @@ class IrrManager
         float getTime();
         IMesh* createCubeMesh(vector3df pos, vector3df tam,  SColor color);
         IMeshSceneNode* addCubeSceneNode(int tam , SColor color);
+        IMeshSceneNode* addCubeSceneNode(vector3df tam, SColor color);
+        IXMLReader* createXMLReader(stringw file);
         ISceneManager* getManager();
         MyEventReceiver* getEventReciever();
         IrrlichtDevice* getDevice();

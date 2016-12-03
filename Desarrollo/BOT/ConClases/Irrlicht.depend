@@ -1715,3 +1715,140 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
+1480781109 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1480780849 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480777407 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480751055 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1480778703 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480753396 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480750736 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480778240 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480716256 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480754880 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1480778183 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480780527 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\irrmanager.cpp
+	"IrrManager.h"
+
+1480753144 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1480757114 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1480716256 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\physicbody.cpp
+	"PhysicBody.h"
+	"PhysicWorld.h"
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\physicbody.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1480779028 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1480716256 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480780894 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480460373 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\map.h
+	<irrlicht.h>
+
+1480460360 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1480780765 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
+	"IrrManager.h"
+
+1480780912 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp
+	"Camera.h"
+

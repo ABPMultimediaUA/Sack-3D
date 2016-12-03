@@ -1,5 +1,11 @@
 #include "PhysicWorld.h"
 #include "MyContactListener.h"
+
+#define VELITER 10              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
+#define POSITER 10              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
+#define TIMESTEP 1.0f / 250.0f     //TIEMPO DE REFRESCO
+
+
 PhysicWorld* PhysicWorld::pinstance = 0;
 PhysicWorld* PhysicWorld::Instance(){
 	if(pinstance == 0){

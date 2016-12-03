@@ -1613,3 +1613,101 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1480716256 source:c:\users\pcj\desktop\abp\desarrollo\conclases\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Player.h"
+	"Arma.h"
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1480716256 c:\users\pcj\desktop\abp\desarrollo\conclases\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\irrmanager.cpp
+	"IrrManager.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480716257 source:c:\users\pcj\desktop\abp\desarrollo\conclases\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

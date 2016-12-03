@@ -4,6 +4,7 @@
 
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
+#include "MyEventReceiver.h"
 
 using namespace irr;
 using namespace core;
@@ -17,8 +18,9 @@ class Player
     public:
         Player(vector3df pos);
         void update();
-        void mover(int);
+        void mover();
         void saltar();
+        vector3df getPosition();
         b2Body* getBody();
         virtual ~Player();
 
@@ -26,7 +28,7 @@ class Player
         bool puedoCoger;
 
     protected:
-        IMeshSceneNode* mesh;
+        IMeshSceneNode* node;
 
         b2Body* body;
         b2PolygonShape* polyShape;
@@ -35,8 +37,10 @@ class Player
         int x;
         int y;
         int vel;
+        int salto;
+        vector3df tam;
     private:
-		
+		MyEventReceiver* eventReceiver;
 };
 
 #endif // PLAYER_H

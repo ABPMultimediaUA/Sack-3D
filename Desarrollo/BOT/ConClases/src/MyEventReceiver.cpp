@@ -20,6 +20,10 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   case KEY_SPACE:
                       PhysicWorld::Instance()->getPlayer()->saltar();
                   break;
+
+                  case KEY_KEY_Q:
+                      PhysicWorld::Instance()->getPlayer()->fingirMuerte();
+                  break;
                   case KEY_KEY_E:
                        if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                            b2RevoluteJointDef jointDef;

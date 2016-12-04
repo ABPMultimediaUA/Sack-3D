@@ -13,7 +13,7 @@ Camera::update(){
 	yB = PhysicWorld::Instance()->getBot()->getPosition().Y;
 	x = (xP + xB)/2;
 	y = (yP + yB)/2;
-	z =  abs(xP - xB)+( abs(yP - yB)*16/9);
+	z =  (abs(xP - xB)+( abs(yP - yB)*16/9))/2;
 	camera->setPosition(vector3df(x,y, -z));
 	camera->setTarget(vector3df(x,y, 0));
 }

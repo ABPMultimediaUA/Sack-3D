@@ -1715,7 +1715,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1480869629 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\main.cpp
+1480870156 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -1729,7 +1729,7 @@
 	"Map.h"
 	"Camera.h"
 
-1480860956 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\player.h
+1480883637 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
@@ -1809,7 +1809,7 @@
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1480858563 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\myeventreceiver.cpp
+1480883821 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
@@ -1831,7 +1831,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1480858463 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\player.cpp
+1480883832 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -1849,7 +1849,7 @@
 1480869789 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
 	"IrrManager.h"
 
-1480870063 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp
+1480882564 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp
 	"Camera.h"
 	"PhysicWorld.h"
 	"Player.h"

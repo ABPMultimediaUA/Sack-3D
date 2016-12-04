@@ -23,10 +23,16 @@ class Player
         vector3df getPosition();
         bool getSaltando();
         void setSaltando(bool aux);
+        void setDobleSaltando(bool);
+        bool getDobleSaltando();
         bool getCogiendo();
         void setCogiendo(bool aux);
+        void fingirMuerte();
+        int getDireccion();
         bool getPuedoCoger();
         void setPuedoCoger(bool aux);
+        void crearJoint(b2Body*, b2Body*);
+        void romperJoint();
         b2Body* getBody();
         virtual ~Player();
 
@@ -35,16 +41,21 @@ class Player
         b2Body* body;
         b2PolygonShape* polyShape;
         b2Fixture* personFixture;
+        b2RevoluteJoint* joint;
+        b2RevoluteJointDef* jointDef;
         int x;
         int y;
         int vel;
         int salto;
         bool cogiendo;
+        int direccion;
         bool puedoCoger;
+        bool dobleSaltando;
+        bool fingiendoMuerte;
         bool saltando;
         vector3df tam;
-    private:
 		MyEventReceiver* eventReceiver;
+    private:
 };
 
 #endif // PLAYER_H

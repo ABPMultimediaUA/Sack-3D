@@ -3,17 +3,20 @@
 
 using namespace std;
 
+#define CERCA 20
+#define MEDIA CERCA*2
+#define LEJOS CERCA*4
 
 
 Bot::Bot(vector3df pos):Player(pos){
-    IrrManager::Instance()->getManager()->getMeshManipulator()->setVertexColors(mesh->getMesh(), SColor(255,255,0,0));
+    //IrrManager::Instance()->getManager()->getMeshManipulator()->setVertexColors(mesh->getMesh(), SColor(255,255,0,0));
     distancia = 0;
 }
 
 void Bot::update(){
     //mover();
-    mesh->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    mesh->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
+    node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 
     float x1 = PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x;
     float x2 = PhysicWorld::Instance()->getBot()->getBody()->GetPosition().x;
@@ -26,31 +29,30 @@ void Bot::update(){
     distancia = sqrt(x+y);
 
     //membresia
-    //cerca 80 intermedio-140 lejos 200
 
-    if (distancia<=80){
+    if (distancia<=CERCA){
     	cerca = 255;
     	intermedio = 0;
     	lejos = 0;
     }
-    if (distancia==140){
+    if (distancia==MEDIA){
     	cerca = 0;
     	intermedio = 255;
     	lejos = 0;
     }
-    if (distancia>=200){
+    if (distancia>=LEJOS){
     	cerca = 0;
     	intermedio = 0;
     	lejos = 255;
     }
 
-    if(distancia<140 && distancia>80){
+    if(distancia<MEDIA && distancia>CERCA){
         //funciona
     	cerca = getMemership(distancia);
     	intermedio = 255-cerca;
     	lejos = 0;
     }
-    if(distancia>140 && distancia<200){
+    if(distancia>MEDIA && distancia<LEJOS){
     	lejos = getMemership(distancia);
     	intermedio = 255-lejos;
     	cerca = 0;
@@ -58,8 +60,6 @@ void Bot::update(){
 
 
 
-    /*0- cerca 1-intermedio 2-lejos*/
-    //std::cout<<"donde esta: "<<getMayorValor(cerca, intermedio, lejos)<<std::endl;
 
     switch(getMayorValor(cerca, intermedio, lejos)){
         case 0:
@@ -99,7 +99,4 @@ void Bot::huir(int dir){
 void Bot::quieto(){
 
 }
-Bot::~Bot()
-{
-    //dtor
-}
+Bot::~Bot(){}

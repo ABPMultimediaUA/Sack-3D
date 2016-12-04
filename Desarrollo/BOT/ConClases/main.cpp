@@ -28,7 +28,7 @@ int main(){
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(40,0,0));
-    Bot* bot1  = new Bot(vector3df(-80,0,0));
+    Bot* bot1  = new Bot(vector3df(100,0,0));
     Arma* arma = new Arma();
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setBot(bot1);
@@ -50,13 +50,10 @@ int main(){
                         balas->erase(balas->begin()+i);
          }
             }
-            //ESTA MIERDA DEBE IR FUERA
             player->update();
-            camera->setTarget(player->getPosition());
-            camera->setPosition(vector3df(player->getPosition().X,player->getPosition().Y, -100));
+            camera->update();
             arma->actualiza();
             bot1->update();
-            /////////////////////////////
 
 
             IrrManager::Instance()->drawAll();

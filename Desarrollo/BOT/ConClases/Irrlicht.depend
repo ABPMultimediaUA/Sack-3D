@@ -1715,7 +1715,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1480866066 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\main.cpp
+1480869629 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -1793,7 +1793,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1480866415 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\bot.cpp
+1480867158 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\bot.cpp
 	"Bot.h"
 	"PhysicWorld.h"
 
@@ -1846,9 +1846,12 @@
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1480780765 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
+1480869789 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
 	"IrrManager.h"
 
-1480780912 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp
+1480870063 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp
 	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+	"Bot.h"
 

@@ -9,6 +9,7 @@ class Camera
         Camera();
         setPosition(vector3df pos);
         setTarget(vector3df pos); 
+        update(); 
         virtual ~Camera();
 
     protected:

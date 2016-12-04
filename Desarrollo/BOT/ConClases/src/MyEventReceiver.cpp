@@ -21,7 +21,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                       PhysicWorld::Instance()->getPlayer()->saltar();
                   break;
                   case KEY_KEY_E:
-                       if(PhysicWorld::Instance()->getPlayer()->puedoCoger && !PhysicWorld::Instance()->getPlayer()->cogiendo){
+                       if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                            b2RevoluteJointDef jointDef;
                            jointDef.bodyA = PhysicWorld::Instance()->getPlayer()->getBody();
                            jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
@@ -32,11 +32,11 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                            PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
                            PhysicWorld::Instance()->joint->EnableMotor(true);
                            PhysicWorld::Instance()->joint->SetMaxMotorTorque(50.3f);
-                           PhysicWorld::Instance()->getPlayer()->cogiendo = true;
+                           PhysicWorld::Instance()->getPlayer()->setCogiendo(true);
                            std::cout<<"ESTOY COGIENDO"<<std::endl;
                        }
 
-                       else if(PhysicWorld::Instance()->getPlayer()->cogiendo){
+                       else if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                            PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
                            PhysicWorld::Instance()->joint = NULL;
                            b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
@@ -45,12 +45,12 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                            vel.x *=400;
                            vel.y *=400;
                            PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
-                           PhysicWorld::Instance()->getPlayer()->cogiendo = false;
+                           PhysicWorld::Instance()->getPlayer()->setCogiendo(false);
                            std::cout<<"NO ESTOY COGIENDO"<<std::endl;
                        }
                   break;
                   case KEY_RETURN:
-                      if(PhysicWorld::Instance()->getPlayer()->cogiendo){
+                      if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
 
                            Bala* bala = new Bala();
 

@@ -26,7 +26,7 @@ Player::Player(vector3df pos){
     fixtureDef.density  = 10.f;
     body->CreateFixture(&fixtureDef);
 
-    polyShape.SetAsBox(32,32);
+    polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
@@ -48,13 +48,21 @@ void Player::mover(){
 }
 
 void Player::saltar(){
-    b2Vec2 velV = body->GetLinearVelocity();
-    velV.y = vel;
-    body->SetLinearVelocity(velV);
+    if(!saltando){
+        b2Vec2 velV = body->GetLinearVelocity();
+        velV.y = vel;
+        body->SetLinearVelocity(velV);
+    }
 }
 
 b2Body* Player::getBody(){
     return body;
 }
 vector3df Player::getPosition(){return vector3df(body->GetPosition().x,body->GetPosition().y,0);}
+bool  Player::getSaltando(){return saltando;}
+void  Player::setSaltando(bool aux){saltando = aux;}
+bool  Player::getCogiendo(){return cogiendo;}
+void  Player::setCogiendo(bool aux){cogiendo = aux;}
+bool  Player::getPuedoCoger(){return puedoCoger;}
+void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
 Player::~Player(){}

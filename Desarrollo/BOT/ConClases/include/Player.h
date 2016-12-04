@@ -21,23 +21,27 @@ class Player
         void mover();
         void saltar();
         vector3df getPosition();
+        bool getSaltando();
+        void setSaltando(bool aux);
+        bool getCogiendo();
+        void setCogiendo(bool aux);
+        bool getPuedoCoger();
+        void setPuedoCoger(bool aux);
         b2Body* getBody();
         virtual ~Player();
 
-        bool cogiendo;
-        bool puedoCoger;
-
     protected:
         IMeshSceneNode* node;
-
         b2Body* body;
         b2PolygonShape* polyShape;
         b2Fixture* personFixture;
-
         int x;
         int y;
         int vel;
         int salto;
+        bool cogiendo;
+        bool puedoCoger;
+        bool saltando;
         vector3df tam;
     private:
 		MyEventReceiver* eventReceiver;

@@ -36,9 +36,12 @@ Player::Player(vector3df pos){
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
+
+    eventReceiver = IrrManager::Instance()->getEventReciever();
 }
 
 void Player::update(){
+    mover();
     mesh->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     mesh->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 }

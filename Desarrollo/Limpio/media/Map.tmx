@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="4" tileheight="4" backgroundcolor="#5e8eff" nextobjectid="440">
+ <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <objectgroup color="#26a410" name="colisiones">
+  <object id="435" x="16" y="60" width="227.667" height="5.33333"/>
+  <object id="436" x="12" y="-44" width="7.66667" height="139.333"/>
+  <object id="437" x="240" y="-48" width="7.66667" height="141"/>
+  <object id="438" x="15.3333" y="-34.6667" width="230" height="11"/>
+ </objectgroup>
+</map>

@@ -29,7 +29,7 @@ Player::Player(vector3df pos){
     vel = 20;
     cogiendo = false;
     puedoCoger = false;
-    salto = false;
+    salto = 25;
     saltando = false;
     dobleSaltando = false;
     fingiendoMuerte = false;
@@ -51,7 +51,7 @@ Player::Player(vector3df pos){
     polyShape.SetAsBox(tam.X/2,tam.Y/2);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
-    fixtureDef.restitution  = 0.3f;
+    fixtureDef.restitution  = 0;
     fixtureDef.density  = 10.f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)10);
@@ -92,12 +92,12 @@ void Player::saltar(){
     if(!fingiendoMuerte){
         if(!saltando){
             b2Vec2 velV = body->GetLinearVelocity();
-            velV.y = vel;
+            velV.y = salto;
             body->SetLinearVelocity(velV);
         }
         else if(!dobleSaltando){
             b2Vec2 velV = body->GetLinearVelocity();
-            velV.y += vel*3/5;
+            velV.y = salto*3/5;
             body->SetLinearVelocity(velV);
             dobleSaltando = true;
         }
@@ -147,8 +147,8 @@ void Player::fingirMuerte(){
         polyShape.SetAsBox(tam.X/2,tam.Y/2);
         fixtureDef.shape = &polyShape;
         fixtureDef.friction = 0;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 0.f;
+        fixtureDef.restitution  = 0;
+        fixtureDef.density  = 10.f;
         body->CreateFixture(&fixtureDef);
 
         polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);

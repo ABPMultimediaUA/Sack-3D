@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          Arma.cpp
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -30,8 +30,8 @@ Clase que contiene el codigo de funcionamiento para las armas.
    Constructor
 */
 Arma::Arma(){
-    int tam = 8;
-    node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, 0, 255, 0));
+    vector3df tam = vector3df(5,3,1);
+    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 0, 0));
     node->setPosition(vector3df(0,0,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -40,15 +40,15 @@ Arma::Arma(){
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam/2,tam/2);
+    polyShape.SetAsBox(tam.X/2,tam.Y/2);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.3f;
-    fixtureDef.density  = 10.f;
+    fixtureDef.density  = 0.f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)30);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(10,10);
+    polyShape.SetAsBox(20,20);
     fixtureDef.isSensor = true;
     b2Fixture* armaSensorFixture = body->CreateFixture(&fixtureDef);
     armaSensorFixture->SetUserData((void*)35);

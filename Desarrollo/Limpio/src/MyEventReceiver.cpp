@@ -31,7 +31,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                            jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
                            //jointDef.collideConnected = false;
                            //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
-                           jointDef.localAnchorA.Set(16,16);
+                           jointDef.localAnchorA.Set(5,3);
                            jointDef.localAnchorB.Set(0,0);
                            PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
                            PhysicWorld::Instance()->joint->EnableMotor(true);
@@ -55,17 +55,11 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   break;
                   case KEY_RETURN:
                       if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-
                            Bala* bala = new Bala();
-
                            b2Vec2 vel = bala->getBody()->GetLinearVelocity();
-
                            vel.x = bala->velocidad;
-
                            bala->getBody()->SetLinearVelocity(vel);
-
                            PhysicWorld::Instance()->GetBalas()->push_back(bala);
-
                   		}
                   break;
               }

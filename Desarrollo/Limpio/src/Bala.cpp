@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          Bala.cpp
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -28,31 +28,25 @@ Clase que contiene el codigo de funcionamiento para las balas.
 Bala::Bala(){
     tiempoVida = 1000;
     velocidad = 1000;
-
+    float tam = 1.5f;
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
-
-    node = IrrManager::Instance()->addCubeSceneNode(8, SColor(255, 255,0 ,0));
+    node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, 255,0 ,0));
     node->setPosition(vector3df(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+20,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y);
+    bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+7,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y+4);
     bodyDef.type = b2_kinematicBody;
     bodyDef.bullet = true;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(8/2,8/2);
+    polyShape.SetAsBox(tam/2,tam/2);
     fixtureDef.shape = &polyShape;
 
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.9f;
     fixtureDef.density  = 10.f;
     balaFixture = body->CreateFixture(&fixtureDef);
-
-    polyShape.SetAsBox(10,10);
-    fixtureDef.isSensor = true;
-    b2Fixture* balaSensorFixture = body->CreateFixture(&fixtureDef);
-    balaSensorFixture->SetUserData((void*)40);
 }
 //---------------------------------------------------------------------------
 /**

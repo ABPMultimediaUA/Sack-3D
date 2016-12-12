@@ -18,8 +18,8 @@ Hay mucho que aprender sobre esta gran mierda llamada irrlicht
 *******************************************************************************/
 #include "IrrManager.h"
 
-#define SCREENWIDTH 1366
-#define SCREENHEIGHT 720
+#define SCREENWIDTH 1920  
+#define SCREENHEIGHT 1080
 
 /******************************************************************************
                                IrrManager
@@ -42,12 +42,11 @@ IrrManager* IrrManager::Instance(){
 */
 IrrManager::IrrManager(){
 	receiver = new MyEventReceiver();
-	device = createDevice( video::EDT_OPENGL, dimension2d<u32>(SCREENWIDTH,SCREENHEIGHT), 32, false, true, true, receiver);
+	device = createDevice( video::EDT_OPENGL, dimension2d<u32>(SCREENWIDTH,SCREENHEIGHT), 32, true, true, true, receiver);
     driver = device->getVideoDriver();
     device->setWindowCaption(L"Irrlicht/Box2D Sample");
     smgr = device->getSceneManager();
     guienv = device->getGUIEnvironment();
-    guienv->addStaticText(L"Box2D integrated with Irrlicht", rect<s32>(10,10,130,22), true);
 	smgr->addLightSceneNode(0, vector3df(0,100,-100), video::SColorf(1,1,1), 40.f);
     timer = device->getTimer();
 }

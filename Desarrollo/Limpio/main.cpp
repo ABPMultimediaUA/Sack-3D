@@ -66,7 +66,7 @@ int main(){
          }
             }
             player->update();
-            camera->update();
+            camera->update(TimeStamp);
             arma->actualiza();
             bot1->update();
 

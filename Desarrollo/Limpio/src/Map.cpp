@@ -41,7 +41,7 @@ Map::Map(stringw file){
             int y = xml->getAttributeValueAsInt(L"y");
             int width = xml->getAttributeValueAsInt(L"width");
             int height = xml->getAttributeValueAsInt(L"height");
-            Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height, 40),SColor(255,100,255,0));
+            Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height, rand()%10+5),SColor(255, rand()%255, rand()%255, rand()%255));
         }
     }
 }

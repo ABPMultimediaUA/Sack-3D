@@ -26,7 +26,7 @@ Clase que contiene el codigo de funcionamiento para las balas.
    Constructor
 */
 Bala::Bala(){
-    tiempoVida = 50;
+    tiempoVida = 1000;
     velocidad = 1000;
     float tam = 1.5f;
     timerIrr = IrrManager::Instance()->getTimer();

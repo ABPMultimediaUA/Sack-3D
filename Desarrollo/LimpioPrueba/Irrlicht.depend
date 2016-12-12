@@ -2392,10 +2392,11 @@
 	"Map.h"
 	"Camera.h"
 
-1481271516 d:\development\sack-3d\desarrollo\limpioprueba\include\player.h
+1481563527 d:\development\sack-3d\desarrollo\limpioprueba\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
+	"Cogible.h"
 
 1481270632 d:\development\sack-3d\desarrollo\limpioprueba\include\myeventreceiver.h
 	<Box2D/Box2D.h>
@@ -2434,9 +2435,10 @@
 	"Box2D/Box2D.h"
 	<iostream>
 
-1481268810 d:\development\sack-3d\desarrollo\limpioprueba\include\arma.h
+1481561300 d:\development\sack-3d\desarrollo\limpioprueba\include\arma.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
+	"Usable.h"
 
 1481268938 d:\development\sack-3d\desarrollo\limpioprueba\include\bala.h
 	<Box2D/Box2D.h>
@@ -2453,12 +2455,12 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481329695 source:d:\development\sack-3d\desarrollo\limpioprueba\src\arma.cpp
+1481561148 source:d:\development\sack-3d\desarrollo\limpioprueba\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481330109 source:d:\development\sack-3d\desarrollo\limpioprueba\src\bala.cpp
+1481558092 source:d:\development\sack-3d\desarrollo\limpioprueba\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -2491,7 +2493,7 @@
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1481330000 source:d:\development\sack-3d\desarrollo\limpioprueba\src\myeventreceiver.cpp
+1481560948 source:d:\development\sack-3d\desarrollo\limpioprueba\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
@@ -2505,8 +2507,21 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481327948 source:d:\development\sack-3d\desarrollo\limpioprueba\src\player.cpp
+1481562096 source:d:\development\sack-3d\desarrollo\limpioprueba\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
+
+1481560289 source:d:\development\sack-3d\desarrollo\limpioprueba\src\cogible.cpp
+	"Cogible.h"
+
+1481560234 d:\development\sack-3d\desarrollo\limpioprueba\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481560525 source:d:\development\sack-3d\desarrollo\limpioprueba\src\usable.cpp
+	"Usable.h"
+
+1481561341 d:\development\sack-3d\desarrollo\limpioprueba\include\usable.h
+	"Cogible.h"
 

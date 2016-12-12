@@ -61,7 +61,17 @@ void Arma::actualiza(){
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()*RADTOGRAD));
 }
-
+//---------------------------------------------------------------------------
+/**
+   Metodo que ejecuta el usar de la clase
+*/
+void Arma::usar(){
+    Bala* bala = new Bala();
+    b2Vec2 vel = bala->getBody()->GetLinearVelocity();
+    vel.x = bala->velocidad;
+    bala->getBody()->SetLinearVelocity(vel);
+    PhysicWorld::Instance()->GetBalas()->push_back(bala);
+}
 //---------------------------------------------------------------------------
 /**
    Getters and setters

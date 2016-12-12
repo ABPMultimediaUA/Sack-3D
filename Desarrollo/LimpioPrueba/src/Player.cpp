@@ -197,6 +197,13 @@ void Player::romperJoint(){
 }
 //---------------------------------------------------------------------------
 /**
+   usar
+*/
+void Player::usar(){
+     dynamic_cast<Usable*>(objCogido)->usar();
+}
+//---------------------------------------------------------------------------
+/**
    Getters y setters
 */
 b2Body* Player::getBody(){return body;}
@@ -209,6 +216,8 @@ int Player::getDireccion(){return direccion;}
 void  Player::setCogiendo(bool aux){cogiendo = aux;}
 bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
+Cogible* Player::getObjCogido(){return objCogido;}
+void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
 //---------------------------------------------------------------------------
 /**
    Destructor

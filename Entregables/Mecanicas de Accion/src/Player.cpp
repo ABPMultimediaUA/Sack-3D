@@ -1,51 +1,81 @@
+/*******************************************************************************
+Estudio Rorschach - Last Bear Standing
+Copyright  2016. All Rights Reserved.
+
+Project:       Last Bear Standing
+File:          Player.cpp
+
+Author:        Estudio Rorschach
+Created:       11/11/2016 Jorge Puerto
+Modified:      08/12/2016 Jorge Puerto
+
+Overview:
+Clase que define un player
+*******************************************************************************/
 #include "Player.h"
 #include "PhysicWorld.h"
 #include "IrrManager.h"
 
-Player::Player(vector3df pos){
+#define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
 
-    vel = 1000;
+/******************************************************************************
+                               Player
+*******************************************************************************/
+//---------------------------------------------------------------------------
+/**
+   Constructor
+*/
+Player::Player(vector3df pos){
+    vel = 20;
     cogiendo = false;
     puedoCoger = false;
-    direccion = 1;
-    salto = false;
-    dobleSalto = false;
+    salto = 25;
+    saltando = false;
+    dobleSaltando = false;
     fingiendoMuerte = false;
     jointDef = NULL;
-
-    mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(4);
-    mesh->setPosition(vector3df(0,0,0));
+    direccion = 1;
+    tam = vector3df(8, 16,4);
+    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 124, 150));
+    node->setPosition(pos);
 
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
 
-    bodyDef.position.Set(0,0);
+    bodyDef.position.Set(pos.X,pos.Y);
     bodyDef.type = b2_dynamicBody;
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(2,2);
+    polyShape.SetAsBox(tam.X/2,tam.Y/2);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.5f;
-    fixtureDef.restitution  = 0.3f;
-    fixtureDef.density  = 100.0f;
-    body->CreateFixture(&fixtureDef);
+    fixtureDef.friction = 0;
+    fixtureDef.restitution  = 0;
+    fixtureDef.density  = 10.f;
+    b2Fixture* fixture = body->CreateFixture(&fixtureDef);
+    fixture->SetUserData((void*)10);
 
-    polyShape.SetAsBox(4,4);
+    polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
 
     eventReceiver = IrrManager::Instance()->getEventReciever();
 }
-
+//---------------------------------------------------------------------------
+/**
+   Actualiza posicion y rotacion
+*/
 void Player::update(){
     mover();
-    mesh->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    mesh->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
+    node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
 }
-
+//---------------------------------------------------------------------------
+/**
+   Mueve
+*/
 void Player::mover(){
     if(!fingiendoMuerte){
         int dir = 0;
@@ -54,65 +84,91 @@ void Player::mover(){
         body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
     }
 }
-
+//---------------------------------------------------------------------------
+/**
+   Salta
+*/
 void Player::saltar(){
-    b2Vec2 velV = body->GetLinearVelocity();
-    if(!fingiendoMuerte){velV.y = vel;}else{velV.y = 10;}
-    body->SetLinearVelocity(velV);
+    if(!fingiendoMuerte){
+        if(!saltando){
+            b2Vec2 velV = body->GetLinearVelocity();
+            velV.y = salto;
+            body->SetLinearVelocity(velV);
+        }
+        else if(!dobleSaltando){
+            b2Vec2 velV = body->GetLinearVelocity();
+            velV.y = salto*3/5;
+            body->SetLinearVelocity(velV);
+            dobleSaltando = true;
+        }
+    }
 }
-
+//---------------------------------------------------------------------------
+/**
+   fingirMuerte
+*/
 void Player::fingirMuerte(){
     if(!fingiendoMuerte){
-
         b2FixtureDef fixtureDef;
+        b2FixtureDef fixtureDef2;
         b2CircleShape circleShape1;
+        b2CircleShape circleShape2;
 
         fingiendoMuerte = true;
         body->DestroyFixture(body->GetFixtureList());
         body->DestroyFixture(body->GetFixtureList());
-        body->SetFixedRotation(true);
-        circleShape1.m_p.Set(0,0);
-        circleShape1.m_radius = 2;
+        body->SetFixedRotation(false);
+        circleShape1.m_p.Set(0,-3.f);
+        circleShape2.m_p.Set(0,3.f);
+        circleShape1.m_radius = tam.X/2;
+        circleShape2.m_radius = tam.X/2;
         fixtureDef.shape = &circleShape1;
         fixtureDef.friction = 0.5f;
         fixtureDef.restitution  = 0.5f;
-        fixtureDef.density  = 5.f;
+        fixtureDef.density  = 1.f;
         personFixture = body->CreateFixture(&fixtureDef);
         personFixture->SetUserData((void*)100);
-        body->ApplyAngularImpulse(direccion);
 
-        mesh->remove();
-        mesh = IrrManager::Instance()->getManager()->addSphereSceneNode(2);
+        fixtureDef2.shape = &circleShape2;
+        fixtureDef2.friction = 0.5f;
+        fixtureDef2.restitution  = 0.5f;
+        fixtureDef2.density  = 5.f;
+        body->CreateFixture(&fixtureDef2);
 
-        if(cogiendo)this->soltar();
+        body->ApplyAngularImpulse(direccion*10000);
 
     }else{
         b2BodyDef bodyDef;
         b2FixtureDef fixtureDef;
         b2PolygonShape polyShape;
-
+        body->DestroyFixture(body->GetFixtureList());
+        body->DestroyFixture(body->GetFixtureList());
         fingiendoMuerte = false;
-        polyShape.SetAsBox(2,2);
+        polyShape.SetAsBox(tam.X/2,tam.Y/2);
         fixtureDef.shape = &polyShape;
-        fixtureDef.friction = 0.5f;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 100.0f;
+        fixtureDef.friction = 0;
+        fixtureDef.restitution  = 0;
+        fixtureDef.density  = 10.f;
         body->CreateFixture(&fixtureDef);
-        body->SetFixedRotation(true);
 
-        polyShape.SetAsBox(4,4);
+        polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
         fixtureDef.isSensor = true;
         b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
         personajeSensorFixture->SetUserData((void*)100);
 
-        mesh->remove();
-        mesh = IrrManager::Instance()->getManager()->addCubeSceneNode(4);
+        body->SetTransform( body->GetPosition(),0);
+        body->SetAngularVelocity(0);
+        body->SetFixedRotation(true);
+        body->ApplyLinearImpulse(b2Vec2(0,10),b2Vec2(0,0));
     }
 }
-
-void Player::coger(b2Body* b){
+//---------------------------------------------------------------------------
+/**
+   crearJoint
+*/
+void Player::crearJoint(b2Body* a, b2Body* b){
     b2RevoluteJointDef jointDef;
-    jointDef.bodyA = this->body;
+    jointDef.bodyA = a;
     jointDef.bodyB = b;
     //jointDef.collideConnected = false;
     //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
@@ -124,30 +180,37 @@ void Player::coger(b2Body* b){
     cogiendo = true;
 
 }
-
-void Player::soltar(){
+//---------------------------------------------------------------------------
+/**
+   romperJoint
+*/
+void Player::romperJoint(){
     PhysicWorld::Instance()->GetWorld()->DestroyJoint(joint);
     joint = NULL;
     b2Vec2 vel = body->GetLinearVelocity();
-    vel.x +=20*direccion;
+    vel.x +=20;
     vel.y +=20;
     vel.x *=100;
     vel.y *=100;
     PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
     cogiendo = false;
 }
-
-
+//---------------------------------------------------------------------------
+/**
+   Getters y setters
+*/
 b2Body* Player::getBody(){return body;}
 vector3df Player::getPosition(){return vector3df(body->GetPosition().x,body->GetPosition().y,0);}
 bool  Player::getSaltando(){return saltando;}
 void  Player::setSaltando(bool aux){saltando = aux;}
-void  Player::setDobleSaltando(bool aux){dobleSalto = aux;}
-bool  Player::getDobleSaltando(){return dobleSalto;}
+void  Player::setDobleSaltando(bool aux){dobleSaltando = aux;}
 bool  Player::getCogiendo(){return cogiendo;}
 int Player::getDireccion(){return direccion;}
 void  Player::setCogiendo(bool aux){cogiendo = aux;}
 bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
-
+//---------------------------------------------------------------------------
+/**
+   Destructor
+*/
 Player::~Player(){}

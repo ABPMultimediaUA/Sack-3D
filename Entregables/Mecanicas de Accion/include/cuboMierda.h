@@ -1,6 +1,21 @@
+/*******************************************************************************
+Estudio Rorschach - Last Bear Standing
+Copyright  2016. All Rights Reserved.
+
+Project:       Last Bear Standing
+File:          cuboMierda.h
+
+Author:        Estudio Rorschach 
+Created:       11/11/2016 Jorge Puerto
+Modified:      08/12/2016 Jorge Puerto
+
+Overview:
+Pues eso.
+*******************************************************************************/
+//---------------------------------------------------------------------------
 #ifndef CUBOMIERDA_H
 #define CUBOMIERDA_H
-
+//---------------------------------------------------------------------------
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
 

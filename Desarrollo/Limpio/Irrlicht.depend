@@ -1982,38 +1982,6 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\main.cpp
-	<iostream>
-	<irrlicht.h>
-	<Box2D/Common/b2Math.h>
-	"Player.h"
-	"PhysicWorld.h"
-	"cuboMierda.h"
-	"IrrManager.h"
-	"Platform.h"
-	"Bot.h"
-	"Arma.h"
-	"Map.h"
-	"Camera.h"
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\player.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-	"MyEventReceiver.h"
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\myeventreceiver.h
-	<Box2D/Box2D.h>
-	<iostream>
-	<irrlicht.h>
-	"cuboMierda.h"
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\cubomierda.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\physicworld.h
-=======
 1481329695 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
@@ -2024,7 +1992,6 @@
 	<irrlicht.h>
 
 1481271028 c:\users\jorge\desktop\abp\desarrollo\limpio\include\physicworld.h
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -2036,47 +2003,6 @@
 	"Bala.h"
 	<vector>
 
-<<<<<<< HEAD
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\bot.h
-	<Player.h>
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-	"IrrManager.h"
-	<iostream>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\irrmanager.h
-	<irrlicht.h>
-	"MyEventReceiver.h"
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\mycontactlistener.h
-	"Box2D/Box2D.h"
-	<iostream>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\arma.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\bala.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\platform.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\map.h
-	<irrlicht.h>
-
-1481486443 d:\development\sack-3d\desarrollo\limpio\include\camera.h
-	"IrrManager.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\arma.cpp
-	"Arma.h"
-	"PhysicWorld.h"
-	"IrrManager.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\bala.cpp
-=======
 1481270080 c:\users\jorge\desktop\abp\desarrollo\limpio\include\cubomierda.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
@@ -2112,58 +2038,29 @@
 	<irrlicht.h>
 
 1481272226 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\bala.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\bot.cpp
-	"Bot.h"
-	"PhysicWorld.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\camera.cpp
-	"Camera.h"
-	"PhysicWorld.h"
-	"Player.h"
-	"Bot.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\cubomierda.cpp
-=======
 1481279432 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\bot.cpp
 	"Bot.h"
 	"PhysicWorld.h"
 
 1481328641 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\cubomierda.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\irrmanager.cpp
-	"IrrManager.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\map.cpp
-=======
 1481328385 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\irrmanager.cpp
 	"IrrManager.h"
 
 1481326671 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\map.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"Map.h"
 	"IrrManager.h"
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\mycontactlistener.cpp
-	"MyContactListener.h"
-	"PhysicWorld.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\myeventreceiver.cpp
-=======
 1481270478 c:\users\jorge\desktop\abp\desarrollo\limpio\include\map.h
 	<irrlicht.h>
 
@@ -2176,39 +2073,24 @@
 	"PhysicWorld.h"
 
 1481330000 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\myeventreceiver.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\physicworld.cpp
-	"PhysicWorld.h"
-	"MyContactListener.h"
-
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\platform.cpp
-=======
 1481310331 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 
 1481280942 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\platform.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-<<<<<<< HEAD
-1481486443 source:d:\development\sack-3d\desarrollo\limpio\src\player.cpp
-=======
 1481327948 source:c:\users\jorge\desktop\abp\desarrollo\limpio\src\player.cpp
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-<<<<<<< HEAD
-=======
 1481315275 source:c:\users\jorge\desktop\abp\desarrollo\limpio\main.cpp
 	<iostream>
 	<irrlicht.h>
@@ -2232,4 +2114,135 @@
 	"Player.h"
 	"Bot.h"
 
->>>>>>> 52b0253ab1aed6621f53232def37d234d63dab4c
+1481315275 source:c:\codesource\limpioprueba\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1481271516 c:\codesource\limpioprueba\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481270632 c:\codesource\limpioprueba\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1481270080 c:\codesource\limpioprueba\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481271028 c:\codesource\limpioprueba\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1481269156 c:\codesource\limpioprueba\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1481270438 c:\codesource\limpioprueba\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481270570 c:\codesource\limpioprueba\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1481268810 c:\codesource\limpioprueba\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481268938 c:\codesource\limpioprueba\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481271068 c:\codesource\limpioprueba\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481270478 c:\codesource\limpioprueba\include\map.h
+	<irrlicht.h>
+
+1481318835 c:\codesource\limpioprueba\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481329695 source:c:\codesource\limpioprueba\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481330109 source:c:\codesource\limpioprueba\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481279432 source:c:\codesource\limpioprueba\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1481325579 source:c:\codesource\limpioprueba\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1481328641 source:c:\codesource\limpioprueba\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481328385 source:c:\codesource\limpioprueba\src\irrmanager.cpp
+	"IrrManager.h"
+
+1481326671 source:c:\codesource\limpioprueba\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1481280808 source:c:\codesource\limpioprueba\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1481330000 source:c:\codesource\limpioprueba\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1481310331 source:c:\codesource\limpioprueba\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1481280942 source:c:\codesource\limpioprueba\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481327948 source:c:\codesource\limpioprueba\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

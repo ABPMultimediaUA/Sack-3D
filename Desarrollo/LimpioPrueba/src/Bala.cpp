@@ -25,9 +25,10 @@ Clase que contiene el codigo de funcionamiento para las balas.
 /**
    Constructor
 */
-Bala::Bala(){
-    tiempoVida = 1000;
-    velocidad = 1000;
+Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
+    tiempoVida = tiempoVidaP;
+    velocidad = velocidadP;
+    desviacion = deviacionP;
     float tam = 1.5f;
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
@@ -47,6 +48,18 @@ Bala::Bala(){
     fixtureDef.restitution  = 0.9f;
     fixtureDef.density  = 10.f;
     balaFixture = body->CreateFixture(&fixtureDef);
+
+    b2Vec2 velo = body->GetLinearVelocity();
+    if(PhysicWorld::Instance()->getPlayer()->getDireccion() == 1)
+    {
+            velo.x = velocidad;
+    } else if (PhysicWorld::Instance()->getPlayer()->getDireccion() == -1)
+    {
+            velo.x = -velocidad;
+    }
+
+    if(desviacion != 0 )velo.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
+    body->SetLinearVelocity(velo);
 }
 //---------------------------------------------------------------------------
 /**

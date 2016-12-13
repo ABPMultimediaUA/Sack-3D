@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          PhysicWorld.cpp
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -15,6 +15,7 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 
 #include "PhysicWorld.h"
 #include "MyContactListener.h"
+#include "Cogible.h"
 
 #define VELITER 10              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
 #define POSITER 10              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
@@ -44,12 +45,13 @@ PhysicWorld::PhysicWorld(){
 	world = new b2World(b2Vec2(0.0f, -10.0f), true);
 	cubos = new std::vector<cuboMierda*>();
 	balas = new std::vector<Bala*>();
+	cogibles = new std::vector<Cogible*>();
 	contactListener = new MyContactListener();
 	world->SetContactListener(contactListener);
 }
 //---------------------------------------------------------------------------
 /**
-   Genera una caja  
+   Genera una caja
 */
 b2Body* PhysicWorld::CreateBox(int x , int y){
     b2BodyDef bodyDef;
@@ -68,7 +70,7 @@ b2Body* PhysicWorld::CreateBox(int x , int y){
 }
 //---------------------------------------------------------------------------
 /**
-   Actualiza un instante en el mundo fisico                                       
+   Actualiza un instante en el mundo fisico
 */
 void PhysicWorld::Step(float DeltaTime){ world->Step(DeltaTime*TIMESTEP, VELITER, POSITER);}
 //---------------------------------------------------------------------------
@@ -85,10 +87,14 @@ Bot* PhysicWorld::getBot(){return bot1;}
 b2World* PhysicWorld::GetWorld(){return world;}
 std::vector<cuboMierda*>* PhysicWorld::GetCubos(){return cubos;}
 std::vector<Bala*>* PhysicWorld::GetBalas(){return balas;}
+std::vector<Cogible*>* PhysicWorld::GetCogibles(){
+    return cogibles;
+}
 Arma* PhysicWorld::getArma(){return arma;}
 void PhysicWorld::setPlayer(Player* p){jugador1 = p;}
 void PhysicWorld::setBot(Bot* p){bot1 = p;}
 void PhysicWorld::setArma(Arma* a){arma = a;}
+void PhysicWorld::setCogibles(std::vector<Cogible*>* aux){cogibles = aux;}
 //---------------------------------------------------------------------------
 /**
    Destructor

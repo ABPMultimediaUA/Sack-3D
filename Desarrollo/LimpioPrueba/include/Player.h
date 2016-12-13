@@ -38,7 +38,7 @@ class Player{
         void mover();                            ///< Mover
         void saltar();                           ///< Saltar
         void fingirMuerte();                     ///< Hacerse el muerto
-        void crearJoint(b2Body*, b2Body*);       ///< ???
+        void crearJoint();                       ///< ???
         void romperJoint();                      ///< ???
         void usar();
         vector3df getPosition();                 ///< Getter
@@ -49,11 +49,13 @@ class Player{
         bool getPuedoCoger();                    ///< Getter
         b2Body* getBody();                       ///< Getter
         Cogible* getObjCogido();                 ///< Getter
+        Cogible* getObjPuedoCoger();                 ///< Getter
         void setSaltando(bool aux);              ///< Setter
         void setDobleSaltando(bool);             ///< Setter
         void setCogiendo(bool aux);              ///< Setter
         void setPuedoCoger(bool aux);            ///< Setter
         void setObjCogido(Cogible* aux);         ///< Setter
+        void setObjPuedoCoger(Cogible* aux);         ///< Setter
         virtual ~Player();                       ///< Destructor
 
     protected:
@@ -74,6 +76,7 @@ class Player{
         bool fingiendoMuerte;                    ///<
         bool saltando;                           ///<
         Cogible* objCogido;                      ///<
+        Cogible* objPuedoCoger;                      ///<
         vector3df tam;                           ///<
 		MyEventReceiver* eventReceiver;          ///<
     private:

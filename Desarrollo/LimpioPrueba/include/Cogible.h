@@ -8,7 +8,7 @@ class Cogible
 {
     public:
         Cogible();
-        b2Body* getBody();
+        virtual b2Body* getBody();
         bool getCogido();
         void setCogido(bool aux);
         virtual ~Cogible();

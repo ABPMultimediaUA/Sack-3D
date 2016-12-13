@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          PhysicWorld.h
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -32,35 +32,38 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 *******************************************************************************/
 class PhysicWorld{
     public:
-        static PhysicWorld* Instance();          ///< Devuelve la unica instancia de la clase                                            
-        PhysicWorld();                           ///< Constructor                           
-        b2Body* CreateBox(int x,int y);          ///< Genera una caja                                           
-        void Step(float DeltaTime);              ///< Actualiza un instante en el mundo fisico                                       
-        void ClearForces();                      ///< ????????    
-        void creaCuboMierda(int x, int y);       ///< ????????    
-        b2World* GetWorld();                     ///< Getter            
-        std::vector<cuboMierda*>* GetCubos();    ///< Getter                            
-        std::vector<Bala*>* GetBalas();          ///< Getter                    
-        Player* getPlayer();                     ///< Getter            
-        Bot* getBot();                           ///< Getter    
-        Arma* getArma();                         ///< Getter        
-        void setPlayer(Player* jugador);         ///< Setter                        
-        void setBot(Bot* jugador);               ///< Setter                
-        void setArma(Arma* arma);                ///< Setter                
-        virtual ~PhysicWorld();                  ///< Setter            
+        static PhysicWorld* Instance();          ///< Devuelve la unica instancia de la clase
+        PhysicWorld();                           ///< Constructor
+        b2Body* CreateBox(int x,int y);          ///< Genera una caja
+        void Step(float DeltaTime);              ///< Actualiza un instante en el mundo fisico
+        void ClearForces();                      ///< ????????
+        void creaCuboMierda(int x, int y);       ///< ????????
+        b2World* GetWorld();                     ///< Getter
+        std::vector<cuboMierda*>* GetCubos();    ///< Getter
+        std::vector<Bala*>* GetBalas();          ///< Getter
+        std::vector<Cogible*>* GetCogibles();    ///< Getter
+        Player* getPlayer();                     ///< Getter
+        Bot* getBot();                           ///< Getter
+        Arma* getArma();                         ///< Getter
+        void setPlayer(Player* jugador);         ///< Setter
+        void setBot(Bot* jugador);               ///< Setter
+        void setArma(Arma* arma);                ///< Setter
+        void setCogibles(std::vector<Cogible*>* aux);          ///< Setter
+        virtual ~PhysicWorld();                  ///< Setter
 
         //ToDo: esto hay que quitarlo de aqui
         b2RevoluteJoint* joint;
 
     private:
-        static PhysicWorld* pinstance;           ///< instancia del mundo                                          
-        b2World* world;                          ///< variable mundo de box2d              
-        MyContactListener* contactListener;      ///< detector de colisiones                               
-        std::vector<cuboMierda*>* cubos;         ///< eso                              
-        std::vector<Bala*>* balas;               ///< Array de balas                                      
-        Arma* arma;                              ///< arma                                         
-        Player* jugador1 = 0;                    ///<                   
-        Bot* bot1 = 0;                           ///<           
+        static PhysicWorld* pinstance;           ///< instancia del mundo
+        b2World* world;                          ///< variable mundo de box2d
+        MyContactListener* contactListener;      ///< detector de colisiones
+        std::vector<cuboMierda*>* cubos;         ///< eso
+        std::vector<Bala*>* balas;               ///< Array de balas
+        std::vector<Cogible*>* cogibles;         ///< Array de cogibles
+        Arma* arma;                              ///< arma
+        Player* jugador1 = 0;                    ///<
+        Bot* bot1 = 0;                           ///<
 };
 
 #endif // PHYSICWORLD_H

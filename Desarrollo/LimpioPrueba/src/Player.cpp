@@ -166,10 +166,10 @@ void Player::fingirMuerte(){
 /**
    crearJoint
 */
-void Player::crearJoint(b2Body* a, b2Body* b){
+void Player::crearJoint(){
     b2RevoluteJointDef jointDef;
-    jointDef.bodyA = a;
-    jointDef.bodyB = b;
+    jointDef.bodyA = body;
+    jointDef.bodyB = objPuedoCoger->getBody();
     //jointDef.collideConnected = false;
     //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
     jointDef.localAnchorA.Set(0,0);
@@ -178,7 +178,6 @@ void Player::crearJoint(b2Body* a, b2Body* b){
     joint->EnableMotor(true);
     joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
-
 }
 //---------------------------------------------------------------------------
 /**
@@ -192,15 +191,16 @@ void Player::romperJoint(){
     vel.y +=20;
     vel.x *=100;
     vel.y *=100;
-    PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
+    objCogido->getBody()->ApplyLinearImpulse( vel, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
+    puedoCoger = false;
 }
 //---------------------------------------------------------------------------
 /**
    usar
 */
 void Player::usar(){
-     dynamic_cast<Usable*>(objCogido)->usar();
+    dynamic_cast<Usable*>(objCogido)->usar();
 }
 //---------------------------------------------------------------------------
 /**
@@ -218,6 +218,8 @@ bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
 Cogible* Player::getObjCogido(){return objCogido;}
 void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
+Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}
+void  Player::setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
 //---------------------------------------------------------------------------
 /**
    Destructor

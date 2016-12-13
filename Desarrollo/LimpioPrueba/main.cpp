@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          main.cpp
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -23,6 +23,7 @@ El maaaaaaaaain.
 #include "Platform.h"
 #include "Bot.h"
 #include "Arma.h"
+#include "Escopeta.h"
 #include "Map.h"
 #include "Camera.h"
 
@@ -34,17 +35,25 @@ using namespace io;
 using namespace gui;
 
 int main(){
-    PhysicWorld::Instance();
-    IrrManager::Instance();
+    //PhysicWorld::Instance();
+    //IrrManager::Instance();
     Camera* camera = new Camera();
     std::vector<cuboMierda*>* cubos = PhysicWorld::Instance()->GetCubos();
     std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
+    std::vector<Cogible*>* cogibles = PhysicWorld::Instance()->GetCogibles();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(40,0,0));
     Bot* bot1  = new Bot(vector3df(100,0,0));
+    //CREACION DE ARMAS//
+
     Arma* arma = new Arma();
+    Escopeta* escopeta = new Escopeta();
+    cogibles->push_back(arma);
+    cogibles->push_back(escopeta);
+    PhysicWorld::Instance()->setCogibles(cogibles);
+    ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setBot(bot1);
     PhysicWorld::Instance()->setArma(arma);
@@ -63,11 +72,12 @@ int main(){
                         balas->at(i)->getNode()->remove();
                         balas->at(i)->getBody()->DestroyFixture(balas->at(i)->getbalaFixture());
                         balas->erase(balas->begin()+i);
-         }
+                    }
             }
             player->update();
             camera->update(TimeStamp);
             arma->actualiza();
+            escopeta->actualiza();
             bot1->update();
 
 

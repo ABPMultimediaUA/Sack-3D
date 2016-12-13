@@ -24,10 +24,11 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   case KEY_KEY_Q:
                       PhysicWorld::Instance()->getPlayer()->fingirMuerte();
                   break;
+
                   case KEY_KEY_E:
                        if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                           PhysicWorld::Instance()->getPlayer()->crearJoint(PhysicWorld::Instance()->getPlayer()->getBody(), PhysicWorld::Instance()->getArma()->getBody());
-                           PhysicWorld::Instance()->getPlayer()->setObjCogido(PhysicWorld::Instance()->getArma());
+                           PhysicWorld::Instance()->getPlayer()->crearJoint();
+                           PhysicWorld::Instance()->getPlayer()->setObjCogido(PhysicWorld::Instance()->getPlayer()->getObjPuedoCoger());
                            std::cout<<"ESTOY COGIENDO"<<std::endl;
                        }
 

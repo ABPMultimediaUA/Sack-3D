@@ -2378,7 +2378,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481315275 source:d:\development\sack-3d\desarrollo\limpioprueba\main.cpp
+1481654903 source:d:\development\sack-3d\desarrollo\limpioprueba\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -2389,10 +2389,11 @@
 	"Platform.h"
 	"Bot.h"
 	"Arma.h"
+	"Escopeta.h"
 	"Map.h"
 	"Camera.h"
 
-1481563527 d:\development\sack-3d\desarrollo\limpioprueba\include\player.h
+1481648243 d:\development\sack-3d\desarrollo\limpioprueba\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
@@ -2408,7 +2409,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1481271028 d:\development\sack-3d\desarrollo\limpioprueba\include\physicworld.h
+1481654471 d:\development\sack-3d\desarrollo\limpioprueba\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -2431,16 +2432,18 @@
 	<irrlicht.h>
 	"MyEventReceiver.h"
 
-1481270570 d:\development\sack-3d\desarrollo\limpioprueba\include\mycontactlistener.h
+1481647218 d:\development\sack-3d\desarrollo\limpioprueba\include\mycontactlistener.h
 	"Box2D/Box2D.h"
 	<iostream>
+	"Cogible.h"
+	"vector"
 
 1481561300 d:\development\sack-3d\desarrollo\limpioprueba\include\arma.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Usable.h"
 
-1481268938 d:\development\sack-3d\desarrollo\limpioprueba\include\bala.h
+1481655686 d:\development\sack-3d\desarrollo\limpioprueba\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -2455,12 +2458,12 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481561148 source:d:\development\sack-3d\desarrollo\limpioprueba\src\arma.cpp
+1481656383 source:d:\development\sack-3d\desarrollo\limpioprueba\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481558092 source:d:\development\sack-3d\desarrollo\limpioprueba\src\bala.cpp
+1481655795 source:d:\development\sack-3d\desarrollo\limpioprueba\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -2489,33 +2492,34 @@
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1481280808 source:d:\development\sack-3d\desarrollo\limpioprueba\src\mycontactlistener.cpp
+1481654803 source:d:\development\sack-3d\desarrollo\limpioprueba\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1481560948 source:d:\development\sack-3d\desarrollo\limpioprueba\src\myeventreceiver.cpp
+1481649538 source:d:\development\sack-3d\desarrollo\limpioprueba\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1481310331 source:d:\development\sack-3d\desarrollo\limpioprueba\src\physicworld.cpp
+1481654474 source:d:\development\sack-3d\desarrollo\limpioprueba\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
+	"Cogible.h"
 
 1481280942 source:d:\development\sack-3d\desarrollo\limpioprueba\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481562096 source:d:\development\sack-3d\desarrollo\limpioprueba\src\player.cpp
+1481650789 source:d:\development\sack-3d\desarrollo\limpioprueba\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481560289 source:d:\development\sack-3d\desarrollo\limpioprueba\src\cogible.cpp
+1481645382 source:d:\development\sack-3d\desarrollo\limpioprueba\src\cogible.cpp
 	"Cogible.h"
 
-1481560234 d:\development\sack-3d\desarrollo\limpioprueba\include\cogible.h
+1481645327 d:\development\sack-3d\desarrollo\limpioprueba\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -2524,4 +2528,14 @@
 
 1481561341 d:\development\sack-3d\desarrollo\limpioprueba\include\usable.h
 	"Cogible.h"
+
+1481656290 source:d:\development\sack-3d\desarrollo\limpioprueba\src\escopeta.cpp
+	"Escopeta.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481640619 d:\development\sack-3d\desarrollo\limpioprueba\include\escopeta.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
 

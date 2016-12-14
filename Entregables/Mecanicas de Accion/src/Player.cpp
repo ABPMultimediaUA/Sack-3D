@@ -79,8 +79,8 @@ void Player::update(){
 void Player::mover(){
     if(!fingiendoMuerte){
         int dir = 0;
-        if(eventReceiver->IsKeyDown(KEY_KEY_A))dir = -1;
-        else if(eventReceiver->IsKeyDown(KEY_KEY_D))dir = 1;
+        if(eventReceiver->IsKeyDown(KEY_KEY_A)){direccion = dir = -1;}
+        else if(eventReceiver->IsKeyDown(KEY_KEY_D)){direccion = dir = 1;}
         body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
     }
 }

@@ -69,7 +69,7 @@ class Player{
         bool dobleSaltando;                      ///<                        
         bool fingiendoMuerte;                    ///<                            
         bool saltando;                           ///<                    
-        vector3df tam;                           ///<                    
+        vector3df tam;                           ///<  
 		MyEventReceiver* eventReceiver;          ///<                                      
     private:
 };

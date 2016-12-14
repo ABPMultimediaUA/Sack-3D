@@ -26,13 +26,11 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   break;
                   case KEY_KEY_E:
                        if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
+                           PhysicWorld::Instance()->getArma()->setCogida(true);
                            b2RevoluteJointDef jointDef;
                            jointDef.bodyA = PhysicWorld::Instance()->getPlayer()->getBody();
                            jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
-                           //jointDef.collideConnected = false;
-                           //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
-                           jointDef.localAnchorA.Set(5,3);
-                           jointDef.localAnchorB.Set(0,0);
+                           jointDef.localAnchorA.Set(0,3);
                            PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
                            PhysicWorld::Instance()->joint->EnableMotor(true);
                            PhysicWorld::Instance()->joint->SetMaxMotorTorque(50.3f);
@@ -41,12 +39,14 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                        }
 
                        else if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
+                           int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
+                           PhysicWorld::Instance()->getArma()->setCogida(false);
                            PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
                            PhysicWorld::Instance()->joint = NULL;
                            b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
                            vel.x +=400;
                            vel.y +=400;
-                           vel.x *=400;
+                           vel.x *=400*dir;
                            vel.y *=400;
                            PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
                            PhysicWorld::Instance()->getPlayer()->setCogiendo(false);
@@ -57,7 +57,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                       if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                            Bala* bala = new Bala();
                            b2Vec2 vel = bala->getBody()->GetLinearVelocity();
-                           vel.x = bala->velocidad;
+                           vel.x = bala->velocidad*PhysicWorld::Instance()->getPlayer()->getDireccion();
                            bala->getBody()->SetLinearVelocity(vel);
                            PhysicWorld::Instance()->GetBalas()->push_back(bala);
                   		}

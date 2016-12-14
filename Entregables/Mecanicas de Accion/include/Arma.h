@@ -31,16 +31,19 @@ using namespace gui;
 *******************************************************************************/
 class Arma{
     public:
-        Arma();					///< Constructor
-        void actualiza();		///< actualiza la posicion y rotacion del arma
-        b2Body* getBody();		///< Getter del body
-        virtual ~Arma();		///< Destructor
+        Arma();					           ///< Constructor
+        void actualiza();		           ///< actualiza la posicion y rotacion del arma
+        b2Body* getBody();		           ///< Getter del body
+        void setCogida(bool aux);         
+        bool getCogida();         
+        virtual ~Arma();		           ///< Destructor
 
     protected:
 
     private:
-        IMeshSceneNode* node;	///< Nodo irrlicht para poder mover, dibujar, etc.
-	    b2Body* body;			///< Cuerpo fisico box2d para poder aplicar fisicas
+        IMeshSceneNode* node;	           ///< Nodo irrlicht para poder mover, dibujar, etc.
+	    b2Body* body;			           ///< Cuerpo fisico box2d para poder aplicar fisicas
+        bool siendoCogida;                 ///< Booleano que indicara si esta siendo cogida
 };
 
 #endif // ARMA_H

@@ -14,3 +14,21 @@
 	<Box2D/Common/b2Math.h>
 	<vector>
 
+1480716258 source:c:\users\pcj\desktop\abp\entregables\beta_mecanicas\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	<Box2D/Common/b2Math.h>
+	<vector>
+	<bala.h>
+
+1480716258 c:\users\pcj\desktop\abp\entregables\beta_mecanicas\include\bala.h
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	<Box2D/Common/b2Math.h>
+	<vector>
+
+1480716258 source:c:\users\pcj\desktop\abp\entregables\beta_mecanicas\src\bala.cpp
+	"Bala.h"
+

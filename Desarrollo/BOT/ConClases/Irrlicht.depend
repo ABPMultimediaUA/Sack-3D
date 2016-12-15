@@ -1805,7 +1805,7 @@
 1480856953 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\irrmanager.cpp
 	"IrrManager.h"
 
-1480858605 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\mycontactlistener.cpp
+1480979803 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
@@ -1831,7 +1831,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1480883832 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\player.cpp
+1480979842 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -1846,7 +1846,7 @@
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1480869789 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
+1481028861 c:\users\pcj\desktop\abp\desarrollo\bot\conclases\include\camera.h
 	"IrrManager.h"
 
 1480882564 source:c:\users\pcj\desktop\abp\desarrollo\bot\conclases\src\camera.cpp

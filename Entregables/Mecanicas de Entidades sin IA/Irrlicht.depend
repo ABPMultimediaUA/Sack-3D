@@ -2501,3 +2501,143 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+	"Muelle.h"
+	"Teleport.h"
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	<vector>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\map.h
+	<irrlicht.h>
+
+1481728169 c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\irrmanager.cpp
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481728169 source:c:\users\pcj\desktop\abp\entregables\mecanicas de entidades sin ia\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

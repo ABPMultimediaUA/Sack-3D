@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="4" tileheight="4" backgroundcolor="#5e8eff" nextobjectid="435">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="4" tileheight="4" backgroundcolor="#5e8eff" nextobjectid="440">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -9,14 +9,9 @@
   </tile>
  </tileset>
  <objectgroup color="#26a410" name="colisiones">
-  <object id="425" x="53.3333" y="29" width="54.6667" height="5.33333"/>
-  <object id="426" x="188.333" y="26.6667" width="62.3333" height="6.33333"/>
-  <object id="427" x="37.3333" y="67.3333" width="47.3333" height="4"/>
-  <object id="428" x="15" y="1.33333" width="36" height="6.66667"/>
-  <object id="430" x="123" y="53.3333" width="52.6667" height="5.33333"/>
-  <object id="431" x="36.3333" y="80.6667" width="6.66667" height="31"/>
-  <object id="432" x="231" y="42.6667" width="9.33333" height="50.6667"/>
-  <object id="433" x="240.333" y="3" width="10.6667" height="25"/>
-  <object id="434" x="143.333" y="40.3333" width="15" height="13.6667"/>
+  <object id="435" x="16" y="60" width="227.667" height="5.33333"/>
+  <object id="436" x="12" y="-44" width="7.66667" height="139.333"/>
+  <object id="437" x="240" y="-48" width="7.66667" height="141"/>
+  <object id="438" x="15.3333" y="-34.6667" width="230" height="11"/>
  </objectgroup>
 </map>

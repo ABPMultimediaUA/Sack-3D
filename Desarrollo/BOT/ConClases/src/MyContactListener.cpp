@@ -12,10 +12,12 @@ void MyContactListener::BeginContact(b2Contact* contact){
     //DETECTAR SALTO(JUGADOR-SUELO)
 	if((unsigned long)fixtureUserDataA == 100 && (unsigned long)fixtureUserDataB== 20){
 	    PhysicWorld::Instance()->getPlayer()->setSaltando(false);
+	    PhysicWorld::Instance()->getPlayer()->setDobleSaltando(false);
 	}
 
 	if((unsigned long)fixtureUserDataB == 100 && (unsigned long)fixtureUserDataA == 20){
 	    PhysicWorld::Instance()->getPlayer()->setSaltando(false);
+	    PhysicWorld::Instance()->getPlayer()->setDobleSaltando(false);
 	}
 
     //DETECTAR COGER(JUGADOR-CUBO)

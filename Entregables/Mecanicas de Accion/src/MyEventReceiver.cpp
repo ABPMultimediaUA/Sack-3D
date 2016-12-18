@@ -4,49 +4,66 @@
 
 
 bool MyEventReceiver::OnEvent(const SEvent& event){
-          if (event.EventType == irr::EET_MOUSE_INPUT_EVENT){
-               switch(event.MouseInput.Event){
-                    case EMIE_LMOUSE_LEFT_UP:
-                        cuboMierda* cubo = new cuboMierda((event.MouseInput.X - 1366/2)/5, (-event.MouseInput.Y+720/2)/5 );
-                        PhysicWorld::Instance()->GetCubos()->push_back(cubo);
-                    break;
-                    break;
-               }
+     if (event.EventType == irr::EET_MOUSE_INPUT_EVENT){
+          switch(event.MouseInput.Event){
+               case EMIE_LMOUSE_LEFT_UP:
+                   cuboMierda* cubo = new cuboMierda((event.MouseInput.X - 1366/2)/5, (-event.MouseInput.Y+720/2)/5 );
+                   PhysicWorld::Instance()->GetCubos()->push_back(cubo);
+               break;
+               break;
           }
-          if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
-               if(event.KeyInput.PressedDown == true){
-                    switch(event.KeyInput.Key){
-                       case KEY_SPACE:
-                           if(!PhysicWorld::Instance()->getPlayer()->getSaltando() || !PhysicWorld::Instance()->getPlayer()->getDobleSaltando()){
-                                if(PhysicWorld::Instance()->getPlayer()->getSaltando() && !PhysicWorld::Instance()->getPlayer()->getDobleSaltando()){
-                                        PhysicWorld::Instance()->getPlayer()->setDobleSaltando(true);
-                                }
-                                PhysicWorld::Instance()->getPlayer()->saltar();
-                           }
-                       break;
-                       case KEY_KEY_E:
+     }
+     if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
+         KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
+          if(event.KeyInput.PressedDown == true){
+               switch(event.KeyInput.Key){
+                  case KEY_SPACE:
+                      PhysicWorld::Instance()->getPlayer()->saltar();
+                  break;
 
-                            if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                                PhysicWorld::Instance()->getPlayer()->coger(PhysicWorld::Instance()->getArma()->getBody());
-                                std::cout<<"ESTOY COGIENDO"<<std::endl;
-                            }
+                  case KEY_KEY_Q:
+                      PhysicWorld::Instance()->getPlayer()->fingirMuerte();
+                  break;
+                  case KEY_KEY_E:
+                       if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
+                           PhysicWorld::Instance()->getArma()->setCogida(true);
+                           b2RevoluteJointDef jointDef;
+                           jointDef.bodyA = PhysicWorld::Instance()->getPlayer()->getBody();
+                           jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
+                           jointDef.localAnchorA.Set(0,3);
+                           PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
+                           PhysicWorld::Instance()->joint->EnableMotor(true);
+                           PhysicWorld::Instance()->joint->SetMaxMotorTorque(50.3f);
+                           PhysicWorld::Instance()->getPlayer()->setCogiendo(true);
+                           std::cout<<"ESTOY COGIENDO"<<std::endl;
+                       }
 
-                            else if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                                PhysicWorld::Instance()->getPlayer()->soltar();
-                                std::cout<<"NO ESTOY COGIENDO"<<std::endl;
-                            }
-                       break;
-                       case KEY_RETURN:
-                           if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                                Bala* bala = new Bala(2000, 1000, 100);
-                                PhysicWorld::Instance()->GetBalas()->push_back(bala);
-                       		}
-                       break;
-                       case KEY_KEY_Q:
-                            PhysicWorld::Instance()->getPlayer()->fingirMuerte();
-                        break;
-                   }
-               }
+                       else if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
+                           int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
+                           PhysicWorld::Instance()->getArma()->setCogida(false);
+                           PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
+                           PhysicWorld::Instance()->joint = NULL;
+                           b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
+                           vel.x +=400;
+                           vel.y +=400;
+                           vel.x *=400*dir;
+                           vel.y *=400;
+                           PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
+                           PhysicWorld::Instance()->getPlayer()->setCogiendo(false);
+                           std::cout<<"NO ESTOY COGIENDO"<<std::endl;
+                       }
+                  break;
+                  case KEY_RETURN:
+                      if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
+                           Bala* bala = new Bala();
+                           b2Vec2 vel = bala->getBody()->GetLinearVelocity();
+                           vel.x = bala->velocidad*PhysicWorld::Instance()->getPlayer()->getDireccion();
+                           bala->getBody()->SetLinearVelocity(vel);
+                           PhysicWorld::Instance()->GetBalas()->push_back(bala);
+                  		}
+                  break;
+              }
+          }
      }
 }
 bool MyEventReceiver::IsKeyDown(EKEY_CODE keyCode) const{
@@ -57,4 +74,3 @@ MyEventReceiver::MyEventReceiver(){
 }
 
 MyEventReceiver::~MyEventReceiver(){}
-

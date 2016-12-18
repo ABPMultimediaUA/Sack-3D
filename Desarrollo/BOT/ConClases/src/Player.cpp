@@ -63,7 +63,7 @@ void Player::saltar(){
         }
         else if(!dobleSaltando){
             b2Vec2 velV = body->GetLinearVelocity();
-            velV.y += vel/2;
+            velV.y += vel*3/5;
             body->SetLinearVelocity(velV);
             dobleSaltando = true;
         }
@@ -72,39 +72,56 @@ void Player::saltar(){
 void Player::fingirMuerte(){
     if(!fingiendoMuerte){
         b2FixtureDef fixtureDef;
+        b2FixtureDef fixtureDef2;
         b2CircleShape circleShape1;
+        b2CircleShape circleShape2;
 
         fingiendoMuerte = true;
         body->DestroyFixture(body->GetFixtureList());
         body->DestroyFixture(body->GetFixtureList());
         body->SetFixedRotation(false);
-        circleShape1.m_p.Set(0,0);
-        circleShape1.m_radius = 2;
+        circleShape1.m_p.Set(0,-3.f);
+        circleShape2.m_p.Set(0,3.f);
+        circleShape1.m_radius = tam.X/2;
+        circleShape2.m_radius = tam.X/2;
         fixtureDef.shape = &circleShape1;
         fixtureDef.friction = 0.5f;
         fixtureDef.restitution  = 0.5f;
-        fixtureDef.density  = 5.f;
+        fixtureDef.density  = 1.f;
         personFixture = body->CreateFixture(&fixtureDef);
         personFixture->SetUserData((void*)100);
-        body->ApplyAngularImpulse(direccion);
+
+        fixtureDef2.shape = &circleShape2;
+        fixtureDef2.friction = 0.5f;
+        fixtureDef2.restitution  = 0.5f;
+        fixtureDef2.density  = 5.f;
+        body->CreateFixture(&fixtureDef2);
+
+        body->ApplyAngularImpulse(direccion*10000);
 
     }else{
         b2BodyDef bodyDef;
         b2FixtureDef fixtureDef;
         b2PolygonShape polyShape;
-
+        body->DestroyFixture(body->GetFixtureList());
+        body->DestroyFixture(body->GetFixtureList());
         fingiendoMuerte = false;
-        polyShape.SetAsBox(2,2);
+        polyShape.SetAsBox(tam.X/2,tam.Y/2);
         fixtureDef.shape = &polyShape;
-        fixtureDef.friction = 0.5f;
+        fixtureDef.friction = 0;
         fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 100.0f;
+        fixtureDef.density  = 0.f;
         body->CreateFixture(&fixtureDef);
 
-        polyShape.SetAsBox(4,4);
+        polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
         fixtureDef.isSensor = true;
         b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
         personajeSensorFixture->SetUserData((void*)100);
+
+        body->SetTransform( body->GetPosition(),0);
+        body->SetAngularVelocity(0);
+        body->SetFixedRotation(true);
+        body->ApplyLinearImpulse(b2Vec2(0,10),b2Vec2(0,0));
     }
 }
 void Player::crearJoint(b2Body* a, b2Body* b){

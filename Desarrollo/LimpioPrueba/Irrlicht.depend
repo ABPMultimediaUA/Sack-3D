@@ -2529,12 +2529,12 @@
 1481561341 d:\development\sack-3d\desarrollo\limpioprueba\include\usable.h
 	"Cogible.h"
 
-1481656290 source:d:\development\sack-3d\desarrollo\limpioprueba\src\escopeta.cpp
+1481656394 source:d:\development\sack-3d\desarrollo\limpioprueba\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481640619 d:\development\sack-3d\desarrollo\limpioprueba\include\escopeta.h
+1482084731 d:\development\sack-3d\desarrollo\limpioprueba\include\escopeta.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Usable.h"

@@ -37,14 +37,21 @@ class Escopeta: public Usable{
         Escopeta();				///< Constructor
         void actualiza();		///< actualiza la posicion y rotacion del arma
         void usar();            ///< ejecuta el usar de la clase
+        f32 timerescopeta;      ///<
+        ITimer* timerIrr;       ///<
+        bool getConUsos();		///< Getter de usos
         b2Body* getBody();		///< Getter del body
         virtual ~Escopeta();	///< Destructor
+
 
     protected:
 
     private:
         IMeshSceneNode* node;	///< Nodo irrlicht para poder mover, dibujar, etc.
 	    b2Body* body;			///< Cuerpo fisico box2d para poder aplicar fisicas
+	    int cadencia;
+	    int usos;
+	    bool conUsos;
 };
 
 #endif // ESCOPETA_H

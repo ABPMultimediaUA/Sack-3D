@@ -32,6 +32,11 @@ Clase que contiene el codigo de funcionamiento para las armas.
 
 Escopeta::Escopeta(){
 
+    conUsos = true;
+    cadencia = 1000;
+    usos = 4;
+    timerIrr = IrrManager::Instance()->getTimer();
+    timerescopeta = timerIrr->getTime();
     vector3df tam = vector3df(5,3,1);
     node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 0, 255, 0));
     node->setPosition(vector3df(0,0,0));
@@ -69,18 +74,23 @@ void Escopeta::actualiza(){
    Metodo que ejecuta el usar de la clase
 */
 void Escopeta::usar(){
-    for(int i=0; i<10; i++){
-        int desvBala = rand()% 400;
-        Bala* aux = new Bala(200, 1000, desvBala);
-        PhysicWorld::Instance()->GetBalas()->push_back(aux);
+    if(IrrManager::Instance()->getTime()-timerescopeta>cadencia && conUsos){
+        for(int i=0; i<10; i++){
+            int desvBala = rand()% 400;
+            Bala* aux = new Bala(200, 1000, desvBala);
+            PhysicWorld::Instance()->GetBalas()->push_back(aux);
+        }
+        timerescopeta = timerIrr->getTime();
+        usos-=1;
+        if(usos==0)conUsos=false;
     }
-
 }
 //---------------------------------------------------------------------------
 /**
    Getters and setters
 */
 b2Body* Escopeta::getBody(){return body;}
+bool Escopeta::getConUsos(){ return conUsos;}
 //---------------------------------------------------------------------------
 /**
    Destructor

@@ -1855,3 +1855,70 @@
 	"Player.h"
 	"Bot.h"
 
+1480620705 source:d:\development\sack-3d\desarrollo\bot\conclases\src\physicbody.cpp
+	"PhysicBody.h"
+	"PhysicWorld.h"
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\physicbody.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1480946988 d:\development\sack-3d\desarrollo\bot\conclases\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480946988 d:\development\sack-3d\desarrollo\bot\conclases\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480946988 d:\development\sack-3d\desarrollo\bot\conclases\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1480946988 d:\development\sack-3d\desarrollo\bot\conclases\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1480620705 source:d:\development\sack-3d\desarrollo\bot\conclases\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1480620705 d:\development\sack-3d\desarrollo\bot\conclases\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+

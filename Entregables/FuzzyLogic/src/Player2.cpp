@@ -54,6 +54,7 @@ Player::Player(vector3df pos){
     jointDef = NULL;
     direccion = 1;
     tam = vector3df(8, 8,8);
+    InitializeFuzzyModule();
     //node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, rand()%255, rand()%255, rand()%255));
     node = IrrManager::Instance()->addModel(tam, SColor(255, 255, 0, 0));
     node->setPosition(pos);
@@ -78,9 +79,8 @@ Player::Player(vector3df pos){
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
-    body->SetLinearVelocity(b2Vec2(1,1));
+
     eventReceiver = IrrManager::Instance()->getEventReciever();
-    InitializeFuzzyModule();
 }
 //---------------------------------------------------------------------------
 /**
@@ -163,7 +163,7 @@ void Player::update(){
     int width = abs(intersectionPoint.x-p1.x);
     int height = abs(intersectionPoint.y-p1.y);
     float distance = sqrt(pow(width,2)+pow(height,2));
-    if(distance>70)distance=70;
+    std::cout<<distance<<std::endl;
     int width2 = abs(intersectionPoint2.x-p1.x);
     int height2 = abs(intersectionPoint2.y-p1.y);
     float distance2 = sqrt(pow(width2,2)+pow(height2,2));
@@ -189,28 +189,29 @@ void Player::update(){
 void Player::InitializeFuzzyModule(){
   FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
 
-  FzSet cerca = distancia.AddLeftShoulderSet("cerca",0,20,40);
-  FzSet medio = distancia.AddTriangularSet("medio",20,40,60);
-  FzSet lejos = distancia.AddRightShoulderSet("lejos",40,60,110);
+  FzSet cerca = distancia.AddLeftShoulderSet("cerca",10,20,30);
+  FzSet medio = distancia.AddTriangularSet("medio",20,30,40);
+  FzSet lejos = distancia.AddRightShoulderSet("lejos",40,50,60);
 
-  FuzzyVariable& velocidad = m_FuzzyModule.CreateFLV("velocidad");
-  FzSet rapido = velocidad.AddRightShoulderSet("mucho", 50, 75, 100);
-  FzSet normal = velocidad.AddTriangularSet("medio", 25, 50, 75);
-  FzSet lento = velocidad.AddLeftShoulderSet("poco", 0, 25, 50);
+  FuzzyVariable& deseabilidad = m_FuzzyModule.CreateFLV("deseabilidad");
+  FzSet muyDeseable = deseabilidad.AddRightShoulderSet("mucho", 50, 75, 100);
+  FzSet deseable = deseabilidad.AddTriangularSet("medio", 25, 50, 75);
+  FzSet pocoDeseable = deseabilidad.AddLeftShoulderSet("poco", 0, 25, 50);
 
-  m_FuzzyModule.AddRule(cerca, lento);
-  m_FuzzyModule.AddRule(medio, normal);
-  m_FuzzyModule.AddRule(lejos,rapido );
+  m_FuzzyModule.AddRule(cerca, pocoDeseable);
+  m_FuzzyModule.AddRule(medio, deseable);
+  m_FuzzyModule.AddRule(lejos,muyDeseable );
 }
 double Player::GetDeseabilidad(double distancia)
 {
   //fuzzify distance and amount of ammo
   m_FuzzyModule.Fuzzify("distancia", distancia);
 
-  m_ultimaVel = m_FuzzyModule.DeFuzzify("velocidad", FuzzyModule::max_av);
+  m_ultimaDeseabilidad = m_FuzzyModule.DeFuzzify("deseabilidad", FuzzyModule::max_av);
 
-  return m_ultimaVel;
+  return m_ultimaDeseabilidad;
 }
+
 //---------------------------------------------------------------------------
 /**
    IA
@@ -218,12 +219,10 @@ double Player::GetDeseabilidad(double distancia)
 void Player::IA(float frente, float izq, float dcha){
     int dir = NINGUNA;
 
-    //if(frente>MUY_LEJOS){  vel = RAPIDO;  }
-    //else if(frente>LEJOS){  vel = VEL_MEDIA;  }
-    //else if(frente>DIST_MEDIA){  vel = DESPACIO;  }
-    //else if(frente>CERCA){  vel = MUY_DESPACIO;  }
-
-    //GIRAR EL COCHE
+   //if(frente>MUY_LEJOS){  vel = RAPIDO;  }
+   //else if(frente>LEJOS){  vel = VEL_MEDIA;  }
+   //else if(frente>DIST_MEDIA){  vel = DESPACIO;  }
+   //else if(frente>CERCA){  vel = MUY_DESPACIO;  }
     if(izq<dcha){
         if(izq <DIST_MEDIA){dir = DERECHA;}
         else if(dcha <DIST_MEDIA){dir = IZQUIERDA;}
@@ -236,10 +235,9 @@ void Player::IA(float frente, float izq, float dcha){
     else if(dcha <DIST_MEDIA){
         dir = IZQUIERDA;
     }
-    double des = GetDeseabilidad(frente);
-    //std::cout<<des<<std::endl;
-    //mover((int)frente, dir);
-    mover(des, dir);
+    //std::cout<<frente<<std::endl;
+    double vel = GetDeseabilidad(frente);
+    mover(vel, dir);
 
 }
 //---------------------------------------------------------------------------

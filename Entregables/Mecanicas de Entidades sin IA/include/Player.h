@@ -81,6 +81,7 @@ class Player{
 		MyEventReceiver* eventReceiver;          ///<
 		b2Vec2 nextPos;                          ///< La posicion a la que debe teletransportarse la siguiente vez que se actualice
 		bool teletransportado;                   ///< Booleano que indica que ha pisado un teletransporte
+		b2Vec2 velActual;
     private:
 };
 

@@ -141,7 +141,8 @@ void Player::fingirMuerte(){
         fixtureDef2.density  = 5.f;
         body->CreateFixture(&fixtureDef2);
 
-        body->ApplyAngularImpulse(direccion*10000);
+        if(direccion == 0 )body->ApplyAngularImpulse(-1*10000);
+        else body->ApplyAngularImpulse(direccion*10000);
 
     }else{
         b2BodyDef bodyDef;
@@ -186,15 +187,17 @@ void Player::recibeImpulso(int fuerza){
 void Player::teletransportar(){
     teletransportado = false;
     nextPos.x += (direccion*10);
+    velActual = body->GetLinearVelocity();
     body->SetTransform(nextPos, body->GetAngle());
+    body->SetLinearVelocity(velActual);
 }
 //---------------------------------------------------------------------------
 /**
    Mata al personaje
 */
 void Player::morir(){
-    muerto = true;
-    //falta cambiar la fixture para que se muera
+    paraMorir = false;
+    body->SetTransform(b2Vec2(-100,-180), body->GetAngle());
 }
 //---------------------------------------------------------------------------
 /**

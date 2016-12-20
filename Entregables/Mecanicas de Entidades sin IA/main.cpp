@@ -43,7 +43,7 @@ int main(){
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(-100,-100,0));
+    Player* player = new Player(vector3df(-100,-180,0));
     Arma* arma = new Arma();
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setArma(arma);
@@ -54,9 +54,9 @@ int main(){
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle1);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle2);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle3);
-    Teleport* portal1 = new Teleport(1, 2, vector3df(0,-195,0),vector3df(10, 5, 10),SColor(255, 255, 255, 0));
-    Teleport* portal2 = new Teleport(2, 3, vector3df(50,-130,0),vector3df(10, 5, 10),SColor(255, 255, 255, 0));
-    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-58,0),vector3df(10, 5, 10),SColor(255, 255, 255, 0));
+    Teleport* portal1 = new Teleport(1, 2, vector3df(0,-187,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
+    Teleport* portal2 = new Teleport(2, 3, vector3df(50,-123,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
+    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-52,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
     PhysicWorld::Instance()->GetTeletransportes()->push_back(portal1);
     PhysicWorld::Instance()->GetTeletransportes()->push_back(portal2);
     PhysicWorld::Instance()->GetTeletransportes()->push_back(portal3);

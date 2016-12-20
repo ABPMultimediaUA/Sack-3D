@@ -2551,3 +2551,176 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Map.h"
+	"Camera.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+	"Cogible.h"
+	"vector"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\usable.h
+	"Cogible.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\escopeta.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\granada.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<vector>
+	"Usable.h"
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\map.h
+	<irrlicht.h>
+
+1482255931 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\cogible.cpp
+	"Cogible.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\escopeta.cpp
+	"Escopeta.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\granada.cpp
+	"Granada.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482255931 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\powerup(armas)\src\usable.cpp
+	"Usable.h"
+

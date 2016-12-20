@@ -6,3 +6,10 @@
 	<Box2D/Common/b2Math.h>
 	<vector>
 
+1482255930 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\controlplayer\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	<Box2D/Common/b2Math.h>
+	<vector>
+

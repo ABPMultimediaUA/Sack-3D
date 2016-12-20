@@ -53,7 +53,6 @@ class Player{
         void setCogiendo(bool aux);              ///< Setter
         void setPuedoCoger(bool aux);            ///< Setter
         void InitializeFuzzyModule();
-
         double GetDeseabilidad(double distancia);
         virtual ~Player();                       ///< Destructor
 
@@ -64,10 +63,9 @@ class Player{
         b2Fixture* personFixture;                ///<
         b2RevoluteJoint* joint;                  ///<
         b2RevoluteJointDef* jointDef;            ///<
-        float increment;
         FuzzyModule   m_FuzzyModule;
-
-        double m_ultimaVel;
+        double m_ultimaDeseabilidad;
+        float increment;
         int x;                                   ///<
         int y;                                   ///<
         int vel;                                 ///<

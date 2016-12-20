@@ -38,11 +38,16 @@ int main(){
     Camera* camera = new Camera();
     std::vector<cuboMierda*>* cubos = PhysicWorld::Instance()->GetCubos();
     std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
+    std::vector<Cogible*>* cogibles = PhysicWorld::Instance()->GetCogibles();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(40,0,0));
+
     Arma* arma = new Arma();
+    cogibles->push_back(arma);
+    PhysicWorld::Instance()->setCogibles(cogibles);
+
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setArma(arma);
     Map* mapa = new Map("media/Map.tmx");

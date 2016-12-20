@@ -178,6 +178,8 @@ void Player::crearJoint(){
     joint->EnableMotor(true);
     joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
+
+    dynamic_cast<Arma*>(objCogido->setCogido(true);
 }
 //---------------------------------------------------------------------------
 /**

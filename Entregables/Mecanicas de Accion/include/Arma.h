@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          Arma.h
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -18,6 +18,7 @@ Clase que contiene el codigo de funcionamiento para las armas.
 //---------------------------------------------------------------------------
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
+#include "Usable.h"
 
 using namespace irr;
 using namespace core;
@@ -29,13 +30,14 @@ using namespace gui;
 /******************************************************************************
                                Arma
 *******************************************************************************/
-class Arma{
+class Arma: public Usable{
     public:
         Arma();					           ///< Constructor
         void actualiza();		           ///< actualiza la posicion y rotacion del arma
         b2Body* getBody();		           ///< Getter del body
-        void setCogida(bool aux);         
-        bool getCogida();         
+        void setCogida(bool aux);
+        bool getCogida();
+        void usar();                       ///< ejecuta el usar de la clase
         virtual ~Arma();		           ///< Destructor
 
     protected:

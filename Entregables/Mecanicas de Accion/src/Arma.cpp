@@ -108,8 +108,20 @@ void Arma::setCogida(bool aux){
         armaSensorFixture->SetUserData((void*)35);
     }
     siendoCogida = aux;
-}         
-bool Arma::getCogida(){return siendoCogida;} 
+}
+bool Arma::getCogida(){return siendoCogida;}
+//---------------------------------------------------------------------------
+/**
+   Metodo que ejecuta el usar de la clase
+*/
+void Arma::usar(){
+    Bala* bala = new Bala(500, 1000, 100);
+    b2Vec2 vel = bala->getBody()->GetLinearVelocity();
+    vel.x = bala->velocidad;
+    if(PhysicWorld::Instance()->getPlayer()->getDireccion()==1) bala->getBody()->SetLinearVelocity(vel);
+    else bala->getBody()->SetLinearVelocity(-vel);
+    PhysicWorld::Instance()->GetBalas()->push_back(bala);
+}
 //---------------------------------------------------------------------------
 /**
    Destructor

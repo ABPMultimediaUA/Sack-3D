@@ -53,6 +53,45 @@ Arma::Arma(){
     b2Fixture* armaSensorFixture = body->CreateFixture(&fixtureDef);
     armaSensorFixture->SetUserData((void*)35);
 }
+
+void Arma::setCogida(bool aux){
+    vector3df tam = vector3df(5,3,1);
+    body->DestroyFixture(body->GetFixtureList());
+    body->DestroyFixture(body->GetFixtureList());
+    b2BodyDef bodyDef;
+    b2FixtureDef fixtureDef;
+    b2PolygonShape polyShape;
+    b2Fixture* armaSensorFixture;
+    b2Fixture* fixture;
+    if(aux){
+        polyShape.SetAsBox(tam.X/2,tam.Y/2);
+        fixtureDef.shape = &polyShape;
+        fixtureDef.isSensor = true;
+        fixture = body->CreateFixture(&fixtureDef);
+        fixture->SetUserData((void*)30);
+        body->SetFixedRotation(true);
+        polyShape.SetAsBox(20,20);
+        fixtureDef.isSensor = true;
+        armaSensorFixture = body->CreateFixture(&fixtureDef);
+        armaSensorFixture->SetUserData((void*)35);
+    }
+    else{
+        b2PolygonShape polyShape;
+        polyShape.SetAsBox(tam.X/2,tam.Y/2);
+        fixtureDef.shape = &polyShape;
+        fixtureDef.friction = 10.5f;
+        fixtureDef.restitution  = 0.3f;
+        fixtureDef.density  = 0.f;
+        fixture = body->CreateFixture(&fixtureDef);
+        fixture->SetUserData((void*)30);
+        body->SetFixedRotation(true);
+        polyShape.SetAsBox(20,20);
+        fixtureDef.isSensor = true;
+        armaSensorFixture = body->CreateFixture(&fixtureDef);
+        armaSensorFixture->SetUserData((void*)35);
+    }
+    siendoCogida = aux;
+}
 //---------------------------------------------------------------------------
 /**
    Metodo que actualiza la posicion y rotacion del arma
@@ -69,7 +108,8 @@ void Arma::usar(){
     Bala* bala = new Bala(500, 1000, 100);
     b2Vec2 vel = bala->getBody()->GetLinearVelocity();
     vel.x = bala->velocidad;
-    bala->getBody()->SetLinearVelocity(vel);
+    if(dir)bala->getBody()->SetLinearVelocity(vel);
+    else bala->getBody()->SetLinearVelocity(-vel);
     PhysicWorld::Instance()->GetBalas()->push_back(bala);
 }
 //---------------------------------------------------------------------------

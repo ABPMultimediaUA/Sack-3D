@@ -108,7 +108,16 @@ void Player::saltar(){
    fingirMuerte
 */
 void Player::fingirMuerte(){
+
     if(!fingiendoMuerte){
+
+        if(cogiendo){
+                romperJoint();
+            }
+
+    std::cout<<"ENTRO1"<<std::endl;
+
+        std::cout<<"ENTRO2"<<std::endl;
         b2FixtureDef fixtureDef;
         b2FixtureDef fixtureDef2;
         b2CircleShape circleShape1;
@@ -118,24 +127,28 @@ void Player::fingirMuerte(){
         body->DestroyFixture(body->GetFixtureList());
         body->DestroyFixture(body->GetFixtureList());
         body->SetFixedRotation(false);
+
         circleShape1.m_p.Set(0,-3.f);
         circleShape2.m_p.Set(0,3.f);
         circleShape1.m_radius = tam.X/2;
         circleShape2.m_radius = tam.X/2;
         fixtureDef.shape = &circleShape1;
+
         fixtureDef.friction = 0.5f;
         fixtureDef.restitution  = 0.5f;
         fixtureDef.density  = 1.f;
         personFixture = body->CreateFixture(&fixtureDef);
         personFixture->SetUserData((void*)100);
-
         fixtureDef2.shape = &circleShape2;
         fixtureDef2.friction = 0.5f;
         fixtureDef2.restitution  = 0.5f;
         fixtureDef2.density  = 5.f;
+
         body->CreateFixture(&fixtureDef2);
 
         body->ApplyAngularImpulse(direccion*10000);
+
+
 
     }else{
         b2BodyDef bodyDef;
@@ -149,7 +162,8 @@ void Player::fingirMuerte(){
         fixtureDef.friction = 0;
         fixtureDef.restitution  = 0;
         fixtureDef.density  = 10.f;
-        body->CreateFixture(&fixtureDef);
+        b2Fixture* fixture = body->CreateFixture(&fixtureDef);
+        fixture->SetUserData((void*)10);
 
         polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
         fixtureDef.isSensor = true;
@@ -160,16 +174,17 @@ void Player::fingirMuerte(){
         body->SetAngularVelocity(0);
         body->SetFixedRotation(true);
         body->ApplyLinearImpulse(b2Vec2(0,10),b2Vec2(0,0));
+
     }
 }
 //---------------------------------------------------------------------------
 /**
    crearJoint
 */
-void Player::crearJoint(b2Body* a, b2Body* b){
+void Player::crearJoint(){
     b2RevoluteJointDef jointDef;
-    jointDef.bodyA = a;
-    jointDef.bodyB = b;
+    jointDef.bodyA = body;
+    jointDef.bodyB = objPuedoCoger->getBody();
     //jointDef.collideConnected = false;
     //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
     jointDef.localAnchorA.Set(0,0);
@@ -179,6 +194,9 @@ void Player::crearJoint(b2Body* a, b2Body* b){
     joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
 
+    //dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogida(true);
+
+
 }
 //---------------------------------------------------------------------------
 /**
@@ -187,15 +205,26 @@ void Player::crearJoint(b2Body* a, b2Body* b){
 void Player::romperJoint(){
     PhysicWorld::Instance()->GetWorld()->DestroyJoint(joint);
     joint = NULL;
+
     b2Vec2 vel = body->GetLinearVelocity();
     vel.x +=20;
     vel.y +=20;
     vel.x *=100;
     vel.y *=100;
-    PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
+    objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x+3,body->GetPosition().y),0);
+    objCogido->getBody()->ApplyLinearImpulse( vel, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
+    puedoCoger = true;
+
+    dynamic_cast<Usable*>(objCogido)->setCogida(false);
 }
 //---------------------------------------------------------------------------
+/**
+   usar
+*/
+void Player::usar(){
+    dynamic_cast<Usable*>(objCogido)->usar();
+}
 /**
    Getters y setters
 */
@@ -209,6 +238,10 @@ int Player::getDireccion(){return direccion;}
 void  Player::setCogiendo(bool aux){cogiendo = aux;}
 bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
+Cogible* Player::getObjCogido(){return objCogido;}
+void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
+Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}
+void  Player::setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
 //---------------------------------------------------------------------------
 /**
    Destructor

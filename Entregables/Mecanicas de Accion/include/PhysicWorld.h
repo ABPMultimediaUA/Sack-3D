@@ -42,8 +42,10 @@ class PhysicWorld{
         std::vector<Bala*>* GetBalas();          ///< Getter
         Player* getPlayer();                     ///< Getter
         Arma* getArma();                         ///< Getter
+        std::vector<Cogible*>* GetCogibles();    ///< Getter
         void setPlayer(Player* jugador);         ///< Setter
         void setArma(Arma* arma);                ///< Setter
+        void setCogibles(std::vector<Cogible*>* aux);          ///< Setter
         virtual ~PhysicWorld();                  ///< Setter
 
         //ToDo: esto hay que quitarlo de aqui
@@ -55,6 +57,7 @@ class PhysicWorld{
         MyContactListener* contactListener;      ///< detector de colisiones
         std::vector<cuboMierda*>* cubos;         ///< eso
         std::vector<Bala*>* balas;               ///< Array de balas
+        std::vector<Cogible*>* cogibles;         ///< Array de cogibles
         Arma* arma;                              ///< arma
         Player* jugador1 = 0;                    ///<
 };

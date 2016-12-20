@@ -25,9 +25,10 @@ Clase que contiene el codigo de funcionamiento para las balas.
 /**
    Constructor
 */
-Bala::Bala(){
-    tiempoVida = 1000;
-    velocidad = 1000;
+Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
+    tiempoVida = tiempoVidaP;
+    velocidad = velocidadP;
+    desviacion = deviacionP;
     float tam = 1.5f;
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();

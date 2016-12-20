@@ -26,40 +26,21 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   break;
                   case KEY_KEY_E:
                        if(PhysicWorld::Instance()->getPlayer()->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                           PhysicWorld::Instance()->getArma()->setCogida(true);
-                           b2RevoluteJointDef jointDef;
-                           jointDef.bodyA = PhysicWorld::Instance()->getPlayer()->getBody();
-                           jointDef.bodyB = PhysicWorld::Instance()->getArma()->getBody();
-                           jointDef.localAnchorA.Set(0,3);
-                           PhysicWorld::Instance()->joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
-                           PhysicWorld::Instance()->joint->EnableMotor(true);
-                           PhysicWorld::Instance()->joint->SetMaxMotorTorque(50.3f);
-                           PhysicWorld::Instance()->getPlayer()->setCogiendo(true);
+                           PhysicWorld::Instance()->getPlayer()->crearJoint();
+                           PhysicWorld::Instance()->getPlayer()->setObjCogido(PhysicWorld::Instance()->getPlayer()->getObjPuedoCoger());
+                           dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogida(true);
                            std::cout<<"ESTOY COGIENDO"<<std::endl;
                        }
 
                        else if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                           int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
-                           PhysicWorld::Instance()->getArma()->setCogida(false);
-                           PhysicWorld::Instance()->GetWorld()->DestroyJoint(PhysicWorld::Instance()->joint);
-                           PhysicWorld::Instance()->joint = NULL;
-                           b2Vec2 vel = PhysicWorld::Instance()->getPlayer()->getBody()->GetLinearVelocity();
-                           vel.x +=400;
-                           vel.y +=400;
-                           vel.x *=400*dir;
-                           vel.y *=400;
-                           PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
-                           PhysicWorld::Instance()->getPlayer()->setCogiendo(false);
+                           PhysicWorld::Instance()->getPlayer()->romperJoint();
+                           //dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogida(false);
                            std::cout<<"NO ESTOY COGIENDO"<<std::endl;
                        }
                   break;
                   case KEY_RETURN:
                       if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
-                           Bala* bala = new Bala();
-                           b2Vec2 vel = bala->getBody()->GetLinearVelocity();
-                           vel.x = bala->velocidad*PhysicWorld::Instance()->getPlayer()->getDireccion();
-                           bala->getBody()->SetLinearVelocity(vel);
-                           PhysicWorld::Instance()->GetBalas()->push_back(bala);
+                           PhysicWorld::Instance()->getPlayer()->usar();
                   		}
                   break;
               }

@@ -117,7 +117,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481563931 source:d:\development\sack-3d\entregables\mecanicas de accion\main.cpp
+1482246485 source:d:\development\sack-3d\entregables\mecanicas de accion\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -130,10 +130,11 @@
 	"Map.h"
 	"Camera.h"
 
-1482082555 d:\development\sack-3d\entregables\mecanicas de accion\include\player.h
+1482244940 d:\development\sack-3d\entregables\mecanicas de accion\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
+	"Cogible.h"
 
 1481563931 d:\development\sack-3d\entregables\mecanicas de accion\include\myeventreceiver.h
 	<Box2D/Box2D.h>
@@ -145,7 +146,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1481563931 d:\development\sack-3d\entregables\mecanicas de accion\include\physicworld.h
+1482246581 d:\development\sack-3d\entregables\mecanicas de accion\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -160,11 +161,12 @@
 	"Box2D/Box2D.h"
 	<iostream>
 
-1482082555 d:\development\sack-3d\entregables\mecanicas de accion\include\arma.h
+1482244713 d:\development\sack-3d\entregables\mecanicas de accion\include\arma.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
+	"Usable.h"
 
-1481563931 d:\development\sack-3d\entregables\mecanicas de accion\include\bala.h
+1482244822 d:\development\sack-3d\entregables\mecanicas de accion\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -183,12 +185,12 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482082555 source:d:\development\sack-3d\entregables\mecanicas de accion\src\arma.cpp
+1482247687 source:d:\development\sack-3d\entregables\mecanicas de accion\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482082555 source:d:\development\sack-3d\entregables\mecanicas de accion\src\bala.cpp
+1482244844 source:d:\development\sack-3d\entregables\mecanicas de accion\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -212,26 +214,40 @@
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1481563931 source:d:\development\sack-3d\entregables\mecanicas de accion\src\mycontactlistener.cpp
+1482246229 source:d:\development\sack-3d\entregables\mecanicas de accion\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1482082555 source:d:\development\sack-3d\entregables\mecanicas de accion\src\myeventreceiver.cpp
+1482249098 source:d:\development\sack-3d\entregables\mecanicas de accion\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1481563931 source:d:\development\sack-3d\entregables\mecanicas de accion\src\physicworld.cpp
+1482246671 source:d:\development\sack-3d\entregables\mecanicas de accion\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
+	"Cogible.h"
 
 1481563931 source:d:\development\sack-3d\entregables\mecanicas de accion\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482082555 source:d:\development\sack-3d\entregables\mecanicas de accion\src\player.cpp
+1482256066 source:d:\development\sack-3d\entregables\mecanicas de accion\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
+
+1482244450 d:\development\sack-3d\entregables\mecanicas de accion\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482248569 d:\development\sack-3d\entregables\mecanicas de accion\include\usable.h
+	"Cogible.h"
+
+1482245276 source:d:\development\sack-3d\entregables\mecanicas de accion\src\cogible.cpp
+	"Cogible.h"
+
+1482248591 source:d:\development\sack-3d\entregables\mecanicas de accion\src\usable.cpp
+	"Usable.h"
 

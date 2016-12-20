@@ -205,13 +205,18 @@ void Player::crearJoint(){
 void Player::romperJoint(){
     PhysicWorld::Instance()->GetWorld()->DestroyJoint(joint);
     joint = NULL;
-
     b2Vec2 vel = body->GetLinearVelocity();
+    if(direccion==1){
     vel.x +=20;
+    }else if (direccion==-1){
+    vel.x -=20;
+    }
     vel.y +=20;
-    vel.x *=100;
-    vel.y *=100;
-    objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x+3,body->GetPosition().y),0);
+    //vel.x *=100;
+    //vel.y *=100;
+    //vel.x= vel.x * direccion;
+    if(direccion==1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x+3,body->GetPosition().y),0);
+    if(direccion==-1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x-3,body->GetPosition().y),0);
     objCogido->getBody()->ApplyLinearImpulse( vel, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
     puedoCoger = true;

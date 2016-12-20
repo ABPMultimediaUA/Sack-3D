@@ -37,7 +37,9 @@
 		<Unit filename="include/Arma.h" />
 		<Unit filename="include/Bala.h" />
 		<Unit filename="include/Camera.h" />
-		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Cogible.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/IrrManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MyContactListener.h" />
@@ -45,11 +47,17 @@
 		<Unit filename="include/PhysicWorld.h" />
 		<Unit filename="include/Platform.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/Usable.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/cuboMierda.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Arma.cpp" />
 		<Unit filename="src/Bala.cpp" />
 		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Cogible.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/IrrManager.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
@@ -57,6 +65,9 @@
 		<Unit filename="src/PhysicWorld.cpp" />
 		<Unit filename="src/Platform.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Usable.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/cuboMierda.cpp" />
 		<Extensions>
 			<code_completion />

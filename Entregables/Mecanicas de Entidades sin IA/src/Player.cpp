@@ -186,7 +186,8 @@ void Player::recibeImpulso(int fuerza){
 */
 void Player::teletransportar(){
     teletransportado = false;
-    nextPos.x += (direccion*10);
+    if(direccion != 0) nextPos.x += (direccion*10);
+    else nextPos.x += (1*10);
     velActual = body->GetLinearVelocity();
     body->SetTransform(nextPos, body->GetAngle());
     body->SetLinearVelocity(velActual);

@@ -62,7 +62,8 @@ void MyContactListener::BeginContact(b2Contact* contact){
 	    PhysicWorld::Instance()->getPlayer()->setPuedoCoger(true);
 	}
 	//Player entra en contacto con un muelle
-	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)){
+	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)
+		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == MUELLE)){
 	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
             if((*it2)->getBody() == contact->GetFixtureB()->GetBody()){
                 PhysicWorld::Instance()->getPlayer()->recibeImpulso((*it2)->getFuerza());

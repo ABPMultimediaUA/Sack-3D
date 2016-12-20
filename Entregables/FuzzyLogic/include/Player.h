@@ -19,7 +19,6 @@ Clase que define un player
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
 #include "MyEventReceiver.h"
-#include "fuzzy/FuzzyModule.h"
 
 using namespace irr;
 using namespace core;
@@ -35,7 +34,7 @@ class Player{
     public:
         Player(vector3df pos);                   ///< Constructor
         void update();                           ///< Actualizar
-        void mover(double vel, int dir);                            ///< Mover
+        void mover(int vel, int dir);                            ///< Mover
         void saltar();                           ///< Saltar
         void fingirMuerte();                     ///< Hacerse el muerto
         void crearJoint(b2Body*, b2Body*);       ///< ???
@@ -52,9 +51,6 @@ class Player{
         void setDobleSaltando(bool);             ///< Setter
         void setCogiendo(bool aux);              ///< Setter
         void setPuedoCoger(bool aux);            ///< Setter
-        void InitializeFuzzyModule();
-
-        double GetDeseabilidad(double distancia);
         virtual ~Player();                       ///< Destructor
 
     protected:
@@ -65,9 +61,6 @@ class Player{
         b2RevoluteJoint* joint;                  ///<
         b2RevoluteJointDef* jointDef;            ///<
         float increment;
-        FuzzyModule   m_FuzzyModule;
-
-        double m_ultimaVel;
         int x;                                   ///<
         int y;                                   ///<
         int vel;                                 ///<

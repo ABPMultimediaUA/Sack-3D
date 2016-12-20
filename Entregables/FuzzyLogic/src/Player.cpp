@@ -18,21 +18,21 @@ Clase que define un player
 #include <math.h>
 
 #define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
-#define VELOCITATOR        10
-#define DECELERATIX        50
-#define MUY_LEJOS          50
-#define LEJOS              40
-#define DIST_MEDIA         30
-#define CERCA              20
-#define MUY_CERCA          10
-#define MUY_RAPIDO         VELOCITATOR*5
-#define RAPIDO             VELOCITATOR*4
-#define VEL_MEDIA          VELOCITATOR*3
-#define DESPACIO           VELOCITATOR*2
-#define MUY_DESPACIO       VELOCITATOR
-#define IZQUIERDA          1
-#define DERECHA            2
-#define NINGUNA            0
+#define VELOCITATOR        10        
+#define DECELERATIX        50         
+#define MUY_LEJOS          50         
+#define LEJOS              40     
+#define DIST_MEDIA         30             
+#define CERCA              20     
+#define MUY_CERCA          10         
+#define MUY_RAPIDO         VELOCITATOR*5             
+#define RAPIDO             VELOCITATOR*4             
+#define VEL_MEDIA          VELOCITATOR*3         
+#define DESPACIO           VELOCITATOR*2         
+#define MUY_DESPACIO       VELOCITATOR            
+#define IZQUIERDA          1            
+#define DERECHA            2            
+#define NINGUNA            0            
 
 /******************************************************************************
                                Player
@@ -78,9 +78,8 @@ Player::Player(vector3df pos){
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
-    body->SetLinearVelocity(b2Vec2(1,1));
+
     eventReceiver = IrrManager::Instance()->getEventReciever();
-    InitializeFuzzyModule();
 }
 //---------------------------------------------------------------------------
 /**
@@ -163,7 +162,7 @@ void Player::update(){
     int width = abs(intersectionPoint.x-p1.x);
     int height = abs(intersectionPoint.y-p1.y);
     float distance = sqrt(pow(width,2)+pow(height,2));
-    if(distance>70)distance=70;
+
     int width2 = abs(intersectionPoint2.x-p1.x);
     int height2 = abs(intersectionPoint2.y-p1.y);
     float distance2 = sqrt(pow(width2,2)+pow(height2,2));
@@ -186,44 +185,18 @@ void Player::update(){
     //IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionDcha , irr::video::SColor(255, 200, 50, 50) );
     //IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionIzq , irr::video::SColor(255, 200, 50, 50) );
 }
-void Player::InitializeFuzzyModule(){
-  FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
-
-  FzSet cerca = distancia.AddLeftShoulderSet("cerca",0,20,40);
-  FzSet medio = distancia.AddTriangularSet("medio",20,40,60);
-  FzSet lejos = distancia.AddRightShoulderSet("lejos",40,60,110);
-
-  FuzzyVariable& velocidad = m_FuzzyModule.CreateFLV("velocidad");
-  FzSet rapido = velocidad.AddRightShoulderSet("mucho", 50, 75, 100);
-  FzSet normal = velocidad.AddTriangularSet("medio", 25, 50, 75);
-  FzSet lento = velocidad.AddLeftShoulderSet("poco", 0, 25, 50);
-
-  m_FuzzyModule.AddRule(cerca, lento);
-  m_FuzzyModule.AddRule(medio, normal);
-  m_FuzzyModule.AddRule(lejos,rapido );
-}
-double Player::GetDeseabilidad(double distancia)
-{
-  //fuzzify distance and amount of ammo
-  m_FuzzyModule.Fuzzify("distancia", distancia);
-
-  m_ultimaVel = m_FuzzyModule.DeFuzzify("velocidad", FuzzyModule::max_av);
-
-  return m_ultimaVel;
-}
 //---------------------------------------------------------------------------
 /**
    IA
 */
 void Player::IA(float frente, float izq, float dcha){
+    int vel = VEL_MEDIA;
     int dir = NINGUNA;
-
-    //if(frente>MUY_LEJOS){  vel = RAPIDO;  }
-    //else if(frente>LEJOS){  vel = VEL_MEDIA;  }
-    //else if(frente>DIST_MEDIA){  vel = DESPACIO;  }
-    //else if(frente>CERCA){  vel = MUY_DESPACIO;  }
-
-    //GIRAR EL COCHE
+    
+    if(frente>MUY_LEJOS){  vel = RAPIDO;  }
+    else if(frente>LEJOS){  vel = VEL_MEDIA;  }
+    else if(frente>DIST_MEDIA){  vel = DESPACIO;  }
+    else if(frente>CERCA){  vel = MUY_DESPACIO;  }
     if(izq<dcha){
         if(izq <DIST_MEDIA){dir = DERECHA;}
         else if(dcha <DIST_MEDIA){dir = IZQUIERDA;}
@@ -236,17 +209,14 @@ void Player::IA(float frente, float izq, float dcha){
     else if(dcha <DIST_MEDIA){
         dir = IZQUIERDA;
     }
-    double des = GetDeseabilidad(frente);
-    //std::cout<<des<<std::endl;
-    //mover((int)frente, dir);
-    mover(des, dir);
+    mover(vel, dir);
 
 }
 //---------------------------------------------------------------------------
 /**
    Mueve
 */
-void Player::mover(double vel , int dir){
+void Player::mover(int vel , int dir){
     b2Vec2 velocidad;
    if(dir == 1){
             cont+= 0.05f;

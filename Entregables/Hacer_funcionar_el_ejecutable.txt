@@ -1,0 +1,12 @@
+Para que el ejecutable funcione en cualquier ordenador (De momento el de Manu, el de Roberto y uno del laboratorio)
+hay que añadir las librerias 
+
+Irrlicht.dll
+libgcc_s_dw2-1.dll
+libstdc++6.dll
+
+y la carpeta
+
+media
+
+a la misma carpeta donde se encuentre el ejecutable

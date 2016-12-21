@@ -49,7 +49,7 @@ class Bala{
     protected:                                                      
         IMeshSceneNode* node;              ///<                                          
 	    b2Body* body;                      ///<                                 
-	     b2Fixture* balaFixture;           ///<                                             
+	    b2Fixture* balaFixture;           ///<                                             
 
     private:
 };

@@ -20,14 +20,26 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   case KEY_SPACE:
                       PhysicWorld::Instance()->getPlayer()->saltar();
                   break;
-                  
-                  case KEY_KEY_M:
-                      //IrrManager::Instance()->driver->beginScene(true, true,SColor(255, 217, 194, 140));
-                      //std::cout<< PhysicWorld::Instance()->getMap()->getMapa()<<std::endl;
+
+                  case KEY_KEY_N:
+                      std::cout<<PhysicWorld::Instance()->getPlatforms()->size()<<std::endl;
                       
+                  break;
+
+                  case KEY_KEY_M:
+                      std::cout<<PhysicWorld::Instance()->getPlatforms()->size()<<std::endl;
+                      for(int i=0; i < PhysicWorld::Instance()->getPlatforms()->size(); i++){
+
+                              PhysicWorld::Instance()->getPlatforms()->at(i)->getNode()->remove();
+                              PhysicWorld::Instance()->getPlatforms()->at(i)->getBody()->DestroyFixture(PhysicWorld::Instance()->getPlatforms()->at(i)->getPlatformFixture());
+                              //PhysicWorld::Instance()->getPlatforms()->erase(PhysicWorld::Instance()->getPlatforms()->begin()+i);
+                      }
+                      PhysicWorld::Instance()->getPlatforms()->clear();
                       PhysicWorld::Instance()->crearMapa(PhysicWorld::Instance()->getMap()->getMapa()+1);
                   break;
-                  
+
+
+
                   case KEY_KEY_Q:
                       PhysicWorld::Instance()->getPlayer()->fingirMuerte();
                   break;

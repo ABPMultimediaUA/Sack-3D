@@ -2143,7 +2143,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1482246848 c:\users\robeert\desktop\limpio\include\physicworld.h
+1482260660 c:\users\robeert\desktop\limpio\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -2154,6 +2154,7 @@
 	"Arma.h"
 	"Bala.h"
 	"Map.h"
+	"Platform.h"
 	<vector>
 
 1481818609 c:\users\robeert\desktop\limpio\include\bot.h
@@ -2175,11 +2176,11 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1481268938 c:\users\robeert\desktop\limpio\include\bala.h
+1482313660 c:\users\robeert\desktop\limpio\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1481271068 c:\users\robeert\desktop\limpio\include\platform.h
+1482348241 c:\users\robeert\desktop\limpio\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -2217,28 +2218,30 @@
 1481555435 source:c:\users\robeert\desktop\limpio\src\irrmanager.cpp
 	"IrrManager.h"
 
-1482256920 source:c:\users\robeert\desktop\limpio\src\map.cpp
+1482260839 source:c:\users\robeert\desktop\limpio\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"Platform.h"
+	"PhysicWorld.h"
 
 1481280808 source:c:\users\robeert\desktop\limpio\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1482257161 source:c:\users\robeert\desktop\limpio\src\myeventreceiver.cpp
+1482318987 source:c:\users\robeert\desktop\limpio\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1482248587 source:c:\users\robeert\desktop\limpio\src\physicworld.cpp
+1482260590 source:c:\users\robeert\desktop\limpio\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Map.h"
+	"Platform.h"
 
-1481280942 source:c:\users\robeert\desktop\limpio\src\platform.cpp
+1482316932 source:c:\users\robeert\desktop\limpio\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

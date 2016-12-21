@@ -16,6 +16,8 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 #include "PhysicWorld.h"
 #include "MyContactListener.h"
 #include "Map.h"
+#include "Platform.h"
+
 
 #define VELITER 10              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
 #define POSITER 10              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
@@ -46,6 +48,7 @@ PhysicWorld::PhysicWorld(){
 	world = new b2World(b2Vec2(0.0f, -10.0f), true);
 	cubos = new std::vector<cuboMierda*>();
 	balas = new std::vector<Bala*>();
+  platforms = new std::vector<Platform*>();
 	contactListener = new MyContactListener();
 	world->SetContactListener(contactListener);
 }
@@ -96,7 +99,10 @@ Player* PhysicWorld::getPlayer(){return jugador1;}
 Bot* PhysicWorld::getBot(){return bot1;}
 b2World* PhysicWorld::GetWorld(){return world;}
 std::vector<cuboMierda*>* PhysicWorld::GetCubos(){return cubos;}
+
 std::vector<Bala*>* PhysicWorld::GetBalas(){return balas;}
+std::vector<Platform*>* PhysicWorld::getPlatforms(){return platforms;}
+            
 Arma* PhysicWorld::getArma(){return arma;}
 void PhysicWorld::setPlayer(Player* p){jugador1 = p;}
 void PhysicWorld::setBot(Bot* p){bot1 = p;}

@@ -32,11 +32,19 @@ using namespace gui;
 *******************************************************************************/
 class Platform{
     public:
-        Platform(vector3df pos, vector3df tam,SColor color); 	///< Constructor																							
-        virtual ~Platform();									///< Destructor															
+        Platform(vector3df pos, vector3df tam,SColor color); 	///< Constructor		
+        b2Fixture* getPlatformFixture();       
+        IMeshSceneNode* getNode();         						///< Getter del nodo irrlicht
+        b2Body* getBody();                 ///< Getter del body                                      																	
+        virtual ~Platform();									///< Destructor	
+    
+    protected:                                                      
+        IMeshSceneNode* node;              ///< 
+
     private:																								
     	IMesh* mesh;											///< Malla													
 	    b2Body* body;											///< Cuerpo fisico													
+	    b2Fixture* platformFixture;
 };																								
 																								
 #endif // PLATFORM_H

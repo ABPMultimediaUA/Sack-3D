@@ -18,6 +18,8 @@ Overview:
 #include <irrlicht.h>
 #include <Box2D/Box2D.h>
 #include "Platform.h"
+#include "PhysicWorld.h"
+
 
 using namespace irr;
 using namespace core;
@@ -57,8 +59,17 @@ void Map::cargarMapa(stringw file){
             int y = xml->getAttributeValueAsInt(L"y");
             int width = xml->getAttributeValueAsInt(L"width");
             int height = xml->getAttributeValueAsInt(L"height");
-            Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),
+            //PhysicWorld::Instance()->crearPlataforma(x, y, width, height);
+            Platform* p = new Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),
                      vector3df(width, height, 10),SColor(255, rand()%255, rand()%255, rand()%255));
+
+            PhysicWorld::Instance()->getPlatforms()->push_back(p);
+            
+            //bala->getBody()->SetLinearVelocity(vel);
+            //PhysicWorld::Instance()->GetBalas()->push_back(bala);
+
+
+
         }
     }
 }

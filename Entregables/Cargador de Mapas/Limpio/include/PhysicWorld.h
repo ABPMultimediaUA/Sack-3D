@@ -26,6 +26,7 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 #include "Arma.h"
 #include "Bala.h"
 #include "Map.h"
+#include "Platform.h"
 #include <vector>
 
 /******************************************************************************
@@ -42,6 +43,7 @@ class PhysicWorld{
         b2World* GetWorld();                     ///< Getter            
         std::vector<cuboMierda*>* GetCubos();    ///< Getter                            
         std::vector<Bala*>* GetBalas();          ///< Getter                    
+        std::vector<Platform*>* getPlatforms();  ///< Getter                    
         Player* getPlayer();                     ///< Getter            
         Bot* getBot();                           ///< Getter    
         Arma* getArma();                         ///< Getter
@@ -51,7 +53,7 @@ class PhysicWorld{
         void setArma(Arma* arma);                ///< Setter                
         virtual ~PhysicWorld();                  ///< Setter 
         int getJugadores();
-        void crearMapa(int numero);           
+        void crearMapa(int numero);
 
         //ToDo: esto hay que quitarlo de aqui
         b2RevoluteJoint* joint;
@@ -61,7 +63,8 @@ class PhysicWorld{
         b2World* world;                          ///< variable mundo de box2d              
         MyContactListener* contactListener;      ///< detector de colisiones                               
         std::vector<cuboMierda*>* cubos;         ///< eso                              
-        std::vector<Bala*>* balas;               ///< Array de balas                                      
+        std::vector<Bala*>* balas;               ///< Array de balas
+        std::vector<Platform*>* platforms;       ///< Array de plataformas                                      
         Arma* arma;                              ///< arma
         Map* mapa;                                         
         Player* jugador1 = 0;                    ///<                   

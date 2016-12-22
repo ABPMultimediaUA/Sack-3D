@@ -2180,11 +2180,11 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1482348241 c:\users\robeert\desktop\limpio\include\platform.h
+1482401549 c:\users\robeert\desktop\limpio\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1482244891 c:\users\robeert\desktop\limpio\include\map.h
+1482401406 c:\users\robeert\desktop\limpio\include\map.h
 	<irrlicht.h>
 
 1481318835 c:\users\robeert\desktop\limpio\include\camera.h
@@ -2218,7 +2218,7 @@
 1481555435 source:c:\users\robeert\desktop\limpio\src\irrmanager.cpp
 	"IrrManager.h"
 
-1482260839 source:c:\users\robeert\desktop\limpio\src\map.cpp
+1482401308 source:c:\users\robeert\desktop\limpio\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	<irrlicht.h>
@@ -2230,7 +2230,7 @@
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1482318987 source:c:\users\robeert\desktop\limpio\src\myeventreceiver.cpp
+1482401445 source:c:\users\robeert\desktop\limpio\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"

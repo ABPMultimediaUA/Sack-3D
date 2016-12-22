@@ -44,11 +44,13 @@ Platform::Platform(vector3df pos, vector3df tam,SColor color){
 
 }
 
-b2Fixture* Platform::getPlatformFixture(){return platformFixture;}
+IMeshSceneNode* Platform::getNode(){
+    return node;
+}
 
-IMeshSceneNode* Platform::getNode(){return node;}
-
-b2Body* Platform::getBody(){return body;}
+b2Body* Platform::getBody(){
+    return body;
+}
 /*
 */
 //---------------------------------------------------------------------------

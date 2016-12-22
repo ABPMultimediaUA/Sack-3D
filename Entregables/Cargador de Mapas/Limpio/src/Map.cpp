@@ -77,6 +77,10 @@ void Map::cargarMapa(stringw file){
 int Map::getMapa(){
   return numMapa;
 }
+
+void Map::setMapa(int numero){
+  numMapa = numero;
+}
 //---------------------------------------------------------------------------
 /**
    Destructor

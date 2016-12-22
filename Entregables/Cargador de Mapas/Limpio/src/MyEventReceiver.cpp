@@ -23,7 +23,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
 
                   case KEY_KEY_N:
                       std::cout<<PhysicWorld::Instance()->getPlatforms()->size()<<std::endl;
-                      
+
                   break;
 
                   case KEY_KEY_M:
@@ -31,11 +31,17 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                       for(int i=0; i < PhysicWorld::Instance()->getPlatforms()->size(); i++){
 
                               PhysicWorld::Instance()->getPlatforms()->at(i)->getNode()->remove();
-                              PhysicWorld::Instance()->getPlatforms()->at(i)->getBody()->DestroyFixture(PhysicWorld::Instance()->getPlatforms()->at(i)->getPlatformFixture());
+                              PhysicWorld::Instance()->GetWorld()->DestroyBody(PhysicWorld::Instance()->getPlatforms()->at(i)->getBody());
                               //PhysicWorld::Instance()->getPlatforms()->erase(PhysicWorld::Instance()->getPlatforms()->begin()+i);
                       }
                       PhysicWorld::Instance()->getPlatforms()->clear();
+
+                      if(PhysicWorld::Instance()->getMap()->getMapa()+1 > 3){
+                          PhysicWorld::Instance()->getMap()->setMapa(0);
+                      }
+
                       PhysicWorld::Instance()->crearMapa(PhysicWorld::Instance()->getMap()->getMapa()+1);
+
                   break;
 
 

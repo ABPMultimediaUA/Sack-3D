@@ -33,7 +33,8 @@ class Map{
         Map(int numero);		///< Constructor
         void cargarMapa(stringw file);
         void elegirMapa(int numero);
-        int getMapa();		
+        int getMapa();
+        void setMapa(int numero);		
         virtual ~Map();			///< Destructor	
     private:
     	int numMapa;

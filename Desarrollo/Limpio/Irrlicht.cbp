@@ -38,15 +38,14 @@
 		<Unit filename="include/Bala.h" />
 		<Unit filename="include/Bot.h" />
 		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Camera.h" />
 		<Unit filename="include/IrrManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MyContactListener.h" />
 		<Unit filename="include/MyEventReceiver.h" />
-		<Unit filename="include/PhysicBody.h" />
 		<Unit filename="include/PhysicWorld.h" />
 		<Unit filename="include/Platform.h" />
 		<Unit filename="include/Player.h" />
-		<Unit filename="include/camera.h" />
 		<Unit filename="include/cuboMierda.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Arma.cpp" />
@@ -57,7 +56,6 @@
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
-		<Unit filename="src/PhysicBody.cpp" />
 		<Unit filename="src/PhysicWorld.cpp" />
 		<Unit filename="src/Platform.cpp" />
 		<Unit filename="src/Player.cpp" />

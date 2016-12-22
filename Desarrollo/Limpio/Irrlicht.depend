@@ -2114,8 +2114,8 @@
 	"Player.h"
 	"Bot.h"
 
-<<<<<<< HEAD
-=======
+1481325579 D
+
 1481315275 source:c:\codesource\limpioprueba\main.cpp
 	<iostream>
 	<irrlicht.h>
@@ -2248,4 +2248,137 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
->>>>>>> bc166d53bcca898772f384af830d20e4d8f24540
+1481327948 66d53bcca898772f384af830d20e4d8f24540
+
+1481315275 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1481271516 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481270632 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1481270080 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481271028 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1481269156 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1481270438 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481270570 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1481268810 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481268938 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481271068 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481270478 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\map.h
+	<irrlicht.h>
+
+1481318835 c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481329695 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481330109 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481279432 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1481325579 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1481328641 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481328385 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\irrmanager.cpp
+	"IrrManager.h"
+
+1481326671 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1481280808 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1481330000 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1481310331 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1481280942 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481327948 source:c:\users\esgar\onedrive\documentos\sack-3d\desarrollo\limpio\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

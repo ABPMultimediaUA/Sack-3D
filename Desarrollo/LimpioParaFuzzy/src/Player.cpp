@@ -71,6 +71,102 @@ void Player::update(){
     mover();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
+
+       //set up input
+      b2RayCastInput input;
+      b2RayCastInput input2;
+      b2RayCastInput input3;
+      b2Vec2 p1 = body->GetPosition();
+      b2Vec2 p2 = b2Vec2(body->GetPosition().x+body->GetLinearVelocity().x*100,body->GetPosition().y+body->GetLinearVelocity().y*100);
+      b2PolygonShape* polyShape = (b2PolygonShape*)body->GetFixtureList()->GetShape();
+      b2Vec2 esquinaDcha = body->GetWorldPoint(b2Vec2(polyShape->GetVertex(3).x,polyShape->GetVertex(3).y));
+      b2Vec2 vectDcha = b2Vec2(p1.x-esquinaDcha.x,p1.y-esquinaDcha.y);
+      b2Vec2 esquinaIzq = body->GetWorldPoint(b2Vec2(polyShape->GetVertex(2).x,polyShape->GetVertex(2).y));
+      b2Vec2 vectIzq = b2Vec2(p1.x-esquinaIzq.x,p1.y-esquinaIzq.y);
+      vector3df izq = vector3df(p1.x+vectDcha.x*100,p1.y+vectDcha.y*100,0);
+      vector3df dcha = vector3df(p1.x+vectIzq.x*100,p1.y+vectIzq.y*100,0);
+      b2Vec2 p22 = b2Vec2(izq.X,izq.Y);
+      b2Vec2 p23 = b2Vec2(dcha.X,dcha.Y);
+      input.p1 = p1;
+      input2.p1 = p1;
+      input3.p1 = p1;
+      input.p2 = p2;
+      input2.p2 = p22;
+      input3.p2 = p23;
+      input.maxFraction = 1;
+      input2.maxFraction = 1;
+      input3.maxFraction = 1;
+
+      //check every fixture of every body to find closest
+      float closestFraction = 1; //start with end of line as p2
+      float closestFraction2 = 1; //start with end of line as p2
+      float closestFraction3 = 1; //start with end of line as p2
+      b2Vec2 intersectionNormal(0,0);
+      b2Vec2 intersectionNormal2(0,0);
+      b2Vec2 intersectionNormal3(0,0);
+      for (b2Body* b = PhysicWorld::Instance()->GetWorld()->GetBodyList(); b; b = b->GetNext()) {
+          for (b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext()) {
+              b2RayCastOutput output;
+              if ( ! f->RayCast( &output, input,0 ) )
+                  continue;
+              if ( output.fraction < closestFraction ) {
+                  closestFraction = output.fraction;
+                  intersectionNormal = output.normal;
+              }
+          }
+      }
+    b2Vec2 intersectionPoint = p1 + closestFraction * (p2 - p1);
+    for (b2Body* b = PhysicWorld::Instance()->GetWorld()->GetBodyList(); b; b = b->GetNext()) {
+          for (b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext()) {
+              b2RayCastOutput output;
+              if ( ! f->RayCast( &output, input2,0 ) )
+                  continue;
+              if ( output.fraction < closestFraction2 ) {
+                  closestFraction2 = output.fraction;
+                  intersectionNormal2 = output.normal;
+              }
+          }
+      }
+    b2Vec2 intersectionPoint2 = p1 + closestFraction2 * (p22 - p1);
+    for (b2Body* b = PhysicWorld::Instance()->GetWorld()->GetBodyList(); b; b = b->GetNext()) {
+          for (b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext()) {
+              b2RayCastOutput output;
+              if ( ! f->RayCast( &output, input3,0 ) )
+                  continue;
+              if ( output.fraction < closestFraction3 ) {
+                  closestFraction3 = output.fraction;
+                  intersectionNormal3 = output.normal;
+              }
+          }
+      }
+    b2Vec2 intersectionPoint3 = p1 + closestFraction3 * (p23 - p1);
+    int width = abs(intersectionPoint.x-p1.x);
+    int height = abs(intersectionPoint.y-p1.y);
+    float distance = sqrt(pow(width,2)+pow(height,2));
+    if(distance>70)distance=70;
+    int width2 = abs(intersectionPoint2.x-p1.x);
+    int height2 = abs(intersectionPoint2.y-p1.y);
+    float distance2 = sqrt(pow(width2,2)+pow(height2,2));
+
+    int width3 = abs(intersectionPoint3.x-p1.x);
+    int height3 = abs(intersectionPoint3.y-p1.y);
+    float distance3 = sqrt(pow(width3,2)+pow(height3,2));
+
+
+    //IA(distance, distance2, distance3);
+
+    vector3df vision = vector3df(intersectionPoint.x,intersectionPoint.y,0);
+    vector3df visionDcha = vector3df(intersectionPoint2.x,intersectionPoint2.y,0);
+    vector3df visionIzq = vector3df(intersectionPoint3.x,intersectionPoint3.y,0);
+
+
+
+    IrrManager::Instance()->getDriver()->setTransform(video::ETS_WORLD, core::IdentityMatrix);
+    IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),vision , irr::video::SColor(255, 200, 50, 50) );
+    IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionDcha , irr::video::SColor(255, 200, 50, 50) );
+    IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionIzq , irr::video::SColor(255, 200, 50, 50) );
+
+    if(intersectionPoint.x-body->GetPosition().x < 20)saltar();
 }
 //---------------------------------------------------------------------------
 /**
@@ -78,7 +174,7 @@ void Player::update(){
 */
 void Player::mover(){
     if(!fingiendoMuerte){
-        int dir = 0;
+        int dir = 1;
         if(eventReceiver->IsKeyDown(KEY_KEY_A))dir = -1;
         else if(eventReceiver->IsKeyDown(KEY_KEY_D))dir = 1;
         body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));

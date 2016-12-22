@@ -56,6 +56,20 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/cuboMierda.h" />
+		<Unit filename="include/fuzzy/FuzzyHedges.h" />
+		<Unit filename="include/fuzzy/FuzzyModule.h" />
+		<Unit filename="include/fuzzy/FuzzyOperators.h" />
+		<Unit filename="include/fuzzy/FuzzyRule.h" />
+		<Unit filename="include/fuzzy/FuzzySet.h" />
+		<Unit filename="include/fuzzy/FuzzySet_LeftShoulder.h" />
+		<Unit filename="include/fuzzy/FuzzySet_RightShoulder.h" />
+		<Unit filename="include/fuzzy/FuzzySet_Shoulder.h" />
+		<Unit filename="include/fuzzy/FuzzySet_Singleton.h" />
+		<Unit filename="include/fuzzy/FuzzySet_Triangle.h" />
+		<Unit filename="include/fuzzy/FuzzyTerm.h" />
+		<Unit filename="include/fuzzy/FuzzyVariable.h" />
+		<Unit filename="include/fuzzy/FzSet.h" />
+		<Unit filename="include/fuzzy/utils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Arma.cpp" />
 		<Unit filename="src/Bala.cpp" />
@@ -79,6 +93,13 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/cuboMierda.cpp" />
+		<Unit filename="src/fuzzy/FuzzyModule.cpp" />
+		<Unit filename="src/fuzzy/FuzzyOperators.cpp" />
+		<Unit filename="src/fuzzy/FuzzySet_LeftShoulder.cpp" />
+		<Unit filename="src/fuzzy/FuzzySet_RightShoulder.cpp" />
+		<Unit filename="src/fuzzy/FuzzySet_Singleton.cpp" />
+		<Unit filename="src/fuzzy/FuzzySet_Triangle.cpp" />
+		<Unit filename="src/fuzzy/FuzzyVariable.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

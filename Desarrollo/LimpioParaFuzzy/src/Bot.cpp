@@ -107,7 +107,7 @@ double Bot::getDistancia(b2Body* a, b2Body* b){
 //---------------------------------------------------------------------------
 
 void Bot::InicializarFuzzy(){
-
+/*
     //DISTANCIA
 
     FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
@@ -140,9 +140,9 @@ void Bot::InicializarFuzzy(){
     m_FuzzyModule.AddRule(cerca, mucho_p);
 
     //VALORACIOM Y DISTANCIA
-    
-    //
 
+    //
+*/
 }
 
 /**

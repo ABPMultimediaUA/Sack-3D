@@ -45,8 +45,8 @@ int main(){
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(-140,0,0));
-    Bot* bot1  = new Bot(vector3df(100,-20,0));
+    Player* player = new Player(vector3df(-200,-190,0));
+    //Bot* bot1  = new Bot(vector3df(100,-20,0));
     //CREACION DE ARMAS//
 
     Arma* arma = new Arma(vector3df(-320,-20,0));
@@ -57,7 +57,7 @@ int main(){
     PhysicWorld::Instance()->setCogibles(cogibles);
     ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
-    PhysicWorld::Instance()->setBot(bot1);
+    //PhysicWorld::Instance()->setBot(bot1);
     PhysicWorld::Instance()->setArma(arma);
     Map* mapa = new Map("media/Map.tmx");
     ///////////////////////////
@@ -80,7 +80,7 @@ int main(){
             camera->update(TimeStamp);
             arma->actualiza();
             escopeta->actualiza();
-            bot1->update();
+            //bot1->update();
 
 
             IrrManager::Instance()->drawAll();

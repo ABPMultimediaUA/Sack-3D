@@ -1,0 +1,1260 @@
+# depslib dependency file v1.0
+1482075248 source:c:\users\pcj\desktop\fuzzylogic\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482258514 c:\users\pcj\desktop\fuzzylogic\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482074246 c:\users\pcj\desktop\fuzzylogic\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482074274 c:\users\pcj\desktop\fuzzylogic\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\map.h
+	<irrlicht.h>
+
+1481814064 c:\users\pcj\desktop\fuzzylogic\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482073814 source:c:\users\pcj\desktop\fuzzylogic\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482073753 source:c:\users\pcj\desktop\fuzzylogic\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481814064 source:c:\users\pcj\desktop\fuzzylogic\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1481814064 source:c:\users\pcj\desktop\fuzzylogic\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482073756 source:c:\users\pcj\desktop\fuzzylogic\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482075582 source:c:\users\pcj\desktop\fuzzylogic\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482075778 source:c:\users\pcj\desktop\fuzzylogic\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1481814064 source:c:\users\pcj\desktop\fuzzylogic\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482071473 source:c:\users\pcj\desktop\fuzzylogic\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1481814064 source:c:\users\pcj\desktop\fuzzylogic\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482072746 source:c:\users\pcj\desktop\fuzzylogic\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482251629 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482251629 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyterm.h
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482252052 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482252272 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"FuzzyModule.h"
+
+1409174384 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
+	"FuzzyOperators.h"
+
+1409174384 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482252271 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1409174384 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482252205 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1409174384 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
+	"FuzzySet_Singleton.h"
+
+1482252210 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1409174384 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_triangle.cpp
+	"FuzzySet_Triangle.h"
+
+1482252303 c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482255755 source:c:\users\pcj\desktop\fuzzylogic\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482259658 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482255781 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482251629 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482251629 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482252052 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyterm.h
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1409174384 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482252303 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252271 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252205 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252210 c:\users\pcj\desktop\fuzzylogic\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482259242 source:c:\users\pcj\desktop\fuzzylogic\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+
+1482075248 source:c:\users\jose\desktop\fuzzylogic\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482261331 c:\users\jose\desktop\fuzzylogic\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482259658 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1409177984 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482255781 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482251629 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482251629 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482252052 c:\users\jose\desktop\fuzzylogic\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1409177984 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyterm.h
+
+1409177984 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1409177984 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482074246 c:\users\jose\desktop\fuzzylogic\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482074274 c:\users\jose\desktop\fuzzylogic\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\map.h
+	<irrlicht.h>
+
+1481814064 c:\users\jose\desktop\fuzzylogic\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482073814 source:c:\users\jose\desktop\fuzzylogic\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482073753 source:c:\users\jose\desktop\fuzzylogic\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1481814064 source:c:\users\jose\desktop\fuzzylogic\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1481814064 source:c:\users\jose\desktop\fuzzylogic\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482073756 source:c:\users\jose\desktop\fuzzylogic\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482402895 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482402909 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482402921 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482402929 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482402940 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_triangle.cpp
+	"FuzzySet_Triangle.h"
+
+1482255755 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482252303 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252271 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252205 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482252210 c:\users\jose\desktop\fuzzylogic\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482075582 source:c:\users\jose\desktop\fuzzylogic\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482075778 source:c:\users\jose\desktop\fuzzylogic\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1481814064 source:c:\users\jose\desktop\fuzzylogic\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482071473 source:c:\users\jose\desktop\fuzzylogic\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1481814064 source:c:\users\jose\desktop\fuzzylogic\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482072746 source:c:\users\jose\desktop\fuzzylogic\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482262233 source:c:\users\jose\desktop\fuzzylogic\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482323027 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyterm.h
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\map.h
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_triangle.cpp
+	"fuzzy/FuzzySet_Triangle.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482323027 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482323027 source:d:\development\sack-3d\entregables\fuzzylogic\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+
+1482417643 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyterm.h
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\map.h
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyset_triangle.cpp
+	"fuzzy/FuzzySet_Triangle.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\fuzzylogic coche\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+
+1482417643 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyterm.h
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\map.h
+	<irrlicht.h>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyset_triangle.cpp
+	"fuzzy/FuzzySet_Triangle.h"
+
+1482417643 d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482417644 source:d:\mis cosas\universidad\abp\repositorio\estudio rorschach\entregables\percepcion sensorial rayos\fuente\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+

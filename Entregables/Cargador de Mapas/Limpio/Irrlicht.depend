@@ -2251,3 +2251,140 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1482259042 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482406805 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	"Map.h"
+	"Platform.h"
+	<vector>
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482406805 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482406805 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\map.h
+	<irrlicht.h>
+
+1482406805 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482259042 d:\development\sack-3d\entregables\cargador de mapas\limpio\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482406805 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+	"PhysicWorld.h"
+
+1482259043 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482406805 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482406805 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Map.h"
+	"Platform.h"
+
+1482406805 source:d:\development\sack-3d\entregables\cargador de mapas\limpio\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

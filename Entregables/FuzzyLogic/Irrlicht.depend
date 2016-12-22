@@ -546,3 +546,242 @@
 	"IrrManager.h"
 	<math.h>
 
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"fuzzy/FuzzyModule.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482323027 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyterm.h
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\map.h
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\fuzzylogic\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482406806 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyset_triangle.cpp
+	"fuzzy/FuzzySet_Triangle.h"
+
+1482323026 d:\development\sack-3d\entregables\fuzzylogic\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482323027 source:d:\development\sack-3d\entregables\fuzzylogic\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482082555 source:d:\development\sack-3d\entregables\fuzzylogic\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482323027 source:d:\development\sack-3d\entregables\fuzzylogic\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+	<math.h>
+

@@ -2361,7 +2361,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482247469 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\main.cpp
+1482258188 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -2387,7 +2387,7 @@
 	<irrlicht.h>
 	"cuboMierda.h"
 
-1481270080 c:\users\esgar\desktop\mecanicas de entidades sin ia\include\cubomierda.h
+1482401695 c:\users\esgar\desktop\mecanicas de entidades sin ia\include\cubomierda.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -2445,7 +2445,7 @@
 	"Camera.h"
 	"Player.h"
 
-1481328641 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\cubomierda.cpp
+1482401676 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -2460,7 +2460,7 @@
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1482255711 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\mycontactlistener.cpp
+1482402139 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
@@ -2478,7 +2478,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482247493 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\player.cpp
+1482257731 source:c:\users\esgar\desktop\mecanicas de entidades sin ia\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

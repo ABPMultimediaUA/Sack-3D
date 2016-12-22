@@ -5,7 +5,7 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          cuboMierda.h
 
-Author:        Estudio Rorschach 
+Author:        Estudio Rorschach
 Created:       11/11/2016 Jorge Puerto
 Modified:      08/12/2016 Jorge Puerto
 
@@ -33,6 +33,9 @@ class cuboMierda{
         cuboMierda(int x, int y);
         void actualiza();
         b2Body* getBody();
+        void teletransportar();                  ///< Teletrasporta al cubo a la posicion nextPos
+        void setNextPos(b2Vec2 pos);             ///< Setter
+        void recibeImpulso(int);
         virtual ~cuboMierda();
 
     protected:
@@ -42,6 +45,8 @@ class cuboMierda{
 	    b2Body* body;
         int x;
         int y;
+        b2Vec2 nextPos;                          ///< La posicion a la que debe teletransportarse la siguiente vez que se actualice
+		bool teletransportado;                   ///< Booleano que indica que ha pisado un teletransporte
 };
 
 #endif // CUBOMIERDA_H

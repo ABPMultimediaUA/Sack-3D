@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          cuboMierda.cpp
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -38,17 +38,33 @@ cuboMierda::cuboMierda(int x, int y){
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.9f;
     fixtureDef.density  = 10.f;
-    body->CreateFixture(&fixtureDef);
 
-    /*polyShape.SetAsBox(10,10);
-    fixtureDef.isSensor = true;
     b2Fixture* cubomierdaSensorFixture = body->CreateFixture(&fixtureDef);
-    cubomierdaSensorFixture->SetUserData((void*)30);*/
+    cubomierdaSensorFixture->SetUserData((void*)45);
+}
+//---------------------------------------------------------------------------
+/**
+   Teletransporta al cubo a otra posicion
+*/
+void cuboMierda::teletransportar(){
+    teletransportado = false;
+    nextPos.x += (1*10);
+    body->SetTransform(nextPos, body->GetAngle());
+}
+//---------------------------------------------------------------------------
+/**
+   recibe el impulso de un muelle
+*/
+void cuboMierda::recibeImpulso(int fuerza){
+    b2Vec2 velV = body->GetLinearVelocity();
+    velV.y = fuerza;
+    body->SetLinearVelocity(velV);
 }
 /**
    actualiza
 */
 void cuboMierda::actualiza(){
+    if(teletransportado)teletransportar();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 }
@@ -57,6 +73,7 @@ void cuboMierda::actualiza(){
    Getters y setters
 */
 b2Body* cuboMierda::getBody(){return body;}
+void cuboMierda::setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
 /**
    Destructor
 */

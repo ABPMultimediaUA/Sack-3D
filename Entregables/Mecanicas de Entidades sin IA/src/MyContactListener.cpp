@@ -21,6 +21,7 @@ informacion de las colisiones que suceden en el juego.
 #define ARMA 30				///< Int para las colisiones de las armas
 #define SENSORARMA 35		///< Int para las colisiones del area cogible de las armas
 #define BALA 40				///< Int para las colisiones de las balas
+#define CUBOS 45				///< Int para las colisiones de los cubos
 #define MUELLE 50		    ///< Int para las colisiones de los muelles
 #define TELETRANSPORTE 60  ///< Int para las colisiones de los teletransporte
 #define HOSTILES 70  ///< Int para las colisiones de los elementos hostiles
@@ -64,16 +65,18 @@ void MyContactListener::BeginContact(b2Contact* contact){
 	//Player entra en contacto con un muelle
 	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)
 		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == MUELLE)){
+	    std::cout<<"En contacto con un muelle"<<std::endl;
 	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
-            if((*it2)->getBody() == contact->GetFixtureB()->GetBody()){
+            if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
                 PhysicWorld::Instance()->getPlayer()->recibeImpulso((*it2)->getFuerza());
             }
         }
 	}
 	//Player entra en contacto con un teletransporte
-	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == TELETRANSPORTE)){
+	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == TELETRANSPORTE)
+        ||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == TELETRANSPORTE)){
 	    for (std::vector<Teleport*>::iterator it2 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it2 != PhysicWorld::Instance()->GetTeletransportes()->end(); it2++){
-            if((*it2)->getBody() == contact->GetFixtureB()->GetBody()){
+            if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
                 for (std::vector<Teleport*>::iterator it3 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it3 != PhysicWorld::Instance()->GetTeletransportes()->end(); it3++){
                     if((*it2)->getTeleportPartnerId() == (*it3)->getTeleportId()){
                         PhysicWorld::Instance()->getPlayer()->setNextPos((*it3)->getBody()->GetPosition());
@@ -87,6 +90,39 @@ void MyContactListener::BeginContact(b2Contact* contact){
 		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == HOSTILES))){
             std::cout<<"Mueres"<<std::endl;
             PhysicWorld::Instance()->getPlayer()->setParaMorir(true);
+	}
+
+    //Cubo entra en contacto con un teletransporte
+	if(   ((unsigned long)fixtureUserDataA == CUBOS && (unsigned long)fixtureUserDataB == TELETRANSPORTE)
+	    ||((unsigned long)fixtureUserDataB == CUBOS && (unsigned long)fixtureUserDataA == TELETRANSPORTE)){
+
+	    for (std::vector<Teleport*>::iterator it2 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it2 != PhysicWorld::Instance()->GetTeletransportes()->end(); it2++){
+            if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
+                for (std::vector<Teleport*>::iterator it3 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it3 != PhysicWorld::Instance()->GetTeletransportes()->end(); it3++){
+                    if((*it2)->getTeleportPartnerId() == (*it3)->getTeleportId()){
+                        for (std::vector<cuboMierda*>::iterator it4 = PhysicWorld::Instance()->GetCubos()->begin(); it4 != PhysicWorld::Instance()->GetCubos()->end(); it4++){
+                            if((*it4)->getBody() == contact->GetFixtureB()->GetBody() || (*it4)->getBody() == contact->GetFixtureA()->GetBody()){
+                                (*it4)->setNextPos((*it3)->getBody()->GetPosition());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+
+	//Cubo entra en contacto con un muelle
+	if(   ((unsigned long)fixtureUserDataA == CUBOS && (unsigned long)fixtureUserDataB == MUELLE)
+		||((unsigned long)fixtureUserDataB == CUBOS && (unsigned long)fixtureUserDataA == MUELLE)){
+	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
+            if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
+                for (std::vector<cuboMierda*>::iterator it4 = PhysicWorld::Instance()->GetCubos()->begin(); it4 != PhysicWorld::Instance()->GetCubos()->end(); it4++){
+                        if((*it4)->getBody() == contact->GetFixtureB()->GetBody() || (*it4)->getBody() == contact->GetFixtureA()->GetBody()){
+                            (*it4)->recibeImpulso((*it2)->getFuerza());
+                        }
+                    }
+            }
+        }
 	}
 }
 //---------------------------------------------------------------------------

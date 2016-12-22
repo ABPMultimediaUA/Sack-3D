@@ -120,26 +120,32 @@ void Player::fingirMuerte(){
         b2CircleShape circleShape1;
         b2CircleShape circleShape2;
 
+        body->DestroyFixture(body->GetFixtureList());
+        body->DestroyFixture(body->GetFixtureList());
         fingiendoMuerte = true;
-        body->DestroyFixture(body->GetFixtureList());
-        body->DestroyFixture(body->GetFixtureList());
         body->SetFixedRotation(false);
+
         circleShape1.m_p.Set(0,-3.f);
         circleShape2.m_p.Set(0,3.f);
         circleShape1.m_radius = tam.X/2;
         circleShape2.m_radius = tam.X/2;
+
         fixtureDef.shape = &circleShape1;
         fixtureDef.friction = 0.5f;
         fixtureDef.restitution  = 0.5f;
         fixtureDef.density  = 1.f;
-        personFixture = body->CreateFixture(&fixtureDef);
-        personFixture->SetUserData((void*)100);
+        b2Fixture* personFixture = body->CreateFixture(&fixtureDef);
+        personFixture->SetUserData((void*)10);
 
         fixtureDef2.shape = &circleShape2;
         fixtureDef2.friction = 0.5f;
         fixtureDef2.restitution  = 0.5f;
         fixtureDef2.density  = 5.f;
-        body->CreateFixture(&fixtureDef2);
+        b2Fixture* personFixture2 = body->CreateFixture(&fixtureDef2);
+        personFixture2->SetUserData((void*)10);
+
+        body->SetTransform( body->GetPosition(),0);
+        body->SetAngularVelocity(0);
 
         if(direccion == 0 )body->ApplyAngularImpulse(-1*10000);
         else body->ApplyAngularImpulse(direccion*10000);
@@ -148,9 +154,12 @@ void Player::fingirMuerte(){
         b2BodyDef bodyDef;
         b2FixtureDef fixtureDef;
         b2PolygonShape polyShape;
+
         body->DestroyFixture(body->GetFixtureList());
         body->DestroyFixture(body->GetFixtureList());
         fingiendoMuerte = false;
+        body->SetFixedRotation(true);
+
         polyShape.SetAsBox(tam.X/2,tam.Y/2);
         fixtureDef.shape = &polyShape;
         fixtureDef.friction = 0;
@@ -166,7 +175,6 @@ void Player::fingirMuerte(){
 
         body->SetTransform( body->GetPosition(),0);
         body->SetAngularVelocity(0);
-        body->SetFixedRotation(true);
         body->ApplyLinearImpulse(b2Vec2(0,10),b2Vec2(0,0));
     }
 }

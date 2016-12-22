@@ -1,4 +1,4 @@
-#include "FuzzySet_LeftShoulder.h"
+#include "fuzzy/FuzzySet_LeftShoulder.h"
 #include <cassert>
 
 

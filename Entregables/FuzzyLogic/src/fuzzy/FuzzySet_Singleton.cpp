@@ -1,4 +1,4 @@
-#include "FuzzySet_Singleton.h"
+#include "fuzzy/FuzzySet_Singleton.h"
 
 double FuzzySet_Singleton::CalculateDOM(double val)const
 {

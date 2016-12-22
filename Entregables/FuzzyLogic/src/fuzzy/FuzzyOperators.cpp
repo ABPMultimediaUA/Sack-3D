@@ -1,5 +1,5 @@
-#include "FuzzyOperators.h"
- 
+#include "fuzzy/FuzzyOperators.h"
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  implementation of FzAND
@@ -13,7 +13,7 @@ FzAND::FzAND(const FzAND& fa)
      m_Terms.push_back((*curTerm)->Clone());
    }
 }
-   
+
   //ctor using two terms
 FzAND::FzAND(FuzzyTerm& op1, FuzzyTerm& op2)
 {
@@ -47,7 +47,7 @@ FzAND::~FzAND()
     delete *curTerm;
   }
 }
-  
+
 
 //--------------------------- GetDOM ------------------------------------------
 //
@@ -103,7 +103,7 @@ FzOR::FzOR(const FzOR& fa)
      m_Terms.push_back((*curTerm)->Clone());
    }
 }
-   
+
   //ctor using two terms
 FzOR::FzOR(FuzzyTerm& op1, FuzzyTerm& op2)
 {
@@ -137,12 +137,12 @@ FzOR::~FzOR()
     delete *curTerm;
   }
 }
-  
+
 
 //--------------------------- GetDOM ------------------------------------------
 //
 //  the OR operator returns the maximum DOM of the sets it is operating on
-//----------------------------------------------------------------------------- 
+//-----------------------------------------------------------------------------
 double FzOR::GetDOM()const
 {
   double largest = MinFloat;

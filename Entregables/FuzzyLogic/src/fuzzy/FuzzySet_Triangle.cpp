@@ -1,4 +1,4 @@
-#include "FuzzySet_Triangle.h"
+#include "fuzzy/FuzzySet_Triangle.h"
 
 
 double FuzzySet_Triangle::CalculateDOM(double val)const

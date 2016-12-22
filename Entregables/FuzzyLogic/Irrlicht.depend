@@ -460,25 +460,25 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482252272 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzymodule.cpp
+1482402895 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzymodule.cpp
 	<stdarg.h>
 	<iostream>
 	<cassert>
-	"FuzzyModule.h"
+	"fuzzy/FuzzyModule.h"
 
-1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
-	"FuzzyOperators.h"
+1482402909 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
 
-1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
-	"FuzzySet_LeftShoulder.h"
+1482402921 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
 	<cassert>
 
-1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
-	"FuzzySet_RightShoulder.h"
+1482402929 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
 	<cassert>
 
-1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
-	"FuzzySet_Singleton.h"
+1482402940 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
 
 1409177984 source:c:\users\jose\desktop\fuzzylogic\src\fuzzy\fuzzyset_triangle.cpp
 	"FuzzySet_Triangle.h"
@@ -540,7 +540,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482261986 source:c:\users\jose\desktop\fuzzylogic\src\player.cpp
+1482262233 source:c:\users\jose\desktop\fuzzylogic\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

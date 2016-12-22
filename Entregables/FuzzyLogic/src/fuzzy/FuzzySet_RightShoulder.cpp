@@ -1,4 +1,4 @@
-#include "FuzzySet_RightShoulder.h"
+#include "fuzzy/FuzzySet_RightShoulder.h"
 #include <cassert>
 
 
@@ -11,7 +11,7 @@ double FuzzySet_RightShoulder::CalculateDOM(double val)const
   {
     return 1.0;
   }
-  
+
   //find DOM if left of center
   else if ( (val <= m_dPeakPoint) && (val > (m_dPeakPoint - m_dLeftOffset)) )
   {

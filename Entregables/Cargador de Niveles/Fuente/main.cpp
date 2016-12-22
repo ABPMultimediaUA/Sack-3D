@@ -42,8 +42,8 @@ int main(){
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(40,0,0));
-    Bot* bot1  = new Bot(vector3df(100,0,0));
+    Player* player = new Player(vector3df(-210,0,0));
+    Bot* bot1  = new Bot(vector3df(250,0,0));
     Arma* arma = new Arma();
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setBot(bot1);

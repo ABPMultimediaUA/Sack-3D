@@ -46,7 +46,7 @@ int main(){
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(-140,0,0));
-    Bot* bot1  = new Bot(vector3df(100,0,0));
+    Bot* bot1  = new Bot(vector3df(100,-20,0));
     //CREACION DE ARMAS//
 
     Arma* arma = new Arma(vector3df(-320,-20,0));

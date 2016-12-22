@@ -5,20 +5,20 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          IrrManager.cpp
 
-Author:        Estudio Rorschach 
+Author:        Estudio Rorschach
 Created:       11/11/2016 Jorge Puerto
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
 Clase que controla todo lo relacionado con en mundo tridimensional, la pantalla
-temporizadores, entorno, graficos... 
+temporizadores, entorno, graficos...
 
 ToDo:
 Hay mucho que aprender sobre esta gran mierda llamada irrlicht
 *******************************************************************************/
 #include "IrrManager.h"
 
-#define SCREENWIDTH 1920  
+#define SCREENWIDTH 1920
 #define SCREENHEIGHT 1080
 
 /******************************************************************************
@@ -69,7 +69,7 @@ IMeshSceneNode* IrrManager::addCubeSceneNode(int tam,SColor color){
 }
 //---------------------------------------------------------------------------
 /**
-   Genera un nodo rectangular pasando posicion, tamaño y color  
+   Genera un nodo rectangular pasando posicion, tamaño y color
 */
 IMeshSceneNode* IrrManager::addCubeSceneNode(vector3df tam,SColor color){
 	IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
@@ -79,7 +79,7 @@ IMeshSceneNode* IrrManager::addCubeSceneNode(vector3df tam,SColor color){
 }
 //---------------------------------------------------------------------------
 /**
-   Genera una malla rectangular pasando posicion, tamaño y color  
+   Genera una malla rectangular pasando posicion, tamaño y color
 */
 IMesh* IrrManager::createCubeMesh(vector3df pos, vector3df tam, SColor color){
 	IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);

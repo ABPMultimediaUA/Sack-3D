@@ -3455,3 +3455,282 @@
 	<iostream>
 	<algorithm>
 
+1482455004 source:c:\users\jose\desktop\fuzzylogic con bot\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Bot.h"
+	"Arma.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Map.h"
+	"Camera.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"Bot.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\bot.h
+	<Player.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"IrrManager.h"
+	<iostream>
+	"fuzzy/FuzzyModule.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	<iosfwd>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FuzzyOperators.h"
+	"FzSet.h"
+	"FuzzyHedges.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyset.h
+	<string>
+	<cassert>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyvariable.h
+	<map>
+	<iosfwd>
+	<string>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyrule.h
+	<vector>
+	"FuzzySet.h"
+	"FuzzyOperators.h"
+	"utils.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyoperators.h
+	<vector>
+	<cassert>
+	"utils.h"
+	"FuzzyTerm.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\utils.h
+	<math.h>
+	<sstream>
+	<string>
+	<vector>
+	<limits>
+	<cassert>
+	<iomanip>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyterm.h
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyhedges.h
+	"FuzzySet.h"
+	"FuzzyTerm.h"
+	<math.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+	"Cogible.h"
+	"vector"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\usable.h
+	"Cogible.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\escopeta.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\granada.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<vector>
+	"Usable.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\map.h
+	<irrlicht.h>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455981 source:c:\users\jose\desktop\fuzzylogic con bot\src\bot.cpp
+	"Bot.h"
+	"PhysicWorld.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+	"Bot.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\cogible.cpp
+	"Cogible.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\escopeta.cpp
+	"Escopeta.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzymodule.cpp
+	<stdarg.h>
+	<iostream>
+	<cassert>
+	"fuzzy/FuzzyModule.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyoperators.cpp
+	"fuzzy/FuzzyOperators.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyset_leftshoulder.cpp
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	<cassert>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyset_leftshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyset_rightshoulder.cpp
+	"fuzzy/FuzzySet_RightShoulder.h"
+	<cassert>
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyset_rightshoulder.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyset_singleton.cpp
+	"fuzzy/FuzzySet_Singleton.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyset_singleton.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyset_triangle.cpp
+	"fuzzy/FuzzySet_Triangle.h"
+
+1482455004 c:\users\jose\desktop\fuzzylogic con bot\include\fuzzy\fuzzyset_triangle.h
+	"FuzzySet.h"
+	"utils.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\fuzzy\fuzzyvariable.cpp
+	"fuzzy/FuzzyVariable.h"
+	"fuzzy/FuzzyOperators.h"
+	"fuzzy/FuzzySet_triangle.h"
+	"fuzzy/FuzzySet_LeftShoulder.h"
+	"fuzzy/FuzzySet_RightShoulder.h"
+	"fuzzy/FuzzySet_Singleton.h"
+	"fuzzy/FzSet.h"
+	"fuzzy/utils.h"
+	<cassert>
+	<iostream>
+	<algorithm>
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\granada.cpp
+	"Granada.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482455005 source:c:\users\jose\desktop\fuzzylogic con bot\src\usable.cpp
+	"Usable.h"
+

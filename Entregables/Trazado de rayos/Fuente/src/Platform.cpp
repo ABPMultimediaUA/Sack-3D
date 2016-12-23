@@ -26,15 +26,12 @@ Clase que define una plataforma, con sus componentes grafica y fisica.
 /**
    Constructor
 */
-Platform::Platform(vector3df pos, vector3df tam,float rotation, SColor color){
-    node = IrrManager::Instance()->addCubeSceneNode(vector3df(tam.X, tam.Y,tam.Z),color);
-    node->setPosition(vector3df(pos.X, pos.Y, pos.Z)); 
+Platform::Platform(vector3df pos, vector3df tam,SColor color){
+    mesh = IrrManager::Instance()->createCubeMesh(vector3df(pos.X, pos.Y, pos.Z),vector3df(tam.X, tam.Y,tam.Z),color);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     bodyDef.position.Set(pos.X,pos.Y);
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
-    body->SetTransform( body->GetPosition(), -rotation );
-    node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));   
     b2PolygonShape polyShape;
     polyShape.SetAsBox(tam.X/2,tam.Y/2);
     body->CreateFixture(&polyShape, 0.0f);

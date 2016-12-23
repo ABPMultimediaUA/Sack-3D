@@ -19,7 +19,7 @@ Clase que define un player
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
 #include "MyEventReceiver.h"
-#include "fuzzy/FuzzyModule.h"
+#include "Cogible.h"
 
 using namespace irr;
 using namespace core;
@@ -35,12 +35,12 @@ class Player{
     public:
         Player(vector3df pos);                   ///< Constructor
         void update();                           ///< Actualizar
-        void mover(double vel, int dir);                            ///< Mover
+        void mover();                            ///< Mover
         void saltar();                           ///< Saltar
         void fingirMuerte();                     ///< Hacerse el muerto
-        void crearJoint(b2Body*, b2Body*);       ///< ???
+        void crearJoint();                       ///< ???
         void romperJoint();                      ///< ???
-        void IA(float frente, float izq , float dcha);                      ///< ???
+        void usar();
         vector3df getPosition();                 ///< Getter
         bool getSaltando();                      ///< Getter
         bool getDobleSaltando();                 ///< Getter
@@ -48,26 +48,23 @@ class Player{
         int getDireccion();                      ///< Getter
         bool getPuedoCoger();                    ///< Getter
         b2Body* getBody();                       ///< Getter
+        Cogible* getObjCogido();                 ///< Getter
+        Cogible* getObjPuedoCoger();                 ///< Getter
         void setSaltando(bool aux);              ///< Setter
         void setDobleSaltando(bool);             ///< Setter
         void setCogiendo(bool aux);              ///< Setter
         void setPuedoCoger(bool aux);            ///< Setter
-        void InitializeFuzzyModule();
-
-        double GetDeseabilidad(double distancia);
+        void setObjCogido(Cogible* aux);         ///< Setter
+        void setObjPuedoCoger(Cogible* aux);         ///< Setter
         virtual ~Player();                       ///< Destructor
 
     protected:
-        IAnimatedMeshSceneNode* node;                    ///<
+        IMeshSceneNode* node;                    ///<
         b2Body* body;                            ///<
         b2PolygonShape* polyShape;               ///<
         b2Fixture* personFixture;                ///<
         b2RevoluteJoint* joint;                  ///<
         b2RevoluteJointDef* jointDef;            ///<
-        float increment;
-        FuzzyModule   m_FuzzyModule;
-
-        double m_ultimaVel;
         int x;                                   ///<
         int y;                                   ///<
         int vel;                                 ///<
@@ -77,8 +74,9 @@ class Player{
         bool puedoCoger;                         ///<
         bool dobleSaltando;                      ///<
         bool fingiendoMuerte;                    ///<
-        float cont;
         bool saltando;                           ///<
+        Cogible* objCogido;                      ///<
+        Cogible* objPuedoCoger;                      ///<
         vector3df tam;                           ///<
 		MyEventReceiver* eventReceiver;          ///<
     private:

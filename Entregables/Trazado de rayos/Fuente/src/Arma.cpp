@@ -29,13 +29,14 @@ Clase que contiene el codigo de funcionamiento para las armas.
 /**
    Constructor
 */
-Arma::Arma(){
+Arma::Arma(vector3df pos){
+    valoracion = 2;
     vector3df tam = vector3df(5,3,1);
-    //node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 0, 0));
-    node->setPosition(vector3df(0,0,0));
+    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 0, 0));
+    node->setPosition(pos);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(50,0);
+    bodyDef.position.Set(pos.X, pos.Y);
     bodyDef.type = b2_dynamicBody;
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
@@ -61,7 +62,17 @@ void Arma::actualiza(){
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()*RADTOGRAD));
 }
-
+//---------------------------------------------------------------------------
+/**
+   Metodo que ejecuta el usar de la clase
+*/
+void Arma::usar(){
+    Bala* bala = new Bala(500, 1000, 100);
+    b2Vec2 vel = bala->getBody()->GetLinearVelocity();
+    vel.x = bala->velocidad;
+    bala->getBody()->SetLinearVelocity(vel);
+    PhysicWorld::Instance()->GetBalas()->push_back(bala);
+}
 //---------------------------------------------------------------------------
 /**
    Getters and setters

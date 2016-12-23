@@ -85,8 +85,8 @@ void Player::update(){
       b2Vec2 vectIzq = b2Vec2(p1.x-esquinaIzq.x,p1.y-esquinaIzq.y);
       vector3df izq = vector3df(p1.x+vectDcha.x*100,p1.y+vectDcha.y*100,0);
       vector3df dcha = vector3df(p1.x+vectIzq.x*100,p1.y+vectIzq.y*100,0);
-      b2Vec2 p22 = b2Vec2(izq.X,izq.Y);
-      b2Vec2 p23 = b2Vec2(dcha.X,dcha.Y);
+      b2Vec2 p22 = b2Vec2(izq.X,-izq.Y);
+      b2Vec2 p23 = b2Vec2(dcha.X,-dcha.Y);
       input.p1 = p1;
       input2.p1 = p1;
       input3.p1 = p1;
@@ -159,14 +159,23 @@ void Player::update(){
     vector3df visionDcha = vector3df(intersectionPoint2.x,intersectionPoint2.y,0);
     vector3df visionIzq = vector3df(intersectionPoint3.x,intersectionPoint3.y,0);
 
-
-
     IrrManager::Instance()->getDriver()->setTransform(video::ETS_WORLD, core::IdentityMatrix);
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),vision , irr::video::SColor(255, 200, 50, 50) );
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionDcha , irr::video::SColor(255, 200, 50, 50) );
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionIzq , irr::video::SColor(255, 200, 50, 50) );
 
-    if(intersectionPoint.x-body->GetPosition().x < 20)saltar();
+    if(intersectionPoint.x-body->GetPosition().x < 30 && intersectionPoint.y-body->GetPosition().y == 0) {
+        saltar();
+    }
+    if(!saltando){
+        if(body->GetPosition().y - (-1)*intersectionPoint2.y < -250){
+            saltar();
+
+            }
+    }
+    int x =intersectionPoint2.y;
+//std::cout<<"ªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªª"<<std::endl;
+//std::cout<<x<<std::endl;
 }
 //---------------------------------------------------------------------------
 /**
@@ -191,11 +200,11 @@ void Player::saltar(){
             velV.y = salto;
             body->SetLinearVelocity(velV);
         }
-        else if(!dobleSaltando){
+        else if(!dobleSaltando){/*
             b2Vec2 velV = body->GetLinearVelocity();
             velV.y = salto*3/5;
             body->SetLinearVelocity(velV);
-            dobleSaltando = true;
+            dobleSaltando = true;*/
         }
     }
 }
@@ -315,7 +324,8 @@ void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
 Cogible* Player::getObjCogido(){return objCogido;}
 void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
 Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}
-void  Player::setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
+void  Player::setObjPuedoCoger(Cogible* aux){
+    objPuedoCoger = aux; }
 //---------------------------------------------------------------------------
 /**
    Destructor

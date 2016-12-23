@@ -23,6 +23,8 @@ El maaaaaaaaain.
 #include "Platform.h"
 #include "Bot.h"
 #include "Arma.h"
+#include "Escopeta.h"
+#include "Granada.h"
 #include "Map.h"
 #include "Camera.h"
 
@@ -34,25 +36,30 @@ using namespace io;
 using namespace gui;
 
 int main(){
-    PhysicWorld::Instance();
-    IrrManager::Instance();
-    IrrManager::Instance()->getManager()->addCameraSceneNode(0, vector3df(0,0,-140), vector3df(0,0,0));
+    //PhysicWorld::Instance();
+    //IrrManager::Instance();
+    Camera* camera = new Camera();
     std::vector<cuboMierda*>* cubos = PhysicWorld::Instance()->GetCubos();
+    std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
+    std::vector<Cogible*>* cogibles = PhysicWorld::Instance()->GetCogibles();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(70,-40,0));
-    Player* player2 = new Player(vector3df(70,40,0));
-    Player* player3 = new Player(vector3df(70,00,0));
-    Player* player4 = new Player(vector3df(70,-10,0));
-    Player* player5 = new Player(vector3df(0,100,0));
-    //Player* player6 = new Player(vector3df(100,40,0));
-    //Player* player7 = new Player(vector3df(90,40,0));
-    //Player* player8 = new Player(vector3df(80,40,0));
-    //Player* player9 = new Player(vector3df(70,40,0));
+    Player* player = new Player(vector3df(-200,-190,0));
+    //Bot* bot1  = new Bot(vector3df(100,-20,0));
+    //CREACION DE ARMAS//
+
+    Arma* arma = new Arma(vector3df(180,-20,0));
+    Escopeta* escopeta = new Escopeta(vector3df(180,-20,0));
+
+    cogibles->push_back(arma);
+    cogibles->push_back(escopeta);
+    PhysicWorld::Instance()->setCogibles(cogibles);
+    ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
+    //PhysicWorld::Instance()->setBot(bot1);
+    PhysicWorld::Instance()->setArma(arma);
     Map* mapa = new Map("media/Map.tmx");
-    b2Vec2 p1, p2; //Puntos que trazan la direccion del raycast
     ///////////////////////////
      while(IrrManager::Instance()->getDevice()->run()){
             IrrManager::Instance()->beginScene();
@@ -60,15 +67,22 @@ int main(){
             TimeStamp = IrrManager::Instance()->getTime();
             PhysicWorld::Instance()->Step(DeltaTime);
             PhysicWorld::Instance()->ClearForces();
+            for(int i=0; i < cubos->size(); i++){cubos->at(i)->actualiza();}
+            for(int i=0; i < balas->size(); i++){
+                    balas->at(i)->actualiza();
+                     if(TimeStamp - balas->at(i)->getTime() > balas->at(i)->getTimeVida()){
+                        balas->at(i)->getNode()->remove();
+                        balas->at(i)->getBody()->DestroyFixture(balas->at(i)->getbalaFixture());
+                        balas->erase(balas->begin()+i);
+                    }
+            }
             player->update();
-            player2->update();
-            player3->update();
-            player4->update();
-            player5->update();
-            //player6->update();
-            //player7->update();
-           // player8->update();
-            //player9->update();
+            camera->update(TimeStamp);
+            arma->actualiza();
+            escopeta->actualiza();
+            //bot1->update();
+
+
             IrrManager::Instance()->drawAll();
             IrrManager::Instance()->endScene();
        }

@@ -15,24 +15,8 @@ Clase que define un player
 #include "Player.h"
 #include "PhysicWorld.h"
 #include "IrrManager.h"
-#include <math.h>
 
 #define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
-#define VELOCITATOR        10
-#define DECELERATIX        50
-#define MUY_LEJOS          50
-#define LEJOS              40
-#define DIST_MEDIA         30
-#define CERCA              20
-#define MUY_CERCA          10
-#define MUY_RAPIDO         VELOCITATOR*5
-#define RAPIDO             VELOCITATOR*4
-#define VEL_MEDIA          VELOCITATOR*3
-#define DESPACIO           VELOCITATOR*2
-#define MUY_DESPACIO       VELOCITATOR
-#define IZQUIERDA          1
-#define DERECHA            2
-#define NINGUNA            0
 
 /******************************************************************************
                                Player
@@ -43,8 +27,6 @@ Clase que define un player
 */
 Player::Player(vector3df pos){
     vel = 20;
-    cont = 0;
-    increment = 0.5f;
     cogiendo = false;
     puedoCoger = false;
     salto = 25;
@@ -53,9 +35,8 @@ Player::Player(vector3df pos){
     fingiendoMuerte = false;
     jointDef = NULL;
     direccion = 1;
-    tam = vector3df(8, 8,8);
-    //node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, rand()%255, rand()%255, rand()%255));
-    node = IrrManager::Instance()->addModel(tam, SColor(255, 255, 0, 0));
+    tam = vector3df(8, 16,4);
+    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 124, 150));
     node->setPosition(pos);
 
     b2BodyDef bodyDef;
@@ -71,28 +52,27 @@ Player::Player(vector3df pos){
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
     fixtureDef.restitution  = 0;
-    fixtureDef.density  =0.f;
+    fixtureDef.density  = 10.f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)10);
+
     polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
-    body->SetLinearVelocity(b2Vec2(1,1));
+
     eventReceiver = IrrManager::Instance()->getEventReciever();
-    InitializeFuzzyModule();
 }
 //---------------------------------------------------------------------------
 /**
    Actualiza posicion y rotacion
 */
 void Player::update(){
+    mover();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
-    b2PolygonShape* polygonShape = (b2PolygonShape*)body->GetFixtureList()->GetShape();
 
-
-    //set up input
+       //set up input
       b2RayCastInput input;
       b2RayCastInput input2;
       b2RayCastInput input3;
@@ -105,8 +85,8 @@ void Player::update(){
       b2Vec2 vectIzq = b2Vec2(p1.x-esquinaIzq.x,p1.y-esquinaIzq.y);
       vector3df izq = vector3df(p1.x+vectDcha.x*100,p1.y+vectDcha.y*100,0);
       vector3df dcha = vector3df(p1.x+vectIzq.x*100,p1.y+vectIzq.y*100,0);
-      b2Vec2 p22 = b2Vec2(izq.X,izq.Y);
-      b2Vec2 p23 = b2Vec2(dcha.X,dcha.Y);
+      b2Vec2 p22 = b2Vec2(izq.X,-izq.Y);
+      b2Vec2 p23 = b2Vec2(dcha.X,-dcha.Y);
       input.p1 = p1;
       input2.p1 = p1;
       input3.p1 = p1;
@@ -173,91 +153,41 @@ void Player::update(){
     float distance3 = sqrt(pow(width3,2)+pow(height3,2));
 
 
-    IA(distance, distance2, distance3);
+    //IA(distance, distance2, distance3);
 
     vector3df vision = vector3df(intersectionPoint.x,intersectionPoint.y,0);
     vector3df visionDcha = vector3df(intersectionPoint2.x,intersectionPoint2.y,0);
     vector3df visionIzq = vector3df(intersectionPoint3.x,intersectionPoint3.y,0);
 
-
-
     IrrManager::Instance()->getDriver()->setTransform(video::ETS_WORLD, core::IdentityMatrix);
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),vision , irr::video::SColor(255, 200, 50, 50) );
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionDcha , irr::video::SColor(255, 200, 50, 50) );
     IrrManager::Instance()->getDriver()->draw3DLine(getPosition(),visionIzq , irr::video::SColor(255, 200, 50, 50) );
-}
-void Player::InitializeFuzzyModule(){
-  FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
 
-  FzSet cerca = distancia.AddLeftShoulderSet("cerca",0,20,40);
-  FzSet medio = distancia.AddTriangularSet("medio",20,40,60);
-  FzSet lejos = distancia.AddRightShoulderSet("lejos",40,60,110);
-
-  FuzzyVariable& velocidad = m_FuzzyModule.CreateFLV("velocidad");
-  FzSet rapido = velocidad.AddRightShoulderSet("mucho", 50, 75, 100);
-  FzSet normal = velocidad.AddTriangularSet("medio", 25, 50, 75);
-  FzSet lento = velocidad.AddLeftShoulderSet("poco", 0, 25, 50);
-
-  m_FuzzyModule.AddRule(cerca, lento);
-  m_FuzzyModule.AddRule(medio, normal);
-  m_FuzzyModule.AddRule(lejos,rapido );
-}
-double Player::GetDeseabilidad(double distancia)
-{
-  //fuzzify distance and amount of ammo
-  m_FuzzyModule.Fuzzify("distancia", distancia);
-
-  m_ultimaVel = m_FuzzyModule.DeFuzzify("velocidad", FuzzyModule::max_av);
-
-  return m_ultimaVel;
-}
-//---------------------------------------------------------------------------
-/**
-   IA
-*/
-void Player::IA(float frente, float izq, float dcha){
-    int dir = NINGUNA;
-
-    //if(frente>MUY_LEJOS){  vel = RAPIDO;  }
-    //else if(frente>LEJOS){  vel = VEL_MEDIA;  }
-    //else if(frente>DIST_MEDIA){  vel = DESPACIO;  }
-    //else if(frente>CERCA){  vel = MUY_DESPACIO;  }
-
-    //GIRAR EL COCHE
-    if(izq<dcha){
-        if(izq <DIST_MEDIA){dir = DERECHA;}
-        else if(dcha <DIST_MEDIA){dir = IZQUIERDA;}
+    if(intersectionPoint.x-body->GetPosition().x < 30 && intersectionPoint.y-body->GetPosition().y == 0) {
+        saltar();
     }
-    else if(dcha<izq){
-        if(dcha <DIST_MEDIA){dir = IZQUIERDA;}
-        else if(izq <DIST_MEDIA){dir = DERECHA;}
-    }
-    //Esta evita que si los dos visores son iguales se choque de frente
-    else if(dcha <DIST_MEDIA){
-        dir = IZQUIERDA;
-    }
-    double des = GetDeseabilidad(frente);
-    //std::cout<<des<<std::endl;
-    //mover((int)frente, dir);
-    mover(des, dir);
+    if(!saltando){
+        if(body->GetPosition().y - (-1)*intersectionPoint2.y < -250){
+            saltar();
 
+            }
+    }
+    int x =intersectionPoint2.y;
+//std::cout<<"ªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªª"<<std::endl;
+//std::cout<<x<<std::endl;
 }
 //---------------------------------------------------------------------------
 /**
    Mueve
 */
-void Player::mover(double vel , int dir){
-    b2Vec2 velocidad;
-   if(dir == 1){
-            cont+= 0.05f;
-            body->SetTransform(body->GetPosition(),body->GetAngle()-0.05f);
+void Player::mover(){
+    if(!fingiendoMuerte){
+        int dir = 1;
+        if(eventReceiver->IsKeyDown(KEY_KEY_A))dir = -1;
+        else if(eventReceiver->IsKeyDown(KEY_KEY_D))dir = 1;
+        body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
     }
-   if(dir == 2){
-            cont-= 0.05f;
-            body->SetTransform(body->GetPosition(),body->GetAngle()+0.05f);
-    }
-    velocidad = b2Vec2(sin(cont)*vel, cos(cont)*vel);
-    body->SetLinearVelocity(velocidad);
 }
 //---------------------------------------------------------------------------
 /**
@@ -270,11 +200,11 @@ void Player::saltar(){
             velV.y = salto;
             body->SetLinearVelocity(velV);
         }
-        else if(!dobleSaltando){
+        else if(!dobleSaltando){/*
             b2Vec2 velV = body->GetLinearVelocity();
             velV.y = salto*3/5;
             body->SetLinearVelocity(velV);
-            dobleSaltando = true;
+            dobleSaltando = true;*/
         }
     }
 }
@@ -341,10 +271,10 @@ void Player::fingirMuerte(){
 /**
    crearJoint
 */
-void Player::crearJoint(b2Body* a, b2Body* b){
+void Player::crearJoint(){
     b2RevoluteJointDef jointDef;
-    jointDef.bodyA = a;
-    jointDef.bodyB = b;
+    jointDef.bodyA = body;
+    jointDef.bodyB = objPuedoCoger->getBody();
     //jointDef.collideConnected = false;
     //jointDef.localAnchorB = bodyPersonaje->GetLocalCenter();
     jointDef.localAnchorA.Set(0,0);
@@ -353,7 +283,6 @@ void Player::crearJoint(b2Body* a, b2Body* b){
     joint->EnableMotor(true);
     joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
-
 }
 //---------------------------------------------------------------------------
 /**
@@ -367,8 +296,16 @@ void Player::romperJoint(){
     vel.y +=20;
     vel.x *=100;
     vel.y *=100;
-    PhysicWorld::Instance()->getArma()->getBody()->ApplyLinearImpulse( vel, PhysicWorld::Instance()->getArma()->getBody()->GetLocalCenter());
+    objCogido->getBody()->ApplyLinearImpulse( vel, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
+    puedoCoger = false;
+}
+//---------------------------------------------------------------------------
+/**
+   usar
+*/
+void Player::usar(){
+    dynamic_cast<Usable*>(objCogido)->usar();
 }
 //---------------------------------------------------------------------------
 /**
@@ -384,6 +321,11 @@ int Player::getDireccion(){return direccion;}
 void  Player::setCogiendo(bool aux){cogiendo = aux;}
 bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
+Cogible* Player::getObjCogido(){return objCogido;}
+void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
+Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}
+void  Player::setObjPuedoCoger(Cogible* aux){
+    objPuedoCoger = aux; }
 //---------------------------------------------------------------------------
 /**
    Destructor

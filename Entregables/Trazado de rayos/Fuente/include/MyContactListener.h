@@ -5,12 +5,12 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          MyContactListener.h
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
-Clase que contiene los listeners necesarios para obtener e interpretar la 
+Clase que contiene los listeners necesarios para obtener e interpretar la
 informacion de las colisiones que suceden en el juego.
 *******************************************************************************/
 //---------------------------------------------------------------------------
@@ -19,6 +19,16 @@ informacion de las colisiones que suceden en el juego.
 //---------------------------------------------------------------------------
 #include "Box2D/Box2D.h"
 #include <iostream>
+#include "Cogible.h"
+#include "vector"
+
+
+using namespace irr;
+using namespace core;
+using namespace scene;
+using namespace video;
+using namespace io;
+using namespace gui;
 
 /******************************************************************************
                                MyContactListener

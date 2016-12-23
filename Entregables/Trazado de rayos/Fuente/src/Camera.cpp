@@ -29,7 +29,7 @@ Clase que contiene el codigo de funcionamiento para la camara.
 */
 Camera::Camera(){
 	physicWorld = PhysicWorld::Instance();
-	camera = IrrManager::Instance()->getManager()->addCameraSceneNode(0, vector3df(0,0,-140), vector3df(0,0,0));
+	camera = IrrManager::Instance()->getManager()->addCameraSceneNode(0, vector3df(0,0,-300), vector3df(0,0,0));
     timer = IrrManager::Instance()->getTimer();
     tiempoTransc = timer->getTime();
     cenAnt = new vector3df(0,0,0);
@@ -47,7 +47,7 @@ Camera::Camera(){
    Actualizar
 */
 Camera::update(float time){
-	float xP,yP,xB,yB,z;
+	/*float xP,yP,xB,yB,z;
 	xP = physicWorld->getPlayer()->getPosition().X;
 	yP = physicWorld->getPlayer()->getPosition().Y;
 	xB = physicWorld->getBot()->getPosition().X;
@@ -65,8 +65,8 @@ Camera::update(float time){
 	z =  ((abs((xP - xB)*100)/100.f)+( (abs((yP - yB)*100)/100.f)*16.f/9.f))/2.f;
 	if(z<35)z = 35;
 	camera->setPosition(vector3df(cenX,cenY, -z));
-	camera->setTarget(vector3df(cenX,cenY, 0));
-    porcentUpdate += porcentGap;
+	camera->setTarget(vector3df(cenX,cenY, 5));
+    porcentUpdate += porcentGap;*/
 
 }
 //---------------------------------------------------------------------------

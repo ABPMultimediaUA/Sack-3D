@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          Bot.h
 
-Author:        Estudio Rorschach 
-Created:       
+Author:        Estudio Rorschach
+Created:
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -21,6 +21,9 @@ Overview:
 #include <irrlicht.h>
 #include "IrrManager.h"
 #include <iostream>
+#include "fuzzy/FuzzyModule.h"
+
+
 
 using namespace irr;
 using namespace core;
@@ -35,22 +38,22 @@ using namespace gui;
 class Bot : public Player
 {
     public:
-        Bot(vector3df pos);                          ///< Constructor                 
-        void update();                               ///<            
-        int getMemership(float d);                   ///<                        
-        int getMayorValor(int x1, int x2, int x3);   ///<                                        
-        void huir(int dir);                          ///<                
-        void quieto();                               ///<            
-        virtual ~Bot();                              ///<            
+        Bot(vector3df pos);                          ///< Constructor
+        void update();                               ///<
+        void InicializarFuzzy();
+                         ///<
+        void quieto();                               ///<
+        double GetPeligro();
+        double getDistancia(b2Body* a, b2Body* b);
+
+
+        virtual ~Bot();                              ///<
 
     protected:
-
+        FuzzyModule m_FuzzyModule;
+        double danger;
     private:
-    	float distancia;                             ///<                     
-    	float membership;                            ///<                     
-    	int cerca;                                   ///<             
-    	int intermedio;                              ///<                     
-    	int lejos;                                   ///<             
-};                                                  
+
+};
 
 #endif // BOT_H

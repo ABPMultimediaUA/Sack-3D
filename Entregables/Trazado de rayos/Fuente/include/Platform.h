@@ -32,10 +32,10 @@ using namespace gui;
 *******************************************************************************/
 class Platform{
     public:
-        Platform(vector3df pos, vector3df tam,float rotation,SColor color); 	///< Constructor																							
+        Platform(vector3df pos, vector3df tam,SColor color); 	///< Constructor																							
         virtual ~Platform();									///< Destructor															
     private:																								
-		IMeshSceneNode* node;
+    	IMesh* mesh;											///< Malla													
 	    b2Body* body;											///< Cuerpo fisico													
 };																								
 																								

@@ -49,7 +49,7 @@ int main(){
     //Bot* bot1  = new Bot(vector3df(100,-20,0));
     //CREACION DE ARMAS//
 
-    Arma* arma = new Arma(vector3df(-320,-20,0));
+    Arma* arma = new Arma(vector3df(180,-20,0));
     Escopeta* escopeta = new Escopeta(vector3df(180,-20,0));
 
     cogibles->push_back(arma);

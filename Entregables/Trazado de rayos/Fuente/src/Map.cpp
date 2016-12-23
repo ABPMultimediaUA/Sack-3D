@@ -5,8 +5,8 @@ Copyright  2016. All Rights Reserved.
 Project:       Last Bear Standing
 File:          Map.h
 
-Author:        Estudio Rorschach
-Created:
+Author:        Estudio Rorschach 
+Created:       
 Modified:      08/12/2016 Jorge Puerto
 
 Overview:
@@ -41,9 +41,7 @@ Map::Map(stringw file){
             int y = xml->getAttributeValueAsInt(L"y");
             int width = xml->getAttributeValueAsInt(L"width");
             int height = xml->getAttributeValueAsInt(L"height");
-            float rotation = xml->getAttributeValueAsInt(L"rotation");
-            //Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height, rand()%10+5), rotation ,SColor(255, rand()%255, rand()%255, rand()%255));
-            Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height,  rand()%10+5), rotation ,SColor(255, rand()%255, rand()%255, rand()%255));
+            Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height, rand()%10+5),SColor(255, rand()%255, rand()%255, rand()%255));
         }
     }
 }

@@ -50,7 +50,6 @@ class IrrManager{
         IMeshSceneNode* addCubeSceneNode(int tam , SColor color);
         // Genera una nodo rectangular pasando tamaño y color                      
         IMeshSceneNode* addCubeSceneNode(vector3df tam, SColor color);
-        IAnimatedMeshSceneNode* addModel(vector3df tam, SColor color);
         IXMLReader* createXMLReader(stringw file);  ///< Crea un lector de xml    
         ISceneManager* getManager();                ///< Getter                                               
         MyEventReceiver* getEventReciever();        ///< Getter                                                       

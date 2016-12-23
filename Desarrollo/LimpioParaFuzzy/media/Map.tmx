@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="4" tileheight="4" backgroundcolor="#5e8eff" nextobjectid="555">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="36" tilewidth="4" tileheight="4" backgroundcolor="#5e8eff" nextobjectid="559">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -8,20 +8,18 @@
    </animation>
   </tile>
  </tileset>
- <objectgroup color="#26a410" name="colisiones" offsetx="39.25" offsety="-73.75">
+ <objectgroup color="#26a410" name="colisiones" offsetx="-34" offsety="-75.75">
   <object id="484" x="-144" y="-96" width="4" height="312"/>
   <object id="486" x="-156" y="196" width="552" height="4"/>
   <object id="487" x="380" y="-120" width="8" height="320"/>
-  <object id="538" x="27.0833" y="170.083" width="30.5" height="6.5"/>
-  <object id="539" x="129.25" y="91.9167" width="30.5" height="6.5"/>
-  <object id="540" x="160" y="92.1667" width="30.5" height="6.5"/>
-  <object id="541" x="207.583" y="92.1667" width="30.5" height="6.5"/>
-  <object id="542" x="98.75" y="91.75" width="30.5" height="6.5"/>
-  <object id="543" x="75.1667" y="117.75" width="30.5" height="6.5"/>
-  <object id="544" x="51.0833" y="144.083" width="30.5" height="6.5"/>
-  <object id="549" x="27" y="176.167" width="7" height="20"/>
-  <object id="551" x="51" y="150.25" width="7" height="20"/>
-  <object id="552" x="98.5" y="98" width="7" height="20"/>
-  <object id="553" x="75" y="124" width="7" height="20"/>
+  <object id="538" x="27.0833" y="174.333" width="30.5" height="6.5"/>
+  <object id="540" x="98" y="106.167" width="119.818" height="6.5"/>
+  <object id="541" x="294.666" y="105.917" width="30.5" height="6.5"/>
+  <object id="543" x="74.1667" y="129.25" width="30.5" height="6.5"/>
+  <object id="544" x="50.5833" y="151.833" width="30.5" height="6.5"/>
+  <object id="549" x="27" y="180.5" width="7" height="15.667"/>
+  <object id="551" x="50.75" y="157.75" width="7" height="16.5"/>
+  <object id="552" x="98.25" y="112.75" width="7" height="16.75"/>
+  <object id="553" x="74.25" y="135.75" width="7" height="15.75"/>
  </objectgroup>
 </map>

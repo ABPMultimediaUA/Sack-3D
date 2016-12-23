@@ -38,6 +38,13 @@
 		<Unit filename="include/Bala.h" />
 		<Unit filename="include/Bot.h" />
 		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Cogible.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Escopeta.h" />
+		<Unit filename="include/Granada.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/IrrManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MyContactListener.h" />
@@ -45,6 +52,9 @@
 		<Unit filename="include/PhysicWorld.h" />
 		<Unit filename="include/Platform.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/Usable.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/cuboMierda.h" />
 		<Unit filename="include/fuzzy/FuzzyHedges.h" />
 		<Unit filename="include/fuzzy/FuzzyModule.h" />
@@ -65,6 +75,13 @@
 		<Unit filename="src/Bala.cpp" />
 		<Unit filename="src/Bot.cpp" />
 		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Cogible.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Escopeta.cpp" />
+		<Unit filename="src/Granada.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/IrrManager.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
@@ -72,6 +89,9 @@
 		<Unit filename="src/PhysicWorld.cpp" />
 		<Unit filename="src/Platform.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Usable.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/cuboMierda.cpp" />
 		<Unit filename="src/fuzzy/FuzzyModule.cpp" />
 		<Unit filename="src/fuzzy/FuzzyOperators.cpp" />

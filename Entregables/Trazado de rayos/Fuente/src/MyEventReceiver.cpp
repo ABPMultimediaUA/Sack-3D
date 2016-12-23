@@ -3,7 +3,7 @@
 #include "cuboMierda.h"
 
 
-bool MyEventReceiver::OnEvent(const SEvent& event){
+bool MyEventReceiver::OnEvent(const SEvent& event){/*
      if (event.EventType == irr::EET_MOUSE_INPUT_EVENT){
           switch(event.MouseInput.Event){
                case EMIE_LMOUSE_LEFT_UP:
@@ -16,7 +16,8 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
      if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
          KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
           if(event.KeyInput.PressedDown == true){
-               switch(event.KeyInput.Key){
+               switch(event.KeyInput.Key){/*
+
                   case KEY_SPACE:
                       PhysicWorld::Instance()->getPlayer()->saltar();
                   break;
@@ -42,9 +43,11 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                            PhysicWorld::Instance()->getPlayer()->usar();
                   		}
                   break;
+
               }
           }
      }
+     */
 }
 bool MyEventReceiver::IsKeyDown(EKEY_CODE keyCode) const{
 return KeyIsDown[keyCode];

@@ -12,14 +12,14 @@
   <object id="484" x="-144" y="-96" width="4" height="312"/>
   <object id="486" x="-156" y="196" width="552" height="4"/>
   <object id="487" x="380" y="-120" width="8" height="320"/>
-  <object id="538" x="27.0833" y="174.333" width="30.5" height="6.5"/>
-  <object id="540" x="98" y="106.167" width="119.818" height="6.5"/>
+  <object id="538" x="32.5" y="174.333" width="25.0833" height="6.5"/>
+  <object id="540" x="104" y="106.167" width="113.818" height="6.5"/>
   <object id="541" x="294.666" y="105.917" width="30.5" height="6.5"/>
-  <object id="543" x="74.1667" y="129.25" width="30.5" height="6.5"/>
-  <object id="544" x="50.5833" y="151.833" width="30.5" height="6.5"/>
-  <object id="549" x="27" y="180.5" width="7" height="15.667"/>
-  <object id="551" x="50.75" y="157.75" width="7" height="16.5"/>
-  <object id="552" x="98.25" y="112.75" width="7" height="16.75"/>
-  <object id="553" x="74.25" y="135.75" width="7" height="15.75"/>
+  <object id="543" x="79.5" y="129.25" width="25.1667" height="6.5"/>
+  <object id="544" x="56.25" y="151.833" width="24.8333" height="6.5"/>
+  <object id="549" x="27" y="174.25" width="7" height="21.917"/>
+  <object id="551" x="50.75" y="151.75" width="7" height="22.5"/>
+  <object id="552" x="98.25" y="106" width="7" height="23.5"/>
+  <object id="553" x="74.25" y="129.25" width="7" height="22.25"/>
  </objectgroup>
 </map>

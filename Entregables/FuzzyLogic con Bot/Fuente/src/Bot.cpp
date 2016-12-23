@@ -109,10 +109,10 @@ void Bot::InicializarFuzzy(){
     FzSet buena = valoracion.AddRightShoulderSet("buena",30,50,100);
 
     //VALORACION DEL ARMA DEL BOT
-    FuzzyVariable& valoracion_bot = m_FuzzyModule.CreateFLV("valoracion_bot");
+    /*FuzzyVariable& valoracion_bot = m_FuzzyModule.CreateFLV("valoracion_bot");
     FzSet mala_bot = valoracion.AddLeftShoulderSet("mala_bot",0,10,30);
     FzSet aceptable_bot = valoracion.AddTriangularSet("aceptable_bot",10,30,50);
-    FzSet buena_bot = valoracion.AddRightShoulderSet("buena_bot",30,50,100);
+    FzSet buena_bot = valoracion.AddRightShoulderSet("buena_bot",30,50,100);*/
 
     //PELIGRO
     FuzzyVariable& peligro = m_FuzzyModule.CreateFLV("peligro");
@@ -128,9 +128,9 @@ void Bot::InicializarFuzzy(){
     m_FuzzyModule.AddRule(mala, poco_p);
 
     //VALORACION BOT
-    m_FuzzyModule.AddRule(mala_bot, mucho_p);
+    /*m_FuzzyModule.AddRule(mala_bot, mucho_p);
     m_FuzzyModule.AddRule(aceptable_bot, medio_p);
-    m_FuzzyModule.AddRule(buena_bot, poco_p);
+    m_FuzzyModule.AddRule(buena_bot, poco_p);*/
 
     //DISTANCIA
     m_FuzzyModule.AddRule(lejos, poco_p);

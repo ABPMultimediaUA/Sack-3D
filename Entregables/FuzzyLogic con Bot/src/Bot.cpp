@@ -54,11 +54,6 @@ double Bot::GetPeligro(){
             if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                 VJA = PhysicWorld::Instance()->getPlayer()->getObjCogido()->getValoracion();
             }
-            //Si el bot esta armado incluimos la val inversa del arma para reducir peligro
-            if(PhysicWorld::Instance()->getBot()->getCogiendo()){
-                VA = PhysicWorld::Instance()->getBot()->getObjCogido()->getValoracion();
-                m_FuzzyModule.Fuzzify("valoracionInversa", VA);
-            }
         }
     }
 
@@ -98,27 +93,17 @@ double Bot::getDistancia(b2Body* a, b2Body* b){
 void Bot::InicializarFuzzy(){
 
     //DISTANCIA
-    FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
-    FzSet&& cerca = distancia.AddLeftShoulderSet("cerca",0, 25, 150);
-    FzSet&& medio = distancia.AddTriangularSet("medio",25, 150, 300);
-    FzSet&& lejos = distancia.AddRightShoulderSet("lejos",150, 300, 100000);
 
-    //DISTANCIA INVERSA
-    FuzzyVariable& distanciaInversa = m_FuzzyModule.CreateFLV("distanciaInversa");
-    FzSet&& lejosInv = distancia.AddLeftShoulderSet("lejosInv",0, 25, 150);
-    FzSet&& medioInv = distancia.AddTriangularSet("medioInv",25, 150, 300);
-    FzSet&& cercaInv = distancia.AddRightShoulderSet("cercaInv",150, 300, 100000);
+    FuzzyVariable& distancia = m_FuzzyModule.CreateFLV("distancia");
+    FzSet cerca = distancia.AddLeftShoulderSet("cerca",0, 25, 150);
+    FzSet medio = distancia.AddTriangularSet("medio",25, 150, 300);
+    FzSet lejos = distancia.AddRightShoulderSet("lejos",150, 300, 100000);
 
     //VALORACION DEL ARMA DEL ENEMIGO
     FuzzyVariable& valoracion = m_FuzzyModule.CreateFLV("valoracion");
     FzSet mala = valoracion.AddLeftShoulderSet("mala",0,10,30);
     FzSet aceptable = valoracion.AddTriangularSet("aceptable",10,30,50);
     FzSet buena = valoracion.AddRightShoulderSet("buena",30,50,100);
-    //VALORACION DEL ARMA DEL ENEMIGO INVERSA
-    FuzzyVariable& valoracionInversa = m_FuzzyModule.CreateFLV("valoracionInversa");
-    FzSet buenaInv = valoracion.AddLeftShoulderSet("buenaInv",0,10,30);
-    FzSet aceptableInv = valoracion.AddTriangularSet("aceptableInv",10,30,50);
-    FzSet malaInv = valoracion.AddRightShoulderSet("malaInv",30,50,100);
 
     //PELIGRO
     FuzzyVariable& peligro = m_FuzzyModule.CreateFLV("peligro");
@@ -128,22 +113,19 @@ void Bot::InicializarFuzzy(){
 
     //AÑADIR REGLAS
 
-    //DISTANCIA
-    m_FuzzyModule.AddRule(lejos, poco_p);
-    m_FuzzyModule.AddRule(medio, medio_p);
-    m_FuzzyModule.AddRule(cerca, mucho_p);
-     //DISTANCIA INV
-    m_FuzzyModule.AddRule(lejosInv, mucho_p);
-    m_FuzzyModule.AddRule(medioInv, medio_p);
-    m_FuzzyModule.AddRule(cercaInv, poco_p);
     //VALORACION
     m_FuzzyModule.AddRule(buena, mucho_p);
     m_FuzzyModule.AddRule(aceptable, medio_p);
     m_FuzzyModule.AddRule(mala, poco_p);
-    //VALORACION INVERSA
-    m_FuzzyModule.AddRule(buenaInv, poco_p);
-    m_FuzzyModule.AddRule(aceptableInv, medio_p);
-    m_FuzzyModule.AddRule(malaInv, mucho_p);
+
+    //DISTANCIA
+    m_FuzzyModule.AddRule(lejos, poco_p);
+    m_FuzzyModule.AddRule(medio, medio_p);
+    m_FuzzyModule.AddRule(cerca, mucho_p);
+
+    //VALORACIOM Y DISTANCIA
+
+    //
 
 }
 
@@ -195,7 +177,6 @@ void Bot::mover(){
         if(peligro<=50){
             //Vamos a suponer que busca el camino correcto y decide que el arma que debe coger
             //es la que tiene en la misma plataforma a su derecha
-
             body->SetLinearVelocity(b2Vec2 (1*vel, body->GetLinearVelocity().y));
         }else{
             //Si el peligro es muy alto buscara un camino por el que huir

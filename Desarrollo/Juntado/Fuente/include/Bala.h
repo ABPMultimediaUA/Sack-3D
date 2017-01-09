@@ -37,6 +37,8 @@ class Bala{
         b2Body* getBody();                 ///< Getter del body
         IMeshSceneNode* getNode();         ///< Getter del nodo irrlicht
         b2Fixture* getbalaFixture();       ///< Getter del fixture de la bala
+        void teletransportar();            ///< Teletrasporta al cubo a la posicion nextPos
+        void setNextPos(b2Vec2 pos);       ///< Setter
         int getTime();                     ///< Getter del tiempo
         int getTimeVida();                 ///< Getter del tiempo de vida
         virtual ~Bala();                   ///< Destructor
@@ -50,7 +52,9 @@ class Bala{
     protected:
         IMeshSceneNode* node;              ///<
 	    b2Body* body;                      ///<
-	     b2Fixture* balaFixture;           ///<
+        b2Fixture* balaFixture;            ///<
+        b2Vec2 nextPos;                    ///< La posicion a la que debe teletransportarse la siguiente vez que se actualice
+		bool teletransportado;             ///< Booleano que indica que ha pisado un teletransporte
 
     private:
 };

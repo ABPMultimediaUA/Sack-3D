@@ -37,6 +37,7 @@ Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
+
     bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+(7*dir),PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y+4);
     bodyDef.type = b2_kinematicBody;
     bodyDef.bullet = true;
@@ -45,18 +46,36 @@ Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
     polyShape.SetAsBox(tam/2,tam/2);
     fixtureDef.shape = &polyShape;
 
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
+    fixtureDef.friction = 0.0f;
+    fixtureDef.restitution  = 0.0f;
+    fixtureDef.density  = 0.0f;
     balaFixture = body->CreateFixture(&fixtureDef);
+    b2Fixture* balaSensorFixture = body->CreateFixture(&fixtureDef);
+
+    balaSensorFixture->SetUserData((void*)40);
+    b2Vec2 velo = body->GetLinearVelocity();
+
+    if(desviacion != 0 )velo.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
+    body->SetLinearVelocity(velo);
+
 }
 //---------------------------------------------------------------------------
 /**
    Actualizar
 */
 void Bala::actualiza(){
+    if(teletransportado) teletransportar();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
+}
+//---------------------------------------------------------------------------
+/**
+   Teletransporta al cubo a otra posicion
+*/
+void Bala::teletransportar(){
+    teletransportado = false;
+    nextPos.x += (1*10);
+    body->SetTransform(nextPos, body->GetAngle());
 }
 
 //---------------------------------------------------------------------------
@@ -68,6 +87,7 @@ IMeshSceneNode* Bala::getNode(){return node;}
 b2Fixture* Bala::getbalaFixture(){return balaFixture;}
 int Bala::getTime(){return timerbala;}
 int Bala::getTimeVida(){return tiempoVida;}
+void Bala::setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
 //---------------------------------------------------------------------------
 /**
    Destructor

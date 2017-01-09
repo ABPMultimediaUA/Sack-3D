@@ -36,8 +36,9 @@ Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
     node->setPosition(vector3df(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
+
     bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+7,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y+4);
-    bodyDef.type = b2_kinematicBody;
+    bodyDef.type = b2_dynamicBody;
     bodyDef.bullet = true;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;

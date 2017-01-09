@@ -22,6 +22,8 @@ El maaaaaaaaain.
 #include "IrrManager.h"
 #include "Platform.h"
 #include "Arma.h"
+#include "Escopeta.h"
+#include "Granada.h"
 #include "Map.h"
 #include "Camera.h"
 #include "Muelle.h"
@@ -45,11 +47,15 @@ int main(){
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(40,0,0));
-
+    //CREACION DE ARMAS//
     Arma* arma = new Arma();
+    Escopeta* escopeta = new Escopeta();
+    Granada* granada = new Granada();
     cogibles->push_back(arma);
+    cogibles->push_back(escopeta);
+    cogibles->push_back(granada);
     PhysicWorld::Instance()->setCogibles(cogibles);
-
+    ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
     PhysicWorld::Instance()->setArma(arma);
     Map* mapa = new Map("media/Map.tmx");
@@ -79,12 +85,16 @@ int main(){
                      if(TimeStamp - balas->at(i)->getTime() > balas->at(i)->getTimeVida()){
                         balas->at(i)->getNode()->remove();
                         balas->at(i)->getBody()->DestroyFixture(balas->at(i)->getbalaFixture());
+                        PhysicWorld::Instance()->GetWorld()->DestroyBody( balas->at(i)->getBody() );
+                        delete balas->at(i);
                         balas->erase(balas->begin()+i);
          }
             }
             player->update();
             camera->update(TimeStamp);
             arma->actualiza();
+            escopeta->actualiza();
+            granada->actualiza();
 
             IrrManager::Instance()->drawAll();
             IrrManager::Instance()->endScene();

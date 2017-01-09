@@ -26,7 +26,6 @@ informacion de las colisiones que suceden en el juego.
 #define TELETRANSPORTE 60  ///< Int para las colisiones de los teletransporte
 #define HOSTILES 70  ///< Int para las colisiones de los elementos hostiles
 
-
 /******************************************************************************
                                MyContactListener
 *******************************************************************************/

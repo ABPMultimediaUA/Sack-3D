@@ -2501,3 +2501,128 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	<vector>
+
+1482406806 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482257016 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482406806 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\irrmanager.cpp
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\map.h
+	<irrlicht.h>
+
+1482082555 d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482406806 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1482406806 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482406806 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1482082555 source:d:\development\sack-3d\entregables\mecanicas de entidades sin ia\fuente\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

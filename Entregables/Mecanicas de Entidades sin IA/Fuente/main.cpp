@@ -44,6 +44,7 @@ int main(){
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(-100,-180,0));
+
     PhysicWorld::Instance()->setPlayer(player);
     Map* mapa = new Map("media/Map.tmx");
     Muelle* muelle1 = new Muelle(100, vector3df(-210,-195,0),vector3df(10, 5, 10),SColor(255, 255, 0, 0));

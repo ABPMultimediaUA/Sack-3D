@@ -24,6 +24,12 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   case KEY_SPACE:
                       PhysicWorld::Instance()->getPlayer(1)->saltar();
                   break;
+                  case KEY_KEY_G:
+                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(70.0f/MPP, -30.0f/MPP));
+                  break;
+                  case KEY_KEY_H:
+                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(0.0f, -30.0f/MPP));
+                  break;
                   case KEY_KEY_Q:
                       PhysicWorld::Instance()->getPlayer(1)->fingirMuerte();
                   case KEY_KEY_E:

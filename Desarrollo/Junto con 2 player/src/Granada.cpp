@@ -94,7 +94,7 @@ void Granada::actualiza(){
               b2Body* Partbody = PhysicWorld::Instance()->GetWorld()->CreateBody(bd);
 
               b2CircleShape circleShape;
-              circleShape.m_radius = 40.05f/MPP; // very small
+              circleShape.m_radius = 30.05f/MPP; // very small
 
               b2FixtureDef* fd = new b2FixtureDef();
               fd->shape = &circleShape;

@@ -123,7 +123,7 @@ bool Arma::getCogida(){return siendoCogida;}
 */
 void Arma::usar(){
     std::cout<<"ESTOY DISPARANDO"<<std::endl;
-    Bala* bala = new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 500, 1000, 100, dir);
+    Bala* bala = new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 2, 15.0f, dir);
     b2Vec2 vel = bala->getBody()->GetLinearVelocity();
     vel.x = bala->velocidad;
     if(dir==1) bala->getBody()->SetLinearVelocity(vel);

@@ -49,6 +49,7 @@ Bala::Bala(vector3df pos, int tiempoVidaP, int velocidadP, float deviacionP, int
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution  = 0.0f;
     fixtureDef.density  = 0.0f;
+    fixtureDef.filter.groupIndex = -1;
     balaFixture = body->CreateFixture(&fixtureDef);
     b2Fixture* balaSensorFixture = body->CreateFixture(&fixtureDef);
 

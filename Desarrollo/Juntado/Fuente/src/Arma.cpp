@@ -37,16 +37,18 @@ Arma::Arma(){
     node->setPosition(vector3df(40/MPP,0/MPP,0/MPP));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
+    b2PolygonShape polyShape;
+
     bodyDef.position.Set(40/MPP,0/MPP);
     bodyDef.type = b2_dynamicBody;
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
-    b2PolygonShape polyShape;
+
     polyShape.SetAsBox((tam.X/2.0f),(tam.Y/2.0f));
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.3f;
-    fixtureDef.density  = 1.0f;
+    fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.2f;
+    fixtureDef.density  = 2.0f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)30);
     body->SetFixedRotation(true);
@@ -60,6 +62,7 @@ Arma::Arma(){
    Metodo que actualiza la posicion y rotacion del arma
 */
 void Arma::actualiza(){
+//std::cout<<body->GetMass()<<std::endl;
     if(siendoCogida && PhysicWorld::Instance()->getPlayer()->getCogiendo()){
         int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
         node->setPosition(vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
@@ -87,6 +90,7 @@ void Arma::setCogida(bool aux){
     if(aux){
         polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
+        fixtureDef.density  = 0.1f;
         fixtureDef.isSensor = true;
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
@@ -100,9 +104,9 @@ void Arma::setCogida(bool aux){
         b2PolygonShape polyShape;
         polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
-        fixtureDef.friction = 10.5f;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 1.0f;
+        fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.2f;
+    fixtureDef.density  = 2.0f;
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
         body->SetFixedRotation(true);

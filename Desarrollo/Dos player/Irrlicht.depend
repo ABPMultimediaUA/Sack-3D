@@ -653,3 +653,137 @@
 1483963780 source:c:\users\esgar\desktop\dos player\src\usable.cpp
 	"Usable.h"
 
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Arma.h"
+	"Map.h"
+	"Camera.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	<vector>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\usable.h
+	"Cogible.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\map.h
+	<irrlicht.h>
+
+1484055036 d:\development\sack-3d\desarrollo\dos player\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\cogible.cpp
+	"Cogible.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\irrmanager.cpp
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484055037 source:d:\development\sack-3d\desarrollo\dos player\src\usable.cpp
+	"Usable.h"
+

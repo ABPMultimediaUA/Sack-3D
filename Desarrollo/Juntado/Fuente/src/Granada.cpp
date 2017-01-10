@@ -52,9 +52,9 @@ Granada::Granada()
     b2PolygonShape polyShape;
     polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.3f;
-    fixtureDef.density  = 0.f;
+    fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.2f;
+    fixtureDef.density  = 2.0f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)30);
     body->SetFixedRotation(true);
@@ -158,6 +158,7 @@ void Granada::setCogida(bool aux){
     if(aux){
         polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
+        fixtureDef.density  = 0.1f;
         fixtureDef.isSensor = true;
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
@@ -171,9 +172,9 @@ void Granada::setCogida(bool aux){
         b2PolygonShape polyShape;
         polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
-        fixtureDef.friction = 10.5f;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 0.f;
+        fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.2f;
+    fixtureDef.density  = 2.0f;
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
         body->SetFixedRotation(true);

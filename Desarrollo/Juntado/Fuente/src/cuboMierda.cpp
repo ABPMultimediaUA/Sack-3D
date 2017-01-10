@@ -24,8 +24,9 @@ Overview:
 //---------------------------------------------------------------------------
 
 cuboMierda::cuboMierda(int x, int y){
-    int tam = 8;
+    int tam = 2;
 	node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, rand()%255, rand()%255, rand()%255));
+	node->setScale(vector3df (0.07f,0.07f,0.07f));
     node->setPosition(vector3df(x,y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -33,11 +34,11 @@ cuboMierda::cuboMierda(int x, int y){
     bodyDef.type = b2_dynamicBody;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam/2,tam/2);
+    polyShape.SetAsBox((tam*0.07)/2,(tam*0.07)/2);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
+    fixtureDef.friction = 0.1f;
     fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
+    fixtureDef.density  = 0.2f;
     body->CreateFixture(&fixtureDef);
 
     b2Fixture* cubomierdaSensorFixture = body->CreateFixture(&fixtureDef);
@@ -49,7 +50,7 @@ cuboMierda::cuboMierda(int x, int y){
 */
 void cuboMierda::teletransportar(){
     teletransportado = false;
-    nextPos.x += (1*10);
+    nextPos.x += (1*10.0f/MPP);
     body->SetTransform(nextPos, body->GetAngle());
 }
 //---------------------------------------------------------------------------

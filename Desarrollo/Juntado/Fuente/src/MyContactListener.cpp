@@ -54,6 +54,7 @@ void MyContactListener::BeginContact(b2Contact* contact){
 		|| (unsigned long)fixtureUserDataB == PIESPLAYER){
 	    PhysicWorld::Instance()->getPlayer()->setSaltando(false);
 	    PhysicWorld::Instance()->getPlayer()->setDobleSaltando(false);
+	    std::cout<<"EN EL SUELO"<<std::endl;
 	}
 	/*
 	//Player entra en area cogible de arma.

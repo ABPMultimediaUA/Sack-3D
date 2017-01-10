@@ -541,7 +541,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484054614 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\arma.cpp
+1484064193 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -623,12 +623,12 @@
 1482245276 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cogible.cpp
 	"Cogible.h"
 
-1483961458 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cubomierda.cpp
+1484061152 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484054597 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\escopeta.cpp
+1484064181 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -638,7 +638,7 @@
 	<irrlicht.h>
 	"Usable.h"
 
-1484052350 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
+1484064220 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
 	"Granada.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -671,16 +671,16 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1483965946 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\mycontactlistener.cpp
+1484063655 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1484052700 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
+1484062585 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1483978927 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\physicworld.cpp
+1484064021 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
@@ -690,7 +690,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1483978749 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\player.cpp
+1484063909 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

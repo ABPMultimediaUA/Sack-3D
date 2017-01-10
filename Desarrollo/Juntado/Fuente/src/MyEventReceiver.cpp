@@ -5,13 +5,13 @@
 
 bool MyEventReceiver::OnEvent(const SEvent& event){
      if (event.EventType == irr::EET_MOUSE_INPUT_EVENT){
-          switch(event.MouseInput.Event){
-               case EMIE_LMOUSE_LEFT_UP:
+                   //switch(event.MouseInput.Event){
+               //case EMIE_LMOUSE_LEFT_UP:
                    cuboMierda* cubo = new cuboMierda((event.MouseInput.X - 1366/2)/5, (-event.MouseInput.Y+720/2)/5 );
                    PhysicWorld::Instance()->GetCubos()->push_back(cubo);
-               break;
-               break;
-          }
+               //break;
+               //break;
+          //}
      }
      if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
          KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
@@ -21,10 +21,10 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                       PhysicWorld::Instance()->getPlayer()->saltar();
                   break;
                   case KEY_KEY_G:
-                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(200.0f, -10.0f));
+                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(70.0f/MPP, -30.0f/MPP));
                   break;
                   case KEY_KEY_H:
-                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(0.0f, -10.0f));
+                      PhysicWorld::Instance()->GetWorld()->SetGravity(b2Vec2(0.0f, -30.0f/MPP));
                   break;
                   case KEY_KEY_Q:
                       PhysicWorld::Instance()->getPlayer()->fingirMuerte();

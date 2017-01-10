@@ -32,14 +32,14 @@ using namespace gui;
 *******************************************************************************/
 class Muelle{
     public:
-        Muelle(int f, vector3df pos, vector3df tam,SColor color); 	///< Constructor
-        int getFuerza();                                    ///< Getter
+        Muelle(float f, vector3df pos, vector3df tam,SColor color); 	///< Constructor
+        float getFuerza();                                    ///< Getter
         b2Body* getBody();                                  ///< Getter
         virtual ~Muelle();									///< Destructor
     private:
     	IMesh* mesh;											///< Malla
 	    b2Body* body;											///< Cuerpo fisico
-	    int fuerza;                                             ///< Fuerza del impulso del muelle
+	    float fuerza;                                             ///< Fuerza del impulso del muelle
 };
 
 #endif // MUELLE_H

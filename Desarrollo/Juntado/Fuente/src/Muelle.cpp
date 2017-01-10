@@ -26,15 +26,15 @@ Clase que define un muelle, con sus componentes grafica y fisica.
 /**
    Constructor
 */
-Muelle::Muelle(int f, vector3df pos, vector3df tam,SColor color){
-    fuerza = f;
-    mesh = IrrManager::Instance()->createCubeMesh(vector3df(pos.X, pos.Y, pos.Z),vector3df(tam.X, tam.Y,tam.Z),color);
+Muelle::Muelle(float f, vector3df pos, vector3df tam,SColor color){
+    fuerza = f/MPP;
+    mesh = IrrManager::Instance()->createCubeMesh(vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(pos.X,pos.Y);
+    bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.X/2,tam.Y/2);
+    polyShape.SetAsBox((tam.X/2)/MPP,(tam.Y/2)/MPP);
 
     b2Fixture* fixture = body->CreateFixture(&polyShape, 0.0f);
     fixture->SetUserData((void*)50);
@@ -42,7 +42,7 @@ Muelle::Muelle(int f, vector3df pos, vector3df tam,SColor color){
 /**
    Getters y setters
 */
-int Muelle::getFuerza(){return fuerza;}
+float Muelle::getFuerza(){return fuerza;}
 b2Body* Muelle::getBody(){return body;}
 //---------------------------------------------------------------------------
 /**

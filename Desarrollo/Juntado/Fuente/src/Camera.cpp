@@ -60,8 +60,8 @@ Camera::update(float time){
 	}
 	float cenX = cenAnt->X + ((cenSig->X - cenAnt->X)/(porcentGap*100)*porcentUpdate*10);
     float cenY = cenAnt->Y + ((cenSig->Y - cenAnt->Y)/(porcentGap*100)*porcentUpdate*10);
-	z =  100;
-	if(z<35)z = 35;
+	z =  2;
+	//if(z<35)z = 35;
 	camera->setPosition(vector3df(cenX,cenY, -z));
 	camera->setTarget(vector3df(cenX,cenY, 0));
     porcentUpdate += porcentGap;

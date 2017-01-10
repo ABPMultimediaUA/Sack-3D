@@ -46,7 +46,7 @@ int main(){
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(40,0,0));
+    Player* player = new Player(vector3df(120/MPP,0/MPP,0/MPP));
     //CREACION DE ARMAS//
     Arma* arma = new Arma();
     Escopeta* escopeta = new Escopeta();
@@ -60,9 +60,9 @@ int main(){
     PhysicWorld::Instance()->setArma(arma);
     Map* mapa = new Map("media/Map.tmx");
 
-    Muelle* muelle1 = new Muelle(100, vector3df(-210,-195,0),vector3df(10, 5, 10),SColor(255, 255, 0, 0));
-    Muelle* muelle2 = new Muelle(200, vector3df(-190,-195,0),vector3df(10, 5, 10),SColor(255, 0, 255, 0));
-    Muelle* muelle3 = new Muelle(300, vector3df(-170,-195,0),vector3df(10, 5, 10),SColor(255, 0, 0, 255));
+    Muelle* muelle1 = new Muelle(100.0f, vector3df(-210,-195,0),vector3df(10, 5, 10),SColor(255, 255, 0, 0));
+    Muelle* muelle2 = new Muelle(80.0f, vector3df(-190,-195,0),vector3df(10, 5, 10),SColor(255, 0, 255, 0));
+    Muelle* muelle3 = new Muelle(60.0f, vector3df(-170,-195,0),vector3df(10, 5, 10),SColor(255, 0, 0, 255));
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle1);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle2);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle3);

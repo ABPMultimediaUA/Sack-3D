@@ -33,22 +33,24 @@ Clase que contiene el codigo de funcionamiento para la granada.
 
 Granada::Granada()
 {
+    siendoCogida= false;
     particulas = new std::vector<b2Body*>();
     mecha = 4000;
     usada = false;
     timerIrr = IrrManager::Instance()->getTimer();
     timergranada = timerIrr->getTime();
-    vector3df tam = vector3df(5,5,1);
+    vector3df tam2 = vector3df(5,5,1);
+    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(30, 100, 30, 0));
-    node->setPosition(vector3df(0,0,0));
+    node->setPosition(vector3df(-150/MPP,0/MPP,0/MPP));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(-150,0);
+    bodyDef.position.Set(-150/MPP,0);
     bodyDef.type = b2_dynamicBody;
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.X/2,tam.Y/2);
+    polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 10.5f;
     fixtureDef.restitution  = 0.3f;
@@ -56,10 +58,10 @@ Granada::Granada()
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)30);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(20,20);
+    polyShape.SetAsBox((tam.X*2.0),(tam.Y*2.0));
     fixtureDef.isSensor = true;
-    b2Fixture* armaSensorFixture = body->CreateFixture(&fixtureDef);
-    armaSensorFixture->SetUserData((void*)35);
+    b2Fixture* granadaSensorFixture = body->CreateFixture(&fixtureDef);
+    granadaSensorFixture->SetUserData((void*)35);
 }
 
 //---------------------------------------------------------------------------
@@ -68,9 +70,9 @@ Granada::Granada()
 */
 void Granada::actualiza(){
 
-    if(siendoCogida){
+    if(siendoCogida && PhysicWorld::Instance()->getPlayer()->getCogiendo()){
         int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
-        node->setPosition(vector3df(body->GetPosition().x+(5*dir),body->GetPosition().y,0));
+        node->setPosition(vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
     }
     else node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
 
@@ -143,7 +145,9 @@ void Granada::usar(){
 */
 b2Body* Granada::getBody(){return body;}
 void Granada::setCogida(bool aux){
-    vector3df tam = vector3df(5,3,1);
+
+    vector3df tam2 = vector3df(5,3,1);
+    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     body->DestroyFixture(body->GetFixtureList());
     body->DestroyFixture(body->GetFixtureList());
     b2BodyDef bodyDef;
@@ -152,20 +156,20 @@ void Granada::setCogida(bool aux){
     b2Fixture* armaSensorFixture;
     b2Fixture* fixture;
     if(aux){
-        polyShape.SetAsBox(tam.X/2,tam.Y/2);
+        polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
         fixtureDef.isSensor = true;
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
         body->SetFixedRotation(true);
-        polyShape.SetAsBox(20,20);
+        polyShape.SetAsBox((tam.X/4.0f),(tam.Y/4.0f));
         fixtureDef.isSensor = true;
         armaSensorFixture = body->CreateFixture(&fixtureDef);
         armaSensorFixture->SetUserData((void*)35);
     }
     else{
         b2PolygonShape polyShape;
-        polyShape.SetAsBox(tam.X/2,tam.Y/2);
+        polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
         fixtureDef.shape = &polyShape;
         fixtureDef.friction = 10.5f;
         fixtureDef.restitution  = 0.3f;
@@ -173,7 +177,7 @@ void Granada::setCogida(bool aux){
         fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)30);
         body->SetFixedRotation(true);
-        polyShape.SetAsBox(20,20);
+        polyShape.SetAsBox((tam.X*2.0),(tam.Y*2.0));
         fixtureDef.isSensor = true;
         armaSensorFixture = body->CreateFixture(&fixtureDef);
         armaSensorFixture->SetUserData((void*)35);

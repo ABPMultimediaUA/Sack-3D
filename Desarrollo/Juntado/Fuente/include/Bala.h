@@ -32,7 +32,7 @@ using namespace gui;
 *******************************************************************************/
 class Bala{
     public:
-        Bala(int, int, int);               ///< Constructor
+        Bala(int, int, float);               ///< Constructor
         void actualiza();                  ///< actualiza la posicion de la bala
         b2Body* getBody();                 ///< Getter del body
         IMeshSceneNode* getNode();         ///< Getter del nodo irrlicht
@@ -45,7 +45,7 @@ class Bala{
 
         int tiempoVida;                    ///<
         int velocidad;                     ///<
-        int desviacion;                     ///<
+        float desviacion;                     ///<
         f32 timerbala;                     ///<
         ITimer* timerIrr;                  ///<
 

@@ -541,7 +541,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482247687 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\arma.cpp
+1484054614 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -558,7 +558,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1483959770 d:\development\sack-3d\desarrollo\juntado\fuente\include\physicworld.h
+1483978935 d:\development\sack-3d\desarrollo\juntado\fuente\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -575,7 +575,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1483961352 d:\development\sack-3d\desarrollo\juntado\fuente\include\player.h
+1483971862 d:\development\sack-3d\desarrollo\juntado\fuente\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
@@ -591,11 +591,11 @@
 	"Box2D/Box2D.h"
 	<iostream>
 
-1483965148 d:\development\sack-3d\desarrollo\juntado\fuente\include\bala.h
+1484054263 d:\development\sack-3d\desarrollo\juntado\fuente\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1482082555 d:\development\sack-3d\desarrollo\juntado\fuente\include\muelle.h
+1483971657 d:\development\sack-3d\desarrollo\juntado\fuente\include\muelle.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -607,12 +607,12 @@
 	<irrlicht.h>
 	"MyEventReceiver.h"
 
-1483967630 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\bala.cpp
+1484054379 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1481563931 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\camera.cpp
+1483978972 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\camera.cpp
 	"Camera.h"
 	"Player.h"
 
@@ -628,7 +628,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1483963903 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\escopeta.cpp
+1484054597 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -638,7 +638,7 @@
 	<irrlicht.h>
 	"Usable.h"
 
-1483964717 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
+1484052350 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
 	"Granada.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -666,7 +666,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1482082555 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\muelle.cpp
+1483971948 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\muelle.cpp
 	"Muelle.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -675,35 +675,35 @@
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1483960092 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
+1484052700 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1483959664 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\physicworld.cpp
+1483978927 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
 
-1481563931 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\platform.cpp
+1483975993 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1483961168 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\player.cpp
+1483978749 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482082555 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\teleport.cpp
+1483969751 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\teleport.cpp
 	"Teleport.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1482248591 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\usable.cpp
+1484051924 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\usable.cpp
 	"Usable.h"
 
-1483967369 source:d:\development\sack-3d\desarrollo\juntado\fuente\main.cpp
+1483977695 source:d:\development\sack-3d\desarrollo\juntado\fuente\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>

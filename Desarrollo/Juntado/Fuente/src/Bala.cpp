@@ -25,25 +25,26 @@ Clase que contiene el codigo de funcionamiento para las balas.
 /**
    Constructor
 */
-Bala::Bala(int tiempoVidaP, int velocidadP, int deviacionP){
+Bala::Bala(int tiempoVidaP, int velocidadP, float deviacionP){
     tiempoVida = tiempoVidaP;
     velocidad = velocidadP;
-    desviacion = deviacionP;
-    float tam = 1.5f;
+    desviacion = deviacionP/MPP;
+    float tam = 2.0f;
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
     node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, 255,0 ,0));
+    node->setScale(vector3df (0.01f,0.01f,0.01f));
     node->setPosition(vector3df(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x,PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y,0));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
 
-    bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+(7*dir),PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y+4);
+    bodyDef.position.Set(PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x+((7.0f/MPP)*dir),PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y);
     bodyDef.type = b2_kinematicBody;
     bodyDef.bullet = true;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam/2,tam/2);
+    polyShape.SetAsBox((tam*0.01)/2,(tam*0.01)/2);
     fixtureDef.shape = &polyShape;
 
     fixtureDef.friction = 0.0f;

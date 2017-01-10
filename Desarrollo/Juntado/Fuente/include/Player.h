@@ -38,7 +38,7 @@ class Player{
         void mover();                            ///< Mover
         void saltar();                           ///< Saltar
         void fingirMuerte();                     ///< Hacerse el muerto
-        void recibeImpulso(int fuerza);          ///< Recibe el impulso de un muelle
+        void recibeImpulso(float fuerza);          ///< Recibe el impulso de un muelle
         void teletransportar();                  ///< Teletrasporta al player a la posicion nextPos
         void morir();                            ///< Muere :(
         void crearJoint();                       ///< ???
@@ -73,8 +73,8 @@ class Player{
         b2RevoluteJointDef* jointDef;            ///<
         int x;                                   ///<
         int y;                                   ///<
-        int vel;                                 ///<
-        int salto;                               ///<
+        float vel;                                 ///<
+        float salto;                               ///<
         bool cogiendo;                           ///<
         int direccion;                           ///<
         bool puedoCoger;                         ///<

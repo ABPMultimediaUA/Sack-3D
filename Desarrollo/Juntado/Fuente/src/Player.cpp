@@ -27,10 +27,10 @@ Clase que define un player
 */
 Player::Player(vector3df pos){
     teletransportado=false;
-    vel = 20;
+    vel = 40.0f/MPP;
     cogiendo = false;
     puedoCoger = false;
-    salto = 25;
+    salto = 50.0f/MPP;
     saltando = false;
     dobleSaltando = false;
     fingiendoMuerte = false;
@@ -39,7 +39,7 @@ Player::Player(vector3df pos){
     jointDef = NULL;
     direccion = 1;
     tam = vector3df(8, 16,4);
-    node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 124, 150));
+    node = IrrManager::Instance()->addCubeSceneNode(vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),SColor(255, 255, 124, 150));
     node->setPosition(pos);
 
     b2BodyDef bodyDef;
@@ -51,7 +51,7 @@ Player::Player(vector3df pos){
 
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
-    polyShape.SetAsBox(tam.X/2,tam.Y/2);
+    polyShape.SetAsBox((tam.X/2)/MPP,(tam.Y/2)/MPP);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
     fixtureDef.restitution  = 0;
@@ -59,7 +59,7 @@ Player::Player(vector3df pos){
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)10);
 
-    polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
+    polyShape.SetAsBox((tam.X/MPP)/4,(tam.Y/MPP)/4,b2Vec2(0,(-tam.Y/MPP)/2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
@@ -102,7 +102,7 @@ void Player::saltar(){
         }
         else if(!dobleSaltando){
             b2Vec2 velV = body->GetLinearVelocity();
-            velV.y = salto*3/5;
+            velV.y = salto*3/4;
             body->SetLinearVelocity(velV);
             dobleSaltando = true;
         }
@@ -193,7 +193,7 @@ void Player::fingirMuerte(){
 /**
    recibe el impulso de un muelle
 */
-void Player::recibeImpulso(int fuerza){
+void Player::recibeImpulso(float fuerza){
     saltando = true;
     b2Vec2 velV = body->GetLinearVelocity();
     velV.y = fuerza;
@@ -205,10 +205,10 @@ void Player::recibeImpulso(int fuerza){
 */
 void Player::teletransportar(){
     teletransportado = false;
-    if(direccion != 0) nextPos.x += (direccion*10);
-    else nextPos.x += (1*10);
+    if(direccion != 0) nextPos.x += (direccion*10.0f/MPP);
+    else nextPos.x += (1*10.0f/MPP);
     velActual = body->GetLinearVelocity();
-    body->SetTransform(nextPos, body->GetAngle());
+    body->SetTransform(b2Vec2(nextPos.x,nextPos.y), body->GetAngle());
     body->SetLinearVelocity(velActual);
 }
 //---------------------------------------------------------------------------
@@ -233,7 +233,7 @@ void Player::crearJoint(){
     jointDef.localAnchorB.Set(0,0);
     joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
     joint->EnableMotor(true);
-    joint->SetMaxMotorTorque(50.3f);
+   // joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
 
     //dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogida(true);
@@ -249,16 +249,16 @@ void Player::romperJoint(){
     joint = NULL;
     b2Vec2 vel = body->GetLinearVelocity();
     if(direccion==1){
-    vel.x +=20;
+    vel.x +=20.0f/MPP;
     }else if (direccion==-1){
-    vel.x -=20;
+    vel.x -=20.0f/MPP;
     }
-    vel.y +=20;
+    vel.y +=20.0f/MPP;
     //vel.x *=100;
     //vel.y *=100;
     //vel.x= vel.x * direccion;
-    if(direccion==1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x+3,body->GetPosition().y),0);
-    if(direccion==-1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x-3,body->GetPosition().y),0);
+    if(direccion==1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x+(3.0f/MPP),body->GetPosition().y),0);
+    if(direccion==-1)objCogido->getBody()->SetTransform(b2Vec2(body->GetPosition().x-(3.0f/MPP),body->GetPosition().y),0);
     objCogido->getBody()->ApplyLinearImpulse( vel, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
     puedoCoger = true;

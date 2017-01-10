@@ -42,7 +42,7 @@ PhysicWorld* PhysicWorld::Instance(){
    Constructor
 */
 PhysicWorld::PhysicWorld(){
-	world = new b2World(b2Vec2(0.0f, -10.0f), false);
+	world = new b2World(b2Vec2(0.0f, -30.0f/MPP), false);
 	cubos = new std::vector<cuboMierda*>();
 	balas = new std::vector<Bala*>();
 	cogibles = new std::vector<Cogible*>();

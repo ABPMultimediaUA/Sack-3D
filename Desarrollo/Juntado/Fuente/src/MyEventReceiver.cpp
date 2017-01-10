@@ -46,6 +46,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                   case KEY_RETURN:
                       if(PhysicWorld::Instance()->getPlayer()->getCogiendo()){
                            PhysicWorld::Instance()->getPlayer()->usar();
+
                   		}
                   break;
               }

@@ -27,7 +27,8 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 #include "Muelle.h"
 #include "Teleport.h"
 #include <vector>
-
+#define MPP       64
+#define PPM       1/64
 /******************************************************************************
                                Arma
 *******************************************************************************/
@@ -62,7 +63,7 @@ class PhysicWorld{
         std::vector<cuboMierda*>* cubos;         ///< eso
         std::vector<Bala*>* balas;               ///< Array de balas
         std::vector<Cogible*>* cogibles;         ///< Array de cogibles
-        std::vector<Muelle*>* muelles;          ///< Array de muelles
+        std::vector<Muelle*>* muelles;           ///< Array de muelles
         std::vector<Teleport*>* teletransportes; ///< Array de teletransportes
         Arma* arma;                              ///< arma
         Player* jugador1 = 0;                    ///<

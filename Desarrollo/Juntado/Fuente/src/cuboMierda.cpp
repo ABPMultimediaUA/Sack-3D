@@ -36,9 +36,9 @@ cuboMierda::cuboMierda(int x, int y){
     b2PolygonShape polyShape;
     polyShape.SetAsBox((tam*0.07)/2,(tam*0.07)/2);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.1f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 0.2f;
+    fixtureDef.friction = 0.5f;
+    fixtureDef.restitution  = 0.5f;
+    fixtureDef.density  = 2.0f;
     body->CreateFixture(&fixtureDef);
 
     b2Fixture* cubomierdaSensorFixture = body->CreateFixture(&fixtureDef);

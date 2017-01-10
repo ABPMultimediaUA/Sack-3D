@@ -91,11 +91,11 @@ void Granada::actualiza(){
               bd->linearDamping = 10; // drag due to moving through air
               bd->gravityScale = 0; // ignore gravity
               bd->position = body->GetPosition(); // start at blast center
-              bd->linearVelocity = 500 * rayDir;
+              bd->linearVelocity = 500/MPP * rayDir;
               b2Body* Partbody = PhysicWorld::Instance()->GetWorld()->CreateBody(bd);
 
               b2CircleShape circleShape;
-              circleShape.m_radius = 20.05; // very small
+              circleShape.m_radius = 40.05f/MPP; // very small
 
               b2FixtureDef* fd = new b2FixtureDef();
               fd->shape = &circleShape;

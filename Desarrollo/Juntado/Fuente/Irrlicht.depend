@@ -612,7 +612,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1483978972 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\camera.cpp
+1484065492 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\camera.cpp
 	"Camera.h"
 	"Player.h"
 
@@ -623,7 +623,7 @@
 1482245276 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cogible.cpp
 	"Cogible.h"
 
-1484061152 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cubomierda.cpp
+1484064908 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -638,7 +638,7 @@
 	<irrlicht.h>
 	"Usable.h"
 
-1484064220 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
+1484065575 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\granada.cpp
 	"Granada.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -675,7 +675,7 @@
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1484062585 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
+1484065470 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
@@ -703,7 +703,7 @@
 1484051924 source:d:\development\sack-3d\desarrollo\juntado\fuente\src\usable.cpp
 	"Usable.h"
 
-1483977695 source:d:\development\sack-3d\desarrollo\juntado\fuente\main.cpp
+1484064607 source:d:\development\sack-3d\desarrollo\juntado\fuente\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>

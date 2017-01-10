@@ -5,13 +5,15 @@
 
 bool MyEventReceiver::OnEvent(const SEvent& event){
      if (event.EventType == irr::EET_MOUSE_INPUT_EVENT){
-                   //switch(event.MouseInput.Event){
-               //case EMIE_LMOUSE_LEFT_UP:
-                   cuboMierda* cubo = new cuboMierda((event.MouseInput.X - 1366/2)/5, (-event.MouseInput.Y+720/2)/5 );
+                switch(event.MouseInput.Event){
+                case EMIE_LMOUSE_LEFT_UP:
+                   //cuboMierda* cubo = new cuboMierda((event.MouseInput.X - 1920/2)/5, (-event.MouseInput.Y+1080/2)/5 );
+
+                   cuboMierda* cubo = new cuboMierda(120/MPP,+200/MPP);
                    PhysicWorld::Instance()->GetCubos()->push_back(cubo);
-               //break;
-               //break;
-          //}
+               break;
+               break;
+          }
      }
      if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
          KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;

@@ -149,18 +149,18 @@ void Player::fingirMuerte(){
         circleShape2.m_radius = (tam.X)/2;
 
         fixtureDef.shape = &circleShape1;
-        /*
+
         fixtureDef.friction = 0.9f;
         fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 1.f;*/
+        fixtureDef.density  = 1.f;
         personFixture = body->CreateFixture(&fixtureDef);
         personFixture->SetUserData((void*)10);
 
         fixtureDef2.shape = &circleShape2;
-        /*
-       fixtureDef2.friction = 0.9f;
+
+        fixtureDef2.friction = 0.9f;
         fixtureDef2.restitution  = 0.3f;
-        fixtureDef2.density  = 5.f;*/
+        fixtureDef2.density  = 1.f;
         b2Fixture* personFixture2 = body->CreateFixture(&fixtureDef2);
         personFixture2->SetUserData((void*)10);
 
@@ -184,10 +184,10 @@ void Player::fingirMuerte(){
 
         polyShape.SetAsBox((tam.X)/2,(tam.Y)/2);
         fixtureDef.shape = &polyShape;
-        /*
-        fixtureDef.friction = 0.5f;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 10.0f;*/
+
+        fixtureDef.friction = 7.5f;
+        fixtureDef.restitution  = 0.2f;
+        fixtureDef.density  = 10.0f;
         b2Fixture* fixture = body->CreateFixture(&fixtureDef);
         fixture->SetUserData((void*)10);
 
@@ -198,7 +198,7 @@ void Player::fingirMuerte(){
 
         body->SetTransform( body->GetPosition(),0);
         body->SetAngularVelocity(0);
-        body->ApplyLinearImpulse(b2Vec2(0,10),b2Vec2(0,0));
+        body->ApplyLinearImpulse(b2Vec2(0,10.0f/MPP),b2Vec2(0,0));
 
     }
 }

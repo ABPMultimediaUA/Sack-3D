@@ -61,7 +61,8 @@ Player::Player(vector3df pos, int numMando){
     fixture->SetUserData((void*)10);
     body->SetFixedRotation(true);
 
-    polyShape.SetAsBox((tam.X/4),(tam.Y));
+    //polyShape.SetAsBox((tam.X/4),(tam.Y));
+    polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
     personajeSensorFixture->SetUserData((void*)100);
@@ -86,11 +87,23 @@ void Player::update(){
 void Player::mover(){
     if(!fingiendoMuerte){
         int dir = 0;
-        if(mando == 1 && eventReceiver->IsKeyDown(KEY_KEY_A)){direccion = dir = -1;}
-        else if(mando == 1 && eventReceiver->IsKeyDown(KEY_KEY_D)){direccion = dir = 1;}
-        else if(mando == 2 && eventReceiver->IsKeyDown(KEY_LEFT)){direccion = dir = -1;}
-        else if(mando == 2 && eventReceiver->IsKeyDown(KEY_RIGHT)){direccion = dir = 1;}
-        body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+        if(mando == 1 && eventReceiver->IsKeyDown(KEY_KEY_A)){
+            direccion = dir = -1;
+            body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+        }
+        else if(mando == 1 && eventReceiver->IsKeyDown(KEY_KEY_D)){
+            direccion = dir = 1;
+            body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+        }
+        else if(mando == 2 && eventReceiver->IsKeyDown(KEY_LEFT)){
+            direccion = dir = -1;
+            body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+        }
+        else if(mando == 2 && eventReceiver->IsKeyDown(KEY_RIGHT)){
+            direccion = dir = 1;
+            body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+        }
+
         if(cogiendo) objCogido->setDireccion(dir);
     }
 }
@@ -202,6 +215,7 @@ void Player::fingirMuerte(){
    recibe el impulso de un muelle
 */
 void Player::recibeImpulso(float fuerza){
+    std::cout<<"JKDJDJDJDKDJK"<<std::endl;
     saltando = true;
     b2Vec2 velV = body->GetLinearVelocity();
     velV.y = fuerza;

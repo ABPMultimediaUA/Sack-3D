@@ -899,3 +899,182 @@
 1484042860 source:c:\users\esgar\desktop\junto con 2 player\src\usable.cpp
 	"Usable.h"
 
+1484092285 source:d:\development\sack-3d\desarrollo\junto con 2 player\main.cpp
+	<iostream>
+	<irrlicht.h>
+	<Box2D/Common/b2Math.h>
+	"Player.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Arma.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Map.h"
+	"Camera.h"
+	"Muelle.h"
+	"Teleport.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+	"cuboMierda.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\cubomierda.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"PhysicWorld.h"
+	"cuboMierda.h"
+	"Player.h"
+	"MyContactListener.h"
+	"Arma.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	<vector>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\arma.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\usable.h
+	"Cogible.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\escopeta.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Usable.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\granada.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<vector>
+	"Usable.h"
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\map.h
+	<irrlicht.h>
+
+1484091006 d:\development\sack-3d\desarrollo\junto con 2 player\include\camera.h
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091475 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\arma.cpp
+	"Arma.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091927 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\camera.cpp
+	"Camera.h"
+	"Player.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\cogible.cpp
+	"Cogible.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\cubomierda.cpp
+	"cuboMierda.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091749 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\escopeta.cpp
+	"Escopeta.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484092244 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\granada.cpp
+	"Granada.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\irrmanager.cpp
+	"IrrManager.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"Platform.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484093227 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1484092028 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+	"cuboMierda.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484092699 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\usable.cpp
+	"Usable.h"
+

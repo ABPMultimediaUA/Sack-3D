@@ -225,47 +225,7 @@ void Player::teletransportar(){
 */
 void Player::morir(){
     paraMorir = false;
-    if(cogiendo) romperJoint();
-    //body->SetTransform(b2Vec2(-100,-180), body->GetAngle());
-
-    /////////////////////////////////// CODIGO COPIADO DE HACERSE EL MUERTO
-
-    b2FixtureDef fixtureDef;
-        b2FixtureDef fixtureDef2;
-        b2CircleShape circleShape1;
-        b2CircleShape circleShape2;
-
-        fingiendoMuerte = true;
-        body->DestroyFixture(body->GetFixtureList());
-        body->DestroyFixture(body->GetFixtureList());
-        body->SetFixedRotation(false);
-
-        circleShape1.m_p.Set(0,-3.f/MPP);
-        circleShape2.m_p.Set(0,3.f/MPP);
-        circleShape1.m_radius = (tam.X)/2;
-        circleShape2.m_radius = (tam.X)/2;
-
-        fixtureDef.shape = &circleShape1;
-
-        fixtureDef.friction = 0.9f;
-        fixtureDef.restitution  = 0.3f;
-        fixtureDef.density  = 1.f;
-        personFixture = body->CreateFixture(&fixtureDef);
-        personFixture->SetUserData((void*)10);
-
-        fixtureDef2.shape = &circleShape2;
-
-        fixtureDef2.friction = 0.9f;
-        fixtureDef2.restitution  = 0.3f;
-        fixtureDef2.density  = 1.f;
-        b2Fixture* personFixture2 = body->CreateFixture(&fixtureDef2);
-        personFixture2->SetUserData((void*)10);
-
-        body->SetTransform( body->GetPosition(),0);
-        body->SetAngularVelocity(0);
-
-        if(direccion == 0 )body->ApplyAngularImpulse(-1*0.0003f);
-        else body->ApplyAngularImpulse(direccion*0.0003f);
+    body->SetTransform(b2Vec2(-100,-180), body->GetAngle());
 }
 //---------------------------------------------------------------------------
 /**

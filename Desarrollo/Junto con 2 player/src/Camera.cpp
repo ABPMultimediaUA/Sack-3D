@@ -67,7 +67,6 @@ Camera::update(float time){
 	camera->setPosition(vector3df(cenX,cenY, -z));
 	camera->setTarget(vector3df(cenX,cenY, 0));
     porcentUpdate += porcentGap;
-
 }
 //---------------------------------------------------------------------------
 /**

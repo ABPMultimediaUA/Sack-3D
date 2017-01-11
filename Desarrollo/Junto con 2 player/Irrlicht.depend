@@ -830,7 +830,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484079710 source:c:\users\esgar\desktop\junto con 2 player\src\camera.cpp
+1484150292 source:c:\users\esgar\desktop\junto con 2 player\src\camera.cpp
 	"Camera.h"
 	"Player.h"
 
@@ -867,7 +867,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484089717 source:c:\users\esgar\desktop\junto con 2 player\src\mycontactlistener.cpp
+1484150821 source:c:\users\esgar\desktop\junto con 2 player\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
@@ -886,7 +886,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484089767 source:c:\users\esgar\desktop\junto con 2 player\src\player.cpp
+1484151077 source:c:\users\esgar\desktop\junto con 2 player\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

@@ -215,6 +215,7 @@ void Player::fingirMuerte(){
    recibe el impulso de un muelle
 */
 void Player::recibeImpulso(float fuerza){
+    std::cout<<"JKDJDJDJDKDJK"<<std::endl;
     saltando = true;
     b2Vec2 velV = body->GetLinearVelocity();
     velV.y = fuerza;

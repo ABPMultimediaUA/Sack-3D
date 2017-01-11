@@ -98,9 +98,11 @@ void MyContactListener::BeginContact(b2Contact* contact){
 	    std::cout<<"En contacto con un muelle"<<std::endl;
 	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
             if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
-                if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
+                if((contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody())
+                   || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()) ){
                     PhysicWorld::Instance()->getPlayer(1)->recibeImpulso((*it2)->getFuerza());
-                }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
+                }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()
+                         || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()) ){
                     PhysicWorld::Instance()->getPlayer(2)->recibeImpulso((*it2)->getFuerza());
                 }
             }
@@ -114,9 +116,11 @@ void MyContactListener::BeginContact(b2Contact* contact){
             if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
                 for (std::vector<Teleport*>::iterator it3 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it3 != PhysicWorld::Instance()->GetTeletransportes()->end(); it3++){
                     if((*it2)->getTeleportPartnerId() == (*it3)->getTeleportId()){
-                        if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
+                        if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
+                           || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()) ){
                             PhysicWorld::Instance()->getPlayer(1)->setNextPos((*it3)->getBody()->GetPosition());
-                        }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
+                        }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()
+                                 || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()) ){
                             PhysicWorld::Instance()->getPlayer(2)->setNextPos((*it3)->getBody()->GetPosition());
                         }
                     }

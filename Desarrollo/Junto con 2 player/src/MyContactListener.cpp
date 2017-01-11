@@ -93,16 +93,16 @@ void MyContactListener::BeginContact(b2Contact* contact){
     }
 
     //Player entra en contacto con un muelle
-	if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)
+		if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)
 		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == MUELLE)){
 	    std::cout<<"En contacto con un muelle"<<std::endl;
 	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
             if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
-                if((contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody())
-                   || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()) ){
+                if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
+                || contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
                     PhysicWorld::Instance()->getPlayer(1)->recibeImpulso((*it2)->getFuerza());
                 }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()
-                         || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()) ){
+                      || contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
                     PhysicWorld::Instance()->getPlayer(2)->recibeImpulso((*it2)->getFuerza());
                 }
             }
@@ -117,10 +117,10 @@ void MyContactListener::BeginContact(b2Contact* contact){
                 for (std::vector<Teleport*>::iterator it3 = PhysicWorld::Instance()->GetTeletransportes()->begin(); it3 != PhysicWorld::Instance()->GetTeletransportes()->end(); it3++){
                     if((*it2)->getTeleportPartnerId() == (*it3)->getTeleportId()){
                         if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
-                           || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()) ){
+                        || contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
                             PhysicWorld::Instance()->getPlayer(1)->setNextPos((*it3)->getBody()->GetPosition());
                         }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()
-                                 || (contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()) ){
+                              || contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
                             PhysicWorld::Instance()->getPlayer(2)->setNextPos((*it3)->getBody()->GetPosition());
                         }
                     }
@@ -130,13 +130,14 @@ void MyContactListener::BeginContact(b2Contact* contact){
 	}
 
 	//Player entra en contacto con un elemento hostil
-	if(((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == HOSTILES)
-     ||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == HOSTILES)){
+	if(((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == BALA)
+     ||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == BALA)){
             std::cout<<"Mueres"<<std::endl;
-
-            if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
+            if(contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
+            || contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
                 PhysicWorld::Instance()->getPlayer(1)->setParaMorir(true);
-            }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
+            }else if(contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()
+                  || contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
                 PhysicWorld::Instance()->getPlayer(2)->setParaMorir(true);
             }
 	}

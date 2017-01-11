@@ -134,14 +134,120 @@ void Player::saltar(){
 */
 void Player::fingirMuerte(){
 
-    if(!fingiendoMuerte){
+    if(!muerto){
+        if(!fingiendoMuerte){
 
-        if(cogiendo) romperJoint();
+            if(cogiendo) romperJoint();
 
-        std::cout<<"ENTRO1"<<std::endl;
+            std::cout<<"ENTRO1"<<std::endl;
 
-        std::cout<<"ENTRO2"<<std::endl;
-        b2FixtureDef fixtureDef;
+            std::cout<<"ENTRO2"<<std::endl;
+            b2FixtureDef fixtureDef;
+            b2FixtureDef fixtureDef2;
+            b2CircleShape circleShape1;
+            b2CircleShape circleShape2;
+
+            fingiendoMuerte = true;
+            body->DestroyFixture(body->GetFixtureList());
+            body->DestroyFixture(body->GetFixtureList());
+            body->SetFixedRotation(false);
+
+            circleShape1.m_p.Set(0,-3.f/MPP);
+            circleShape2.m_p.Set(0,3.f/MPP);
+            circleShape1.m_radius = (tam.X)/2;
+            circleShape2.m_radius = (tam.X)/2;
+
+            fixtureDef.shape = &circleShape1;
+
+            fixtureDef.friction = 0.9f;
+            fixtureDef.restitution  = 0.3f;
+            fixtureDef.density  = 1.f;
+            personFixture = body->CreateFixture(&fixtureDef);
+            personFixture->SetUserData((void*)10);
+
+            fixtureDef2.shape = &circleShape2;
+
+            fixtureDef2.friction = 0.9f;
+            fixtureDef2.restitution  = 0.3f;
+            fixtureDef2.density  = 1.f;
+            b2Fixture* personFixture2 = body->CreateFixture(&fixtureDef2);
+            personFixture2->SetUserData((void*)10);
+
+            body->SetTransform( body->GetPosition(),0);
+            body->SetAngularVelocity(0);
+
+            if(direccion == 0 )body->ApplyAngularImpulse(-1*0.0003f);
+            else body->ApplyAngularImpulse(direccion*0.0003f);
+
+
+
+        }else{
+            b2BodyDef bodyDef;
+            b2FixtureDef fixtureDef;
+            b2PolygonShape polyShape;
+
+            body->DestroyFixture(body->GetFixtureList());
+            body->DestroyFixture(body->GetFixtureList());
+            fingiendoMuerte = false;
+            body->SetFixedRotation(true);
+
+            polyShape.SetAsBox((tam.X)/2,(tam.Y)/2);
+            fixtureDef.shape = &polyShape;
+
+            fixtureDef.friction = 7.5f;
+            fixtureDef.restitution  = 0.2f;
+            fixtureDef.density  = 10.0f;
+            b2Fixture* fixture = body->CreateFixture(&fixtureDef);
+            fixture->SetUserData((void*)10);
+
+            polyShape.SetAsBox((tam.X)/4,(tam.Y)/4,b2Vec2(0,(-tam.Y)/2), 0);
+            fixtureDef.isSensor = true;
+            b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
+            personajeSensorFixture->SetUserData((void*)100);
+
+            body->SetTransform( body->GetPosition(),0);
+            body->SetAngularVelocity(0);
+            body->ApplyLinearImpulse(b2Vec2(0,10.0f/MPP),b2Vec2(0,0));
+
+        }
+    }
+}
+//---------------------------------------------------------------------------
+/**
+   recibe el impulso de un muelle
+*/
+void Player::recibeImpulso(float fuerza){
+    std::cout<<"JKDJDJDJDKDJK"<<std::endl;
+    saltando = true;
+    b2Vec2 velV = body->GetLinearVelocity();
+    velV.y = fuerza;
+    body->SetLinearVelocity(velV);
+}
+//---------------------------------------------------------------------------
+/**
+   Teletransporta al jugador a otra posicion
+*/
+void Player::teletransportar(){
+    teletransportado = false;
+    if(direccion != 0) nextPos.x += (direccion*10.0f/MPP);
+    else nextPos.x += (1*10.0f/MPP);
+    velActual = body->GetLinearVelocity();
+    body->SetTransform(b2Vec2(nextPos.x,nextPos.y), body->GetAngle());
+    body->SetLinearVelocity(velActual);
+}
+//---------------------------------------------------------------------------
+/**
+   Mata al personaje
+*/
+void Player::morir(){
+    muerto = true;
+    paraMorir = false;
+    if(cogiendo) romperJoint();
+    //body->SetTransform(b2Vec2(-100,-180), body->GetAngle());
+
+    /////////////////////////////////// CODIGO COPIADO DE HACERSE EL MUERTO
+
+    b2FixtureDef fixtureDef;
         b2FixtureDef fixtureDef2;
         b2CircleShape circleShape1;
         b2CircleShape circleShape2;
@@ -177,69 +283,6 @@ void Player::fingirMuerte(){
 
         if(direccion == 0 )body->ApplyAngularImpulse(-1*0.0003f);
         else body->ApplyAngularImpulse(direccion*0.0003f);
-
-
-
-    }else{
-        b2BodyDef bodyDef;
-        b2FixtureDef fixtureDef;
-        b2PolygonShape polyShape;
-
-        body->DestroyFixture(body->GetFixtureList());
-        body->DestroyFixture(body->GetFixtureList());
-        fingiendoMuerte = false;
-        body->SetFixedRotation(true);
-
-        polyShape.SetAsBox((tam.X)/2,(tam.Y)/2);
-        fixtureDef.shape = &polyShape;
-
-        fixtureDef.friction = 7.5f;
-        fixtureDef.restitution  = 0.2f;
-        fixtureDef.density  = 10.0f;
-        b2Fixture* fixture = body->CreateFixture(&fixtureDef);
-        fixture->SetUserData((void*)10);
-
-        polyShape.SetAsBox((tam.X)/4,(tam.Y)/4,b2Vec2(0,(-tam.Y)/2), 0);
-        fixtureDef.isSensor = true;
-        b2Fixture* personajeSensorFixture = body->CreateFixture(&fixtureDef);
-        personajeSensorFixture->SetUserData((void*)100);
-
-        body->SetTransform( body->GetPosition(),0);
-        body->SetAngularVelocity(0);
-        body->ApplyLinearImpulse(b2Vec2(0,10.0f/MPP),b2Vec2(0,0));
-
-    }
-}
-//---------------------------------------------------------------------------
-/**
-   recibe el impulso de un muelle
-*/
-void Player::recibeImpulso(float fuerza){
-    std::cout<<"JKDJDJDJDKDJK"<<std::endl;
-    saltando = true;
-    b2Vec2 velV = body->GetLinearVelocity();
-    velV.y = fuerza;
-    body->SetLinearVelocity(velV);
-}
-//---------------------------------------------------------------------------
-/**
-   Teletransporta al jugador a otra posicion
-*/
-void Player::teletransportar(){
-    teletransportado = false;
-    if(direccion != 0) nextPos.x += (direccion*10.0f/MPP);
-    else nextPos.x += (1*10.0f/MPP);
-    velActual = body->GetLinearVelocity();
-    body->SetTransform(b2Vec2(nextPos.x,nextPos.y), body->GetAngle());
-    body->SetLinearVelocity(velActual);
-}
-//---------------------------------------------------------------------------
-/**
-   Mata al personaje
-*/
-void Player::morir(){
-    paraMorir = false;
-    body->SetTransform(b2Vec2(-100,-180), body->GetAngle());
 }
 //---------------------------------------------------------------------------
 /**

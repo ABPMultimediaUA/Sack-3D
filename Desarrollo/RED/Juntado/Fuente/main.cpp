@@ -29,12 +29,8 @@ El maaaaaaaaain.
 #include "Muelle.h"
 #include "Teleport.h"
 #include "Client.h"
+#include "ConstructorRed.h"
 #include <string>
-/*
-#include "RakNetStatistics.h"
-#include "BitStream.h"
-#include "RakNetTypes.h"  // MessageID
-*/
 
 #include "MessageIdentifiers.h"
 #include <iostream>
@@ -99,8 +95,10 @@ int main(){
     std::vector<Cogible*>* cogibles = PhysicWorld::Instance()->GetCogibles();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
+    float RakTime = 0.0f;
     //ESTA MIERDA DEBE IR FUERA
-    Player* player = new Player(vector3df(120/MPP,0/MPP,0/MPP));
+    Player* player = new Player(vector3df(0/MPP,0/MPP,0/MPP));
+    ConstructorRed* playerRed = new ConstructorRed(-120.0f/MPP,-180.0f/MPP);
 
 
     //CREACION DE ARMAS//
@@ -113,6 +111,7 @@ int main(){
     PhysicWorld::Instance()->setCogibles(cogibles);
     ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
+    PhysicWorld::Instance()->setPlayerRed(playerRed);
     PhysicWorld::Instance()->getPlayer()->setClientPort(auxclientPort);
     PhysicWorld::Instance()->getPlayer()->setIp(auxip);
     PhysicWorld::Instance()->getPlayer()->setServerPort(auxserverPort);
@@ -126,12 +125,12 @@ int main(){
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle1);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle2);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle3);
-    Teleport* portal1 = new Teleport(1, 2, vector3df(0,-187,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
+    /*Teleport* portal1 = new Teleport(1, 2, vector3df(0,-187,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
     Teleport* portal2 = new Teleport(2, 3, vector3df(50,-123,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
-    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-52,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
-    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal1);
+    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-52,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));*/
+  /*  PhysicWorld::Instance()->GetTeletransportes()->push_back(portal1);
     PhysicWorld::Instance()->GetTeletransportes()->push_back(portal2);
-    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal3);
+    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal3);*/
 
     ///////////////////////////
     cliente->iniciar();
@@ -160,9 +159,17 @@ int main(){
             arma->actualiza();
             escopeta->actualiza();
             granada->actualiza();
+            playerRed->actualiza();
+
+            if(TimeStamp-RakTime >20){
+                cliente->enviar();
+                cliente->recibir();
+                RakTime = TimeStamp;
+            }
 
             IrrManager::Instance()->drawAll();
             IrrManager::Instance()->endScene();
+            //////ENVIO DE MENSAJES\\\\\\\\
 
 
        }

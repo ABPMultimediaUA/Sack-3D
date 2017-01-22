@@ -304,6 +304,7 @@ void  Player::setCogiendo(bool aux){cogiendo = aux;}
 bool  Player::getPuedoCoger(){return puedoCoger;}
 void  Player::setPuedoCoger(bool aux){puedoCoger = aux;}
 bool Player::getMuerto(){return muerto;}
+bool Player::getFingirMuerte(){return fingiendoMuerte;}
 Cogible* Player::getObjCogido(){return objCogido;}
 void  Player::setObjCogido(Cogible* aux){objCogido = aux;}
 Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}

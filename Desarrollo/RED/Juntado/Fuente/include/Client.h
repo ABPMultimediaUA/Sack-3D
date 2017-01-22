@@ -42,6 +42,8 @@ class Client
         bool isServer;
         RakNet::SystemAddress clientID;
         void iniciar();
+        void recibir();
+        void enviar();
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         virtual ~Client();
 

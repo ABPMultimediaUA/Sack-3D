@@ -55,6 +55,7 @@ class Player{
         int getDireccion();                      ///< Getter
         bool getPuedoCoger();                    ///< Getter
         bool getMuerto();                        ///< Getter
+        bool getFingirMuerte();                        ///< Getter
         b2Body* getBody();                       ///< Getter
         Cogible* getObjCogido();                 ///< Getter
         Cogible* getObjPuedoCoger();             ///< Getter

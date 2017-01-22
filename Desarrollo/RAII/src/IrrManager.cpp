@@ -54,9 +54,10 @@ IrrManager::IrrManager(){
 /**
    Dibuja el mundo
 */
-void IrrManager::drawAll(){
+void IrrManager::Update(){
 	smgr->drawAll();
 	guienv->drawAll();
+  endScene();
 }
 //---------------------------------------------------------------------------
 /**

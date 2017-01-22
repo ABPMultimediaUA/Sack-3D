@@ -121,7 +121,8 @@ bool Pistola::getCogida(){return siendoCogida;}
    Metodo que ejecuta el usar de la clase
 */
 void Pistola::usar(){
-    Bala* bala = new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 2, 15.0f, dir);
+    GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 2, 15.0f, dir));
+    Bala* bala = balaGR->Get();
     b2Vec2 vel = bala->getBody()->GetLinearVelocity();
     vel.x = bala->velocidad;
     if(dir==1) bala->getBody()->SetLinearVelocity(vel);

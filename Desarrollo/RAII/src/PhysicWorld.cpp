@@ -55,6 +55,8 @@ void PhysicWorld::inicializaVariables(){
   m_Players[1].Reset(new Player(vector3df(120/MPP,0,0), 2));
   GameResource<Map>(new Map("media/Map.tmx"));
   camara.Reset(new Camera());
+  TimeStamp = IrrManager::Instance()->getTime();
+  DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
 }
 //---------------------------------------------------------------------------
 /**
@@ -102,7 +104,23 @@ Pistola* PhysicWorld::getPistola(){return pistola;}
 
 void PhysicWorld::setPistola(Pistola* a){pistola = a;}
 void PhysicWorld::setCogibles(std::vector<Cogible*>* aux){cogibles = aux;}
-void PhysicWorld::Actualiza(float TimeStamp){
+void PhysicWorld::Update(){
+  DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
+  TimeStamp = IrrManager::Instance()->getTime();
+  IrrManager::Instance()->beginScene();
+  Step(DeltaTime);
+  ClearForces();
+  for (int i = 0; i < MAX_NUM_BALA; ++i){
+    if(m_Balas[i].Get()){
+      m_Balas[i].Get()->actualiza();
+      if(TimeStamp - m_Balas[i].Get()->getTime() > m_Balas[i].Get()->getTimeVida()){
+          m_Balas[i].Get()->getNode()->remove();
+          m_Balas[i].Get()->getBody()->DestroyFixture(m_Balas[i].Get()->getbalaFixture());
+          PhysicWorld::Instance()->GetWorld()->DestroyBody(m_Balas[i].Get()->getBody());
+          m_Balas[i].Reset(nullptr);
+      }
+    }
+  }
   for (int i = 0; i < MAX_NUM_PLAYER; ++i){
     if(m_Players[i].Get()){
       m_Players[i].Get()->update();

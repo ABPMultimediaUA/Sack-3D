@@ -82,7 +82,8 @@ void Escopeta::usar(){
     if(IrrManager::Instance()->getTime()-timerescopeta>cadencia && conUsos){
         for(int i=0; i<10; i++){
             float desvBala = rand()% 30;
-            Bala* bala = new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 100, 2, desvBala, dir);
+            GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 100, 2, desvBala, dir));
+            Bala* bala = balaGR->Get();
             b2Vec2 vel = bala->getBody()->GetLinearVelocity();
             vel.x = bala->velocidad;
             if(dir==1) bala->getBody()->SetLinearVelocity(vel);

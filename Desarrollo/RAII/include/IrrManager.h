@@ -39,7 +39,7 @@ class IrrManager{
     public:
         static IrrManager* Instance();             ///< Devuelve la unica instancia de la clase
         IrrManager();                              ///< Constructor
-        void drawAll();                            ///< Dibuja el mundo
+        void Update();                             ///< Dibuja el mundo
         void beginScene();                         ///< ???
         void endScene();                           ///< ???
         void drop();                               ///< ???                                                 

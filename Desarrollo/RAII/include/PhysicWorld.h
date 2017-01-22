@@ -61,7 +61,7 @@ class PhysicWorld{
         std::vector<Teleport*>* GetTeletransportes();      ///< Getter
         void setPistola(Pistola* Pistola);                ///< Setter
         void setCogibles(std::vector<Cogible*>* aux);          ///< Setter
-        void Actualiza(float TimeStamp);
+        void Update();
         GameResource<Teleport>* CreateTeleport(Teleport *tp = nullptr){
             for (int i = 0; i < MAX_NUM_TELEPORT; ++i){
                 if(m_teletransportes[i].Get()== nullptr){
@@ -102,6 +102,14 @@ class PhysicWorld{
                 }
             }
         }
+        GameResource<Bala>* CreateBala(Bala *tp = nullptr){
+            for (int i = 0; i < MAX_NUM_BALA; ++i){
+                if(m_Balas[i].Get()== nullptr){
+                    m_Balas[i].Reset(tp);
+                    return &m_Balas[i];
+                }
+            }
+        }
         //template<class Obj> GameResource<Obj>* CreateObject(Obj *obj = nullptr){
         //    if(Teleport* tp = static_cast<Teleport*>(obj)){
         //        for (int i = 0; i < MAX_NUM_TELEPORT; ++i){
@@ -135,6 +143,8 @@ class PhysicWorld{
         std::vector<Muelle*>* muelles;           ///< Array de muelles
         std::vector<Teleport*>* teletransportes; ///< Array de teletransportes
         Pistola* pistola;                        ///< Pistola
+        float DeltaTime;
+        float TimeStamp;
         GameResource<Camera>   camara;
         GameResource<Teleport> m_teletransportes[MAX_NUM_TELEPORT];
         GameResource<Player>   m_Players[MAX_NUM_PLAYER];

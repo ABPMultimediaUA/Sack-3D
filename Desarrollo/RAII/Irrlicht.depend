@@ -1078,7 +1078,7 @@
 1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\usable.cpp
 	"Usable.h"
 
-1485102267 source:c:\users\jorge\desktop\abp\desarrollo\raii\main.cpp
+1485108853 source:c:\users\jorge\desktop\abp\desarrollo\raii\main.cpp
 	<irrlicht.h>
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -1104,7 +1104,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485102422 c:\users\jorge\desktop\abp\desarrollo\raii\include\physicworld.h
+1485109325 c:\users\jorge\desktop\abp\desarrollo\raii\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"Player.h"
@@ -1144,7 +1144,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\irrmanager.h
+1485109315 c:\users\jorge\desktop\abp\desarrollo\raii\include\irrmanager.h
 	<irrlicht.h>
 	"MyEventReceiver.h"
 
@@ -1192,7 +1192,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485098189 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\escopeta.cpp
+1485108083 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
@@ -1202,7 +1202,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\irrmanager.cpp
+1485108844 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\irrmanager.cpp
 	"IrrManager.h"
 
 1485098336 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\map.cpp
@@ -1225,7 +1225,7 @@
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 
-1485102400 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\physicworld.cpp
+1485107362 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
@@ -1257,7 +1257,7 @@
 	<irrlicht.h>
 	"Usable.h"
 
-1485097402 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\pistola.cpp
+1485108163 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\pistola.cpp
 	"Pistola.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

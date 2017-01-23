@@ -51,10 +51,12 @@ void Client::enviar(){
     char estado[30];
     char posx[30];
     char posy[30];
+    char direcc[30];
     bool muerto;
 
     vector3df posicion = PhysicWorld::Instance()->getPlayer()->getPosition();
     muerto = PhysicWorld::Instance()->getPlayer()->getFingirMuerte();
+    int dir = PhysicWorld::Instance()->getPlayer()->getDireccion();
 
     //std::cout<<posicion.X<<std::endl;
     float auxiliarx;
@@ -62,9 +64,13 @@ void Client::enviar(){
     auxiliarx = posicion.X * 10000;
     auxiliary = posicion.Y * 10000;
 
+    //---------- VIVO O MUERTO
     if(muerto) strncpy(estado, "0", sizeof(estado));
     else strncpy(estado, "1", sizeof(estado));
 
+    // ------- DIRECCION DE PJ
+    sprintf(direcc, "%.0f", (float)dir);
+    // -------- POSICIONES
     sprintf(posx, "%.0f", auxiliarx);
     sprintf(posy, "%.0f", auxiliary);
 /*
@@ -74,6 +80,7 @@ void Client::enviar(){
         usleep(30 * 1000);
     #endif
 */
+    // ---------- ID
     strncpy(id, "0", sizeof(id));
 
     char posx2[30];
@@ -84,11 +91,11 @@ void Client::enviar(){
     strncat (id, " ", 6);
     strncat (id, estado, 6);
     strncat (id, " ", 6);
-    //strncat (id, "x", 6);
     strncat (id, posx2, 6);
     strncat (id, " ", 6);
-    //strncat (id, "y", 6);
     strncat (id, posy2, 6);
+    strncat (id, " ", 6);
+    strncat (id, direcc, 6);
     strncpy(aux, id, sizeof(aux));
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
@@ -165,9 +172,12 @@ void Client::recibir(){
 			char estado_r[30];
 			char posx_r[30];
 			char posy_r[30];
+			char direccion_r[30];
 			int iterador=0;
 			long int x;
 			long int y;
+			int vivo;
+			int dir;
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			//std::cout<<"ESTOY TRATANDO EL MENSAJE->"<<recibido<<std::endl;
 			char * msg;
@@ -187,6 +197,9 @@ void Client::recibir(){
                     case 3:
                         strncpy(posy_r, msg, sizeof(posy_r));
                         break;
+                    case 4:
+                        strncpy(direccion_r, msg, sizeof(direccion_r));
+                        break;
                 }
                 msg = strtok(NULL, " ");
                 iterador++;
@@ -197,9 +210,12 @@ void Client::recibir(){
            sscanf(posy_r, "%d", y);*/
             x = atol(posx_r);
             y = atol(posy_r);
-
+            vivo = atoi(estado_r);
+            dir = atoi(direccion_r);
             PhysicWorld::Instance()->getPlayerRed()->setx(x);
             PhysicWorld::Instance()->getPlayerRed()->sety(y);
+            PhysicWorld::Instance()->getPlayerRed()->setVivo(vivo);
+            PhysicWorld::Instance()->getPlayerRed()->setDireccion(dir);
     }
 }
 

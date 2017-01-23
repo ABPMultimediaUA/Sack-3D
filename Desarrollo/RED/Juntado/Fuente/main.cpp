@@ -77,11 +77,13 @@ int main(){
 
 
     puts("Enter IP to connect to");
-    Gets(auxip,sizeof(auxip));
+    //Gets(auxip,sizeof(auxip));
+    strncpy(auxip, "192.168.1.105", sizeof(auxip));
 
 
     puts("Enter the port to connect to");
-    Gets(auxserverPort,sizeof(auxserverPort));
+    //Gets(auxserverPort,sizeof(auxserverPort));
+    strncpy(auxserverPort, "3333", sizeof(auxserverPort));
 
 
 

@@ -130,11 +130,8 @@ void Player::saltar(){
 void Player::fingirMuerte(){
 
     if(!fingiendoMuerte){
-
         if(cogiendo) romperJoint();
-
         std::cout<<"ENTRO1"<<std::endl;
-
         std::cout<<"ENTRO2"<<std::endl;
         b2FixtureDef fixtureDef;
         b2FixtureDef fixtureDef2;

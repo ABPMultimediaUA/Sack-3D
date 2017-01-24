@@ -1,65 +1,34 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
-
-Project:       Last Bear Standing
-File:          Escopeta.cpp
-
-Author:        Estudio Rorschach
-Created:
-Modified:      13/12/2016 Miguel Paniagua
-
-Overview:
-Clase que contiene el codigo de funcionamiento para las Pistolas.
-*******************************************************************************/
-
 #include "Escopeta.h"
 #include "PhysicWorld.h"
-#include "IrrManager.h"
 
-#define PISTOLA 30                     ///< Int para las colisiones de las Pistolas
-#define SENSORPISTOLA 35               ///< Int para las colisiones del area cogible de las Pistolas
-#define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
-
-/******************************************************************************
-                               Escopeta
-*******************************************************************************/
-
-//---------------------------------------------------------------------------
-/**
-   Constructor
-*/
-
-Escopeta::Escopeta(int modelo,vector3df pos){
-
-    conUsos = true;
-    cadencia = 1000;
-    usos = 4;
+Escopeta::Escopeta(int modelo,b2Vec2 pos){
+    b2BodyDef bodyDef;
+    restitution = 0.2f;
+    density = 2.0f;
+    friction = 0.5f;
+    tam = irr::core::vector3df(10.f/MPP,3.f/MPP,1.f/MPP);
     timerIrr = IrrManager::Instance()->getTimer();
     timerescopeta = timerIrr->getTime();
-    vector3df tam2 = vector3df(5,3,1);
-    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 0, 255, 0));
-    node->setPosition(vector3df(pos.X/MPP,pos.Y/MPP,0));
-    b2BodyDef bodyDef;
-    b2FixtureDef fixtureDef;
+    node->setPosition(irr::core::vector3df(pos.X/MPP,pos.Y/MPP,0));
     bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);
     bodyDef.type = b2_dynamicBody;
-
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
-    b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
-    fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.5f;
-    fixtureDef.restitution  = 0.2f;
-    fixtureDef.density  = 2.0f;
-    b2Fixture* fixture = body->CreateFixture(&fixtureDef);
-    fixture->SetUserData((void*)30);
-    body->SetFixedRotation(true);
-    polyShape.SetAsBox((tam.X*2.0),(tam.Y*2.0));
-    fixtureDef.isSensor = true;
-    b2Fixture* PistolaSensorFixture = body->CreateFixture(&fixtureDef);
-    PistolaSensorFixture->SetUserData((void*)35);
+    InicializeFixtures(RELEASE);
+
+    //b2PolygonShape polyShape;
+    //polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
+    //fixtureDef.shape = &polyShape;
+    //fixtureDef.friction = 0.5f;
+    //fixtureDef.restitution  = 0.2f;
+    //fixtureDef.density  = 2.0f;
+    //b2Fixture* fixture = body->CreateFixture(&fixtureDef);
+    //fixture->SetUserData((void*)ARMA);
+    //body->SetFixedRotation(true);
+    //polyShape.SetAsBox((tam.X*2.0),(tam.Y*2.0));
+    //fixtureDef.isSensor = true;
+    //b2Fixture* PistolaSensorFixture = body->CreateFixture(&fixtureDef);
+    //PistolaSensorFixture->SetUserData((void*)SENSOR);
 
 }
 //---------------------------------------------------------------------------
@@ -67,11 +36,11 @@ Escopeta::Escopeta(int modelo,vector3df pos){
    Metodo que actualiza la posicion y rotacion del Pistola
 */
 void Escopeta::actualiza(){
-    if(siendoCogida){
-        node->setPosition(vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
+    if(cogido){
+        node->setPosition(irr::core::vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
     }
-    else node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    node->setRotation(vector3df(0,0,body->GetAngle()*RADTOGRAD));
+    else node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
 }
 //---------------------------------------------------------------------------
 /**
@@ -82,7 +51,7 @@ void Escopeta::usar(){
     if(IrrManager::Instance()->getTime()-timerescopeta>cadencia && conUsos){
         for(int i=0; i<10; i++){
             float desvBala = rand()% 30;
-            GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(new Bala(vector3df(body->GetPosition().x, body->GetPosition().y, 0), 100, 2, desvBala, dir));
+            GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 100, 2, desvBala, dir));
             Bala* bala = balaGR->Get();
             b2Vec2 vel = bala->getBody()->GetLinearVelocity();
             vel.x = bala->velocidad;
@@ -99,10 +68,10 @@ void Escopeta::usar(){
 /**
    Getters and setters
 */
-void Escopeta::setCogida(bool aux){
-    siendoCogida= false;
-    vector3df tam2 = vector3df(5,3,1);
-    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
+void Escopeta::setCogido(bool aux){
+    cogido= false;
+    irr::core::vector3df tam2 = irr::core::vector3df(5,3,1);
+    irr::core::vector3df tam = irr::core::vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     body->DestroyFixture(body->GetFixtureList());
     body->DestroyFixture(body->GetFixtureList());
     b2BodyDef bodyDef;
@@ -138,9 +107,9 @@ void Escopeta::setCogida(bool aux){
         PistolaSensorFixture = body->CreateFixture(&fixtureDef);
         PistolaSensorFixture->SetUserData((void*)35);
     }
-    siendoCogida = aux;
+    cogido = aux;
 }
-bool Escopeta::getCogida(){return siendoCogida;}
+bool Escopeta::getCogida(){return cogido;}
 b2Body* Escopeta::getBody(){return body;}
 bool Escopeta::getConUsos(){ return conUsos;}
 //---------------------------------------------------------------------------

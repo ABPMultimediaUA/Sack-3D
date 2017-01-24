@@ -32,7 +32,7 @@ using namespace gui;
 *******************************************************************************/
 class Teleport{
     public:
-        Teleport(int i, int p, vector3df pos, vector3df tam = vector3df(2, 20, 5) ,SColor color = SColor(255, 255, 255, 0)); 	///< Constructor
+        Teleport(int i, int p, irr::core::vector3df pos, irr::core::vector3df tam = irr::core::vector3df(2, 20, 5) ,SColor color = SColor(255, 255, 255, 0)); 	///< Constructor
         b2Body* getBody();                                      ///< Getter
         int getTeleportId();                                    ///< Getter
         int getTeleportPartnerId();                             ///< Getter

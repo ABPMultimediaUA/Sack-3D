@@ -32,8 +32,8 @@ using namespace gui;
 class Camera{
     public:
         Camera();						///< Constructor
-        setPosition(vector3df pos);		///< Setter
-        setTarget(vector3df pos); 		///< Setter
+        setPosition(irr::core::vector3df pos);		///< Setter
+        setTarget(irr::core::vector3df pos); 		///< Setter
         update(float time); 			///< Actualizar
         virtual ~Camera();				///< Destructor
 
@@ -47,9 +47,9 @@ class Camera{
         float updateT;
         double porcentUpdate;
         double porcentGap;
-        std::vector<vector3df>* flowCam;
-        vector3df* cenAnt;
-        vector3df* cenSig;
+        std::vector<irr::core::vector3df>* flowCam;
+        irr::core::vector3df* cenAnt;
+        irr::core::vector3df* cenSig;
 };
 
 #endif // CAMERA_H

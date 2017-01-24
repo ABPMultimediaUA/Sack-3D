@@ -18,13 +18,13 @@ informacion de las colisiones que suceden en el juego.
 
 #define PLAYER 10			///< Int para saber cuando colisiona el personaje
 #define PIESPLAYER 100		///< Int para saber si el personaje esta tocando suelo
-#define PISTOLA 30				///< Int para las colisiones de las Pistolas
-#define SENSORPISTOLA 35		///< Int para las colisiones del area cogible de las Pistolas
+#define ARMA 30				///< Int para las colisiones de las Pistolas
+#define SENSORARMA 35		///< Int para las colisiones del area cogible de las Pistolas
 #define BALA 40				///< Int para las colisiones de las balas
-#define CUBOS 45				///< Int para las colisiones de los cubos
+#define CUBOS 45			///< Int para las colisiones de los cubos
 #define MUELLE 50		    ///< Int para las colisiones de los muelles
-#define TELETRANSPORTE 60  ///< Int para las colisiones de los teletransporte
-#define HOSTILES 70  ///< Int para las colisiones de los elementos hostiles
+#define TELETRANSPORTE 60   ///< Int para las colisiones de los teletransporte
+#define HOSTILES 70         ///< Int para las colisiones de los elementos hostiles
 
 /******************************************************************************
                                MyContactListener
@@ -62,37 +62,26 @@ void MyContactListener::BeginContact(b2Contact* contact){
 	}
 
     //PLAYER ENTRA EN AREA DE ALGO COGIBLE
-    if((unsigned long)fixtureUserDataB == SENSORPISTOLA && (unsigned long)fixtureUserDataA==PLAYER){
+    if(((unsigned long)fixtureUserDataB == SENSORARMA && (unsigned long)fixtureUserDataA==PLAYER)
+     ||((unsigned long)fixtureUserDataA == SENSORARMA && (unsigned long)fixtureUserDataB==PLAYER)){
         for (std::vector<Cogible*>::iterator it2 = PhysicWorld::Instance()->GetCogibles()->begin(); it2 != PhysicWorld::Instance()->GetCogibles()->end(); it2++){
-            if((*it2)->getBody() == contact->GetFixtureB()->GetBody()){
-                if(contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
+            if(((*it2)->getBody() == contact->GetFixtureB()->GetBody())
+             ||((*it2)->getBody() == contact->GetFixtureA()->GetBody())){
+                if((contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody())
+                 ||(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody())){
                     PhysicWorld::Instance()->getPlayer(1)->setObjPuedoCoger((*it2));
                     PhysicWorld::Instance()->getPlayer(1)->setPuedoCoger(true);
-                }else if(contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
+                }else if((contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody())
+                       ||(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody())){
                     PhysicWorld::Instance()->getPlayer(2)->setObjPuedoCoger((*it2));
                     PhysicWorld::Instance()->getPlayer(2)->setPuedoCoger(true);
                 }
             }
         }
     }
-
-    if((unsigned long)fixtureUserDataA == SENSORPISTOLA && (unsigned long)fixtureUserDataB==PLAYER){
-        for (std::vector<Cogible*>::iterator it2 = PhysicWorld::Instance()->GetCogibles()->begin(); it2 != PhysicWorld::Instance()->GetCogibles()->end(); it2++){
-            if((*it2)->getBody() == contact->GetFixtureA()->GetBody()){
-                if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()){
-                    PhysicWorld::Instance()->getPlayer(1)->setObjPuedoCoger((*it2));
-                    PhysicWorld::Instance()->getPlayer(1)->setPuedoCoger(true);
-                }else if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(2)->getBody()){
-                    PhysicWorld::Instance()->getPlayer(2)->setObjPuedoCoger((*it2));
-                    PhysicWorld::Instance()->getPlayer(2)->setPuedoCoger(true);
-                }
-            }
-        }
-    }
-
     //Player entra en contacto con un muelle
 		if(   ((unsigned long)fixtureUserDataA == PLAYER && (unsigned long)fixtureUserDataB == MUELLE)
-		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == MUELLE)){
+		    ||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == MUELLE)){
 	    for (std::vector<Muelle*>::iterator it2 = PhysicWorld::Instance()->GetMuelles()->begin(); it2 != PhysicWorld::Instance()->GetMuelles()->end(); it2++){
             if((*it2)->getBody() == contact->GetFixtureB()->GetBody() || (*it2)->getBody() == contact->GetFixtureA()->GetBody()){
                 if(contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
@@ -180,8 +169,8 @@ void MyContactListener::EndContact(b2Contact* contact){
 	}
 
 	//Player sale de area cogible de Pistola.
-	if(   ((unsigned long)fixtureUserDataA== PLAYER && (unsigned long)fixtureUserDataB== SENSORPISTOLA)
-		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == SENSORPISTOLA)){
+	if(   ((unsigned long)fixtureUserDataA== PLAYER && (unsigned long)fixtureUserDataB== SENSORARMA)
+		||((unsigned long)fixtureUserDataB == PLAYER && (unsigned long)fixtureUserDataA == SENSORARMA)){
 	    if(contact->GetFixtureA()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody()
         || contact->GetFixtureB()->GetBody() == PhysicWorld::Instance()->getPlayer(1)->getBody())
             PhysicWorld::Instance()->getPlayer(1)->setPuedoCoger(false);

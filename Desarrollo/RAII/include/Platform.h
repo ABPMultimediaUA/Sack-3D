@@ -32,7 +32,7 @@ using namespace gui;
 *******************************************************************************/
 class Platform{
     public:
-        Platform(vector3df pos, vector3df tam,SColor color); 	///< Constructor																							
+        Platform(irr::core::vector3df pos, irr::core::vector3df tam,SColor color); 	///< Constructor																							
         virtual ~Platform();									///< Destructor															
     private:																								
     	IMesh* mesh;											///< Malla													

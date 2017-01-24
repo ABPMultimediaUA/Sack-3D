@@ -25,7 +25,7 @@ Clase que contiene el codigo de funcionamiento para las balas.
 /**
    Constructor
 */
-Bala::Bala(vector3df pos, int tiempoVidaP, int velocidadP, float deviacionP, int dir){
+Bala::Bala(irr::core::vector3df pos, int tiempoVidaP, int velocidadP, float deviacionP, int dir){
     tiempoVida = tiempoVidaP;
     velocidad = velocidadP;
     desviacion = deviacionP/MPP;
@@ -33,7 +33,7 @@ Bala::Bala(vector3df pos, int tiempoVidaP, int velocidadP, float deviacionP, int
     timerIrr = IrrManager::Instance()->getTimer();
     timerbala = timerIrr->getTime();
     node = IrrManager::Instance()->addCubeSceneNode(tam, SColor(255, 255,0 ,0));
-    node->setScale(vector3df (0.01f,0.01f,0.01f));
+    node->setScale(irr::core::vector3df (0.01f,0.01f,0.01f));
     node->setPosition(pos);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
@@ -67,8 +67,8 @@ Bala::Bala(vector3df pos, int tiempoVidaP, int velocidadP, float deviacionP, int
 void Bala::actualiza(){
     body->ApplyForce(-1*PhysicWorld::Instance()->GetWorld()->GetGravity(), body->GetWorldCenter() );
     if(teletransportado) teletransportar();
-    node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    node->setRotation(vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
+    node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(irr::core::vector3df(0,0,body->GetAngle()* 180 / 3.14159265));
 }
 //---------------------------------------------------------------------------
 /**

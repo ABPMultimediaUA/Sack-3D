@@ -45,11 +45,11 @@ class IrrManager{
         void drop();                               ///< ???                                                 
         float getTime();                           ///< ???                                      
         // Genera una maya rectangular pasando posicion, tamaño y color                      
-        IMesh* createCubeMesh(vector3df pos, vector3df tam,  SColor color);
+        IMesh* createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam,  SColor color);
         // Genera una nodo cubico pasando tamaño y color                      
         IMeshSceneNode* addCubeSceneNode(int tam , SColor color);
         // Genera una nodo rectangular pasando tamaño y color                      
-        IMeshSceneNode* addCubeSceneNode(vector3df tam, SColor color);
+        IMeshSceneNode* addCubeSceneNode(irr::core::vector3df tam, SColor color);
         IXMLReader* createXMLReader(stringw file);  ///< Crea un lector de xml    
         ISceneManager* getManager();                ///< Getter                                               
         MyEventReceiver* getEventReciever();        ///< Getter                                                       

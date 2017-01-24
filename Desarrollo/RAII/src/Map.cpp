@@ -53,7 +53,7 @@ Map::Map(stringw file){
                if (xml->getNodeType() == irr::io::EXN_ELEMENT && core::stringw("object") == xml->getNodeName()){
                     switch(capa){
                          case PLATAFORMA:{
-                                   Platform(vector3df(x+(width/2)-100,-1*(y+(height/2)),0),vector3df(width, height, rand()%10+5),SColor(255, rand()%255, rand()%255, rand()%255));
+                                   Platform(irr::core::vector3df(x+(width/2)-100,-1*(y+(height/2)),0),irr::core::vector3df(width, height, rand()%10+5),SColor(255, rand()%255, rand()%255, rand()%255));
                          break;}
                          case TELEPORT:{
                                    int id = 0, partner = 0;
@@ -68,7 +68,7 @@ Map::Map(stringw file){
                                         }
                                         xml->read();
                                    }while(core::stringw("object") != xml->getNodeName());
-                                   PhysicWorld::Instance()->GetTeletransportes()->push_back(PhysicWorld::Instance()->CreateTeleport(new Teleport(id, partner, vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                   PhysicWorld::Instance()->GetTeletransportes()->push_back(PhysicWorld::Instance()->CreateTeleport(new Teleport(id, partner, irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
                          break;}
                          case MUELLE:{
                                    int fuerza = 80;
@@ -80,7 +80,7 @@ Map::Map(stringw file){
                                         }
                                         xml->read();
                                    }while(core::stringw("object") != xml->getNodeName());
-                                   PhysicWorld::Instance()->GetMuelles()->push_back(PhysicWorld::Instance()->CreateMuelle(new Muelle(fuerza,  vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                   PhysicWorld::Instance()->GetMuelles()->push_back(PhysicWorld::Instance()->CreateMuelle(new Muelle(fuerza,  irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
                          break;}
                          case ARMA:{
                               int tipo, modelo;
@@ -97,13 +97,13 @@ Map::Map(stringw file){
                               }while(core::stringw("object") != xml->getNodeName());
                               switch(tipo){
                                    case PISTOLA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreatePistola(new Pistola(modelo,vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreatePistola(new Pistola(modelo,b2Vec2(x+(width/2)-100,-1*(y-(height/2)))))->Get());
                                    break;}
                                    case ESCOPETA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateEscopeta(new Escopeta(modelo,vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateEscopeta(new Escopeta(modelo,irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
                                    break;}
                                    case GRANADA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateGranada(new Granada(modelo,vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateGranada(new Granada(modelo,irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
                                    break;}
                               }
                     break;}

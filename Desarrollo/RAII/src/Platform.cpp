@@ -26,8 +26,8 @@ Clase que define una plataforma, con sus componentes grafica y fisica.
 /**
    Constructor
 */
-Platform::Platform(vector3df pos, vector3df tam,SColor color){
-    mesh = IrrManager::Instance()->createCubeMesh(vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
+Platform::Platform(irr::core::vector3df pos, irr::core::vector3df tam,SColor color){
+    mesh = IrrManager::Instance()->createCubeMesh(irr::core::vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),irr::core::vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);

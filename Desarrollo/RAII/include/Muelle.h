@@ -32,7 +32,7 @@ using namespace gui;
 *******************************************************************************/
 class Muelle{
     public:
-        Muelle(float f , vector3df pos, vector3df tam = vector3df(10, 5, 10),SColor color = SColor(255, 0, 255, 0)); 	///< Constructor
+        Muelle(float f , irr::core::vector3df pos, irr::core::vector3df tam = irr::core::vector3df(10, 5, 10),SColor color = SColor(255, 0, 255, 0)); 	///< Constructor
         float getFuerza();                                    ///< Getter
         b2Body* getBody();                                  ///< Getter
         virtual ~Muelle();									///< Destructor

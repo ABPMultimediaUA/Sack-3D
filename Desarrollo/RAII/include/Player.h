@@ -33,7 +33,7 @@ using namespace gui;
 *******************************************************************************/
 class Player{
     public:
-        Player(vector3df pos, int mando);                   ///< Constructor
+        Player(irr::core::vector3df pos, int mando);                   ///< Constructor
         void update();                           ///< Actualizar
         void mover();                            ///< Mover
         void saltar();                           ///< Saltar
@@ -44,7 +44,7 @@ class Player{
         void crearJoint();                       ///< ???
         void romperJoint();                      ///< ???
         void usar();
-        vector3df getPosition();                 ///< Getter
+        irr::core::vector3df getPosition();                 ///< Getter
         int getMando();                 ///< Getter
         bool getSaltando();                      ///< Getter
         bool getDobleSaltando();                 ///< Getter
@@ -89,7 +89,7 @@ class Player{
 		bool teletransportado;                   ///< Booleano que indica que ha pisado un teletransporte
         Cogible* objCogido;                      ///<
         Cogible* objPuedoCoger;                  ///<
-        vector3df tam;                           ///<
+        irr::core::vector3df tam;                           ///<
 		MyEventReceiver* eventReceiver;          ///<
 		b2Vec2 velActual;
     private:

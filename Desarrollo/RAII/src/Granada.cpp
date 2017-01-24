@@ -15,11 +15,7 @@ Clase que contiene el codigo de funcionamiento para la granada.
 
 #include "Granada.h"
 #include "PhysicWorld.h"
-#include "IrrManager.h"
 
-#define PISTOLA 30                     ///< Int para las colisiones de las Pistolas
-#define SENSORPISTOLA 35               ///< Int para las colisiones del area cogible de las Pistolas
-#define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
 
 
 /******************************************************************************
@@ -31,17 +27,16 @@ Clase que contiene el codigo de funcionamiento para la granada.
    Constructor
 */
 
-Granada::Granada(int modelo,vector3df pos){
-    siendoCogida= false;
+Granada::Granada(int modelo,irr::core::vector3df pos){
     particulas = new std::vector<b2Body*>();
     mecha = 4000;
     usada = false;
     timerIrr = IrrManager::Instance()->getTimer();
     timergranada = timerIrr->getTime();
-    vector3df tam2 = vector3df(5,5,1);
-    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
+    irr::core::vector3df tam2 = irr::core::vector3df(5,5,1);
+    irr::core::vector3df tam = irr::core::vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(30, 100, 30, 0));
-    node->setPosition(vector3df(pos.X/MPP,pos.Y/MPP,0/MPP));
+    node->setPosition(irr::core::vector3df(pos.X/MPP,pos.Y/MPP,0/MPP));
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);
@@ -55,12 +50,12 @@ Granada::Granada(int modelo,vector3df pos){
     fixtureDef.restitution  = 0.2f;
     fixtureDef.density  = 2.0f;
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
-    fixture->SetUserData((void*)30);
+    fixture->SetUserData((void*)ARMA);
     body->SetFixedRotation(true);
     polyShape.SetAsBox((tam.X*2.0),(tam.Y*2.0));
     fixtureDef.isSensor = true;
     b2Fixture* granadaSensorFixture = body->CreateFixture(&fixtureDef);
-    granadaSensorFixture->SetUserData((void*)35);
+    granadaSensorFixture->SetUserData((void*)SENSOR);
 }
 
 //---------------------------------------------------------------------------
@@ -69,12 +64,12 @@ Granada::Granada(int modelo,vector3df pos){
 */
 void Granada::actualiza(){
 
-    if(siendoCogida){
-        node->setPosition(vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
+    if(cogido){
+        node->setPosition(irr::core::vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
     }
-    else node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    else node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
 
-    node->setRotation(vector3df(0,0,body->GetAngle()*RADTOGRAD));
+    node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
 
     if((timerIrr->getTime() - timergranada > mecha)&& usada){
         int numRays = 10;
@@ -140,10 +135,10 @@ void Granada::usar(){
    Getters and setters
 */
 b2Body* Granada::getBody(){return body;}
-void Granada::setCogida(bool aux){
+void Granada::setCogido(bool aux){
 
-    vector3df tam2 = vector3df(5,3,1);
-    vector3df tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
+    irr::core::vector3df tam2 = irr::core::vector3df(5,3,1);
+    irr::core::vector3df tam = irr::core::vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     body->DestroyFixture(body->GetFixtureList());
     body->DestroyFixture(body->GetFixtureList());
     b2BodyDef bodyDef;
@@ -179,9 +174,9 @@ void Granada::setCogida(bool aux){
         PistolaSensorFixture = body->CreateFixture(&fixtureDef);
         PistolaSensorFixture->SetUserData((void*)35);
     }
-    siendoCogida = aux;
+    cogido = aux;
 }
-bool Granada::getCogida(){return siendoCogida;}
+bool Granada::getCogida(){return cogido;}
 //---------------------------------------------------------------------------
 /**
    Destructor

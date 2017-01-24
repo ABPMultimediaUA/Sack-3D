@@ -25,7 +25,7 @@ Clase que define un player
 /**
    Constructor
 */
-Player::Player(vector3df pos, int numMando){
+Player::Player(irr::core::vector3df pos, int numMando){
     //std::cout<<"constr"<<std::endl;
     mando = numMando;
     teletransportado=false;
@@ -40,8 +40,8 @@ Player::Player(vector3df pos, int numMando){
     muerto = false;
     jointDef = NULL;
     direccion = 1;
-    vector3df tam2 = vector3df(8, 16,4);
-    tam = vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
+    irr::core::vector3df tam2 = irr::core::vector3df(8, 16,4);
+    tam = irr::core::vector3df(tam2.X/MPP,tam2.Y/MPP,tam2.Z/MPP);
     node = IrrManager::Instance()->addCubeSceneNode(tam,SColor(255, 255, 124, 150));
     node->setPosition(pos);
 
@@ -78,8 +78,8 @@ void Player::update(){
     if(!muerto)mover();
     if(teletransportado)teletransportar();
     if(paraMorir)morir();
-    node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
+    node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
+    node->setRotation(irr::core::vector3df(0,0,body->GetAngle()* RADTOGRAD));
 }
 //---------------------------------------------------------------------------
 /**
@@ -297,7 +297,7 @@ void Player::crearJoint(){
    // joint->SetMaxMotorTorque(50.3f);
     cogiendo = true;
 
-    //dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogida(true);
+    //dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer()->getObjCogido())->setCogido(true);
 
 
 }
@@ -323,7 +323,7 @@ void Player::romperJoint(){
     cogiendo = false;
     puedoCoger = true;
 
-    dynamic_cast<Usable*>(objCogido)->setCogida(false);
+    dynamic_cast<Usable*>(objCogido)->setCogido(false);
 }
 //---------------------------------------------------------------------------
 /**
@@ -336,7 +336,7 @@ void Player::usar(){
    Getters y setters
 */
 b2Body* Player::getBody(){return body;}
-vector3df Player::getPosition(){return vector3df(body->GetPosition().x,body->GetPosition().y,0);}
+irr::core::vector3df Player::getPosition(){return irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0);}
 bool  Player::getSaltando(){return saltando;}
 int Player::getMando(){return mando;}
 void  Player::setSaltando(bool aux){saltando = aux;}

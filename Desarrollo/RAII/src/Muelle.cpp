@@ -26,9 +26,9 @@ Clase que define un muelle, con sus componentes grafica y fisica.
 /**
    Constructor
 */
-Muelle::Muelle(float f, vector3df pos, vector3df tam,SColor color){
+Muelle::Muelle(float f, irr::core::vector3df pos, irr::core::vector3df tam,SColor color){
     fuerza = f/MPP;
-    mesh = IrrManager::Instance()->createCubeMesh(vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
+    mesh = IrrManager::Instance()->createCubeMesh(irr::core::vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),irr::core::vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);

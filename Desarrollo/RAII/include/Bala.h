@@ -32,7 +32,7 @@ using namespace gui;
 *******************************************************************************/
 class Bala{
     public:
-        Bala(vector3df, int, int, float, int);               ///< Constructor
+        Bala(irr::core::vector3df, int, int, float, int);               ///< Constructor
         void actualiza();                  ///< actualiza la posicion de la bala
         b2Body* getBody();                 ///< Getter del body
         IMeshSceneNode* getNode();         ///< Getter del nodo irrlicht
@@ -46,7 +46,7 @@ class Bala{
         int tiempoVida;                    ///<
         int velocidad;                     ///<
         float desviacion;                     ///<
-        f32 timerbala;                     ///<
+        irr::f32 timerbala;                     ///<
         ITimer* timerIrr;                  ///<
 
     protected:

@@ -49,8 +49,6 @@ class PhysicWorld{
         PhysicWorld();                           ///< Constructor
         void inicializaVariables();
         b2Body* CreateBox(int x,int y);          ///< Genera una caja
-        void Step(float DeltaTime);              ///< Actualiza un instante en el mundo fisico
-        void ClearForces();                      ///< ????????
         void creaCuboMierda(int x, int y);       ///< ????????
         b2World* GetWorld();                     ///< Getter
         std::vector<Bala*>* GetBalas();          ///< Getter

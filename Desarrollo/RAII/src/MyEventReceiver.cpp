@@ -22,11 +22,10 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                       PhysicWorld::Instance()->getPlayer(1)->fingirMuerte();
                   case KEY_KEY_E:
                        if(PhysicWorld::Instance()->getPlayer(1)->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer(1)->getCogiendo()){
-                           PhysicWorld::Instance()->getPlayer(1)->crearJoint();
                            PhysicWorld::Instance()->getPlayer(1)->setObjCogido(PhysicWorld::Instance()->getPlayer(1)->getObjPuedoCoger());
-                           dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer(1)->getObjCogido())->setCogida(true);
+                           dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer(1)->getObjCogido())->setCogido(true);
+                           PhysicWorld::Instance()->getPlayer(1)->crearJoint();
                        }
-
                        else if(PhysicWorld::Instance()->getPlayer(1)->getCogiendo()){
                            PhysicWorld::Instance()->getPlayer(1)->romperJoint();
                        }
@@ -48,7 +47,7 @@ bool MyEventReceiver::OnEvent(const SEvent& event){
                      if(PhysicWorld::Instance()->getPlayer(2)->getPuedoCoger() && !PhysicWorld::Instance()->getPlayer(2)->getCogiendo()){
                            PhysicWorld::Instance()->getPlayer(2)->crearJoint();
                            PhysicWorld::Instance()->getPlayer(2)->setObjCogido(PhysicWorld::Instance()->getPlayer(2)->getObjPuedoCoger());
-                           dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer(2)->getObjCogido())->setCogida(true);
+                           dynamic_cast<Usable*>(PhysicWorld::Instance()->getPlayer(2)->getObjCogido())->setCogido(true);
                        }
 
                        else if(PhysicWorld::Instance()->getPlayer(2)->getCogiendo()){

@@ -42,13 +42,13 @@ IrrManager::IrrManager(){
 	receiver = new MyEventReceiver();
   IrrlichtDevice *nulldevice = createDevice(video::EDT_NULL);
   core::dimension2d<u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( video::EDT_OPENGL, deskres, 32, true, true, true, receiver);
-    driver = device->getVideoDriver();
-    device->setWindowCaption(L"Irrlicht/Box2D Sample");
-    smgr = device->getSceneManager();
-    guienv = device->getGUIEnvironment();
-	smgr->addLightSceneNode(0, vector3df(0,100,-100), video::SColorf(1,1,1), 40.f);
-    timer = device->getTimer();
+	device = createDevice( video::EDT_OPENGL, deskres, 32, false, true, true, receiver);
+  driver = device->getVideoDriver();
+  device->setWindowCaption(L"Irrlicht/Box2D Sample");
+  smgr = device->getSceneManager();
+  guienv = device->getGUIEnvironment();
+	smgr->addLightSceneNode(0, irr::core::vector3df(0,100,-100), video::SColorf(1,1,1), 40.f);
+  timer = device->getTimer();
 }
 //---------------------------------------------------------------------------
 /**
@@ -72,7 +72,7 @@ IMeshSceneNode* IrrManager::addCubeSceneNode(int tam,SColor color){
 /**
    Genera un nodo rectangular pasando posicion, tamaño y color  
 */
-IMeshSceneNode* IrrManager::addCubeSceneNode(vector3df tam,SColor color){
+IMeshSceneNode* IrrManager::addCubeSceneNode(irr::core::vector3df tam,SColor color){
 	IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
 	IMeshSceneNode* node = smgr->addMeshSceneNode(mesh);
     smgr->getMeshManipulator()->setVertexColors(node->getMesh(), color);
@@ -82,7 +82,7 @@ IMeshSceneNode* IrrManager::addCubeSceneNode(vector3df tam,SColor color){
 /**
    Genera una malla rectangular pasando posicion, tamaño y color  
 */
-IMesh* IrrManager::createCubeMesh(vector3df pos, vector3df tam, SColor color){
+IMesh* IrrManager::createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam, SColor color){
 	IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
 	smgr->addMeshSceneNode(mesh)->setPosition(pos);
     smgr->getMeshManipulator()->setVertexColors(mesh, color);

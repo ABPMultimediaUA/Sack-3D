@@ -51,8 +51,8 @@ PhysicWorld::PhysicWorld(){
 	world->SetContactListener(contactListener);
 }
 void PhysicWorld::inicializaVariables(){
-  m_Players[0].Reset(new Player(vector3df(100/MPP,0,0), 1));
-  m_Players[1].Reset(new Player(vector3df(120/MPP,0,0), 2));
+  m_Players[0].Reset(new Player(irr::core::vector3df(100/MPP,0,0), 1));
+  m_Players[1].Reset(new Player(irr::core::vector3df(120/MPP,0,0), 2));
   GameResource<Map>(new Map("media/Map.tmx"));
   camara.Reset(new Camera());
   TimeStamp = IrrManager::Instance()->getTime();
@@ -79,16 +79,6 @@ b2Body* PhysicWorld::CreateBox(int x , int y){
 }
 //---------------------------------------------------------------------------
 /**
-   Actualiza un instante en el mundo fisico
-*/
-void PhysicWorld::Step(float DeltaTime){ world->Step(DeltaTime*TIMESTEP, VELITER, POSITER);}
-//---------------------------------------------------------------------------
-/**
-   ?????????????????????????????????????
-*/
-void PhysicWorld::ClearForces(){world->ClearForces();}
-//---------------------------------------------------------------------------
-/**
    Getters y setters
 */
 Player* PhysicWorld::getPlayer(int mando){
@@ -108,8 +98,8 @@ void PhysicWorld::Update(){
   DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
   TimeStamp = IrrManager::Instance()->getTime();
   IrrManager::Instance()->beginScene();
-  Step(DeltaTime);
-  ClearForces();
+  world->Step(DeltaTime*TIMESTEP, VELITER, POSITER);
+  world->ClearForces();
   for (int i = 0; i < MAX_NUM_BALA; ++i){
     if(m_Balas[i].Get()){
       m_Balas[i].Get()->actualiza();

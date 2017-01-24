@@ -47,9 +47,6 @@
 		<Unit filename="include/Cogible.h">
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="include/ConstructorRed.h">
-			<Option target="Release" />
-		</Unit>
 		<Unit filename="include/Escopeta.h">
 			<Option target="Release" />
 		</Unit>
@@ -66,6 +63,9 @@
 		<Unit filename="include/PhysicWorld.h" />
 		<Unit filename="include/Platform.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/PlayerRed.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/Teleport.h">
 			<Option target="Release" />
 		</Unit>
@@ -81,9 +81,6 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/Cogible.cpp">
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="src/ConstructorRed.cpp">
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/Escopeta.cpp">
@@ -102,6 +99,9 @@
 		<Unit filename="src/PhysicWorld.cpp" />
 		<Unit filename="src/Platform.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/PlayerRed.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/Teleport.cpp">
 			<Option target="Release" />
 		</Unit>

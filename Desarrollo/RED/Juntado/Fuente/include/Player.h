@@ -70,9 +70,11 @@ class Player{
         char* getIp();
         char* getServerPort();
         char* getClientPort();
+        char* getId();
         void setIp(char aux[]);
         void setServerPort(char aux[]);
         void setClientPort(char aux[]);
+        void setId(char aux[]);
 
         virtual ~Player();                       ///< Destructor
 
@@ -86,6 +88,7 @@ class Player{
         char ip[64];
         char serverPort[30];
         char clientPort[30];                     ///<
+        char id[30];
         int x;                                   ///<
         int y;                                   ///<
         float vel;                                 ///<

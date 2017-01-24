@@ -38,6 +38,7 @@ Player::Player(vector3df pos){
     muerto = false;
     jointDef = NULL;
     direccion = 1;
+    strncpy(id, "", sizeof(id));
 
 
 
@@ -314,7 +315,8 @@ char* Player::getClientPort(){return clientPort;
 }
 char* Player::getIp(){return ip;
 }
-
+char* Player::getId(){return id;
+}
 void Player::setClientPort(char aux[]){
     strncpy(clientPort, aux, sizeof(clientPort));
 }
@@ -323,6 +325,9 @@ void Player::setServerPort(char aux[]){
 }
 void Player::setIp(char aux[]){
     strncpy(ip, aux, sizeof(ip));
+}
+void Player::setId(char aux[]){
+    strncpy(id, aux, sizeof(id));
 }
 //---------------------------------------------------------------------------
 /**

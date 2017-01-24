@@ -29,7 +29,7 @@ El maaaaaaaaain.
 #include "Muelle.h"
 #include "Teleport.h"
 #include "Client.h"
-#include "ConstructorRed.h"
+#include "PlayerRed.h"
 #include <string>
 
 #include "MessageIdentifiers.h"
@@ -78,7 +78,7 @@ int main(){
 
     puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
-    strncpy(auxip, "192.168.1.105", sizeof(auxip));
+    strncpy(auxip, "192.168.43.104", sizeof(auxip));
 
 
     puts("Enter the port to connect to");
@@ -100,8 +100,7 @@ int main(){
     float RakTime = 0.0f;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(0/MPP,0/MPP,0/MPP));
-    ConstructorRed* playerRed = new ConstructorRed(-120.0f/MPP,-180.0f/MPP);
-
+    PlayerRed* playerRed = new PlayerRed(-120.0f/MPP,-180.0f/MPP);
 
     //CREACION DE ARMAS//
     Arma* arma = new Arma();
@@ -127,12 +126,12 @@ int main(){
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle1);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle2);
     PhysicWorld::Instance()->GetMuelles()->push_back(muelle3);
-    /*Teleport* portal1 = new Teleport(1, 2, vector3df(0,-187,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
+    Teleport* portal1 = new Teleport(1, 2, vector3df(0,-187,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
     Teleport* portal2 = new Teleport(2, 3, vector3df(50,-123,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
-    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-52,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));*/
-  /*  PhysicWorld::Instance()->GetTeletransportes()->push_back(portal1);
+    Teleport* portal3 = new Teleport(3, 1, vector3df(-6,-52,0),vector3df(2, 20, 5),SColor(255, 255, 255, 0));
+    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal1);
     PhysicWorld::Instance()->GetTeletransportes()->push_back(portal2);
-    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal3);*/
+    PhysicWorld::Instance()->GetTeletransportes()->push_back(portal3);
 
     ///////////////////////////
     cliente->iniciar();

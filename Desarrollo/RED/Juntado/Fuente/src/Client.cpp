@@ -41,18 +41,23 @@ void Client::iniciar(){
 	}
 
 	printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
+	//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getClientPort(), sizeof(aux));
 
 }
 
 void Client::enviar(){
 
-    char aux[30];
-    char id[30];
+    char aux[60];
+    char id[60];
     char estado[30];
     char posx[30];
     char posy[30];
     char direcc[30];
     bool muerto;
+
+     // ---------- ID
+    strncpy(id, PhysicWorld::Instance()->getPlayer()->getId(), sizeof(id));
+    //std::cout<<"mi idddddddddd"<<id<<std::endl;
 
     vector3df posicion = PhysicWorld::Instance()->getPlayer()->getPosition();
     muerto = PhysicWorld::Instance()->getPlayer()->getFingirMuerte();
@@ -80,24 +85,22 @@ void Client::enviar(){
         usleep(30 * 1000);
     #endif
 */
-    // ---------- ID
-    strncpy(id, "0", sizeof(id));
+
 
     char posx2[30];
     strncpy(posx2, posx, sizeof(posx2));
     char posy2[30];
     strncpy(posy2, posy, sizeof(posy2));
 
-    strncat (id, " ", 6);
-    strncat (id, estado, 6);
-    strncat (id, " ", 6);
-    strncat (id, posx2, 6);
-    strncat (id, " ", 6);
-    strncat (id, posy2, 6);
-    strncat (id, " ", 6);
-    strncat (id, direcc, 6);
+    strncat (id, " ", 30);
+    strncat (id, estado, 30);
+    strncat (id, " ", 30);
+    strncat (id, posx2, 30);
+    strncat (id, " ", 30);
+    strncat (id, posy2, 30);
+    strncat (id, " ", 30);
+    strncat (id, direcc, 30);
     strncpy(aux, id, sizeof(aux));
-
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -155,9 +158,13 @@ void Client::recibir(){
 				break;
 
 			case ID_CONNECTION_REQUEST_ACCEPTED:
+                char aux[30];
 				// This tells the client they have connected
 				printf("ID_CONNECTION_REQUEST_ACCEPTED to %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());
 				printf("My external address is %s\n", client->GetExternalID(p->systemAddress).ToString(true));
+			//	PhysicWorld::Instance()->getPlayer()->setId( const_cast<char*> (client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString()));
+				//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getId(), sizeof(aux));
+                //client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 				break;
 			default:
 				// It's a client, so just show the message
@@ -167,7 +174,7 @@ void Client::recibir(){
 
 			/////////TRABAJO DEL MENSAJE\\\\\\\\\\\\
 
-			char recibido[30];
+			char recibido[60];
 			char id_r[30];
 			char estado_r[30];
 			char posx_r[30];
@@ -178,8 +185,9 @@ void Client::recibir(){
 			long int y;
 			int vivo;
 			int dir;
+
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
-			//std::cout<<"ESTOY TRATANDO EL MENSAJE->"<<recibido<<std::endl;
+			//std::cout<<"primerrrrrrrrrrrrrrr"<<recibido<<std::endl;
 			char * msg;
 			msg = strtok(recibido, " ");
 			while(msg != NULL){
@@ -205,7 +213,24 @@ void Client::recibir(){
                 iterador++;
             }
 
-            //std::cout<<"ESTOY TRATANDO EL MENSAJE->"<<id_r<<"->"<<estado_r<<"->"<<posx_r<<"->"<<posy_r<<std::endl;
+            int help;
+            help = atoi(id_r);
+
+            if(help > 0 && iterador==1){
+                if(strcmp(PhysicWorld::Instance()->getPlayer()->getId(), "") == 0){
+                    std::cout<<"ESTOY seteando mi id->"<<id_r<<std::endl;
+                    PhysicWorld::Instance()->getPlayer()->setId(id_r);
+                }
+                else{
+                    std::cout<<"seteando de compaaaadre>"<<id_r<<std::endl;
+                    PhysicWorld::Instance()->getPlayerRed()->setId(id_r);
+                }
+            }
+            if(iterador == 5){
+                std::cout<<"esta es la id del otro>"<<id_r<<std::endl;
+                PhysicWorld::Instance()->getPlayerRed()->setId(id_r);
+            }
+
            /*sscanf(posx_r, "%d", x);
            sscanf(posy_r, "%d", y);*/
             x = atol(posx_r);

@@ -26,7 +26,7 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 #include "Bala.h"
 #include "Muelle.h"
 #include "Teleport.h"
-#include "ConstructorRed.h"
+#include "PlayerRed.h"
 #include <vector>
 #define MPP       64
 #define PPM       1/64
@@ -45,13 +45,13 @@ class PhysicWorld{
         std::vector<cuboMierda*>* GetCubos();    ///< Getter
         std::vector<Bala*>* GetBalas();          ///< Getter
         Player* getPlayer();                     ///< Getter
-        ConstructorRed* getPlayerRed();                     ///< Getter
+        PlayerRed* getPlayerRed();                     ///< Getter
         Arma* getArma();                         ///< Getter
         std::vector<Cogible*>* GetCogibles();    ///< Getter
         std::vector<Muelle*>* GetMuelles();      ///< Getter
         std::vector<Teleport*>* GetTeletransportes();      ///< Getter
         void setPlayer(Player* jugador);         ///< Setter
-        void setPlayerRed(ConstructorRed* jugadorRed);         ///< Setter
+        void setPlayerRed(PlayerRed* jugadorRed);         ///< Setter
         void setArma(Arma* arma);                ///< Setter
         void setCogibles(std::vector<Cogible*>* aux);          ///< Setter
         virtual ~PhysicWorld();                  ///< Setter
@@ -70,7 +70,7 @@ class PhysicWorld{
         std::vector<Teleport*>* teletransportes; ///< Array de teletransportes
         Arma* arma;                              ///< arma
         Player* jugador1 = 0;                    ///<
-        ConstructorRed* jugadorRed = 0;          ///<
+        PlayerRed* jugadorRed = 0;          ///<
 };
 
 #endif // PHYSICWORLD_H

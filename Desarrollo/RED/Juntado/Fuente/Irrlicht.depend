@@ -954,24 +954,24 @@
 	"SecureHandshake.h"
 	"Player.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\arma.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\arma.cpp
 	"Arma.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\arma.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\arma.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Usable.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\usable.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\usable.h
 	"Cogible.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\cogible.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\physicworld.h
+1485259386 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -982,14 +982,14 @@
 	"Bala.h"
 	"Muelle.h"
 	"Teleport.h"
-	"ConstructorRed.h"
+	"PlayerRed.h"
 	<vector>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\cubomierda.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\cubomierda.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\player.h
+1485262428 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
@@ -998,129 +998,129 @@
 	<iostream>
 	<string.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\myeventreceiver.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\myeventreceiver.h
 	<Box2D/Box2D.h>
 	<iostream>
 	<irrlicht.h>
 	"cuboMierda.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\mycontactlistener.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\mycontactlistener.h
 	"Box2D/Box2D.h"
 	<iostream>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\bala.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\muelle.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\muelle.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\teleport.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\teleport.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\irrmanager.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\irrmanager.h
 	<irrlicht.h>
 	"MyEventReceiver.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\bala.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\camera.cpp
+1485272524 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\camera.cpp
 	"Camera.h"
 	"Player.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\camera.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\camera.h
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\cogible.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\cogible.cpp
 	"Cogible.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\cubomierda.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\escopeta.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\escopeta.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\escopeta.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Usable.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\granada.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\granada.cpp
 	"Granada.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\granada.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\granada.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	<vector>
 	"Usable.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\irrmanager.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\irrmanager.cpp
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\map.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"Platform.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\map.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\map.h
 	<irrlicht.h>
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\platform.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\muelle.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\muelle.cpp
 	"Muelle.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\mycontactlistener.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\myeventreceiver.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\physicworld.cpp
+1485259403 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\platform.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485207991 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\player.cpp
+1485273138 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\teleport.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\teleport.cpp
 	"Teleport.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485201061 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\usable.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\usable.cpp
 	"Usable.h"
 
-1485202045 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\main.cpp
+1485272814 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -1137,7 +1137,7 @@
 	"Muelle.h"
 	"Teleport.h"
 	"Client.h"
-	"ConstructorRed.h"
+	"PlayerRed.h"
 	<string>
 	"MessageIdentifiers.h"
 	<iostream>
@@ -1159,7 +1159,7 @@
 	"Gets.h"
 	"SecureHandshake.h"
 
-1485201060 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\client.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -1181,16 +1181,25 @@
 	"SecureHandshake.h"
 	"Player.h"
 
-1485206885 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\client.cpp
+1485274185 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\client.cpp
 	"Client.h"
 	"PhysicWorld.h"
 
-1485203850 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\constructorred.h
+1485258083 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\constructorred.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485208278 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\constructorred.cpp
+1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\constructorred.cpp
 	"ConstructorRed.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485273699 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\playerred.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485273663 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\playerred.cpp
+	"PlayerRed.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 

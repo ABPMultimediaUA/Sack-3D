@@ -35,16 +35,22 @@
 // We copy this from Multiplayer.cpp to keep things all in one file for this example
 unsigned char GetPacketIdentifier(RakNet::Packet *p);
 
+
 #ifdef _CONSOLE_2
 _CONSOLE_2_SetSystemProcessParams
 #endif
+
 
 int main(void)
 {
 	// Pointers to the interfaces of our server and client.
 	// Note we can easily have both in the same program
 	RakNet::RakPeerInterface *server=RakNet::RakPeerInterface::GetInstance();
+	//RM3sys replicaManager;
+  //  FullyConnectedMesh2 *fullyConnectedMesh;
+   // ConnectionGraph2 *connectionGraph;
 	RakNet::RakNetStatistics *rss;
+//	NetworkIDManager networkIdManager;
 	server->SetIncomingPassword("Rumpelstiltskin", (int)strlen("Rumpelstiltskin"));
 	server->SetTimeoutTime(30000,RakNet::UNASSIGNED_SYSTEM_ADDRESS);
 //	RakNet::PacketLogger packetLogger;
@@ -69,6 +75,7 @@ int main(void)
 
 	// Record the first client that connects to us so we can pass it to the ping function
 	RakNet::SystemAddress clientID=RakNet::UNASSIGNED_SYSTEM_ADDRESS;
+	int clID = 0;
 
 	// Holds user data
 	char portstring[30];
@@ -93,7 +100,14 @@ int main(void)
 	socketDescriptors[0].socketFamily=AF_INET; // Test out IPV4
 	socketDescriptors[1].port=atoi(portstring);
 	socketDescriptors[1].socketFamily=AF_INET6; // Test out IPV6
+
 	bool b = server->Startup(4, socketDescriptors, 2 )==RakNet::RAKNET_STARTED;
+
+	//server->AttachPlugin(&replicaManager);
+	//server->AttachPlugin(fullyConnectedMesh);
+	//server->AttachPlugin(connectionGraph);
+	//replicaManager.SetNetworkIDManager(&networkIdManager);
+
 	server->SetMaximumIncomingConnections(4);
 	if (!b)
 	{
@@ -218,6 +232,8 @@ int main(void)
 
 		for (p=server->Receive(); p; server->DeallocatePacket(p), p=server->Receive())
 		{
+
+		    char identificador[30];
 			// We got a packet, get the identifier with our handy function
 			packetIdentifier = GetPacketIdentifier(p);
 
@@ -234,6 +250,10 @@ int main(void)
 				// Somebody connected.  We have their IP now
 				printf("ID_NEW_INCOMING_CONNECTION from %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());
 				clientID=p->systemAddress; // Record the player ID of the client
+				clID++;
+                sprintf(identificador, "%.0f", (float)clID);
+                //enviando ID al jugador conectado
+                server->Send(identificador, (const int) strlen(identificador)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 				break;
 
 			case ID_INCOMPATIBLE_PROTOCOL_VERSION:
@@ -287,3 +307,5 @@ unsigned char GetPacketIdentifier(RakNet::Packet *p)
 	else
 		return (unsigned char) p->data[0];
 }
+
+

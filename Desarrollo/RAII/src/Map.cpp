@@ -97,13 +97,19 @@ Map::Map(stringw file){
                               }while(core::stringw("object") != xml->getNodeName());
                               switch(tipo){
                                    case PISTOLA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreatePistola(new Pistola(modelo,b2Vec2(x+(width/2)-100,-1*(y-(height/2)))))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreatePistola(
+                                             new Pistola(modelo,b2Vec2(x+(width/2)-100,-1*(y-(height/2)))))->Get()
+                                        );
                                    break;}
                                    case ESCOPETA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateEscopeta(new Escopeta(modelo,irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateEscopeta(
+                                             new Escopeta(modelo,b2Vec2(x+(width/2)-100,-1*(y-(height/2)))))->Get()
+                                        );
                                    break;}
                                    case GRANADA:{
-                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateGranada(new Granada(modelo,irr::core::vector3df(x+(width/2)-100,-1*(y-(height/2)),0)))->Get());
+                                        PhysicWorld::Instance()->GetCogibles()->push_back(PhysicWorld::Instance()->CreateGranada(
+                                             new Granada(modelo,b2Vec2(x+(width/2)-100,-1*(y-(height/2)))))->Get()
+                                        );
                                    break;}
                               }
                     break;}

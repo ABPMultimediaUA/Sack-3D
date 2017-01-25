@@ -1304,16 +1304,16 @@
 	"Box2D/Box2D.h"
 	<iostream>
 
-1485287811 c:\users\pcj\desktop\abp\desarrollo\raii\include\pistola.h
+1485288167 c:\users\pcj\desktop\abp\desarrollo\raii\include\pistola.h
 	"Usable.h"
 
 1485285961 c:\users\pcj\desktop\abp\desarrollo\raii\include\usable.h
 	"Cogible.h"
 
-1485275079 c:\users\pcj\desktop\abp\desarrollo\raii\include\escopeta.h
+1485357061 c:\users\pcj\desktop\abp\desarrollo\raii\include\escopeta.h
 	"Usable.h"
 
-1485275076 c:\users\pcj\desktop\abp\desarrollo\raii\include\granada.h
+1485358517 c:\users\pcj\desktop\abp\desarrollo\raii\include\granada.h
 	<vector>
 	"Usable.h"
 
@@ -1358,7 +1358,7 @@
 1485288076 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\cogible.cpp
 	"Cogible.h"
 
-1485275086 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\escopeta.cpp
+1485357146 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\escopeta.cpp
 	"Escopeta.h"
 	"PhysicWorld.h"
 
@@ -1369,7 +1369,7 @@
 1485282564 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\irrmanager.cpp
 	"IrrManager.h"
 
-1485276869 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\map.cpp
+1485357314 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -1389,7 +1389,7 @@
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 
-1485287920 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\pistola.cpp
+1485288193 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\pistola.cpp
 	"Pistola.h"
 	"PhysicWorld.h"
 

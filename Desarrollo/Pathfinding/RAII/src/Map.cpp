@@ -191,12 +191,17 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 10) );
                   }
                   else{
-                      //std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i-1, j)->getCostoDirecto()<<std::endl;
-                      //std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 10 <<std::endl;
+                      std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i-1, j)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 10 <<std::endl;
 
                       if( (nodoActual->getCostoDirecto() + 10) < (listaAbierta->buscaNodo2(i-1, j)->getCostoDirecto()) ){
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i-1, j)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i-1, j)->getDatos().y<<std::endl;
+
                           //cambia el padre del cuadro adyacente al cuadro seleccionado
-                          //listaAbierta->buscaNodo2(i-1, j)->setPadre(nodoActual, 10);
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i-1, j)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i-1, j)->setPadre(nodoActual, 10);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i-1, j)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -209,8 +214,14 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 10) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i+1, j)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 10 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 10) < (listaAbierta->buscaNodo2(i+1, j)->getCostoDirecto()) ){
-                          //listaAbierta->buscaNodo2(i+1, j)->setPadre(nodoActual, 10);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i+1, j)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i+1, j)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i+1, j)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i+1, j)->setPadre(nodoActual, 10);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i+1, j)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -223,8 +234,14 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 10) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i, j-1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 10 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 10) < (listaAbierta->buscaNodo2(i, j-1)->getCostoDirecto()) ){
-                          //listaAbierta->buscaNodo2(i, j-1)->setPadre(nodoActual, 10);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i, j-1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i, j-1)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i, j-1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i, j-1)->setPadre(nodoActual, 10);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i, j-1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -237,8 +254,15 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 10) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i, j+1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 10 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 10) < (listaAbierta->buscaNodo2(i, j+1)->getCostoDirecto()) ){
-                          //listaAbierta->buscaNodo2(i, j+1)->setPadre(nodoActual, 10);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i, j+1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i, j+1)->getDatos().y<<std::endl;
+
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i, j+1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i, j+1)->setPadre(nodoActual, 10);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i, j+1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -251,8 +275,14 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 14) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i-1, j-1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 14 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 14) < (listaAbierta->buscaNodo2(i-1, j-1)->getCostoDirecto()) ){
-                         //listaAbierta->buscaNodo2(i-1, j-1)->setPadre(nodoActual, 14);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i-1, j-1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i-1, j-1)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i-1, j-1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i-1, j-1)->setPadre(nodoActual, 14);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i-1, j-1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -265,8 +295,14 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 14) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i-1, j+1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 14 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 14) < (listaAbierta->buscaNodo2(i-1, j+1)->getCostoDirecto()) ){
-                         //listaAbierta->buscaNodo2(i-1, j+1)->setPadre(nodoActual, 14);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i-1, j+1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i-1, j+1)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i-1, j+1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i-1, j+1)->setPadre(nodoActual, 14);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i-1, j+1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -279,8 +315,15 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 14) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i+1, j+1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 14 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 14) < (listaAbierta->buscaNodo2(i+1, j+1)->getCostoDirecto()) ){
-                          //listaAbierta->buscaNodo2(i+1, j+1)->setPadre(nodoActual, 14);
+
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i+1, j+1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i+1, j+1)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i+1, j+1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i+1, j+1)->setPadre(nodoActual, 14);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i+1, j+1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -293,8 +336,14 @@ Map::Map(stringw file){
                       listaAbierta->insertar( new Nodo (posicion, nodoFin, nodoActual, 14) );
                   }
                   else{
+                    std::cout<<"G desde el primero: "<<listaAbierta->buscaNodo2(i+1, j-1)->getCostoDirecto()<<std::endl;
+                      std::cout<<"G desde el nuevo: "<<nodoActual->getCostoDirecto() + 14 <<std::endl;
                       if( (nodoActual->getCostoDirecto() + 14) < (listaAbierta->buscaNodo2(i+1, j-1)->getCostoDirecto()) ){
-                          //listaAbierta->buscaNodo2(i+1, j-1)->setPadre(nodoActual, 14);
+                          std::cout<< "Punto: "<<listaAbierta->buscaNodo2(i+1, j-1)->getDatos().x<<" "<<listaAbierta->buscaNodo2(i+1, j-1)->getDatos().y<<std::endl;
+                          std::cout<< "Costo anterior: "<<listaAbierta->buscaNodo2(i+1, j-1)->getCostoDirecto()<<std::endl;
+                          listaAbierta->buscaNodo2(i+1, j-1)->setPadre(nodoActual, 14);
+                          std::cout<< "Costo nuevo: "<<listaAbierta->buscaNodo2(i+1, j-1)->getCostoDirecto()<<std::endl;
+                          std::cout<<std::endl;
                       }
                   }
               }
@@ -305,20 +354,17 @@ Map::Map(stringw file){
         std::cout<<std::endl;
         std::cout<<"SALIDA PATHFINDING: "<<std::endl;
 
-            //listaAbierta->imprimirLista(1);
-            //listaCerrada->imprimirLista(2);
-        /*nodoActual = listaAbierta->buscaNodo2(nodoFin->getDatos().x, nodoFin->getDatos().y);
-        if(nodoActual!=nullptr){
+        nodoActual = listaAbierta->buscaNodo2(nodoFin->getDatos().x, nodoFin->getDatos().y);
+
+        if(nodoActual){
+            //imprimer el primer nodo
             std::cout<<nodoActual->getDatos().x<<" "<<nodoActual->getDatos().y<<" : ";
-            while (nodoActual->getDatos().x != nodoIni->getDatos().x && nodoActual->getDatos().y != nodoIni->getDatos().y){
-              std::cout<<"cogeme si puedes"<<std::endl;
+            while ( nodoActual->getDatos().x != nodoIni->getDatos().x || nodoActual->getDatos().y != nodoIni->getDatos().y ){
               nodoActual = nodoActual->getPadre();
               std::cout<<nodoActual->getDatos().x<<" "<<nodoActual->getDatos().y<<" : ";
             }
-        }*/
-
-
-
+        }
+        std::cout<<std::endl;
      }
 
 

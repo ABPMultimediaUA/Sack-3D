@@ -1,0 +1,6 @@
+En este ejecutable se ve como la camara hace zoom, la camara se acerca y aleja en funcion de la distancia de los jugadores.
+
+Para mover al jugador: 
+	A - Izquierda
+	D - Derecha
+	Espacio - Saltar

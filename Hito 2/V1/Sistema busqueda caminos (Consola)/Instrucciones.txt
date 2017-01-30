@@ -1,0 +1,4 @@
+Usa el algoritmo de A* y va desde el punto 1 al 2, esquivando los 8, 
+para modificar la matriz basta con modificar el archivo map.cpp
+en la consola se muestra el camino mas corto
+

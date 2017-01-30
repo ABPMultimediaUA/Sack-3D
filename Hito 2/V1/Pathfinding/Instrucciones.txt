@@ -1,0 +1,5 @@
+Mover un cubo con W,A,S,D para posicionar el punto final;
+Apretar P para calcular el camino;
+Ir apretando Espacio para ver el camino que sige.
+No posicionar el cubo en las paredes ni salir del mapa.
+Se puede repetir tantas veces como queramos.

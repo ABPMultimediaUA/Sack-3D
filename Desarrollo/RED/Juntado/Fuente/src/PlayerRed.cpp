@@ -6,11 +6,11 @@
 #define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
 
 
-PlayerRed::PlayerRed(float xr, float yr)
+PlayerRed::PlayerRed(char idr[], float xr, float yr)
 {
     x = xr;
     y = yr;
-    //id = idr;
+    strncpy(id, idr, sizeof(id));
     vivo = 1;
     vivoAntiguo = 1;
     direccion = 0;
@@ -49,14 +49,15 @@ void PlayerRed::teletransportar(){
 }
 
 void PlayerRed::actualiza(){
-    //std::cout<<"ESTOY ACTUALIZANDO PLAYERRED4YYY->"<<y<<std::endl;
+    /*td::cout<<"ESTOY ACTUALIZANDO PLAYERRED4YYY->"<<y<<std::endl;
+    std::cout<<"ESTOY ACTUALIZANDO PLAYERRED4XXX->"<<x<<std::endl;*/
     float aux_x = x;
     float aux_y = y;
 
     teletransportar();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
-   // std::cout<<"ESPECIAL2->"<<PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x<<std::endl;
+    //std::cout<<"ESPECIAL2->"<<PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().x<<std::endl;
    //std::cout<<"ESPECIAL2->"<<PhysicWorld::Instance()->getPlayer()->getBody()->GetPosition().y<<std::endl;
 
    if(vivoAntiguo != vivo){
@@ -140,12 +141,12 @@ void PlayerRed::fingirMuerte(){
 }
 
 void PlayerRed::setx(long int aux){
-    float aux_x = aux/10000.f;
+    float aux_x = aux/1000000.f;
     x=aux_x;
     //std::cout<<"ESTOY ACTUALIZANDO PLAYERRED3->"<<x<<std::endl;
 }
 void PlayerRed::sety(long int aux){
-    float aux_y = aux/10000.f;
+    float aux_y = aux/1000000.f;
     y=aux_y;
     //std::cout<<"ESTOY ACTUALIZANDO PLAYERRED3->"<<y<<std::endl;
 }

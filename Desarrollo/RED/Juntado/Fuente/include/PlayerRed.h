@@ -16,7 +16,7 @@ using namespace gui;
 class PlayerRed
 {
     public:
-        PlayerRed(float xr, float yr);
+        PlayerRed(char idr[], float xr, float yr);
         void actualiza();
         b2Body* getBody();
         virtual ~PlayerRed();

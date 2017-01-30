@@ -45,11 +45,12 @@ class PhysicWorld{
         std::vector<cuboMierda*>* GetCubos();    ///< Getter
         std::vector<Bala*>* GetBalas();          ///< Getter
         Player* getPlayer();                     ///< Getter
-        PlayerRed* getPlayerRed();                     ///< Getter
+        //PlayerRed* getPlayerRed();                     ///< Getter
         Arma* getArma();                         ///< Getter
         std::vector<Cogible*>* GetCogibles();    ///< Getter
         std::vector<Muelle*>* GetMuelles();      ///< Getter
         std::vector<Teleport*>* GetTeletransportes();      ///< Getter
+        std::vector<PlayerRed*>* GetPlayersRed();      ///< Getter
         void setPlayer(Player* jugador);         ///< Setter
         void setPlayerRed(PlayerRed* jugadorRed);         ///< Setter
         void setArma(Arma* arma);                ///< Setter
@@ -60,6 +61,7 @@ class PhysicWorld{
         b2RevoluteJoint* joint;
 
     private:
+
         static PhysicWorld* pinstance;           ///< instancia del mundo
         b2World* world;                          ///< variable mundo de box2d
         MyContactListener* contactListener;      ///< detector de colisiones
@@ -68,9 +70,9 @@ class PhysicWorld{
         std::vector<Cogible*>* cogibles;         ///< Array de cogibles
         std::vector<Muelle*>* muelles;           ///< Array de muelles
         std::vector<Teleport*>* teletransportes; ///< Array de teletransportes
+        std::vector<PlayerRed*>* playersRed; ///< Array de players
         Arma* arma;                              ///< arma
         Player* jugador1 = 0;                    ///<
-        PlayerRed* jugadorRed = 0;          ///<
 };
 
 #endif // PHYSICWORLD_H

@@ -77,13 +77,13 @@ int main(){
 
 
     puts("Enter IP to connect to");
-    //Gets(auxip,sizeof(auxip));
-    strncpy(auxip, "192.168.43.104", sizeof(auxip));
+    Gets(auxip,sizeof(auxip));
+    //strncpy(auxip, "192.168.43.104", sizeof(auxip));
 
 
     puts("Enter the port to connect to");
-    //Gets(auxserverPort,sizeof(auxserverPort));
-    strncpy(auxserverPort, "3333", sizeof(auxserverPort));
+    Gets(auxserverPort,sizeof(auxserverPort));
+    //strncpy(auxserverPort, "3333", sizeof(auxserverPort));
 
 
 
@@ -95,29 +95,30 @@ int main(){
     std::vector<cuboMierda*>* cubos = PhysicWorld::Instance()->GetCubos();
     std::vector<Bala*>* balas = PhysicWorld::Instance()->GetBalas();
     std::vector<Cogible*>* cogibles = PhysicWorld::Instance()->GetCogibles();
+    std::vector<PlayerRed*>* playersRed = PhysicWorld::Instance()->GetPlayersRed();
     float TimeStamp = IrrManager::Instance()->getTime();
     float DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
     float RakTime = 0.0f;
     //ESTA MIERDA DEBE IR FUERA
     Player* player = new Player(vector3df(0/MPP,0/MPP,0/MPP));
-    PlayerRed* playerRed = new PlayerRed(-120.0f/MPP,-180.0f/MPP);
+    //PlayerRed* playerRed = new PlayerRed(-120.0f/MPP,-180.0f/MPP);
 
     //CREACION DE ARMAS//
-    Arma* arma = new Arma();
+    /*Arma* arma = new Arma();
     Escopeta* escopeta = new Escopeta();
     Granada* granada = new Granada();
     cogibles->push_back(arma);
     cogibles->push_back(escopeta);
     cogibles->push_back(granada);
-    PhysicWorld::Instance()->setCogibles(cogibles);
+    PhysicWorld::Instance()->setCogibles(cogibles);*/
     ////////////////////
     PhysicWorld::Instance()->setPlayer(player);
-    PhysicWorld::Instance()->setPlayerRed(playerRed);
+    //PhysicWorld::Instance()->setPlayersRed(playerRed);
     PhysicWorld::Instance()->getPlayer()->setClientPort(auxclientPort);
     PhysicWorld::Instance()->getPlayer()->setIp(auxip);
     PhysicWorld::Instance()->getPlayer()->setServerPort(auxserverPort);
 
-    PhysicWorld::Instance()->setArma(arma);
+    /*PhysicWorld::Instance()->setArma(arma);*/
     Map* mapa = new Map("media/Map.tmx");
 
     Muelle* muelle1 = new Muelle(100.0f, vector3df(-210,-195,0),vector3df(10, 5, 10),SColor(255, 255, 0, 0));
@@ -136,14 +137,17 @@ int main(){
     ///////////////////////////
     cliente->iniciar();
      while(IrrManager::Instance()->getDevice()->run()){
+
             IrrManager::Instance()->beginScene();
             DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;
             TimeStamp = IrrManager::Instance()->getTime();
+        //std::cout<<DeltaTime<<std::endl;
             PhysicWorld::Instance()->Step(DeltaTime);
             PhysicWorld::Instance()->ClearForces();
             //std::cout<<PhysicWorld::Instance()->getPlayer()->getClientPort()<<std::endl;
            // std::cout<<"ESTOY COGIENDO"<<std::endl;
             //std::cout<<"ESTOY COGIENDO"<<std::endl;
+
             for(int i=0; i < cubos->size(); i++){cubos->at(i)->actualiza();}
             for(int i=0; i < balas->size(); i++){
                     balas->at(i)->actualiza();
@@ -157,19 +161,28 @@ int main(){
             }
             player->update();
             camera->update(TimeStamp);
-            arma->actualiza();
+            /*arma->actualiza();
             escopeta->actualiza();
-            granada->actualiza();
-            playerRed->actualiza();
+            granada->actualiza();*/
 
-            if(TimeStamp-RakTime >20){
-                cliente->enviar();
-                cliente->recibir();
-                RakTime = TimeStamp;
+            for(int i=0; i < playersRed->size(); i++){
+                playersRed->at(i)->actualiza();
             }
 
+            cliente->recibir();
+            if(TimeStamp-RakTime >16){
+
+                cliente->enviar();
+                RakTime = TimeStamp;
+
+            }
+
+
+
             IrrManager::Instance()->drawAll();
+
             IrrManager::Instance()->endScene();
+
             //////ENVIO DE MENSAJES\\\\\\\\
 
 

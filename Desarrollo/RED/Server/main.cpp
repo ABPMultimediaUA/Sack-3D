@@ -7,6 +7,7 @@
 
 #include "MessageIdentifiers.h"
 
+#include <iostream>
 #include "RakPeerInterface.h"
 #include "RakNetStatistics.h"
 #include "RakNetTypes.h"
@@ -23,6 +24,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Gets.h"
+#include <stdlib.h>
 
 #if LIBCAT_SECURITY==1
 #include "SecureHandshake.h" // Include header for secure handshake
@@ -233,7 +235,7 @@ int main(void)
 		for (p=server->Receive(); p; server->DeallocatePacket(p), p=server->Receive())
 		{
 
-		    char identificador[30];
+
 			// We got a packet, get the identifier with our handy function
 			packetIdentifier = GetPacketIdentifier(p);
 
@@ -248,12 +250,24 @@ int main(void)
 
 			case ID_NEW_INCOMING_CONNECTION:
 				// Somebody connected.  We have their IP now
+				char identificador[30];
+				char playerNum[30];
 				printf("ID_NEW_INCOMING_CONNECTION from %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());
+				strncpy(identificador, "", sizeof(identificador));
+				strncpy(playerNum, "", sizeof(playerNum));
 				clientID=p->systemAddress; // Record the player ID of the client
 				clID++;
-                sprintf(identificador, "%.0f", (float)clID);
+				for(int i=clID; i>0; i--){
+                    sprintf(playerNum, "%.0f", (float)i);
+                    strncat (identificador, playerNum, 30);
+                    strncat (identificador, " ", 30);
+                    std::cout<<"NUMERO EN IIIII->"<<playerNum<<std::endl;
+				}
+
                 //enviando ID al jugador conectado
+                std::cout<<"IDENTIFICADORRR->"<<identificador<<std::endl;
                 server->Send(identificador, (const int) strlen(identificador)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
+                //strncpy(identificador, "", sizeof(identificador));
 				break;
 
 			case ID_INCOMPATIBLE_PROTOCOL_VERSION:

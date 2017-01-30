@@ -971,7 +971,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485259386 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\physicworld.h
+1485447712 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"PhysicWorld.h"
@@ -1029,7 +1029,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485272524 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\camera.cpp
+1485447696 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\camera.cpp
 	"Camera.h"
 	"Player.h"
 
@@ -1097,7 +1097,7 @@
 	"PhysicWorld.h"
 	"cuboMierda.h"
 
-1485259403 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\physicworld.cpp
+1485447717 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
@@ -1120,7 +1120,7 @@
 1485258085 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\usable.cpp
 	"Usable.h"
 
-1485272814 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\main.cpp
+1485699099 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\main.cpp
 	<iostream>
 	<irrlicht.h>
 	<Box2D/Common/b2Math.h>
@@ -1181,7 +1181,7 @@
 	"SecureHandshake.h"
 	"Player.h"
 
-1485274185 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\client.cpp
+1485700573 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\client.cpp
 	"Client.h"
 	"PhysicWorld.h"
 
@@ -1194,11 +1194,11 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485273699 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\playerred.h
+1485278697 d:\development\sack-3d\desarrollo\red\juntado\fuente\include\playerred.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485273663 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\playerred.cpp
+1485771816 source:d:\development\sack-3d\desarrollo\red\juntado\fuente\src\playerred.cpp
 	"PlayerRed.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

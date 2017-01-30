@@ -55,9 +55,7 @@ void Client::enviar(){
     char direcc[30];
     bool muerto;
 
-     // ---------- ID
-    strncpy(id, PhysicWorld::Instance()->getPlayer()->getId(), sizeof(id));
-    //std::cout<<"mi idddddddddd"<<id<<std::endl;
+
 
     vector3df posicion = PhysicWorld::Instance()->getPlayer()->getPosition();
     muerto = PhysicWorld::Instance()->getPlayer()->getFingirMuerte();
@@ -66,9 +64,17 @@ void Client::enviar(){
     //std::cout<<posicion.X<<std::endl;
     float auxiliarx;
     float auxiliary;
-    auxiliarx = posicion.X * 10000;
-    auxiliary = posicion.Y * 10000;
+    auxiliarx = posicion.X * 1000000;
+    auxiliary = posicion.Y * 1000000;
 
+    // ---------- ID
+    if(strcmp(PhysicWorld::Instance()->getPlayer()->getId(), "") == 0){
+        strncpy(id, "-1", sizeof(id));
+    } else{
+        strncpy(id, PhysicWorld::Instance()->getPlayer()->getId(), sizeof(id));
+    }
+
+    //std::cout<<"mi idddddddddd"<<id<<std::endl;
     //---------- VIVO O MUERTO
     if(muerto) strncpy(estado, "0", sizeof(estado));
     else strncpy(estado, "1", sizeof(estado));
@@ -185,6 +191,9 @@ void Client::recibir(){
 			long int y;
 			int vivo;
 			int dir;
+            PlayerRed* playerRed1;
+            PlayerRed* playerRed2;
+            PlayerRed* playerRed;
 
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			//std::cout<<"primerrrrrrrrrrrrrrr"<<recibido<<std::endl;
@@ -216,19 +225,39 @@ void Client::recibir(){
             int help;
             help = atoi(id_r);
 
-            if(help > 0 && iterador==1){
+            if(help > 0 && iterador<5){
                 if(strcmp(PhysicWorld::Instance()->getPlayer()->getId(), "") == 0){
                     std::cout<<"ESTOY seteando mi id->"<<id_r<<std::endl;
                     PhysicWorld::Instance()->getPlayer()->setId(id_r);
+                    switch (iterador)
+                    {
+                        case 2:
+                            playerRed = new PlayerRed(estado_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed);
+                            break;
+                        case 3:
+                            playerRed = new PlayerRed(estado_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed);
+                            playerRed1 = new PlayerRed(posx_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed1);
+                            break;
+                        case 4:
+                            playerRed = new PlayerRed(estado_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed);
+                            playerRed1 = new PlayerRed(posx_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed1);
+                            playerRed2 = new PlayerRed(posy_r, -120.0f/MPP,-180.0f/MPP);
+                            PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed2);
+                            break;
+                    }
                 }
                 else{
-                    std::cout<<"seteando de compaaaadre>"<<id_r<<std::endl;
-                    PhysicWorld::Instance()->getPlayerRed()->setId(id_r);
+                    std::cout<<"seteando de compaaaadre>"<<id_r<<" e-"<<estado_r<<" x-"<<posx_r<<" y-"<<posy_r<<" d-"<<direccion_r<<" ITE-"<<iterador<<std::endl;
+                    PlayerRed* playerRed = new PlayerRed(id_r, -120.0f/MPP,-180.0f/MPP);
+                    //PhysicWorld::Instance()->getPlayerRed()->setId(id_r);
+                    PhysicWorld::Instance()->GetPlayersRed()->push_back(playerRed);
                 }
-            }
-            if(iterador == 5){
-                std::cout<<"esta es la id del otro>"<<id_r<<std::endl;
-                PhysicWorld::Instance()->getPlayerRed()->setId(id_r);
+
             }
 
            /*sscanf(posx_r, "%d", x);
@@ -237,10 +266,19 @@ void Client::recibir(){
             y = atol(posy_r);
             vivo = atoi(estado_r);
             dir = atoi(direccion_r);
-            PhysicWorld::Instance()->getPlayerRed()->setx(x);
+            for(int i=0; i < PhysicWorld::Instance()->GetPlayersRed()->size(); i++){
+                if(strcmp(PhysicWorld::Instance()->GetPlayersRed()->at(i)->getId(), id_r) == 0){
+                    PhysicWorld::Instance()->GetPlayersRed()->at(i)->setx(x);
+                    PhysicWorld::Instance()->GetPlayersRed()->at(i)->sety(y);
+                    PhysicWorld::Instance()->GetPlayersRed()->at(i)->setVivo(vivo);
+                    PhysicWorld::Instance()->GetPlayersRed()->at(i)->setDireccion(dir);
+                }
+            }
+
+            /*PhysicWorld::Instance()->getPlayerRed()->setx(x);
             PhysicWorld::Instance()->getPlayerRed()->sety(y);
             PhysicWorld::Instance()->getPlayerRed()->setVivo(vivo);
-            PhysicWorld::Instance()->getPlayerRed()->setDireccion(dir);
+            PhysicWorld::Instance()->getPlayerRed()->setDireccion(dir);*/
     }
 }
 

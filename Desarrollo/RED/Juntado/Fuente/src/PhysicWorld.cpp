@@ -48,6 +48,7 @@ PhysicWorld::PhysicWorld(){
 	cogibles = new std::vector<Cogible*>();
     muelles = new std::vector<Muelle*>();
 	teletransportes = new std::vector<Teleport*>();
+	playersRed = new std::vector<PlayerRed*>();
 	contactListener = new MyContactListener();
 	world->SetContactListener(contactListener);
 }
@@ -85,16 +86,15 @@ void PhysicWorld::ClearForces(){world->ClearForces();}
    Getters y setters
 */
 Player* PhysicWorld::getPlayer(){return jugador1;}
-PlayerRed* PhysicWorld::getPlayerRed(){return jugadorRed;}
 b2World* PhysicWorld::GetWorld(){return world;}
 std::vector<cuboMierda*>* PhysicWorld::GetCubos(){return cubos;}
 std::vector<Bala*>* PhysicWorld::GetBalas(){return balas;}
 std::vector<Cogible*>* PhysicWorld::GetCogibles(){return cogibles;}
 std::vector<Muelle*>* PhysicWorld::GetMuelles(){return muelles;}
 std::vector<Teleport*>* PhysicWorld::GetTeletransportes(){return teletransportes;}
+std::vector<PlayerRed*>* PhysicWorld::GetPlayersRed(){return playersRed;}
 Arma* PhysicWorld::getArma(){return arma;}
 void PhysicWorld::setPlayer(Player* p){jugador1 = p;}
-void PhysicWorld::setPlayerRed(PlayerRed* p){jugadorRed = p;}
 void PhysicWorld::setArma(Arma* a){arma = a;}
 void PhysicWorld::setCogibles(std::vector<Cogible*>* aux){cogibles = aux;}
 //---------------------------------------------------------------------------

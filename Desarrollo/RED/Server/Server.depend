@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1485272863 source:d:\development\sack-3d\desarrollo\red\server\main.cpp
+1485284241 source:d:\development\sack-3d\desarrollo\red\server\main.cpp
 	"MessageIdentifiers.h"
+	<iostream>
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
 	"RakNetTypes.h"
@@ -15,6 +16,7 @@
 	<stdio.h>
 	<string.h>
 	"Gets.h"
+	<stdlib.h>
 	"SecureHandshake.h"
 	"Console2SampleIncludes.h"
 

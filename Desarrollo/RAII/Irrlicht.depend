@@ -1416,3 +1416,157 @@
 	"MyContactListener.h"
 	"Cogible.h"
 
+1485772408 source:d:\development\sack-3d\desarrollo\raii\main.cpp
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1485772408 d:\development\sack-3d\desarrollo\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485772408 d:\development\sack-3d\desarrollo\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\pistola.h
+	"Usable.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\usable.h
+	"Cogible.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\escopeta.h
+	"Usable.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\granada.h
+	<vector>
+	"Usable.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485772408 d:\development\sack-3d\desarrollo\raii\include\gameresource.h
+
+1485772408 d:\development\sack-3d\desarrollo\raii\include\map.h
+	<irrlicht.h>
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\camera.h
+	"IrrManager.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\irrmanager.h
+	<irrlicht.h>
+	"MyEventReceiver.h"
+
+1485772452 d:\development\sack-3d\desarrollo\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\cogible.cpp
+	"Cogible.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"PhysicWorld.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\granada.cpp
+	"Granada.h"
+	"PhysicWorld.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\irrmanager.cpp
+	"IrrManager.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\usable.cpp
+	"Usable.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485772452 source:d:\development\sack-3d\desarrollo\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+

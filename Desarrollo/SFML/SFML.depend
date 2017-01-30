@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1485778091 source:c:\codesource\sfml\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	<iostream>
+	<math.h>
+	<sstream>
+	<string>
+

@@ -1,0 +1,12 @@
+INSTRUCCIONES ENTREGA TAG
+
+En la carpeta Item 1 se encuentra un ejecutable dentro de bin/Debug donde se muestra un cubo creado por programa, se puede mover la camara con las teclas WASD
+
+W para acercarte al objeto
+A para ir a la izquierda
+S para alejarte
+D para ir a la derecha
+
+En la carpeta Item 2 y 3 se encuentra los otros dos items de la entrega el item 2 se puede ver en la consola al ejecutar el programa, te da informacion sobre cuantas mallas compone el objeto y cuantos vertices y caras tiene cada una.
+Hay 3 ejecutables dentro de bin/Debug cada uno mmuestra un objeto con un formato distinto siendo estos .3ds, .obj y .dae.
+Los controles de la camara son los mismos que para el Item 1 

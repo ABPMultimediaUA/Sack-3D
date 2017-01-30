@@ -1,0 +1,231 @@
+# depslib dependency file v1.0
+1485772588 source:d:\mis cosas\proyectos codeblocks\pruebasdl\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	"display.h"
+	"shader.h"
+	"mesh.h"
+	"texture.h"
+	"transform.h"
+	"camera.h"
+	"sceneloader.h"
+	<assimp/cimport.h>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1484734408 d:\mis cosas\proyectos codeblocks\pruebasdl\shader.h
+	<GL/glew.h>
+	"transform.h"
+	"camera.h"
+	<string>
+
+1485731476 d:\mis cosas\proyectos codeblocks\pruebasdl\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"obj_loader.h"
+	"modeloindexado.h"
+
+1484673711 d:\mis cosas\proyectos codeblocks\pruebasdl\escena.h
+	"shader.h"
+	"mesh.h"
+
+1484819085 source:d:\mis cosas\proyectos codeblocks\pruebasdl\display.cpp
+	"display.h"
+	<GL/glew.h>
+	<iostream>
+
+1484763901 d:\mis cosas\proyectos codeblocks\pruebasdl\display.h
+	<SDL.h>
+	<string>
+	"camera.h"
+
+1484676871 source:d:\mis cosas\proyectos codeblocks\pruebasdl\escena.cpp
+	"escena.h"
+	<iostream>
+
+1485730721 source:d:\mis cosas\proyectos codeblocks\pruebasdl\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+
+1484762036 source:d:\mis cosas\proyectos codeblocks\pruebasdl\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1484723689 d:\mis cosas\proyectos codeblocks\pruebasdl\texture.h
+	<GL/glew.h>
+	<string.h>
+	<iostream>
+
+1484725374 source:d:\mis cosas\proyectos codeblocks\pruebasdl\texture.cpp
+	"texture.h"
+	"stb_image.h"
+	<cassert>
+
+1484533074 d:\mis cosas\proyectos codeblocks\pruebasdl\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1484533074 source:d:\mis cosas\proyectos codeblocks\pruebasdl\stb_image.c
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdint.h>
+
+1484730680 d:\mis cosas\proyectos codeblocks\pruebasdl\transform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1484764015 d:\mis cosas\proyectos codeblocks\pruebasdl\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1418876674 d:\mis cosas\proyectos codeblocks\pruebasdl\obj_loader.h
+	<glm/glm.hpp>
+	<vector>
+	<string>
+
+1418876674 source:d:\mis cosas\proyectos codeblocks\pruebasdl\obj_loader.cpp
+	"obj_loader.h"
+	<fstream>
+	<iostream>
+	<algorithm>
+	<map>
+
+1484818159 d:\mis cosas\proyectos codeblocks\pruebasdl\parser.h
+	<glm/glm.hpp>
+	<vector>
+	"mesh.h"
+
+1484818967 source:d:\mis cosas\proyectos codeblocks\pruebasdl\parser.cpp
+	"parser.h"
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<string.h>
+
+1485735239 source:d:\mis cosas\proyectos codeblocks\pruebasdl\sceneloader.cpp
+	"sceneloader.h"
+
+1485731927 d:\mis cosas\proyectos codeblocks\pruebasdl\sceneloader.h
+	<iostream>
+	<glm/glm.hpp>
+	"mesh.h"
+	<vector>
+	<assimp/cimport.h>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+
+1485730352 d:\mis cosas\proyectos codeblocks\pruebasdl\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1485730366 source:d:\mis cosas\proyectos codeblocks\pruebasdl\modeloindexado.cpp
+	"modeloindexado.h"
+
+1484819085 source:c:\users\manuel\desktop\entrega tag\item 1\display.cpp
+	"display.h"
+	<GL/glew.h>
+	<iostream>
+
+1484763901 c:\users\manuel\desktop\entrega tag\item 1\display.h
+	<SDL.h>
+	<string>
+	"camera.h"
+
+1484764015 c:\users\manuel\desktop\entrega tag\item 1\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1485730366 source:c:\users\manuel\desktop\entrega tag\item 1\modeloindexado.cpp
+	"modeloindexado.h"
+
+1485730352 c:\users\manuel\desktop\entrega tag\item 1\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1485773551 source:c:\users\manuel\desktop\entrega tag\item 1\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+
+1485773606 c:\users\manuel\desktop\entrega tag\item 1\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"modeloindexado.h"
+
+1485774032 source:c:\users\manuel\desktop\entrega tag\item 1\sceneloader.cpp
+	"sceneloader.h"
+
+1485731927 c:\users\manuel\desktop\entrega tag\item 1\sceneloader.h
+	<iostream>
+	<glm/glm.hpp>
+	"mesh.h"
+	<vector>
+	<assimp/cimport.h>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+
+1485774470 source:c:\users\manuel\desktop\entrega tag\item 1\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1484734408 c:\users\manuel\desktop\entrega tag\item 1\shader.h
+	<GL/glew.h>
+	"transform.h"
+	"camera.h"
+	<string>
+
+1484730680 c:\users\manuel\desktop\entrega tag\item 1\transform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+
+1485774512 source:c:\users\manuel\desktop\entrega tag\item 1\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	"display.h"
+	"shader.h"
+	"mesh.h"
+	"transform.h"
+	"camera.h"
+	"sceneloader.h"
+	<assimp/cimport.h>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+

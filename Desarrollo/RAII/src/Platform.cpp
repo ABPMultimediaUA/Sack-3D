@@ -1,44 +1,18 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
-
-Project:       Last Bear Standing
-File:          Platform.cpp
-
-Author:        Estudio Rorschach
-Created:       11/11/2016 Jorge Puerto
-Modified:      08/12/2016 Jorge Puerto
-
-Overview:
-Clase que define una plataforma, con sus componentes grafica y fisica.
-
-*******************************************************************************/
-
 #include "Platform.h"
 #include "PhysicWorld.h"
 #include "IrrManager.h"
 
-
-/******************************************************************************
-                               Platform
-*******************************************************************************/
-//---------------------------------------------------------------------------
-/**
-   Constructor
-*/
-Platform::Platform(irr::core::vector3df pos, irr::core::vector3df tam,SColor color){
-    mesh = IrrManager::Instance()->createCubeMesh(irr::core::vector3df(pos.X/MPP, pos.Y/MPP, pos.Z/MPP),irr::core::vector3df(tam.X/MPP, tam.Y/MPP,tam.Z/MPP),color);
+Platform::Platform(irr::core::vector3df pos, irr::core::vector3df tam,irr::video::SColor color){
+    node = IrrManager::Instance()->addCubeSceneNode(irr::core::vector3df(tam.X, tam.Y,tam.Z),color);
+    node->setPosition(irr::core::vector3df(pos.X, pos.Y, pos.Z));
+    node->setMaterialTexture(0,IrrManager::Instance()->getDriver()->getTexture("media/texture.jpg"));
+    node->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    bodyDef.position.Set(pos.X/MPP,pos.Y/MPP);
+    bodyDef.position.Set(pos.X,pos.Y);
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
     b2PolygonShape polyShape;
-    polyShape.SetAsBox((tam.X/2)/MPP,(tam.Y/2)/MPP);
+    polyShape.SetAsBox((tam.X/2),(tam.Y/2));
     body->CreateFixture(&polyShape, 0.0f);
 }
-//---------------------------------------------------------------------------
-/**
-   Destructor
-*/
-Platform::~Platform(){}
 

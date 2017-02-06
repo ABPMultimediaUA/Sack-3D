@@ -1,21 +1,6 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
 
-Project:       Last Bear Standing
-File:          PhysicWorld.h
-
-Author:        Estudio Rorschach
-Created:
-Modified:      08/12/2016 Jorge Puerto
-
-Overview:
-Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fisica.
-*******************************************************************************/
-//---------------------------------------------------------------------------
 #ifndef PHYSICWORLD_H
 #define PHYSICWORLD_H
-//---------------------------------------------------------------------------
 #include <Box2D/Box2D.h>
 #include <iostream>
 #include "Player.h"
@@ -30,41 +15,35 @@ Clase que contiene el mundo fisico, en el se trata todo lo relacionado con la fi
 #include <vector>
 #include "Map.h"
 #include "Camera.h"
-#define MPP                    64
-#define PPM                    1/64
 #define MAX_NUM_TELEPORT       10
 #define MAX_NUM_PLAYER         4
 #define MAX_NUM_PISTOLA        20
 #define MAX_NUM_ESCOPETA       20
 #define MAX_NUM_GRANADA        20
-#define MAX_NUM_BALA           80
+#define MAX_NUM_BALA           200
 #define MAX_NUM_MUELLE         20
 
-/******************************************************************************
-                               Pistola
-*******************************************************************************/
 class PhysicWorld{
     public:
-        static PhysicWorld* Instance();          ///< Devuelve la unica instancia de la clase
-        PhysicWorld();                           ///< Constructor
+        static PhysicWorld* Instance();
+        PhysicWorld();
+        virtual ~PhysicWorld(){}
         void inicializaVariables();
-        b2Body* CreateBox(int x,int y);          ///< Genera una caja
-        void creaCuboMierda(int x, int y);       ///< ????????
-        b2World* GetWorld();                     ///< Getter
-        std::vector<Bala*>* GetBalas();          ///< Getter
-        Player* getPlayer(int);                     ///< Getter
-        Pistola* getPistola();                         ///< Getter
-        std::vector<Cogible*>* GetCogibles();    ///< Getter
-        std::vector<Muelle*>* GetMuelles();      ///< Getter
-        std::vector<Teleport*>* GetTeletransportes();      ///< Getter
-        void setPistola(Pistola* Pistola);                ///< Setter
-        void setCogibles(std::vector<Cogible*>* aux);          ///< Setter
+        b2Body* CreateBox(int x,int y);
+        void creaCuboMierda(int x, int y);
+        b2World* GetWorld(){return world.Get();}
+        Player* getPlayer(int);
+        std::vector<Cogible*>*  GetCogibles(){         return cogibles;         }
+        GameResource<Player>*   GetPlayers(){          return m_Players;        }
+        GameResource<Teleport>* GetTeletransportes(){  return m_Teletransportes;}
+        GameResource<Muelle>*   GetMuelles(){          return m_Muelles;        }
+        void setCogibles(std::vector<Cogible*>* aux){cogibles = aux;}
         void Update();
         GameResource<Teleport>* CreateTeleport(Teleport *tp = nullptr){
             for (int i = 0; i < MAX_NUM_TELEPORT; ++i){
-                if(m_teletransportes[i].Get()== nullptr){
-                    m_teletransportes[i].Reset(tp);
-                    return &m_teletransportes[i];
+                if(m_Teletransportes[i].Get()== nullptr){
+                    m_Teletransportes[i].Reset(tp);
+                    return &m_Teletransportes[i];
                 }
             }
         }
@@ -108,43 +87,28 @@ class PhysicWorld{
                 }
             }
         }
-        //template<class Obj> GameResource<Obj>* CreateObject(Obj *obj = nullptr){
-        //    if(Teleport* tp = static_cast<Teleport*>(obj)){
-        //        for (int i = 0; i < MAX_NUM_TELEPORT; ++i){
-        //            if(m_teletransportes[i].Get()== nullptr){
-        //                m_teletransportes[i].Reset(tp);
-        //                return &m_teletransportes[i];
-        //            }
-        //        }
-        //    }
-        //    else if(Muelle* tp = static_cast<Muelle*>(obj)){
-        //        for (int i = 0; i < MAX_NUM_MUELLE; ++i){
-        //            if(m_Muelles[i].Get()== nullptr){
-        //                m_Muelles[i].Reset(tp);
-        //                return &m_Muelles[i];
-        //            }
-        //        }
-        //    }
-        //    return nullptr;
-        //}
-        virtual ~PhysicWorld();                  ///< Setter
-
-        //ToDo: esto hay que quitarlo de aqui
+        GameResource<Player>* CreatePlayer(Player *tp = nullptr){
+            for (int i = 0; i < MAX_NUM_PLAYER; ++i){
+                if(m_Players[i].Get()== nullptr){
+                    m_Players[i].Reset(tp);
+                    return &m_Players[i];
+                }
+            }
+        }
         b2RevoluteJoint* joint;
-
     private:
-        static PhysicWorld* pinstance;           ///< instancia del mundo
-        b2World* world;                          ///< variable mundo de box2d
-        MyContactListener* contactListener;      ///< detector de colisiones
-        std::vector<Bala*>* balas;               ///< Array de balas
-        std::vector<Cogible*>* cogibles;         ///< Array de cogibles
-        std::vector<Muelle*>* muelles;           ///< Array de muelles
-        std::vector<Teleport*>* teletransportes; ///< Array de teletransportes
-        Pistola* pistola;                        ///< Pistola
+        static PhysicWorld* pinstance;
+        GameResource<b2World> world;
+        MyContactListener* contactListener;
+        std::vector<Bala*>* balas;
+        std::vector<Cogible*>* cogibles;
+        std::vector<Muelle*>* muelles;
+        std::vector<Teleport*>* teletransportes;
+        Pistola* pistola;
         float DeltaTime;
         float TimeStamp;
         GameResource<Camera>   camara;
-        GameResource<Teleport> m_teletransportes[MAX_NUM_TELEPORT];
+        GameResource<Teleport> m_Teletransportes[MAX_NUM_TELEPORT];
         GameResource<Player>   m_Players[MAX_NUM_PLAYER];
         GameResource<Pistola>  m_Pistolas[MAX_NUM_PISTOLA];
         GameResource<Escopeta> m_Escopetas[MAX_NUM_GRANADA];
@@ -153,4 +117,4 @@ class PhysicWorld{
         GameResource<Muelle>   m_Muelles[MAX_NUM_MUELLE];
 };
 
-#endif // PHYSICWORLD_H
+#endif

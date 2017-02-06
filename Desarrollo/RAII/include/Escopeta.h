@@ -8,13 +8,12 @@ class Escopeta: public Usable{
         Escopeta(int modelo,b2Vec2 pos);
         virtual ~Escopeta(){}	
         void usar();                      
-        bool getConUsos();                
     private:
         irr::f32 timerEscopeta;           
         irr::ITimer* timerIrr;            
-	    int cadencia = 1000;
-	    int usos = 4;
+	    int cadencia = 10;
+	    int usos = 400;
 	    bool conUsos = true;;
 };
 
-#endif // ESCOPETA_H
+#endif 

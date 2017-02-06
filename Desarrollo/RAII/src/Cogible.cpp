@@ -1,6 +1,13 @@
 #include "Cogible.h"
+#include "PhysicWorld.h"
 
-Cogible::Cogible(){}
+Cogible::Cogible(b2Vec2 pos){
+    b2BodyDef bodyDef;
+    bodyDef.position.Set(pos.x,pos.y);
+    bodyDef.type = b2_dynamicBody;
+    body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
+    body->SetFixedRotation(true);
+}
 Cogible::~Cogible(){}
 void Cogible::DestroyFixtures(){
 	for (b2Fixture* f = body->GetFixtureList(); f;){
@@ -27,7 +34,7 @@ void Cogible::InicializeFixtures(int mode){
     sensorFixture->SetUserData((void*)SENSOR);
 }
 void Cogible::actualiza(){
-    if(cogido)node->setPosition(irr::core::vector3df(body->GetPosition().x+((5.0f/MPP)*dir),body->GetPosition().y,0));
+    if(cogido)node->setPosition(irr::core::vector3df(body->GetPosition().x+((.5f)*dir),body->GetPosition().y,0));
     else node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
 }
@@ -39,4 +46,6 @@ void Cogible::setCogido(bool aux){
     cogido = aux;
 }
 bool Cogible::getCogido(){return cogido;}
+int Cogible::getDireccion(){return dir;}
+bool Cogible::getAutoDestruir(){return autoDestruir;}
 b2Body* Cogible::getBody(){return body;}

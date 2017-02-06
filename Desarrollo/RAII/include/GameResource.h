@@ -6,9 +6,7 @@ class GameResource{
     public:
         GameResource(const GameResource &) = delete;
 	    GameResource &operator=(const GameResource &) = delete;
-
 	    explicit GameResource(A *a = nullptr):m_t(a){}
-
 	    void Reset(A *a = nullptr){
 	        delete m_t;
 	        m_t = a;
@@ -25,4 +23,4 @@ class GameResource{
 	    A *m_t;
 };
 
-#endif // GAMERESOURCE_H
+#endif 

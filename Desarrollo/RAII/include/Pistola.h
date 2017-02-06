@@ -5,9 +5,9 @@
 
 class Pistola: public Usable{
     public:
-        Pistola(int modelo,b2Vec2 pos);    
-        virtual ~Pistola(){}		       
-        void usar();                       
+        Pistola(int modelo,b2Vec2 pos);
+        virtual ~Pistola(){}
+        void usar();
 };
 
-#endif // Pistola_H
+#endif 

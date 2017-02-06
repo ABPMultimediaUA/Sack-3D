@@ -1,32 +1,10 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
-
-Project:       Last Bear Standing
-File:          Camera.h
-
-Author:        Estudio Rorschach
-Created:       26/11/2016 Jorge Puerto
-Modified:      08/12/2016 Jorge Puerto
-
-Overview:
-Clase que contiene el codigo de funcionamiento para la camara.
-*******************************************************************************/
 
 #include "Camera.h"
 #include "PhysicWorld.h"
 #include "Player.h"
 
-#define FPS 60 			
+#define FPS 60
 
-
-/******************************************************************************
-                               Camera
-*******************************************************************************
-//---------------------------------------------------------------------------
-/**
-   Constructor
-*/
 Camera::Camera(){
 	camera = IrrManager::Instance()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
     timer = IrrManager::Instance()->getTimer();
@@ -41,42 +19,30 @@ Camera::Camera(){
         flowCam->push_back(irr::core::vector3df(0,0,0));
     }
 }
-//---------------------------------------------------------------------------
-/**
-   Actualizar
-*/
 Camera::update(float time){
 	float xP,yP,xB,yB,z;
 	xP = PhysicWorld::Instance()->getPlayer(1)->getPosition().X;
 	yP = PhysicWorld::Instance()->getPlayer(1)->getPosition().Y;
-    xB = PhysicWorld::Instance()->getPlayer(2)->getPosition().X;
-	yB = PhysicWorld::Instance()->getPlayer(2)->getPosition().Y;
+    //xB = PhysicWorld::Instance()->getPlayer(2)->getPosition().X;
+	//yB = PhysicWorld::Instance()->getPlayer(2)->getPosition().Y;
 
 	if(time - tiempoTransc > updateT){
     	tiempoTransc = timer->getTime();
         porcentUpdate = 0;
         cenAnt = new irr::core::vector3df(cenSig->X,cenSig->Y,0);
         cenSig = new irr::core::vector3df((xP + xB)/2,(yP + yB)/2,0);
-        porcentGap = ceil(((1000.f/FPS)/updateT)*10)/10;
+        //porcentGap = ceil(((1000.f/FPS)/updateT)*10)/10;
         updateT = 1000.f/(FPS/10.0f);
 	}
 	float cenX = cenAnt->X + ((cenSig->X - cenAnt->X)/(porcentGap*100)*porcentUpdate*10);
     float cenY = cenAnt->Y + ((cenSig->Y - cenAnt->Y)/(porcentGap*100)*porcentUpdate*10);
-	z =  2;
+	z =  25;
 	//if(z<35)z = 35;
-	camera->setPosition(irr::core::vector3df(cenX,cenY, -z));
-	camera->setTarget(irr::core::vector3df(cenX,cenY, 0));
+    camera->setPosition(irr::core::vector3df(xP,yP, -z));
+	//camera->setPosition(irr::core::vector3df(cenX,cenY, -z));
+    camera->setTarget(irr::core::vector3df(xP,yP, 0));
+	//camera->setTarget(irr::core::vector3df(cenX,cenY, 0));
     porcentUpdate += porcentGap;
 
 }
-//---------------------------------------------------------------------------
-/**
-   Getters y setters
-*/
-Camera::setPosition(irr::core::vector3df pos){camera->setPosition(pos);}
-Camera::setTarget(irr::core::vector3df pos){camera->setTarget(pos);}
-//---------------------------------------------------------------------------
-/**
-   Destructor
-*/
-Camera::~Camera(){}
+

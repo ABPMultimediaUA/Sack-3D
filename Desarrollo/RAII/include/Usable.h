@@ -5,7 +5,7 @@
 
 class Usable : public Cogible{
     public:
-        Usable();
+        Usable(b2Vec2 pos);
         virtual ~Usable();
         virtual void setExpuesto(bool aux);
         virtual bool getExpuesto();
@@ -15,4 +15,4 @@ class Usable : public Cogible{
         bool usando = false;
 };
 
-#endif // USABLE_H
+#endif 

@@ -4,35 +4,37 @@
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
 
-#define RADTOGRAD 180 / 3.14159265          ///< Conversor de radianes a grados
-#define CATCH     1                        ///< Int para las colisiones de las Pistolas
-#define RELEASE   2                        ///< Int para las colisiones de las Pistolas
-#define ARMA      30                        ///< Int para las colisiones de las Pistolas
-#define SENSOR    35                        ///< Int para las colisiones del area cogible de las Pistolas
-#define MPP       64
-#define PPM       1/64
-
+#define RADTOGRAD        180 / 3.14159265        
+#define CATCH            1                       
+#define RELEASE          2                       
+#define ARMA             30                      
+#define SENSOR           35    
+#define PLAYER           10
+#define PIESPLAYER       100                  
 
 class Cogible{
     public:
-        Cogible();
+        Cogible(b2Vec2 pos);
         virtual ~Cogible();
         virtual void DestroyFixtures();
         virtual void InicializeFixtures(int mode);
-        virtual void actualiza();           ///< actualiza la posicion y rotacion del Pistola
+        virtual void actualiza();           
         virtual void setDireccion(int);
-        virtual b2Body* getBody();          ///< Getter del body
+        virtual int  getDireccion();
+        virtual b2Body* getBody();        
         virtual bool getCogido();
+        virtual bool getAutoDestruir();
         virtual void setCogido(bool aux);
     protected:
-        irr::scene::IMeshSceneNode* node;   ///< Nodo irrlicht para poder mover, dibujar, etc.
-        b2Body* body;                       ///< Cuerpo fisico box2d para poder aplicar fisicas
+        irr::scene::IMeshSceneNode* node; 
+        b2Body* body;                     
         irr::core::vector3df tam;
+        bool autoDestruir = false;
         bool cogido = false;
         int dir = 1;
-        float restitution = 1;
-        float density = 1;
-        float friction = 1;
+        float restitution = 0.2f;
+        float density = 2.0f;
+        float friction = 0.8f;
 };
 
-#endif // COGIBLE_H
+#endif 

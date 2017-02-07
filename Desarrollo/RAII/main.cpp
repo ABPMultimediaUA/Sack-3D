@@ -12,7 +12,7 @@ Modified:      09/01/2017 Miguel Cordoba
 Overview:
 El maaaaaaaaain.
 *******************************************************************************/
-
+#include <SFML/Graphics.hpp>
 #include <irrlicht.h>
 #include "PhysicWorld.h"
 #include "IrrManager.h"

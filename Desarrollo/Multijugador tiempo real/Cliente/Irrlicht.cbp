@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Irrlicht" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Irrlicht" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Irrlicht" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Bala.h" />
+		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Client.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Cogible.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Escopeta.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/GameResource.h" />
+		<Unit filename="include/Granada.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/IrrManager.h" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/Muelle.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/MyContactListener.h" />
+		<Unit filename="include/MyEventReceiver.h" />
+		<Unit filename="include/PhysicWorld.h" />
+		<Unit filename="include/Pistola.h" />
+		<Unit filename="include/Platform.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/PlayerRed.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Teleport.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Usable.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Client.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Cogible.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Escopeta.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Granada.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/IrrManager.cpp" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Muelle.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/MyContactListener.cpp" />
+		<Unit filename="src/MyEventReceiver.cpp" />
+		<Unit filename="src/PhysicWorld.cpp" />
+		<Unit filename="src/Pistola.cpp" />
+		<Unit filename="src/Platform.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/PlayerRed.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Teleport.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Usable.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

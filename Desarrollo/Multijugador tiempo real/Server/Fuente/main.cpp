@@ -88,7 +88,8 @@ int main(void)
 
 	// A server
 	puts("Enter the server port to listen on");
-	Gets(portstring,sizeof(portstring));
+	//Gets(portstring,sizeof(portstring));
+	strncpy(portstring, "3333", sizeof(portstring));
 	if (portstring[0]==0)
 		strcpy(portstring, "1234");
 
@@ -234,8 +235,6 @@ int main(void)
 
 		for (p=server->Receive(); p; server->DeallocatePacket(p), p=server->Receive())
 		{
-
-
 			// We got a packet, get the identifier with our handy function
 			packetIdentifier = GetPacketIdentifier(p);
 

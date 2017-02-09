@@ -66,7 +66,7 @@ Map::Map(stringw file){
                     matriz[fila][columna] = atoi(trozo);
                     trozo = strtok( NULL, separador);
                     columna++;
-                    
+
                     if(columna == 64){
                         columna = 0;
                         fila++;
@@ -90,10 +90,18 @@ Map::Map(stringw file){
 }
 
 void Map::iniciarMatriz(int xI, int yI, int xF, int yF){
-    posicionI.x = xI;
-    posicionI.y = yI;
-    posicionF.x = xF;
-    posicionF.y = yF;
+  
+    yI = yI*-1;
+    yF = yF*-1;
+
+
+    matriz[yI/10][xI/10] = 1;
+    matriz[yF/10][xF/10] = 2;
+    
+    posicionI.x = yI/10;
+    posicionI.y = xI/10;
+    posicionF.x = yF/10;
+    posicionF.y = xF/10;
 }
 
 void Map::obtenerPathfinding(){

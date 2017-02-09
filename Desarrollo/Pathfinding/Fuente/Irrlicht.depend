@@ -1888,7 +1888,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1486654881 c:\users\robeert\desktop\fuente\include\map.h
+1486658229 c:\users\robeert\desktop\fuente\include\map.h
 	<irrlicht.h>
 	"Lista.h"
 	"Nodo.h"
@@ -1995,7 +1995,7 @@
 1485795564 source:c:\users\robeert\desktop\fuente\src\irrmanager.cpp
 	"IrrManager.h"
 
-1485806306 source:c:\users\robeert\desktop\fuente\src\map.cpp
+1486658465 source:c:\users\robeert\desktop\fuente\src\map.cpp
 	"Lista.h"
 	"Nodo.h"
 	"Map.h"
@@ -2023,7 +2023,7 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485806373 source:c:\users\robeert\desktop\fuente\src\player.cpp
+1486658127 source:c:\users\robeert\desktop\fuente\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"

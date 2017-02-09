@@ -37,11 +37,18 @@ class Map{
         void iniciarMatriz(int, int, int, int);
         int avanzarX();
         int avanzarY();
+        void comprobar(int i, int j, int peso, Nodo* nodoActual, Nodo* nodoFin);
         virtual ~Map();			///< Destructor
     protected:
     private:
         Lista *pathfinding;
     	int matriz[36][64];
+        Lista *listaAbierta;
+        Lista *listaCerrada;
+        Lista *camino;
+        Nodo* nodoActual;
+        b2Vec2 posicionI;
+        b2Vec2 posicionF;
 };
 
 #endif // MAP_H

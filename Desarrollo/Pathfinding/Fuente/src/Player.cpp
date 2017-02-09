@@ -86,7 +86,7 @@ void Player::mover(double vel , int dir){
     else
         body->SetTransform(b2Vec2 (body->GetPosition().x, body->GetPosition().y+(dir*10) ),body->GetAngle());
 
-     std::cout<<"Posicion objetivo: "<<body->GetPosition().x+5<<" "<<body->GetPosition().y+5<<std::endl;
+     //std::cout<<"Posicion objetivo: "<<body->GetPosition().x+5<<" "<<body->GetPosition().y+5<<std::endl;
 }
 void Player::moverJugador(int x, int y){
     int avanceX = 0;
@@ -94,8 +94,8 @@ void Player::moverJugador(int x, int y){
 
     if(x==0 && y == 0){}
     else{
-        std::cout<<"Posicion Jugador: "<<body->GetPosition().x-5<<" "<<(body->GetPosition().y*-1)+5<<std::endl;
-        std::cout<<"Posicion Nodo: "<<x*10<<" "<<y*10<<std::endl;
+        //std::cout<<"Posicion Jugador: "<<body->GetPosition().x-5<<" "<<(body->GetPosition().y*-1)+5<<std::endl;
+        //std::cout<<"Posicion Nodo: "<<x*10<<" "<<y*10<<std::endl;
 
         //body->SetTransform(b2Vec2 (body->GetPosition().x+10, body->GetPosition().y ),body->GetAngle());
         if((body->GetPosition().y*-1)-5 > (x*10)) avanceY = +10;

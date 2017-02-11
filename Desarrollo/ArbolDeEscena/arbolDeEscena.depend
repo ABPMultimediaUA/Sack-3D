@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1486575228 source:d:\mis cosas\universidad\motor\tag\arboldeescena\display.cpp
+	"display.h"
+	<GL/glew.h>
+	<iostream>
+
+1486575324 d:\mis cosas\universidad\motor\tag\arboldeescena\display.h
+	<SDL.h>
+	<string>
+
+1486798010 source:d:\mis cosas\universidad\motor\tag\arboldeescena\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	"display.h"
+	"mesh.h"
+	"shader.h"
+	"nodo.h"
+	"transform.h"
+	"camera.h"
+
+1486578224 source:d:\mis cosas\universidad\motor\tag\arboldeescena\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+
+1486578817 d:\mis cosas\universidad\motor\tag\arboldeescena\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"tentidad.h"
+	"modeloindexado.h"
+
+1485730352 d:\mis cosas\universidad\motor\tag\arboldeescena\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1485730366 source:d:\mis cosas\universidad\motor\tag\arboldeescena\modeloindexado.cpp
+	"modeloindexado.h"
+
+1486795172 source:d:\mis cosas\universidad\motor\tag\arboldeescena\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1486795151 d:\mis cosas\universidad\motor\tag\arboldeescena\shader.h
+	<GL/glew.h>
+	<string>
+	"transform.h"
+	"camera.h"
+
+1486798001 source:d:\mis cosas\universidad\motor\tag\arboldeescena\nodo.cpp
+	"nodo.h"
+	<iostream>
+
+1486795075 d:\mis cosas\universidad\motor\tag\arboldeescena\nodo.h
+	<vector>
+	"tentidad.h"
+	"shader.h"
+	"camera.h"
+	"transform.h"
+
+1486578076 d:\mis cosas\universidad\motor\tag\arboldeescena\tentidad.h
+
+1486651214 d:\mis cosas\universidad\motor\tag\arboldeescena\transform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1486795404 d:\mis cosas\universidad\motor\tag\arboldeescena\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1486579277 source:d:\mis cosas\universidad\motor\tag\arboldeescena\transform.cpp
+	"transform.h"
+	<iostream>
+
+1486654903 source:d:\mis cosas\universidad\motor\tag\arboldeescena\camera.cpp
+	"camera.h"
+	<iostream>
+

@@ -49,3 +49,4 @@ bool Cogible::getCogido(){return cogido;}
 int Cogible::getDireccion(){return dir;}
 bool Cogible::getAutoDestruir(){return autoDestruir;}
 b2Body* Cogible::getBody(){return body;}
+int Cogible::getIdCogible(){};

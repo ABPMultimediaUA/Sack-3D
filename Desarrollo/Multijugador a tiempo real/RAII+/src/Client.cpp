@@ -121,13 +121,15 @@ void Client::enviar(){
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
-void Client::enviarDisparo(){
+void Client::enviarDisparo(int arma){
     char aux[60];
     char tipo[60];
     char posx[30];
     char posy[30];
     char direcc[30];
+    char Tarma[30];
     int dir;
+    //int arma;
     float auxiliarx;
     float auxiliary;
 
@@ -138,6 +140,7 @@ void Client::enviarDisparo(){
     auxiliarx = posicion.X * 1000000;
     auxiliary = posicion.Y * 1000000;
 
+    sprintf(Tarma, "%.0f", (float)arma);
     sprintf(direcc, "%.0f", (float)dir);
     // -------- POSICIONES
     sprintf(posx, "%.0f", auxiliarx);
@@ -149,6 +152,33 @@ void Client::enviarDisparo(){
     strncat (tipo, posy, 30);
     strncat (tipo, " ", 30);
     strncat (tipo, direcc, 30);
+    strncat (tipo, " ", 30);
+    strncat (tipo, Tarma, 30);
+    strncpy(aux, tipo, sizeof(aux));
+    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
+}
+
+void Client::enviarCogido (int TCogible){
+    char aux[60];
+    char tipo[60];
+    char id[30];
+    char cogible[30];
+
+    strncpy(tipo, "3", sizeof(tipo));
+
+    if(strcmp(PhysicWorld::Instance()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+
+    else{    strncpy(id, PhysicWorld::Instance()->getPlayer(1)->getId(), sizeof(id));}
+
+    sprintf(cogible, "%.0f", (float)TCogible);
+
+    strncat (tipo, " ", 30);
+    strncat (tipo, id, 30);
+    strncat (tipo, " ", 30);
+    strncat (tipo, cogible, 30);
+
+    //strncat (tipo, Tarma, 30);
     strncpy(aux, tipo, sizeof(aux));
     std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
@@ -235,6 +265,8 @@ void Client::recibir(){
 			long int y;
 			int vivo;
 			int dir;
+			int cogible;
+			int Tarma;
 			PlayerRed* Player1;
 			PlayerRed* Player2;
 			PlayerRed* Player3;
@@ -324,8 +356,24 @@ void Client::recibir(){
                 x = atol(param1);
                 y = atol(param2);
                 dir = atoi(param3);
-                if(PhysicWorld::Instance()->GetPlayersRed()->size() > 0)
-                dispararPistola(x, y ,dir);
+                Tarma = atoi(param4);
+                if(Tarma == 1){
+                    dispararPistola(x, y ,dir);
+                }else if(Tarma == 2){
+                    dispararEscopeta(x, y ,dir);
+                }
+            }
+
+            if(strcmp(tipo, "3") == 0){
+                cogible = atoi(param2);
+                /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+
+                for(int i=0; i < PhysicWorld::Instance()->GetPlayersRed()->size(); i++){
+                    if(strcmp(PhysicWorld::Instance()->GetPlayersRed()->at(i)->getId(), param1) == 0){
+                        PhysicWorld::Instance()->GetPlayersRed()->at(i)->CogerTirar(cogible);
+                    }
+                }
+
             }
 
     }
@@ -355,6 +403,20 @@ void Client::dispararPistola(long int x, long int y, int direc){
     GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(
         new Bala(irr::core::vector3df(aux_x, aux_y, 0), 300, 10, 1.0f, direc)
     );
+}
+
+void Client::dispararEscopeta(long int x, long int y, int direc){
+    std::cout<<"entro en disparar! X:"<<x<<" Y:"<<y<<std::endl;
+    float aux_x = x/1000000.f;
+    float aux_y = y/1000000.f;
+
+    for(int i=0; i<15; i++){
+            float desvBala = rand()% 20 - 10;
+            float velBala = rand()% 3 + 10;
+            GameResource<Bala>* balaGR = PhysicWorld::Instance()->CreateBala(
+                new Bala(irr::core::vector3df(aux_x, aux_y, 0), 200, velBala, desvBala, direc, 1)
+            );
+    }
 }
 
 Client::~Client()

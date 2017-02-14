@@ -3,6 +3,7 @@
 //---------------------------------------------------------------------------
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
+#include "Cogible.h"
 
 
 using namespace irr;
@@ -31,6 +32,7 @@ class PlayerRed
         void teletransportar();
         void fingirMuerte();
         void mover();
+        void CogerTirar(int i);
         void saltar(int i);
         //void dispararPistola(long int x, long int y, int direc);
         IMeshSceneNode* node;
@@ -46,6 +48,9 @@ class PlayerRed
         int estado;
         int estadoAntiguo;
         int direccion;
+        bool cogiendo;
+        Cogible* objCogido;
+        b2RevoluteJoint* joint;
         vector3df tam;
         b2Fixture* personFixture;                ///<
 

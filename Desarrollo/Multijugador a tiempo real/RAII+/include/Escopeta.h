@@ -6,14 +6,17 @@
 class Escopeta: public Usable{
     public:
         Escopeta(int modelo,b2Vec2 pos);
-        virtual ~Escopeta(){}	
-        void usar();                      
+        virtual ~Escopeta(){}
+        void usar();
+        virtual int getIdCogible();
+    protected:
+        int idCogible;
     private:
-        irr::f32 timerEscopeta;           
-        irr::ITimer* timerIrr;            
+        irr::f32 timerEscopeta;
+        irr::ITimer* timerIrr;
 	    int cadencia = 10;
 	    int usos = 400;
 	    bool conUsos = true;;
 };
 
-#endif 
+#endif

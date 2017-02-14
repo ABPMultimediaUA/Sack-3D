@@ -45,8 +45,10 @@ class Client
         void iniciar();
         void recibir();
         void enviar();
+        void enviarCogido(int cogible);
         void dispararPistola(long int x, long int y, int direc);
-        void enviarDisparo();
+        void dispararEscopeta(long int x, long int y, int direc);
+        void enviarDisparo(int arma);
         PlayerRed* crearPlayer(char* i);
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         virtual ~Client();

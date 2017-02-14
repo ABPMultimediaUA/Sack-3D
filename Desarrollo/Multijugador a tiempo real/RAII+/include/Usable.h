@@ -10,9 +10,11 @@ class Usable : public Cogible{
         virtual void setExpuesto(bool aux);
         virtual bool getExpuesto();
         virtual void usar();
+        //virtual void setIdCogible();
+        virtual int getIdCogible();
     protected:
     	bool expuesto = true;
         bool usando = false;
 };
 
-#endif 
+#endif

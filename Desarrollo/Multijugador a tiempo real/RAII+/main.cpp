@@ -24,7 +24,7 @@ El maaaaaaaaain.
 Client* cliente;
 
 int main(){
-    /*Client**/ cliente = new Client();
+    cliente = new Client();
     cliente->iniciar();
     PhysicWorld::Instance();
     PhysicWorld::Instance()->inicializaVariables();

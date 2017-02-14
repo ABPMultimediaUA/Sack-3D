@@ -22,8 +22,10 @@ PlayerRed::PlayerRed(char idr[], float xr, float yr)
     estado=LEVANTADO;
     estadoAntiguo=LEVANTADO;
     direccion = 0;
+    cogiendo = false;
     node = IrrManager::Instance()->addCubeSceneNode(tam,irr::video::SColor(255, 255, 124, 150));
     node->setPosition(irr::core::vector3df(xr,yr,0));
+    node->setMaterialTexture(0,IrrManager::Instance()->getDriver()->getTexture("media/texture.jpg"));
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     body  = PhysicWorld::Instance()->GetWorld()->CreateBody(&bodyDef);
@@ -141,6 +143,24 @@ void PlayerRed::saltar(int i){
     }
 }
 
+void PlayerRed::CogerTirar(int cogible){
+
+        for(int i=0; i < PhysicWorld::Instance()->GetCogibles()->size(); i++){
+            if(PhysicWorld::Instance()->GetCogibles()->at(i)->getIdCogible() == cogible){
+                cogiendo = true;
+                objCogido = PhysicWorld::Instance()->GetCogibles()->at(i);
+                PhysicWorld::Instance()->GetCogibles()->at(i)->setCogido(true);
+                b2RevoluteJointDef jointDef;
+                jointDef.bodyA = body;
+                jointDef.bodyB = PhysicWorld::Instance()->GetCogibles()->at(i)->getBody();
+                jointDef.localAnchorA.Set(0,0);
+                jointDef.localAnchorB.Set(0,0);
+                joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
+                joint->EnableMotor(true);
+            }
+        }
+
+}
 
 
 void PlayerRed::fingirMuerte(){
@@ -170,6 +190,7 @@ void PlayerRed::setEstado(int aux){
 
 void PlayerRed::setDireccion(int aux){
     direccion = aux;
+    if(cogiendo) objCogido->setDireccion(direccion);
 }
 
 void PlayerRed::setId(char aux[]){

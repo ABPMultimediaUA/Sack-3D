@@ -9,6 +9,10 @@ class Pistola: public Usable{
         Pistola(int modelo,b2Vec2 pos);
         virtual ~Pistola(){}
         void usar();
+        //void setIdCogible();
+        int getIdCogible();
+    protected:
+        int idCogible;
 };
 
 #endif

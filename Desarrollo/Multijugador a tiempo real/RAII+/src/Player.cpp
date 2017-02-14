@@ -168,6 +168,8 @@ void Player::CogerTirar(){
         joint = (b2RevoluteJoint*)PhysicWorld::Instance()->GetWorld()->CreateJoint(&jointDef);
         joint->EnableMotor(true);
         cogiendo = true;
+        cliente->enviarCogido(objCogido->getIdCogible());
+        std::cout<<"COGIBLE n "<<objCogido->getIdCogible()<<std::endl;
     }
     else if(cogiendo){
         Soltar();

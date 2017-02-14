@@ -2243,3 +2243,202 @@
 	"PhysicWorld.h"
 	"IrrManager.h"
 
+1487078174 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+	"Gets.h"
+	"Client.h"
+
+1486927584 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+	"PlayerRed.h"
+	"Client.h"
+
+1486481643 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1486998413 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1486998660 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\pistola.h
+	"Usable.h"
+
+1486998422 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\usable.h
+	"Cogible.h"
+
+1486999416 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\escopeta.h
+	"Usable.h"
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\granada.h
+	"Usable.h"
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486479053 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\gameresource.h
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\map.h
+	<irrlicht.h>
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1487077078 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\playerred.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Cogible.h"
+
+1487000858 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\client.h
+	"MessageIdentifiers.h"
+	"RakPeerInterface.h"
+	"RakNetStatistics.h"
+	"RakNetTypes.h"
+	"BitStream.h"
+	"PacketLogger.h"
+	<assert.h>
+	<iostream>
+	<string>
+	<cstdio>
+	<cstring>
+	<stdlib.h>
+	"RakNetTypes.h"
+	"Kbhit.h"
+	"WindowsIncludes.h"
+	"Kbhit.h"
+	<unistd.h>
+	"Gets.h"
+	"SecureHandshake.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1486478732 d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1486999724 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486986819 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1486923664 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1486999478 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1487000698 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1487076729 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\playerred.cpp
+	"PlayerRed.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486478732 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486999735 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\usable.cpp
+	"Usable.h"
+
+1487075699 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\client.cpp
+	"Client.h"
+	"PhysicWorld.h"
+
+1486999450 source:d:\development\sack-3d\desarrollo\multijugador a tiempo real\raii+\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+

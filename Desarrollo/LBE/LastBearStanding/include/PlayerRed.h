@@ -39,6 +39,7 @@ class PlayerRed
         void saltar(int i);
         int getMuerto(){return muerto;}
         void setMuerto(int i){muerto = i;}
+        void usar();
         //void dispararPistola(long int x, long int y, int direc);
         IMeshSceneNode* node;
 	    b2Body* body;
@@ -56,6 +57,7 @@ class PlayerRed
         int direccion;
         int moviendo;
         bool cogiendo;
+        bool primera = true;
         Cogible* objCogido;
         b2RevoluteJoint* joint;
         vector3df tam;

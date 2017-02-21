@@ -21,7 +21,6 @@ void Pistola::usar(){
 	    	usos--;
             timeCadencia = timerCadencia->getTime();
 	    }
-	       cliente->enviarDisparo(1);
     }
 }
 

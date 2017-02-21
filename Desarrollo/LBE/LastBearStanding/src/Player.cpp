@@ -109,6 +109,7 @@ void Player::DestroyFixtures(){
     }
 }
 void Player::actualiza(){
+    //std::cout<<body->GetPosition().x<<" "<<body->GetPosition().y<<std::endl;
     if(paraMorir)morir();
     if(cogido)
         node->setPosition(irr::core::vector3df(body->GetPosition().x+((.5f)*dir),body->GetPosition().y,0));
@@ -123,9 +124,12 @@ void Player::mover(){
         return;
     dir = 0;
     if(mando == 1){
-        if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){direccion = dir = -1;}
-        else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){direccion = dir = 1;}
+        if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){moviendo = direccion = dir = -1;}
+        else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
+        else{moviendo = 0;}
     }
+    if(moviendo != moviendoA){cliente->enviarMoviendo(moviendo);
+    moviendoA = moviendo;}
     body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
 }
@@ -144,12 +148,14 @@ void Player::saltar(){
         b2Vec2 velV = body->GetLinearVelocity();
         velV.y = salto;
         body->SetLinearVelocity(velV);
+        cliente->enviarSalto(1);
     }
     else if(!dobleSaltando){
         b2Vec2 velV = body->GetLinearVelocity();
         velV.y = salto*3/4;
         body->SetLinearVelocity(velV);
         dobleSaltando = true;
+        cliente->enviarSalto(2);
     }
 }
 void Player::fingirMuerte(){
@@ -188,13 +194,13 @@ void Player::CogerTirar(){
                 joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
                 joint->EnableMotor(true);
                 cogiendo = true;
-                //cliente->enviarCogido(objCogido->getIdCogible());
+                cliente->enviarCogido(objCogido->getIdCogible());
                 //cout<<"HE COGIDO COGIBLE NUM "<<objCogido->getIdCogible()<<std::endl;
             }
     }
     else if(cogiendo){
         Soltar();
-        //cliente->enviarCogido(0);
+        cliente->enviarCogido(0);
     }
 }
 void Player::recibeImpulso(float fuerza){
@@ -225,7 +231,9 @@ void Player::Soltar(){
     cogiendo =false;
 }
 void Player::usar(){
-    if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido))usable->usar();
+    if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
+            cliente->enviarUsar();
+            usable->usar();}
 }
 
 char* Player::getServerPort(){return serverPort;}

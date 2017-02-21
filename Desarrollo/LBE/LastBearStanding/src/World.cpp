@@ -19,7 +19,6 @@ void World::Reset(){
   pinstance = new World;
 }
 World::World(){
-
 	world.Reset(new b2World(b2Vec2(0.0f, -9.8f), true));
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());

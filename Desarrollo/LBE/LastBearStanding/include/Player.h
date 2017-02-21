@@ -24,6 +24,7 @@ class Player: public Cogible{
         void Soltar();
         void usar();
         b2Vec2 getPosition(){return body->GetPosition();}
+        b2Vec2 getVelocity(){return body->GetLinearVelocity();}
         int getMando(){return mando;}
         bool getSaltando(){return saltando;}
         bool getDobleSaltando(){return dobleSaltando;}

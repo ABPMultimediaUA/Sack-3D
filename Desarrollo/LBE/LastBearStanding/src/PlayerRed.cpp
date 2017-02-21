@@ -13,8 +13,7 @@
 #define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
 
 
-PlayerRed::PlayerRed(char idr[], float xr, float yr)
-{
+PlayerRed::PlayerRed(char idr[], float xr, float yr){
     muerto=0;
     tam = irr::core::vector3df(.7f, 1.8f,.7f);
     x = xr;

@@ -24,9 +24,10 @@ void Client::iniciar(){
     puts("Enter the client port to listen on");
     Gets(auxclientPort,sizeof(auxclientPort));
 
-    puts("Enter IP to connect to");
-    Gets(auxip,sizeof(auxip));
-    //strncpy(auxip, "192.168.1.6", sizeof(auxip));
+   
+    //puts("Enter IP to connect to");
+    //Gets(auxip,sizeof(auxip));
+    strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));

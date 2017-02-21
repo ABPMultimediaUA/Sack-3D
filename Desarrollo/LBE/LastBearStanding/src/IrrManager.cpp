@@ -20,7 +20,7 @@ IrrMngr::IrrMngr(){
 	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, false, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
-	device->setWindowCaption(L"Last Fuck Standing");
+	device->setWindowCaption(L"Last Bear Standing2");
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
 	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(1.0f, 1.0f, 1.0f));

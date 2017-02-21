@@ -3578,3 +3578,8 @@
 	"Client.h"
 	"World.h"
 
+1487687551 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
+	"Player.h"
+	"World.h"
+	"IrrManager.h"
+

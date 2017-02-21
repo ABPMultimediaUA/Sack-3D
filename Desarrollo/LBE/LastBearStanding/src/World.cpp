@@ -27,11 +27,9 @@ World::World(){
 void World::inicializaVariables(){
   char id[30];
   GameResource<Map>(new Map("media/Map.tmx"));
-    for(int i=0;i<cliente->getNumPlayersRed();i++){
-                        //sprintf(id, "%.0f", cliente->playersRed[i].id);
-                        //std::cout<<"ID PONIENDO A MI COMPA "<<cliente->playersRed[i].id<<std::endl;
-                        World::Inst()->AddPlayerRed(new PlayerRed(cliente->playersRed[i].id,100,0));
-                    }
+  for(int i=0;i<cliente->getNumPlayersRed();i++){
+    World::Inst()->AddPlayerRed(new PlayerRed(cliente->playersRed[i].id,100,0));
+  }
   camara.Reset(new Camera());
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;

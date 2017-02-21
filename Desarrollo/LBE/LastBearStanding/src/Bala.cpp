@@ -18,7 +18,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
     time2Kill = timer2Kill->getTime();
     node = IrrMngr::Inst()->addCubeSceneNode(tam, irr::video::SColor(255, 255,0 ,0));
     node->setPosition(pos);
-    bodyDef.position.Set(pos.X+((2)*dir),pos.Y);
+    bodyDef.position.Set(pos.X+dir,pos.Y);
     bodyDef.type = b2_dynamicBody;
     body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
     body->SetGravityScale( 0 );

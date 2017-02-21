@@ -47,12 +47,13 @@ enum UserDatas {
     DATA_PINCHO          = 9,
 };
 
+
 class World{
     public:
         static World* Inst();
         World();
         virtual ~World(){}
-        void inicializaVariables();
+        void inicializaVariables(irr::core::stringw mapFile);
         b2Body* CreateBox(int x,int y);
         void creaCuboMierda(int x, int y);
         b2World* GetWorld(){return world.Get();}

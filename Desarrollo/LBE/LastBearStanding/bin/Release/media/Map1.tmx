@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="129" height="73" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="996">
+ <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <objectgroup color="#26a410" name="Colisiones">
+  <object id="603" x="0.818182" y="45" width="109.33" height="1"/>
+  <object id="619" x="26.75" y="63.0313" width="28.125" height="1.09375"/>
+  <object id="620" x="64" y="17" width="14.375" height="1"/>
+  <object id="621" x="77" y="63" width="31.875" height="1"/>
+  <object id="638" x="108" y="1.875" width="2" height="62.125"/>
+  <object id="991" x="48.6307" y="29.1364" width="14.375" height="1"/>
+  <object id="992" x="79.1761" y="36.0455" width="14.375" height="1"/>
+  <object id="994" x="0.75" y="0.9375" width="2" height="45.125"/>
+ </objectgroup>
+ <objectgroup name="Teleports">
+  <object id="545" name="tp1" gid="654" x="93.375" y="55.9091" width="1" height="1">
+   <properties>
+    <property name="Id" value="1"/>
+    <property name="Partner" value="2"/>
+   </properties>
+  </object>
+  <object id="550" name="tp2" gid="654" x="70.125" y="16.125" width="1" height="1">
+   <properties>
+    <property name="Id" value="2"/>
+    <property name="Partner" value="1"/>
+   </properties>
+  </object>
+  <object id="551" name="tp3" gid="654" x="27.2727" y="43.8409" width="1" height="1">
+   <properties>
+    <property name="Id" value="3"/>
+    <property name="Partner" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Muelles">
+  <object id="560" gid="66" x="68.9545" y="44.7841" width="1" height="1">
+   <properties>
+    <property name="Fuerza" value="30"/>
+   </properties>
+  </object>
+  <object id="561" gid="66" x="101.182" y="45.0909" width="1" height="1">
+   <properties>
+    <property name="Fuerza" value="20"/>
+   </properties>
+  </object>
+  <object id="562" gid="66" x="21.3409" y="45" width="1" height="1">
+   <properties>
+    <property name="Fuerza" value="25"/>
+   </properties>
+  </object>
+  <object id="616" gid="264" x="65" y="16" width="1" height="1">
+   <properties>
+    <property name="Modelo" value="1"/>
+    <property name="Tipo" value="2"/>
+   </properties>
+  </object>
+  <object id="617" gid="264" x="51.4688" y="63" width="1" height="1">
+   <properties>
+    <property name="Modelo" value="1"/>
+    <property name="Tipo" value="2"/>
+   </properties>
+  </object>
+  <object id="618" gid="264" x="77.1818" y="16" width="1" height="1">
+   <properties>
+    <property name="Modelo" value="2"/>
+    <property name="Tipo" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Armas"/>
+ <objectgroup name="Players">
+  <object id="585" gid="271" x="100" y="62" width="1" height="1"/>
+  <object id="585" gid="271" x="85.3315" y="61.5983" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup name="Muerte">
+  <object id="631" x="-58" y="88.6667" width="246.333" height="13.3333"/>
+  <object id="585" gid="271" x="50.875" y="29.125" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="637" gid="264" x="29.625" y="63" width="1" height="1">
+   <properties>
+    <property name="Modelo" value="1"/>
+    <property name="Tipo" value="2"/>
+   </properties>
+  </object>
+  <object id="995" gid="264" x="90" y="63" width="1" height="1">
+   <properties>
+    <property name="Modelo" value="1"/>
+    <property name="Tipo" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

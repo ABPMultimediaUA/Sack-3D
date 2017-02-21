@@ -23,9 +23,9 @@ World::World(){
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
 }
-void World::inicializaVariables(){
+void World::inicializaVariables(irr::core::stringw mapFile){
   char id[30];
-  GameResource<Map>(new Map("media/Map.tmx"));
+  GameResource<Map>(new Map(mapFile));
   for(int i=0;i<cliente->getNumPlayersRed();i++){
     World::Inst()->AddPlayerRed(new PlayerRed(cliente->playersRed[i].id,100,0));
   }

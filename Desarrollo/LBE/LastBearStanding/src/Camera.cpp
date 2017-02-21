@@ -28,28 +28,36 @@ Camera::update(float time){
     bool ini = false;
     bool puedo = false;
     for(int i = 0; i <= World::Inst()->GetPlayersRed().size() || i==0; ++i){
-        //if(World::Inst()->GetPlayersRed()->at(i)){
-
-                b2Vec2 pos;
-                if(i==World::Inst()->GetPlayersRed().size()){
-                    if(!World::Inst()->GetPlayers().at(0)->getMuerto()){ pos = World::Inst()->GetPlayers().at(0)->getPosition();
-                    puedo = true;
-                    }
-                }
-                else {
-                    if(World::Inst()->GetPlayersRed().at(i)->getMuerto() == 0){ pos = World::Inst()->GetPlayersRed().at(i)->getPosition();
-                    puedo = true;
-                    }
-                }
-                if(puedo){
+        b2Vec2 pos;
+        if(i==World::Inst()->GetPlayersRed().size()){
+            if(!World::Inst()->GetPlayers().at(0)->getMuerto()){ pos = World::Inst()->GetPlayers().at(0)->getPosition();
+            puedo = true;
+            }
+        }
+        else {
+            if(World::Inst()->GetPlayersRed().at(i)->getMuerto() == 0){ pos = World::Inst()->GetPlayersRed().at(i)->getPosition();
+                puedo = true;
+            }
+        }
+        if(puedo){
+            if(!ini){ xMin = xMax = pos.x; yMin = yMax = pos.y; ini = true;}
+            if(pos.x < xMin)xMin = pos.x;
+            if(pos.x > xMax)xMax = pos.x;
+            if(pos.y < yMin)yMin = pos.y;
+            if(pos.y > yMax)yMax = pos.y;
+        }
+    }
+    for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
+        if(World::Inst()->GetPlayers().at(i)){
+           if(!World::Inst()->GetPlayers().at(i)->getMuerto()){
+                b2Vec2 pos = World::Inst()->GetPlayers().at(i)->getPosition();
                 if(!ini){ xMin = xMax = pos.x; yMin = yMax = pos.y; ini = true;}
                 if(pos.x < xMin)xMin = pos.x;
                 if(pos.x > xMax)xMax = pos.x;
                 if(pos.y < yMin)yMin = pos.y;
                 if(pos.y > yMax)yMax = pos.y;
-                }
-            //}
-        //}
+            }
+        }
     }
 	if(time - tiempoTransc > updateT){
     	tiempoTransc = timer->getTime();
@@ -61,7 +69,7 @@ Camera::update(float time){
 	}
 	float cenX = cenAnt.x + ((cenSig.x - cenAnt.x)/(porcentGap*100)*porcentUpdate*10);
     float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);
-    z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f))/2.f;
+    z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f));
 	if(z<MINZ)z = MINZ;
     flowCam.push_back(irr::core::vector3df(cenX,cenY,0));
     irr::core::vector3df aux = flowCam[0];

@@ -16,7 +16,7 @@ void Escopeta::usar(){
     if(usos){
         if(IrrMngr::Inst()->getTime()-timeCadencia > cadencia ){
             for(int i=0; i<10; i++){
-                float desvBala = rand()% 20 - 10;
+                float desvBala = rand()% 10 - 10;
                 float velBala = rand()% 3 + 10;
                 World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 200, velBala, desvBala, dir, 1));
             }

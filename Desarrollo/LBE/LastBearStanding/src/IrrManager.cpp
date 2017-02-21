@@ -18,7 +18,7 @@ IrrMngr::IrrMngr(){
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
 	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );
-	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, false, true, true, myEventReceiver );
+	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing2");
 	smgr = device->getSceneManager();

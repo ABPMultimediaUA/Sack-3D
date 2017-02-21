@@ -14,7 +14,7 @@ void IrrMngr::Reset(){
 }
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr(){
-	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_OPENGL);
+	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
 	//device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );

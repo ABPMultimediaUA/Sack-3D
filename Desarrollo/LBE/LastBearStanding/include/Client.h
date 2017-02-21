@@ -54,7 +54,7 @@ class Client
         void enviarMoviendo(int moviendo);
         void dispararPistola(long int x, long int y, int direc);
         void dispararEscopeta(long int x, long int y, int direc);
-        void enviarDisparo(int arma);
+        void enviarUsar();
         PlayerRed* crearPlayer(char* i);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
@@ -67,6 +67,7 @@ class Client
     private:
         char idCliente[30];
         int numPlayersRed;
+        irr::f32 timer;
 };
 
 #endif // CLIENT_H

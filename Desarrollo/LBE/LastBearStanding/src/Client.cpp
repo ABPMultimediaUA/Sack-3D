@@ -14,7 +14,8 @@ Client::Client()
 
 PlayerRed* Client::crearPlayer(char* i)
 {
-    return(new PlayerRed(i,100,0));
+    return(new PlayerRed(i, 100.35, -62.085));
+
 
 }
 
@@ -24,10 +25,10 @@ void Client::iniciar(){
     puts("Enter the client port to listen on");
     Gets(auxclientPort,sizeof(auxclientPort));
 
-   
-    //puts("Enter IP to connect to");
+    puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
-    strncpy(auxip, "127.0.0.1", sizeof(auxip));
+    //strncpy(auxip, "192.168.1.6", sizeof(auxip));
+    strncpy(auxip, "172.27.168.82", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));
@@ -138,39 +139,19 @@ void Client::enviar(){
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
-void Client::enviarDisparo(int arma){
+void Client::enviarUsar(){
     char aux[60];
     char tipo[60];
-    char posx[30];
-    char posy[30];
-    char direcc[30];
-    char Tarma[30];
-    int dir;
-    //int arma;
-    float auxiliarx;
-    float auxiliary;
+    char id[30];
 
-    b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
     strncpy(tipo, "2", sizeof(tipo));
-    dir = World::Inst()->getPlayer(1)->getDireccion();
+        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
 
-    auxiliarx = posicion.x * 1000000;
-    auxiliary = posicion.y * 1000000;
-
-    sprintf(Tarma, "%.0f", (float)arma);
-    sprintf(direcc, "%.0f", (float)dir);
-    // -------- POSICIONES
-    sprintf(posx, "%.0f", auxiliarx);
-    sprintf(posy, "%.0f", auxiliary);
+        else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     strncat (tipo, " ", 30);
-    strncat (tipo, posx, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posy, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, direcc, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, Tarma, 30);
+    strncat (tipo, id, 30);
+
     strncpy(aux, tipo, sizeof(aux));
     std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
@@ -321,6 +302,7 @@ void Client::recibir(){
 
 			/////////TRABAJO DEL MENSAJE\\\\\\\\\\\\
 
+            char id[30];
 			char recibido[60];
 			char tipo[30];
 			char param1[30];
@@ -350,7 +332,7 @@ void Client::recibir(){
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			char * msg;
 			msg = strtok(recibido, " ");
-            std::cout<<"RECIBIENDO "<<msg<<std::endl;
+            //std::cout<<"RECIBIENDO "<<msg<<std::endl;
 			while(msg != NULL){
                 switch (iterador)
                 {
@@ -403,7 +385,7 @@ void Client::recibir(){
                 }
                 else{
                     std::cout<<"seteando de compaaaadre>"<<param1<<" e-"<<param2<<" x-"<<param3<<" y-"<<param4<<" d-"<<param5<<" ITE-"<<iterador<<std::endl;
-                    PlayerRed* playerRed = new PlayerRed(param1, 100, 0);
+                    PlayerRed* playerRed = new PlayerRed(param1, 100.35, -62.085);
                     //World::Inst()->GetPlayersRed()->push_back(playerRed);
                     World::Inst()->AddPlayerRed(playerRed);
                     numPlayersRed++;
@@ -424,6 +406,7 @@ void Client::recibir(){
 
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
+        if(IrrMngr::Inst()->getTime()>(timer+5000)){
                 for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
                     if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
                         World::Inst()->GetPlayersRed().at(i)->setx(x);
@@ -434,27 +417,24 @@ void Client::recibir(){
                         World::Inst()->GetPlayersRed().at(i)->teletransportar();
                     }
                 }
+                timer=IrrMngr::Inst()->getTime();
+        }
             }
 
             /////////PARTE DISPARO PLAYERRED\\\\\\\\
 
 
             if(strcmp(tipo, "2") == 0){
-                x = atol(param1);
-                y = atol(param2);
-                dir = atoi(param3);
-                Tarma = atoi(param4);
-                if(Tarma == 1){
-                    dispararPistola(x, y ,dir);
-                }else if(Tarma == 2){
-                    dispararEscopeta(x, y ,dir);
-                }
+                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
+                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
+                        World::Inst()->GetPlayersRed().at(i)->usar();
+                    }
+            }
             }
 
             if(strcmp(tipo, "3") == 0){
                 cogible = atoi(param2);
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
-
 
                 for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
 

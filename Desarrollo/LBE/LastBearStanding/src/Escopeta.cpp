@@ -20,7 +20,6 @@ void Escopeta::usar(){
                 float velBala = rand()% 3 + 10;
                 World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 200, velBala, desvBala, dir, 1));
             }
-            cliente->enviarDisparo(2);
             timeCadencia = timerCadencia->getTime();
             usos--;
         }

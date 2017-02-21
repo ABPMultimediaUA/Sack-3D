@@ -24,7 +24,6 @@ class Player: public Cogible{
         void Soltar();
         void usar();
         b2Vec2 getPosition(){return body->GetPosition();}
-        b2Vec2 getVelocity(){return body->GetLinearVelocity();}
         int getMando(){return mando;}
         bool getSaltando(){return saltando;}
         bool getDobleSaltando(){return dobleSaltando;}
@@ -69,6 +68,8 @@ class Player: public Cogible{
         char clientPort[30];
         char id[30];
         float vel = 7;
+        int moviendoA = 0;
+        int moviendo = 0;
         float salto = 15.0f;
         int mando;
         bool cogiendo = false;

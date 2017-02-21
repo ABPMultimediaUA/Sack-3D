@@ -13,7 +13,8 @@
 #define RADTOGRAD 180 / 3.14159265  ///< Conversor de radianes a grados
 
 
-PlayerRed::PlayerRed(char idr[], float xr, float yr){
+PlayerRed::PlayerRed(char idr[], float xr, float yr)
+{
     muerto=0;
     tam = irr::core::vector3df(.7f, 1.8f,.7f);
     x = xr;
@@ -32,6 +33,7 @@ PlayerRed::PlayerRed(char idr[], float xr, float yr){
     body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
     InicializeFixtures(LEVANTADO);
+    node->addShadowVolumeSceneNode();
 }
 void PlayerRed::InicializeFixtures(int mode){
     switch(mode){
@@ -48,12 +50,14 @@ void PlayerRed::InicializeFixtures(int mode){
             fixtureDef.friction = 0;
             fixtureDef.restitution  = 0.2f;
             fixtureDef.density  = 10.0f;
+            fixtureDef.filter.categoryBits = M_PLAYER;
+            fixtureDef.filter.maskBits = M_BALA|M_SUELO|M_TELEPORT|M_MUELLE|M_COGIBLESENSOR;
             b2Fixture* fixture = body->CreateFixture(&fixtureDef);
             fixture->SetUserData((void*)18);
             polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
             fixtureDef.isSensor = true;
             b2Fixture* sensorFixture = body->CreateFixture(&fixtureDef);
-            sensorFixture->SetUserData((void*)19);
+            sensorFixture->SetUserData((void*)18);
         break;}
         case MUERTO_DORMIDO:{
             b2FixtureDef fixtureDef;
@@ -85,7 +89,7 @@ void PlayerRed::InicializeFixtures(int mode){
             fixtureDef2.filter.maskBits = 1;
             fixtureDef2.filter.categoryBits = 2;
             b2Fixture* areaFixure = body->CreateFixture(&fixtureDef2);
-            areaFixure->SetUserData((void*)19);
+            areaFixure->SetUserData((void*)18);
             body->SetTransform( body->GetPosition(),0);
             body->SetAngularVelocity(0);
             if(body->GetLinearVelocity().x > 0 )body->ApplyAngularImpulse(-0.5f);
@@ -108,11 +112,13 @@ void PlayerRed::teletransportar(){
 }
 
 void PlayerRed::mover(){
-
+if(primera){teletransportar();
+            primera=false;}
         if(moviendo == 1){direccion = moviendo;}
         else if(moviendo == -1){direccion = moviendo;}
-
+    //std::cout<<"moviendo "<<moviendo<<std::endl;
     body->SetLinearVelocity(b2Vec2 (moviendo*vel, body->GetLinearVelocity().y));
+    if(cogiendo) objCogido->setDireccion(direccion);
 }
 
 void PlayerRed::actualiza(){
@@ -120,7 +126,7 @@ void PlayerRed::actualiza(){
     float aux_x = x;
     float aux_y = y;
 
-    teletransportar();
+    mover();
     node->setPosition(vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(vector3df(0,0,body->GetAngle()* RADTOGRAD));
 
@@ -180,6 +186,9 @@ void PlayerRed::Soltar(){
     objCogido->setCogido(false);
 }
 
+void PlayerRed::usar(){
+    if(Usable* usable = dynamic_cast<Usable*>(objCogido))usable->usar();
+}
 
 void PlayerRed::fingirMuerte(){
     DestroyFixtures();

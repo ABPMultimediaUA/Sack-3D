@@ -14,13 +14,13 @@ void IrrMngr::Reset(){
 }
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr(){
-	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
+	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_OPENGL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
 	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
-	device->setWindowCaption(L"Last Bear Standing2");
+	device->setWindowCaption(L"Last Bear Standing");
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
 	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(1.0f, 1.0f, 1.0f));

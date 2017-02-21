@@ -62,6 +62,7 @@ void Client::iniciar(){
 	}
 
 	printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
+	//client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString()
 	//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getClientPort(), sizeof(aux));
 
 }
@@ -89,7 +90,7 @@ void Client::enviar(){
     if(World::Inst()->getPlayer(1)->getMuerto()==true){
         muer = 1;
     }else{
-        std::cout<<"ENVIANDO entrooo"<<std::endl;
+        //std::cout<<"ENVIANDO entrooo"<<std::endl;
         muer = 0;
     }
     estador = World::Inst()->getPlayer(1)->getEstado();
@@ -132,7 +133,7 @@ void Client::enviar(){
     strncat (tipo, " ", 30);
     strncat (tipo, muertor, 30);
     strncpy(aux, tipo, sizeof(aux));
-    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 

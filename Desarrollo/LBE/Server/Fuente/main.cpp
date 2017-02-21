@@ -260,11 +260,11 @@ int main(void)
                     sprintf(playerNum, "%.0f", (float)i);
                     strncat (identificador, " ", 30);
                     strncat (identificador, playerNum, 30);
-                    std::cout<<"NUMERO EN IIIII->"<<playerNum<<std::endl;
+                    //std::cout<<"NUMERO EN IIIII->"<<playerNum<<std::endl;
 				}
 
                 //enviando ID al jugador conectado
-                std::cout<<"IDENTIFICADORRR->"<<identificador<<std::endl;
+                //std::cout<<"IDENTIFICADORRR->"<<identificador<<std::endl;
                 server->Send(identificador, (const int) strlen(identificador)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
                 //strncpy(identificador, "", sizeof(identificador));
 				break;
@@ -283,7 +283,7 @@ int main(void)
 			default:
 				// The server knows the static data of all clients, so we can prefix the message
 				// With the name data
-				printf("%s\n", p->data);
+				//printf("%s\n", p->data);
 
 				// Relay the message.  We prefix the name for other clients.  This demonstrates
 				// That messages can be changed on the server before being broadcast

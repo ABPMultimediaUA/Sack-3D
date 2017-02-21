@@ -29,7 +29,7 @@ void World::inicializaVariables(){
   GameResource<Map>(new Map("media/Map.tmx"));
     for(int i=0;i<cliente->getNumPlayersRed();i++){
                         //sprintf(id, "%.0f", cliente->playersRed[i].id);
-                        std::cout<<"ID PONIENDO A MI COMPA "<<cliente->playersRed[i].id<<std::endl;
+                        //std::cout<<"ID PONIENDO A MI COMPA "<<cliente->playersRed[i].id<<std::endl;
                         World::Inst()->AddPlayerRed(new PlayerRed(cliente->playersRed[i].id,100,0));
                     }
   camara.Reset(new Camera());
@@ -59,7 +59,7 @@ Player* World::getPlayer(int mando){
   return NULL;
 }
 int World::Update(){
-    std::cout<<"NUMPLAYERSRED : "<<m_PlayersRed.Size()<<std::endl;
+    //std::cout<<"NUMPLAYERSRED : "<<m_PlayersRed.Size()<<std::endl;
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();

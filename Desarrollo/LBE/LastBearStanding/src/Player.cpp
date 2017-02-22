@@ -115,6 +115,7 @@ void Player::actualiza(){
     if(teletransportado)teletransportar();
 }
 void Player::mover(){
+
     if(muerto || fingiendoMuerte)
         return;
     dir = 0;
@@ -225,6 +226,8 @@ void Player::Soltar(){
     else objCogido->getBody()->ApplyAngularImpulse(2);
     cogiendo =false;
 }
+
+
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
             cliente->enviarUsar();

@@ -8,12 +8,14 @@ void MyContactListener::BeginContact(b2Contact* contact){
     unsigned long B = (unsigned long)contact->GetFixtureB()->GetUserData();
     const Contact2Func * it = beginContact;
     while(it->A != 0){
+
         if((it->A == A && it->B == B)
         || (it->A == B && it->B == A)){
             (this->*it->Contact2Func::p)();
             break;
         }
         it++;
+
     }
 }
 void MyContactListener::EndContact(b2Contact* contact){
@@ -31,12 +33,18 @@ void MyContactListener::EndContact(b2Contact* contact){
     }
 }
 void MyContactListener::PiesPlayerBegin(){
+    std::cout<<"EMPIEZATOCA"<<std::endl;
     Player* player = GetPlayer();
+    if(player!=NULL){
     player->setSaltando(false);
     player->setDobleSaltando(false);
+    }
+    std::cout<<"TOCA"<<std::endl;
 }
 void MyContactListener::PiesPlayerEnd(){
+    std::cout<<"EMPIEZANOTOCA"<<std::endl;
     GetPlayer()->setSaltando(true);
+    std::cout<<"NO TOCA"<<std::endl;
 }
 void MyContactListener::PlayerMuelle(){
    GetPlayer()->recibeImpulso(GetMuelle()->getFuerza());

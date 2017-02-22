@@ -50,11 +50,14 @@ class MyContactListener: public b2ContactListener{
         b2Contact* contact;
         Player* GetPlayer(){
             for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
+                    std::cout<<"ENTROOOMAGNA"<<std::endl;
                 if(World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
                 || World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
+                    std::cout<<"ENTROOO????"<<World::Inst()->GetPlayers().at(i)->getId()<<std::endl;
                     return World::Inst()->GetPlayers().at(i);
                 }
             }
+            std::cout<<"SALGOOMAGNA"<<std::endl;
             return NULL;
         }
         Cogible* GetCogible(){

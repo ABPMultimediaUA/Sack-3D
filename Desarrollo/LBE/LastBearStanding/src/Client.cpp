@@ -13,7 +13,7 @@ Client::Client()
 }
 
 PlayerRed* Client::crearPlayer(char* i){
-    return(new PlayerRed(b2Vec2(100.35, -62.085),0,i));
+    return(new PlayerRed(b2Vec2(100.f, 61.995),0,i));
 }
 
 void Client::iniciar(){
@@ -25,7 +25,7 @@ void Client::iniciar(){
     puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
     //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-    strncpy(auxip, "172.27.168.82", sizeof(auxip));
+    strncpy(auxip, "192.168.1.6", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));
@@ -374,7 +374,7 @@ void Client::recibir(){
                     for(int i=1;i<iterador-1;i++){
                         players[i-1].player = crearPlayer(players[i-1].id);
                         //World::Inst()->GetPlayersRed()->push_back(players[i-1].player);
-                        World::Inst()->AddPlayerRed(players[i-1].player);
+                        World::Inst()->AddPlayer(players[i-1].player);
                         numPlayersRed++;
                         //playersRed[numPlayersRed-1].id = players[i-1].id;
                         strncpy(playersRed[numPlayersRed-1].id, players[i-1].id, sizeof(playersRed[numPlayersRed-1].id));
@@ -382,9 +382,9 @@ void Client::recibir(){
                 }
                 else{
                     std::cout<<"seteando de compaaaadre>"<<param1<<" e-"<<param2<<" x-"<<param3<<" y-"<<param4<<" d-"<<param5<<" ITE-"<<iterador<<std::endl;
-                    PlayerRed* playerRed = new PlayerRed(b2Vec2(100.35, -62.085),0,param1);
+                    PlayerRed* playerRed = new PlayerRed(b2Vec2(100.f, 61.995),0,param1);
                     //World::Inst()->GetPlayersRed()->push_back(playerRed);
-                    World::Inst()->AddPlayerRed(playerRed);
+                    World::Inst()->AddPlayer(playerRed);
                     numPlayersRed++;
                     //playersRed[numPlayersRed-1].id = param1;
                     strncpy(playersRed[numPlayersRed-1].id, param1, sizeof(param1));
@@ -404,14 +404,16 @@ void Client::recibir(){
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
         if(IrrMngr::Inst()->getTime()>(timer+5000)){
-                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
-                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
-                        World::Inst()->GetPlayersRed().at(i)->setx(x);
-                        World::Inst()->GetPlayersRed().at(i)->sety(y);
-                        World::Inst()->GetPlayersRed().at(i)->setEstado(vivo);
-                        World::Inst()->GetPlayersRed().at(i)->setDireccion(dir);
-                        World::Inst()->GetPlayersRed().at(i)->setMuerto(muerto);
-                        World::Inst()->GetPlayersRed().at(i)->teletransportar();
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
+                        p->setx(x);
+                        p->sety(y);
+                        p->setEstado(vivo);
+                        p->setDireccion(dir);
+                        p->setMuerto(muerto);
+                        p->setPos();
+                        std::cout<<"SEEEET "<<msg<<std::endl;
                     }
                 }
                 timer=IrrMngr::Inst()->getTime();
@@ -422,9 +424,9 @@ void Client::recibir(){
 
 
             if(strcmp(tipo, "2") == 0){
-                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
-                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
-                        World::Inst()->GetPlayersRed().at(i)->usar();
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        World::Inst()->GetPlayers().at(i)->usar();
                     }
             }
             }
@@ -433,13 +435,13 @@ void Client::recibir(){
                 cogible = atoi(param2);
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
-                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
-                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
-                        if(cogible == 0){ World::Inst()->GetPlayersRed().at(i)->Soltar();
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        if(cogible == 0){ World::Inst()->GetPlayers().at(i)->Soltar();
                         }else{
                         //World::Inst()->GetPlayersRed().at(i)->CogerTirar(cogible);
-                        World::Inst()->GetPlayersRed().at(i)->CogerTirar();
+                        World::Inst()->GetPlayers().at(i)->CogerTirar();
                         }
                     }
                 }
@@ -450,21 +452,22 @@ void Client::recibir(){
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
 
-                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
-                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
-                        World::Inst()->GetPlayersRed().at(i)->setMoviendo(moviendo);
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
                     }
                 }
             }
 
             if(strcmp(tipo, "5") == 0){
                 moviendo = atoi(param2);
-                for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
-                    if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
                         //World::Inst()->GetPlayersRed().at(i)->saltar(moviendo);
-                        World::Inst()->GetPlayersRed().at(i)->saltar();
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
+                        //World::Inst()->GetPlayers().at(i)->saltar(moviendo);
                     }
                 }
             }

@@ -85,17 +85,11 @@ int World::Update(){
   }
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
-    if(m_Players.Get(i)){
+    if(!dynamic_cast<PlayerRed*>(m_Players.Get(i))){
       m_Players.Get(i)->actualiza();
       if(!m_Players.Get(i)->getMuerto())players++;
-    }
-  }
-
-
-  for (int i = 0; i < m_PlayersRed.Size(); ++i){
-    if(m_PlayersRed.Get(i)){
-      m_PlayersRed.Get(i)->actualiza();
-      if(!m_PlayersRed.Get(i)->getMuerto())players++;
+    }else{
+        dynamic_cast<PlayerRed*>(m_Players.Get(i))->actualiza();
     }
   }
 

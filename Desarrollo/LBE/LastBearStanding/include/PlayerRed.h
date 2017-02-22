@@ -11,7 +11,7 @@ class PlayerRed: public Player{
         PlayerRed(b2Vec2 pos, int mando, char idr[]);
         void actualiza();
         virtual ~PlayerRed(){}
-        void mover();
+        void mover(int mov);
         b2Vec2 getPosition(){return body->GetPosition();}
         void setx(long int aux){
             x = aux/1000000.f;
@@ -35,8 +35,10 @@ class PlayerRed: public Player{
         void setMuerto(bool aux){
             muerto = aux;
         }
+        void saltar(int i);
+        void setPos();
     protected:
-        int estado;
+        //int estado;
         int estadoAntiguo;
         bool primera = true;
 };

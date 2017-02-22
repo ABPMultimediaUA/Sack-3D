@@ -59,6 +59,7 @@ class Player: public Cogible{
         void  setIp(char aux[]){strncpy(ip, aux, sizeof(ip));}
         void  setId(char aux[]){strncpy(id, aux, sizeof(id));}
 
+
     protected:
         irr::scene::IMeshSceneNode* node;
         b2Body* body;

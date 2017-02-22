@@ -4,11 +4,6 @@
 #include "World.h"
 #include "IrrManager.h"
 
-#define LEVANTADO        1
-#define MUERTO_DORMIDO   2
-#define AGACHADO         3
-#define PLAYER           10
-#define PIESPLAYER       100
 
 
 Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
@@ -236,14 +231,3 @@ void Player::usar(){
             usable->usar();}
 }
 
-char* Player::getServerPort(){return serverPort;}
-char* Player::getClientPort(){return clientPort;}
-char* Player::getIp(){return ip;}
-char* Player::getId(){return id;}
-int  Player::getDireccion(){return direccion;}
-void Player::setClientPort(char aux[]){strncpy(clientPort, aux, sizeof(clientPort));}
-void Player::setServerPort(char aux[]){strncpy(serverPort, aux, sizeof(serverPort));}
-void Player::setIp(char aux[]){strncpy(ip, aux, sizeof(ip));}
-void Player::setId(char aux[]){
-    strncpy(id, aux, sizeof(id));
-}

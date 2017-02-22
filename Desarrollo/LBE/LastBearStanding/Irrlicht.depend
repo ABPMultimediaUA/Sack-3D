@@ -3828,7 +3828,7 @@
 	"Camera.h"
 	"Client.h"
 
-1487692641 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\player.h
+1487707130 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
@@ -3875,7 +3875,7 @@
 1487689668 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\irrmanager.h
 	"MyEventReceiver.h"
 
-1487689668 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
+1487707765 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Cogible.h"
@@ -3895,7 +3895,7 @@
 	"IrrManager.h"
 	<vector>
 
-1487689668 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\client.h
+1487705392 c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -3929,7 +3929,7 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1487694086 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
@@ -3937,7 +3937,7 @@
 	"Cogible.h"
 	"World.h"
 
-1487703338 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"IrrManager.h"
 	"World.h"
@@ -3947,7 +3947,7 @@
 	"IrrManager.h"
 	"World.h"
 
-1487704292 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 
@@ -3976,7 +3976,7 @@
 	"MyEventReceiver.h"
 	"World.h"
 
-1487689669 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\pistola.cpp
 	"Pistola.h"
 	"World.h"
 
@@ -3985,12 +3985,12 @@
 	"World.h"
 	"IrrManager.h"
 
-1487689669 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"Player.h"
 	"World.h"
 	"IrrManager.h"
 
-1487694061 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 	"IrrManager.h"
@@ -4007,11 +4007,227 @@
 	"Usable.h"
 	"World.h"
 
-1487695231 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\world.cpp
+1487705392 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\world.cpp
 	"World.h"
 	"MyContactListener.h"
 	"Cogible.h"
 
 1487703417 source:c:\users\pcj\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
+
+1487689668 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\main.cpp
+	"Master.h"
+	"Client.h"
+
+1487695785 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\master.h
+	"World.h"
+	"IrrManager.h"
+
+1487695245 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\world.h
+	<vector>
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"Spawner.h"
+	"PlayerRed.h"
+	"Platform.h"
+	"GameResource.h"
+	"RVector.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+	"Client.h"
+
+1487741314 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\pistola.h
+	"Usable.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\usable.h
+	"Cogible.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\escopeta.h
+	"Usable.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\granada.h
+	"Usable.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\spawner.h
+	"Cogible.h"
+	"IrrManager.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1487741200 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Player.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\gameresource.h
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\rvector.h
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\map.h
+	<irrlicht.h>
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1487705392 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\client.h
+	"MessageIdentifiers.h"
+	"RakPeerInterface.h"
+	"RakNetStatistics.h"
+	"RakNetTypes.h"
+	"BitStream.h"
+	"PacketLogger.h"
+	<assert.h>
+	<iostream>
+	<string>
+	<cstdio>
+	<cstring>
+	<stdlib.h>
+	"RakNetTypes.h"
+	"Kbhit.h"
+	"WindowsIncludes.h"
+	"Kbhit.h"
+	<unistd.h>
+	"Gets.h"
+	"SecureHandshake.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1487703782 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\bala.cpp
+	"Bala.h"
+	"World.h"
+	"IrrManager.h"
+
+1487704232 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\camera.cpp
+	"Camera.h"
+	"World.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+	"Cogible.h"
+	"World.h"
+
+1487705392 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"World.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"World.h"
+
+1487705392 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"World.h"
+	"GameResource.h"
+
+1487703417 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
+	"Master.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\muelle.cpp
+	"Muelle.h"
+	"World.h"
+	"IrrManager.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"World.h"
+
+1487689668 c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	"World.h"
+	<iostream>
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"World.h"
+
+1487705392 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+	"Pistola.h"
+	"World.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\platform.cpp
+	"Platform.h"
+	"World.h"
+	"IrrManager.h"
+
+1487741320 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
+	"Player.h"
+	"World.h"
+	"IrrManager.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\spawner.cpp
+	"World.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\teleport.cpp
+	"Teleport.h"
+	"World.h"
+	"IrrManager.h"
+
+1487689669 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\usable.cpp
+	"Usable.h"
+	"World.h"
+
+1487741491 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\world.cpp
+	"World.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1487740783 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
+	"Client.h"
+	"World.h"
+
+1487741316 source:c:\users\jorge\multiscan technologies s.l\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+	"PlayerRed.h"
+	"World.h"
+	"IrrManager.h"
 

@@ -12,11 +12,8 @@ Client::Client()
     numPlayersRed=0;
 }
 
-PlayerRed* Client::crearPlayer(char* i)
-{
-    return(new PlayerRed(i, 100.35, -62.085));
-
-
+PlayerRed* Client::crearPlayer(char* i){
+    return(new PlayerRed(b2Vec2(100.35, -62.085),0,i));
 }
 
 void Client::iniciar(){
@@ -385,7 +382,7 @@ void Client::recibir(){
                 }
                 else{
                     std::cout<<"seteando de compaaaadre>"<<param1<<" e-"<<param2<<" x-"<<param3<<" y-"<<param4<<" d-"<<param5<<" ITE-"<<iterador<<std::endl;
-                    PlayerRed* playerRed = new PlayerRed(param1, 100.35, -62.085);
+                    PlayerRed* playerRed = new PlayerRed(b2Vec2(100.35, -62.085),0,param1);
                     //World::Inst()->GetPlayersRed()->push_back(playerRed);
                     World::Inst()->AddPlayerRed(playerRed);
                     numPlayersRed++;
@@ -441,7 +438,8 @@ void Client::recibir(){
                     if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
                         if(cogible == 0){ World::Inst()->GetPlayersRed().at(i)->Soltar();
                         }else{
-                        World::Inst()->GetPlayersRed().at(i)->CogerTirar(cogible);
+                        //World::Inst()->GetPlayersRed().at(i)->CogerTirar(cogible);
+                        World::Inst()->GetPlayersRed().at(i)->CogerTirar();
                         }
                     }
                 }
@@ -465,7 +463,8 @@ void Client::recibir(){
                 for(int i=0; i < World::Inst()->GetPlayersRed().size(); i++){
 
                     if(strcmp(World::Inst()->GetPlayersRed().at(i)->getId(), param1) == 0){
-                        World::Inst()->GetPlayersRed().at(i)->saltar(moviendo);
+                        //World::Inst()->GetPlayersRed().at(i)->saltar(moviendo);
+                        World::Inst()->GetPlayersRed().at(i)->saltar();
                     }
                 }
             }

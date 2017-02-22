@@ -7,6 +7,13 @@
 #include "MyEventReceiver.h"
 #include "Cogible.h"
 
+
+#define LEVANTADO        1
+#define MUERTO_DORMIDO   2
+#define AGACHADO         3
+#define PLAYER           10
+#define PIESPLAYER       100
+
 class Player: public Cogible{
     public:
         Player(b2Vec2 pos, int mando);
@@ -41,16 +48,16 @@ class Player: public Cogible{
         void setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
         void setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
         void setParaMorir(bool aux){paraMorir = aux;}
-        char* getIp();
-        char* getServerPort();
-        char* getClientPort();
-        char* getId();
-        void setIp(char aux[]);
-        void setServerPort(char aux[]);
-        void setClientPort(char aux[]);
-        void setId(char aux[]);
+        int  getDireccion(){return direccion;}
+        char* getIp(){return ip;}
+        void setClientPort(char aux[]){strncpy(clientPort, aux, sizeof(clientPort));}
+        void setServerPort(char aux[]){strncpy(serverPort, aux, sizeof(serverPort));}
         int getEstado(){return estado;}
-        int getDireccion();
+        char* getId(){return id;}
+        char* getServerPort(){return serverPort;}
+        char* getClientPort(){return clientPort;}
+        void  setIp(char aux[]){strncpy(ip, aux, sizeof(ip));}
+        void  setId(char aux[]){strncpy(id, aux, sizeof(id));}
 
     protected:
         irr::scene::IMeshSceneNode* node;
@@ -86,7 +93,6 @@ class Player: public Cogible{
         irr::core::vector3df tam;
 		MyEventReceiver* eventReceiver;
 		b2Vec2 velActual;
-    private:
 };
 
 #endif

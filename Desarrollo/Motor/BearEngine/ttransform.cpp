@@ -1,0 +1,61 @@
+#include "ttransform.h"
+#include <iostream>
+extern std::vector<glm::mat4>* TEntidad::pila;
+
+TTransform::TTransform()
+{
+      tipo=1;
+      identidad();
+    //ctor
+}
+
+TTransform::~TTransform()
+{
+    //dtor
+}
+
+void TTransform::identidad(){
+
+    m_matriz= glm::mat4();
+}
+void TTransform::cargar(glm::mat4 Matriz){
+    m_matriz= Matriz;
+}
+void TTransform::trasponer(){
+    m_matriz = glm::transpose(m_matriz);
+}
+
+void TTransform::trasladar(glm::vec3 tras){
+    glm::mat4 matrizTrans = glm::translate(tras);
+    m_matriz = matrizTrans * m_matriz;
+}
+void TTransform::rotar(float grados, glm::vec3 eje){
+    glm::mat4 matrizRot = glm::rotate(grados,eje);
+      m_matriz = matrizRot * m_matriz;
+}
+void TTransform::escalar(glm::vec3 scala){
+    glm::mat4 matrizScaled = glm::scale(scala);
+    m_matriz = matrizScaled * m_matriz;
+}
+
+glm::mat4 TTransform::GetModel()const{
+    return  m_matriz;
+}
+
+void TTransform::begingDraw(Shader* shad, glm::mat4 matCam){
+
+    int tam=0;
+    int pos;
+   if(pila==0){
+    pila = new std::vector<glm::mat4>;
+    pila->push_back(glm::mat4());
+   }
+    tam= pila->size();
+    pos= tam-1;
+    pila->push_back(( pila->at(pos) * this->GetModel()));
+}
+
+void TTransform::endDraw(){
+    pila->pop_back();
+}
+int  TTransform::getTipo(){return tipo;}

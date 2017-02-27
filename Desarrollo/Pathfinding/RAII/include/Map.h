@@ -1,39 +1,37 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
 
-Project:       Last Bear Standing
-File:          Map.h
-
-Author:        Estudio Rorschach
-Created:
-Modified:      08/12/2016 Jorge Puerto
-
-Overview:
-
-*******************************************************************************/
-//---------------------------------------------------------------------------
 #ifndef MAP_H
 #define MAP_H
-//---------------------------------------------------------------------------
+
 #include <irrlicht.h>
-#include <Nodo.h>
+#include "Lista.h"
+#include "Nodo.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace video;
-using namespace io;
-using namespace gui;
-
-/******************************************************************************
-                               Map
-*******************************************************************************/
 class Map{
     public:
-        Map(stringw file);		///< Constructor
-        virtual ~Map();			///< Destructor
+        Map(irr::core::stringw file);
+        void obtenerPathfinding();
+        int distanciaManhattan(b2Vec2 posicion1, b2Vec2 posicion2);
+        Lista* getListaNodos(){ return nodos; }
+        Lista* getListaPath(){ return pathfinding; }
+        void comprobar(int i, int j, int peso, Nodo *nodoActual, Nodo *nodoFin);
+        void nodoCercano(float x, float y, Nodo* objetivo);
+        virtual ~Map(){}
     private:
+        Lista *nodos;
+        Lista *camino;
+        Lista *pathfinding;
+        Lista *pathfindingfinal;
+        Lista *listaAbierta;
+        Lista *listaCerrada;
+
+        Nodo* nodoActual;
+        Nodo* nodoInicial;
+        Nodo* nodoDestino;
+
+        b2Vec2 posicion;
+        b2Vec2 posicionI;
+        b2Vec2 posicionF;
+
 };
 
-#endif // MAP_H
+#endif

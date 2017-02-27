@@ -9,16 +9,18 @@
 //Lista Enlazada Simple
 class Lista
 {
-	private:
-		Nodo *head;
+    private:
+        Nodo *head;
         int tamanyo;
+        std::vector<int> cercanos;
+
     public:
         Lista(){
-        	this->head = nullptr;
+            this->head = nullptr;
             tamanyo = 0;
         }
         void setHead(Nodo *nodo){
-        	this->head = nodo;
+            this->head = nodo;
             head->setNext(nullptr);
         }
         Nodo *getHead(){
@@ -41,6 +43,66 @@ class Lista
         int getTamanyo(){
             return tamanyo;
         }
+
+        void *vaciarLista(){
+            this->head = nullptr;
+        }
+
+        void imprimirLista(){
+            Nodo* temp = this->getHead();
+            while (temp!=nullptr){
+                std::cout<<"  Nodo: "<<temp->getNumero()<<" : ";
+                                std::cout<<std::endl;
+
+                cercanos = temp->getAdyacentes();
+                for(int i=0; i<cercanos.size(); i++){
+                    std::cout<<" "<<cercanos[i]<<std::endl;
+                }
+                std::cout<<std::endl;
+                temp = temp->getNextNodo();
+            }
+            std::cout<<std::endl;
+
+            std::cout<<std::endl;
+        }
+
+        Nodo *buscaNumero(int i){
+            Nodo* temp = this->getHead();
+
+            while(temp!=nullptr){
+
+                if(i == temp->getNumero())
+                    return temp;
+
+                temp = temp->getNextNodo();
+            }
+            return nullptr;
+        }
+
+        Nodo *getMas(float x, float y){
+
+            float pos = (x/2) + 0.3;
+            int posX = (int) pos;
+
+            float pos2 = -1* (y/2);
+            int posY = (int) pos2;
+
+            Nodo *aux = this->head;
+            Nodo *aux2 = nullptr;
+            int dif = 100;
+
+            while(aux!=nullptr){
+                if(aux->getDatos().x == posY){
+                    if(abs(aux->getDatos().y - posX)< dif){
+                        aux2 = aux;
+                        dif = abs(aux->getDatos().y - posX);
+                    }
+                }
+                aux = aux->getNextNodo();
+            }
+            return aux2;
+        }
+
         Nodo *getMenorCosto(){
             Nodo *aux;
             Nodo *retur;
@@ -52,35 +114,19 @@ class Lista
                 if(aux){
                     while(aux->getNextNodo() != nullptr){
 
-                        if(costo >= aux->getCostoTotal() ){
+                        if(costo > aux->getCostoTotal() ){
                             costo = aux->getCostoTotal();
                             retur = aux;
                         }
                     aux = aux->getNextNodo();
                     }
                 }
+
                 return retur;
             }
             return nullptr;
         }
 
-        void *vaciarLista(){
-            this->head = 0;
-        }
-
-        void imprimirLista(int n){
-            Nodo* temp = this->getHead();
-            if(n == 1) std::cout<<"Lista Abierta: ";
-            else  std::cout<<"Lista Cerrrada: ";
-
-            while (temp!=nullptr){
-                std::cout<<temp->getDatos().x<<" "<<temp->getDatos().y<<" : ";
-                temp = temp->getNextNodo();
-            }            
-            std::cout<<std::endl;
-
-            std::cout<<std::endl;
-        }
 
         void *remove (b2Vec2 posicion){
             Nodo* temp = this->getHead();

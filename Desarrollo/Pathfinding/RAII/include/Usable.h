@@ -3,21 +3,16 @@
 
 #include "Cogible.h"
 
-class Usable : public Cogible
-{
+class Usable : public Cogible{
     public:
-        Usable();
-        void setExpuesto(bool aux);
-        bool getExpuesto();
-        virtual void usar();
-        virtual void setCogida(bool aux);
+        Usable(b2Vec2 pos);
         virtual ~Usable();
-
+        virtual void setExpuesto(bool aux);
+        virtual bool getExpuesto();
+        virtual void usar();
     protected:
-    	bool expuesto;
-        bool usando;
-
-    private:
+    	bool expuesto = true;
+        bool usando = false;
 };
 
-#endif // USABLE_H
+#endif 

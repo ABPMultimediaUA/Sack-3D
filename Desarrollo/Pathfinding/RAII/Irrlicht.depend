@@ -1078,20 +1078,20 @@
 1484091006 source:d:\development\sack-3d\desarrollo\junto con 2 player\src\usable.cpp
 	"Usable.h"
 
-1485108853 source:c:\users\jorge\desktop\abp\desarrollo\raii\main.cpp
+1485639599 source:c:\users\jorge\desktop\abp\desarrollo\raii\main.cpp
 	<irrlicht.h>
 	"PhysicWorld.h"
 	"IrrManager.h"
 	"Platform.h"
 	"Map.h"
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\player.h
+1485622516 c:\users\jorge\desktop\abp\desarrollo\raii\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
 	"Cogible.h"
 
-1485099008 c:\users\jorge\desktop\abp\desarrollo\raii\include\myeventreceiver.h
+1485622480 c:\users\jorge\desktop\abp\desarrollo\raii\include\myeventreceiver.h
 	<Box2D/Box2D.h>
 	<iostream>
 	<irrlicht.h>
@@ -1100,11 +1100,11 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\cogible.h
+1485622098 c:\users\jorge\desktop\abp\desarrollo\raii\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485109325 c:\users\jorge\desktop\abp\desarrollo\raii\include\physicworld.h
+1485624629 c:\users\jorge\desktop\abp\desarrollo\raii\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"Player.h"
@@ -1120,7 +1120,7 @@
 	"Map.h"
 	"Camera.h"
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\mycontactlistener.h
+1485624547 c:\users\jorge\desktop\abp\desarrollo\raii\include\mycontactlistener.h
 	"Box2D/Box2D.h"
 	<iostream>
 
@@ -1129,147 +1129,141 @@
 	<irrlicht.h>
 	"Usable.h"
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\usable.h
+1485622421 c:\users\jorge\desktop\abp\desarrollo\raii\include\usable.h
 	"Cogible.h"
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\bala.h
+1485621856 c:\users\jorge\desktop\abp\desarrollo\raii\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485044216 c:\users\jorge\desktop\abp\desarrollo\raii\include\muelle.h
+1485622771 c:\users\jorge\desktop\abp\desarrollo\raii\include\muelle.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1484971311 c:\users\jorge\desktop\abp\desarrollo\raii\include\teleport.h
+1485622780 c:\users\jorge\desktop\abp\desarrollo\raii\include\teleport.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485109315 c:\users\jorge\desktop\abp\desarrollo\raii\include\irrmanager.h
-	<irrlicht.h>
+1485624297 c:\users\jorge\desktop\abp\desarrollo\raii\include\irrmanager.h
 	"MyEventReceiver.h"
 
-1484946632 c:\users\jorge\desktop\abp\desarrollo\raii\include\platform.h
+1485623277 c:\users\jorge\desktop\abp\desarrollo\raii\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485098003 c:\users\jorge\desktop\abp\desarrollo\raii\include\escopeta.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1485622106 c:\users\jorge\desktop\abp\desarrollo\raii\include\escopeta.h
 	"Usable.h"
 
-1485098012 c:\users\jorge\desktop\abp\desarrollo\raii\include\granada.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-	<vector>
+1485622171 c:\users\jorge\desktop\abp\desarrollo\raii\include\granada.h
 	"Usable.h"
 
-1485102425 c:\users\jorge\desktop\abp\desarrollo\raii\include\map.h
+1485623071 c:\users\jorge\desktop\abp\desarrollo\raii\include\map.h
 	<irrlicht.h>
 
-1485102272 c:\users\jorge\desktop\abp\desarrollo\raii\include\camera.h
+1485624666 c:\users\jorge\desktop\abp\desarrollo\raii\include\camera.h
 	"IrrManager.h"
+	<vector>
 
 1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\Pistola.cpp
 	"Pistola.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\bala.cpp
+1485624639 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485102364 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\camera.cpp
+1485624656 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\camera.cpp
 	"Camera.h"
 	"PhysicWorld.h"
 	"Player.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\cogible.cpp
+1485571174 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\cogible.cpp
 	"Cogible.h"
+	"PhysicWorld.h"
 
 1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\cubomierda.cpp
 	"cuboMierda.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485108083 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\escopeta.cpp
+1485622744 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\escopeta.cpp
 	"Escopeta.h"
-	"PhysicWorld.h"
 	"IrrManager.h"
+	"PhysicWorld.h"
 
-1485098194 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\granada.cpp
+1485622745 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\granada.cpp
 	"Granada.h"
+	"IrrManager.h"
 	"PhysicWorld.h"
-	"IrrManager.h"
 
-1485108844 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\irrmanager.cpp
+1485624354 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\irrmanager.cpp
 	"IrrManager.h"
+	"MyEventReceiver.h"
 
-1485098336 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\map.cpp
+1485623897 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
 	"PhysicWorld.h"
 	"GameResource.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\muelle.cpp
+1485622746 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\muelle.cpp
 	"Muelle.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485099063 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\mycontactlistener.cpp
+1485624535 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1485099084 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\myeventreceiver.cpp
+1485639628 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 
-1485107362 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\physicworld.cpp
+1485624617 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\physicworld.cpp
 	"PhysicWorld.h"
 	"MyContactListener.h"
 	"Cogible.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\platform.cpp
+1485622747 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485101315 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\player.cpp
+1485624048 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485097426 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\teleport.cpp
+1485622724 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\teleport.cpp
 	"Teleport.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1484946632 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\usable.cpp
+1485449417 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\usable.cpp
 	"Usable.h"
 
-1484965689 c:\users\jorge\desktop\abp\desarrollo\raii\include\gameresource.h
+1485622125 c:\users\jorge\desktop\abp\desarrollo\raii\include\gameresource.h
 
 1484965488 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\gameresource.cpp
 
-1485095982 c:\users\jorge\desktop\abp\desarrollo\raii\include\pistola.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1485622361 c:\users\jorge\desktop\abp\desarrollo\raii\include\pistola.h
 	"Usable.h"
 
-1485108163 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\pistola.cpp
+1485622747 source:c:\users\jorge\desktop\abp\desarrollo\raii\src\pistola.cpp
 	"Pistola.h"
 	"PhysicWorld.h"
-	"IrrManager.h"
 
-1485168909 source:c:\users\robeert\desktop\raii\main.cpp
+1485271108 source:c:\users\pcj\desktop\abp\desarrollo\raii\main.cpp
 	<irrlicht.h>
 	"PhysicWorld.h"
 	"IrrManager.h"
 	"Platform.h"
 	"Map.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\physicworld.h
+1485271823 c:\users\pcj\desktop\abp\desarrollo\raii\include\physicworld.h
 	<Box2D/Box2D.h>
 	<iostream>
 	"Player.h"
@@ -1285,163 +1279,1123 @@
 	"Map.h"
 	"Camera.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\player.h
+1485273942 c:\users\pcj\desktop\abp\desarrollo\raii\include\player.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"MyEventReceiver.h"
 	"Cogible.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\myeventreceiver.h
+1485271108 c:\users\pcj\desktop\abp\desarrollo\raii\include\myeventreceiver.h
 	<Box2D/Box2D.h>
 	<iostream>
 	<irrlicht.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\cogible.h
+1485455422 c:\users\pcj\desktop\abp\desarrollo\raii\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\mycontactlistener.h
+1485271108 c:\users\pcj\desktop\abp\desarrollo\raii\include\mycontactlistener.h
 	"Box2D/Box2D.h"
 	<iostream>
 
-1485168909 c:\users\robeert\desktop\raii\include\pistola.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1485446609 c:\users\pcj\desktop\abp\desarrollo\raii\include\pistola.h
 	"Usable.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\usable.h
+1485449414 c:\users\pcj\desktop\abp\desarrollo\raii\include\usable.h
 	"Cogible.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\escopeta.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1485446630 c:\users\pcj\desktop\abp\desarrollo\raii\include\escopeta.h
 	"Usable.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\granada.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-	<vector>
+1485456137 c:\users\pcj\desktop\abp\desarrollo\raii\include\granada.h
 	"Usable.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\bala.h
+1485274037 c:\users\pcj\desktop\abp\desarrollo\raii\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\muelle.h
+1485273945 c:\users\pcj\desktop\abp\desarrollo\raii\include\muelle.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\teleport.h
+1485273942 c:\users\pcj\desktop\abp\desarrollo\raii\include\teleport.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\gameresource.h
+1485458115 c:\users\pcj\desktop\abp\desarrollo\raii\include\gameresource.h
 
-1485339016 c:\users\robeert\desktop\raii\include\map.h
+1485271108 c:\users\pcj\desktop\abp\desarrollo\raii\include\map.h
 	<irrlicht.h>
-	<Nodo.h>
 
-1485168909 c:\users\robeert\desktop\raii\include\camera.h
+1485448295 c:\users\pcj\desktop\abp\desarrollo\raii\include\camera.h
 	"IrrManager.h"
+	<vector>
 
-1485168909 c:\users\robeert\desktop\raii\include\irrmanager.h
-	<irrlicht.h>
+1485449305 c:\users\pcj\desktop\abp\desarrollo\raii\include\irrmanager.h
 	"MyEventReceiver.h"
 
-1485168909 c:\users\robeert\desktop\raii\include\platform.h
+1485273938 c:\users\pcj\desktop\abp\desarrollo\raii\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1485168910 source:c:\users\robeert\desktop\raii\src\bala.cpp
+1485273943 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\bala.cpp
 	"Bala.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\camera.cpp
+1485273943 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\camera.cpp
 	"Camera.h"
 	"PhysicWorld.h"
 	"Player.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\cogible.cpp
+1485458655 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\cogible.cpp
 	"Cogible.h"
+	"PhysicWorld.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\escopeta.cpp
+1485449846 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\escopeta.cpp
 	"Escopeta.h"
-	"PhysicWorld.h"
 	"IrrManager.h"
+	"PhysicWorld.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\granada.cpp
+1485459020 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\granada.cpp
 	"Granada.h"
+	"IrrManager.h"
 	"PhysicWorld.h"
-	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\irrmanager.cpp
+1485449330 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\irrmanager.cpp
 	"IrrManager.h"
+	"MyEventReceiver.h"
 
-1485516240 source:c:\users\robeert\desktop\raii\src\map.cpp
-	"Lista.h"
-	"Nodo.h"
+1485357314 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
 	"PhysicWorld.h"
 	"GameResource.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\muelle.cpp
+1485273937 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\muelle.cpp
 	"Muelle.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\mycontactlistener.cpp
+1485284553 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"PhysicWorld.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\myeventreceiver.cpp
+1485283976 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"PhysicWorld.h"
 
-1485255080 source:c:\users\robeert\desktop\raii\src\physicworld.cpp
-	"PhysicWorld.h"
-	"MyContactListener.h"
-	"Cogible.h"
-
-1485168910 source:c:\users\robeert\desktop\raii\src\pistola.cpp
+1485449849 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\pistola.cpp
 	"Pistola.h"
 	"PhysicWorld.h"
-	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\platform.cpp
+1485273929 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\platform.cpp
 	"Platform.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\player.cpp
+1485285674 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\player.cpp
 	"Player.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\teleport.cpp
+1485273930 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\teleport.cpp
 	"Teleport.h"
 	"PhysicWorld.h"
 	"IrrManager.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\usable.cpp
+1485449417 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\usable.cpp
 	"Usable.h"
 
-1485168910 source:c:\users\robeert\desktop\raii\src\gameresource.cpp
+1485458033 source:c:\users\pcj\desktop\abp\desarrollo\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
 
-1485273926 source:c:\users\robeert\desktop\raii\src\lista.cpp
+1485884397 source:c:\users\jpuerto\documents\abp\raii\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
 
-1485514046 c:\users\robeert\desktop\raii\include\lista.h
+1485884435 c:\users\jpuerto\documents\abp\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1485622516 c:\users\jpuerto\documents\abp\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1485622480 c:\users\jpuerto\documents\abp\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1485622098 c:\users\jpuerto\documents\abp\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485624547 c:\users\jpuerto\documents\abp\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1485622361 c:\users\jpuerto\documents\abp\raii\include\pistola.h
+	"Usable.h"
+
+1485622421 c:\users\jpuerto\documents\abp\raii\include\usable.h
+	"Cogible.h"
+
+1485622106 c:\users\jpuerto\documents\abp\raii\include\escopeta.h
+	"Usable.h"
+
+1485622171 c:\users\jpuerto\documents\abp\raii\include\granada.h
+	"Usable.h"
+
+1485621856 c:\users\jpuerto\documents\abp\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485622771 c:\users\jpuerto\documents\abp\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485622780 c:\users\jpuerto\documents\abp\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485881728 c:\users\jpuerto\documents\abp\raii\include\gameresource.h
+
+1485623071 c:\users\jpuerto\documents\abp\raii\include\map.h
+	<irrlicht.h>
+
+1485624666 c:\users\jpuerto\documents\abp\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1485624297 c:\users\jpuerto\documents\abp\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1485623277 c:\users\jpuerto\documents\abp\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485624639 source:c:\users\jpuerto\documents\abp\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485624656 source:c:\users\jpuerto\documents\abp\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1485571174 source:c:\users\jpuerto\documents\abp\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1485622744 source:c:\users\jpuerto\documents\abp\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1485883694 source:c:\users\jpuerto\documents\abp\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1485624354 source:c:\users\jpuerto\documents\abp\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1485623897 source:c:\users\jpuerto\documents\abp\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1485622746 source:c:\users\jpuerto\documents\abp\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485624535 source:c:\users\jpuerto\documents\abp\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1485883647 source:c:\users\jpuerto\documents\abp\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1485622747 source:c:\users\jpuerto\documents\abp\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1485622747 source:c:\users\jpuerto\documents\abp\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485624048 source:c:\users\jpuerto\documents\abp\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485622724 source:c:\users\jpuerto\documents\abp\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485449417 source:c:\users\jpuerto\documents\abp\raii\src\usable.cpp
+	"Usable.h"
+
+1485640943 source:c:\users\jpuerto\documents\abp\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1485884397 source:c:\users\jpuerto\documents\raii\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1486050211 c:\users\jpuerto\documents\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1486051553 c:\users\jpuerto\documents\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1485622480 c:\users\jpuerto\documents\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1486060615 c:\users\jpuerto\documents\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485624547 c:\users\jpuerto\documents\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1485622361 c:\users\jpuerto\documents\raii\include\pistola.h
+	"Usable.h"
+
+1485622421 c:\users\jpuerto\documents\raii\include\usable.h
+	"Cogible.h"
+
+1486050016 c:\users\jpuerto\documents\raii\include\escopeta.h
+	"Usable.h"
+
+1485622171 c:\users\jpuerto\documents\raii\include\granada.h
+	"Usable.h"
+
+1486049549 c:\users\jpuerto\documents\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486289816 c:\users\jpuerto\documents\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486290876 c:\users\jpuerto\documents\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485881728 c:\users\jpuerto\documents\raii\include\gameresource.h
+
+1486289670 c:\users\jpuerto\documents\raii\include\map.h
+	<irrlicht.h>
+
+1486290703 c:\users\jpuerto\documents\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1485624297 c:\users\jpuerto\documents\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1486289355 c:\users\jpuerto\documents\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486049835 source:c:\users\jpuerto\documents\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486290694 source:c:\users\jpuerto\documents\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1485571174 source:c:\users\jpuerto\documents\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1486052410 source:c:\users\jpuerto\documents\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486051583 source:c:\users\jpuerto\documents\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486291076 source:c:\users\jpuerto\documents\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1486290115 source:c:\users\jpuerto\documents\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1486289552 source:c:\users\jpuerto\documents\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485624535 source:c:\users\jpuerto\documents\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1486291430 source:c:\users\jpuerto\documents\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1486286913 source:c:\users\jpuerto\documents\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1486048134 source:c:\users\jpuerto\documents\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1486290760 source:c:\users\jpuerto\documents\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486291484 source:c:\users\jpuerto\documents\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486290823 source:c:\users\jpuerto\documents\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485449417 source:c:\users\jpuerto\documents\raii\src\usable.cpp
+	"Usable.h"
+
+1485884398 source:c:\users\jorge\desktop\raii\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1486414170 c:\users\jorge\desktop\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1486051554 c:\users\jorge\desktop\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1485622482 c:\users\jorge\desktop\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1486060616 c:\users\jorge\desktop\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485624548 c:\users\jorge\desktop\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1485622362 c:\users\jorge\desktop\raii\include\pistola.h
+	"Usable.h"
+
+1485622422 c:\users\jorge\desktop\raii\include\usable.h
+	"Cogible.h"
+
+1486291604 c:\users\jorge\desktop\raii\include\escopeta.h
+	"Usable.h"
+
+1485622172 c:\users\jorge\desktop\raii\include\granada.h
+	"Usable.h"
+
+1486049550 c:\users\jorge\desktop\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486289818 c:\users\jorge\desktop\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486290878 c:\users\jorge\desktop\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1485881730 c:\users\jorge\desktop\raii\include\gameresource.h
+
+1486289672 c:\users\jorge\desktop\raii\include\map.h
+	<irrlicht.h>
+
+1486290704 c:\users\jorge\desktop\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1485624298 c:\users\jorge\desktop\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1486289356 c:\users\jorge\desktop\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486049836 source:c:\users\jorge\desktop\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486411042 source:c:\users\jorge\desktop\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1485571176 source:c:\users\jorge\desktop\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1486051584 source:c:\users\jorge\desktop\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486291078 source:c:\users\jorge\desktop\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1486414032 source:c:\users\jorge\desktop\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1486411165 source:c:\users\jorge\desktop\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486414782 source:c:\users\jorge\desktop\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1486291432 source:c:\users\jorge\desktop\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1486413600 source:c:\users\jorge\desktop\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1486408459 source:c:\users\jorge\desktop\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1486290762 source:c:\users\jorge\desktop\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486415024 source:c:\users\jorge\desktop\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486411187 source:c:\users\jorge\desktop\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1485449418 source:c:\users\jorge\desktop\raii\src\usable.cpp
+	"Usable.h"
+
+1486291598 source:c:\users\jorge\desktop\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1488134626 c:\users\robeert\desktop\raii\include\pistola.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\usable.h
+	"Cogible.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\escopeta.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\granada.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\raii\include\gameresource.h
+
+1488215941 c:\users\robeert\desktop\raii\include\map.h
+	<irrlicht.h>
+	"Lista.h"
+	"Nodo.h"
+
+1488134626 c:\users\robeert\desktop\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1488134626 c:\users\robeert\desktop\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1488215967 source:c:\users\robeert\desktop\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+	<sstream>
+
+1488134626 c:\users\robeert\desktop\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134627 source:c:\users\robeert\desktop\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1488134955 source:c:\users\robeert\desktop\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\raii\src\usable.cpp
+	"Usable.h"
+
+1488134626 source:c:\users\robeert\desktop\raii\main.cpp
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1488215992 c:\users\robeert\desktop\raii\include\lista.h
 	<Nodo.h>
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	<iostream>
 
-1485513815 c:\users\robeert\desktop\raii\include\nodo.h
+1488213601 c:\users\robeert\desktop\raii\include\nodo.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+	<vector>
+
+1486650754 source:c:\users\esgar\desktop\node based\raii\main.cpp
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1487601593 c:\users\esgar\desktop\node based\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1487988913 c:\users\esgar\desktop\node based\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\pistola.h
+	"Usable.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\usable.h
+	"Cogible.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\escopeta.h
+	"Usable.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\granada.h
+	"Usable.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\gameresource.h
+
+1488035638 c:\users\esgar\desktop\node based\raii\include\map.h
+	<irrlicht.h>
+	"Lista.h"
+	"Nodo.h"
+
+1487846230 c:\users\esgar\desktop\node based\raii\include\lista.h
+	<Nodo.h>
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	<iostream>
 
-1485273890 source:c:\users\robeert\desktop\raii\src\nodo.cpp
+1487845552 c:\users\esgar\desktop\node based\raii\include\nodo.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1486480279 c:\users\esgar\desktop\node based\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1488038986 source:c:\users\esgar\desktop\node based\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1487981149 source:c:\users\esgar\desktop\node based\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488040164 source:c:\users\esgar\desktop\node based\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1486480279 source:c:\users\esgar\desktop\node based\raii\src\usable.cpp
+	"Usable.h"
+
+1488035624 source:c:\users\esgar\desktop\node based\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1488134626 source:c:\users\robeert\desktop\path node based  funciona\raii\main.cpp
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\pistola.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\usable.h
+	"Cogible.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\escopeta.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\granada.h
+	"Usable.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\gameresource.h
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\map.h
+	<irrlicht.h>
+	"Lista.h"
+	"Nodo.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\lista.h
+	<Nodo.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\nodo.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1488134626 c:\users\robeert\desktop\path node based  funciona\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1488134955 source:c:\users\robeert\desktop\path node based  funciona\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488134627 source:c:\users\robeert\desktop\path node based  funciona\raii\src\usable.cpp
+	"Usable.h"
 

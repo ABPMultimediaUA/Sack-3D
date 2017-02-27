@@ -1,57 +1,24 @@
-/*******************************************************************************
-Estudio Rorschach - Last Bear Standing
-Copyright  2016. All Rights Reserved.
 
-Project:       Last Bear Standing
-File:          Pistola.h
-
-Author:        Estudio Rorschach
-Created:
-Modified:      19/12/2016 Miguel Paniagua
-
-Overview:
-Clase que contiene el codigo de funcionamiento para la granada.
-*******************************************************************************/
-//---------------------------------------------------------------------------
 #ifndef GRANADA_H
 #define GRANADA_H
-//---------------------------------------------------------------------------
-#include <Box2D/Box2D.h>
-#include <irrlicht.h>
-#include <vector>
+
 #include "Usable.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace video;
-using namespace io;
-using namespace gui;
+#define PARTICULAS 10
 
-/******************************************************************************
-                               Granada
-*******************************************************************************/
 class Granada:public Usable{
     public:
-        Granada(int modelo,vector3df pos);
-        void actualiza();		///< actualiza la posicion y rotacion del Pistola
-        void usar();            ///< ejecuta el usar de la clase
-        f32 timergranada;       ///<
-        ITimer* timerIrr;       ///<
-        void setCogida(bool aux);
-        bool getCogida();
-        b2Body* getBody();		///< Getter del body
-        virtual ~Granada();
-
-    protected:
-        IMeshSceneNode* node;	///< Nodo irrlicht para poder mover, dibujar, etc.
-	    b2Body* body;			///< Cuerpo fisico box2d para poder aplicar fisicas
-	    int mecha;
-	    bool usada;
-	    bool siendoCogida;      ///< Booleano que indicara si esta siendo cogida
-        std::vector<b2Body*>* particulas;
-
+        Granada(int modelo,b2Vec2 pos);
+        virtual ~Granada(){}
+        void actualiza();           
+        void usar();                
     private:
+        int timerGranada; 
+        irr::ITimer* timerIrr;      
+        b2Body* particulas[PARTICULAS];
+        int mecha = 4000;
+        bool usada = false;
+        bool explotada = false;
 };
 
-#endif // GRANADA_H
+#endif 

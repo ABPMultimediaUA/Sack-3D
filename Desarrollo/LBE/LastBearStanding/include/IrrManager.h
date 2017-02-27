@@ -14,6 +14,7 @@ class IrrMngr{
         void drop();
         float getTime();
         void Close();
+        irr::gui::IGUIFont* getFont();
         irr::scene::IMesh* createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam,  irr::video::SColor color);
         irr::scene::IMeshSceneNode* addCubeSceneNode(int tam , irr::video::SColor color);
         irr::scene::IMeshSceneNode* addCubeSceneNode(irr::core::vector3df tam, irr::video::SColor color);

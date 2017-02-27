@@ -5,6 +5,7 @@ Client::Client()
 {
     //ctor
     //unsigned char GetPacketIdentifier(RakNet::Packet *p);
+
     client=RakNet::RakPeerInterface::GetInstance();
     clientID=RakNet::UNASSIGNED_SYSTEM_ADDRESS;
     isServer=false;
@@ -25,7 +26,7 @@ void Client::iniciar(){
     puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
     //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-    strncpy(auxip, "192.168.1.6", sizeof(auxip));
+    strncpy(auxip, "172.27.85.118", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));
@@ -63,6 +64,9 @@ void Client::iniciar(){
 	printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
 	//client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString()
 	//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getClientPort(), sizeof(aux));
+	    //timer=IrrMngr::Inst()->getTime();
+
+	    while(!run){ recibir();}
 
 }
 
@@ -150,7 +154,7 @@ void Client::enviarUsar(){
     strncat (tipo, id, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -175,7 +179,7 @@ void Client::enviarCogido (int TCogible){
 
     //strncat (tipo, Tarma, 30);
     strncpy(aux, tipo, sizeof(aux));
-    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -185,6 +189,17 @@ void Client::enviarMoviendo(int moviendo){
     char tipo[60];
     char id[30];
     char mov[30];
+    char posx[30];
+    char posy[30];
+
+    float auxiliarx;
+    float auxiliary;
+    b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
+    auxiliarx = posicion.x * 1000000;
+    auxiliary = posicion.y * 1000000;
+
+    sprintf(posx, "%.0f", auxiliarx);
+    sprintf(posy, "%.0f", auxiliary);
 
     strncpy(tipo, "4", sizeof(tipo));
 
@@ -199,9 +214,13 @@ void Client::enviarMoviendo(int moviendo){
     strncat (tipo, id, 30);
     strncat (tipo, " ", 30);
     strncat (tipo, mov, 30);
+    strncat (tipo, " ", 30);
+    strncat (tipo, posx, 30);
+    strncat (tipo, " ", 30);
+    strncat (tipo, posy, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -226,7 +245,7 @@ void Client::enviarSalto(int Nsalto){
     strncat (tipo, salto, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-    std::cout<<"ENVIANDO "<<aux<<std::endl;
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -317,12 +336,12 @@ void Client::recibir(){
 			int cogible;
 			int Tarma;
 			int moviendo;
-			PlayerRed* Player1;
+			/*PlayerRed* Player1;
 			PlayerRed* Player2;
-			PlayerRed* Player3;
+			PlayerRed* Player3;*/
 
             struct TPlayersRed{
-                PlayerRed* player;
+                /*PlayerRed* player;*/
                 char* id;
             };
 
@@ -360,36 +379,31 @@ void Client::recibir(){
             }
 
             TPlayersRed players [3]=
-            {{Player1, param2}
-            ,{Player2, param3}
-            ,{Player3, param4}
+            {{param2}
+            ,{param3}
+            ,{param4}
             };
 
             /////////PARTE CREAR PLAYERRED\\\\\\\\
 
             if(strcmp(tipo, "0") == 0){
-                if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){
-                    World::Inst()->getPlayer(1)->setId(param1);
-                    strncpy(idCliente, param1, sizeof(idCliente));
-                    for(int i=1;i<iterador-1;i++){
-                        players[i-1].player = crearPlayer(players[i-1].id);
-                        //World::Inst()->GetPlayersRed()->push_back(players[i-1].player);
-                        World::Inst()->AddPlayer(players[i-1].player);
+                if(strcmp(idCliente, "") == 0){
+                strncpy(idCliente, param1, sizeof(idCliente));
+                for(int i=1;i<iterador-1;i++){
+                        std::cout<<"ENTRO EN CREAR PLAYERred1"<<players[i-1].id<<std::endl;
                         numPlayersRed++;
-                        //playersRed[numPlayersRed-1].id = players[i-1].id;
-                        strncpy(playersRed[numPlayersRed-1].id, players[i-1].id, sizeof(playersRed[numPlayersRed-1].id));
+                       // playersRed.id
+                        strncpy(playersRed[i-1].id, players[i-1].id, sizeof(playersRed[i-1].id));
+                    }
+                }else{
+                    for(int i=1;i<iterador-1;i++){
+                        std::cout<<"ENTRO EN CREAR PLAYERred2"<<players[i-1].id<<std::endl;
+                        numPlayersRed++;
+                       // playersRed.id
+                        strncpy(playersRed[i-1].id, param1, sizeof(playersRed[i-1].id));
                     }
                 }
-                else{
-                    std::cout<<"seteando de compaaaadre>"<<param1<<" e-"<<param2<<" x-"<<param3<<" y-"<<param4<<" d-"<<param5<<" ITE-"<<iterador<<std::endl;
-                    PlayerRed* playerRed = new PlayerRed(b2Vec2(100.f, 61.995),0,param1);
-                    //World::Inst()->GetPlayersRed()->push_back(playerRed);
-                    World::Inst()->AddPlayer(playerRed);
-                    numPlayersRed++;
-                    //playersRed[numPlayersRed-1].id = param1;
-                    strncpy(playersRed[numPlayersRed-1].id, param1, sizeof(param1));
-                }
-                enviar();
+
             }
 
             /////////PARTE UPDATE PLAYERRED\\\\\\\\
@@ -403,7 +417,7 @@ void Client::recibir(){
 
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
-        if(IrrMngr::Inst()->getTime()>(timer+5000)){
+       // if(IrrMngr::Inst()->getTime()>(timer+5000)){
                 for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
                     if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
                         PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
@@ -413,11 +427,11 @@ void Client::recibir(){
                         p->setDireccion(dir);
                         p->setMuerto(muerto);
                         p->setPos();
-                        std::cout<<"SEEEET "<<msg<<std::endl;
+                        //std::cout<<"SEEEET "<<msg<<std::endl;
                     }
                 }
                 timer=IrrMngr::Inst()->getTime();
-        }
+       // }
             }
 
             /////////PARTE DISPARO PLAYERRED\\\\\\\\
@@ -449,12 +463,17 @@ void Client::recibir(){
 
             if(strcmp(tipo, "4") == 0){
                 moviendo = atoi(param2);
+                x = atol(param3);
+                y = atol(param4);
                 /////////PARTE SETTEAR PLAYERRED\\\\\\\\
 
 
                 for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
                     if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setx(x);
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->sety(y);
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setPos();
                         dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
                     }
                 }
@@ -471,7 +490,21 @@ void Client::recibir(){
                     }
                 }
             }
+
+            if(strcmp(tipo, "Server:") == 0){
+                run=true;
+                empezar();
+            }
 		}
+
+}
+
+void Client:: empezar(){
+
+    for(int i=1;i<=numPlayersRed;i++){
+        PlayerRed* playerRed = crearPlayer(playersRed[i-1].id);
+        World::Inst()->AddPlayer(playerRed);
+    }
 
 }
 

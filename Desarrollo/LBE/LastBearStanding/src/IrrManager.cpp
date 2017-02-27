@@ -14,7 +14,7 @@ void IrrMngr::Reset(){
 }
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr(){
-	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_OPENGL);
+	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
 	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );
@@ -30,6 +30,9 @@ IrrMngr::IrrMngr(){
 void IrrMngr::Update(){
 	smgr->drawAll();
 	endScene();
+}
+irr::gui::IGUIFont* IrrMngr::getFont(){
+	irr::gui::IGUIFont* font = guienv->getBuiltInFont();
 }
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
 	irr::scene::IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);

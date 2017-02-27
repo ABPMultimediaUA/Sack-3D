@@ -4,8 +4,8 @@
 #include "Player.h"
 #include "PlayerRed.h"
 
-#define FPS  60
 #define MINZ 15
+#define FPS 20
 
 Camera::Camera(){
 	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
@@ -23,7 +23,7 @@ Camera::Camera(){
 Camera::~Camera(){
     camera->remove();
 }
-Camera::update(float time){
+Camera::update(float time, int fps){
 	float xMin,yMin,xMax,yMax,z;
     bool ini = false;
     bool puedo = false;
@@ -60,12 +60,13 @@ Camera::update(float time){
         }
     }
 	if(time - tiempoTransc > updateT){
+        if(fps<29)fps=30;
     	tiempoTransc = timer->getTime();
         porcentUpdate = 0;
         cenAnt = b2Vec2(cenSig.x,cenSig.y);
         cenSig = b2Vec2((xMin + xMax)/2,(yMin + yMax)/2);
-        porcentGap = ceil(((1000.f/FPS)/updateT)*10)/10;
-        updateT = 1000.f/(FPS/10.0f);
+        porcentGap = ceil(((1000.f/fps)/updateT)*10)/10;
+        updateT = 1000.f/(fps/10.0f);
 	}
 	float cenX = cenAnt.x + ((cenSig.x - cenAnt.x)/(porcentGap*100)*porcentUpdate*10);
     float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);

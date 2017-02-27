@@ -58,8 +58,10 @@ class Client
         PlayerRed* crearPlayer(char* i);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
+        bool getRun(){return run;}
         TPlayersRed playersRed [3];
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
+        void empezar();
         virtual ~Client();
 
     protected:
@@ -68,6 +70,8 @@ class Client
         char idCliente[30];
         int numPlayersRed;
         irr::f32 timer;
+        bool run = false;;
+
 };
 
 #endif // CLIENT_H

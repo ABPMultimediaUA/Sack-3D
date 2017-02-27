@@ -6,7 +6,7 @@ class Camera{
     public:
         Camera();
         virtual ~Camera();
-        update(float time);
+        update(float time,int fps);
     private:
     	irr::scene::ICameraSceneNode* camera;
         irr::ITimer* timer;

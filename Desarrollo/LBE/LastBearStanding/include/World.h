@@ -23,6 +23,7 @@
 
 extern Client* cliente;
 
+
 class MyContactListener;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
@@ -46,7 +47,6 @@ enum UserDatas {
     DATA_SUELO           = 8,
     DATA_PINCHO          = 9,
 };
-
 
 class World{
     public:
@@ -83,6 +83,8 @@ class World{
         GameResource<MyContactListener> contactListener;
         float DeltaTime;
         float TimeStamp;
+        
+        irr::gui::IGUIFont* font;
         GameResource<Camera>   camara;
         RVector<Teleport>      m_Teleports;
         RVector<Player>        m_Players;

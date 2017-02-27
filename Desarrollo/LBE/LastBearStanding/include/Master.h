@@ -4,6 +4,7 @@
 #include "World.h"
 #include "IrrManager.h"
 
+
 struct Num2Map {
      int num;
      irr::core::stringw map;
@@ -19,6 +20,8 @@ class Master{
         virtual ~Master(){}
     private:
     	bool finPartida = false;
+        irr::f32 timeFPS;
+        irr::ITimer* timerFPS;
     	irr::f32 timeFinPartida;
         irr::ITimer* timerFinPartida;
         const Num2Map maps[10] = {

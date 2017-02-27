@@ -21,14 +21,16 @@ void PlayerRed::mover(int mov){
 
 void PlayerRed::actualiza(){
     //Player::actualiza();
+    if(paraMorir)morir();
     node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
     mover(moviendo);
+    /*
     if(estado != estadoAntiguo){
             std::cout<<"estaaaaaaaaaaaaaado"<<std::endl;
         fingirMuerte();
         estadoAntiguo = estado;
-    }
+    }*/
 }
 
 void PlayerRed::setPos(){
@@ -47,3 +49,5 @@ void PlayerRed::saltar(int i){
         body->SetLinearVelocity(velV);
     }
 }
+
+

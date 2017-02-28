@@ -60,6 +60,7 @@ class Client
         void enviarCogido(int cogible);
         void enviarMoviendo(int moviendo);
         void enviarUsar();
+        void enviarMuerto();
         void analizarPaquete0(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete1(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
@@ -67,6 +68,7 @@ class Client
         void analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete6(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){run=true;}
+        void analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
@@ -82,7 +84,7 @@ class Client
         irr::f32 timer;
         bool run = false;
         int iterador;
-        const Type2Func packetFunction[8] = {
+        const Type2Func packetFunction[9] = {
               { 0         , analizarPaquete0    }
             , { 1         , analizarPaquete1    }
             , { 2         , analizarPaquete2    }
@@ -90,6 +92,7 @@ class Client
             , { 4         , analizarPaquete4    }
             , { 5         , analizarPaquete5    }
             , { 6         , analizarPaquete6    }
+            , { 7         , analizarPaquete7    }
             , { -1        , 0                   }
         };
 

@@ -169,12 +169,14 @@ void Player::fingirMuerte(){
     }
 }
 void Player::morir(){
+    std::cout<<"WENTRO?"<<std::endl;
     paraMorir = false;
     if(cogiendo) Soltar();
     DestroyFixtures();
     estado = MUERTO_DORMIDO;
     InicializeFixtures(MUERTO_DORMIDO);
     muerto = true;
+    cliente->enviarMuerto();
 }
 void Player::CogerTirar(){
     if(puedoCoger && !cogiendo){

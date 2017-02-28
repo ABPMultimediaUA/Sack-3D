@@ -13,7 +13,7 @@ int main(){
 	while(m.Run()){
         m.Update();
         cliente->recibir();
-        if(IrrMngr::Inst()->getTime()>(timer+500)){
+        if(IrrMngr::Inst()->getTime()>(timer+1112500)){
             cliente->enviar();
             timer = IrrMngr::Inst()->getTime();
         }

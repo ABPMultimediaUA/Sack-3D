@@ -156,6 +156,23 @@ void Client::enviarUsar(){
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
+void Client::enviarMuerto(){
+    char aux[60];
+    char tipo[60];
+    char id[30];
+
+    strncpy(tipo, "7", sizeof(tipo));
+        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+
+    strncat (tipo, " ", 30);
+    strncat (tipo, id, 30);
+
+    strncpy(aux, tipo, sizeof(aux));
+
+    client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
+}
+
 void Client::enviarCogido (int TCogible){
     char aux[60];
     char tipo[60];
@@ -459,9 +476,9 @@ void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param
         for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                if(cogible == 0){ World::Inst()->GetPlayers().at(i)->Soltar();
+                if(cogible == 0){ dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(0);
                 }else{
-                World::Inst()->GetPlayers().at(i)->CogerTirar();
+                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(cogible);
                 }
             }
         }
@@ -497,10 +514,20 @@ void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param
     }
 }
 
+void Client::analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+
+    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                std::cout<<"EENTRO EN MORIR"<<std::endl;
+            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->morirRed();
+        }
+    }
+}
+
 bool Client::comprobacion(char* tipo){
 if(strcmp(tipo, "0") == 0 || strcmp(tipo, "1") == 0 || strcmp(tipo, "2") == 0 ||
    strcmp(tipo, "3") == 0 || strcmp(tipo, "4") == 0 || strcmp(tipo, "5") == 0 ||
-   strcmp(tipo, "6") == 0) return true;
+   strcmp(tipo, "6") == 0 || strcmp(tipo, "7") == 0) return true;
 else
     return false;
 

@@ -117,7 +117,6 @@
  </objectgroup>
  <objectgroup name="Players">
   <object id="585" gid="271" x="100" y="63" width="1" height="1"/>
-  <object id="991" gid="271" x="78.5" y="62.625" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Muerte">
   <object id="631" x="-58" y="88.6667" width="246.333" height="13.3333"/>

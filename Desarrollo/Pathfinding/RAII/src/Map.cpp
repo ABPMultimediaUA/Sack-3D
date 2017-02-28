@@ -27,57 +27,7 @@ Map::Map(irr::core::stringw file){
 
      while (xml->read()){
 
-          /*if(irr::core::stringw("data") == xml->getNodeName()  && xml->getAttributeValue(L"encoding")){
 
-              for(int i =0; i< maph; i++){
-                  for(int j=0; j<mapw; j++){
-                      matriz[i][j]=0;
-                  }
-              }
-              char cadena[15000];
-              char separador[] = ",";
-              char *trozo = NULL;
-
-              do{
-                  wcstombs(cadena, xml-> getNodeData(), 15000);
-                  int fila = 0; //maximo 36
-                  int columna = 0; //maximo 64
-
-                  trozo = strtok (cadena, separador);//separamos por coma y la recorremos
-                  int numero = 0;
-                  nodos = new Lista();
-
-                  while(trozo!=nullptr && fila<maph && columna <mapw){
-                      if(atoi(trozo) == 651716){
-                          std::cout<<"soy nodo: "<<numero<<" "<<fila<<" "<<columna<<std::endl;
-                          posicion.x = fila;
-                          posicion.y = columna;
-                          nodoActual = new Nodo (posicion, numero, 0, nullptr);
-                          nodos->insertar(nodoActual);
-                          numero ++;
-                      }
-
-                      matriz[fila][columna] = atoi(trozo);
-                      trozo = strtok( NULL, separador);
-                      columna++;
-
-                      if(columna == 64){
-                          columna = 0;
-                          fila++;
-                      }
-                  }//fin while
-
-                  nodos->imprimirLista();
-
-                  xml->read();
-
-                 }while(irr::core::stringw("data") != xml->getNodeName());
-
-
-
-                 //std::cout<<"matri:: "<<matriz[0][0]<<std::endl;
-                 //std::cout<<"matri:: "<<matriz[35][63]<<std::endl;
-          }*/
           if(irr::core::stringw("objectgroup") == xml->getNodeName() && xml->getAttributeValue(L"name")){
                if     (irr::core::stringw("Colisiones")   == xml->getAttributeValue(L"name")) capa = PLATAFORMA;
                else if(irr::core::stringw("Muelles")      == xml->getAttributeValue(L"name")) capa = MUELLE;
@@ -112,7 +62,7 @@ Map::Map(irr::core::stringw file){
                               Nodo *a = new Nodo(b2Vec2((y-2)/2, (x/2)), n, 0, nullptr);
                               if(n == 14){
                                 std::cout<<"///***********************/////////////////// "<<a->getNumero()<<std::endl;
-                                std::cout<<"///***********************/////////////////// "<<a->getDatos().x<<" "<<a->getDatos().y<<std::endl;
+                                std::cout<<"///***********************/////////////////// "<<a->getPosicion().x<<" "<<a->getPosicion().y<<std::endl;
                               }
                               //meter nodos adyacentes
                               ads = xml->getAttributeValue(L"type");
@@ -198,102 +148,66 @@ Map::Map(irr::core::stringw file){
 
 //funcion que calcula los nodos de partida y destino e imprime el pathfingin
 
-void Map::nodoCercano(float x, float y, Nodo* objetivo){
-  std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
-  nodoInicial = nullptr;
-  nodoDestino = nullptr;
-  //std::cout<<"Possssssssssssssssssss: "<<x<<" "<<y<<std::endl;
-  std::cout<<std::endl;
-
-  nodoInicial = nodos->getMas(x, y);
-  std::cout<<std::endl;
-  //nodoDestino = nodos->getMas(nodoFinx, nodoFiny);
-  nodoDestino = objetivo;
-
-  std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getDatos().x<<","<<nodoInicial->getDatos().y<<"]"<<std::endl;
-  std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getDatos().x<<","<<nodoDestino->getDatos().y<<"]"<<std::endl;
+void Map::calcularPathfinding(float x, float y, Nodo* objetivo){
 
   Nodo* aux;
+  nodoInicial = nodos->getMas(x, y);
+  nodoDestino = objetivo;
 
   listaAbierta = new Lista();
   listaCerrada = new Lista();
-  if(nodoInicial->getDatos().x == nodoDestino->getDatos().x && nodoInicial->getDatos().y == nodoDestino->getDatos().y){
-    std::cout<<"Nodo Iincial y Nodo Destino son iguales, no hay pathfinding disponible"<<std::endl;
-  }
-  else{//comienza pathfinding algoritmo A*
 
-    nodoActual = new Nodo(nodoInicial->getDatos(), nodoInicial->getNumero(), 0, nullptr);
-    listaAbierta->insertar(nodoActual);
+  std::cout<<std::endl;
+  std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
+  std::cout<<std::endl;
+  std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getPosicion().x<<","<<nodoInicial->getPosicion().y<<"]"<<std::endl;
+  std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getPosicion().x<<","<<nodoDestino->getPosicion().y<<"]"<<std::endl;
+  std::cout<<std::endl;
 
-    //añadimos primeros nodos a la lista abierta
-    for(int i = 0; i< nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes().size(); i++){
+  //START A* 
+  if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x && nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
 
-            int numero = nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i];
-            b2Vec2 posicion;
-            posicion.x = nodos->buscaNumero(numero)->getDatos().x;
-            posicion.y = nodos->buscaNumero(numero)->getDatos().y;
-            int coste = distanciaManhattan(nodoActual->getDatos(), posicion); //nodos->buscaNumero(i)->getNumero();
-            aux = new Nodo (posicion, numero, coste, nodoActual);
-            listaAbierta->insertar(aux);
-    }
+        nodoActual = new Nodo(nodoInicial->getPosicion(), nodoInicial->getNumero(), 0, nullptr);
+        listaAbierta->insertar(nodoActual);
 
-    listaAbierta->remove(nodoActual->getDatos());
-    listaCerrada->insertar(nodoActual);
+        while( listaAbierta->getTamanyo() > 0 && listaAbierta->buscaNodo2( nodoDestino->getPosicion().x, nodoDestino->getPosicion().y) == nullptr) {
 
-    while( listaAbierta->getTamanyo() > 0 && listaAbierta->buscaNodo( nodoDestino->getDatos().x, nodoDestino->getDatos().y) == false) {
+            nodoActual = listaAbierta->getMenorCosto();
+            listaAbierta->remove(nodoActual->getPosicion());
+            nodoActual->setNext(nullptr);
+            listaCerrada->insertar(nodoActual);
 
-        nodoActual = listaAbierta->getMenorCosto();
-        listaAbierta->remove(nodoActual->posicion);
-        nodoActual->setNext(nullptr);
-        listaCerrada->insertar(nodoActual);
+            for(int i = 0; i<nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes().size(); i++){
 
-        posicion = nodoActual->getDatos();
-        int i = posicion.x;
-        int j = posicion.y;
+                if(listaCerrada->buscaNumero( nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) ==nullptr
+                    && listaAbierta->buscaNumero( nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) == nullptr)
 
-        for(int i = 0; i<nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes().size(); i++){
+                        comprobar(i);
+            }   //end for
+        }       //end while end pathfinding
 
-            //if(mAdyacencia[nodoActual->getNumero()][i]!=0 && mAdyacencia[nodoActual->getNumero()][i]!=1
-              //&& listaCerrada->buscaNodo(nodos->buscaNumero(i)->getDatos().x, nodos->buscaNumero(i)->getDatos().y)==false){
-            //std::cout<<"ESTE CACHO: "<<nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i]<<std::endl;
-            if(listaCerrada->buscaNumero( nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) ==nullptr){
-            //if(listaCerrada()->buscaNumero( nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) == nullptr){
+        nodoActual = listaAbierta->buscaNodo2(nodoDestino->getPosicion().x, nodoDestino->getPosicion().y);
+        pathfinding = new Lista();
 
-                if(listaAbierta->buscaNumero( nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) == nullptr){
-
-                    int numero = nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i];
-                    b2Vec2 posicion;
-                    posicion.x = nodos->buscaNumero(numero)->getDatos().x;
-                    posicion.y = nodos->buscaNumero(numero)->getDatos().y;
-                    int coste = distanciaManhattan(nodoActual->getDatos(), posicion); //nodos->buscaNumero(i)->getNumero();
-                    aux = new Nodo (posicion, numero, coste, nodoActual);
-                    listaAbierta->insertar(aux);
-                }
-            }
+        //save pathfinding List
+        while(nodoActual!=nullptr){
+            pathfinding->insertar(nodoActual);
+            nodoActual = nodoActual->getPadre();
         }
 
-    }
-    //fin pathfinding;
-
-    nodoActual = listaAbierta->buscaNodo2(nodoDestino->getDatos().x, nodoDestino->getDatos().y);
-    pathfinding = new Lista();
-    //almacenamos camino en lista
-    while(nodoActual!=nullptr){
-        pathfinding->insertar(nodoActual);
-        nodoActual = nodoActual->getPadre();
-    }
-
-    std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
-    pathfinding->imprimirLista();
-    std::cout<<std::endl;
-
-  }
-
-
+        std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
+        pathfinding->imprimirLista();
+        std::cout<<std::endl;
+  } //end if
 }
 
-
-int Map::distanciaManhattan(b2Vec2 posicion1, b2Vec2 posicion2){
-  return abs(posicion2.x-posicion1.x) + abs(posicion2.y -posicion1.y);
+void Map::comprobar(int i){
+    int numero = nodos->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i];
+    b2Vec2 posicion;
+    posicion.x = nodos->buscaNumero(numero)->getPosicion().x;
+    posicion.y = nodos->buscaNumero(numero)->getPosicion().y;
+    int coste = abs(posicion.x-nodoActual->getPosicion().x) + abs(posicion.y -nodoActual->getPosicion().y);
+    Nodo* aux = new Nodo (posicion, numero, coste, nodoActual);
+    listaAbierta->insertar(aux);
 }
 

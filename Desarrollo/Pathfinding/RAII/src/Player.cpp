@@ -123,9 +123,9 @@ void Player::mover(){
 
         if( abs(PhysicWorld::Instance()->getPlayer(1)->getBody()->GetPosition().x - nodox) == 0){
             if(!saltando &&  PhysicWorld::Instance()->GetMap()->getListaPath()->getTamanyo() > 1){
-                PhysicWorld::Instance()->GetMap()->getListaPath()->remove(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getDatos());
-                this->muevo(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getDatos().x,
-                            PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getDatos().y);
+                PhysicWorld::Instance()->GetMap()->getListaPath()->remove(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getPosicion());
+                this->muevo(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getPosicion().x,
+                            PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getPosicion().y);
 
                 std::cout<<"Voy al: "<<PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getNumero()<<std::endl;
             }

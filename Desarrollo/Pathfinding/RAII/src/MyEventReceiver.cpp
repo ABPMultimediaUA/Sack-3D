@@ -26,17 +26,15 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event){
                       PhysicWorld::Instance()->getPlayer(1)->CogerTirar();
                   break;
                   case irr::KEY_KEY_K:
-                      std::cout<<std::endl;
-                      std::cout<<"Posicion Player: "<<PhysicWorld::Instance()->getPlayer(1)->getBody()->GetPosition().x<<" "<<PhysicWorld::Instance()->getPlayer(1)->getBody()->GetPosition().y<<std::endl;
                       objetivo = PhysicWorld::Instance()->GetMap()->getListaNodos()->buscaNumero(rand() % 18);
-                      PhysicWorld::Instance()->GetMap()->nodoCercano(
+                      PhysicWorld::Instance()->GetMap()->calcularPathfinding(
                                                 PhysicWorld::Instance()->getPlayer(1)->getBody()->GetPosition().x,
                                                 PhysicWorld::Instance()->getPlayer(1)->getBody()->GetPosition().y,
                                                 objetivo
                                                                     );
                   //break;
                   //case  irr::KEY_KEY_L:
-                      PhysicWorld::Instance()->getPlayer(1)->muevo(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getDatos().x, PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getDatos().y);
+                      PhysicWorld::Instance()->getPlayer(1)->muevo(PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getPosicion().x, PhysicWorld::Instance()->GetMap()->getListaPath()->getUltimo()->getPosicion().y);
                   break;
                   case irr::KEY_ESCAPE:
                       IrrManager::Instance()->Close();

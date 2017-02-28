@@ -50,7 +50,6 @@ class Client
         unsigned char packetIdentifier;
         bool isServer;
         bool getRun(){return run;}
-        bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
         void iniciar();
         void PacketFunction(int aux,char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
@@ -60,13 +59,12 @@ class Client
         void enviarCogido(int cogible);
         void enviarMoviendo(int moviendo);
         void enviarUsar();
-        void analizarPaquete0(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
+        void empezar();
         void analizarPaquete1(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete6(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){run=true;}
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
@@ -81,15 +79,13 @@ class Client
         int numPlayersRed;
         irr::f32 timer;
         bool run = false;
-        int iterador;
         const Type2Func packetFunction[8] = {
-              { 0         , analizarPaquete0    }
+              { 0         , 0                   }
             , { 1         , analizarPaquete1    }
             , { 2         , analizarPaquete2    }
             , { 3         , analizarPaquete3    }
             , { 4         , analizarPaquete4    }
             , { 5         , analizarPaquete5    }
-            , { 6         , analizarPaquete6    }
             , { -1        , 0                   }
         };
 

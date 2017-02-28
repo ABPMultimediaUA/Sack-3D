@@ -9,7 +9,7 @@ int main(){
     cliente->iniciar();
     if(cliente->getRun()){
 	Master m;
-	std::cout<<"asd"<<std::endl;
+	//std::cout<<"asd"<<std::endl;
 	while(m.Run()){
         m.Update();
         cliente->recibir();

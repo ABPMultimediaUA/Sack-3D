@@ -1,7 +1,10 @@
 
 #ifndef IRRMANAGER_H
 #define IRRMANAGER_H
-#include "MyEventReceiver.h"
+
+#include <irrlicht.h>
+
+class MyEventReceiver;
 
 class IrrMngr{
     public:

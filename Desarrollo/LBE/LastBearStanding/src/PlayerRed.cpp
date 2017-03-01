@@ -1,7 +1,5 @@
 #include "PlayerRed.h"
 #include "World.h"
-#include "IrrManager.h"
-
 
 PlayerRed::PlayerRed(b2Vec2 pos, int mando, char idr[]):Player(pos,mando){
     strncpy(id, idr, sizeof(id));

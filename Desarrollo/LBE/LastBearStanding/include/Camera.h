@@ -1,7 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-#include "IrrManager.h"
+
+#include <irrlicht.h>
 #include <vector>
+#include <Box2D/Box2D.h>
+
 class Camera{
     public:
         Camera();

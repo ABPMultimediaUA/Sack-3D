@@ -2,7 +2,7 @@
 #define BALA_H
 #include <Box2D/Box2D.h>
 #include <irrlicht.h>
-#include <iostream>
+
 class Bala{
     public:
         Bala( irr::core::vector3df pos, int tiempoVidaP, int velocidad, float deviacionP, int dir, int tipo = 0);

@@ -1,10 +1,8 @@
-
-
-#include "Player.h"
-#include "World.h"
+#include "MyEventReceiver.h"
 #include "IrrManager.h"
-
-
+#include "Player.h"
+#include "Usable.h"
+#include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     estado = LEVANTADO;

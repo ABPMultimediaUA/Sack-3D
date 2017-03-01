@@ -1,4 +1,6 @@
+#include "IrrManager.h"
 #include "Master.h"
+#include "World.h"
 
 #define FINPARTIDA 3000
 #define NUM_MAPS 2

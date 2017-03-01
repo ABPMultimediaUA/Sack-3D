@@ -1,8 +1,6 @@
 #ifndef PLAYERRED_H
 #define PLAYERRED_H
-//---------------------------------------------------------------------------
-#include <Box2D/Box2D.h>
-#include <irrlicht.h>
+
 #include "Player.h"
 
 

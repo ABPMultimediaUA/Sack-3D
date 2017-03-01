@@ -1887,3 +1887,161 @@
 	"IrrManager.h"
 	"PhysicWorld.h"
 
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\main.cpp
+	<SFML/Graphics.hpp>
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\pistola.h
+	"Usable.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\usable.h
+	"Cogible.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\escopeta.h
+	"Usable.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\granada.h
+	"Usable.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\gameresource.h
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\map.h
+	<irrlicht.h>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1488273379 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488273379 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\raii\src\usable.cpp
+	"Usable.h"
+

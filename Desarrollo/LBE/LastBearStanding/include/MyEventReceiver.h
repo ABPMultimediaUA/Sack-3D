@@ -1,8 +1,6 @@
 
 #ifndef MYEVENTRECEIVER_H
 #define MYEVENTRECEIVER_H
-#include <Box2D/Box2D.h>
-#include <iostream>
 #include <irrlicht.h>
 
 class MyEventReceiver: public irr::IEventReceiver{

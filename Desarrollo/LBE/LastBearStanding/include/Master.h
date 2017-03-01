@@ -1,8 +1,7 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-#include "World.h"
-#include "IrrManager.h"
+#include <irrlicht.h>
 
 
 struct Num2Map {

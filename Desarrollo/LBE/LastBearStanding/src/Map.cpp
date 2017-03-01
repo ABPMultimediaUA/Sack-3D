@@ -1,9 +1,15 @@
 
-#include "Map.h"
 #include "IrrManager.h"
 #include "Platform.h"
+#include "Escopeta.h"
+#include "Teleport.h"
+#include "Spawner.h"
+#include "Pistola.h"
+#include "Granada.h"
+#include "Muelle.h"
+#include "Player.h"
 #include "World.h"
-#include "GameResource.h"
+#include "Map.h"
 
 enum MapLayers {
      L_PLAYER       = 1,
@@ -25,7 +31,7 @@ Map::Map(irr::core::stringw file){
      while (xml->read()){
           if(irr::core::stringw("objectgroup") == xml->getNodeName() && xml->getAttributeValue(L"name")){
                if     (irr::core::stringw("Spawners")     == xml->getAttributeValue(L"name")) capa = L_SPAWNER;
-               if     (irr::core::stringw("Colisiones")   == xml->getAttributeValue(L"name")) capa = L_PLATAFORMA;
+               else if(irr::core::stringw("Colisiones")   == xml->getAttributeValue(L"name")) capa = L_PLATAFORMA;
                else if(irr::core::stringw("Muelles")      == xml->getAttributeValue(L"name")) capa = L_MUELLE;
                else if(irr::core::stringw("Teleports")    == xml->getAttributeValue(L"name")) capa = L_TELEPORT;
                else if(irr::core::stringw("Armas")        == xml->getAttributeValue(L"name")) capa = L_ARMA;

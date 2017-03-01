@@ -1,5 +1,6 @@
 #include "Master.h"
 #include "Client.h"
+#include "IrrManager.h"
 
 Client* cliente;
         irr::f32 timer;

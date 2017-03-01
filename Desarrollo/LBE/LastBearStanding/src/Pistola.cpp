@@ -1,5 +1,7 @@
+#include "IrrManager.h"
 #include "Pistola.h"
 #include "World.h"
+#include "Bala.h"
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos):Usable(expo,pos){
 

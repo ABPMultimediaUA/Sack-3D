@@ -1,7 +1,14 @@
 
 #include "World.h"
 #include "MyContactListener.h"
+#include "IrrManager.h"
+#include "PlayerRed.h"
+#include "Spawner.h"
 #include "Cogible.h"
+#include "Camera.h"
+#include "Player.h"
+#include "Bala.h"
+#include "Map.h"
 
 #define VELITER 6              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
 #define POSITER 6              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
@@ -85,16 +92,11 @@ int World::Update(){
   }
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
-        //std::cout<<dynamic_cast<PlayerRed*>(m_Players.Get(i))->getId()<<std::endl;
-    if(!dynamic_cast<PlayerRed*>(m_Players.Get(i))){
-      m_Players.Get(i)->actualiza();
-    }else{
-        dynamic_cast<PlayerRed*>(m_Players.Get(i))->actualiza();
-    }
+    m_Players.Get(i)->actualiza();
     if(!m_Players.Get(i)->getMuerto())players++;
   }
 
   camara.Get()->update(TimeStamp, fps);
-  font->draw(irr::core::stringw(fps),irr::core::rect<irr::s32>(10,10,100,60),    irr::video::SColor(255,0, 0,0));
+  font->draw(irr::core::stringw(fps),irr::core::rect<irr::s32>(10,10,100,60),irr::video::SColor(255,0, 0,0));
   return players;
 }

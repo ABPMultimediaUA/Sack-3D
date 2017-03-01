@@ -1,29 +1,23 @@
-
 #ifndef WORLD_H
 #define WORLD_H
+
 #include <vector>
 #include <Box2D/Box2D.h>
-#include <iostream>
-#include "Player.h"
-#include "Pistola.h"
-#include "Escopeta.h"
-#include "Granada.h"
-#include "Bala.h"
-#include "Muelle.h"
-#include "Teleport.h"
-#include "Spawner.h"
-#include "PlayerRed.h"
-#include "Platform.h"
 #include "GameResource.h"
 #include "RVector.h"
-#include <vector>
-#include "Map.h"
-#include "Camera.h"
 #include "Client.h"
 
 extern Client* cliente;
 
-
+class Teleport;
+class Player;
+class Muelle;
+class Cogible;
+class Camera;
+class Bala;
+class Spawner;
+class Platform;
+class PlayerRed;
 class MyContactListener;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
@@ -67,7 +61,6 @@ class World{
         std::vector<Muelle*>   GetMuelles(){   return m_Muelles.Get();  }
         std::vector<Spawner*>  GetSpawners(){  return m_Spawners.Get(); }
         std::vector<Platform*> GetPlatforms(){ return m_Platforms.Get();}
-        std::vector<PlayerRed*> GetPlayersRed(){ return m_PlayersRed.Get();}
         Cogible*  AddCogible (Cogible *x = NULL) {m_Cogibles.Add(x); return x;}
         Bala*     AddBala    (Bala *x = NULL)    {m_Balas.Add(x);    return x;}
         Teleport* AddTeleport(Teleport *x = NULL){m_Teleports.Add(x);return x;}
@@ -75,7 +68,6 @@ class World{
         Player*   AddPlayer  (Player *x = NULL)  {m_Players.Add(x);  return x;}
         Spawner*  AddSpawner (Spawner *x = NULL) {m_Spawners.Add(x); return x;}
         Platform* AddPlatform(Platform *x = NULL){m_Platforms.Add(x);return x;}
-        PlayerRed* AddPlayerRed(PlayerRed *x = NULL){m_PlayersRed.Add(x);return x;}
         b2RevoluteJoint* joint;
     private:
         static World* pinstance;
@@ -83,7 +75,7 @@ class World{
         GameResource<MyContactListener> contactListener;
         float DeltaTime;
         float TimeStamp;
-        
+
         irr::gui::IGUIFont* font;
         GameResource<Camera>   camara;
         RVector<Teleport>      m_Teleports;
@@ -93,7 +85,6 @@ class World{
         RVector<Bala>          m_Balas;
         RVector<Spawner>       m_Spawners;
         RVector<Platform>      m_Platforms;
-        RVector<PlayerRed>     m_PlayersRed;
 };
 
 #endif

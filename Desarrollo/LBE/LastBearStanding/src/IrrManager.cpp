@@ -1,6 +1,8 @@
 
 #include "IrrManager.h"
 #include "MyEventReceiver.h"
+#include "DebugInfo.h"
+#include "HUD.h"
 
 IrrMngr* IrrMngr::pinstance = 0;
 IrrMngr* IrrMngr::Inst(){

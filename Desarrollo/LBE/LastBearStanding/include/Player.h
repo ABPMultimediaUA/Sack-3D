@@ -10,6 +10,8 @@
 #define PLAYER           10
 #define PIESPLAYER       100
 
+class MyEventReceiver;
+
 class Player: public Cogible{
     public:
         Player(b2Vec2 pos, int mando);

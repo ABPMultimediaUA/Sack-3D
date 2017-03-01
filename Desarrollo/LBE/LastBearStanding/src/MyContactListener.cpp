@@ -11,11 +11,11 @@ void MyContactListener::BeginContact(b2Contact* contact){
     this->contact = contact;
     unsigned long A = (unsigned long)contact->GetFixtureA()->GetUserData();
     unsigned long B = (unsigned long)contact->GetFixtureB()->GetUserData();
-    const Contact2Func * it = beginContact;
+    const Contact2Method * it = beginContact;
     while(it->A != 0){
         if((it->A == A && it->B == B)
         || (it->A == B && it->B == A)){
-            (this->*it->Contact2Func::p)();
+            (this->*it->Contact2Method::p)();
             break;
         }
         it++;
@@ -26,11 +26,11 @@ void MyContactListener::EndContact(b2Contact* contact){
     this->contact = contact;
     unsigned long A = (unsigned long)contact->GetFixtureA()->GetUserData();
     unsigned long B = (unsigned long)contact->GetFixtureB()->GetUserData();
-    const Contact2Func * it = endContact;
+    const Contact2Method * it = endContact;
     while(it->A != 0){
         if((it->A == A && it->B == B)
         || (it->A == B && it->B == A)){
-            (this->*it->Contact2Func::p)();
+            (this->*it->Contact2Method::p)();
             break;
         }
         it++;

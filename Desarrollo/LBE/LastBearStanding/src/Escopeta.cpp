@@ -1,5 +1,7 @@
 #include "Escopeta.h"
 #include "World.h"
+#include "IrrManager.h"
+#include "Bala.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos):Usable(expo,pos){
     usos = 5;

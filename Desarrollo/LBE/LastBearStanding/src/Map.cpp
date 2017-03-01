@@ -4,6 +4,13 @@
 #include "Platform.h"
 #include "World.h"
 #include "GameResource.h"
+#include "Spawner.h"
+#include "Muelle.h"
+#include "Teleport.h"
+#include "Cogible.h"
+#include "Pistola.h"
+#include "Escopeta.h"
+#include "Granada.h"
 
 void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,type,b2Vec2(x,y)));

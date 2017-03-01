@@ -3,6 +3,9 @@
 #define FINPARTIDA 3000
 #define FPS 1.f/30.f*1000.f
 
+#include "World.h"
+#include "IrrManager.h"
+
 Master::Master(){
     World::Inst();
     InstanciaMundo();

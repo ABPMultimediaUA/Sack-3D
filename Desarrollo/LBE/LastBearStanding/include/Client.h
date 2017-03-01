@@ -40,7 +40,9 @@ struct Type2Func {
 class Client
 {
     public:
+        static Client* Inst();
         Client();
+        virtual ~Client();
         RakNet::RakNetStatistics *rss;
         RakNet::RakPeerInterface *client;
         RakNet::Packet* p;
@@ -74,11 +76,11 @@ class Client
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
         PlayerRed* crearPlayer(char* i);
-        virtual ~Client();
 
     protected:
 
     private:
+        static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;
         irr::f32 timer;

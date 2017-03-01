@@ -44,7 +44,7 @@ void Client::iniciar(){
     puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
     //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-    strncpy(auxip, "172.27.138.35", sizeof(auxip));
+    strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));
@@ -402,18 +402,19 @@ void Client::recibir(){
 
 }
 
+
 unsigned char Client::GetPacketIdentifier(RakNet::Packet *p)
 {
-	if (p==0)
-		return 255;
+    if (p==0)
+        return 255;
 
-	if ((unsigned char)p->data[0] == ID_TIMESTAMP)
-	{
-		RakAssert(p->length > sizeof(RakNet::MessageID) + sizeof(RakNet::Time));
-		return (unsigned char) p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
-	}
-	else
-		return (unsigned char) p->data[0];
+    if ((unsigned char)p->data[0] == ID_TIMESTAMP)
+    {
+        RakAssert(p->length > sizeof(RakNet::MessageID) + sizeof(RakNet::Time));
+        return (unsigned char) p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
+    }
+    else
+        return (unsigned char) p->data[0];
 }
 
 
@@ -507,44 +508,40 @@ void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param
                 dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setPos();
                 dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
             }
-		}
+        }
 
 }
 
-unsigned char Client::GetPacketIdentifier(RakNet::Packet *p)
-{
-	if (p==0)
-		return 255;
+void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
 
-	if ((unsigned char)p->data[0] == ID_TIMESTAMP)
-	{
-		RakAssert(p->length > sizeof(RakNet::MessageID) + sizeof(RakNet::Time));
-		return (unsigned char) p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
-	}
-	else
-		return (unsigned char) p->data[0];
-}
+    int moviendo = atoi(param2);
+    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
-///////METODOS DE ACCION DE PLAYER\\\\\\\
-
-void Client::dispararPistola(long int x, long int y, int direc){
-    std::cout<<"entro en disparar! X:"<<x<<" Y:"<<y<<std::endl;
-    float aux_x = x/1000000.f;
-    float aux_y = y/1000000.f;
-    World::Inst()->AddBala(new Bala(irr::core::vector3df(aux_x, aux_y, 0), 300, 10, 1.0f, direc));
-}
-
-void Client::dispararEscopeta(long int x, long int y, int direc){
-    std::cout<<"entro en disparar! X:"<<x<<" Y:"<<y<<std::endl;
-    float aux_x = x/1000000.f;
-    float aux_y = y/1000000.f;
-
-    for(int i=0; i<15; i++){
-            float desvBala = rand()% 20 - 10;
-            float velBala = rand()% 3 + 10;
-            World::Inst()->AddBala(new Bala(irr::core::vector3df(aux_x, aux_y, 0), 200, velBala, desvBala, direc, 1));
+        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
+        }
     }
 }
+
+void Client::analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+
+    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                std::cout<<"EENTRO EN MORIR"<<std::endl;
+            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->morirRed();
+        }
+    }
+}
+
+bool Client::comprobacion(char* tipo){
+if(strcmp(tipo, "0") == 0 || strcmp(tipo, "1") == 0 || strcmp(tipo, "2") == 0 ||
+   strcmp(tipo, "3") == 0 || strcmp(tipo, "4") == 0 || strcmp(tipo, "5") == 0 ||
+   strcmp(tipo, "6") == 0 || strcmp(tipo, "7") == 0) return true;
+else
+    return false;
+
+}
+
 
 Client::~Client()
 {

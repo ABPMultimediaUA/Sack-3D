@@ -1,7 +1,7 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-
+#include <irrlicht.h>
 
 struct Num2Map {
      int num;

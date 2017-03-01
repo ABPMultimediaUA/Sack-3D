@@ -1,5 +1,6 @@
 #include "Cogible.h"
 #include "World.h"
+#include "Spawner.h"
 
 Cogible::Cogible(Spawner* expo, b2Vec2 pos){
     if(expo == NULL)expuesto = false;

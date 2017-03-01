@@ -1,9 +1,12 @@
-
 #ifndef IRRMANAGER_H
 #define IRRMANAGER_H
 
+#include <irrlicht.h>
+#include "GameResource.h"
+
 class DebugInfo;
 class HUD;
+class MyEventReceiver;
 class IrrMngr{
     public:
         static IrrMngr* Inst();

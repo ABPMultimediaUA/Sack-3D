@@ -1,10 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-
-#include <irrlicht.h>
+#include "IrrManager.h"
 #include <vector>
-#include <Box2D/Box2D.h>
-
 class Camera{
     public:
         Camera();
@@ -18,6 +15,7 @@ class Camera{
         double porcentUpdate;
         double porcentGap;
         std::vector<irr::core::vector3df> flowCam;
+        irr::core::matrix4 projMat;
         b2Vec2 cenAnt;
         b2Vec2 cenSig;
 };

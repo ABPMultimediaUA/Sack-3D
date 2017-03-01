@@ -1,8 +1,3 @@
-#include "IrrManager.h"
-#include "Escopeta.h"
-#include "Pistola.h"
-#include "Granada.h"
-#include "Spawner.h"
 #include "World.h"
 
 Spawner::Spawner(int tipo, int modelo , b2Vec2 pos ):pos(pos),tipo(tipo),modelo(modelo){

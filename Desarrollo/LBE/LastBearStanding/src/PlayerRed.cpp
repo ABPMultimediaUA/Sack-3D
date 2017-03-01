@@ -1,5 +1,7 @@
 #include "PlayerRed.h"
 #include "World.h"
+#include "IrrManager.h"
+
 
 PlayerRed::PlayerRed(b2Vec2 pos, int mando, char idr[]):Player(pos,mando){
     strncpy(id, idr, sizeof(id));
@@ -18,10 +20,17 @@ void PlayerRed::mover(int mov){
 }
 
 void PlayerRed::actualiza(){
-    //if(paraMorir)morir();
+    //Player::actualiza();
+    if(paraMorir)morir();
     node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
     mover(moviendo);
+    /*
+    if(estado != estadoAntiguo){
+            std::cout<<"estaaaaaaaaaaaaaado"<<std::endl;
+        fingirMuerte();
+        estadoAntiguo = estado;
+    }*/
 }
 
 void PlayerRed::setPos(){
@@ -40,37 +49,5 @@ void PlayerRed::saltar(int i){
         body->SetLinearVelocity(velV);
     }
 }
-
-void PlayerRed::CogerTirar(int idCogible){
-    if(idCogible!=0){
-                for (int i = 0; i <World::Inst()->GetCogibles().size(); ++i){
-                    if(World::Inst()->GetCogibles().at(i)->getIdCogible()==idCogible){
-                      objCogido = World::Inst()->GetCogibles().at(i);
-                    }
-                }
-                objCogido = objPuedoCoger;
-                objCogido->setCogido(true);
-                b2RevoluteJointDef jointDef;
-                jointDef.bodyA = body;
-                jointDef.bodyB = objPuedoCoger->getBody();
-                jointDef.localAnchorA.Set(0,0.3f);
-                jointDef.localAnchorB.Set(0,0);
-                joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
-                joint->EnableMotor(true);
-                cogiendo = true;
-    }else{
-                Soltar();
-    }
-}
-
-void PlayerRed::morirRed(){
-    paraMorir = false;
-    if(cogiendo) Soltar();
-    DestroyFixtures();
-    estado = MUERTO_DORMIDO;
-    InicializeFixtures(MUERTO_DORMIDO);
-    muerto = true;
-}
-
 
 

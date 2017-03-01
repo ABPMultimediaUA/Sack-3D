@@ -1,11 +1,12 @@
 
-#include "IrrManager.h"
 #include "Camera.h"
-#include "Player.h"
 #include "World.h"
+#include "Player.h"
+#include "PlayerRed.h"
 
-#define MINZ 15
-#define FPS 20
+#define MINZ            15
+#define FPS             20
+#define VIEWMARGIN      20
 
 Camera::Camera(){
 	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
@@ -26,6 +27,27 @@ Camera::~Camera(){
 Camera::update(float time, int fps){
 	float xMin,yMin,xMax,yMax,z;
     bool ini = false;
+    bool puedo = false;
+    for(int i = 0; i <= World::Inst()->GetPlayersRed().size() || i==0; ++i){
+        b2Vec2 pos;
+        if(i==World::Inst()->GetPlayersRed().size()){
+            if(!World::Inst()->GetPlayers().at(0)->getMuerto()){ pos = World::Inst()->GetPlayers().at(0)->getPosition();
+            puedo = true;
+            }
+        }
+        else {
+            if(World::Inst()->GetPlayersRed().at(i)->getMuerto() == 0){ pos = World::Inst()->GetPlayersRed().at(i)->getPosition();
+                puedo = true;
+            }
+        }
+        if(puedo){
+            if(!ini){ xMin = xMax = pos.x; yMin = yMax = pos.y; ini = true;}
+            if(pos.x < xMin)xMin = pos.x;
+            if(pos.x > xMax)xMax = pos.x;
+            if(pos.y < yMin)yMin = pos.y;
+            if(pos.y > yMax)yMax = pos.y;
+        }
+    }
     for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
         if(World::Inst()->GetPlayers().at(i)){
            if(!World::Inst()->GetPlayers().at(i)->getMuerto()){
@@ -39,7 +61,7 @@ Camera::update(float time, int fps){
         }
     }
 	if(time - tiempoTransc > updateT){
-        if(fps<29)fps=30;
+        if(fps==0)fps=30;
     	tiempoTransc = timer->getTime();
         porcentUpdate = 0;
         cenAnt = b2Vec2(cenSig.x,cenSig.y);
@@ -51,6 +73,12 @@ Camera::update(float time, int fps){
     float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);
     z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f));
 	if(z<MINZ)z = MINZ;
+    float incrementX = (float)abs(xMax-xMin);
+    float incrementY = (float)abs(yMax-yMin);
+    float tamX = incrementX+incrementY+VIEWMARGIN;
+    float tamY = tamX*9/16;
+    projMat.buildProjectionMatrixOrthoLH(tamX,tamY,-1000,1000);
+    camera->setProjectionMatrix(projMat);
     flowCam.push_back(irr::core::vector3df(cenX,cenY,0));
     irr::core::vector3df aux = flowCam[0];
     flowCam.erase(flowCam.begin());

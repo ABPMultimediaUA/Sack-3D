@@ -1,7 +1,8 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-#include <irrlicht.h>
+#include "World.h"
+#include "IrrManager.h"
 
 
 struct Num2Map {
@@ -23,10 +24,12 @@ class Master{
         irr::ITimer* timerFPS;
     	irr::f32 timeFinPartida;
         irr::ITimer* timerFinPartida;
-        const Num2Map maps[10] = {
-              {  1         , irr::core::stringw("media/map1.tmx") }
-            , {  2         , irr::core::stringw("media/map2.tmx") }
-            , {  0         , irr::core::stringw("0")              }
+        irr::f32 time2SyncClient;
+        int puntuaciones[4] = {0,0,0,0};
+        const Num2Map maps[3] = {
+              {  1         , L"media/Maps/Map1.tmx" }
+            , {  2         , L"media/Maps/Map1.tmx" }
+            , {  0         , L"0"                   }
         };
 };
 

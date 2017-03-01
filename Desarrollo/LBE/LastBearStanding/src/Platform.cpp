@@ -16,6 +16,7 @@ Platform::Platform(bool mata, irr::core::vector3df pos, irr::core::vector3df tam
     polyShape.SetAsBox((tam.X/2),(tam.Y/2));
     fixtureDef.shape = &polyShape;
     fixtureDef.filter.categoryBits = M_SUELO;
+    if(mata)fixtureDef.isSensor = true;
     bodyDef.position.Set(pos.X+(tam.X/2),-1*(pos.Y+(tam.Y/2)));
     body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);

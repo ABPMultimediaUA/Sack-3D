@@ -30,71 +30,45 @@
 #include "Player.h"
 #include "PlayerRed.h"
 using namespace std;
-class Client;
 
-struct Type2Func {
-     int A;
-     void (Client::*p)(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-};
-
-class Client
-{
+class Client{
     public:
+        static Client* Inst();
         Client();
+        virtual ~Client();
         RakNet::RakNetStatistics *rss;
         RakNet::RakPeerInterface *client;
         RakNet::Packet* p;
+        //RakNet::SocketDescriptor socketDescriptor;
         struct TPlayersRed{
+            //PlayerRed* player;
             char id[30];
         };
         unsigned char packetIdentifier;
         bool isServer;
-        bool getRun(){return run;}
-        bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
         void iniciar();
-        void PacketFunction(int aux,char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void recibir();
         void enviar();
         void enviarSalto(int i);
         void enviarCogido(int cogible);
         void enviarMoviendo(int moviendo);
+        void dispararPistola(long int x, long int y, int direc);
+        void dispararEscopeta(long int x, long int y, int direc);
         void enviarUsar();
-        void enviarMuerto();
-        void analizarPaquete0(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete1(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete6(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){run=true;}
-        void analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
+        PlayerRed* crearPlayer(char* i);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
-        unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
-        PlayerRed* crearPlayer(char* i);
-        virtual ~Client();
+        unsigned char GetPacketIdentifier(RakNet::Packet *p);
 
     protected:
 
     private:
+        static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;
         irr::f32 timer;
-        bool run = false;
-        int iterador;
-        const Type2Func packetFunction[9] = {
-              { 0         , analizarPaquete0    }
-            , { 1         , analizarPaquete1    }
-            , { 2         , analizarPaquete2    }
-            , { 3         , analizarPaquete3    }
-            , { 4         , analizarPaquete4    }
-            , { 5         , analizarPaquete5    }
-            , { 6         , analizarPaquete6    }
-            , { 7         , analizarPaquete7    }
-            , { -1        , 0                   }
-        };
 
 };
 

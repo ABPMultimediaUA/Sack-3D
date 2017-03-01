@@ -1,9 +1,7 @@
-#include "IrrManager.h"
-#include "Spawner.h"
 #include "Usable.h"
+#include "World.h"
 
 #define TIME2DESTROY 3000
-
 Usable::Usable(Spawner* expo, b2Vec2 pos):Cogible(expo,pos){
     timerCadencia = IrrMngr::Inst()->getTimer();
 }

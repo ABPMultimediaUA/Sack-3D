@@ -1,7 +1,6 @@
-#include "IrrManager.h"
 #include "Escopeta.h"
+#include "IrrManager.h"
 #include "World.h"
-#include "Bala.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos):Usable(expo,pos){
     usos = 5;
@@ -19,7 +18,8 @@ void Escopeta::usar(){
             for(int i=0; i<10; i++){
                 float desvBala = rand()% 10 - 10;
                 float velBala = rand()% 3 + 10;
-                World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 200, velBala, desvBala, dir, 1));
+                World::Inst()->AddBala(
+                    new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 200, velBala, desvBala, dir, 1));
             }
             timeCadencia = timerCadencia->getTime();
             usos--;

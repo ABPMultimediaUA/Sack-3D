@@ -76,6 +76,7 @@
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
   <object id="585" gid="271" x="100" y="62" width="1" height="1"/>
+  <object id="585" gid="271" x="85.3315" y="61.5983" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Muerte">
   <object id="631" x="-58" y="88.6667" width="246.333" height="13.3333"/>

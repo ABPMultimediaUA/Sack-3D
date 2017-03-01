@@ -2,10 +2,8 @@
 #ifndef SPAWNER_H
 #define SPAWNER_H
 
-#include <Box2D/Box2D.h>
-#include <irrlicht.h>
-
-class Cogible;
+#include "Cogible.h"
+#include "IrrManager.h"
 
 class Spawner {
     public:

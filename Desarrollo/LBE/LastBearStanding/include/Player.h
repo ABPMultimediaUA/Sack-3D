@@ -1,9 +1,12 @@
+
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <Box2D/Box2D.h>
+#include <irrlicht.h>
+#include "MyEventReceiver.h"
 #include "Cogible.h"
 
-class MyEventReceiver;
 
 #define LEVANTADO        1
 #define MUERTO_DORMIDO   2
@@ -17,7 +20,7 @@ class Player: public Cogible{
         virtual ~Player();
         void InicializeFixtures(int mode);
         void DestroyFixtures();
-        virtual void actualiza();
+        void actualiza();
         void mover();
         void saltar();
         void CogerTirar();

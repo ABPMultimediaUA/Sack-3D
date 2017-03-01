@@ -218,7 +218,7 @@ int main(void)
 		// All messages to all clients come from the server either directly or by being
 		// relayed from other clients
 		message2[0]=0;
-		strcpy(message2, "6 ");
+		strcpy(message2, "Server: ");
 		strcat(message2, message);
 
 		// message2 is the data to send
@@ -260,8 +260,13 @@ int main(void)
                     sprintf(playerNum, "%.0f", (float)i);
                     strncat (identificador, " ", 30);
                     strncat (identificador, playerNum, 30);
+                    //std::cout<<"NUMERO EN IIIII->"<<playerNum<<std::endl;
 				}
+
+                //enviando ID al jugador conectado
+                //std::cout<<"IDENTIFICADORRR->"<<identificador<<std::endl;
                 server->Send(identificador, (const int) strlen(identificador)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
+                //strncpy(identificador, "", sizeof(identificador));
 				break;
 
 			case ID_INCOMPATIBLE_PROTOCOL_VERSION:

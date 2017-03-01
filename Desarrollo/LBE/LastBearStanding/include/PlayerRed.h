@@ -1,6 +1,8 @@
 #ifndef PLAYERRED_H
 #define PLAYERRED_H
-
+//---------------------------------------------------------------------------
+#include <Box2D/Box2D.h>
+#include <irrlicht.h>
 #include "Player.h"
 
 
@@ -35,9 +37,6 @@ class PlayerRed: public Player{
         }
         void saltar(int i);
         void setPos();
-        void CogerTirar(int idCogible);
-        void morir(){}
-        void morirRed();
     protected:
         //int estado;
         int estadoAntiguo;

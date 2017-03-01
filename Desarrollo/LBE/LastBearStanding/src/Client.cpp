@@ -1,8 +1,15 @@
 #include "Client.h"
 #include "World.h"
 
-Client::Client()
-{
+Client* Client::pinstance = NULL;
+Client* Client::Inst(){
+    if(!pinstance){
+    pinstance = new Client;
+  }
+  return pinstance;
+}
+Client::Client(){
+    //unsigned char GetPacketIdentifier(RakNet::Packet *p);
     client=RakNet::RakPeerInterface::GetInstance();
     clientID=RakNet::UNASSIGNED_SYSTEM_ADDRESS;
     isServer=false;
@@ -10,34 +17,19 @@ Client::Client()
     numPlayersRed=0;
 }
 
-void Client::PacketFunction(int aux, char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-    const Type2Func * it = packetFunction;
-    while(it->A != -1){
-
-        if(it->A == aux){
-            (this->*it->Type2Func::p)(param1,param2,param3,param4,param5,param6);
-            break;
-        }
-        it++;
-
-    }
-}
-
 PlayerRed* Client::crearPlayer(char* i){
     return(new PlayerRed(b2Vec2(100.f, 61.995),0,i));
 }
 
 void Client::iniciar(){
-
     char auxip[64], auxserverPort[30], auxclientPort[30];
     puts("Enter the client port to listen on");
-    Gets(auxclientPort,sizeof(auxclientPort));
+    //Gets(auxclientPort,sizeof(auxclientPort));
 
     puts("Enter IP to connect to");
     //Gets(auxip,sizeof(auxip));
     //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-    strncpy(auxip, "172.27.138.35", sizeof(auxip));
+    strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
     puts("Enter the port to connect to");
     //Gets(auxserverPort,sizeof(auxserverPort));
@@ -73,18 +65,13 @@ void Client::iniciar(){
 	}
 
 	printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
-
-    while(!run){ recibir();}
+	//client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString()
+	//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getClientPort(), sizeof(aux));
+	    timer=IrrMngr::Inst()->getTime();
 
 }
 
 void Client::enviar(){
-
-
-    struct TPlayersRed{
-        /*PlayerRed* player;*/
-        char* param;
-    };
 
     char aux[60];
     char tipo[60];
@@ -94,23 +81,31 @@ void Client::enviar(){
     char posy[30];
     char direcc[30];
     char muertor[30];
+    int estador;
+    int dir;
     int muer;
     int moviendo;
+    float auxiliarx;
+    float auxiliary;
 
     b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
     strncpy(tipo, "1", sizeof(tipo));
-    int dir = World::Inst()->getPlayer(1)->getDireccion();
-    if(World::Inst()->getPlayer(1)->getMuerto()==true) muer = 1;
-    else muer = 0;
+    dir = World::Inst()->getPlayer(1)->getDireccion();
+    if(World::Inst()->getPlayer(1)->getMuerto()==true){
+        muer = 1;
+    }else{
+        //std::cout<<"ENVIANDO entrooo"<<std::endl;
+        muer = 0;
+    }
+    estador = World::Inst()->getPlayer(1)->getEstado();
 
-    int estador = World::Inst()->getPlayer(1)->getEstado();
-
-    float auxiliarx = posicion.x * 1000000;
-    float auxiliary = posicion.y * 1000000;
+    auxiliarx = posicion.x * 1000000;
+    auxiliary = posicion.y * 1000000;
 
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+    if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+
+    else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     //---------- ESTADO
     sprintf(estado, "%.0f", (float)estador);
@@ -119,8 +114,15 @@ void Client::enviar(){
     // -------- POSICIONES
     sprintf(posx, "%.0f", auxiliarx);
     sprintf(posy, "%.0f", auxiliary);
-    // -------- MUERTO
-    sprintf(muertor, "%.0f", (float)muer);
+
+        sprintf(muertor, "%.0f", (float)muer);
+/*
+    #ifdef _WIN32
+		Sleep(30);
+    #else
+        usleep(30 * 1000);
+    #endif
+*/
 
     strncat (tipo, " ", 30);
     strncat (tipo, id, 30);
@@ -135,7 +137,7 @@ void Client::enviar(){
     strncat (tipo, " ", 30);
     strncat (tipo, muertor, 30);
     strncpy(aux, tipo, sizeof(aux));
-
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -145,31 +147,15 @@ void Client::enviarUsar(){
     char id[30];
 
     strncpy(tipo, "2", sizeof(tipo));
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+
+        else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     strncat (tipo, " ", 30);
     strncat (tipo, id, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-
-    client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
-}
-
-void Client::enviarMuerto(){
-    char aux[60];
-    char tipo[60];
-    char id[30];
-
-    strncpy(tipo, "7", sizeof(tipo));
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
-
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-
-    strncpy(aux, tipo, sizeof(aux));
-
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -181,8 +167,9 @@ void Client::enviarCogido (int TCogible){
 
     strncpy(tipo, "3", sizeof(tipo));
 
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+    if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+
+    else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     sprintf(cogible, "%.0f", (float)TCogible);
 
@@ -191,8 +178,9 @@ void Client::enviarCogido (int TCogible){
     strncat (tipo, " ", 30);
     strncat (tipo, cogible, 30);
 
+    //strncat (tipo, Tarma, 30);
     strncpy(aux, tipo, sizeof(aux));
-
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -202,23 +190,13 @@ void Client::enviarMoviendo(int moviendo){
     char tipo[60];
     char id[30];
     char mov[30];
-    char posx[30];
-    char posy[30];
-
-    float auxiliarx;
-    float auxiliary;
-    b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
-    auxiliarx = posicion.x * 1000000;
-    auxiliary = posicion.y * 1000000;
 
     strncpy(tipo, "4", sizeof(tipo));
 
-    sprintf(posx, "%.0f", auxiliarx);
-    sprintf(posy, "%.0f", auxiliary);
 
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+    if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+    else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     sprintf(mov, "%.0f", (float)moviendo);
 
@@ -226,13 +204,9 @@ void Client::enviarMoviendo(int moviendo){
     strncat (tipo, id, 30);
     strncat (tipo, " ", 30);
     strncat (tipo, mov, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posx, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posy, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -244,9 +218,10 @@ void Client::enviarSalto(int Nsalto){
     char salto[30];
     strncpy(tipo, "5", sizeof(tipo));
 
+
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+    if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+    else{    strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
 
     sprintf(salto, "%.0f", (float)Nsalto);
 
@@ -256,7 +231,7 @@ void Client::enviarSalto(int Nsalto){
     strncat (tipo, salto, 30);
 
     strncpy(aux, tipo, sizeof(aux));
-
+    //std::cout<<"ENVIANDO "<<aux<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -338,7 +313,7 @@ void Client::recibir(){
 			char param4[30];
 			char param5[30];
             char param6[30];
-            iterador=0;
+			int iterador=0;
 			long int x;
 			long int y;
 			int vivo;
@@ -347,8 +322,12 @@ void Client::recibir(){
 			int cogible;
 			int Tarma;
 			int moviendo;
+			PlayerRed* Player1;
+			PlayerRed* Player2;
+			PlayerRed* Player3;
 
             struct TPlayersRed{
+                PlayerRed* player;
                 char* id;
             };
 
@@ -384,12 +363,118 @@ void Client::recibir(){
                 msg = strtok(NULL, " ");
                 iterador++;
             }
-            /////////LLAMADA A FUNCION SEGUN PAQUETE\\\\\\\\
 
-            if(comprobacion(tipo)){
+            TPlayersRed players [3]=
+            {{Player1, param2}
+            ,{Player2, param3}
+            ,{Player3, param4}
+            };
 
-            PacketFunction(atoi(tipo), param1, param2,param3, param4,param5, param6);
+            /////////PARTE CREAR PLAYERRED\\\\\\\\
 
+            if(strcmp(tipo, "0") == 0){
+                if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){
+                    World::Inst()->getPlayer(1)->setId(param1);
+                    strncpy(idCliente, param1, sizeof(idCliente));
+                    for(int i=1;i<iterador-1;i++){
+                        players[i-1].player = crearPlayer(players[i-1].id);
+                        //World::Inst()->GetPlayersRed()->push_back(players[i-1].player);
+                        World::Inst()->AddPlayer(players[i-1].player);
+                        numPlayersRed++;
+                        //playersRed[numPlayersRed-1].id = players[i-1].id;
+                        strncpy(playersRed[numPlayersRed-1].id, players[i-1].id, sizeof(playersRed[numPlayersRed-1].id));
+                    }
+                }
+                else{
+                    std::cout<<"seteando de compaaaadre>"<<param1<<" e-"<<param2<<" x-"<<param3<<" y-"<<param4<<" d-"<<param5<<" ITE-"<<iterador<<std::endl;
+                    PlayerRed* playerRed = new PlayerRed(b2Vec2(100.f, 61.995),0,param1);
+                    //World::Inst()->GetPlayersRed()->push_back(playerRed);
+                    World::Inst()->AddPlayer(playerRed);
+                    numPlayersRed++;
+                    //playersRed[numPlayersRed-1].id = param1;
+                    strncpy(playersRed[numPlayersRed-1].id, param1, sizeof(param1));
+                }
+                enviar();
+            }
+
+            /////////PARTE UPDATE PLAYERRED\\\\\\\\
+
+            if(strcmp(tipo, "1") == 0){
+                x = atol(param3);
+                y = atol(param4);
+                vivo = atoi(param2);
+                dir = atoi(param5);
+                 muerto = atoi(param6);
+
+                /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+
+       // if(IrrMngr::Inst()->getTime()>(timer+5000)){
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
+                        p->setx(x);
+                        p->sety(y);
+                        p->setEstado(vivo);
+                        p->setDireccion(dir);
+                        p->setMuerto(muerto);
+                        p->setPos();
+                        //std::cout<<"SEEEET "<<msg<<std::endl;
+                    }
+                }
+                timer=IrrMngr::Inst()->getTime();
+       // }
+            }
+
+            /////////PARTE DISPARO PLAYERRED\\\\\\\\
+
+
+            if(strcmp(tipo, "2") == 0){
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        World::Inst()->GetPlayers().at(i)->usar();
+                    }
+            }
+            }
+
+            if(strcmp(tipo, "3") == 0){
+                cogible = atoi(param2);
+                /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        if(cogible == 0){ World::Inst()->GetPlayers().at(i)->Soltar();
+                        }else{
+                        //World::Inst()->GetPlayersRed().at(i)->CogerTirar(cogible);
+                        World::Inst()->GetPlayers().at(i)->CogerTirar();
+                        }
+                    }
+                }
+            }
+
+            if(strcmp(tipo, "4") == 0){
+                moviendo = atoi(param2);
+                /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+
+
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
+                    }
+                }
+            }
+
+            if(strcmp(tipo, "5") == 0){
+                moviendo = atoi(param2);
+                for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+
+                    if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+                        //World::Inst()->GetPlayersRed().at(i)->saltar(moviendo);
+                        dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
+                        //World::Inst()->GetPlayers().at(i)->saltar(moviendo);
+                    }
+                }
             }
 		}
 
@@ -409,129 +494,27 @@ unsigned char Client::GetPacketIdentifier(RakNet::Packet *p)
 		return (unsigned char) p->data[0];
 }
 
+///////METODOS DE ACCION DE PLAYER\\\\\\\
 
-void Client::analizarPaquete0(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-    struct TPlayersRed{
-        char* id;
-    };
-
-    TPlayersRed players [3]=
-    {{param2}
-    ,{param3}
-    ,{param4}
-    };
-
-    if(strcmp(idCliente, "") == 0){
-    strncpy(idCliente, param1, sizeof(idCliente));
-        for(int i=1;i<iterador-1;i++){
-            numPlayersRed++;
-            strncpy(playersRed[i-1].id, players[i-1].id, sizeof(playersRed[i-1].id));
-        }
-    }else{
-        for(int i=1;i<iterador-1;i++){
-            numPlayersRed++;
-            strncpy(playersRed[i-1].id, param1, sizeof(playersRed[i-1].id));
-        }
-    }
-
+void Client::dispararPistola(long int x, long int y, int direc){
+    std::cout<<"entro en disparar! X:"<<x<<" Y:"<<y<<std::endl;
+    float aux_x = x/1000000.f;
+    float aux_y = y/1000000.f;
+    World::Inst()->AddBala(new Bala(irr::core::vector3df(aux_x, aux_y, 0), 300, 10, 1.0f, direc));
 }
 
-void Client::analizarPaquete1(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-    long int x = atol(param3);
-    long int y = atol(param4);
-    int vivo = atoi(param2);
-    int dir = atoi(param5);
-    int muerto = atoi(param6);
+void Client::dispararEscopeta(long int x, long int y, int direc){
+    std::cout<<"entro en disparar! X:"<<x<<" Y:"<<y<<std::endl;
+    float aux_x = x/1000000.f;
+    float aux_y = y/1000000.f;
 
-    /////////PARTE SETTEAR PLAYERRED\\\\\\\\
-
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-            PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
-            p->setx(x);
-            p->sety(y);
-            p->setEstado(vivo);
-            p->setDireccion(dir);
-            p->setMuerto(muerto);
-            p->setPos();
-        }
+    for(int i=0; i<15; i++){
+            float desvBala = rand()% 20 - 10;
+            float velBala = rand()% 3 + 10;
+            World::Inst()->AddBala(new Bala(irr::core::vector3df(aux_x, aux_y, 0), 200, velBala, desvBala, direc, 1));
     }
 }
 
-void Client::analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-            World::Inst()->GetPlayers().at(i)->usar();
-        }
-    }
-}
-
-void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-        int cogible = atoi(param2);
-        /////////PARTE SETTEAR PLAYERRED\\\\\\\\
-
-        for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-
-            if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                if(cogible == 0){ dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(0);
-                }else{
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(cogible);
-                }
-            }
-        }
-}
-
-void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-        int moviendo = atoi(param2);
-        long int x = atol(param3);
-        long int y = atol(param4);
-        /////////PARTE SETTEAR PLAYERRED\\\\\\\\
-
-
-        for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-
-            if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setx(x);
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->sety(y);
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setPos();
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
-            }
-        }
-    }
-
-void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-    int moviendo = atoi(param2);
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-
-        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
-        }
-    }
-}
-
-void Client::analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
-        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                std::cout<<"EENTRO EN MORIR"<<std::endl;
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->morirRed();
-        }
-    }
-}
-
-bool Client::comprobacion(char* tipo){
-if(strcmp(tipo, "0") == 0 || strcmp(tipo, "1") == 0 || strcmp(tipo, "2") == 0 ||
-   strcmp(tipo, "3") == 0 || strcmp(tipo, "4") == 0 || strcmp(tipo, "5") == 0 ||
-   strcmp(tipo, "6") == 0 || strcmp(tipo, "7") == 0) return true;
-else
-    return false;
-
-}
 Client::~Client()
 {
     //dtor

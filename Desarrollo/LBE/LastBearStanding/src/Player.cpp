@@ -1,14 +1,16 @@
-#include "MyEventReceiver.h"
-#include "IrrManager.h"
+
+
 #include "Player.h"
-#include "Usable.h"
 #include "World.h"
+#include "IrrManager.h"
+
+
 
 Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     estado = LEVANTADO;
     direccion = 0;
     expuesto = false;
-    strncpy(id, cliente->getIdCliente(), sizeof(id));
+    strncpy(id, Client::Inst()->getIdCliente(), sizeof(id));
     tam = irr::core::vector3df(.7f, 1.8f,.7f);
     pos.x += (tam.X/2);
     pos.y  = -1*(pos.y-(tam.Y/2));
@@ -122,7 +124,7 @@ void Player::mover(){
         else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
         else{moviendo = 0;}
     }
-    if(moviendo != moviendoA){cliente->enviarMoviendo(moviendo);
+    if(moviendo != moviendoA){Client::Inst()->enviarMoviendo(moviendo);
     moviendoA = moviendo;}
     body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
@@ -142,14 +144,14 @@ void Player::saltar(){
         b2Vec2 velV = body->GetLinearVelocity();
         velV.y = salto;
         body->SetLinearVelocity(velV);
-        cliente->enviarSalto(1);
+        Client::Inst()->enviarSalto(1);
     }
     else if(!dobleSaltando){
         b2Vec2 velV = body->GetLinearVelocity();
         velV.y = salto*3/4;
         body->SetLinearVelocity(velV);
         dobleSaltando = true;
-        cliente->enviarSalto(2);
+        Client::Inst()->enviarSalto(2);
     }
 }
 void Player::fingirMuerte(){
@@ -167,14 +169,14 @@ void Player::fingirMuerte(){
     }
 }
 void Player::morir(){
-    std::cout<<"WENTRO?"<<std::endl;
-    paraMorir = false;
-    if(cogiendo) Soltar();
-    DestroyFixtures();
-    estado = MUERTO_DORMIDO;
-    InicializeFixtures(MUERTO_DORMIDO);
-    muerto = true;
-    cliente->enviarMuerto();
+    if(!muerto){
+        paraMorir = false;
+        if(cogiendo) Soltar();
+        DestroyFixtures();
+        estado = MUERTO_DORMIDO;
+        InicializeFixtures(MUERTO_DORMIDO);
+        muerto = true;
+    }
 }
 void Player::CogerTirar(){
     if(puedoCoger && !cogiendo){
@@ -190,13 +192,12 @@ void Player::CogerTirar(){
                 joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
                 joint->EnableMotor(true);
                 cogiendo = true;
-                cliente->enviarCogido(objCogido->getIdCogible());
-                //cout<<"HE COGIDO COGIBLE NUM "<<objCogido->getIdCogible()<<std::endl;
+                Client::Inst()->enviarCogido(objCogido->getIdCogible());
             }
     }
     else if(cogiendo){
         Soltar();
-        cliente->enviarCogido(0);
+        Client::Inst()->enviarCogido(0);
     }
 }
 void Player::recibeImpulso(float fuerza){
@@ -230,7 +231,8 @@ void Player::Soltar(){
 
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
-            cliente->enviarUsar();
-            usable->usar();}
+        Client::Inst()->enviarUsar();
+        usable->usar();
+    }
 }
 

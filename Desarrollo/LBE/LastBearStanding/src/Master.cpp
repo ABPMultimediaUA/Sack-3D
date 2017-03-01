@@ -1,23 +1,23 @@
-#include "IrrManager.h"
 #include "Master.h"
-#include "World.h"
 
 #define FINPARTIDA 3000
-#define NUM_MAPS 2
 #define FPS 1.f/30.f*1000.f
 
 Master::Master(){
-	World::Inst();
+    World::Inst();
     InstanciaMundo();
     IrrMngr::Inst();
+    Client::Inst()->iniciar();
+    IrrMngr::Inst()->InstanciaVariables(puntuaciones);
     timerFinPartida = IrrMngr::Inst()->getTimer();
     timerFPS = IrrMngr::Inst()->getTimer();
     timeFPS = timerFPS->getTime();
 }
 void Master::Update(){
     if(IrrMngr::Inst()->getTime()-timeFPS>FPS){
+        int fps = 1000/(IrrMngr::Inst()->getTime()-timeFPS);
         timeFPS = timerFPS->getTime();
-        int playersVivos = World::Inst()->Update();
+        int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
             if(playersVivos <= 1){
                 timeFinPartida = timerFinPartida->getTime();
@@ -25,19 +25,26 @@ void Master::Update(){
             }
         }
         else if(IrrMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
+            puntuaciones[World::Inst()->getGanador()]++;
             World::Inst()->Reset();
             InstanciaMundo();
             finPartida = false;
         }
-        IrrMngr::Inst()->Update();
+        IrrMngr::Inst()->Update(fps);
+        Client::Inst()->recibir();
+        if(IrrMngr::Inst()->getTime()>(time2SyncClient+5000)){
+            Client::Inst()->enviar();
+            time2SyncClient = IrrMngr::Inst()->getTime();
+        }
     }
 }
 void Master::InstanciaMundo(){
-    int mapa = rand()%NUM_MAPS+1;
+    int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
+    int mapa = rand()%numDeMapas+1;
     const Num2Map * it = maps;
     while(it->num != 0){
         if(it->num == mapa){
-            World::Inst()->inicializaVariables(it->map);
+            World::Inst()->inicializaVariables(it->map,puntuaciones);
             break;
         }
         it++;

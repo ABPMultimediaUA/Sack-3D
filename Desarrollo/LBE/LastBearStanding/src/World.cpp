@@ -1,14 +1,7 @@
 
 #include "World.h"
 #include "MyContactListener.h"
-#include "IrrManager.h"
-#include "PlayerRed.h"
-#include "Spawner.h"
 #include "Cogible.h"
-#include "Camera.h"
-#include "Player.h"
-#include "Bala.h"
-#include "Map.h"
 
 #define VELITER 6              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
 #define POSITER 6              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
@@ -30,16 +23,15 @@ World::World(){
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
 }
-void World::inicializaVariables(irr::core::stringw mapFile){
+void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
   char id[30];
   GameResource<Map>(new Map(mapFile));
-  for(int i=0;i<cliente->getNumPlayersRed();i++){
-    World::Inst()->AddPlayer(new PlayerRed(b2Vec2(100.f, 61.995),0,cliente->playersRed[i].id));
+  for(int i=0;i<Client::Inst()->getNumPlayersRed();i++){
+    World::Inst()->AddPlayer(new PlayerRed(b2Vec2(100.f, 61.995),0,Client::Inst()->playersRed[i].id));
   }
   camara.Reset(new Camera());
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
-  font = IrrMngr::Inst()->getFont();
 }
 b2Body* World::CreateBox(int x , int y){
     b2BodyDef bodyDef;
@@ -63,9 +55,14 @@ Player* World::getPlayer(int mando){
   }
   return NULL;
 }
-int World::Update(){
+int World::getGanador(){
+  for (int i = 0; i < m_Players.Size(); ++i){
+    if(!m_Players.Get(i)->getMuerto())return i;
+  }
+  return 0;
+}
+int World::Update(int fps){
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
-  int fps = 1000/DeltaTime;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
   world.Get()->Step(TIMESTEP, VELITER, POSITER);
@@ -92,11 +89,13 @@ int World::Update(){
   }
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
-    m_Players.Get(i)->actualiza();
+    if(!dynamic_cast<PlayerRed*>(m_Players.Get(i))){
+      m_Players.Get(i)->actualiza();
+    }else{
+        dynamic_cast<PlayerRed*>(m_Players.Get(i))->actualiza();
+    }
     if(!m_Players.Get(i)->getMuerto())players++;
   }
-
   camara.Get()->update(TimeStamp, fps);
-  font->draw(irr::core::stringw(fps),irr::core::rect<irr::s32>(10,10,100,60),irr::video::SColor(255,0, 0,0));
   return players;
 }

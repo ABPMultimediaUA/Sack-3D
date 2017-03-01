@@ -1,7 +1,5 @@
-#include "IrrManager.h"
 #include "Pistola.h"
 #include "World.h"
-#include "Bala.h"
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos):Usable(expo,pos){
 
@@ -19,7 +17,9 @@ Pistola::~Pistola(){
 void Pistola::usar(){
     if(usos){
         if(IrrMngr::Inst()->getTime()-timeCadencia > cadencia ){
-	    	World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 10, 1.0f, dir));
+            float desvBala = rand()% 3 - 3;
+	    	World::Inst()->AddBala(
+                new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 10, desvBala, dir,1));
 	    	usos--;
             timeCadencia = timerCadencia->getTime();
 	    }

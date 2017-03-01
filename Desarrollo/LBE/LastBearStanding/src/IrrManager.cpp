@@ -1,6 +1,8 @@
 
 #include "IrrManager.h"
 #include "MyEventReceiver.h"
+#include "DebugInfo.h"
+#include "HUD.h"
 
 IrrMngr* IrrMngr::pinstance = 0;
 IrrMngr* IrrMngr::Inst(){
@@ -17,7 +19,7 @@ IrrMngr::IrrMngr(){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,600), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(600,600*9/16), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");
@@ -27,12 +29,15 @@ IrrMngr::IrrMngr(){
     smgr->setAmbientLight(irr::video::SColor(0,60,60,60));
 	timer = device->getTimer();
 }
-void IrrMngr::Update(){
-	smgr->drawAll();
-	endScene();
+void IrrMngr::InstanciaVariables(int* puntuaciones){
+  	debugInfo.Reset(new DebugInfo);
+  	hud.Reset(new HUD(puntuaciones));
 }
-irr::gui::IGUIFont* IrrMngr::getFont(){
-	irr::gui::IGUIFont* font = guienv->getBuiltInFont();
+void IrrMngr::Update(int fps){
+	smgr->drawAll();
+	hud.Get()->Draw();
+	debugInfo.Get()->Draw(fps);
+	endScene();
 }
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
 	irr::scene::IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);

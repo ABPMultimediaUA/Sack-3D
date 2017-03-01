@@ -1,7 +1,14 @@
 
 #include "World.h"
 #include "MyContactListener.h"
+#include "IrrManager.h"
+#include "PlayerRed.h"
+#include "Spawner.h"
 #include "Cogible.h"
+#include "Camera.h"
+#include "Player.h"
+#include "Bala.h"
+#include "Map.h"
 
 #define VELITER 6              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
 #define POSITER 6              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION

@@ -1,8 +1,6 @@
 
 #ifndef IRRMANAGER_H
 #define IRRMANAGER_H
-#include "MyEventReceiver.h"
-#include "GameResource.h"
 
 class DebugInfo;
 class HUD;
@@ -10,6 +8,7 @@ class IrrMngr{
     public:
         static IrrMngr* Inst();
         IrrMngr();
+        void Update();
         void Update(int fps);
         void InstanciaVariables(int* puntuaciones);
         void Reset();
@@ -18,6 +17,7 @@ class IrrMngr{
         void drop();
         float getTime();
         void Close();
+        irr::gui::IGUIFont* getFont();
         irr::scene::IMesh* createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam,  irr::video::SColor color);
         irr::scene::IMeshSceneNode* addCubeSceneNode(int tam , irr::video::SColor color);
         irr::scene::IMeshSceneNode* addCubeSceneNode(irr::core::vector3df tam, irr::video::SColor color);

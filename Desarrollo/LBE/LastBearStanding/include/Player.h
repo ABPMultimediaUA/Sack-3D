@@ -1,10 +1,6 @@
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <Box2D/Box2D.h>
-#include <irrlicht.h>
-#include "MyEventReceiver.h"
 #include "Cogible.h"
 
 

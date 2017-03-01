@@ -1,0 +1,10 @@
+diff a/Desarrollo/LBE/LastBearStanding/include/Bala.h b/Desarrollo/LBE/LastBearStanding/include/Bala.h	(rejected hunks)
+@@ -2,7 +2,7 @@
+ #define BALA_H
+ #include <Box2D/Box2D.h>
+ #include <irrlicht.h>
+-
++#include <iostream>
+ class Bala{
+     public:
+         Bala( irr::core::vector3df pos, int tiempoVidaP, int velocidad, float deviacionP, int dir, int tipo = 0);

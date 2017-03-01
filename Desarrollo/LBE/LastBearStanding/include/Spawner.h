@@ -2,8 +2,6 @@
 #ifndef SPAWNER_H
 #define SPAWNER_H
 
-#include "Cogible.h"
-#include "IrrManager.h"
 
 class Spawner {
     public:

@@ -1,0 +1,19 @@
+diff a/Desarrollo/LBE/LastBearStanding/include/World.h b/Desarrollo/LBE/LastBearStanding/include/World.h	(rejected hunks)
+@@ -3,6 +3,17 @@
+ #define WORLD_H
+ #include <vector>
+ #include <Box2D/Box2D.h>
++#include <iostream>
++#include "Player.h"
++#include "Pistola.h"
++#include "Escopeta.h"
++#include "Granada.h"
++#include "Bala.h"
++#include "Muelle.h"
++#include "Teleport.h"
++#include "Spawner.h"
++#include "PlayerRed.h"
++#include "Platform.h"
+ #include "GameResource.h"
+ #include "RVector.h"
+ #include <vector>

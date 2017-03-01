@@ -1,5 +1,7 @@
 
 #include "MyEventReceiver.h"
+#include "IrrManager.h"
+#include "Player.h"
 #include "World.h"
 
 bool MyEventReceiver::OnEvent(const irr::SEvent& event){

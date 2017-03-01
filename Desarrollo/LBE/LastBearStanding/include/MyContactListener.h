@@ -1,11 +1,14 @@
 #ifndef MYCONTACTLISTENER_H
 #define MYCONTACTLISTENER_H
 
-#include "Box2D/Box2D.h"
 #include "World.h"
-#include <iostream>
 
 class MyContactListener;
+class Player;
+class Cogible;
+class Muelle;
+class Teleport;
+class Bala;
 struct Contact2Method {
      unsigned long A;
      unsigned long B;
@@ -48,51 +51,11 @@ class MyContactListener: public b2ContactListener{
             , { 0                   , 0                   , 0                   }
         };
         b2Contact* contact;
-        Player* GetPlayer(){
-            for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
-                if(World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
-                || World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
-                    return World::Inst()->GetPlayers().at(i);
-                }
-            }
-            return NULL;
-        }
-        Cogible* GetCogible(){
-            for(int i = 0; i < World::Inst()->GetCogibles().size(); ++i){
-                if(World::Inst()->GetCogibles().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
-                || World::Inst()->GetCogibles().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
-                    return World::Inst()->GetCogibles().at(i);
-                }
-            }
-            return NULL;
-        }
-        Muelle* GetMuelle(){
-            for(int i = 0; i < World::Inst()->GetMuelles().size(); ++i){
-                if(World::Inst()->GetMuelles().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
-                || World::Inst()->GetMuelles().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
-                    return World::Inst()->GetMuelles().at(i);
-                }
-            }
-            return NULL;
-        }
-        Teleport* GetTeleport(){
-            for(int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
-                if(World::Inst()->GetTeleports().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
-                || World::Inst()->GetTeleports().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
-                    return World::Inst()->GetTeleports().at(i);
-                }
-            }
-            return NULL;
-        }
-        Bala* GetBala(){
-            for(int i = 0; i < World::Inst()->GetBalas().size(); ++i){
-                if(World::Inst()->GetBalas().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
-                || World::Inst()->GetBalas().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
-                    return World::Inst()->GetBalas().at(i);
-                }
-            }
-            return NULL;
-        }
+        Player* GetPlayer();
+        Cogible* GetCogible();
+        Muelle* GetMuelle();
+        Teleport* GetTeleport();
+        Bala* GetBala();
 };
 
 #endif

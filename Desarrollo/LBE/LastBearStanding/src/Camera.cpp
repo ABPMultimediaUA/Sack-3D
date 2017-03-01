@@ -2,7 +2,6 @@
 #include "Camera.h"
 #include "World.h"
 #include "Player.h"
-#include "PlayerRed.h"
 
 #define MINZ            15
 #define FPS             20
@@ -27,27 +26,6 @@ Camera::~Camera(){
 Camera::update(float time, int fps){
 	float xMin,yMin,xMax,yMax,z;
     bool ini = false;
-    bool puedo = false;
-    for(int i = 0; i <= World::Inst()->GetPlayersRed().size() || i==0; ++i){
-        b2Vec2 pos;
-        if(i==World::Inst()->GetPlayersRed().size()){
-            if(!World::Inst()->GetPlayers().at(0)->getMuerto()){ pos = World::Inst()->GetPlayers().at(0)->getPosition();
-            puedo = true;
-            }
-        }
-        else {
-            if(World::Inst()->GetPlayersRed().at(i)->getMuerto() == 0){ pos = World::Inst()->GetPlayersRed().at(i)->getPosition();
-                puedo = true;
-            }
-        }
-        if(puedo){
-            if(!ini){ xMin = xMax = pos.x; yMin = yMax = pos.y; ini = true;}
-            if(pos.x < xMin)xMin = pos.x;
-            if(pos.x > xMax)xMax = pos.x;
-            if(pos.y < yMin)yMin = pos.y;
-            if(pos.y > yMax)yMax = pos.y;
-        }
-    }
     for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
         if(World::Inst()->GetPlayers().at(i)){
            if(!World::Inst()->GetPlayers().at(i)->getMuerto()){

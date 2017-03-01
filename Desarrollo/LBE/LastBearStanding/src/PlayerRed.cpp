@@ -43,12 +43,13 @@ void PlayerRed::saltar(int i){
 }
 
 void PlayerRed::CogerTirar(int idCogible){
-    if(idCogible!=0){
+    if(idCogible!=-1){
                 for (int i = 0; i <World::Inst()->GetCogibles().size(); ++i){
                     if(World::Inst()->GetCogibles().at(i)->getIdCogible()==idCogible){
                       objCogido = World::Inst()->GetCogibles().at(i);
                     }
                 }
+                std::cout<<"Cogible es "<<idCogible<<std::endl;
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
                 b2RevoluteJointDef jointDef;

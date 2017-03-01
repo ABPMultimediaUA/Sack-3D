@@ -190,12 +190,13 @@ void Player::CogerTirar(){
                 joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
                 joint->EnableMotor(true);
                 cogiendo = true;
+                std::cout<<"Cogible es "<<objCogido->getIdCogible()<<std::endl;
                 Client::Inst()->enviarCogido(objCogido->getIdCogible());
             }
     }
     else if(cogiendo){
         Soltar();
-        Client::Inst()->enviarCogido(0);
+        Client::Inst()->enviarCogido(-1);
     }
 }
 void Player::recibeImpulso(float fuerza){

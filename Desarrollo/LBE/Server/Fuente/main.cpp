@@ -218,7 +218,7 @@ int main(void)
 		// All messages to all clients come from the server either directly or by being
 		// relayed from other clients
 		message2[0]=0;
-		strcpy(message2, "Server: ");
+		strcpy(message2, "6 ");
 		strcat(message2, message);
 
 		// message2 is the data to send

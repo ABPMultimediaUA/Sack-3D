@@ -69,7 +69,7 @@ class Client
         void analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         void analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
-        void analizarPaquete6(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){run=true;}
+        void analizarPaquete6(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){std::cout<<"empieza conio"<<std::endl;run=true;}
         void analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}

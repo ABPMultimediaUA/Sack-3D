@@ -362,7 +362,7 @@ void Client::recibir(){
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			char * msg;
 			msg = strtok(recibido, " ");
-            std::cout<<"RECIBIENDO "<<msg<<std::endl;
+            //std::cout<<"RECIBIENDO "<<msg<<std::endl;
 			while(msg != NULL){
                 switch (iterador)
                 {
@@ -484,7 +484,7 @@ void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param
         for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                if(cogible == 0){ dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(0);
+                if(cogible == -1){ dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(-1);
                 }else{
                 dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(cogible);
                 }

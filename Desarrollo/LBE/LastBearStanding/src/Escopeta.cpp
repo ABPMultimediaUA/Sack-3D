@@ -4,6 +4,7 @@
 #include "Bala.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos):Usable(expo,pos){
+    idCogible = World::Inst()->GetCogibles().size();
     usos = 5;
     tam = irr::core::vector3df(0.7f,0.2f,0.02f);
     node = IrrMngr::Inst()->addCubeSceneNode(tam,irr::video::SColor(255, 0, 255, 0));

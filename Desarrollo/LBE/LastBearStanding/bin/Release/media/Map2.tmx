@@ -53,10 +53,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Players">
-  <object id="585" gid="271" x="100" y="62.6087" width="1" height="1"/>
-  <object id="585" gid="271" x="55.0909" y="39.8182" width="1" height="1"/>
- </objectgroup>
+ <objectgroup name="Players"/>
  <objectgroup name="Muerte">
   <object id="631" x="-58" y="88.6667" width="246.333" height="13.3333" visible="0"/>
  </objectgroup>

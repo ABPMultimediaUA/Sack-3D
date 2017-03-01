@@ -10,7 +10,7 @@ Master::Master(){
     World::Inst();
     InstanciaMundo();
     IrrMngr::Inst();
-    Client::Inst()->iniciar();
+    //Client::Inst()->iniciar();
     IrrMngr::Inst()->InstanciaVariables(puntuaciones);
     timerFinPartida = IrrMngr::Inst()->getTimer();
     timerFPS = IrrMngr::Inst()->getTimer();

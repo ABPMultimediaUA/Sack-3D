@@ -45,6 +45,7 @@ void Map::AddPincho(){
      World::Inst()->AddPlatform(new Platform(true,irr::core::vector3df(x,y,0),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 Map::Map(irr::core::stringw file){
+     player = 1;
      irr::core::stringw layer;
      irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
      while (xml->read()){

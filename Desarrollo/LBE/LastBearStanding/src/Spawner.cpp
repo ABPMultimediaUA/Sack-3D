@@ -6,6 +6,8 @@
 #include "World.h"
 
 Spawner::Spawner(int tipo, int modelo , b2Vec2 pos ):pos(pos),tipo(tipo),modelo(modelo){
+    cogiendo = true;
+    cadencia = 2000;
     irr::core::vector3df tam(1.f,.2f,1.f);
     pos.x += (tam.X/2);
     pos.y  = -1*(pos.y-(tam.Y/2));

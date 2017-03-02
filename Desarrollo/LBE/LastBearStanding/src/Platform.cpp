@@ -4,6 +4,7 @@
 #include "IrrManager.h"
 
 Platform::Platform(bool mata, irr::core::vector3df pos, irr::core::vector3df tam,irr::video::SColor color){
+    node = NULL;
     if(!mata){
         node = IrrMngr::Inst()->addCubeSceneNode(irr::core::vector3df(tam.X, tam.Y,tam.Z),color);
         node->setPosition(irr::core::vector3df(pos.X+(tam.X/2), -1*(pos.Y+(tam.Y/2)), pos.Z));

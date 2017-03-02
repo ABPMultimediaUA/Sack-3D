@@ -7,10 +7,13 @@
 #include "IrrManager.h"
 
 Master::Master(){
+    for (int i = 0; i < 4; ++i){
+        puntuaciones[i] = 0;
+    }
+    finPartida = false;
     World::Inst();
     InstanciaMundo();
     IrrMngr::Inst();
-    //Client::Inst()->iniciar();
     IrrMngr::Inst()->InstanciaVariables(puntuaciones);
     timerFinPartida = IrrMngr::Inst()->getTimer();
     timerFPS = IrrMngr::Inst()->getTimer();

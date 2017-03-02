@@ -3,6 +3,7 @@
 
 
 PlayerRed::PlayerRed(b2Vec2 pos, int mando, char idr[]):Player(pos,mando){
+    primera = true;
     strncpy(id, idr, sizeof(id));
     estadoAntiguo=LEVANTADO;
 }
@@ -44,7 +45,7 @@ void PlayerRed::saltar(int i){
 
 void PlayerRed::CogerTirar(int idCogible){
     if(idCogible!=-1){
-                for (int i = 0; i <World::Inst()->GetCogibles().size(); ++i){
+                for (unsigned int i = 0; i <World::Inst()->GetCogibles().size(); ++i){
                     if(World::Inst()->GetCogibles().at(i)->getIdCogible()==idCogible){
                       objCogido = World::Inst()->GetCogibles().at(i);
                     }

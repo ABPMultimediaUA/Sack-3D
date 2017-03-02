@@ -24,9 +24,9 @@ Camera::~Camera(){
     camera->remove();
 }
 Camera::update(float time, int fps){
-	float xMin,yMin,xMax,yMax,z;
+	float xMin = 0,yMin = 0,xMax = 0,yMax = 0,z = 0;
     bool ini = false;
-    for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
         if(World::Inst()->GetPlayers().at(i)){
            if(!World::Inst()->GetPlayers().at(i)->getMuerto()){
                 b2Vec2 pos = World::Inst()->GetPlayers().at(i)->getPosition();

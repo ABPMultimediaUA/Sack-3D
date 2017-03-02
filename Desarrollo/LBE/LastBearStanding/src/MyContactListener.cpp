@@ -49,7 +49,7 @@ void MyContactListener::PlayerMuelle(){
 }
 void MyContactListener::PlayerTeleport(){
     Teleport* tp = GetTeleport();
-    for(int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
         if(World::Inst()->GetTeleports().at(i)){
             if(tp->getTeleportPartnerId() == World::Inst()->GetTeleports().at(i)->getTeleportId()){
                 GetPlayer()->setNextPos(World::Inst()->GetTeleports().at(i)->getBody()->GetPosition());
@@ -73,7 +73,7 @@ void MyContactListener::PlayerBala(){
     GetPlayer()->setParaMorir(true);
 }
 void MyContactListener::TeleportBala(){Teleport* tp = GetTeleport();
-    for(int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
         if(World::Inst()->GetTeleports().at(i)){
             if(tp->getTeleportPartnerId() == World::Inst()->GetTeleports().at(i)->getTeleportId()){
                 GetBala()->setNextPos(World::Inst()->GetTeleports().at(i)->getBody()->GetPosition());
@@ -85,7 +85,7 @@ void MyContactListener::TeleportBala(){Teleport* tp = GetTeleport();
 void MyContactListener::TeleportCogible(){
     Teleport* tp = GetTeleport();
     if(GetPlayer() == NULL){
-        for(int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
+        for(unsigned int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
             if(World::Inst()->GetTeleports().at(i)){
                 if(tp->getTeleportPartnerId() == World::Inst()->GetTeleports().at(i)->getTeleportId()){
                     GetCogible()->setNextPos(World::Inst()->GetTeleports().at(i)->getBody()->GetPosition());
@@ -100,7 +100,7 @@ void MyContactListener::BalaBegin(){
         GetBala()->setDestruir(true);
 }
 Player* MyContactListener::GetPlayer(){
-    for(int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetPlayers().size(); ++i){
         if(World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
         || World::Inst()->GetPlayers().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
             return World::Inst()->GetPlayers().at(i);
@@ -109,7 +109,7 @@ Player* MyContactListener::GetPlayer(){
     return NULL;
 }
 Cogible* MyContactListener::GetCogible(){
-    for(int i = 0; i < World::Inst()->GetCogibles().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetCogibles().size(); ++i){
         if(World::Inst()->GetCogibles().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
         || World::Inst()->GetCogibles().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
             return World::Inst()->GetCogibles().at(i);
@@ -118,7 +118,7 @@ Cogible* MyContactListener::GetCogible(){
     return NULL;
 }
 Muelle* MyContactListener::GetMuelle(){
-    for(int i = 0; i < World::Inst()->GetMuelles().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetMuelles().size(); ++i){
         if(World::Inst()->GetMuelles().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
         || World::Inst()->GetMuelles().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
             return World::Inst()->GetMuelles().at(i);
@@ -127,7 +127,7 @@ Muelle* MyContactListener::GetMuelle(){
     return NULL;
 }
 Teleport* MyContactListener::GetTeleport(){
-    for(int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetTeleports().size(); ++i){
         if(World::Inst()->GetTeleports().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
         || World::Inst()->GetTeleports().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
             return World::Inst()->GetTeleports().at(i);
@@ -136,7 +136,7 @@ Teleport* MyContactListener::GetTeleport(){
     return NULL;
 }
 Bala* MyContactListener::GetBala(){
-    for(int i = 0; i < World::Inst()->GetBalas().size(); ++i){
+    for(unsigned int i = 0; i < World::Inst()->GetBalas().size(); ++i){
         if(World::Inst()->GetBalas().at(i)->getBody() ==  contact->GetFixtureA()->GetBody()
         || World::Inst()->GetBalas().at(i)->getBody() ==  contact->GetFixtureB()->GetBody() ){
             return World::Inst()->GetBalas().at(i);

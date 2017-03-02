@@ -27,6 +27,6 @@ class Bala{
         b2Vec2 nextPos;
         int dir;
         bool teletransportado;
-		bool destruir = false;
+		bool destruir;
 };
 #endif // BALA_H

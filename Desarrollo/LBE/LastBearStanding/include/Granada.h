@@ -13,12 +13,12 @@ class Granada:public Usable{
         void actualiza();           
         void usar();                
     private:
-        int timerGranada; 
+        unsigned int timerGranada; 
         irr::ITimer* timerIrr;      
         b2Body* particulas[PARTICULAS];
-        int mecha = 4000;
-        bool usada = false;
-        bool explotada = false;
+        int mecha;
+        bool usada;
+        bool explotada;
 };
 
 #endif 

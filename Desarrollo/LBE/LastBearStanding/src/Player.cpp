@@ -5,6 +5,19 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
+    jointDef  = NULL;
+    vel = 7;
+    moviendoA = 0;
+    moviendo = 0;
+    salto = 15.0f;
+    cogiendo = false;
+    puedoCoger = false;
+    dobleSaltando = false;
+    fingiendoMuerte = false;
+    saltando = false;
+    paraMorir = false;
+    muerto = false;
+    teletransportado = false;
     estado = LEVANTADO;
     direccion = 0;
     expuesto = false;

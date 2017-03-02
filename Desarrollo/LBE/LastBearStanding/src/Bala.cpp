@@ -11,6 +11,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
         case 2: { tam = irr::core::vector3df(.4f, .2f,.2f);    break;}
         case 3: { tam = irr::core::vector3df(.4f, .2f,.2f);    break;}
     }
+    destruir = false;
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;

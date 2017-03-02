@@ -36,15 +36,15 @@ class Cogible{
         Spawner* expositor;
         b2Body* body;
         irr::core::vector3df tam;
-        bool autoDestruir = false;
-        bool cogido = false;
-        bool teletransportado = false;
+        bool autoDestruir ;
+        bool cogido ;
+        bool teletransportado ;
         b2Vec2 nextPos;
-        int dir = 1;
-        bool expuesto = false;
-        float restitution = 0.2f;
-        float density = 2.0f;
-        float friction = 0.8f;
+        int dir ;
+        bool expuesto;
+        float restitution;
+        float density ;
+        float friction ;
         b2Vec2 velActual;
 };
 

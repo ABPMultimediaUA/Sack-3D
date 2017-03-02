@@ -75,7 +75,6 @@ class Client
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
-        PlayerRed* crearPlayer(char* i);
 
     protected:
 
@@ -84,7 +83,7 @@ class Client
         char idCliente[30];
         int numPlayersRed;
         irr::f32 timer;
-        bool run = false;
+        bool run;
         int iterador;
         const Type2Func packetFunction[9] = {
               { 0         , analizarPaquete0    }

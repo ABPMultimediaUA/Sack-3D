@@ -3,11 +3,14 @@
 #include "World.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos):Usable(expo,pos){
-    timerIrr = IrrMngr::Inst()->getTimer();
-    tam = irr::core::vector3df(.01f,.01f,.01f);
-    node = IrrMngr::Inst()->addCubeSceneNode(tam,irr::video::SColor(30, 100, 30, 0));
-    node->setPosition(irr::core::vector3df(pos.x,pos.y,0));
-    InicializeFixtures(RELEASE);
+  mecha = 4000;
+  usada = false;
+  explotada = false;
+  timerIrr = IrrMngr::Inst()->getTimer();
+  tam = irr::core::vector3df(.01f,.01f,.01f);
+  node = IrrMngr::Inst()->addCubeSceneNode(tam,irr::video::SColor(30, 100, 30, 0));
+  node->setPosition(irr::core::vector3df(pos.x,pos.y,0));
+  InicializeFixtures(RELEASE);
 }
 Granada::~Granada(){
     if(node){node->remove();}

@@ -40,7 +40,7 @@ class PlayerRed: public Player{
     protected:
         //int estado;
         int estadoAntiguo;
-        bool primera = true;
+        bool primera;
 };
 
 #endif // PLAYERRED_H

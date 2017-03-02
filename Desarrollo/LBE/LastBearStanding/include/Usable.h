@@ -11,12 +11,11 @@ class Usable : public Cogible{
         virtual void actualiza();
         virtual void CompruebaVida();
         virtual int getUsos(){return usos;}
-        virtual int getIdCogible();
     protected:
-        bool usando = false;
-	    int usos = 1;
-        int cadencia = 500;
-        bool killCountDown = false;
+        bool usando;
+	    int usos;
+        int cadencia;
+        bool killCountDown;
         irr::f32 time2Kill;
         irr::f32 timeCadencia;
         irr::ITimer* timer2Kill;

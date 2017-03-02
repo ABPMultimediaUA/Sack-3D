@@ -720,10 +720,10 @@
 	"Master.h"
 	"Client.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\master.h
+1488457055 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\client.h
+1488456375 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -746,22 +746,22 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\player.h
+1488456628 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1488273374 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\cogible.h
+1488458802 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
+1488456658 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488273375 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1488456359 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 	"IrrManager.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\bala.h
+1488456349 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\bala.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -772,15 +772,15 @@
 	"RVector.h"
 	"Client.h"
 
-1488273374 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\gameresource.h
+1488457871 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\gameresource.h
 
-1488273374 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\rvector.h
+1488457896 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\rvector.h
 
 1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\camera.cpp
+1488458550 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\camera.cpp
 	"Camera.h"
 	"World.h"
 	"Player.h"
@@ -790,16 +790,16 @@
 	<vector>
 	<Box2D/Box2D.h>
 
-1488446453 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
+1488457635 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1488372030 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+1488458550 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
 	"World.h"
 	"Spawner.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\spawner.h
+1488456682 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\spawner.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Cogible.h"
@@ -820,18 +820,18 @@
 1488369317 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1488368964 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\usable.h
+1488458525 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488369251 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\granada.cpp
+1488456505 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\granada.cpp
 	"IrrManager.h"
 	"Granada.h"
 	"World.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\granada.h
+1488458805 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1488438932 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\hud.cpp
+1488452412 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\hud.cpp
 	"HUD.h"
 	"World.h"
 
@@ -844,10 +844,10 @@
 	"DebugInfo.h"
 	"HUD.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
+1488458590 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\map.cpp
+1488456561 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -861,10 +861,10 @@
 	"Escopeta.h"
 	"Granada.h"
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\map.h
+1488456546 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\platform.h
+1488456589 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
@@ -879,7 +879,7 @@
 1488273374 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
+1488457252 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
@@ -889,7 +889,7 @@
 	"World.h"
 	"IrrManager.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
+1488458550 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"Teleport.h"
 	"Cogible.h"
@@ -901,7 +901,7 @@
 1488438611 c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
+1488458691 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
@@ -913,23 +913,23 @@
 	"World.h"
 	"Bala.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\platform.cpp
+1488456596 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"IrrManager.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
+1488456646 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
 	"World.h"
 
-1488438612 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1488456662 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 
-1488372311 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\spawner.cpp
+1488456693 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -942,7 +942,7 @@
 	"World.h"
 	"IrrManager.h"
 
-1488372374 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\usable.cpp
+1488456719 source:c:\users\jpuerto\onedrive - multiscan technologies s.l\abp\desarrollo\lbe\lastbearstanding\src\usable.cpp
 	"IrrManager.h"
 	"Spawner.h"
 	"Usable.h"

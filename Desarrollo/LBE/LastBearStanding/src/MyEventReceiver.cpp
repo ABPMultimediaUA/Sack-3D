@@ -5,19 +5,20 @@
 #include "World.h"
 
 bool MyEventReceiver::OnEvent(const irr::SEvent& event){
-     if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
-         KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
-          if(event.KeyInput.PressedDown == true){
+    if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
+        KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
+        if(event.KeyInput.PressedDown == true){
             const Key2Method * it = keys;
             while(it->keyCode != irr::KEY_ZOOM ){
-               if(it->keyCode == event.KeyInput.Key){
-                   (this->*it->Key2Method::p)();
-                   break;
-               }
-               it++;
+                if(it->keyCode == event.KeyInput.Key){
+                    (this->*it->Key2Method::p)();
+                    break;
+                }
+                it++;
             }
-          }
-     }
+        }
+    }
+    return true;
 }
 bool MyEventReceiver::IsKeyDown(irr::EKEY_CODE keyCode) const{
 return KeyIsDown[keyCode];

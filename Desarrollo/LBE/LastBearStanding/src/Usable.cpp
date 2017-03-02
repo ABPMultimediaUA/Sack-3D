@@ -6,6 +6,10 @@
 
 Usable::Usable(Spawner* expo, b2Vec2 pos):Cogible(expo,pos){
     timerCadencia = IrrMngr::Inst()->getTimer();
+    usando = false;
+    usos = 1;
+    cadencia = 500;
+    killCountDown = false;
 }
 void Usable::actualiza(){
     Cogible::actualiza();
@@ -23,4 +27,3 @@ void Usable::CompruebaVida(){
         }
     }
 }
-int Usable::getIdCogible(){};

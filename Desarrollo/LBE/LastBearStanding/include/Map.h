@@ -38,7 +38,7 @@ class Map{
         int height;
         int name;
         int type;
-        int player = 1;
+        int player;
 };
 
 #endif

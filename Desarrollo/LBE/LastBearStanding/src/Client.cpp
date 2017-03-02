@@ -13,6 +13,7 @@ Client::Client(){
     client=RakNet::RakPeerInterface::GetInstance();
     clientID=RakNet::UNASSIGNED_SYSTEM_ADDRESS;
     isServer=false;
+    run = false;
     strncpy(idCliente, "", sizeof(idCliente));
     numPlayersRed=0;
 }
@@ -31,9 +32,6 @@ void Client::PacketFunction(int aux, char* param1,char* param2,char* param3,char
     }
 }
 
-PlayerRed* Client::crearPlayer(char* i){
-    return(new PlayerRed(b2Vec2(100.f, 61.995),0,i));
-}
 
 void Client::iniciar(){
     char auxip[64], auxserverPort[30], auxclientPort[30];
@@ -42,48 +40,46 @@ void Client::iniciar(){
     Gets(auxclientPort,sizeof(auxclientPort));
     if(strcmp(auxclientPort,"") == 0){
         server = false;
-    } 
+    }
     if(server){
         puts("Enter IP to connect to");
         //Gets(auxip,sizeof(auxip));
         //strncpy(auxip, "192.168.1.6", sizeof(auxip));
         strncpy(auxip, "127.0.0.1", sizeof(auxip));
-    
+
         puts("Enter the port to connect to");
         //Gets(auxserverPort,sizeof(auxserverPort));
         strncpy(auxserverPort, "3333", sizeof(auxserverPort));
-    
+
         RakNet::SocketDescriptor socketDescriptor(atoi(auxclientPort),0);
         socketDescriptor.socketFamily=AF_INET;
         client->Startup(8,&socketDescriptor, 1);
         client->SetOccasionalPing(true);
-    
+
         #if LIBCAT_SECURITY==1
             char public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
             FILE *fp = fopen("publicKey.dat","rb");
             fread(public_key,sizeof(public_key),1,fp);
             fclose(fp);
         #endif
-    
+
         #if LIBCAT_SECURITY==1
             RakNet::PublicKey pk;
             pk.remoteServerPublicKey=public_key;
             pk.publicKeyMode=RakNet::PKM_USE_KNOWN_PUBLIC_KEY;
             bool b = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"), &pk)==RakNet::CONNECTION_ATTEMPT_STARTED;
-        #else
-        RakNet::ConnectionAttemptResult car = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"));
-        RakAssert(car==RakNet::CONNECTION_ATTEMPT_STARTED);
+
         #endif
-    
+
         printf("\nMy IP addresses:\n");
         unsigned int i;
         for (i=0; i < client->GetNumberOfAddresses(); i++)
         {
             printf("%i. %s\n", i+1, client->GetLocalIP(i));
         }
-    
+
         printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
-    
+
         while(!run){ recibir();}
     }
 }
@@ -105,7 +101,6 @@ void Client::enviar(){
     char direcc[30];
     char muertor[30];
     int muer;
-    int moviendo;
 
     b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
     strncpy(tipo, "1", sizeof(tipo));
@@ -323,13 +318,9 @@ void Client::recibir(){
 				break;
 
 			case ID_CONNECTION_REQUEST_ACCEPTED:
-                char aux[30];
 				// This tells the client they have connected
 				printf("ID_CONNECTION_REQUEST_ACCEPTED to %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());
 				printf("My external address is %s\n", client->GetExternalID(p->systemAddress).ToString(true));
-                //PhysicWorld::Instance()->getPlayer()->setId( const_cast<char*> (client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString()));
-				//strncpy(aux, PhysicWorld::Instance()->getPlayer()->getId(), sizeof(aux));
-                //client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 				break;
 			default:
 				// It's a client, so just show the message
@@ -337,9 +328,8 @@ void Client::recibir(){
 				break;
 			}
 
-			/////////TRABAJO DEL MENSAJE\\\\\\\\\\\\
+			//--------TRABAJO DEL MENSAJE
 
-            char id[30];
 			char recibido[60];
 			char tipo[30];
 			char param1[30];
@@ -349,14 +339,6 @@ void Client::recibir(){
 			char param5[30];
             char param6[30];
             iterador=0;
-			long int x;
-			long int y;
-			int vivo;
-			int dir;
-            int muerto;
-			int cogible;
-			int Tarma;
-			int moviendo;
 
             struct TPlayersRed{
                 char* id;
@@ -394,7 +376,7 @@ void Client::recibir(){
                 msg = strtok(NULL, " ");
                 iterador++;
             }
-            /////////LLAMADA A FUNCION SEGUN PAQUETE\\\\\\\\
+            //--------LLAMADA A FUNCION SEGUN PAQUETE
 
             if(comprobacion(tipo)){
 
@@ -455,9 +437,9 @@ void Client::analizarPaquete1(char* param1,char* param2,char* param3,char* param
     int dir = atoi(param5);
     int muerto = atoi(param6);
 
-    /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+    //--------PARTE SETTEAR PLAYERRED
 
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+    for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
             PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
             p->setx(x);
@@ -472,7 +454,7 @@ void Client::analizarPaquete1(char* param1,char* param2,char* param3,char* param
 
 void Client::analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
 
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+    for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
             World::Inst()->GetPlayers().at(i)->usar();
         }
@@ -482,9 +464,9 @@ void Client::analizarPaquete2(char* param1,char* param2,char* param3,char* param
 void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
 
         int cogible = atoi(param2);
-        /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+        //--------PARTE SETTEAR PLAYERRED
 
-        for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+        for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
                 if(cogible == -1){ dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->CogerTirar(-1);
@@ -500,10 +482,10 @@ void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param
         int moviendo = atoi(param2);
         long int x = atol(param3);
         long int y = atol(param4);
-        /////////PARTE SETTEAR PLAYERRED\\\\\\\\
+        //--------PARTE SETTEAR PLAYERRED
 
 
-        for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+        for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
                 dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setx(x);
@@ -518,7 +500,7 @@ void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param
 void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
 
     int moviendo = atoi(param2);
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+    for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
             dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
@@ -528,7 +510,7 @@ void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param
 
 void Client::analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
 
-    for(int i=0; i < World::Inst()->GetPlayers().size(); i++){
+    for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
                 std::cout<<"EENTRO EN MORIR"<<std::endl;
             dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->morirRed();

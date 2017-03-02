@@ -23,8 +23,8 @@ class Spawner {
         b2Body* body;
         b2RevoluteJoint* joint;
         Cogible* objCogido;
-        bool cogiendo = true;
-        int cadencia = 2000;
+        bool cogiendo;
+        int cadencia;
         int tipo;
         int modelo;
 };

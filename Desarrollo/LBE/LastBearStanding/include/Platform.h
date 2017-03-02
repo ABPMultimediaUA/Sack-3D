@@ -10,7 +10,7 @@ class Platform{
         Platform(bool mata, irr::core::vector3df pos, irr::core::vector3df tam,irr::video::SColor color);
         virtual ~Platform();
     private:
-        irr::scene::IMeshSceneNode* node = NULL;
+        irr::scene::IMeshSceneNode* node;
 	    b2Body* body;
 };
 

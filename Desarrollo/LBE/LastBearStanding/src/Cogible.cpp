@@ -3,6 +3,14 @@
 #include "Spawner.h"
 
 Cogible::Cogible(Spawner* expo, b2Vec2 pos){
+    autoDestruir = false;
+    cogido = false;
+    teletransportado = false;
+    dir = 1;
+    expuesto = false;
+    restitution = 0.2f;
+    density = 2.0f;
+    friction = 0.8f;
     if(expo == NULL)expuesto = false;
     pos.x += (tam.X/2);
     pos.y  = -1*(pos.y-(tam.Y/2));
@@ -81,4 +89,4 @@ void Cogible::teletransportar(){
 }
 void Cogible::setExpositor(Spawner* aux){expositor=aux;}
 Spawner* Cogible::getExpositor(){return expositor;}
-int Cogible::getIdCogible(){};
+int Cogible::getIdCogible(){}

@@ -31,7 +31,6 @@ World::World(){
 	world.Get()->SetContactListener(contactListener.Get());
 }
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
-  char id[30];
   GameResource<Map>(new Map(mapFile));
   for(int i=0;i<Client::Inst()->getNumPlayersRed();i++){
     World::Inst()->AddPlayer(new PlayerRed(b2Vec2(100.f, 61.995),0,Client::Inst()->playersRed[i].id));

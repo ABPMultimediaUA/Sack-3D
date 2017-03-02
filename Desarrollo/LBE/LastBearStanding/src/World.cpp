@@ -22,8 +22,11 @@ World* World::Inst(){
   return pinstance;
 }
 void World::Reset(){
+std::cout<<"salgo reset"<<std::endl;
   if(pinstance)delete pinstance;
+  std::cout<<"salgo reset"<<std::endl;
   pinstance = new World;
+
 }
 World::World(){
 	world.Reset(new b2World(b2Vec2(0.0f, -9.8f), true));
@@ -31,6 +34,7 @@ World::World(){
 	world.Get()->SetContactListener(contactListener.Get());
 }
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
+    std::cout<<"inicio"<<std::endl;
   GameResource<Map>(new Map(mapFile));
   for(int i=0;i<Client::Inst()->getNumPlayersRed();i++){
     World::Inst()->AddPlayer(new PlayerRed(b2Vec2(100.f, 61.995),0,Client::Inst()->playersRed[i].id));
@@ -38,6 +42,7 @@ void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
   camara.Reset(new Camera());
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
+  std::cout<<"acabo"<<std::endl;
 }
 b2Body* World::CreateBox(int x , int y){
     b2BodyDef bodyDef;
@@ -95,10 +100,8 @@ int World::Update(int fps){
   }
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
-    if(!dynamic_cast<PlayerRed*>(m_Players.Get(i))){
+    if(m_Players.Get(i)){
       m_Players.Get(i)->actualiza();
-    }else{
-        dynamic_cast<PlayerRed*>(m_Players.Get(i))->actualiza();
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }

@@ -32,7 +32,6 @@ void Client::PacketFunction(int aux, char* param1,char* param2,char* param3,char
     }
 }
 
-
 void Client::iniciar(){
     char auxip[64], auxserverPort[30], auxclientPort[30];
     bool server = true;
@@ -68,7 +67,9 @@ void Client::iniciar(){
             pk.remoteServerPublicKey=public_key;
             pk.publicKeyMode=RakNet::PKM_USE_KNOWN_PUBLIC_KEY;
             bool b = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"), &pk)==RakNet::CONNECTION_ATTEMPT_STARTED;
-
+            #else
+            RakNet::ConnectionAttemptResult car = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"));
+            RakAssert(car==RakNet::CONNECTION_ATTEMPT_STARTED);
         #endif
 
         printf("\nMy IP addresses:\n");
@@ -80,7 +81,7 @@ void Client::iniciar(){
 
         printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
 
-        while(!run){ recibir();}
+        while(!run){recibir();}
     }
 }
 

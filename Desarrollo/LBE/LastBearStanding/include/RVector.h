@@ -4,11 +4,11 @@
 template <class A>
 class RVector{
     public:
-        RVector(const RVector &); //no copiable
-        RVector &operator=(const RVector &); //no copiable
+        RVector(const RVector &) = delete; //no copiable
+        RVector &operator=(const RVector &) = delete; //no copiable
         explicit RVector(){}
         ~RVector(){
-            for(unsigned int i = 0 ; i<m_rs.size() ; i++)
+            for(int i = 0 ; i<m_rs.size() ; i++)
                 if(m_rs.at(i))delete m_rs.at(i);
             m_rs.clear();
             std::vector<A*>().swap(m_rs);

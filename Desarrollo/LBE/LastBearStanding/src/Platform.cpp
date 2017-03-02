@@ -24,6 +24,7 @@ Platform::Platform(bool mata, irr::core::vector3df pos, irr::core::vector3df tam
     if(mata)fixture->SetUserData((void*)DATA_PINCHO);
 }
 Platform::~Platform(){
+    std::cout<<"BORRO PLATFORM"<<std::endl;
     if(node)node->remove();
     if(body)World::Inst()->GetWorld()->DestroyBody(body);
 }

@@ -4,8 +4,8 @@
 template <class A>
 class GameResource{
     public:
-    	GameResource(const GameResource &); //no copiable
-    	GameResource &operator=(const GameResource &); //no copiable
+    	GameResource(const GameResource &) = delete;; //no copiable
+    	GameResource &operator=(const GameResource &) = delete;; //no copiable
 	    explicit GameResource(A *a = NULL):m_t(a){}
 	    void Reset(A *a = NULL){
 	        delete m_t;

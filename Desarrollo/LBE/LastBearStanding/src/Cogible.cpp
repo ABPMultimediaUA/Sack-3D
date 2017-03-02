@@ -22,6 +22,7 @@ Cogible::Cogible(Spawner* expo, b2Vec2 pos){
     body->SetFixedRotation(true);
 }
 Cogible::~Cogible(){
+    std::cout<<"BORRO PLATFORM"<<std::endl;
     if(body){
         World::Inst()->GetWorld()->DestroyBody(body);
         body = NULL;

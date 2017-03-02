@@ -39,11 +39,18 @@ Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     node->addShadowVolumeSceneNode();
 }
  Player::~Player(){
+     /*
+     std::cout<<"entro en borrar"<<std::endl;
     if(body){
+            std::cout<<"entro en borrar1"<<std::endl;
         World::Inst()->GetWorld()->DestroyBody(body);
+        std::cout<<"entro en borrar2"<<std::endl;
         body = NULL;
     }
+    */
+    std::cout<<"entro en borrar3"<<std::endl;
     if(node){node->remove();}
+
  }
 void Player::InicializeFixtures(int mode){
     switch(mode){
@@ -187,6 +194,7 @@ void Player::morir(){
         estado = MUERTO_DORMIDO;
         InicializeFixtures(MUERTO_DORMIDO);
         muerto = true;
+        Client::Inst()->enviarMuerto();
     }
 }
 void Player::CogerTirar(){

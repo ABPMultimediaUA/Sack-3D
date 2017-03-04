@@ -2571,3 +2571,175 @@
 	"Platform.h"
 	"Map.h"
 
+1488463990 source:c:\users\robeert\desktop\path con muelles\main.cpp
+	<irrlicht.h>
+	"PhysicWorld.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Map.h"
+
+1488469010 c:\users\robeert\desktop\path con muelles\include\physicworld.h
+	<Box2D/Box2D.h>
+	<iostream>
+	"Player.h"
+	"MyContactListener.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bala.h"
+	"Muelle.h"
+	"Teleport.h"
+	"GameResource.h"
+	<vector>
+	"Map.h"
+	"Camera.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\player.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"MyEventReceiver.h"
+	"Cogible.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\myeventreceiver.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<irrlicht.h>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\mycontactlistener.h
+	"Box2D/Box2D.h"
+	<iostream>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\pistola.h
+	"Usable.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\usable.h
+	"Cogible.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\escopeta.h
+	"Usable.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\granada.h
+	"Usable.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\gameresource.h
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\map.h
+	<irrlicht.h>
+	"Lista.h"
+	"Nodo.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\lista.h
+	<Nodo.h>
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\nodo.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+	<vector>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\camera.h
+	"IrrManager.h"
+	<vector>
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\irrmanager.h
+	"MyEventReceiver.h"
+
+1488463990 c:\users\robeert\desktop\path con muelles\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\bala.cpp
+	"Bala.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\camera.cpp
+	"Camera.h"
+	"PhysicWorld.h"
+	"Player.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\cogible.cpp
+	"Cogible.h"
+	"PhysicWorld.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\escopeta.cpp
+	"Escopeta.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\granada.cpp
+	"Granada.h"
+	"IrrManager.h"
+	"PhysicWorld.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+
+1488466848 source:c:\users\robeert\desktop\path con muelles\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"PhysicWorld.h"
+	"GameResource.h"
+	<sstream>
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\muelle.cpp
+	"Muelle.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"PhysicWorld.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"PhysicWorld.h"
+
+1488464252 source:c:\users\robeert\desktop\path con muelles\src\physicworld.cpp
+	"PhysicWorld.h"
+	"MyContactListener.h"
+	"Cogible.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\pistola.cpp
+	"Pistola.h"
+	"PhysicWorld.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\platform.cpp
+	"Platform.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\player.cpp
+	"Player.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488469163 source:c:\users\robeert\desktop\path con muelles\src\teleport.cpp
+	"Teleport.h"
+	"PhysicWorld.h"
+	"IrrManager.h"
+
+1488463991 source:c:\users\robeert\desktop\path con muelles\src\usable.cpp
+	"Usable.h"
+

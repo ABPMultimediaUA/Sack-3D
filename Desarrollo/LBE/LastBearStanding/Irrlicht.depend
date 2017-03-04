@@ -959,3 +959,139 @@
 	"Bala.h"
 	"Map.h"
 
+1488463988 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\main.cpp
+	"Master.h"
+	"Client.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
+	<irrlicht.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
+	"MessageIdentifiers.h"
+	"RakPeerInterface.h"
+	"RakNetStatistics.h"
+	"RakNetTypes.h"
+	"BitStream.h"
+	"PacketLogger.h"
+	<assert.h>
+	<iostream>
+	<string>
+	<cstdio>
+	<cstring>
+	<stdlib.h>
+	"RakNetTypes.h"
+	"Kbhit.h"
+	"WindowsIncludes.h"
+	"Kbhit.h"
+	<unistd.h>
+	"Gets.h"
+	"SecureHandshake.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\player.h
+	"Cogible.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\cogible.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\playerred.h
+	"Player.h"
+
+1488647679 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
+	"Client.h"
+	"World.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\world.h
+	<vector>
+	<Box2D/Box2D.h>
+	"GameResource.h"
+	"RVector.h"
+	"Client.h"
+
+1488647679 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\gameresource.h
+
+1488647679 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
+
+1488647679 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+	"Cogible.h"
+	"World.h"
+	"Spawner.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\spawner.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	"Cogible.h"
+
+1487861400 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\muelle.cpp
+	"Muelle.h"
+	"World.h"
+	"IrrManager.h"
+
+1487861399 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\muelle.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\irrmanager.h
+	<irrlicht.h>
+	"GameResource.h"
+
+1488647679 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
+	"Platform.h"
+	"World.h"
+	"IrrManager.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\platform.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488647679 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
+	"MyEventReceiver.h"
+	"IrrManager.h"
+	"Player.h"
+	"Usable.h"
+	"World.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
+	<irrlicht.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
+	"Cogible.h"
+
+1487861400 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\teleport.cpp
+	"Teleport.h"
+	"World.h"
+	"IrrManager.h"
+
+1487861399 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\teleport.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488647679 source:c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
+	"World.h"
+	"MyContactListener.h"
+	"IrrManager.h"
+	"PlayerRed.h"
+	"Spawner.h"
+	"Cogible.h"
+	"Camera.h"
+	"Player.h"
+	"Bala.h"
+	"Map.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
+	"World.h"
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\camera.h
+	"IrrManager.h"
+	<vector>
+	<Box2D/Box2D.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\bala.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+
+1488463988 c:\users\robeert\documents\github\abp\sack-3d\desarrollo\lbe\lastbearstanding\include\map.h
+	<irrlicht.h>
+

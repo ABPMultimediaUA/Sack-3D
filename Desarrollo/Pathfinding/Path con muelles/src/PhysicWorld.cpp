@@ -15,7 +15,7 @@ PhysicWorld* PhysicWorld::Instance(){
   return pinstance;
 }
 PhysicWorld::PhysicWorld(){
-	world.Reset(new b2World(b2Vec2(0.0f, -9.8f)));
+	world.Reset(new b2World(b2Vec2(0.0f, -9.8f), true));
 	balas = new std::vector<Bala*>();
 	cogibles = new std::vector<Cogible*>();
   muelles = new std::vector<Muelle*>();
@@ -27,7 +27,7 @@ void PhysicWorld::inicializaVariables(){
 
    // GameResource<Map>(new Map("media/Map.tmx"));
 
-  mapa.Reset(new Map("media/Map.tmx"));
+  mapa.Reset(new Map("media/Map2.tmx"));
   camara.Reset(new Camera());
   TimeStamp = IrrManager::Instance()->getTime();
   DeltaTime = IrrManager::Instance()->getTime() - TimeStamp;

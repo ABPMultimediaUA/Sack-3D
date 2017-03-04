@@ -159,7 +159,7 @@ void Map::calcularPathfinding(float x, float y, Nodo* objetivo){
   std::cout<<std::endl;
 
   //START A* 
-  if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x && nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
+  if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x || nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
 
         nodoActual = new Nodo(nodoInicial->getPosicion(), nodoInicial->getNumero(), 0, nullptr);
         listaAbierta->insertar(nodoActual);
@@ -200,7 +200,7 @@ void Map::comprobar(int i){
     b2Vec2 posicion;
     posicion.x = nodos->buscaNumero(numero)->getPosicion().x;
     posicion.y = nodos->buscaNumero(numero)->getPosicion().y;
-    int coste = abs(posicion.x-nodoActual->getPosicion().x) + abs(posicion.y -nodoActual->getPosicion().y);
+    int coste = abs(posicion.x-nodoDestino->getPosicion().x) + abs(posicion.y -nodoDestino->getPosicion().y);
     Nodo* aux = new Nodo (posicion, numero, coste, nodoActual);
     listaAbierta->insertar(aux);
 }

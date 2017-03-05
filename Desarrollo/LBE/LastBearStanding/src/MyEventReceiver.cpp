@@ -27,16 +27,20 @@ MyEventReceiver::MyEventReceiver(){
   for (irr::u32 i=0; i<irr::KEY_KEY_CODES_COUNT; ++i)KeyIsDown[i]= false;
 }
 void MyEventReceiver::ClickEspacio(){
-  World::Inst()->getPlayer(1)->saltar();
+  int id = (*Client::Inst()->getIdCliente())-'0';
+  World::Inst()->getPlayer(id)->saltar();
 }
 void MyEventReceiver::ClickEnter(){
-  World::Inst()->getPlayer(1)->usar();
+  int id = (*Client::Inst()->getIdCliente())-'0';
+  World::Inst()->getPlayer(id)->usar();
 }
 void MyEventReceiver::ClickQ(){
-  World::Inst()->getPlayer(1)->fingirMuerte();
+    int id = (*Client::Inst()->getIdCliente())-'0';
+  World::Inst()->getPlayer(id)->fingirMuerte();
 }
 void MyEventReceiver::ClickE(){
-  World::Inst()->getPlayer(1)->CogerTirar();
+    int id = (*Client::Inst()->getIdCliente())-'0';
+  World::Inst()->getPlayer(id)->CogerTirar();
 }
 void MyEventReceiver::ClickEscape(){
   IrrMngr::Inst()->Close();

@@ -14,6 +14,7 @@ Camera::Camera(){
     cenAnt = b2Vec2(0,0);
     cenSig = b2Vec2(0,0);
     porcentGap = 0.2f;
+    fpsAnt = 30;
     porcentUpdate = 0.0f;
     updateT = 1000.f/60.f;
     for(int i = 0; i<0 ;i++){
@@ -38,14 +39,14 @@ Camera::update(float time, int fps){
             }
         }
     }
-	if(time - tiempoTransc > updateT){
-        if(fps==0)fps=30;
+	if(time - tiempoTransc > updateT || abs(fpsAnt - fps) >= 5){
     	tiempoTransc = timer->getTime();
         porcentUpdate = 0;
         cenAnt = b2Vec2(cenSig.x,cenSig.y);
         cenSig = b2Vec2((xMin + xMax)/2,(yMin + yMax)/2);
         porcentGap = ceil(((1000.f/fps)/updateT)*10)/10;
         updateT = 1000.f/(fps/10.0f);
+        fpsAnt = fps;
 	}
 	float cenX = cenAnt.x + ((cenSig.x - cenAnt.x)/(porcentGap*100)*porcentUpdate*10);
     float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);

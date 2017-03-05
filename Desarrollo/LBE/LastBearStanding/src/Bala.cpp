@@ -34,11 +34,10 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
     else     velo.x = -velocidad;
     if(desviacion != 0 )velo.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
     body->SetLinearVelocity(velo);
-
+    teletransportado = false;
 }
 Bala::~Bala(){
     if(node)node->remove();
-    if(body)World::Inst()->GetWorld()->DestroyBody(body);
 }
 void Bala::actualiza(){
     if(teletransportado) teletransportar();

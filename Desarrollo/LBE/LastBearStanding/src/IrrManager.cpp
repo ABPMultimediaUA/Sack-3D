@@ -19,7 +19,7 @@ IrrMngr::IrrMngr(){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(600,600*9/16), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(800,800*9/16), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");
@@ -28,15 +28,16 @@ IrrMngr::IrrMngr(){
 	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(1.0f, 1.0f, 1.0f));
     smgr->setAmbientLight(irr::video::SColor(0,60,60,60));
 	timer = device->getTimer();
+	//device->setResizable(true);
 }
 void IrrMngr::InstanciaVariables(int* puntuaciones){
-  	debugInfo.Reset(new DebugInfo);
-  	hud.Reset(new HUD(puntuaciones));
+  	debugInfo.Reset(new DebugInfo());
+  	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
-void IrrMngr::Update(int fps){
+void IrrMngr::Update(){
 	smgr->drawAll();
 	hud.Get()->Draw();
-	debugInfo.Get()->Draw(fps);
+	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
 	endScene();
 }
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){

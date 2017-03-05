@@ -21,13 +21,7 @@ Cogible::Cogible(Spawner* expo, b2Vec2 pos){
     body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
     body->SetFixedRotation(true);
 }
-Cogible::~Cogible(){
-    std::cout<<"BORRO PLATFORM"<<std::endl;
-    if(body){
-        World::Inst()->GetWorld()->DestroyBody(body);
-        body = NULL;
-    }
-}
+Cogible::~Cogible(){}
 void Cogible::DestroyFixtures(){
 	for (b2Fixture* f = body->GetFixtureList(); f;){
 	    b2Fixture* fixtureToDestroy = f;
@@ -90,4 +84,3 @@ void Cogible::teletransportar(){
 }
 void Cogible::setExpositor(Spawner* aux){expositor=aux;}
 Spawner* Cogible::getExpositor(){return expositor;}
-int Cogible::getIdCogible(){}

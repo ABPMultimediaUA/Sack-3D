@@ -8,9 +8,6 @@ class Escopeta: public Usable{
         Escopeta(Spawner* expo, int modelo,b2Vec2 pos);
         virtual ~Escopeta();
         void usar();
-        int getIdCogible();
-    private:
-        int idCogible;
 };
 
 #endif

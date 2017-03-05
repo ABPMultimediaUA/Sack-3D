@@ -1,12 +1,4 @@
-// ----------------------------------------------------------------------
-// RakNet version 1.0
-// Filename ChatExample.cpp
-// Created by Rakkar Software (rakkar@jenkinssoftware.com) January 24, 2003
-// Very basic chat engine example
-// ----------------------------------------------------------------------
-
 #include "MessageIdentifiers.h"
-
 #include <iostream>
 #include "RakPeerInterface.h"
 #include "RakNetStatistics.h"
@@ -25,7 +17,6 @@
 #include <string.h>
 #include "Gets.h"
 #include <stdlib.h>
-
 #if LIBCAT_SECURITY==1
 #include "SecureHandshake.h" // Include header for secure handshake
 #endif
@@ -43,8 +34,7 @@ _CONSOLE_2_SetSystemProcessParams
 #endif
 
 
-int main(void)
-{
+int main(void){
 	// Pointers to the interfaces of our server and client.
 	// Note we can easily have both in the same program
 	RakNet::RakPeerInterface *server=RakNet::RakPeerInterface::GetInstance();
@@ -112,14 +102,12 @@ int main(void)
 	//replicaManager.SetNetworkIDManager(&networkIdManager);
 
 	server->SetMaximumIncomingConnections(4);
-	if (!b)
-	{
+	if (!b){
 		printf("Failed to start dual IPV4 and IPV6 ports. Trying IPV4 only.\n");
 
 		// Try again, but leave out IPV6
 		b = server->Startup(4, socketDescriptors, 1 )==RakNet::RAKNET_STARTED;
-		if (!b)
-		{
+		if (!b){
 			puts("Server failed to start.  Terminating.");
 			exit(1);
 		}
@@ -130,14 +118,12 @@ int main(void)
 	DataStructures::List<RakNet::RakNetSmartPtr < RakNet::RakNetSocket> > sockets;
 	server->GetSockets(sockets);
 	printf("Socket addresses used by RakNet:\n");
-	for (unsigned int i=0; i < sockets.Size(); i++)
-	{
+	for (unsigned int i=0; i < sockets.Size(); i++){
 		printf("%i. %s\n", i+1, sockets[i]->boundAddress.ToString(true));
 	}
 
 	printf("\nMy IP addresses:\n");
-	for (unsigned int i=0; i < server->GetNumberOfAddresses(); i++)
-	{
+	for (unsigned int i=0; i < server->GetNumberOfAddresses(); i++){
 		printf("%i. %s\n", i+1, server->GetLocalIP(i));
 	}
 
@@ -146,27 +132,21 @@ int main(void)
 	char message[2048];
 
 	// Loop for input
-	while (1)
-	{
+	while (1){
 
 	// This sleep keeps RakNet responsive
 	RakSleep(30);
 
-	if (kbhit())
-	{
+	if (kbhit()){
 		// Notice what is not here: something to keep our network running.  It's
 		// fine to block on gets or anything we want
 		// Because the network engine was painstakingly written using threads.
 		Gets(message,sizeof(message));
-
-		if (strcmp(message, "quit")==0)
-		{
+		if (strcmp(message, "quit")==0){
 			puts("Quitting.");
 			break;
 		}
-
-		if (strcmp(message, "stat")==0)
-		{
+		if (strcmp(message, "stat")==0){
 			rss=server->GetStatistics(server->GetSystemAddressFromIndex(0));
 			StatisticsToString(rss, message, 2);
 			printf("%s", message);
@@ -174,23 +154,12 @@ int main(void)
 
 			continue;
 		}
-
-		if (strcmp(message, "ping")==0)
-		{
+		if (strcmp(message, "ping")==0){
 			server->Ping(clientID);
 
 			continue;
 		}
-
-		if (strcmp(message, "kick")==0)
-		{
-			server->CloseConnection(clientID, true, 0);
-
-			continue;
-		}
-
-		if (strcmp(message, "getconnectionlist")==0)
-		{
+		if (strcmp(message, "getconnectionlist")==0){
 			RakNet::SystemAddress systems[10];
 			unsigned short numConnections=10;
 			server->GetConnectionList((RakNet::SystemAddress*) &systems, &numConnections);
@@ -200,18 +169,6 @@ int main(void)
 			}
 			continue;
 		}
-
-		if (strcmp(message, "ban")==0)
-		{
-			printf("Enter IP to ban.  You can use * as a wildcard\n");
-			Gets(message,sizeof(message));
-			server->AddToBanList(message);
-			printf("IP %s added to ban list.\n", message);
-
-			continue;
-		}
-
-
 		// Message now holds what we want to broadcast
 		char message2[2048];
 		// Append Server: to the message so clients know that it ORIGINATED from the server
@@ -233,14 +190,12 @@ int main(void)
 
 		// Get a packet from either the server or the client
 
-		for (p=server->Receive(); p; server->DeallocatePacket(p), p=server->Receive())
-		{
+		for (p=server->Receive(); p; server->DeallocatePacket(p), p=server->Receive()){
 			// We got a packet, get the identifier with our handy function
 			packetIdentifier = GetPacketIdentifier(p);
 
 			// Check if this is a network message packet
-			switch (packetIdentifier)
-			{
+			switch (packetIdentifier){
 			case ID_DISCONNECTION_NOTIFICATION:
 				// Connection lost normally
 				printf("ID_DISCONNECTION_NOTIFICATION from %s\n", p->systemAddress.ToString(true));;
@@ -255,16 +210,13 @@ int main(void)
 				strncpy(identificador, "0", sizeof(identificador));
 				strncpy(playerNum, "", sizeof(playerNum));
 				clientID=p->systemAddress; // Record the player ID of the client
-				clID++;
-				for(int i=clID; i>0; i--){
+				for(int i=clID; i>=0; i--){
                     sprintf(playerNum, "%.0f", (float)i);
                     strncat (identificador, " ", 30);
                     strncat (identificador, playerNum, 30);
-                    //std::cout<<"NUMERO EN IIIII->"<<playerNum<<std::endl;
 				}
-
+				clID++;
                 //enviando ID al jugador conectado
-                //std::cout<<"IDENTIFICADORRR->"<<identificador<<std::endl;
                 server->Send(identificador, (const int) strlen(identificador)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
                 //strncpy(identificador, "", sizeof(identificador));
 				break;
@@ -307,13 +259,11 @@ int main(void)
 // Copied from Multiplayer.cpp
 // If the first byte is ID_TIMESTAMP, then we want the 5th byte
 // Otherwise we want the 1st byte
-unsigned char GetPacketIdentifier(RakNet::Packet *p)
-{
+unsigned char GetPacketIdentifier(RakNet::Packet *p){
 	if (p==0)
 		return 255;
 
-	if ((unsigned char)p->data[0] == ID_TIMESTAMP)
-	{
+	if ((unsigned char)p->data[0] == ID_TIMESTAMP){
 		RakAssert(p->length > sizeof(RakNet::MessageID) + sizeof(RakNet::Time));
 		return (unsigned char) p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
 	}

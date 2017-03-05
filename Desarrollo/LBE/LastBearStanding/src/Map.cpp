@@ -38,37 +38,51 @@ void Map::AddArma(){
      }
 }
 void Map::AddPlayer(){
-     World::Inst()->AddPlayer(new Player(b2Vec2(x,y),player));
-     player++;
+    int id = (*Client::Inst()->getIdCliente())-'0';
+    if(numPlayer == id){
+        std::cout<<"player "<< id<<std::endl;
+        World::Inst()->AddPlayer(new Player(b2Vec2(x,y),numPlayer));
+    }
+    else if(playerRed < Client::Inst()->getNumPlayersRed()){
+      std::cout<<"playerRed "<< playerRed<<std::endl;
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,Client::Inst()->playersRed[playerRed].id));
+        playerRed++;
+    }
+    else{
+      std::cout<<"NOOOO "<< playerRed<<std::endl;
+    }
+    numPlayer++;
 }
 void Map::AddPincho(){
      World::Inst()->AddPlatform(new Platform(true,irr::core::vector3df(x,y,0),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 Map::Map(irr::core::stringw file){
-     player = 1;
-     irr::core::stringw layer;
-     irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
-     while (xml->read()){
-          if(irr::core::stringw("objectgroup") == xml->getNodeName()){
-               layer = xml->getAttributeValue(L"name");
-          }
-          else{
-               x      = xml->getAttributeValueAsInt(L"x");
-               y      = xml->getAttributeValueAsInt(L"y");
-               width  = xml->getAttributeValueAsInt(L"width");
-               height = xml->getAttributeValueAsInt(L"height");
-               name   = xml->getAttributeValueAsInt(L"name");
-               type   = xml->getAttributeValueAsInt(L"type");
-               if (irr::core::stringw("object") == xml->getNodeName()){
-                    const Layer2Method * it = layers;
-                    while(it->layer != L"0"){
-                       if(it->layer == layer){
-                           (this->*it->Layer2Method::p)();
-                           break;
-                       }
-                       it++;
-                    }
-               }
-          }
-     }
+    player = false;
+    numPlayer = 0;
+    playerRed = 0;
+    irr::core::stringw layer;
+    irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
+    while (xml->read()){
+        if(irr::core::stringw("objectgroup") == xml->getNodeName()){
+            layer = xml->getAttributeValue(L"name");
+        }
+        else{
+            x      = xml->getAttributeValueAsInt(L"x");
+            y      = xml->getAttributeValueAsInt(L"y");
+            width  = xml->getAttributeValueAsInt(L"width");
+            height = xml->getAttributeValueAsInt(L"height");
+            name   = xml->getAttributeValueAsInt(L"name");
+            type   = xml->getAttributeValueAsInt(L"type");
+            if (irr::core::stringw("object") == xml->getNodeName()){
+                const Layer2Method * it = layers;
+                while(it->layer != L"0"){
+                   if(it->layer == layer){
+                      (this->*it->Layer2Method::p)();
+                      break;
+                   }
+                   it++;
+                }
+            }
+        }
+    }
 }

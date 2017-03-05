@@ -1,0 +1,12 @@
+diff a/Desarrollo/LBE/LastBearStanding/include/Spawner.h b/Desarrollo/LBE/LastBearStanding/include/Spawner.h	(rejected hunks)
+@@ -2,10 +2,6 @@
+ #ifndef SPAWNER_H
+ #define SPAWNER_H
+ 
+-#include <Box2D/Box2D.h>
+-#include <irrlicht.h>
+-
+-class Cogible;
+ #include "Cogible.h"
+ #include "IrrManager.h"
+ 

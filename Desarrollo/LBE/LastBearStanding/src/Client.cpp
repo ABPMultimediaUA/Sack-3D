@@ -19,12 +19,16 @@ Client::Client(){
 }
 
 void Client::PacketFunction(int aux, char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
-
+    this->param1 = param1;
+    this->param2 = param2;
+    this->param3 = param3;
+    this->param4 = param4;
+    this->param5 = param5;
+    this->param6 = param6;
     const Type2Func * it = packetFunction;
     while(it->A != -1){
-
         if(it->A == aux){
-            (this->*it->Type2Func::p)(param1,param2,param3,param4,param5,param6);
+            (this->*it->Type2Func::p)();
             break;
         }
         it++;
@@ -103,20 +107,20 @@ void Client::enviar(){
     char muertor[30];
     int muer;
 
-    b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
+    b2Vec2 posicion = World::Inst()->getPlayer(idPlayerInt)->getPosition();
     strncpy(tipo, "1", sizeof(tipo));
-    int dir = World::Inst()->getPlayer(1)->getDireccion();
-    if(World::Inst()->getPlayer(1)->getMuerto()==true) muer = 1;
+    int dir = World::Inst()->getPlayer(idPlayerInt)->getDireccion();
+    if(World::Inst()->getPlayer(idPlayerInt)->getMuerto()==true) muer = 1;
     else muer = 0;
 
-    int estador = World::Inst()->getPlayer(1)->getEstado();
+    int estador = World::Inst()->getPlayer(idPlayerInt)->getEstado();
 
     float auxiliarx = posicion.x * 1000000;
     float auxiliary = posicion.y * 1000000;
 
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     //---------- ESTADO
     sprintf(estado, "%.0f", (float)estador);
@@ -151,8 +155,8 @@ void Client::enviarUsar(){
     char id[30];
 
     strncpy(tipo, "2", sizeof(tipo));
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     strncat (tipo, " ", 30);
     strncat (tipo, id, 30);
@@ -168,8 +172,8 @@ void Client::enviarMuerto(){
     char id[30];
 
     strncpy(tipo, "7", sizeof(tipo));
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     strncat (tipo, " ", 30);
     strncat (tipo, id, 30);
@@ -187,8 +191,8 @@ void Client::enviarCogido (int TCogible){
 
     strncpy(tipo, "3", sizeof(tipo));
 
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     sprintf(cogible, "%.0f", (float)TCogible);
 
@@ -213,7 +217,7 @@ void Client::enviarMoviendo(int moviendo){
 
     float auxiliarx;
     float auxiliary;
-    b2Vec2 posicion = World::Inst()->getPlayer(1)->getPosition();
+    b2Vec2 posicion = World::Inst()->getPlayer(idPlayerInt)->getPosition();
     auxiliarx = posicion.x * 1000000;
     auxiliary = posicion.y * 1000000;
 
@@ -223,8 +227,8 @@ void Client::enviarMoviendo(int moviendo){
     sprintf(posy, "%.0f", auxiliary);
 
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     sprintf(mov, "%.0f", (float)moviendo);
 
@@ -251,8 +255,8 @@ void Client::enviarSalto(int Nsalto){
     strncpy(tipo, "5", sizeof(tipo));
 
     // ---------- ID
-        if(strcmp(World::Inst()->getPlayer(1)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
-        else{strncpy(id, World::Inst()->getPlayer(1)->getId(), sizeof(id));}
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
     sprintf(salto, "%.0f", (float)Nsalto);
 
@@ -267,15 +271,12 @@ void Client::enviarSalto(int Nsalto){
 }
 
 void Client::recibir(){
-
-    for (p=client->Receive(); p; client->DeallocatePacket(p), p=client->Receive())
-		{
+    for (p=client->Receive(); p; client->DeallocatePacket(p), p=client->Receive()){
 			// We got a packet, get the identifier with our handy function
 			packetIdentifier = GetPacketIdentifier(p);
 
 			// Check if this is a network message packet
-			switch (packetIdentifier)
-			{
+			switch (packetIdentifier){
 			case ID_DISCONNECTION_NOTIFICATION:
 				// Connection lost normally
 				printf("ID_DISCONNECTION_NOTIFICATION\n");
@@ -323,9 +324,9 @@ void Client::recibir(){
 				printf("ID_CONNECTION_REQUEST_ACCEPTED to %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());
 				printf("My external address is %s\n", client->GetExternalID(p->systemAddress).ToString(true));
 				break;
+
 			default:
 				// It's a client, so just show the message
-				//printf("%s\n", p->data);
 				break;
 			}
 
@@ -348,7 +349,6 @@ void Client::recibir(){
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			char * msg;
 			msg = strtok(recibido, " ");
-            //std::cout<<"RECIBIENDO "<<msg<<std::endl;
 			while(msg != NULL){
                 switch (iterador)
                 {
@@ -404,7 +404,7 @@ unsigned char Client::GetPacketIdentifier(RakNet::Packet *p)
 }
 
 
-void Client::analizarPaquete0(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete0(){
 
     struct TPlayersRed{
         char* id;
@@ -417,21 +417,22 @@ void Client::analizarPaquete0(char* param1,char* param2,char* param3,char* param
     };
 
     if(strcmp(idCliente, "") == 0){
-    strncpy(idCliente, param1, sizeof(idCliente));
+        strncpy(idCliente, param1, sizeof(idCliente));
         for(int i=1;i<iterador-1;i++){
             numPlayersRed++;
             strncpy(playersRed[i-1].id, players[i-1].id, sizeof(playersRed[i-1].id));
         }
-    }else{
+    }
+    else{
         for(int i=1;i<iterador-1;i++){
             numPlayersRed++;
             strncpy(playersRed[i-1].id, param1, sizeof(playersRed[i-1].id));
         }
     }
-
+    idPlayerInt = *(idCliente)-'0';
 }
 
-void Client::analizarPaquete1(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete1(){
     long int x = atol(param3);
     long int y = atol(param4);
     int vivo = atoi(param2);
@@ -453,7 +454,7 @@ void Client::analizarPaquete1(char* param1,char* param2,char* param3,char* param
     }
 }
 
-void Client::analizarPaquete2(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete2(){
 
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
@@ -462,7 +463,7 @@ void Client::analizarPaquete2(char* param1,char* param2,char* param3,char* param
     }
 }
 
-void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete3(){
 
         int cogible = atoi(param2);
         //--------PARTE SETTEAR PLAYERRED
@@ -478,7 +479,7 @@ void Client::analizarPaquete3(char* param1,char* param2,char* param3,char* param
         }
 }
 
-void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete4(){
 
         int moviendo = atoi(param2);
         long int x = atol(param3);
@@ -498,7 +499,7 @@ void Client::analizarPaquete4(char* param1,char* param2,char* param3,char* param
 
 }
 
-void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete5(){
 
     int moviendo = atoi(param2);
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
@@ -509,11 +510,10 @@ void Client::analizarPaquete5(char* param1,char* param2,char* param3,char* param
     }
 }
 
-void Client::analizarPaquete7(char* param1,char* param2,char* param3,char* param4,char* param5,char* param6){
+void Client::analizarPaquete7(){
 
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-                std::cout<<"EENTRO EN MORIR"<<std::endl;
             dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->morirRed();
         }
     }

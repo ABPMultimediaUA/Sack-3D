@@ -20,14 +20,9 @@ void Pistola::usar(){
     if(usos){
         if(IrrMngr::Inst()->getTime()-timeCadencia > cadencia ){
             float desvBala = rand()% 3 - 3;
-	    	World::Inst()->AddBala(
-                new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 10, desvBala, dir,1));
+	    	World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 10, desvBala, dir,1));
 	    	usos--;
             timeCadencia = timerCadencia->getTime();
 	    }
     }
-}
-
-int Pistola::getIdCogible(){
-    return idCogible;
 }

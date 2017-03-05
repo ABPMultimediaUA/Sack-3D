@@ -27,7 +27,7 @@ class Cogible{
         virtual void setCogido(bool aux);
         virtual void setExpositor(Spawner* aux);
         virtual Spawner* getExpositor();
-        virtual int getIdCogible();
+        virtual int getIdCogible(){return idCogible;}
         virtual void setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
         virtual void setExpuesto(bool aux){expuesto = aux;}
         virtual bool getExpuesto(){return expuesto;}
@@ -46,6 +46,7 @@ class Cogible{
         float density ;
         float friction ;
         b2Vec2 velActual;
+        int idCogible;
 };
 
 #endif

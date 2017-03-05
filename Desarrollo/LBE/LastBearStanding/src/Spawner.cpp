@@ -31,7 +31,6 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos ):pos(pos),tipo(tipo),modelo(
     generar();
 }
 Spawner::~Spawner(){
-    if(body)World::Inst()->GetWorld()->DestroyBody(body);
     if(node)node->remove();
 }
 

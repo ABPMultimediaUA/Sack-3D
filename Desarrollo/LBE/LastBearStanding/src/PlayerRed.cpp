@@ -50,7 +50,6 @@ void PlayerRed::CogerTirar(int idCogible){
                       objCogido = World::Inst()->GetCogibles().at(i);
                     }
                 }
-                std::cout<<"Cogible es "<<idCogible<<std::endl;
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
                 b2RevoluteJointDef jointDef;

@@ -36,7 +36,7 @@ void Master::Update(){
             InstanciaMundo();
             finPartida = false;
         }
-        IrrMngr::Inst()->Update(fps);
+        IrrMngr::Inst()->Update();
         Client::Inst()->recibir();
         if(IrrMngr::Inst()->getTime()>(time2SyncClient+5000)){
             Client::Inst()->enviar();

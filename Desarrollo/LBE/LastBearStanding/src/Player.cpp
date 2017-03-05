@@ -25,7 +25,14 @@ Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     tam = irr::core::vector3df(.7f, 1.8f,.7f);
     pos.x += (tam.X/2);
     pos.y  = -1*(pos.y-(tam.Y/2));
-    node = IrrMngr::Inst()->addCubeSceneNode(tam,irr::video::SColor(255, 255, 124, 150));
+    irr::video::SColor color;
+    switch(numMando){
+        case 0: color = irr::video::SColor(150,150, 0,0)  ; break;
+        case 1: color = irr::video::SColor(150,0, 150,0)  ; break;
+        case 2: color = irr::video::SColor(150,0, 0,150)  ; break;
+        case 3: color = irr::video::SColor(150,150, 0,150); break;
+    }
+    node = IrrMngr::Inst()->addCubeSceneNode(tam,color);
     node->setPosition(irr::core::vector3df(pos.x,pos.y,0));
     node->setMaterialTexture(0,IrrMngr::Inst()->getDriver()->getTexture("media/texture.jpg"));
     node->setMaterialFlag(irr::video::EMF_LIGHTING, false);
@@ -39,16 +46,6 @@ Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     node->addShadowVolumeSceneNode();
 }
  Player::~Player(){
-     /*
-     std::cout<<"entro en borrar"<<std::endl;
-    if(body){
-            std::cout<<"entro en borrar1"<<std::endl;
-        World::Inst()->GetWorld()->DestroyBody(body);
-        std::cout<<"entro en borrar2"<<std::endl;
-        body = NULL;
-    }
-    */
-    std::cout<<"entro en borrar3"<<std::endl;
     if(node){node->remove();}
 
  }
@@ -80,7 +77,7 @@ void Player::InicializeFixtures(int mode){
             b2FixtureDef fixtureDef2;
             b2CircleShape circleShape1;
             b2CircleShape circleShape2;
-            friction = 1.f; restitution = 0.5f; density = 1;
+            friction = .5f; restitution = 0.2f; density = 0.8f;
             body->SetFixedRotation(false);
             circleShape1.m_p.Set(0,-0.5f);
             circleShape2.m_p.Set(0,0.5f);
@@ -122,7 +119,6 @@ void Player::DestroyFixtures(){
     }
 }
 void Player::actualiza(){
-    //std::cout<<body->GetPosition().x<<" "<<body->GetPosition().y<<std::endl;
     if(paraMorir)morir();
     if(cogido)
         node->setPosition(irr::core::vector3df(body->GetPosition().x+((.5f)*dir),body->GetPosition().y,0));
@@ -137,7 +133,8 @@ void Player::mover(){
     if(muerto || fingiendoMuerte)
         return;
     dir = 0;
-    if(mando == 1){
+    int id2 = (*Client::Inst()->getIdCliente())-'0';
+    if(mando == id2){
         if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){moviendo = direccion = dir = -1;}
         else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
         else{moviendo = 0;}
@@ -211,7 +208,6 @@ void Player::CogerTirar(){
                 joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
                 joint->EnableMotor(true);
                 cogiendo = true;
-                std::cout<<"Cogible es "<<objCogido->getIdCogible()<<std::endl;
                 Client::Inst()->enviarCogido(objCogido->getIdCogible());
             }
     }

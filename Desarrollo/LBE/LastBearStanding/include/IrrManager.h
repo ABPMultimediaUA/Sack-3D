@@ -12,7 +12,6 @@ class IrrMngr{
         static IrrMngr* Inst();
         IrrMngr();
         void Update();
-        void Update(int fps);
         void InstanciaVariables(int* puntuaciones);
         void Reset();
         void beginScene();

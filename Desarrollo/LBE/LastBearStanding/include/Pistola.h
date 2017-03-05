@@ -8,9 +8,6 @@ class Pistola: public Usable{
         Pistola(Spawner* expo, int modelo,b2Vec2 pos);
         virtual ~Pistola();
         void usar();
-        int getIdCogible();
-    private:
-        int idCogible;
 };
 
 #endif

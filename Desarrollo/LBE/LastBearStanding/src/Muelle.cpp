@@ -24,7 +24,6 @@ Muelle::Muelle(float f, irr::core::vector3df pos, irr::core::vector3df tam,irr::
 }
 Muelle::~Muelle(){
     if(node)node->remove();
-    if(body)World::Inst()->GetWorld()->DestroyBody(body);
 }
 float Muelle::getFuerza(){return fuerza;}
 b2Body* Muelle::getBody(){return body;}

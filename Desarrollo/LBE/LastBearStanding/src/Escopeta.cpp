@@ -27,7 +27,3 @@ void Escopeta::usar(){
         }
     }else{CompruebaVida();}
 }
-int Escopeta::getIdCogible(){
-    return idCogible;
-}
-

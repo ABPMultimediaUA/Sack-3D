@@ -5,7 +5,7 @@
 
 class HUD{
     public:
-        HUD(int*);
+        HUD(int*, int width,int height);
         virtual ~HUD(){}
         void Draw();
 
@@ -13,6 +13,8 @@ class HUD{
         irr::gui::IGUIFont* font;
         irr::video::SColor fColor;
         int* puntuaciones;
+        int width;
+        int height;
 };
 
 #endif

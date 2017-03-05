@@ -24,7 +24,6 @@ Teleport::Teleport(int i, int p, irr::core::vector3df pos, irr::core::vector3df 
     fixture->SetUserData((void*)DATA_TELEPORT);
 }
 Teleport::~Teleport(){
-    if(body)World::Inst()->GetWorld()->DestroyBody(body);
 }
 int Teleport::getTeleportId(){return id;}
 int Teleport::getTeleportPartnerId(){return partner;}

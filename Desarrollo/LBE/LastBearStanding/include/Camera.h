@@ -21,5 +21,6 @@ class Camera{
         irr::core::matrix4 projMat;
         b2Vec2 cenAnt;
         b2Vec2 cenSig;
+        int fpsAnt;
 };
 #endif

@@ -22,9 +22,7 @@ World* World::Inst(){
   return pinstance;
 }
 void World::Reset(){
-std::cout<<"salgo reset"<<std::endl;
   if(pinstance)delete pinstance;
-  std::cout<<"salgo reset"<<std::endl;
   pinstance = new World;
 
 }
@@ -34,15 +32,10 @@ World::World(){
 	world.Get()->SetContactListener(contactListener.Get());
 }
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
-    std::cout<<"inicio"<<std::endl;
   GameResource<Map>(new Map(mapFile));
-  for(int i=0;i<Client::Inst()->getNumPlayersRed();i++){
-    World::Inst()->AddPlayer(new PlayerRed(b2Vec2(100.f, 61.995),0,Client::Inst()->playersRed[i].id));
-  }
   camara.Reset(new Camera());
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
-  std::cout<<"acabo"<<std::endl;
 }
 b2Body* World::CreateBox(int x , int y){
     b2BodyDef bodyDef;
@@ -82,6 +75,7 @@ int World::Update(int fps){
     if(m_Balas.Get(i)){
       m_Balas.Get(i)->actualiza();
       if(m_Balas.Get(i)->getDestruir()){
+          world.Get()->DestroyBody(m_Balas.Get(i)->getBody());
           m_Balas.Remove(i);
       }
     }
@@ -89,8 +83,10 @@ int World::Update(int fps){
   for (int i = 0; i < m_Cogibles.Size(); ++i){
     if(m_Cogibles.Get(i)){
       m_Cogibles.Get(i)->actualiza();
-      if(m_Cogibles.Get(i)->getAutoDestruir())
+      if(m_Cogibles.Get(i)->getAutoDestruir()){
+        world.Get()->DestroyBody(m_Cogibles.Get(i)->getBody());
         m_Cogibles.Remove(i);
+      }
     }
   }
   for (int i = 0; i < m_Spawners.Size(); ++i){

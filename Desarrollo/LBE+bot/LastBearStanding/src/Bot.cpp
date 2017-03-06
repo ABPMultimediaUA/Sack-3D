@@ -71,8 +71,12 @@ void Bot::calcularPathfinding(Nodo* objetivo){
   Nodo* nodoDestino = objetivo;
   Nodo* nodoActual;
 
+  /*
   Lista* listaAbierta = new Lista();
   Lista* listaCerrada = new Lista();
+  */
+  Lista listaAbierta;
+  Lista listaCerrada;
 
   std::cout<<std::endl;
   std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
@@ -85,31 +89,31 @@ void Bot::calcularPathfinding(Nodo* objetivo){
   if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x || nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
 
         nodoActual = new Nodo(nodoInicial->getPosicion(), nodoInicial->getNumero(), 0, NULL);
-        listaAbierta->insertar(nodoActual);
+        listaAbierta.insertar(nodoActual);
 
-        while( listaAbierta->getTamanyo() > 0 && listaAbierta->buscaNodo2( nodoDestino->getPosicion().x, nodoDestino->getPosicion().y) == NULL) {
+        while( listaAbierta.getTamanyo() > 0 && listaAbierta.buscaNodo2( nodoDestino->getPosicion().x, nodoDestino->getPosicion().y) == NULL) {
 
-            nodoActual = listaAbierta->getMenorCosto();
-            listaAbierta->remove(nodoActual->getPosicion());
+            nodoActual = listaAbierta.getMenorCosto();
+            listaAbierta.remove(nodoActual->getPosicion());
             nodoActual->setNext(NULL);
-            listaCerrada->insertar(nodoActual);
+            listaCerrada.insertar(nodoActual);
 
             for(int i = 0; i<lista->buscaNumero(nodoActual->getNumero())->getAdyacentes().size(); i++){
 
-                if(listaCerrada->buscaNumero( lista->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) ==NULL
-                    && listaAbierta->buscaNumero( lista->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) == NULL){
+                if(listaCerrada.buscaNumero( lista->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) ==NULL
+                    && listaAbierta.buscaNumero( lista->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i] ) == NULL){
                         int numero = lista->buscaNumero(nodoActual->getNumero())->getAdyacentes()[i];
                         b2Vec2 posicion;
                         posicion.x = lista->buscaNumero(numero)->getPosicion().x;
                         posicion.y = lista->buscaNumero(numero)->getPosicion().y;
                         int coste = abs(posicion.x-nodoDestino->getPosicion().x) + abs(posicion.y -nodoDestino->getPosicion().y);
                         Nodo* aux = new Nodo (posicion, numero, coste, nodoActual);
-                        listaAbierta->insertar(aux);
+                        listaAbierta.insertar(aux);
                     }
             }   //end for
         }       //end while end pathfinding
 
-        nodoActual = listaAbierta->buscaNodo2(nodoDestino->getPosicion().x, nodoDestino->getPosicion().y);
+        nodoActual = listaAbierta.buscaNodo2(nodoDestino->getPosicion().x, nodoDestino->getPosicion().y);
         pathfinding = new Lista();
 
         //save pathfinding List

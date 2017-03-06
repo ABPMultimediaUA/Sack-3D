@@ -23,6 +23,7 @@ void Pistola::usar(){
 	    	World::Inst()->AddBala(new Bala(irr::core::vector3df(body->GetPosition().x, body->GetPosition().y, 0), 300, 10, desvBala, dir,1));
 	    	usos--;
             timeCadencia = timerCadencia->getTime();
+
 	    }
     }
 }

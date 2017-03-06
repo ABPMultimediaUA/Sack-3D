@@ -7,7 +7,7 @@ class Usable : public Cogible{
     public:
         Usable(Spawner* expo, b2Vec2 pos);
         virtual ~Usable(){}
-        virtual void usar(){}
+        virtual void usar(){};
         virtual void actualiza();
         virtual void CompruebaVida();
         virtual int getUsos(){return usos;}

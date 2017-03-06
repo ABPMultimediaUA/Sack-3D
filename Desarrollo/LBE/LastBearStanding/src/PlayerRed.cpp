@@ -20,6 +20,8 @@ void PlayerRed::mover(int mov){
 }
 
 void PlayerRed::actualiza(){
+   /*std::cout<<"POSX PLAYERRED "<<x<<std::endl;
+    std::cout<<"POSY PLAYERRED "<<y<<std::endl;*/
     //if(paraMorir)morir();
     node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
     node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
@@ -28,6 +30,8 @@ void PlayerRed::actualiza(){
 
 void PlayerRed::setPos(){
     body->SetTransform(b2Vec2(x,y), body->GetAngle());
+    /*std::cout<<"SETTT POSX PLAYERRED "<<x<<std::endl;
+    std::cout<<"SETTT POSY PLAYERRED "<<y<<std::endl;*/
 }
 
 void PlayerRed::saltar(int i){
@@ -74,5 +78,19 @@ void PlayerRed::morirRed(){
     muerto = true;
 }
 
-
+void PlayerRed::fingirMuerte(){
+    std::cout<<"ENTRO"<<std::endl;
+    if(cogiendo) Soltar();
+    if(muerto)
+        return;
+    DestroyFixtures();
+    if(!fingiendoMuerte){
+        fingiendoMuerte = true;
+        InicializeFixtures(MUERTO_DORMIDO);
+    }
+    else{
+        fingiendoMuerte = false;
+        InicializeFixtures(LEVANTADO);
+    }
+}
 

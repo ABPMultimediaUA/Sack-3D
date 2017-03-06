@@ -122,29 +122,8 @@ void Client::enviar(){
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    //---------- ESTADO
-    sprintf(estado, "%.0f", (float)estador);
-    // ------- DIRECCION DE PJ
-    sprintf(direcc, "%.0f", (float)dir);
-    // -------- POSICIONES
-    sprintf(posx, "%.0f", auxiliarx);
-    sprintf(posy, "%.0f", auxiliary);
-    // -------- MUERTO
-    sprintf(muertor, "%.0f", (float)muer);
 
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, estado, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posx, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posy, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, direcc, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, muertor, 30);
-    strncpy(aux, tipo, sizeof(aux));
+    sprintf(aux, "1 %s %.0f %.0f %.0f %.0f %.0f", id, (float)estador,auxiliarx,auxiliary, (float)dir, (float)muer);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -154,14 +133,10 @@ void Client::enviarUsar(){
     char tipo[60];
     char id[30];
 
-    strncpy(tipo, "2", sizeof(tipo));
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-
-    strncpy(aux, tipo, sizeof(aux));
+    sprintf(aux, "2 %s", id);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -171,14 +146,10 @@ void Client::enviarMuerto(){
     char tipo[60];
     char id[30];
 
-    strncpy(tipo, "7", sizeof(tipo));
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-
-    strncpy(aux, tipo, sizeof(aux));
+    sprintf(aux, "7 %s", id);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -189,19 +160,10 @@ void Client::enviarCogido (int TCogible){
     char id[30];
     char cogible[30];
 
-    strncpy(tipo, "3", sizeof(tipo));
-
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    sprintf(cogible, "%.0f", (float)TCogible);
-
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, cogible, 30);
-
-    strncpy(aux, tipo, sizeof(aux));
+    sprintf(aux, "3 %s %.0f", id, (float)TCogible);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -221,27 +183,11 @@ void Client::enviarMoviendo(int moviendo){
     auxiliarx = posicion.x * 1000000;
     auxiliary = posicion.y * 1000000;
 
-    strncpy(tipo, "4", sizeof(tipo));
-
-    sprintf(posx, "%.0f", auxiliarx);
-    sprintf(posy, "%.0f", auxiliary);
-
     // ---------- ID
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    sprintf(mov, "%.0f", (float)moviendo);
-
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, mov, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posx, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, posy, 30);
-
-    strncpy(aux, tipo, sizeof(aux));
+     sprintf(aux, "4 %s %.0f %.0f %.0f", id, (float)moviendo,auxiliarx,auxiliary);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -252,20 +198,26 @@ void Client::enviarSalto(int Nsalto){
     char tipo[60];
     char id[30];
     char salto[30];
-    strncpy(tipo, "5", sizeof(tipo));
 
     // ---------- ID
         if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
 
-    sprintf(salto, "%.0f", (float)Nsalto);
 
-    strncat (tipo, " ", 30);
-    strncat (tipo, id, 30);
-    strncat (tipo, " ", 30);
-    strncat (tipo, salto, 30);
+    sprintf(aux, "5 %s %.0f", id, (float)Nsalto);
 
-    strncpy(aux, tipo, sizeof(aux));
+    client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
+}
+
+void Client::enviarHacerseMuerto(){
+    char aux[60];
+    char tipo[60];
+    char id[30];
+
+        if(strcmp(World::Inst()->getPlayer(idPlayerInt)->getId(), "") == 0){strncpy(id, "-1", sizeof(id));}
+        else{strncpy(id, World::Inst()->getPlayer(idPlayerInt)->getId(), sizeof(id));}
+
+     sprintf(aux, "8 %s", id);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
@@ -380,7 +332,7 @@ void Client::recibir(){
             //--------LLAMADA A FUNCION SEGUN PAQUETE
 
             if(comprobacion(tipo)){
-
+            //std::cout<<"tipo.-"<<tipo<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6<<std::endl;
             PacketFunction(atoi(tipo), param1, param2,param3, param4,param5, param6);
 
             }
@@ -519,10 +471,19 @@ void Client::analizarPaquete7(){
     }
 }
 
+void Client::analizarPaquete8(){
+
+    for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
+        if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
+            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->fingirMuerte();
+        }
+    }
+}
+
 bool Client::comprobacion(char* tipo){
 if(strcmp(tipo, "0") == 0 || strcmp(tipo, "1") == 0 || strcmp(tipo, "2") == 0 ||
    strcmp(tipo, "3") == 0 || strcmp(tipo, "4") == 0 || strcmp(tipo, "5") == 0 ||
-   strcmp(tipo, "6") == 0 || strcmp(tipo, "7") == 0) return true;
+   strcmp(tipo, "6") == 0 || strcmp(tipo, "7") == 0 || strcmp(tipo, "8") == 0 ) return true;
 else
     return false;
 

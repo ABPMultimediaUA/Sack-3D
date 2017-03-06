@@ -119,6 +119,8 @@ void Player::DestroyFixtures(){
     }
 }
 void Player::actualiza(){
+    /*std::cout<<"POSX PLAYER "<<body->GetPosition().x<<std::endl;
+    std::cout<<"POSY PLAYER "<<body->GetPosition().y<<std::endl;*/
     if(paraMorir)morir();
     if(cogido)
         node->setPosition(irr::core::vector3df(body->GetPosition().x+((.5f)*dir),body->GetPosition().y,0));
@@ -182,6 +184,7 @@ void Player::fingirMuerte(){
         fingiendoMuerte = false;
         InicializeFixtures(LEVANTADO);
     }
+    Client::Inst()->enviarHacerseMuerto();
 }
 void Player::morir(){
     if(!muerto){
@@ -209,6 +212,7 @@ void Player::CogerTirar(){
                 joint->EnableMotor(true);
                 cogiendo = true;
                 Client::Inst()->enviarCogido(objCogido->getIdCogible());
+        std::cout<<"OBJETO COGIDO "<<objCogido->getIdCogible()<<std::endl;
             }
     }
     else if(cogiendo){

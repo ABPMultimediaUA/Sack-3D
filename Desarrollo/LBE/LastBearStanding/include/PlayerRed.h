@@ -37,6 +37,7 @@ class PlayerRed: public Player{
         void CogerTirar(int idCogible);
         void morir(){}
         void morirRed();
+        void fingirMuerte();
     protected:
         //int estado;
         int estadoAntiguo;

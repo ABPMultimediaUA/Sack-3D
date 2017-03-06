@@ -62,6 +62,7 @@ class Client{
         void enviarMoviendo(int moviendo);
         void enviarUsar();
         void enviarMuerto();
+        void enviarHacerseMuerto();
         void analizarPaquete0();
         void analizarPaquete1();
         void analizarPaquete2();
@@ -70,6 +71,7 @@ class Client{
         void analizarPaquete5();
         void analizarPaquete6(){run=true;}
         void analizarPaquete7();
+        void analizarPaquete8();
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
@@ -90,7 +92,7 @@ class Client{
                 *param4,
                 *param5,
                 *param6;
-        const Type2Func packetFunction[9] = {
+        const Type2Func packetFunction[10] = {
               { 0         , analizarPaquete0    }
             , { 1         , analizarPaquete1    }
             , { 2         , analizarPaquete2    }
@@ -99,6 +101,7 @@ class Client{
             , { 5         , analizarPaquete5    }
             , { 6         , analizarPaquete6    }
             , { 7         , analizarPaquete7    }
+            , { 8         , analizarPaquete8    }
             , { -1        , 0                   }
         };
 

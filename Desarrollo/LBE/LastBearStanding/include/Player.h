@@ -67,8 +67,8 @@ class Player: public Cogible{
         b2RevoluteJointDef* jointDef;
         int estado;
         int direccion;
-        int x;
-        int y;
+        float x;
+        float y;
         char ip[64];
         char serverPort[30];
         char clientPort[30];

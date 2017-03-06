@@ -491,7 +491,7 @@
 1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 	"IrrManager.h"
@@ -500,7 +500,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\world.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
@@ -511,7 +511,7 @@
 
 1488471341 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
+1488801379 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -534,21 +534,21 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\player.h
+1488800896 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\cogible.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\playerred.h
+1488801661 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\irrmanager.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1487410630 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\muelle.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
@@ -557,7 +557,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1487410832 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\teleport.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
 	"IrrManager.h"
@@ -566,7 +566,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\usable.cpp
+1488804906 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\usable.cpp
 	"IrrManager.h"
 	"Spawner.h"
 	"Usable.h"
@@ -576,10 +576,10 @@
 	<irrlicht.h>
 	"Cogible.h"
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
+1488800516 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488468599 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
 	"World.h"
 	"MyContactListener.h"
 	"IrrManager.h"
@@ -594,24 +594,24 @@
 1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\camera.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\camera.h
 	"IrrManager.h"
 	<vector>
 	<Box2D/Box2D.h>
 
-1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\map.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\camera.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\camera.cpp
 	"Camera.h"
 	"World.h"
 	"Player.h"
 
-1488465098 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
+1488804116 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1488475204 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
 	"World.h"
 	"Spawner.h"
@@ -623,13 +623,13 @@
 	"IrrManager.h"
 	"World.h"
 
-1488399044 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
+1488804907 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"World.h"
 	"IrrManager.h"
 	"Bala.h"
 
-1487679154 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\escopeta.h
+1488800760 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
 1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\granada.cpp
@@ -640,14 +640,14 @@
 1488466512 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\hud.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\hud.cpp
 	"HUD.h"
 	"World.h"
 
-1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\hud.h
+1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1488397076 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
@@ -656,7 +656,7 @@
 1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -674,7 +674,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1487679146 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\pistola.h
+1488800699 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
 1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
@@ -686,35 +686,35 @@
 	"Player.h"
 	"Bala.h"
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"World.h"
 
-1488397076 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+1488800863 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488475065 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"IrrManager.h"
 
-1488469726 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
+1488801118 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
 	"World.h"
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1488801584 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 
-1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\spawner.cpp
+1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -722,7 +722,7 @@
 	"Spawner.h"
 	"World.h"
 
-1488469489 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
+1488743922 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"

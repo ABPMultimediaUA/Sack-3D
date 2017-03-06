@@ -15,7 +15,9 @@ Escopeta::~Escopeta(){
     if(node){node->remove();}
 }
 void Escopeta::usar(){
+
     if(usos){
+            std::cout<<cadencia<<std::endl;
         if(IrrMngr::Inst()->getTime()-timeCadencia > cadencia ){
             for(int i=0; i<10; i++){
                 float desvBala = rand()% 10 - 10;

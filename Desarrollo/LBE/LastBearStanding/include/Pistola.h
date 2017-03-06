@@ -7,7 +7,7 @@ class Pistola: public Usable{
     public:
         Pistola(Spawner* expo, int modelo,b2Vec2 pos);
         virtual ~Pistola();
-        void usar();
+        virtual void usar();
 };
 
 #endif

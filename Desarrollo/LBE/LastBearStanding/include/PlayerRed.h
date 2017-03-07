@@ -38,6 +38,7 @@ class PlayerRed: public Player{
         void morir(){}
         void morirRed();
         void fingirMuerte();
+        void usar();
     protected:
         //int estado;
         int estadoAntiguo;

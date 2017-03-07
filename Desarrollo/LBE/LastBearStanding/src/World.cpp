@@ -98,6 +98,7 @@ int World::Update(int fps){
   for (int i = 0; i < m_Players.Size(); ++i){
     if(m_Players.Get(i)){
       m_Players.Get(i)->actualiza();
+      std::cout<<"IDS: "<<m_Players.Get(i)->getId()<<std::endl;
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }

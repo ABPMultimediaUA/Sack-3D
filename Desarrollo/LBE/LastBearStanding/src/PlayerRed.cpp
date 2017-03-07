@@ -1,5 +1,6 @@
 #include "PlayerRed.h"
 #include "World.h"
+#include "Usable.h"
 
 
 PlayerRed::PlayerRed(b2Vec2 pos, int mando, char idr[]):Player(pos,mando){
@@ -91,6 +92,13 @@ void PlayerRed::fingirMuerte(){
     else{
         fingiendoMuerte = false;
         InicializeFixtures(LEVANTADO);
+    }
+}
+
+
+void PlayerRed::usar(){
+    if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
+        usable->usar();
     }
 }
 

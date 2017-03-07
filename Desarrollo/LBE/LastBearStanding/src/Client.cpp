@@ -46,9 +46,9 @@ void Client::iniciar(){
     }
     if(server){
         puts("Enter IP to connect to");
-        //Gets(auxip,sizeof(auxip));
+        Gets(auxip,sizeof(auxip));
         //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-        strncpy(auxip, "127.0.0.1", sizeof(auxip));
+        //strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
         puts("Enter the port to connect to");
         //Gets(auxserverPort,sizeof(auxserverPort));
@@ -294,6 +294,8 @@ void Client::recibir(){
             char param6[30];
             iterador=0;
 
+            //std::vector<char> params;
+
             struct TPlayersRed{
                 char* id;
             };
@@ -301,7 +303,9 @@ void Client::recibir(){
 			strncpy(recibido, reinterpret_cast<const char*>(p->data), sizeof(recibido));
 			char * msg;
 			msg = strtok(recibido, " ");
+
 			while(msg != NULL){
+                    //std::cout<<strlen(msg)<<std::endl;
                 switch (iterador)
                 {
                     case 0:
@@ -376,7 +380,7 @@ void Client::analizarPaquete0(){
         }
     }
     else{
-        for(int i=1;i<iterador-1;i++){
+        for(int i=numPlayersRed+1;i<iterador-1;i++){
             numPlayersRed++;
             strncpy(playersRed[i-1].id, param1, sizeof(playersRed[i-1].id));
         }
@@ -410,7 +414,7 @@ void Client::analizarPaquete2(){
 
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), param1) == 0){
-            World::Inst()->GetPlayers().at(i)->usar();
+            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->usar();
         }
     }
 }

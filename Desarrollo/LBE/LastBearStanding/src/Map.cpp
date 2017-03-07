@@ -44,8 +44,8 @@ void Map::AddPlayer(){
         World::Inst()->AddPlayer(new Player(b2Vec2(x,y),numPlayer));
     }
     else if(playerRed < Client::Inst()->getNumPlayersRed()){
-      std::cout<<"playerRed "<< playerRed<<std::endl;
-        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,Client::Inst()->playersRed[playerRed].id));
+      std::cout<<"playerRed "<< Client::Inst()->playersRed[playerRed].id<<std::endl;
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[playerRed].id)-'0',Client::Inst()->playersRed[playerRed].id));
         playerRed++;
     }
     else{

@@ -1,10 +1,12 @@
 #include "MyEventReceiver.h"
-#include "IrrManager.h"
 #include "Player.h"
 #include "Usable.h"
+#include "Client.h"
 #include "World.h"
 
-Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
+Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
+:Cogible(NULL,pos,irr::core::vector3df(.7f, 1.8f,.7f),color),mando(numMando){
+    m_pClient = Client::Inst();
     jointDef  = NULL;
     vel = 7;
     moviendoA = 0;
@@ -21,55 +23,37 @@ Player::Player(b2Vec2 pos, int numMando):Cogible(NULL,pos),mando(numMando){
     estado = LEVANTADO;
     direccion = 0;
     expuesto = false;
-    strncpy(id, Client::Inst()->getIdCliente(), sizeof(id));
-    tam = irr::core::vector3df(.7f, 1.8f,.7f);
-    pos.x += (tam.X/2);
-    pos.y  = -1*(pos.y-(tam.Y/2));
-    irr::video::SColor color;
-    switch(numMando){
-        case 0: color = irr::video::SColor(150,150, 0,0)  ; break;
-        case 1: color = irr::video::SColor(150,0, 150,0)  ; break;
-        case 2: color = irr::video::SColor(150,0, 0,150)  ; break;
-        case 3: color = irr::video::SColor(150,150, 0,150); break;
-    }
-    node = IrrMngr::Inst()->addCubeSceneNode(tam,color);
-    node->setPosition(irr::core::vector3df(pos.x,pos.y,0));
-    node->setMaterialTexture(0,IrrMngr::Inst()->getDriver()->getTexture("media/texture.jpg"));
-    node->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+    strncpy(id, m_pClient->getIdCliente(), sizeof(id));
     b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x,pos.y);
+    bodyDef.position.Set(pos.x+(m_tam.X/2),-1*(pos.y-(m_tam.Y/2)));
     bodyDef.type = b2_dynamicBody;
-    body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
-    body->SetFixedRotation(true);
+    m_pBody  = m_pWorld->GetWorld()->CreateBody(&bodyDef);
+    m_pBody->SetFixedRotation(true);
     InicializeFixtures(LEVANTADO);
     eventReceiver = IrrMngr::Inst()->getEventReciever();
-    node->addShadowVolumeSceneNode();
 }
- Player::~Player(){
-    if(node){node->remove();}
-
- }
+ Player::~Player(){}
 void Player::InicializeFixtures(int mode){
     switch(mode){
         case LEVANTADO:{
             b2FixtureDef fixtureDef;
             b2PolygonShape polyShape;
-            body->SetAngularVelocity(0);
-            body->SetTransform( body->GetPosition(),0);
-            body->SetFixedRotation(true);
-            body->ApplyLinearImpulse(b2Vec2(0,5.0f),b2Vec2(0,0));
-            polyShape.SetAsBox(tam.X/2.0f,tam.Y/2.0f);
+            m_pBody->SetAngularVelocity(0);
+            m_pBody->SetTransform( m_pBody->GetPosition(),0);
+            m_pBody->SetFixedRotation(true);
+            m_pBody->ApplyLinearImpulse(b2Vec2(0,5.0f),b2Vec2(0,0));
+            polyShape.SetAsBox((m_tam.X/2),(m_tam.Y/2));
             fixtureDef.shape = &polyShape;
             fixtureDef.friction = 0;
             fixtureDef.restitution  = 0;
             fixtureDef.density  = 10.0f;
             fixtureDef.filter.categoryBits = M_PLAYER;
             fixtureDef.filter.maskBits = M_BALA|M_SUELO|M_TELEPORT|M_MUELLE|M_COGIBLESENSOR;
-            b2Fixture* fixture = body->CreateFixture(&fixtureDef);
+            b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);
             fixture->SetUserData((void*)DATA_PLAYER);
-            polyShape.SetAsBox(tam.X/4,tam.Y/4,b2Vec2(0,-tam.Y/2), 0);
+            polyShape.SetAsBox(m_tam.X/4,m_tam.Y/4,b2Vec2(0,-m_tam.Y/2), 0);
             fixtureDef.isSensor = true;
-            b2Fixture* sensorFixture = body->CreateFixture(&fixtureDef);
+            b2Fixture* sensorFixture = m_pBody->CreateFixture(&fixtureDef);
             sensorFixture->SetUserData((void*)DATA_PLAYER_PIES);
         break;}
         case MUERTO_DORMIDO:{
@@ -78,72 +62,68 @@ void Player::InicializeFixtures(int mode){
             b2CircleShape circleShape1;
             b2CircleShape circleShape2;
             friction = .5f; restitution = 0.2f; density = 0.8f;
-            body->SetFixedRotation(false);
+            m_pBody->SetFixedRotation(false);
             circleShape1.m_p.Set(0,-0.5f);
             circleShape2.m_p.Set(0,0.5f);
-            circleShape1.m_radius = (tam.X)/2;
-            circleShape2.m_radius = (tam.X)/2;
+            circleShape1.m_radius = (m_tam.X)/2;
+            circleShape2.m_radius = (m_tam.X)/2;
             fixtureDef.shape = &circleShape1;
             fixtureDef.friction =friction;
             fixtureDef.restitution  = restitution;
             fixtureDef.density  = density;
-            personFixture = body->CreateFixture(&fixtureDef);
+            personFixture = m_pBody->CreateFixture(&fixtureDef);
             personFixture->SetUserData((void*)DATA_PLAYER);
             fixtureDef2.shape = &circleShape2;
             fixtureDef2.friction = friction;
             fixtureDef2.restitution  =restitution;
             fixtureDef2.density  = density;
-            b2Fixture* personFixture2 = body->CreateFixture(&fixtureDef2);
+            b2Fixture* personFixture2 = m_pBody->CreateFixture(&fixtureDef2);
             personFixture2->SetUserData((void*)DATA_PLAYER);
             circleShape1.m_radius = 1;
             fixtureDef2.isSensor = true;
             fixtureDef2.filter.maskBits = 1;
             fixtureDef2.filter.categoryBits = 2;
-            b2Fixture* areaFixure = body->CreateFixture(&fixtureDef2);
+            b2Fixture* areaFixure = m_pBody->CreateFixture(&fixtureDef2);
             areaFixure->SetUserData((void*)DATA_COGIBLE_SENSOR);
-            body->SetTransform( body->GetPosition(),0);
-            body->SetAngularVelocity(0);
-            body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x,body->GetLinearVelocity().y+5));
-            if(body->GetLinearVelocity().x > 0 )body->ApplyAngularImpulse(-0.5f);
-            else body->ApplyAngularImpulse(0.5f);
+            m_pBody->SetTransform( m_pBody->GetPosition(),0);
+            m_pBody->SetAngularVelocity(0);
+            m_pBody->SetLinearVelocity(b2Vec2(m_pBody->GetLinearVelocity().x,m_pBody->GetLinearVelocity().y+5));
+            if(m_pBody->GetLinearVelocity().x > 0 )m_pBody->ApplyAngularImpulse(-0.5f);
+            else m_pBody->ApplyAngularImpulse(0.5f);
         break;}
         case AGACHADO:{
         break;}
     }
 }
 void Player::DestroyFixtures(){
-    for (b2Fixture* f = body->GetFixtureList(); f;){
+    for (b2Fixture* f = m_pBody->GetFixtureList(); f;){
         b2Fixture* fixtureToDestroy = f;
         f = f->GetNext();
-        body->DestroyFixture( fixtureToDestroy );
+        m_pBody->DestroyFixture( fixtureToDestroy );
     }
 }
 void Player::actualiza(){
-    /*std::cout<<"POSX PLAYER "<<body->GetPosition().x<<std::endl;
-    std::cout<<"POSY PLAYER "<<body->GetPosition().y<<std::endl;*/
-    if(paraMorir)morir();
-    if(cogido)
-        node->setPosition(irr::core::vector3df(body->GetPosition().x+((.5f)*dir),body->GetPosition().y,0));
-    else
-        node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    node->setRotation(irr::core::vector3df(0,0,body->GetAngle()*RADTOGRAD));
-    mover();
     if(teletransportado)teletransportar();
+    if(paraMorir)morir();
+    if(cogido) m_pNode->setPosition(irr::core::vector3df(m_pBody->GetPosition().x+((.5f)*dir),m_pBody->GetPosition().y,0));
+    else m_pNode->setPosition(irr::core::vector3df(m_pBody->GetPosition().x,m_pBody->GetPosition().y,0));
+    m_pNode->setRotation(irr::core::vector3df(0,0,m_pBody->GetAngle()*RADTOGRAD));
+    mover();
 }
 void Player::mover(){
 
     if(muerto || fingiendoMuerte)
         return;
     dir = 0;
-    int id2 = (*Client::Inst()->getIdCliente())-'0';
+    int id2 = (*m_pClient->getIdCliente())-'0';
     if(mando == id2){
         if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){moviendo = direccion = dir = -1;}
         else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
         else{moviendo = 0;}
     }
-    if(moviendo != moviendoA){Client::Inst()->enviarMoviendo(moviendo);
+    if(moviendo != moviendoA){m_pClient->enviarMoviendo(moviendo);
     moviendoA = moviendo;}
-    body->SetLinearVelocity(b2Vec2 (dir*vel, body->GetLinearVelocity().y));
+    m_pBody->SetLinearVelocity(b2Vec2 (dir*vel, m_pBody->GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
 }
 void Player::saltar(){
@@ -153,22 +133,22 @@ void Player::saltar(){
         b2Vec2 velV;
         velV.x = 0;
         velV.y = 2;
-        body->SetLinearVelocity(velV);
-        body->ApplyAngularImpulse(rand()%4 - 2);
+        m_pBody->SetLinearVelocity(velV);
+        m_pBody->ApplyAngularImpulse(rand()%4 - 2);
         return;
     }
     if(!saltando){
-        b2Vec2 velV = body->GetLinearVelocity();
+        b2Vec2 velV = m_pBody->GetLinearVelocity();
         velV.y = salto;
-        body->SetLinearVelocity(velV);
-        Client::Inst()->enviarSalto(1);
+        m_pBody->SetLinearVelocity(velV);
+        m_pClient->enviarSalto(1);
     }
     else if(!dobleSaltando){
-        b2Vec2 velV = body->GetLinearVelocity();
+        b2Vec2 velV = m_pBody->GetLinearVelocity();
         velV.y = salto*3/4;
-        body->SetLinearVelocity(velV);
+        m_pBody->SetLinearVelocity(velV);
         dobleSaltando = true;
-        Client::Inst()->enviarSalto(2);
+        m_pClient->enviarSalto(2);
     }
 }
 void Player::fingirMuerte(){
@@ -184,7 +164,6 @@ void Player::fingirMuerte(){
         fingiendoMuerte = false;
         InicializeFixtures(LEVANTADO);
     }
-    Client::Inst()->enviarHacerseMuerto();
 }
 void Player::morir(){
     if(!muerto){
@@ -194,7 +173,7 @@ void Player::morir(){
         estado = MUERTO_DORMIDO;
         InicializeFixtures(MUERTO_DORMIDO);
         muerto = true;
-        Client::Inst()->enviarMuerto();
+        m_pClient->enviarMuerto();
     }
 }
 void Player::CogerTirar(){
@@ -204,55 +183,78 @@ void Player::CogerTirar(){
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
                 b2RevoluteJointDef jointDef;
-                jointDef.bodyA = body;
+                jointDef.bodyA = m_pBody;
                 jointDef.bodyB = objPuedoCoger->getBody();
                 jointDef.localAnchorA.Set(0,0.3f);
                 jointDef.localAnchorB.Set(0,0);
-                joint = (b2RevoluteJoint*)World::Inst()->GetWorld()->CreateJoint(&jointDef);
+                joint = (b2RevoluteJoint*)m_pWorld->GetWorld()->CreateJoint(&jointDef);
                 joint->EnableMotor(true);
                 cogiendo = true;
-                Client::Inst()->enviarCogido(objCogido->getIdCogible());
-        std::cout<<"OBJETO COGIDO "<<objCogido->getIdCogible()<<std::endl;
+                m_pClient->enviarCogido(objCogido->getIdCogible());
             }
     }
     else if(cogiendo){
         Soltar();
-        Client::Inst()->enviarCogido(-1);
+        m_pClient->enviarCogido(-1);
     }
 }
 void Player::recibeImpulso(float fuerza){
     saltando = true;
-    b2Vec2 velV = body->GetLinearVelocity();
+    b2Vec2 velV = m_pBody->GetLinearVelocity();
     velV.y = fuerza;
-    body->SetLinearVelocity(velV);
-}
-void Player::teletransportar(){
-    teletransportado = false;
-    if(dir != 0) nextPos.x += (dir*2);
-    else nextPos.x += 1.5f;
-    velActual = body->GetLinearVelocity();
-    body->SetTransform(b2Vec2(nextPos.x,nextPos.y), body->GetAngle());
-    body->SetLinearVelocity(velActual);
+    m_pBody->SetLinearVelocity(velV);
 }
 void Player::Soltar(){
-    World::Inst()->GetWorld()->DestroyJoint(joint);
-    b2Vec2 velP = body->GetLinearVelocity();
+    m_pWorld->GetWorld()->DestroyJoint(joint);
+    b2Vec2 velP = m_pBody->GetLinearVelocity();
     velP.x/=20;
     velP.y = velP.y/30 +1.f;
     objCogido->getBody()->ApplyLinearImpulse( velP, objCogido->getBody()->GetLocalCenter());
     cogiendo = false;
     puedoCoger = false;
     objCogido->setCogido(false);
-    if(body->GetLinearVelocity().x > 0 )objCogido->getBody()->ApplyAngularImpulse(-2);
+    if(m_pBody->GetLinearVelocity().x > 0 )objCogido->getBody()->ApplyAngularImpulse(-2);
     else objCogido->getBody()->ApplyAngularImpulse(2);
     cogiendo =false;
 }
 
 
+void Player::teletransportar(){
+    teletransportado = false;
+    if(dir != 0) nextPos.x += (dir*2);
+    else nextPos.x += 1.5f;
+    velActual = m_pBody->GetLinearVelocity();
+    m_pBody->SetTransform(b2Vec2(nextPos.x,nextPos.y), m_pBody->GetAngle());
+    m_pBody->SetLinearVelocity(velActual);
+}
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
-        Client::Inst()->enviarUsar();
+        m_pClient->enviarUsar();
         usable->usar();
     }
 }
-
+b2Vec2 Player::getPosition(){return m_pBody->GetPosition();}
+int Player::getMando(){return mando;}
+bool Player::getSaltando(){return saltando;}
+bool Player::getDobleSaltando(){return dobleSaltando;}
+bool Player::getCogiendo(){return cogiendo;}
+bool Player::getPuedoCoger(){return puedoCoger;}
+bool Player::getMuerto(){return muerto;}
+Cogible* Player::getObjCogido(){return objCogido;}
+Cogible* Player::getObjPuedoCoger(){return objPuedoCoger;}
+void Player::setSaltando(bool aux){saltando = aux;}
+void Player::setDobleSaltando(bool aux){dobleSaltando = aux;}
+void Player::setCogiendo(bool aux){cogiendo = aux;}
+void Player::setPuedoCoger(bool aux){puedoCoger = aux;}
+void Player::setObjCogido(Cogible* aux){objCogido = aux;}
+void Player::setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
+void Player::setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
+void Player::setParaMorir(bool aux){paraMorir = aux;}
+int Player::getDireccion(){return direccion;}
+char* Player::getIp(){return ip;}
+int Player::getEstado(){return estado;}
+char* Player::getId(){return id;}
+char* Player::getServerPort(){return serverPort;}
+char* Player::getClientPort(){return clientPort;}
+void Player::setIp(char aux[]){strncpy(ip, aux, sizeof(ip));}
+void Player::setId(char aux[]){strncpy(id, aux, sizeof(id));}

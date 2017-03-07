@@ -6,8 +6,8 @@
 class Escopeta: public Usable{
     public:
         Escopeta(Spawner* expo, int modelo,b2Vec2 pos);
-        virtual ~Escopeta();
-        virtual void usar();
+        ~Escopeta();
+        void usar();
 };
 
 #endif

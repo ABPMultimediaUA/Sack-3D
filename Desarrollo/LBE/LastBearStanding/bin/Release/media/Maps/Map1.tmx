@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="129" height="73" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1034">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="129" height="73" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1033">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -36,8 +36,8 @@
  <objectgroup name="Players">
   <object id="1002" gid="271" x="79" y="63" width="1" height="1"/>
   <object id="1003" gid="271" x="104" y="63" width="1" height="1"/>
-  <object id="1032" gid="271" x="88.125" y="62.75" width="1" height="1"/>
-  <object id="1033" gid="271" x="47.5909" y="62.3182" width="1" height="1"/>
+  <object id="1031" gid="271" x="50" y="63" width="1" height="1"/>
+  <object id="1032" gid="271" x="35" y="63" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

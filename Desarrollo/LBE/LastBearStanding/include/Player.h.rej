@@ -1,6 +1,0 @@
-diff a/Desarrollo/LBE/LastBearStanding/include/Player.h b/Desarrollo/LBE/LastBearStanding/include/Player.h	(rejected hunks)
-@@ -2,3 +3,4 @@
-+
- #ifndef PLAYER_H
- #define PLAYER_H
- 

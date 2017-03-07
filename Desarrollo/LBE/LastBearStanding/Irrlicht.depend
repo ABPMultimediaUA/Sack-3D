@@ -1,12 +1,10 @@
 # depslib dependency file v1.0
-1488552795 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\bala.cpp
+1488880292 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
-	"IrrManager.h"
 
-1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\bala.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1488822119 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\bala.h
+	"GameObject.h"
 
 1488476870 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\world.h
 	<vector>
@@ -15,50 +13,48 @@
 	"RVector.h"
 	"Client.h"
 
-1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\player.h
+1488882161 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
 1488397075 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1488552656 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\cogible.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1488823098 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\cogible.h
+	"GameObject.h"
 
-1488552671 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\pistola.h
+1488817282 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\usable.h
+1488821247 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488552673 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\escopeta.h
+1488821102 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1488466512 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\granada.h
+1488821117 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1487317172 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\muelle.h
-	<Box2D/Box2D.h>
+1488815113 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\muelle.h
+	"GameObject.h"
 	<irrlicht.h>
 
-1487317166 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\teleport.h
-	<Box2D/Box2D.h>
+1488882023 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\teleport.h
 	<irrlicht.h>
+	"GameObject.h"
 
-1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\spawner.h
-	<Box2D/Box2D.h>
+1488820554 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\spawner.h
+	"GameObject.h"
 	<irrlicht.h>
-	"Cogible.h"
 
 1488553637 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1488552696 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\playerred.h
+1488902449 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\platform.h
-	<Box2D/Box2D.h>
+1488821272 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\platform.h
+	"GameObject.h"
 	<irrlicht.h>
 
 1488473744 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\gameresource.h
@@ -68,12 +64,12 @@
 1488555711 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1488552527 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\camera.h
+1488821088 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\camera.h
 	"IrrManager.h"
-	<vector>
 	<Box2D/Box2D.h>
+	<vector>
 
-1488552741 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\client.h
+1488899742 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -101,27 +97,27 @@
 	"World.h"
 	"Player.h"
 
-1488558491 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\client.cpp
+1488899742 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1488552629 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\cogible.cpp
+1488882249 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
-	"World.h"
 	"Spawner.h"
+	"World.h"
 
-1488552712 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\escopeta.cpp
+1488880338 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"World.h"
 	"IrrManager.h"
 	"Bala.h"
 
-1488463973 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\granada.cpp
+1488822591 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\granada.cpp
 	"IrrManager.h"
 	"Granada.h"
 	"World.h"
 
-1488555888 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\map.cpp
+1488882316 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -143,12 +139,12 @@
 1488463973 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488476319 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\muelle.cpp
+1488879941 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
 
-1488556639 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\mycontactlistener.cpp
+1488898995 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"Teleport.h"
 	"Cogible.h"
@@ -160,35 +156,35 @@
 1488397075 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1488552962 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\myeventreceiver.cpp
+1488595830 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"World.h"
 
-1488552720 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\pistola.cpp
+1488880357 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488476210 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\platform.cpp
+1488879941 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
-	"IrrManager.h"
 
-1488555339 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\player.cpp
+1488884064 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
-	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
+	"Client.h"
 	"World.h"
 
-1488552761 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\playerred.cpp
+1488902469 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
+	"Usable.h"
 
-1488476347 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\spawner.cpp
+1488879945 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -196,13 +192,11 @@
 	"Spawner.h"
 	"World.h"
 
-1488476350 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\teleport.cpp
+1488882043 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
-	"IrrManager.h"
 
-1488476354 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\usable.cpp
-	"IrrManager.h"
+1488835546 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\usable.cpp
 	"Spawner.h"
 	"Usable.h"
 
@@ -242,33 +236,31 @@
 1488554113 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1488206831 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\main.cpp
+1488397760 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\main.cpp
 	"Master.h"
+	"Client.h"
 
-1488382066 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\master.h
+1488463973 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488218978 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1488743408 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
-	"World.h"
-	"IrrManager.h"
 
-1488379981 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\bala.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1488742952 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\bala.h
+	"GameObject.h"
 
-1488380716 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\world.h
+1488476870 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
 	"RVector.h"
 	"Client.h"
 
-1487516548 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\gameresource.h
+1488473744 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\gameresource.h
 
-1487517646 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\rvector.h
+1488471341 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\rvector.h
 
-1488382510 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\client.h
+1488583891 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -291,33 +283,33 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1488382267 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\player.h
+1488463973 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1487678846 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\cogible.h
+1488552656 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488380598 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
+1488552696 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488382356 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\irrmanager.h
+1488553637 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1488382893 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+1488552629 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
 	"World.h"
 	"Spawner.h"
 
-1488297376 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\debuginfo.cpp
+1488397076 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\debuginfo.cpp
 	"DebugInfo.h"
 
-1488296854 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\debuginfo.h
+1488397075 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\debuginfo.h
 	"IrrManager.h"
 	"World.h"
 
-1488383033 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\map.cpp
+1488648354 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -331,19 +323,19 @@
 	"Escopeta.h"
 	"Granada.h"
 
-1488206599 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\map.h
+1488555711 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1487516538 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\platform.h
+1488463973 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\platform.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488383062 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
+1488553626 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
 
-1487410630 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\muelle.cpp
+1488476319 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
@@ -352,12 +344,12 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488106666 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\platform.cpp
+1488476210 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"IrrManager.h"
 
-1487410832 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\teleport.cpp
+1488476350 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
 	"IrrManager.h"
@@ -366,65 +358,65 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488381078 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\camera.cpp
+1488552419 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\camera.cpp
 	"Camera.h"
 	"World.h"
 	"Player.h"
 
-1488382385 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\camera.h
+1488552527 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\camera.h
 	"IrrManager.h"
 	<vector>
 	<Box2D/Box2D.h>
 
-1488382873 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
+1488741439 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1488383263 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\spawner.h
+1488463973 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\spawner.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 	"Cogible.h"
 
-1488382942 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
+1488552712 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"World.h"
 	"IrrManager.h"
 	"Bala.h"
 
-1487679154 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\escopeta.h
+1488552673 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1487678910 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\usable.h
+1488463973 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488381408 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\granada.cpp
+1488463973 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\granada.cpp
 	"IrrManager.h"
 	"Granada.h"
 	"World.h"
 
-1487325766 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\granada.h
+1488466512 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1488307938 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\hud.cpp
+1488555002 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\hud.cpp
 	"HUD.h"
 	"World.h"
 
-1488299462 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\hud.h
+1488554113 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1488382971 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
+1488554981 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
 	"HUD.h"
 
-1488380520 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
+1488397075 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1487679146 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\pistola.h
+1488552671 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1488383094 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
+1488556639 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
 	"MyContactListener.h"
 	"Teleport.h"
 	"Cogible.h"
@@ -433,33 +425,33 @@
 	"Player.h"
 	"Bala.h"
 
-1488380511 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
+1488397075 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1488381670 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
+1488595830 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"World.h"
 
-1488381661 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+1488552720 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488381784 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
+1488595838 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
 	"World.h"
 
-1488381881 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1488552761 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 
-1488381889 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\spawner.cpp
+1488476347 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -467,12 +459,12 @@
 	"Spawner.h"
 	"World.h"
 
-1488381892 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\usable.cpp
+1488476354 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\usable.cpp
 	"IrrManager.h"
 	"Spawner.h"
 	"Usable.h"
 
-1488381934 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\world.cpp
+1488555437 source:c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\src\world.cpp
 	"World.h"
 	"MyContactListener.h"
 	"IrrManager.h"
@@ -491,7 +483,7 @@
 1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 	"IrrManager.h"
@@ -500,7 +492,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\world.h
+1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
@@ -511,7 +503,7 @@
 
 1488471341 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
 
-1488801379 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -534,21 +526,21 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1488800896 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\player.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\cogible.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\cogible.h
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488890293 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\playerred.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\irrmanager.h
+1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\muelle.cpp
+1487410630 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
@@ -557,7 +549,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\teleport.cpp
+1487410832 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
 	"IrrManager.h"
@@ -566,7 +558,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488804906 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\usable.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\usable.cpp
 	"IrrManager.h"
 	"Spawner.h"
 	"Usable.h"
@@ -576,10 +568,10 @@
 	<irrlicht.h>
 	"Cogible.h"
 
-1488800516 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488896085 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
+1488468599 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
 	"World.h"
 	"MyContactListener.h"
 	"IrrManager.h"
@@ -594,24 +586,24 @@
 1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\camera.h
+1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\camera.h
 	"IrrManager.h"
 	<vector>
 	<Box2D/Box2D.h>
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\map.h
+1488463973 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\camera.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\camera.cpp
 	"Camera.h"
 	"World.h"
 	"Player.h"
 
-1488897380 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
+1488465098 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\cogible.cpp
+1488475204 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
 	"World.h"
 	"Spawner.h"
@@ -623,13 +615,13 @@
 	"IrrManager.h"
 	"World.h"
 
-1488804907 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
+1488399044 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"World.h"
 	"IrrManager.h"
 	"Bala.h"
 
-1488800760 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\escopeta.h
+1487679154 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
 1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\granada.cpp
@@ -640,14 +632,14 @@
 1488466512 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\hud.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\hud.cpp
 	"HUD.h"
 	"World.h"
 
-1488736858 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\hud.h
+1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
+1488397076 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
@@ -656,7 +648,7 @@
 1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1488897109 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -674,7 +666,7 @@
 	<Box2D/Box2D.h>
 	<irrlicht.h>
 
-1488800699 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\pistola.h
+1487679146 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
 1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\mycontactlistener.cpp
@@ -686,36 +678,35 @@
 	"Player.h"
 	"Bala.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"World.h"
 
-1488800863 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+1488397076 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
+1488475065 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"IrrManager.h"
 
-1488801118 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
+1488469726 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
 	"World.h"
 
-1488890354 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
-	"Usable.h"
 
-1488736858 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\spawner.cpp
+1488463973 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -723,7 +714,7 @@
 	"Spawner.h"
 	"World.h"
 
-1488743922 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
+1488469489 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
@@ -978,7 +969,7 @@
 1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488583891 c:\users\jorge\desktop\lbe\lastbearstanding\include\client.h
+1488821694 c:\users\jorge\desktop\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -1001,24 +992,21 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\player.h
+1488822856 c:\users\jorge\desktop\lbe\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1488552656 c:\users\jorge\desktop\lbe\lastbearstanding\include\cogible.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1488823098 c:\users\jorge\desktop\lbe\lastbearstanding\include\cogible.h
+	"GameObject.h"
 
-1488552696 c:\users\jorge\desktop\lbe\lastbearstanding\include\playerred.h
+1488822986 c:\users\jorge\desktop\lbe\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1488552795 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\bala.cpp
+1488822199 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
-	"IrrManager.h"
 
-1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\bala.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
+1488822119 c:\users\jorge\desktop\lbe\lastbearstanding\include\bala.h
+	"GameObject.h"
 
 1488476870 c:\users\jorge\desktop\lbe\lastbearstanding\include\world.h
 	<vector>
@@ -1040,20 +1028,19 @@
 	"World.h"
 	"Player.h"
 
-1488552527 c:\users\jorge\desktop\lbe\lastbearstanding\include\camera.h
+1488821088 c:\users\jorge\desktop\lbe\lastbearstanding\include\camera.h
 	"IrrManager.h"
+	<Box2D/Box2D.h>
 	<vector>
-	<Box2D/Box2D.h>
 
-1488552629 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\cogible.cpp
+1488835488 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\cogible.cpp
 	"Cogible.h"
-	"World.h"
 	"Spawner.h"
+	"World.h"
 
-1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\spawner.h
-	<Box2D/Box2D.h>
+1488820554 c:\users\jorge\desktop\lbe\lastbearstanding\include\spawner.h
+	"GameObject.h"
 	<irrlicht.h>
-	"Cogible.h"
 
 1488397076 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\debuginfo.cpp
 	"DebugInfo.h"
@@ -1062,24 +1049,24 @@
 	"IrrManager.h"
 	"World.h"
 
-1488552712 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\escopeta.cpp
+1488822573 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\escopeta.cpp
 	"Escopeta.h"
 	"World.h"
 	"IrrManager.h"
 	"Bala.h"
 
-1488552673 c:\users\jorge\desktop\lbe\lastbearstanding\include\escopeta.h
+1488821102 c:\users\jorge\desktop\lbe\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\usable.h
+1488821247 c:\users\jorge\desktop\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488463973 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\granada.cpp
+1488822591 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\granada.cpp
 	"IrrManager.h"
 	"Granada.h"
 	"World.h"
 
-1488466512 c:\users\jorge\desktop\lbe\lastbearstanding\include\granada.h
+1488821117 c:\users\jorge\desktop\lbe\lastbearstanding\include\granada.h
 	"Usable.h"
 
 1488555002 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\hud.cpp
@@ -1098,7 +1085,7 @@
 1488397075 c:\users\jorge\desktop\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1488594090 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\map.cpp
+1488836148 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -1115,19 +1102,19 @@
 1488555711 c:\users\jorge\desktop\lbe\lastbearstanding\include\map.h
 	<irrlicht.h>
 
-1488463973 c:\users\jorge\desktop\lbe\lastbearstanding\include\platform.h
-	<Box2D/Box2D.h>
+1488821272 c:\users\jorge\desktop\lbe\lastbearstanding\include\platform.h
+	"GameObject.h"
 	<irrlicht.h>
 
-1487317172 c:\users\jorge\desktop\lbe\lastbearstanding\include\muelle.h
-	<Box2D/Box2D.h>
+1488815113 c:\users\jorge\desktop\lbe\lastbearstanding\include\muelle.h
+	"GameObject.h"
 	<irrlicht.h>
 
-1487317166 c:\users\jorge\desktop\lbe\lastbearstanding\include\teleport.h
-	<Box2D/Box2D.h>
+1488820907 c:\users\jorge\desktop\lbe\lastbearstanding\include\teleport.h
 	<irrlicht.h>
+	"GameObject.h"
 
-1488552671 c:\users\jorge\desktop\lbe\lastbearstanding\include\pistola.h
+1488817282 c:\users\jorge\desktop\lbe\lastbearstanding\include\pistola.h
 	"Usable.h"
 
 1488553626 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\master.cpp
@@ -1135,7 +1122,7 @@
 	"World.h"
 	"IrrManager.h"
 
-1488476319 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\muelle.cpp
+1488822670 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
@@ -1158,29 +1145,28 @@
 	"Player.h"
 	"World.h"
 
-1488552720 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\pistola.cpp
+1488822689 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488476210 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\platform.cpp
+1488822777 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
-	"IrrManager.h"
 
-1488595838 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\player.cpp
+1488835823 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
-	"IrrManager.h"
 	"Player.h"
 	"Usable.h"
+	"Client.h"
 	"World.h"
 
-1488552761 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\playerred.cpp
+1488823165 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 
-1488476347 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\spawner.cpp
+1488823273 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\spawner.cpp
 	"IrrManager.h"
 	"Escopeta.h"
 	"Pistola.h"
@@ -1188,13 +1174,11 @@
 	"Spawner.h"
 	"World.h"
 
-1488476350 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\teleport.cpp
+1488835107 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
-	"IrrManager.h"
 
-1488476354 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\usable.cpp
-	"IrrManager.h"
+1488835546 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\usable.cpp
 	"Spawner.h"
 	"Usable.h"
 
@@ -1210,7 +1194,273 @@
 	"Bala.h"
 	"Map.h"
 
-1488595821 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\client.cpp
+1488741439 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\client.cpp
+	"Client.h"
+	"World.h"
+
+1488743998 c:\users\jorge\desktop\abp\desarrollo\lbe\lastbearstanding\include\gameobject.h
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"IrrManager.h"
+	"World.h"
+
+1488823237 c:\users\pcj\contacts\desktop\lbe\lastbearstanding\include\gameobject.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+
+1488879818 source:c:\users\pcj\contacts\desktop\lbe\lastbearstanding\src\gameobject.cpp
+	"GameObject.h"
+	"World.h"
+
+1488823237 c:\users\jorge\desktop\lbe\lastbearstanding\include\gameobject.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+
+1488835735 source:c:\users\jorge\desktop\lbe\lastbearstanding\src\gameobject.cpp
+	"GameObject.h"
+	"World.h"
+
+1488397760 source:c:\users\jpuerto\documents\lbe\lastbearstanding\main.cpp
+	"Master.h"
+	"Client.h"
+
+1488463973 c:\users\jpuerto\documents\lbe\lastbearstanding\include\master.h
+	<irrlicht.h>
+
+1488821694 c:\users\jpuerto\documents\lbe\lastbearstanding\include\client.h
+	"MessageIdentifiers.h"
+	"RakPeerInterface.h"
+	"RakNetStatistics.h"
+	"RakNetTypes.h"
+	"BitStream.h"
+	"PacketLogger.h"
+	<assert.h>
+	<iostream>
+	<string>
+	<cstdio>
+	<cstring>
+	<stdlib.h>
+	"RakNetTypes.h"
+	"Kbhit.h"
+	"WindowsIncludes.h"
+	"Kbhit.h"
+	<unistd.h>
+	"Gets.h"
+	"SecureHandshake.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1488882161 c:\users\jpuerto\documents\lbe\lastbearstanding\include\player.h
+	"Cogible.h"
+
+1488823098 c:\users\jpuerto\documents\lbe\lastbearstanding\include\cogible.h
+	"GameObject.h"
+
+1488823237 c:\users\jpuerto\documents\lbe\lastbearstanding\include\gameobject.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+
+1488553637 c:\users\jpuerto\documents\lbe\lastbearstanding\include\irrmanager.h
+	<irrlicht.h>
+	"GameResource.h"
+
+1488473744 c:\users\jpuerto\documents\lbe\lastbearstanding\include\gameresource.h
+
+1488822986 c:\users\jpuerto\documents\lbe\lastbearstanding\include\playerred.h
+	"Player.h"
+
+1488880292 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\bala.cpp
+	"Bala.h"
+	"World.h"
+
+1488822119 c:\users\jpuerto\documents\lbe\lastbearstanding\include\bala.h
+	"GameObject.h"
+
+1488476870 c:\users\jpuerto\documents\lbe\lastbearstanding\include\world.h
+	<vector>
+	<Box2D/Box2D.h>
+	"GameResource.h"
+	"RVector.h"
+	"Client.h"
+
+1488471341 c:\users\jpuerto\documents\lbe\lastbearstanding\include\rvector.h
+
+1488552419 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\camera.cpp
+	"Camera.h"
+	"World.h"
+	"Player.h"
+
+1488821088 c:\users\jpuerto\documents\lbe\lastbearstanding\include\camera.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+	<vector>
+
+1488874934 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\client.cpp
+	"Client.h"
+	"World.h"
+
+1488882249 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\cogible.cpp
+	"Cogible.h"
+	"Spawner.h"
+	"World.h"
+
+1488820554 c:\users\jpuerto\documents\lbe\lastbearstanding\include\spawner.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1488397076 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\debuginfo.cpp
+	"DebugInfo.h"
+
+1488397075 c:\users\jpuerto\documents\lbe\lastbearstanding\include\debuginfo.h
+	"IrrManager.h"
+	"World.h"
+
+1488880338 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\escopeta.cpp
+	"Escopeta.h"
+	"World.h"
+	"IrrManager.h"
+	"Bala.h"
+
+1488821102 c:\users\jpuerto\documents\lbe\lastbearstanding\include\escopeta.h
+	"Usable.h"
+
+1488821247 c:\users\jpuerto\documents\lbe\lastbearstanding\include\usable.h
+	"Cogible.h"
+
+1488822591 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\granada.cpp
+	"IrrManager.h"
+	"Granada.h"
+	"World.h"
+
+1488821117 c:\users\jpuerto\documents\lbe\lastbearstanding\include\granada.h
+	"Usable.h"
+
+1488555002 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\hud.cpp
+	"HUD.h"
+	"World.h"
+
+1488554113 c:\users\jpuerto\documents\lbe\lastbearstanding\include\hud.h
+	"IrrManager.h"
+
+1488554981 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+	"DebugInfo.h"
+	"HUD.h"
+
+1488397075 c:\users\jpuerto\documents\lbe\lastbearstanding\include\myeventreceiver.h
+	<irrlicht.h>
+
+1488882316 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"World.h"
+	"GameResource.h"
+	"Spawner.h"
+	"Muelle.h"
+	"Teleport.h"
+	"Cogible.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+
+1488555711 c:\users\jpuerto\documents\lbe\lastbearstanding\include\map.h
+	<irrlicht.h>
+
+1488821272 c:\users\jpuerto\documents\lbe\lastbearstanding\include\platform.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1488815113 c:\users\jpuerto\documents\lbe\lastbearstanding\include\muelle.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1488882023 c:\users\jpuerto\documents\lbe\lastbearstanding\include\teleport.h
+	<irrlicht.h>
+	"GameObject.h"
+
+1488817282 c:\users\jpuerto\documents\lbe\lastbearstanding\include\pistola.h
+	"Usable.h"
+
+1488553626 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\master.cpp
+	"Master.h"
+	"World.h"
+	"IrrManager.h"
+
+1488879941 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\muelle.cpp
+	"Muelle.h"
+	"World.h"
+	"IrrManager.h"
+
+1488882233 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"Teleport.h"
+	"Cogible.h"
+	"Spawner.h"
+	"Muelle.h"
+	"Player.h"
+	"Bala.h"
+
+1488397075 c:\users\jpuerto\documents\lbe\lastbearstanding\include\mycontactlistener.h
+	"World.h"
+
+1488595830 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"IrrManager.h"
+	"Player.h"
+	"World.h"
+
+1488880357 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\pistola.cpp
+	"IrrManager.h"
+	"Pistola.h"
+	"World.h"
+	"Bala.h"
+
+1488823165 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\playerred.cpp
+	"PlayerRed.h"
+	"World.h"
+
+1488879945 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\spawner.cpp
+	"IrrManager.h"
+	"Escopeta.h"
+	"Pistola.h"
+	"Granada.h"
+	"Spawner.h"
+	"World.h"
+
+1488882043 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\teleport.cpp
+	"Teleport.h"
+	"World.h"
+
+1488835546 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\usable.cpp
+	"Spawner.h"
+	"Usable.h"
+
+1488555437 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\world.cpp
+	"World.h"
+	"MyContactListener.h"
+	"IrrManager.h"
+	"PlayerRed.h"
+	"Spawner.h"
+	"Cogible.h"
+	"Camera.h"
+	"Player.h"
+	"Bala.h"
+	"Map.h"
+
+1488879818 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\gameobject.cpp
+	"GameObject.h"
+	"World.h"
+
+1488879941 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\platform.cpp
+	"Platform.h"
+	"World.h"
+
+1488882174 source:c:\users\jpuerto\documents\lbe\lastbearstanding\src\player.cpp
+	"MyEventReceiver.h"
+	"Player.h"
+	"Usable.h"
 	"Client.h"
 	"World.h"
 

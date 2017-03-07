@@ -2,19 +2,15 @@
 #include "Granada.h"
 #include "World.h"
 
-Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos):Usable(expo,pos){
+Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
+:Usable(expo,pos,irr::core::vector3df(.01f,.01f,.01f),irr::video::SColor(30, 100, 30, 0)){
   mecha = 4000;
   usada = false;
   explotada = false;
   timerIrr = IrrMngr::Inst()->getTimer();
-  tam = irr::core::vector3df(.01f,.01f,.01f);
-  node = IrrMngr::Inst()->addCubeSceneNode(tam,irr::video::SColor(30, 100, 30, 0));
-  node->setPosition(irr::core::vector3df(pos.x,pos.y,0));
   InicializeFixtures(RELEASE);
 }
-Granada::~Granada(){
-    if(node){node->remove();}
-}
+Granada::~Granada(){}
 void Granada::actualiza(){
   if(!explotada)Cogible::actualiza();
   if(timerIrr->getTime() - timerGranada > mecha && usada && !explotada){
@@ -27,9 +23,9 @@ void Granada::actualiza(){
       bd.bullet = true;
       bd.linearDamping = 10;
       bd.gravityScale = 0;
-      bd.position = body->GetPosition();
+      bd.position = m_pBody->GetPosition();
       bd.linearVelocity = 200 * rayDir;
-      b2Body* Partbody = World::Inst()->GetWorld()->CreateBody(&bd);
+      b2Body* Partbody = m_pWorld->GetWorld()->CreateBody(&bd);
 
       b2CircleShape circleShape;
       circleShape.m_radius = 30.05f;
@@ -50,14 +46,14 @@ void Granada::actualiza(){
   if(!autoDestruir && explotada && timerIrr->getTime() - timerGranada > (mecha+100)){
     for (int i=0; i<PARTICULAS; i++){
       particulas[i]->DestroyFixture( particulas[i]->GetFixtureList());
-      World::Inst()->GetWorld()->DestroyBody(particulas[i]);
+      m_pWorld->GetWorld()->DestroyBody(particulas[i]);
     }
     autoDestruir = true;
   }
 }
 void Granada::usar(){
     if(usos){
-      World::Inst()->getPlayer(1)->CogerTirar();
+      m_pWorld->getPlayer(1)->CogerTirar();
       timerGranada = timerIrr->getTime();
       usada=true;
       usos--;

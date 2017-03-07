@@ -2,8 +2,8 @@
 #define CAMERA_H
 
 #include "IrrManager.h"
-#include <vector>
 #include <Box2D/Box2D.h>
+#include <vector>
 
 class Camera{
     public:

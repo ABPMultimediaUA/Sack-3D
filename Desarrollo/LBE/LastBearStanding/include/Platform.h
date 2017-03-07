@@ -2,16 +2,13 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
-#include <Box2D/Box2D.h>
+#include "GameObject.h"
 #include <irrlicht.h>
 
-class Platform{
+class Platform:public GameObject{
     public:
-        Platform(bool mata, irr::core::vector3df pos, irr::core::vector3df tam,irr::video::SColor color);
-        virtual ~Platform();
-    private:
-        irr::scene::IMeshSceneNode* node;
-	    b2Body* body;
+        Platform(bool mata, b2Vec2 pos, irr::core::vector3df tam,irr::video::SColor color);
+        ~Platform();
 };
 
 #endif

@@ -9,7 +9,7 @@
 class Granada:public Usable{
     public:
         Granada(Spawner* expo, int modelo,b2Vec2 pos);
-        virtual ~Granada();
+        ~Granada();
         void actualiza();           
         void usar();                
     private:

@@ -2,11 +2,12 @@
 #ifndef SPAWNER_H
 #define SPAWNER_H
 
-#include <Box2D/Box2D.h>
+#include "GameObject.h"
 #include <irrlicht.h>
-#include "Cogible.h"
 
-class Spawner {
+
+class Cogible;
+class Spawner:public GameObject {
     public:
         Spawner(int tipo, int modelo, b2Vec2 pos);
         ~Spawner();
@@ -16,11 +17,8 @@ class Spawner {
         void generar();
         Cogible* getCogido(){return objCogido;}
     private:
-        irr::scene::IMeshSceneNode* node;
         irr::f32 time;
         irr::ITimer* timer;
-        b2Vec2 pos;
-        b2Body* body;
         b2RevoluteJoint* joint;
         Cogible* objCogido;
         bool cogiendo;

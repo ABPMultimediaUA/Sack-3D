@@ -47,6 +47,7 @@
 		<Unit filename="include/Escopeta.h">
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="include/GameObject.h" />
 		<Unit filename="include/GameResource.h" />
 		<Unit filename="include/Granada.h">
 			<Option target="Release" />
@@ -82,6 +83,7 @@
 		<Unit filename="src/Cogible.cpp" />
 		<Unit filename="src/DebugInfo.cpp" />
 		<Unit filename="src/Escopeta.cpp" />
+		<Unit filename="src/GameObject.cpp" />
 		<Unit filename="src/Granada.cpp" />
 		<Unit filename="src/HUD.cpp" />
 		<Unit filename="src/IrrManager.cpp" />

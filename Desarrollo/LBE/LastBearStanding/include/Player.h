@@ -11,64 +11,61 @@
 #define PIESPLAYER       100
 
 class MyEventReceiver;
-
+class Client;
 class Player: public Cogible{
     public:
-        Player(b2Vec2 pos, int mando);
+        Player(b2Vec2 pos, int mando, irr::video::SColor color);
         virtual ~Player();
         void InicializeFixtures(int mode);
         void DestroyFixtures();
         void actualiza();
+        void teletransportar();
         void mover();
         void saltar();
         void CogerTirar();
         void fingirMuerte();
         void recibeImpulso(float fuerza);
-        void teletransportar();
         void morir();
         void Soltar();
         void usar();
-        b2Vec2 getPosition(){return body->GetPosition();}
-        int getMando(){return mando;}
-        bool getSaltando(){return saltando;}
-        bool getDobleSaltando(){return dobleSaltando;}
-        bool getCogiendo(){return cogiendo;}
-        bool getPuedoCoger(){return puedoCoger;}
-        bool getMuerto(){return muerto;}
-        b2Body* getBody(){return body;}
-        Cogible* getObjCogido(){return objCogido;}
-        Cogible* getObjPuedoCoger(){return objPuedoCoger;}
-        void setSaltando(bool aux){saltando = aux;}
-        void setDobleSaltando(bool aux){dobleSaltando = aux;}
-        void setCogiendo(bool aux){cogiendo = aux;}
-        void setPuedoCoger(bool aux){puedoCoger = aux;}
-        void setObjCogido(Cogible* aux){objCogido = aux;}
-        void setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
-        void setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
-        void setParaMorir(bool aux){paraMorir = aux;}
-        int  getDireccion(){return direccion;}
-        char* getIp(){return ip;}
-        void setClientPort(char aux[]){strncpy(clientPort, aux, sizeof(clientPort));}
-        void setServerPort(char aux[]){strncpy(serverPort, aux, sizeof(serverPort));}
-        int getEstado(){return estado;}
-        char* getId(){return id;}
-        char* getServerPort(){return serverPort;}
-        char* getClientPort(){return clientPort;}
-        void  setIp(char aux[]){strncpy(ip, aux, sizeof(ip));}
-        void  setId(char aux[]){strncpy(id, aux, sizeof(id));}
+        b2Vec2 getPosition();
+        int getMando();
+        bool getSaltando();
+        bool getDobleSaltando();
+        bool getCogiendo();
+        bool getPuedoCoger();
+        bool getMuerto();
+        Cogible* getObjCogido();
+        Cogible* getObjPuedoCoger();
+        void setSaltando(bool aux);
+        void setDobleSaltando(bool aux);
+        void setCogiendo(bool aux);
+        void setPuedoCoger(bool aux);
+        void setObjCogido(Cogible* aux);
+        void setObjPuedoCoger(Cogible* aux);
+        void setNextPos(b2Vec2 pos);
+        void setParaMorir(bool aux);
+        int  getDireccion();
+        char* getIp();
+        void setClientPort(char aux[]);
+        void setServerPort(char aux[]);
+        int getEstado();
+        char* getId();
+        char* getServerPort();
+        char* getClientPort();
+        void  setIp(char aux[]);
+        void  setId(char aux[]);
 
 
     protected:
-        irr::scene::IMeshSceneNode* node;
-        b2Body* body;
         b2PolygonShape* polyShape;
         b2Fixture* personFixture;
         b2RevoluteJoint* joint;
         b2RevoluteJointDef* jointDef;
         int estado;
         int direccion;
-        float x;
-        float y;
+        int x;
+        int y;
         char ip[64];
         char serverPort[30];
         char clientPort[30];
@@ -86,10 +83,9 @@ class Player: public Cogible{
         bool paraMorir;
         bool muerto;
         b2Vec2 nextPos;
-		bool teletransportado;
+        Client *m_pClient;
         Cogible* objCogido;
         Cogible* objPuedoCoger;
-        irr::core::vector3df tam;
 		MyEventReceiver* eventReceiver;
 		b2Vec2 velActual;
 };

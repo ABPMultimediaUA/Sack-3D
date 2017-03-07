@@ -1,52 +1,41 @@
 
 #include "Bala.h"
 #include "World.h"
-#include "IrrManager.h"
 
-Bala::Bala( irr::core::vector3df pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
-dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
-    switch(tipo){
-        case 0: { tam = irr::core::vector3df(.4f, .2f,.2f);    break;}
-        case 1: { tam = irr::core::vector3df(.2f, .2f,.2f);    break;}
-        case 2: { tam = irr::core::vector3df(.4f, .2f,.2f);    break;}
-        case 3: { tam = irr::core::vector3df(.4f, .2f,.2f);    break;}
-    }
+Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
+GameObject(pos,irr::core::vector3df(.4f, .2f,.2f),irr::video::SColor(255, 255,0 ,0)),dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
     destruir = false;
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
-    timer2Kill = IrrMngr::Inst()->getTimer();
+    timer2Kill = m_pIrrMngr->getTimer();
     time2Kill = timer2Kill->getTime();
-    node = IrrMngr::Inst()->addCubeSceneNode(tam, irr::video::SColor(255, 255,0 ,0));
-    node->setPosition(pos);
-    bodyDef.position.Set(pos.X+dir,pos.Y);
+    bodyDef.position.Set(pos.x+(m_tam.X/2)+dir,-1*(pos.y-(m_tam.Y/2)));
     bodyDef.type = b2_dynamicBody;
-    body  = World::Inst()->GetWorld()->CreateBody(&bodyDef);
-    body->SetGravityScale( 0 );
-    polyShape.SetAsBox((tam.X)/2,(tam.Y)/2);
+    m_pBody  = m_pWorld->GetWorld()->CreateBody(&bodyDef);
+    m_pBody->SetGravityScale( 0 );
+    polyShape.SetAsBox((m_tam.X)/2.f,(m_tam.Y)/2.f);
     fixtureDef.shape = &polyShape;
     fixtureDef.filter.categoryBits = M_BALA;
     fixtureDef.filter.maskBits = M_SUELO|M_TELEPORT|M_PLAYER;
-    balaFixture = body->CreateFixture(&fixtureDef);
-    b2Fixture* balaSensorFixture = body->CreateFixture(&fixtureDef);
+    balaFixture = m_pBody->CreateFixture(&fixtureDef);
+    b2Fixture* balaSensorFixture = m_pBody->CreateFixture(&fixtureDef);
     balaSensorFixture->SetUserData((void*)DATA_BALA);
     if(dir>0)velo.x = velocidad;
     else     velo.x = -velocidad;
     if(desviacion != 0 )velo.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
-    body->SetLinearVelocity(velo);
+    m_pBody->SetLinearVelocity(velo);
     teletransportado = false;
 }
-Bala::~Bala(){
-    if(node)node->remove();
-}
+Bala::~Bala(){}
 void Bala::actualiza(){
     if(teletransportado) teletransportar();
-    node->setPosition(irr::core::vector3df(body->GetPosition().x,body->GetPosition().y,0));
-    if(IrrMngr::Inst()->getTime()-time2Kill>tiempoVida){destruir = true;}
+    m_pNode->setPosition(irr::core::vector3df(m_pBody->GetPosition().x,m_pBody->GetPosition().y,0));
+    if(m_pIrrMngr->getTime()-time2Kill>tiempoVida){destruir = true;}
 }
 void Bala::teletransportar(){
     teletransportado = false;
     nextPos.x += dir;
-    body->SetTransform(nextPos, body->GetAngle());
-    body->SetLinearVelocity(velo);
+    m_pBody->SetTransform(nextPos, m_pBody->GetAngle());
+    m_pBody->SetLinearVelocity(velo);
 }

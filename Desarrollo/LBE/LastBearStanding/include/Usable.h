@@ -5,12 +5,12 @@
 
 class Usable : public Cogible{
     public:
-        Usable(Spawner* expo, b2Vec2 pos);
-        virtual ~Usable(){}
-        virtual void usar(){};
+        Usable(Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
+        virtual ~Usable();
+        virtual void usar();
         virtual void actualiza();
         virtual void CompruebaVida();
-        virtual int getUsos(){return usos;}
+        virtual int getUsos();
     protected:
         bool usando;
 	    int usos;

@@ -1,6 +1,11 @@
 #include "Bot.h"
 #include "World.h"
 #include "PathFinding/Lista.h"
+// librerias numero random
+#include <ctime>
+#include <stdlib.h>
+
+
 
 Bot::Bot(b2Vec2 pos, int mando):Player( pos,  mando){
     enMuelle = false;
@@ -19,7 +24,9 @@ void Bot::actualiza(){
     Player::actualiza();
     //std::cout<<"STamano "<<pathfinding->getTamanyo()<<std::endl;
     if((!saltando || enMuelle) && (pathfinding->getTamanyo() < 1)){
-        calcularPathfinding(lista->buscaNumero(rand() % lista->getTamanyo()));
+        srand(time(0));
+        int aleatorio = rand()% lista->getTamanyo();
+        calcularPathfinding(lista->buscaNumero(aleatorio));
     }
 }
 void Bot::mover(){

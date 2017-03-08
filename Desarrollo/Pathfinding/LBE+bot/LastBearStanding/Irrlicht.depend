@@ -2030,7 +2030,7 @@
 	"Master.h"
 	"Client.h"
 
-1488970560 c:\users\robeert\desktop\lbe+bot\lastbearstanding\include\master.h
+1489000330 c:\users\robeert\desktop\lbe+bot\lastbearstanding\include\master.h
 	<irrlicht.h>
 
 1488809823 c:\users\robeert\desktop\lbe+bot\lastbearstanding\include\client.h
@@ -2090,12 +2090,14 @@
 	<irrlicht.h>
 	"GameResource.h"
 
-1488970021 source:c:\users\robeert\desktop\lbe+bot\lastbearstanding\src\bot.cpp
+1488997744 source:c:\users\robeert\desktop\lbe+bot\lastbearstanding\src\bot.cpp
 	"Bot.h"
 	"World.h"
 	"PathFinding/Lista.h"
+	<ctime>
+	<stdlib.h>
 
-1488907472 c:\users\robeert\desktop\lbe+bot\lastbearstanding\include\bot.h
+1488995922 c:\users\robeert\desktop\lbe+bot\lastbearstanding\include\bot.h
 	"Player.h"
 	"GameResource.h"
 
@@ -2273,7 +2275,7 @@
 	"Spawner.h"
 	"World.h"
 
-1488968587 source:c:\users\robeert\desktop\lbe+bot\lastbearstanding\src\teleport.cpp
+1488994932 source:c:\users\robeert\desktop\lbe+bot\lastbearstanding\src\teleport.cpp
 	"Teleport.h"
 	"World.h"
 	"IrrManager.h"

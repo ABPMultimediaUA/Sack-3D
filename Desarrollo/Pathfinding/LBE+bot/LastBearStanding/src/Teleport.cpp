@@ -5,9 +5,9 @@
 Teleport::Teleport(int i, int p, irr::core::vector3df pos, irr::core::vector3df tam ,irr::video::SColor color){
     id = i;
     partner = p;
-    pos.X += (tam.X/2);
+    pos.X += (tam.X/2)+1;
     pos.Y  = -1*(pos.Y-(tam.Y/2));
-    node = IrrMngr::Inst()->addCubeSceneNode(irr::core::vector3df(tam.X, tam.Y,tam.Z),color);
+    node = IrrMngr::Inst()->addCubeSceneNode(irr::core::vector3df(tam.X*2, tam.Y,tam.Z),color);
     node->setPosition(irr::core::vector3df(pos.X, pos.Y, pos.Z));
     node->setMaterialTexture(0,IrrMngr::Inst()->getDriver()->getTexture("media/texture.jpg"));
     node->setMaterialFlag(irr::video::EMF_LIGHTING, false);

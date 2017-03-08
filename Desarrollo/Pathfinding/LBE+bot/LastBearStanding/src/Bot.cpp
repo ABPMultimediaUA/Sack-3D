@@ -4,14 +4,14 @@
 
 Bot::Bot(b2Vec2 pos, int mando):Player( pos,  mando){
     enMuelle = false;
-    salto = 18.0f;
+    salto = 20.0f;
     prueba = false;
 }
 void Bot::InicializaVariables(){
     lista = World::Inst()->getListaNodos();
-    std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
-    std::cout<<"Lista de nodos del Mapa"<<std::endl;
-    lista->imprimirLista();
+    //std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
+    //std::cout<<"Lista de nodos del Mapa"<<std::endl;
+    //lista->imprimirLista();
     calcularPathfinding(lista->buscaNumero(rand() % lista->getTamanyo()));
     muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }
@@ -27,7 +27,7 @@ void Bot::mover(){
         return;
     }
     dir = 0;
-    if(mando == 1 && moviendo == true){
+    if(moviendo == true){
         if((abs(body->GetPosition().x - nodox) >= 1)
         && (abs(body->GetPosition().x - nodox) <= 8)
         && (abs(body->GetPosition().y) - abs(nodoy) >= 5)){
@@ -41,7 +41,7 @@ void Bot::mover(){
             if(pathfinding->getTamanyo() == 1){saltando = false;}
             if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){
               pathfinding->remove(pathfinding->getUltimo()->getPosicion());
-              pathfinding->imprimirLista();
+              //pathfinding->imprimirLista();
               if(pathfinding->getTamanyo() != 0) {muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);}
             }
           //}
@@ -94,6 +94,7 @@ void Bot::calcularPathfinding(Nodo* objetivo){
 
   std::cout<<std::endl;
   std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
+  std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
   std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getPosicion().x<<","<<nodoInicial->getPosicion().y<<"]"<<std::endl;
   std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getPosicion().x<<","<<nodoDestino->getPosicion().y<<"]"<<std::endl;
   std::cout<<std::endl;

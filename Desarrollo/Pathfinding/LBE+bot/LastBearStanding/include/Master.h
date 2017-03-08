@@ -25,8 +25,8 @@ class Master{
         irr::f32 time2SyncClient;
         int puntuaciones[4];
         const Num2Map maps[3] = {
-              {  1         , L"media/Maps/MapFinding2.tmx" }
-            , {  2         , L"media/Maps/MapFinding2.tmx" }
+              {  1         , L"media/Maps/MapFinding.tmx" }
+            , {  2         , L"media/Maps/MapFinding.tmx" }
             , {  0         , L"0"                   }
         };
 };

@@ -2,8 +2,11 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "World.h"
+#include <sstream>
 #include <irrlicht.h>
 
+class Lista;
 class Map;
 struct Layer2Method {
     irr::core::stringw layer;
@@ -21,8 +24,10 @@ class Map{
 		void AddArma();
 		void AddPlayer();
 		void AddPincho();
+        void AddNodo();
+        Lista* getListaNodos();
     private:
-    	const Layer2Method layers[8] = {
+    	const Layer2Method layers[9] = {
               { L"Spawners"       , AddSpawner    }
             , { L"Colisiones"     , AddPlatform   }
             , { L"Muelles"        , AddMuelle     }
@@ -30,17 +35,21 @@ class Map{
             , { L"Armas"          , AddArma       }
             , { L"Players"        , AddPlayer     }
             , { L"Pinchos"        , AddPincho     }
+            , { L"Nodos"          , AddNodo       }
             , { L"0"              , 0             }
         };
         int x;
         int y;
+        int m_id;
         int width;
         int height;
         int name;
-        int type;
+        int typeInt;
+        std::wstring typeString;
         bool player;
         int numPlayer;
         int playerRed;
+        GameResource<Lista> nodos;
 };
 
 #endif

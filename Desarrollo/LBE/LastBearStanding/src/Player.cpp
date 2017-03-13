@@ -8,10 +8,8 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
 :Cogible(NULL,pos,irr::core::vector3df(.7f, 1.8f,.7f),color),mando(numMando){
     m_pClient = Client::Inst();
     jointDef  = NULL;
-    vel = 7;
     moviendoA = 0;
     moviendo = 0;
-    salto = 15.0f;
     cogiendo = false;
     puedoCoger = false;
     dobleSaltando = false;
@@ -152,6 +150,7 @@ void Player::saltar(){
     }
 }
 void Player::fingirMuerte(){
+    m_pClient->enviarHacerseMuerto();
     if(cogiendo) Soltar();
     if(muerto)
         return;

@@ -24,10 +24,11 @@ class Master{
         irr::ITimer* timerFinPartida;
         irr::f32 time2SyncClient;
         int puntuaciones[4];
-        const Num2Map maps[3] = {
-              {  1         , L"media/Maps/Map1.tmx" }
-            , {  2         , L"media/Maps/Map1.tmx" }
-            , {  0         , L"0"                   }
+        const Num2Map maps[4] = {
+              {  1         , L"media/Maps/MapFinding.tmx"  }
+            , {  2         , L"media/Maps/MapFinding2.tmx" }
+            , {  3         , L"media/Maps/MapFinding3.tmx" }
+            , {  0         , L"0"                          }
         };
 };
 

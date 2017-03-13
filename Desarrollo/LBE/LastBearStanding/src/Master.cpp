@@ -5,6 +5,8 @@
 
 #include "World.h"
 #include "IrrManager.h"
+#include <ctime>
+#include <stdlib.h>
 
 Master::Master(){
     for (int i = 0; i < 4; ++i){
@@ -46,7 +48,9 @@ void Master::Update(){
 }
 void Master::InstanciaMundo(){
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
+    srand(time(0));
     int mapa = rand()%numDeMapas+1;
+    std::cout<<mapa<<std::endl;
     const Num2Map * it = maps;
     while(it->num != 0){
         if(it->num == mapa){

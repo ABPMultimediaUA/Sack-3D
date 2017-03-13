@@ -6,7 +6,6 @@ int Cogible::contID = 0;
 Cogible::Cogible(Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color)
 :GameObject(pos,tam,color){
     idCogible = contID;
-    std::cout<<idCogible<<std::endl;
     contID++;
     autoDestruir = false;
     cogido = false;

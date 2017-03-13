@@ -36,6 +36,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Bala.h" />
+		<Unit filename="include/Bot.h" />
 		<Unit filename="include/Camera.h" />
 		<Unit filename="include/Client.h">
 			<Option target="Release" />
@@ -61,6 +62,8 @@
 		</Unit>
 		<Unit filename="include/MyContactListener.h" />
 		<Unit filename="include/MyEventReceiver.h" />
+		<Unit filename="include/PathFinding/Lista.h" />
+		<Unit filename="include/PathFinding/Nodo.h" />
 		<Unit filename="include/Pistola.h" />
 		<Unit filename="include/Platform.h" />
 		<Unit filename="include/Player.h" />
@@ -76,6 +79,7 @@
 		<Unit filename="include/World.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/Bot.cpp" />
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/Client.cpp">
 			<Option target="Release" />

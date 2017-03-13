@@ -13,11 +13,14 @@ class Player;
 class Muelle;
 class Cogible;
 class Camera;
+class Nodo;
+class Lista;
 class Bala;
 class Spawner;
 class Platform;
 class PlayerRed;
 class DebugInfo;
+class Map;
 class MyContactListener;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
@@ -52,6 +55,7 @@ class World{
         void creaCuboMierda(int x, int y);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
+        Lista* getListaNodos();
         int getGanador();
         void Reset();
         int Update(int fps);
@@ -69,6 +73,7 @@ class World{
         Player*   AddPlayer  (Player *x  )  {m_Players.Add(x);  return x;}
         Spawner*  AddSpawner (Spawner *x ) {m_Spawners.Add(x); return x;}
         Platform* AddPlatform(Platform *x){m_Platforms.Add(x);return x;}
+        Nodo*     AddNodo    (Nodo *x)        {m_Nodos.Add(x);return x;}
         b2RevoluteJoint* joint;
     private:
         static World* pinstance;
@@ -77,6 +82,7 @@ class World{
         float DeltaTime;
         float TimeStamp;
         GameResource<Camera>   camara;
+        GameResource<Map>      m_Mapa;
         RVector<Teleport>      m_Teleports;
         RVector<Player>        m_Players;
         RVector<Muelle>        m_Muelles;
@@ -84,6 +90,7 @@ class World{
         RVector<Bala>          m_Balas;
         RVector<Spawner>       m_Spawners;
         RVector<Platform>      m_Platforms;
+        RVector<Nodo>          m_Nodos;
 };
 
 #endif

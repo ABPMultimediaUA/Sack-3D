@@ -2,11 +2,18 @@
 #include "World.h"
 #include "Usable.h"
 
-PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[])
+PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[], int ve, int sal)
 :Player(pos,mando,color){
     primera = true;
     strncpy(id, idr, sizeof(id));
     estadoAntiguo=LEVANTADO;
+        if(ve!=0){
+    vel = ve;
+    salto = sal;
+    }else{
+    vel=7;
+    salto = 15;
+    }
 }
 PlayerRed::~PlayerRed(){}
 void PlayerRed::mover(int mov){
@@ -40,6 +47,7 @@ void PlayerRed::saltar(int i){
     if(i==1){
         b2Vec2 velV = m_pBody->GetLinearVelocity();
         velV.y = salto;
+        std::cout<<"salto a potencia..."<<salto<<std::endl;
         m_pBody->SetLinearVelocity(velV);
     }
     else if(i==2){
@@ -76,6 +84,21 @@ void PlayerRed::morirRed(){
     estado = MUERTO_DORMIDO;
     InicializeFixtures(MUERTO_DORMIDO);
     muerto = true;
+}
+
+void PlayerRed::fingirMuerte(){
+    if(cogiendo) Soltar();
+    if(muerto)
+        return;
+    DestroyFixtures();
+    if(!fingiendoMuerte){
+        fingiendoMuerte = true;
+        InicializeFixtures(MUERTO_DORMIDO);
+    }
+    else{
+        fingiendoMuerte = false;
+        InicializeFixtures(LEVANTADO);
+    }
 }
 void PlayerRed::setx(long int aux){x = aux/1000000.f;}
 void PlayerRed::sety(long int aux){y = aux/1000000.f;}

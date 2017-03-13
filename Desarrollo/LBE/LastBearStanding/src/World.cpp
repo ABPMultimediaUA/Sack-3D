@@ -1,4 +1,5 @@
 
+#include "PathFinding/Lista.h"
 #include "World.h"
 #include "MyContactListener.h"
 #include "IrrManager.h"
@@ -8,6 +9,7 @@
 #include "Camera.h"
 #include "Player.h"
 #include "Bala.h"
+#include "Bot.h"
 #include "Map.h"
 
 #define VELITER 6              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
@@ -31,9 +33,17 @@ World::World(){
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
 }
+Lista* World::getListaNodos(){
+  return m_Mapa.Get()->getListaNodos();
+}
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
-  GameResource<Map>(new Map(mapFile));
+  m_Mapa.Reset(new Map(mapFile));
   camara.Reset(new Camera());
+  for (int i = 0; i < m_Players.Size(); ++i){
+    if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){
+      bot->InicializaVariables();
+    }
+  }
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
 }

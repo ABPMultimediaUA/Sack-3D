@@ -18,14 +18,14 @@ class Player: public Cogible{
         virtual ~Player();
         void InicializeFixtures(int mode);
         void DestroyFixtures();
-        void actualiza();
+        virtual void actualiza();
         void teletransportar();
-        void mover();
-        void saltar();
-        void CogerTirar();
+        virtual void mover();
+        virtual void saltar();
+        virtual void CogerTirar();
         void fingirMuerte();
         void recibeImpulso(float fuerza);
-        void morir();
+        virtual void morir();
         void Soltar();
         void usar();
         b2Vec2 getPosition();
@@ -50,11 +50,11 @@ class Player: public Cogible{
         void setClientPort(char aux[]);
         void setServerPort(char aux[]);
         int getEstado();
-        char* getId();
+         char* getId();
         char* getServerPort();
         char* getClientPort();
         void  setIp(char aux[]);
-        void  setId(char aux[]);
+        virtual void  setId(char aux[]);
 
 
     protected:

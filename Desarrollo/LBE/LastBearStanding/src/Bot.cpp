@@ -52,7 +52,7 @@ void Bot::mover(){
     if(direccion != direccionA){
         direccionA = direccion;
         m_pClient->enviarMoviendo(dir, mando);
-        std::cout<<"ENVIOMOV"<<dir<<std::endl;
+        //std::cout<<"ENVIOMOV"<<dir<<std::endl;
     }
     m_pBody->SetLinearVelocity(b2Vec2 (dir*vel, m_pBody->GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);

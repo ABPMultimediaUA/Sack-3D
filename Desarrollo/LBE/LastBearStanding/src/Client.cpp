@@ -208,7 +208,7 @@ void Client::enviarMoviendo(int moviendo, int idb){
         else{strncpy(id, World::Inst()->getPlayer(idUsada)->getId(), sizeof(id));}
 
      sprintf(aux, "4 %s %.0f %.0f %.0f", id, (float)moviendo,auxiliarx,auxiliary);
-
+    std::cout<<"ENVIO MOVER"<<id<<std::endl;
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
 }
 
@@ -235,7 +235,7 @@ void Client::enviarSalto(int Nsalto, int idb){
         if(strcmp(World::Inst()->getPlayer(idUsada)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idUsada)->getId(), sizeof(id));}
 
-
+std::cout<<"ENVIO SALTAR"<<id<<std::endl;
     sprintf(aux, "5 %s %.0f %.0f %.0f", id, (float)Nsalto, auxiliarx, auxiliary);
 
     client->Send(aux, (int) strlen(aux)+1, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);

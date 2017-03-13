@@ -10,6 +10,8 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
     jointDef  = NULL;
     moviendoA = 0;
     moviendo = 0;
+    vel=7;
+    salto=15;
     cogiendo = false;
     puedoCoger = false;
     dobleSaltando = false;
@@ -119,10 +121,13 @@ void Player::mover(){
         else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
         else{moviendo = 0;}
     }
-    if(moviendo != moviendoA){m_pClient->enviarMoviendo(moviendo);
+    if(moviendo != moviendoA){
+
+        std::cout<<"ME MUEVOOOOOOOOO"<<id<<std::endl;
+            m_pClient->enviarMoviendo(moviendo);
     moviendoA = moviendo;}
-    m_pBody->SetLinearVelocity(b2Vec2 (dir*vel, m_pBody->GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(dir);
+    m_pBody->SetLinearVelocity(b2Vec2 (moviendo*vel, m_pBody->GetLinearVelocity().y));
+    if(cogiendo) objCogido->setDireccion(moviendo);
 }
 void Player::saltar(){
     if(muerto)

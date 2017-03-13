@@ -11,7 +11,7 @@ class Bot: public Player{
         virtual ~Bot(){}
         void actualiza();
         void muevo(int x, int y);
-        void mover();
+        virtual void mover();
         virtual void saltar();
         void InicializaVariables();
         void calcularPathfinding(Nodo* objetivo);

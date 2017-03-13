@@ -47,7 +47,7 @@ void PlayerRed::saltar(int i){
     if(i==1){
         b2Vec2 velV = m_pBody->GetLinearVelocity();
         velV.y = salto;
-        std::cout<<"salto a potencia..."<<salto<<std::endl;
+        std::cout<<"salto a potenciared..."<<salto<<std::endl;
         m_pBody->SetLinearVelocity(velV);
     }
     else if(i==2){

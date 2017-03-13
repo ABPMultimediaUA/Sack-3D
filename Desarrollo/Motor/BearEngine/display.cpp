@@ -1,9 +1,10 @@
-#include "display.h".
+#include "display.h"
 
 #ifndef GLEW_STATIC
 #define GLEW_STATIC
 #include <GL/glew.h>
 #endif
+#include "ttransform.h"
 
 #include <iostream>
 
@@ -51,8 +52,12 @@ bool Display::IsClosed(){
     return m_isClosed;
 }
 
-int Display::Update(Camera& camera){
+int Display::Update(TNodo* TfCamera){
 //void Display::Update(){
+
+    TTransform * tras= static_cast<TTransform*> (TfCamera->getPadre()->getEntidad()); //static_cast<TTransform*> (TfCamera);
+    TTransform * rot= static_cast<TTransform*> (TfCamera->getPadre()->getPadre()->getEntidad()); //static_cast<TTransform*> (TfCamera);
+
     SDL_GL_SwapWindow(m_window);
 
     SDL_Event e;
@@ -66,16 +71,43 @@ int Display::Update(Camera& camera){
                      m_isClosed = true;
                      break;
                 case SDLK_w:
-                    camera.GetPosition()+= glm::vec3(0,0,0.1);
+                    //camera->GetPosition()+= glm::vec3(0,0,1);
+                    tras->trasladar(glm::vec3(0,0.1,0));
                     break;
                 case SDLK_a:
-                    camera.GetPosition()+= glm::vec3(0.1,0,0);
+                   // camera->GetPosition()+= glm::vec3(1,0,0);
+                    tras->trasladar(glm::vec3(-0.1,0,0));
+
                     break;
                 case SDLK_s:
-                    camera.GetPosition()+= glm::vec3(0,0,-0.1);
+                    //camera->GetPosition()+= glm::vec3(0,0,-1);
+                    tras->trasladar(glm::vec3(0,-0.1,0));
+
                     break;
                 case SDLK_d:
-                    camera.GetPosition()+= glm::vec3(-0.1,0,0);
+                    //camera->GetPosition()+= glm::vec3(-1,0,0);
+                    tras->trasladar(glm::vec3(0.1,0,0));
+
+                    break;
+                    case SDLK_q:
+                    //camera->GetPosition()+= glm::vec3(-1,0,0);
+                    tras->trasladar(glm::vec3(0,0,0.1));
+
+                    break;
+                    case SDLK_e:
+                    //camera->GetPosition()+= glm::vec3(-1,0,0);
+                    tras->trasladar(glm::vec3(0,0,-0.1));
+
+                    break;
+                    case SDLK_r:
+                    //camera->GetPosition()+= glm::vec3(-1,0,0);
+                    rot->rotar(5, glm::vec3(0,1,0));
+
+                    break;
+                    case SDLK_t:
+                    //camera->GetPosition()+= glm::vec3(-1,0,0);
+                    rot->rotar(5, glm::vec3(1,0,0));
+
                     break;
                 case SDLK_m:
                     malla=malla+1;
@@ -88,3 +120,4 @@ int Display::Update(Camera& camera){
     }
     return malla;
 }
+

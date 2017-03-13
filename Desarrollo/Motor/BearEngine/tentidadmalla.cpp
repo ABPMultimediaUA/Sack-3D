@@ -4,6 +4,7 @@ TEntidadMalla::TEntidadMalla()
 {
     mesh=0;
     tipo=1; //1 malla, 2 camara, 3 transformacion, 4
+    activo=0;
 }
 
 TEntidadMalla::~TEntidadMalla()
@@ -35,8 +36,33 @@ int  TEntidadMalla::getTipo(){
 }
 
 void TEntidadMalla::setMalla(Mesh* azteca){
-    mesh=azteca;
+    int found =0;
+   // mesh=azteca;
+   if(azteca){
+    for(int i =0; i<meshes.size();i++){
+        if(meshes.at(i)==azteca){
+                std::cout<<"ESTA EN EL  ARRAY DEL RECURSO"<<std::endl;
+            activo=i;
+            found =1;
+        break;
+        }
+    }
+    if(!found){
+        std::cout<<"NO ESTA EN EL  ARRAY DEL RECURSO"<<std::endl;
+        meshes.push_back(azteca);
+        activo = meshes.size()-1;
+    }
+
+    activarMalla(activo);
+   }else{
+    mesh=0;
+   }
+//       meshes.push_back(azteca);
 }/*
 void TEntidadMalla::setMallas(std::vector<Mesh*>* aztecas){
     meshes=aztecas;
 }*/
+
+void TEntidadMalla::activarMalla(int i){
+    mesh= meshes.at(i);
+}

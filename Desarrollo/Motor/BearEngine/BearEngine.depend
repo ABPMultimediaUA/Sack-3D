@@ -1,49 +1,47 @@
 # depslib dependency file v1.0
-1488129138 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
+1488909310 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<stdlib.h>
 	<stdio.h>
 	<glm/glm.hpp>
 	"shader.h"
-	"camera.h"
 	"display.h"
 	"tnodo.h"
-	"sceneloader.h"
-	"mesh.h"
 	"tentidad.h"
-	"tentidadmalla.h"
-	"ttransform.h"
 	"tgestorrecursos.h"
+	"tmotorbear.h"
 
-1488117938 source:d:\mis cosas\universidad\motor\tag\bearengine\display.cpp
+1488898923 source:d:\mis cosas\universidad\motor\tag\bearengine\display.cpp
 	"display.h"
 	<GL/glew.h>
+	"ttransform.h"
 	<iostream>
 
-1488117946 d:\mis cosas\universidad\motor\tag\bearengine\display.h
+1488898512 d:\mis cosas\universidad\motor\tag\bearengine\display.h
 	<SDL.h>
 	<string>
 	"camera.h"
+	"tnodo.h"
 
-1487695010 d:\mis cosas\universidad\motor\tag\bearengine\tnodo.h
+1488296448 d:\mis cosas\universidad\motor\tag\bearengine\tnodo.h
 	<vector>
 	<iostream>
 	"tentidad.h"
 	"shader.h"
 	<glm/glm.hpp>
 
-1488117799 source:d:\mis cosas\universidad\motor\tag\bearengine\tnodo.cpp
+1488296403 source:d:\mis cosas\universidad\motor\tag\bearengine\tnodo.cpp
 	"tnodo.h"
 
-1488121595 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
+1488130706 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
 	"mesh.h"
 	<vector>
 	<iostream>
 	<assimp/cimport.h>
 	<assimp/postprocess.h>
 
-1488121527 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
+1488130713 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
 	<glm/glm.hpp>
 	<GL/glew.h>
 	"modeloindexado.h"
@@ -56,10 +54,10 @@
 	<iostream>
 	<vector>
 
-1488117821 source:d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.cpp
+1488811632 source:d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.cpp
 	"tentidadmalla.h"
 
-1488067335 d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.h
+1488811118 d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.h
 	"tentidad.h"
 	"mesh.h"
 
@@ -74,7 +72,7 @@
 1487693327 d:\mis cosas\universidad\motor\tag\bearengine\cubo.h
 	"mesh.h"
 
-1487695256 source:d:\mis cosas\universidad\motor\tag\bearengine\shader.cpp
+1488677672 source:d:\mis cosas\universidad\motor\tag\bearengine\shader.cpp
 	"shader.h"
 	<iostream>
 	<fstream>
@@ -88,11 +86,11 @@
 	"ttransform.h"
 	"camera.h"
 
-1488129019 source:d:\mis cosas\universidad\motor\tag\bearengine\camera.cpp
+1488898823 source:d:\mis cosas\universidad\motor\tag\bearengine\camera.cpp
 	"camera.h"
 	<iostream>
 
-1488129046 d:\mis cosas\universidad\motor\tag\bearengine\camera.h
+1488898790 d:\mis cosas\universidad\motor\tag\bearengine\camera.h
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 	"tentidad.h"
@@ -102,7 +100,7 @@
 	<glm/gtx/transform.hpp>
 	"tentidad.h"
 
-1487860022 source:d:\mis cosas\universidad\motor\tag\bearengine\ttransform.cpp
+1488811504 source:d:\mis cosas\universidad\motor\tag\bearengine\ttransform.cpp
 	"ttransform.h"
 	<iostream>
 
@@ -124,13 +122,39 @@
 	<stdlib.h>
 	<stdio.h>
 
-1488121751 d:\mis cosas\universidad\motor\tag\bearengine\trecurso.h
+1488130790 d:\mis cosas\universidad\motor\tag\bearengine\trecurso.h
 
-1488122605 source:d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.cpp
+1488206903 source:d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.cpp
 	"tgestorrecursos.h"
 	"mesh.h"
 
-1488121636 d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.h
+1488130731 d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.h
 	"trecurso.h"
 	<vector>
+
+1488914765 source:d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.cpp
+	"tmotorbear.h"
+
+1488909137 d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tgestorrecursos.h"
+	"tentidad.h"
+	"ttransform.h"
+	"tentidadmalla.h"
+	"camera.h"
+	"tluz.h"
+	"trecurso.h"
+	"mesh.h"
+	"display.h"
+
+1488466111 d:\mis cosas\universidad\motor\tag\bearengine\tluz.h
+	"tentidad.h"
+	<glm/glm.hpp>
+	"shader.h"
+
+1488468264 source:d:\mis cosas\universidad\motor\tag\bearengine\tluz.cpp
+	"tluz.h"
 

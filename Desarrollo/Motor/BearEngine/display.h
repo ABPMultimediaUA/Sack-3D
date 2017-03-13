@@ -5,6 +5,7 @@
 #include<SDL.h>
 #include <string>
 #include "camera.h"
+#include "tnodo.h"
 
 
 class Display
@@ -14,8 +15,8 @@ class Display
 
         void Clear(float r, float g, float b, float a);
         //void Update(Camera& camera);
-        int Update(Camera& camera);
-        //void Update();
+        int Update(TNodo* TfCamera);
+
         bool IsClosed();
 
         virtual ~Display();

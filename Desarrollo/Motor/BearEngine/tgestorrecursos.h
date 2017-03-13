@@ -9,7 +9,7 @@ class TGestorRecursos
     public:
         TGestorRecursos();
         virtual ~TGestorRecursos();
-        TRecurso * getRecurso(char * nombre, int tipo);
+        TRecurso * getRecurso( char * nombre, int tipo);
         void borrarRecurso(char * nombre);
 
     protected:

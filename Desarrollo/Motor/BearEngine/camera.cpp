@@ -11,3 +11,16 @@ int Camera::getTipo(){
 }
 
 
+void Camera::activarCamara(){
+    activada=1;
+}
+void Camera::desactivarCamara(){
+    activada=0;
+}
+int Camera::verActivadoCamara(){
+    return activada;
+}
+
+glm::mat4 Camera::miraA(glm::vec3 pos, glm::vec3 direccion, glm::vec3 up){
+    return glm::lookAt(pos,direccion,up);
+}

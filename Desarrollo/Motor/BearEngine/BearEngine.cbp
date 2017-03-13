@@ -32,7 +32,31 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="camera.cpp" />
+		<Unit filename="camera.h" />
+		<Unit filename="display.cpp" />
+		<Unit filename="display.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mesh.cpp" />
+		<Unit filename="mesh.h" />
+		<Unit filename="modeloindexado.cpp" />
+		<Unit filename="modeloindexado.h" />
+		<Unit filename="shader.cpp" />
+		<Unit filename="shader.h" />
+		<Unit filename="tentidad.h" />
+		<Unit filename="tentidadmalla.cpp" />
+		<Unit filename="tentidadmalla.h" />
+		<Unit filename="tgestorrecursos.cpp" />
+		<Unit filename="tgestorrecursos.h" />
+		<Unit filename="tluz.cpp" />
+		<Unit filename="tluz.h" />
+		<Unit filename="tmotorbear.cpp" />
+		<Unit filename="tmotorbear.h" />
+		<Unit filename="tnodo.cpp" />
+		<Unit filename="tnodo.h" />
+		<Unit filename="trecurso.h" />
+		<Unit filename="ttransform.cpp" />
+		<Unit filename="ttransform.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

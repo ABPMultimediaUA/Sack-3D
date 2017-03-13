@@ -72,7 +72,7 @@ char* Mesh::GetNombre(){
 int Mesh::GetTipo(){
         return type;
  }
-void  Mesh::setNombre(char* name){
+void  Mesh::setNombre( char* name){
     nombre= name;
 }void  Mesh::setTipo(int tipo){
     type= tipo;

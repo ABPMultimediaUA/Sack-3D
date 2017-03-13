@@ -8,7 +8,7 @@ class TRecurso
 
         virtual ~TRecurso(){};
         virtual char* GetNombre() = 0;
-        virtual void setNombre(char* name)=0;
+        virtual void setNombre( char* name)=0;
         virtual void setTipo(int tipo)=0;
         virtual int GetTipo()=0;
     protected:

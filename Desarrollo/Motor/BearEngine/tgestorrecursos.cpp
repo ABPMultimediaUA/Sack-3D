@@ -18,7 +18,7 @@ TGestorRecursos::~TGestorRecursos()
 }
 
 
-TRecurso *TGestorRecursos::getRecurso( char* nombre, int tipo){
+TRecurso *TGestorRecursos::getRecurso(  char* nombre, int tipo){
 //TRecurso *TGestorRecursos::getRecurso( const std::string& nombre, int tipo){
 
 TRecurso* recu;
@@ -76,6 +76,7 @@ void TGestorRecursos::borrarRecurso(char * nombre){
 
             recursos.erase(recursos.begin()+i);
             std::cout<<"Recurso Borrado"<<std::endl;
+            break;
         }
     }
 }

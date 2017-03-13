@@ -40,7 +40,7 @@ class Mesh : public TRecurso
         virtual ~Mesh();
         char* GetNombre();
         int GetTipo();
-        void setNombre(char* name);
+        void setNombre( char* name);
         void setTipo(int tipo);
 
     protected:

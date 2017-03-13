@@ -55,7 +55,7 @@ void Shader::Bind(){
 }
 
 void Shader::Update(const glm::mat4& transformi, const glm::mat4&  camera){
-    glm::mat4 model = camera * transformi;
+    glm::mat4 model =  transformi;
 
     glUniformMatrix4fv(m_uniforms[TRANSFORM_U],1,GL_FALSE,&model[0][0]);
 }

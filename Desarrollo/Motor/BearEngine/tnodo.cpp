@@ -1,6 +1,6 @@
 #include "tnodo.h"
 
-TNodo::TNodo(int cepa )// cepa 1 es cepa, 0 no es cepa
+TNodo::TNodo(int cepa )// cepa 1 es raiz, 0 no es raiz
 {
     raiz=cepa;
     entidad=0;
@@ -45,6 +45,9 @@ TEntidad* TNodo::getEntidad(){
 }
 TNodo* TNodo::getPadre(){
     return padre;
+}
+void TNodo::setPadre(TNodo* butanero){
+    padre= butanero;
 }
 int TNodo::esRaiz(){
     return raiz;

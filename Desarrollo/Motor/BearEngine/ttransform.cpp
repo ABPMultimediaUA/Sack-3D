@@ -26,11 +26,31 @@ void TTransform::trasponer(){
 }
 
 void TTransform::trasladar(glm::vec3 tras){
+//    std::cout<<"HI"<<std::endl;
     glm::mat4 matrizTrans = glm::translate(tras);
+
+
+     /*   for(int i =0; i<4;i++){
+            for(int j =0; j<4;j++){
+                std::cout<<matrizTrans[i][j];;
+            }
+            std::cout<<std::endl;
+        }
+        std::cout<<std::endl;
+
+
+        for(int i =0; i<4;i++){
+            for(int j =0; j<4;j++){
+                std::cout<<m_matriz[i][j];;
+            }
+            std::cout<<std::endl;
+        }*/
     m_matriz = matrizTrans * m_matriz;
+
 }
 void TTransform::rotar(float grados, glm::vec3 eje){
-    glm::mat4 matrizRot = glm::rotate(grados,eje);
+    glm::mat4 matrizRot = glm::rotate(glm::radians(grados),eje);
+
       m_matriz = matrizRot * m_matriz;
 }
 void TTransform::escalar(glm::vec3 scala){
@@ -48,7 +68,7 @@ void TTransform::begingDraw(Shader* shad, glm::mat4 matCam){
     int pos;
    if(pila==0){
     pila = new std::vector<glm::mat4>;
-    pila->push_back(glm::mat4());
+    pila->push_back(matCam);
    }
     tam= pila->size();
     pos= tam-1;
@@ -57,5 +77,8 @@ void TTransform::begingDraw(Shader* shad, glm::mat4 matCam){
 
 void TTransform::endDraw(){
     pila->pop_back();
+    if(pila->size()==1){
+        pila=0;
+    }
 }
 int  TTransform::getTipo(){return tipo;}

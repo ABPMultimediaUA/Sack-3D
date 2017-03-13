@@ -16,14 +16,17 @@ class TEntidadMalla : public TEntidad
 
         //void setRecurso();
         void setMalla(Mesh* azteca);
-      // void setMallas(std::vector<Mesh*>* aztecas);
+//      void setMallas(std::vector<Mesh*>* aztecas);
+
+      void activarMalla(int i);
 
     protected:
 
     private:
         int tipo;
         Mesh* mesh;
-       // std::vector<Mesh*>* meshes;
+        std::vector<Mesh*> meshes;
+        int activo;
 };
 
 #endif // TENTIDADMALLA_H

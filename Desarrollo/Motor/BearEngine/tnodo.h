@@ -19,6 +19,7 @@ class TNodo
         void setNombreEntidad(char* name);
         char* getNombreEntidad();
         TEntidad* getEntidad();
+        void setPadre(TNodo* butanero);
         TNodo* getPadre();
         int esRaiz();
         void draw(Shader* shad, glm::mat4 cam);

@@ -47,6 +47,9 @@ class Client{
         struct TPlayersRed{
             char id[30];
         };
+        struct TParams{
+            char var[30];
+        };
         int idPlayerInt;
         unsigned char packetIdentifier;
         bool isServer;
@@ -54,7 +57,7 @@ class Client{
         bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
         void iniciar();
-        void PacketFunction(int aux,char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
+        void PacketFunction(int aux);
         void recibir();
         void enviar(int aux = -1);
         void enviarSalto(int i, int aux = -1);
@@ -72,10 +75,12 @@ class Client{
         void analizarPaquete6(){run=true;}
         void analizarPaquete7();
         void analizarPaquete8();
+        bool comprobarPaquete(RakNet::Packet* p);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
+        TParams params [7];
 
     protected:
 
@@ -86,12 +91,6 @@ class Client{
         irr::f32 timer;
         bool run;
         int iterador;
-        char    *param1,
-                *param2,
-                *param3,
-                *param4,
-                *param5,
-                *param6;
         const Type2Func packetFunction[10] = {
               { 0         , analizarPaquete0    }
             , { 1         , analizarPaquete1    }

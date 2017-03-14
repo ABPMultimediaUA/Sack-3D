@@ -10,6 +10,7 @@ Usable::Usable(Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::
     usos = 1;
     cadencia = 500;
     killCountDown = false;
+    timeCadencia = 0;
 }
 Usable::~Usable(){}
 void Usable::usar(){}

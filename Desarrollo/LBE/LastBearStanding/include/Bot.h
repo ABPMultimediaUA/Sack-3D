@@ -15,6 +15,7 @@ class Bot: public Player{
         virtual void saltar();
         void InicializaVariables();
         void calcularPathfinding(Nodo* objetivo);
+        void morir();
     private:
 		bool enMuelle;
         bool prueba;

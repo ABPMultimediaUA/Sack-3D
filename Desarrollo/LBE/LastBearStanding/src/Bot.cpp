@@ -159,3 +159,15 @@ void Bot::saltar(){
         m_pClient->enviarSalto(2, mando);
     }
 }
+
+void Bot::morir(){
+    if(!muerto){
+        paraMorir = false;
+        if(cogiendo) Soltar();
+        DestroyFixtures();
+        estado = MUERTO_DORMIDO;
+        InicializeFixtures(MUERTO_DORMIDO);
+        muerto = true;
+        m_pClient->enviarMuerto(mando);
+    }
+}

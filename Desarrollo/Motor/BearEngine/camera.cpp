@@ -1,10 +1,10 @@
 #include "camera.h"
 #include <iostream>
 
-void Camera::begingDraw(Shader* shad, glm::mat4 matCam){
+void Camera::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
 
 }
-void Camera::endDraw(){}
+void Camera::endDraw(std::vector<glm::mat4>* pila){}
 
 int Camera::getTipo(){
     return tipo;

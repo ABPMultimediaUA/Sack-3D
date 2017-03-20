@@ -9,6 +9,10 @@ TNodo::TNodo(int cepa )// cepa 1 es raiz, 0 no es raiz
 TNodo::~TNodo()
 {
     //dtor
+    for(int i=0; i<hijos.size();i++){
+        delete(hijos.at(i));
+    }
+    std::cout<<"Borrado Arbol"<<std::endl;
 }
 
 
@@ -53,21 +57,24 @@ int TNodo::esRaiz(){
     return raiz;
 }
 
-void TNodo::draw(Shader* shad, glm::mat4 cam){
+void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
 
    // std::cout<<"Dibujando "<<nombreEntidad<<std::endl;
    if(entidad){
      //   std::cout<<"Hay entidad "<<nombreEntidad<<std::endl;
 
-        entidad->begingDraw(shad, cam);
+        entidad->begingDraw(shad, pila);
+
 
     }
 
     for(int i=0; i<hijos.size();i++){
-        hijos.at(i)->draw(shad, cam);
+        hijos.at(i)->draw(shad, pila);
     }
 
     if(entidad){
-        entidad->endDraw();
+        entidad->endDraw(pila);
+
     }
+
 }

@@ -10,8 +10,8 @@ class TEntidadMalla : public TEntidad
     public:
         TEntidadMalla();
         virtual ~TEntidadMalla();
-        void begingDraw(Shader* shad, glm::mat4 matCam);
-        void endDraw();
+        void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
+        void endDraw(std::vector<glm::mat4>* pila);
         int getTipo();
 
         //void setRecurso();

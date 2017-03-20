@@ -7,10 +7,10 @@
 class TEntidad
 {
     public:
-        static std::vector<glm::mat4>* pila;
+       // static std::vector<glm::mat4>* pila;
         virtual ~TEntidad(){}
-        virtual void begingDraw(Shader* shad, glm::mat4 matCam) =0;
-        virtual void endDraw()  =0;
+        virtual void begingDraw(Shader* shad, std::vector<glm::mat4>* pila) =0;
+        virtual void endDraw(std::vector<glm::mat4>* pila)  =0;
         virtual int getTipo()=0;
 
     protected:

@@ -12,14 +12,14 @@ TEntidadMalla::~TEntidadMalla()
     //dtor
 }
 
-void TEntidadMalla::begingDraw(Shader* shad, glm::mat4 matCam){
+void TEntidadMalla::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
    //Update Shader
  //   std::cout<<"DIBUJANDO..................."<<std::endl;
 
     int pos = pila->size()-1;
    //     std::cout<<pila<<std::endl;
 
-    shad->Update(pila->at(pos),matCam);
+    shad->Update(pila->at(pos));
 
   if(mesh)  mesh->Draw();
  /*  for(int i=0;i<meshes->size();i++){
@@ -28,7 +28,7 @@ void TEntidadMalla::begingDraw(Shader* shad, glm::mat4 matCam){
 
 }
 
-void TEntidadMalla::endDraw(){
+void TEntidadMalla::endDraw(std::vector<glm::mat4>* pila){
 }
 
 int  TEntidadMalla::getTipo(){

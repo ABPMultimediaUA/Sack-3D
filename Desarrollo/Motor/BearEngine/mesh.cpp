@@ -29,41 +29,27 @@ Mesh::Mesh( const char* fileName){
         MallasLeidas.push_back( new Mesh::EntradaMalla(scene->mMeshes[i],scene));
     }
     std::cout<< "modelo cargado con exito "<< fileName<<std::endl;
+
 }
 
-Mesh::Mesh(){
+Mesh::Mesh(float alto, float ancho, float prof){
+
+    MallasLeidas.push_back( new Mesh::EntradaMalla(alto, ancho, prof));
 
 //tipo=0;
 }
 
-Mesh::Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices)
-{
-//tipo=0;
-    modeloIndexado model;
-
-
-    for(unsigned int i =0; i< numVertices; i++){
-        model.positions.push_back(*vertices[i].getPos());
-        model.texCoords.push_back(*vertices[i].getTexCoord());
-        model.normals.push_back(*vertices[i].getNormal());
-
-    }
-    for(unsigned int i =0; i< numIndices; i++){
-            model.indices.push_back(indices[i]);
-
-    }
-    model.CalcNormals();
-    MallasLeidas[0]->InitMesh(model);
-
-}
 
 
 Mesh::~Mesh()
 {
     //glDeleteVertexArrays(1, &m_vertexArrayObject);
+    std::cout<<"Leidas: "<<MallasLeidas.size()<<std::endl;
     for(int i = 0; i< MallasLeidas.size();i++){
-        MallasLeidas[i]->clear();
+        delete MallasLeidas.at(i);
+        std::cout<<"BORRADO"<<std::endl;
     }
+    MallasLeidas.clear();
 }
 
 char* Mesh::GetNombre(){
@@ -79,8 +65,42 @@ void  Mesh::setNombre( char* name){
 }
 
 
-Mesh::EntradaMalla::~EntradaMalla(){
+Mesh::EntradaMalla::~EntradaMalla(){ /*INCOMPLETO */
+    std::cout<<"ENTRA"<<std::endl;
+
+
+   if(m_vertexArrayBuffers[POSITION_VB]){
+        std::cout<<"1"<<std::endl;
+           glDeleteBuffers(1, &m_vertexArrayBuffers[POSITION_VB]);}
+
+   if(m_vertexArrayBuffers[TEXCOORD_VB]){
+                std::cout<<"2"<<std::endl;
+
+           glDeleteBuffers(1, &m_vertexArrayBuffers[TEXCOORD_VB]);}
+
+   if(m_vertexArrayBuffers[NORMAL_VB]){
+        std::cout<<"3"<<std::endl;
+
+           glDeleteBuffers(1, &m_vertexArrayBuffers[NORMAL_VB]);}
+
+   if(m_vertexArrayBuffers[INDEX_VB]){
+        std::cout<<"4"<<std::endl;
+
+           glDeleteBuffers(1, &m_vertexArrayBuffers[INDEX_VB]);}
+
+/*
+   POSITION_VB,
+                TEXCOORD_VB,
+                NORMAL_VB,
+                INDEX_VB,*/
+
     glDeleteVertexArrays(1, &m_vertexArrayObject);
+
+    //glDeleteBuffers()
+
+  //  glGenBuffers(glsizei, gluint buffers);
+  //  glDeleteBuffers()
+    std::cout<<"SALE"<<std::endl;
 }
 
 Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
@@ -117,7 +137,7 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
             //   model.indices.push_back(indices[i]);
             }
         }
-        Mesh* mesha = new Mesh();
+   //     Mesh* mesha = new Mesh();
         std::cout<<"En esta Malla"<<std::endl;
         std::cout<<"Hay "<<mesh->mNumVertices<<" Vertices"<<std::endl;
         std::cout<<"Hay "<<mesh->mNumFaces<<" Caras"<<std::endl;
@@ -162,6 +182,60 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
 
     //    meshes.push_back(mesha);
 }
+
+Mesh::EntradaMalla::EntradaMalla(float alto, float ancho, float prof){
+
+    float x, y,z;
+    int numVertices;
+    int numIndices;
+    modeloIndexado model;
+
+    x= ancho/2;
+    y= alto/2;
+    z= prof/2;
+
+    numVertices = 8;
+    numIndices = 36;
+
+
+Vertex vertices[]{       Vertex(glm::vec3(-x  ,   -y    ,   -z), glm::vec2(1.0,1.0)), //0 abajo  Derecha
+                         Vertex(glm::vec3(-x  ,   y     ,   -z), glm::vec2(1.0,0.0)),  //1 arriba Derecha
+                         Vertex(glm::vec3(x   ,   y     ,   -z), glm::vec2(0.0,0.0)),  //2 arriba izquierda
+                         Vertex(glm::vec3(x   ,   -y    ,   -z), glm::vec2(0.0,1.0)),  //3 abajo izquierda
+
+                         Vertex(glm::vec3(-x  ,   -y    ,   z), glm::vec2(0.0,1.0)), //4 abajo  Derecha
+                         Vertex(glm::vec3(-x  ,   y     ,   z), glm::vec2(0.0,0.0)), //5 arriba Derecha
+                         Vertex(glm::vec3(x   ,   y     ,   z), glm::vec2(1.0,0.0)),  //6 arriba izquierda
+                         Vertex(glm::vec3(x   ,   -y    ,   z), glm::vec2(1.0,1.0))   //7 abajo izquierda
+/*LAS NORMALES DEL CUBO ESTAN MAL PUESTAS*/
+    };
+
+       unsigned int indices[] =
+            {
+                0,1,3,      1,2,3,  //Cara frontal
+                5,1,0,      0,4,5,  //Cara derecha
+                2,6,7,      7,3,2,  //Cara Izquierda
+                7,5,4,      5,7,6,  //Cara Trasera
+                1,5,6,      1,6,2,  //Cara Superior
+                0,7,4,      0,3,7   //Cara Inferior
+            };
+
+
+        for(unsigned int i =0; i< numVertices; i++){
+        model.positions.push_back(*vertices[i].getPos());
+        model.texCoords.push_back(*vertices[i].getTexCoord());
+        model.normals.push_back(*vertices[i].getNormal());
+
+    }
+    for(unsigned int i =0; i< numIndices; i++){
+            model.indices.push_back(indices[i]);
+
+    }
+    model.CalcNormals();
+    InitMesh(model);
+}
+
+
 void Mesh::EntradaMalla::InitMesh(const modeloIndexado& model){
 
 

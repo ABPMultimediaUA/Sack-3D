@@ -22,7 +22,7 @@ class TNodo
         void setPadre(TNodo* butanero);
         TNodo* getPadre();
         int esRaiz();
-        void draw(Shader* shad, glm::mat4 cam);
+        void draw(Shader* shad, std::vector<glm::mat4>* pila);
     protected:
 
     private:

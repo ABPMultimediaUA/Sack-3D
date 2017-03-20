@@ -32,8 +32,9 @@ class Mesh : public TRecurso
 {
     public:
      //   Mesh();
-        Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
       //  void Crear(Vertex* vertices, unsigned int numVertices);
+
+        Mesh(float ancho, float alto, float prof);
         Mesh( const char* fileName);
         Mesh( );
         void Draw();
@@ -50,6 +51,7 @@ class Mesh : public TRecurso
 
           public:
            EntradaMalla(aiMesh *mesh, const aiScene* scene);
+           EntradaMalla(float ancho, float alto, float prof);
            ~EntradaMalla();
            void InitMesh(const modeloIndexado& model);
             void Draw();

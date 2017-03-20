@@ -36,8 +36,8 @@ class Camera : public TEntidad
         void setPerspectiva(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
         void setParalela(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
          inline glm::vec3& GetPosition() {return m_position;}
-           void begingDraw(Shader* shad, glm::mat4 matCam);
-        void endDraw();
+           void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
+        void endDraw(std::vector<glm::mat4>* pila);
         void activarCamara();
         void desactivarCamara();
         int verActivadoCamara();

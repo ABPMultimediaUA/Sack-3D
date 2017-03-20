@@ -40,8 +40,14 @@ class TMotorBear
 
 /////////////////////Mallas
         TEntidad* crearMalla( char* file);
+        TEntidad* crearMalla( float alto, float ancho, float prof);
+        TNodo* crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec);
+
         void cambiarMalla(TEntidad*, char*file);
         void transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec);//necesario que el nodo arbol este ya incorporado al arbol
+
+        void borrarMalla(char * nombre);
+
 //////////////////////////////////////////
 
 /////////////////////Camaras
@@ -79,6 +85,8 @@ class TMotorBear
         TGestorRecursos* gestorRecursos;
         std::vector<TNodo*> registroCamara;
         std::vector<TNodo*>  registroLuces;
+        std::vector<glm::mat4>* pila;
+        TNodo* camaraActiva;
 //        std::vector<Luces*> registroLuces; Cuando haya luces
         //Luces, Camaras,viewports
 };

@@ -72,31 +72,31 @@ int Display::Update(TNodo* TfCamera){
                      break;
                 case SDLK_w:
                     //camera->GetPosition()+= glm::vec3(0,0,1);
-                    tras->trasladar(glm::vec3(0,0.1,0));
+                    tras->trasladar(glm::vec3(0,1,0));
                     break;
                 case SDLK_a:
                    // camera->GetPosition()+= glm::vec3(1,0,0);
-                    tras->trasladar(glm::vec3(-0.1,0,0));
+                    tras->trasladar(glm::vec3(-1,0,0));
 
                     break;
                 case SDLK_s:
                     //camera->GetPosition()+= glm::vec3(0,0,-1);
-                    tras->trasladar(glm::vec3(0,-0.1,0));
+                    tras->trasladar(glm::vec3(0,-1,0));
 
                     break;
                 case SDLK_d:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
-                    tras->trasladar(glm::vec3(0.1,0,0));
+                    tras->trasladar(glm::vec3(1,0,0));
 
                     break;
                     case SDLK_q:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
-                    tras->trasladar(glm::vec3(0,0,0.1));
+                    tras->trasladar(glm::vec3(0,0,1));
 
                     break;
                     case SDLK_e:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
-                    tras->trasladar(glm::vec3(0,0,-0.1));
+                    tras->trasladar(glm::vec3(0,0,-1));
 
                     break;
                     case SDLK_r:

@@ -1,6 +1,6 @@
 #include "ttransform.h"
 #include <iostream>
-extern std::vector<glm::mat4>* TEntidad::pila;
+//extern std::vector<glm::mat4>* TEntidad::pila;
 
 TTransform::TTransform()
 {
@@ -62,23 +62,18 @@ glm::mat4 TTransform::GetModel()const{
     return  m_matriz;
 }
 
-void TTransform::begingDraw(Shader* shad, glm::mat4 matCam){
+void TTransform::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
 
     int tam=0;
     int pos;
-   if(pila==0){
-    pila = new std::vector<glm::mat4>;
-    pila->push_back(matCam);
-   }
+
     tam= pila->size();
     pos= tam-1;
     pila->push_back(( pila->at(pos) * this->GetModel()));
 }
 
-void TTransform::endDraw(){
+void TTransform::endDraw(std::vector<glm::mat4>* pila){
     pila->pop_back();
-    if(pila->size()==1){
-        pila=0;
-    }
+
 }
 int  TTransform::getTipo(){return tipo;}

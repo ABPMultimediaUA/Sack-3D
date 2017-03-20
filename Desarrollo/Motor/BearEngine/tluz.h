@@ -12,8 +12,8 @@ class TLuz : public TEntidad
         void setIntensidad(glm::vec3 colr);
         glm::vec3 getIntensidad();
 
-        void begingDraw(Shader* shad, glm::mat4 mat);
-        void endDraw();
+        void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
+        void endDraw(std::vector<glm::mat4>* pila);
         int getTipo();
 
     protected:

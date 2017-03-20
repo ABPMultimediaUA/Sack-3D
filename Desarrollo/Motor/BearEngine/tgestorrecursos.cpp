@@ -44,6 +44,7 @@ int encontrado=0;
             //Cargar fichero ,y apilar en el vector
             //Mesh* mesh = new Mesh(nombre);
             Mesh* mesh = new Mesh(nombre);
+            std::cout<<mesh<<std::endl;
           //  TRecursoMalla* malla= new TRecursoMalla;
             //malla->SetMeshes(load->getMeshes());
           // malla->SetMesh(mesh);
@@ -71,10 +72,12 @@ void TGestorRecursos::borrarRecurso(char * nombre){
             std::cout<<recu->GetNombre()<<std::endl;
             if(tipo==0){
                 mesh=static_cast<Mesh*>(recursos.at(i));
+                std::cout<<mesh<<std::endl;
+                std::cout<<"Dentro"<<mesh->GetNombre()<<std::endl;
                 delete(mesh);
             }
 
-            recursos.erase(recursos.begin()+i);
+           recursos.erase(recursos.begin()+i);
             std::cout<<"Recurso Borrado"<<std::endl;
             break;
         }

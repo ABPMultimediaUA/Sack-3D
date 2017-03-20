@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1488909310 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
+1490019889 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<stdlib.h>
@@ -12,7 +12,7 @@
 	"tgestorrecursos.h"
 	"tmotorbear.h"
 
-1488898923 source:d:\mis cosas\universidad\motor\tag\bearengine\display.cpp
+1489676406 source:d:\mis cosas\universidad\motor\tag\bearengine\display.cpp
 	"display.h"
 	<GL/glew.h>
 	"ttransform.h"
@@ -24,24 +24,24 @@
 	"camera.h"
 	"tnodo.h"
 
-1488296448 d:\mis cosas\universidad\motor\tag\bearengine\tnodo.h
+1489508097 d:\mis cosas\universidad\motor\tag\bearengine\tnodo.h
 	<vector>
 	<iostream>
 	"tentidad.h"
 	"shader.h"
 	<glm/glm.hpp>
 
-1488296403 source:d:\mis cosas\universidad\motor\tag\bearengine\tnodo.cpp
+1489675072 source:d:\mis cosas\universidad\motor\tag\bearengine\tnodo.cpp
 	"tnodo.h"
 
-1488130706 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
+1489680265 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
 	"mesh.h"
 	<vector>
 	<iostream>
 	<assimp/cimport.h>
 	<assimp/postprocess.h>
 
-1488130713 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
+1489503384 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
 	<glm/glm.hpp>
 	<GL/glew.h>
 	"modeloindexado.h"
@@ -54,14 +54,14 @@
 	<iostream>
 	<vector>
 
-1488811632 source:d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.cpp
+1489508211 source:d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.cpp
 	"tentidadmalla.h"
 
-1488811118 d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.h
+1489508179 d:\mis cosas\universidad\motor\tag\bearengine\tentidadmalla.h
 	"tentidad.h"
 	"mesh.h"
 
-1487694900 d:\mis cosas\universidad\motor\tag\bearengine\tentidad.h
+1489508156 d:\mis cosas\universidad\motor\tag\bearengine\tentidad.h
 	"glm/glm.hpp"
 	<vector>
 	"shader.h"
@@ -72,35 +72,35 @@
 1487693327 d:\mis cosas\universidad\motor\tag\bearengine\cubo.h
 	"mesh.h"
 
-1488677672 source:d:\mis cosas\universidad\motor\tag\bearengine\shader.cpp
+1489507993 source:d:\mis cosas\universidad\motor\tag\bearengine\shader.cpp
 	"shader.h"
 	<iostream>
 	<fstream>
 	<direct.h>
 	<vector>
 
-1487695240 d:\mis cosas\universidad\motor\tag\bearengine\shader.h
+1489507999 d:\mis cosas\universidad\motor\tag\bearengine\shader.h
 	<GL/glew.h>
 	<string>
 	<glm/glm.hpp>
 	"ttransform.h"
 	"camera.h"
 
-1488898823 source:d:\mis cosas\universidad\motor\tag\bearengine\camera.cpp
+1489508220 source:d:\mis cosas\universidad\motor\tag\bearengine\camera.cpp
 	"camera.h"
 	<iostream>
 
-1488898790 d:\mis cosas\universidad\motor\tag\bearengine\camera.h
+1489508188 d:\mis cosas\universidad\motor\tag\bearengine\camera.h
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 	"tentidad.h"
 
-1487694814 d:\mis cosas\universidad\motor\tag\bearengine\ttransform.h
+1489508166 d:\mis cosas\universidad\motor\tag\bearengine\ttransform.h
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 	"tentidad.h"
 
-1488811504 source:d:\mis cosas\universidad\motor\tag\bearengine\ttransform.cpp
+1489508148 source:d:\mis cosas\universidad\motor\tag\bearengine\ttransform.cpp
 	"ttransform.h"
 	<iostream>
 
@@ -124,7 +124,7 @@
 
 1488130790 d:\mis cosas\universidad\motor\tag\bearengine\trecurso.h
 
-1488206903 source:d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.cpp
+1489676910 source:d:\mis cosas\universidad\motor\tag\bearengine\tgestorrecursos.cpp
 	"tgestorrecursos.h"
 	"mesh.h"
 
@@ -132,10 +132,10 @@
 	"trecurso.h"
 	<vector>
 
-1488914765 source:d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.cpp
+1490020365 source:d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.cpp
 	"tmotorbear.h"
 
-1488909137 d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.h
+1489508615 d:\mis cosas\universidad\motor\tag\bearengine\tmotorbear.h
 	<glm/glm.hpp>
 	<glm/gtx/transform.hpp>
 	"shader.h"
@@ -150,11 +150,11 @@
 	"mesh.h"
 	"display.h"
 
-1488466111 d:\mis cosas\universidad\motor\tag\bearengine\tluz.h
+1489508174 d:\mis cosas\universidad\motor\tag\bearengine\tluz.h
 	"tentidad.h"
 	<glm/glm.hpp>
 	"shader.h"
 
-1488468264 source:d:\mis cosas\universidad\motor\tag\bearengine\tluz.cpp
+1489508205 source:d:\mis cosas\universidad\motor\tag\bearengine\tluz.cpp
 	"tluz.h"
 

@@ -18,9 +18,9 @@ glm::vec3 TLuz::getIntensidad(){
     return intensidad;
 }
 
-void TLuz::begingDraw(Shader* shad, glm::mat4 mat){
+void TLuz::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
 }
-void TLuz::endDraw(){
+void TLuz::endDraw(std::vector<glm::mat4>* pila){
 }
 int TLuz::getTipo(){
     return tipo;

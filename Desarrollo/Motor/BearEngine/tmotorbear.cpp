@@ -4,7 +4,9 @@ TMotorBear::TMotorBear(int width, int height, const std::string& title)
 {
     arbolEscena = new TNodo(1);
     gestorRecursos= new TGestorRecursos();
+    camaraActiva = nullptr;
     escena = new Display(width,height,title);
+    pila = new std::vector<glm::mat4>;
 }
 
 TMotorBear::~TMotorBear()
@@ -12,6 +14,7 @@ TMotorBear::~TMotorBear()
     delete(arbolEscena);
     delete(gestorRecursos);
     delete(escena);
+    delete(pila);
     /*for(int i=0;registroCamara.size();i++){ PETA
         delete(registroCamara[i]);
         i--;
@@ -61,6 +64,25 @@ TEntidad* TMotorBear::crearMalla( char* file){
     mesh->setMalla(static_cast<Mesh*> (gestorRecursos->getRecurso(file, 0)));
     return mesh ;
 }
+TEntidad* TMotorBear::crearMalla( float alto, float ancho, float prof){
+    TEntidadMalla* mesh = new TEntidadMalla();
+    mesh->setMalla( new Mesh(ancho, alto, prof));
+    return mesh ;
+}
+
+TNodo* TMotorBear::crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec){
+
+    TNodo* nodoTrans1 = crearNodo(arbolEscena,crearTransform(), "rot");
+    TTransform* desp = static_cast<TTransform* > (crearTransform());
+    desp->trasladar(vec);
+    TNodo* nodoTrans2 = crearNodo(arbolEscena,desp, "rot");
+    TNodo* nodoMalla6 = crearNodo(nodoTrans2,crearMalla(alto,ancho,prof),"malla");
+
+return nodoMalla6;
+}
+
+
+
 void TMotorBear::cambiarMalla(TEntidad* mesh, char* file){
     if( file){
        static_cast<TEntidadMalla*> (mesh)->setMalla(static_cast<Mesh*> (gestorRecursos->getRecurso(file, 0)));
@@ -78,6 +100,9 @@ void TMotorBear::transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec){ 
     transformarEntidad(padre->getEntidad(),tipo,vec);
 
 }
+void TMotorBear::borrarMalla(char * nombre){
+    gestorRecursos->borrarRecurso(nombre);
+}
 
 void TMotorBear::registrarCamara(TNodo* camera){
    // std::cout<<"Entra registro camara"<<std::endl;
@@ -88,24 +113,29 @@ void TMotorBear::registrarCamara(TNodo* camera){
 }
 TNodo* TMotorBear::verCamaraActiva(){
        // std::cout<<"Entra ver camara activa"<<std::endl;
-
+    TNodo * nodoCam;
+    Camera * cam;
     for(int i=0; i<registroCamara.size();i++){
-        TNodo * nodoCam = registroCamara[i];
-        Camera * cam =static_cast<Camera*> (nodoCam->getEntidad());
+         nodoCam= registroCamara[i];
+        cam=static_cast<Camera*> (nodoCam->getEntidad());
         if(cam->verActivadoCamara()){
          //       std::cout<<"Hay una camara Activa"<<std::endl;
+
             return nodoCam;
+
         }
+       // delete(cam);
     }
+
            //         std::cout<<"No hay una camara Activa"<<std::endl;
     return 0;
 }
 void TMotorBear::activarCamara(TNodo* cam){
-    TNodo* camActiva = verCamaraActiva();
+    camaraActiva= verCamaraActiva();
     //Camera* camarita;
-    if(camActiva){
+    if(camaraActiva){
      //   camarita = static_cast <Camera*>( camActiva->getEntidad());
-     static_cast <Camera*>( camActiva->getEntidad())->desactivarCamara();
+     static_cast <Camera*>( camaraActiva->getEntidad())->desactivarCamara();
 
     //    camarita->desactivarCamara();
         //std::cout<<"Camara Desactivada"<<std::endl;
@@ -154,8 +184,8 @@ glm::mat4 TMotorBear::obtenerMatCam(){
 
 
    // mat = glm::inverse(mat) * static_cast<Camera*> (nodo->getEntidad())->miraA(glm::vec3(0,0,0),glm::vec3(0,0,-1),glm::vec3(0,1,0));
-   //glm::vec3 transformed = glm::vec3(mat * glm::vec4(glm::vec3(0,0,0), 0.0));
-    mat = glm::inverse(mat) * static_cast<Camera*> (nodo->getEntidad())->miraA(glm::vec3(0,0,0),glm::vec3(0,0,-1),glm::vec3(0,1,0));
+   glm::vec3 transformed = glm::vec3(mats[mats.size()-1] * glm::vec4(glm::vec3(0,0,0), 1.0));
+    mat = glm::inverse(mat) * static_cast<Camera*> (nodo->getEntidad())->miraA(transformed,glm::vec3(0,0,-1),glm::vec3(0,1,0));
 
       /*for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
@@ -166,7 +196,14 @@ glm::mat4 TMotorBear::obtenerMatCam(){
     }
     std::cout<<std::endl;*/
 //mat = mat * glm::inverse(glm::mat4());
+/*
+   glm::vec3 pos =glm::vec3(mat * glm::vec4(glm::vec3(0,0,0), 1.0));
 
+    for(int i =0; i<3;i++){
+        std::cout<<pos[i]<<",";
+    }
+    std::cout<<std::endl;
+*/
     return mat;
 }
 
@@ -180,7 +217,9 @@ void TMotorBear::draw(Shader* shad){
     }std::cout<<std::endl;*/
    //luces
    //Viewport
-    arbolEscena->draw(shad,cam);
+   pila->push_back(cam);
+    arbolEscena->draw(shad,pila);
+    pila->pop_back();
 }
 
 

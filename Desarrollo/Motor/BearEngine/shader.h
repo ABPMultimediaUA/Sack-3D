@@ -23,7 +23,7 @@ class Shader
         Shader(const std::string& fileName);
 
         void Bind();
-        void Update(const glm::mat4& transformi, const glm::mat4& camera);
+        void Update(const glm::mat4& transformi);
         //void Update(const glm::mat4& camera);
        // void Crear(const std::string& fileName);
 

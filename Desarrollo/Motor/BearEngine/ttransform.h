@@ -22,8 +22,8 @@ class TTransform : public TEntidad
         void escalar(glm::vec3 scala);
 
 
-        void begingDraw(Shader* shad, glm::mat4 matCam);
-        void endDraw();
+        void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
+        void endDraw(std::vector<glm::mat4>* pila);
         int getTipo();
 
     protected:

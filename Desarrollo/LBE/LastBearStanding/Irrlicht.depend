@@ -480,10 +480,10 @@
 	"Master.h"
 	"Client.h"
 
-1489006396 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
+1490011710 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
 
-1488880292 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1489679277 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 
@@ -499,9 +499,10 @@
 
 1488473744 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\gameresource.h
 
-1488471341 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
+1489675056 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
+	<iostream>
 
-1489424188 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
+1489680443 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -565,13 +566,15 @@
 1488821247 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1488916678 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
+1489678848 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
 	"World.h"
 	"MyContactListener.h"
 	"IrrManager.h"
 	"PlayerRed.h"
+	"Platform.h"
 	"Spawner.h"
+	"Teleport.h"
 	"Cogible.h"
 	"Camera.h"
 	"Player.h"
@@ -597,7 +600,7 @@
 	"World.h"
 	"Player.h"
 
-1489420627 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
+1490011581 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
@@ -646,7 +649,7 @@
 1488397075 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1489408874 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
+1489675954 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -661,7 +664,7 @@
 	"PathFinding/Nodo.h"
 	"PathFinding/Lista.h"
 
-1488821272 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\platform.h
+1489676454 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\platform.h
 	"GameObject.h"
 	<irrlicht.h>
 
@@ -683,24 +686,24 @@
 	"Player.h"
 	"World.h"
 
-1488880357 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
+1489679124 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\pistola.cpp
 	"IrrManager.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1488879941 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
+1489676138 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 
-1489416470 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
+1489502729 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\player.cpp
 	"MyEventReceiver.h"
 	"Player.h"
 	"Usable.h"
 	"Client.h"
 	"World.h"
 
-1489412000 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
+1489501592 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\playerred.cpp
 	"PlayerRed.h"
 	"World.h"
 	"Usable.h"
@@ -713,7 +716,7 @@
 	"Spawner.h"
 	"World.h"
 
-1489006208 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
+1490011728 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
@@ -2301,11 +2304,11 @@
 	"PathFinding/Nodo.h"
 	"PathFinding/Lista.h"
 
-1488823237 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\gameobject.h
+1489505779 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\gameobject.h
 	"IrrManager.h"
 	<Box2D/Box2D.h>
 
-1488879818 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\gameobject.cpp
+1489676752 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\gameobject.cpp
 	"GameObject.h"
 	"World.h"
 
@@ -2322,7 +2325,7 @@
 	<PathFinding/Nodo.h>
 	<Box2D/Box2D.h>
 
-1489417794 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bot.cpp
+1489502683 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bot.cpp
 	"Bot.h"
 	"World.h"
 	"PathFinding/Lista.h"

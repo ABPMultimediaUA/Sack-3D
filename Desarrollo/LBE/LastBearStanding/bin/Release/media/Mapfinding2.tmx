@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1079">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1075">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -14,18 +14,10 @@
  <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
- <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
-  <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
-  <tile id="226">
-   <animation>
-    <frame tileid="119" duration="100"/>
-   </animation>
-  </tile>
- </tileset>
  <objectgroup name="Nodos" opacity="0.91">
   <object id="1040" name="0" type="1,21" gid="692172" x="54" y="70" width="1" height="1"/>
   <object id="1041" name="1" type="0,2,3" gid="692172" x="46" y="64" width="1" height="1"/>
-  <object id="1042" name="2" type="1" gid="692172" x="31" y="64" width="1" height="1"/>
+  <object id="1042" name="2" type="1" gid="692172" x="34" y="64" width="1" height="1"/>
   <object id="1043" name="3" type="1,4,6" gid="692172" x="53" y="58" width="1" height="1"/>
   <object id="1044" name="4" type="3,21" gid="692172" x="62" y="58" width="1" height="1"/>
   <object id="1045" name="5" type="6" gid="692172" x="37" y="52" width="1" height="1"/>
@@ -41,7 +33,7 @@
   <object id="1055" name="15" type="16,19" gid="692172" x="87" y="58" width="1" height="1"/>
   <object id="1056" name="16" type="13,15,20" gid="692172" x="96" y="58" width="1" height="1"/>
   <object id="1057" name="17" type="19,20" gid="692172" x="95" y="70" width="1" height="1"/>
-  <object id="1058" name="18" type="20" gid="692172" x="118" y="64" width="1" height="1"/>
+  <object id="1058" name="18" type="20" gid="692172" x="115" y="64" width="1" height="1"/>
   <object id="1059" name="19" type="17,22" gid="692172" x="80" y="70" width="1" height="1"/>
   <object id="1060" name="20" type="16,17,18" gid="692172" x="103" y="64" width="1" height="1"/>
   <object id="1061" name="21" type="0,22" gid="692172" x="68" y="70" width="1" height="1"/>
@@ -64,23 +56,19 @@
  </objectgroup>
  <objectgroup name="Teleports"/>
  <objectgroup name="Muelles"/>
- <objectgroup name="Armas"/>
+ <objectgroup name="Armas">
+  <object id="1071" name="1" x="64.2727" y="68.4545" width="1.27273" height="1.18182"/>
+  <object id="1073" name="1" x="59.4545" y="68.4091" width="1.27273" height="1.18182"/>
+  <object id="1074" name="1" x="90" y="68.2273" width="1.27273" height="1.18182"/>
+ </objectgroup>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="43" y="64" width="1" height="1"/>
-  <object id="1003" gid="271" x="93" y="70" width="1" height="1"/>
-  <object id="1069" gid="271" x="92" y="58" width="1" height="1"/>
-  <object id="1070" gid="271" x="43" y="52" width="1" height="1"/>
+  <object id="1002" gid="271" x="32" y="64" width="1" height="1"/>
+  <object id="1003" gid="271" x="85" y="70" width="1" height="1"/>
+  <object id="1069" gid="271" x="90" y="46" width="1" height="1"/>
+  <object id="1070" gid="271" x="41" y="52" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
- <objectgroup name="Spawners">
-  <object id="1071" name="2" type="1" gid="692377" x="74" y="38" width="1" height="1"/>
-  <object id="1072" name="1" type="2" gid="692377" x="118" y="64" width="1" height="1"/>
-  <object id="1073" name="1" type="2" gid="692377" x="31" y="64" width="1" height="1"/>
-  <object id="1074" name="1" type="2" gid="692377" x="68" y="70" width="1" height="1"/>
-  <object id="1075" name="1" type="1" gid="692377" x="80" y="70" width="1" height="1"/>
-  <object id="1077" name="1" type="2" gid="692377" x="37" y="52" width="1" height="1"/>
-  <object id="1078" name="2" type="1" gid="692377" x="112" y="52" width="1" height="1"/>
- </objectgroup>
+ <objectgroup name="Spawners"/>
 </map>

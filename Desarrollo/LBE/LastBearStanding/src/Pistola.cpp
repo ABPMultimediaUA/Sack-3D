@@ -14,7 +14,7 @@ void Pistola::usar(){
     if(usos){
         if(m_pIrrMngr->getTime()-timeCadencia > cadencia ){
             float desvBala = rand()% 3 - 3;
-	    	World::Inst()->AddBala(new Bala(b2Vec2(m_pBody->GetPosition().x,-(m_pBody->GetPosition().y)), 300, 10, desvBala, dir,1));
+	    	World::Inst()->AddBala(new Bala(b2Vec2(m_pBody->GetPosition().x,-(m_pBody->GetPosition().y)), 300, 10, 0, dir,1));
 	    	usos--;
             timeCadencia = timerCadencia->getTime();
 	    }

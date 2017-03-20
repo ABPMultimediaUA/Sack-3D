@@ -50,7 +50,6 @@ void Master::InstanciaMundo(){
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     int mapa = rand()%numDeMapas+1;
-    std::cout<<mapa<<std::endl;
     const Num2Map * it = maps;
     while(it->num != 0){
         if(it->num == mapa){
@@ -63,6 +62,7 @@ void Master::InstanciaMundo(){
 bool Master::Run(){
     return IrrMngr::Inst()->getDevice()->run();
 }
+
 void Master::Drop(){
     return IrrMngr::Inst()->drop();
 }

@@ -12,6 +12,7 @@ GameObject(pos,irr::core::vector3df(.4f, .2f,.2f),irr::video::SColor(255, 255,0 
     time2Kill = timer2Kill->getTime();
     bodyDef.position.Set(pos.x+(m_tam.X/2)+dir,-1*(pos.y-(m_tam.Y/2)));
     bodyDef.type = b2_dynamicBody;
+    bodyDef.bullet = true;
     m_pBody  = m_pWorld->GetWorld()->CreateBody(&bodyDef);
     m_pBody->SetGravityScale( 0 );
     polyShape.SetAsBox((m_tam.X)/2.f,(m_tam.Y)/2.f);

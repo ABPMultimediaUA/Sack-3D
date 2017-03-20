@@ -55,6 +55,7 @@ void Map::AddSpawner(){
 }
 void Map::AddPlatform(){
      World::Inst()->AddPlatform(new Platform(false,b2Vec2(x,y+height),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
+//     std::"esoty entrandooo"std::endl;
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -98,13 +99,13 @@ void Map::AddPlayer(){
       }
     }
     else{
-      char aux[30];
+      /*char aux[30];
       sprintf(aux, "%.0f", (float)numPlayer);
       if((*Client::Inst()->getIdCliente())-'0'==0) World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color, aux));
       else{
        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,color, aux, 6, 18));
-      }
-      std::cout<<"NOOOO "<<std::endl;
+      }*/
+      std::cout<<"BOT "<<std::endl;
     }
     numPlayer++;
 }

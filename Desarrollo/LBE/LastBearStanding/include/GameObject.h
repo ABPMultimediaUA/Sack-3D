@@ -8,7 +8,7 @@ class World;
 class GameObject{
     public:
         GameObject(b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
-        virtual ~GameObject();
+         ~GameObject();
         virtual b2Body* getBody();
         virtual irr::scene::IMeshSceneNode* getNode();
     protected:

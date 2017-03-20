@@ -123,7 +123,7 @@ void Player::mover(){
     }
     if(moviendo != moviendoA){
 
-        std::cout<<"ME MUEVOOOOOOOOO"<<id<<std::endl;
+        //std::cout<<"ME MUEVOOOOOOOOO"<<id<<std::endl;
             m_pClient->enviarMoviendo(moviendo);
     moviendoA = moviendo;}
     m_pBody->SetLinearVelocity(b2Vec2 (moviendo*vel, m_pBody->GetLinearVelocity().y));

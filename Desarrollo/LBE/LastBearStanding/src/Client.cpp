@@ -244,7 +244,7 @@ void Client::recibir(){
             //--------LLAMADA A FUNCION SEGUN PAQUETE
 
             if(comprobacion(params[0].var)){
-            //std::cout<<"tipo.-"<<tipo<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6<<std::endl;
+            //std::cout<<"tipo.-"<<params[0].var/*<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6*/<<std::endl;
             PacketFunction(atoi(params[0].var));
 
             }
@@ -353,10 +353,11 @@ void Client::analizarPaquete4(){
         for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), params[1].var) == 0){
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setx(x);
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->sety(y);
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setPos();
-                dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->mover(moviendo);
+                PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
+                p->setx(x);
+                p->sety(y);
+                p->setPos();
+                p->mover(moviendo);
             }
         }
 
@@ -370,10 +371,11 @@ void Client::analizarPaquete5(){
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
 
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), params[1].var) == 0){
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setx(x);
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->sety(y);
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->setPos();
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->saltar(moviendo);
+            PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
+            p->setx(x);
+            p->sety(y);
+            p->setPos();
+            p->saltar(moviendo);
         }
     }
 }
@@ -407,13 +409,12 @@ else
 
 
 bool Client::comprobarPaquete(RakNet::Packet* p){
-
     char aux[60];
     char* comp="";
     packetIdentifier = GetPacketIdentifier(p);
-        if(packetIdentifier == ID_DISCONNECTION_NOTIFICATION         || packetIdentifier == ID_ALREADY_CONNECTED         || packetIdentifier == ID_INCOMPATIBLE_PROTOCOL_VERSION ||
+        if(packetIdentifier == ID_DISCONNECTION_NOTIFICATION         || packetIdentifier == ID_ALREADY_CONNECTED         || packetIdentifier == ID_INCOMPATIBLE_PROTOCOL_VERSION  ||
            packetIdentifier == ID_REMOTE_DISCONNECTION_NOTIFICATION  || packetIdentifier == ID_REMOTE_CONNECTION_LOST    || packetIdentifier == ID_REMOTE_NEW_INCOMING_CONNECTION ||
-           packetIdentifier == ID_CONNECTION_BANNED                  || packetIdentifier == ID_CONNECTION_ATTEMPT_FAILED || packetIdentifier == ID_NO_FREE_INCOMING_CONNECTIONS  ||
+           packetIdentifier == ID_CONNECTION_BANNED                  || packetIdentifier == ID_CONNECTION_ATTEMPT_FAILED || packetIdentifier == ID_NO_FREE_INCOMING_CONNECTIONS   ||
            packetIdentifier == ID_INVALID_PASSWORD                   || packetIdentifier == ID_CONNECTION_LOST           || packetIdentifier == ID_CONNECTION_REQUEST_ACCEPTED ){
                if(packetIdentifier == ID_CONNECTION_REQUEST_ACCEPTED){
                     printf("ID_CONNECTION_REQUEST_ACCEPTED to %s with GUID %s\n", p->systemAddress.ToString(true), p->guid.ToString());

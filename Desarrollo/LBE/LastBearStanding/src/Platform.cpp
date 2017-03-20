@@ -16,7 +16,7 @@ Platform::Platform(bool mata, b2Vec2 pos, irr::core::vector3df tam,irr::video::S
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);
     if(mata){
         fixture->SetUserData((void*)DATA_PINCHO);
-        if(m_pNode)m_pNode->remove();
+        m_pNode->setVisible(false);
     }
 }
-Platform::~Platform(){}
+//Platform::~Platform(){}

@@ -480,10 +480,11 @@
 	"Master.h"
 	"Client.h"
 
-1490011710 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
+1490022686 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\master.h
 	<irrlicht.h>
+	<vector>
 
-1489679277 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
+1490012270 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 
@@ -499,10 +500,10 @@
 
 1488473744 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\gameresource.h
 
-1489675056 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
+1490013526 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\rvector.h
 	<iostream>
 
-1489680443 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
+1490020202 d:\development\sack-3d\desarrollo\lbe\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -511,6 +512,7 @@
 	"PacketLogger.h"
 	<assert.h>
 	<iostream>
+	<vector>
 	<string>
 	<cstdio>
 	<cstring>
@@ -600,7 +602,7 @@
 	"World.h"
 	"Player.h"
 
-1490011581 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
+1490021840 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
@@ -716,7 +718,7 @@
 	"Spawner.h"
 	"World.h"
 
-1490011728 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
+1490023116 source:d:\development\sack-3d\desarrollo\lbe\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"

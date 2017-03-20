@@ -10,6 +10,7 @@
 #include "PacketLogger.h"
 #include <assert.h>
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cstdio>
 #include <cstring>
@@ -72,9 +73,11 @@ class Client{
         void analizarPaquete3();
         void analizarPaquete4();
         void analizarPaquete5();
-        void analizarPaquete6(){run=true;}
+        void analizarPaquete6();
         void analizarPaquete7();
         void analizarPaquete8();
+        void setMaps(std::vector<int> mapas);
+        std::vector<int> getMaps(){return maps;}
         bool comprobarPaquete(RakNet::Packet* p);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
@@ -85,6 +88,7 @@ class Client{
     protected:
 
     private:
+        std::vector<int> maps;
         static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;

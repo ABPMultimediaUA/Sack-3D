@@ -10,10 +10,8 @@ class RVector{
         ~RVector(){
             std::cout<<"Vector a borrar "<<m_rs.size()<<std::endl;
             for(int i = 0 ; i<m_rs.size() ; i++){
-                    std::cout<<m_rs.at(i)<<std::endl;
-                if(m_rs.at(i)){std::cout<<m_rs.at(i)<<std::endl;delete m_rs.at(i);}
+                if(m_rs.at(i)){delete m_rs.at(i);}
                 }
-                std::cout<<"sale"<<std::endl;
             m_rs.clear();
             std::vector<A*>().swap(m_rs);
             //std::vector<A*>(m_rs).swap(m_rs);

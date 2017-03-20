@@ -380,6 +380,15 @@ void Client::analizarPaquete5(){
     }
 }
 
+void Client::analizarPaquete6(){
+
+    run=true;
+    std::vector<int> result;
+    for(int i=0;i<6;i++)result.push_back(atoi(params[i+1].var));
+
+    setMaps(result);
+}
+
 void Client::analizarPaquete7(){
 
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
@@ -426,6 +435,12 @@ bool Client::comprobarPaquete(RakNet::Packet* p){
         else
             return false;
 
+}
+
+void Client::setMaps(std::vector<int> mapas){
+    for(int i=0;i<mapas.size();i++){
+        maps.push_back(mapas[i]);
+    }
 }
 
 Client::~Client()

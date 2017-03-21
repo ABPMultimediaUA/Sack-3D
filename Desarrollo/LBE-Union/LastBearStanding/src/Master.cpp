@@ -28,12 +28,14 @@ void Master::Update(){
         int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
             if(playersVivos <= 1){
+
                 timeFinPartida = timerFinPartida->getTime();
                 finPartida = true;
             }
         }
         else if(IrrMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
+            std::cout<<"1 solo player vivo"<<std::endl;
             World::Inst()->Reset();
             InstanciaMundo();
             finPartida = false;
@@ -47,6 +49,7 @@ void Master::Update(){
     }
 }
 void Master::InstanciaMundo(){
+    std::cout<<"empiesa instancia"<<std::endl;
     mapList = Client::Inst()->getMaps();
     std::cout<<mapList[0]<<" "<<mapList[1]<<" "<<mapList[2]<<" "<<mapList[3]<<" "<<mapList[4]<<" "<<mapList[5]<<" "<<std::endl;
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);

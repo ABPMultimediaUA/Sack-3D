@@ -89,12 +89,19 @@ void Map::AddPlayer(){
     if(numPlayer == id){
       World::Inst()->AddPlayer(new Player(b2Vec2(x,y),numPlayer,color));
    }
-   else if(playerRed < Client::Inst()->getNumPlayersRed()){
-       World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,color,Client::Inst()->playersRed[playerRed].id));
-       playerRed++;
+   if(playerRed < Client::Inst()->getNumPlayersRed()){
+       for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
+            std::cout<<"num playerRed "<<Client::Inst()->getNumPlayersRed()<<std::endl;
+            std::cout<<"i "<<i<<std::endl;
+        if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
+        std::cout<<"playerRed "<<Client::Inst()->playersRed[i].id<<std::endl;
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',color, Client::Inst()->playersRed[i].id));
+        playerRed++;
+        }
+      }
    }
    else{
-     World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
+    // World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
    }
    numPlayer++;
 }

@@ -27,7 +27,9 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
     strncpy(id, m_pClient->getIdCliente(), sizeof(id));
     eventReceiver = IrrMngr::Inst()->getEventReciever();
 }
- Player::~Player(){}
+ Player::~Player(){
+     std::cout<<"muere player"<<std::endl;
+}
 void Player::actualiza(){
     if(teletransportado)teletransportar();
     if(paraMorir)morir();

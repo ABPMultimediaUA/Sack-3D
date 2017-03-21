@@ -82,11 +82,17 @@ void PlayerRed::CogerTirar(int idCogible){
     }
 }
 void PlayerRed::morirRed(){
-    paraMorir = false;
-    if(cogiendo) Soltar();
-    estado = MUERTO_DORMIDO;
-    m_id = m_gameObject.SetMode(new PBDeadPlayer);
-    muerto = true;
+std::cout<<"FGJBDVHBDKD"<<std::endl;
+        paraMorir = false;
+        if(cogiendo) Soltar();
+        estado = MUERTO_DORMIDO;
+        m_id = m_gameObject.SetMode(new PBDeadPlayer);
+        if(direccion > 0 )
+            m_gameObject.SetAngularVelocity(-0.5f);
+        else
+            m_gameObject.SetAngularVelocity(0.5f);
+        muerto = true;
+
 }
 void PlayerRed::fingirMuerte(){
     if(cogiendo) Soltar();

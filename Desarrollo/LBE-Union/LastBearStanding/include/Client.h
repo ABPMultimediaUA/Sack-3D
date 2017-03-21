@@ -10,6 +10,7 @@
 #include "PacketLogger.h"
 #include <assert.h>
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cstdio>
 #include <cstring>
@@ -47,6 +48,9 @@ class Client{
         struct TPlayersRed{
             char id[30];
         };
+        struct TParams{
+            char var[30];
+        };
         int idPlayerInt;
         unsigned char packetIdentifier;
         bool isServer;
@@ -54,44 +58,43 @@ class Client{
         bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
         void iniciar();
-        void PacketFunction(int aux,char* param1,char* param2,char* param3,char* param4,char* param5,char* param6);
+        void PacketFunction(int aux);
         void recibir();
-        void enviar();
-        void enviarSalto(int i);
-        void enviarCogido(int cogible);
-        void enviarMoviendo(int moviendo);
-        void enviarUsar();
-        void enviarMuerto();
-        void enviarHacerseMuerto();
+        void enviar(int aux = -1);
+        void enviarSalto(int i, int aux = -1);
+        void enviarCogido(int cogible, int aux = -1);
+        void enviarMoviendo(int moviendo, int aux = -1);
+        void enviarUsar(int aux = -1);
+        void enviarMuerto(int aux = -1);
+        void enviarHacerseMuerto(int aux = -1);
         void analizarPaquete0();
         void analizarPaquete1();
         void analizarPaquete2();
         void analizarPaquete3();
         void analizarPaquete4();
         void analizarPaquete5();
-        void analizarPaquete6(){run=true;}
+        void analizarPaquete6();
         void analizarPaquete7();
         void analizarPaquete8();
+        void setMaps(std::vector<int> mapas);
+        std::vector<int> getMaps(){return maps;}
+        bool comprobarPaquete(RakNet::Packet* p);
         char* getIdCliente(){return idCliente;}
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
+        TParams params [7];
 
     protected:
 
     private:
+        std::vector<int> maps;
         static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;
         irr::f32 timer;
         bool run;
         int iterador;
-        char    *param1,
-                *param2,
-                *param3,
-                *param4,
-                *param5,
-                *param6;
         const Type2Func packetFunction[10] = {
               { 0         , analizarPaquete0    }
             , { 1         , analizarPaquete1    }

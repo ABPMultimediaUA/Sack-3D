@@ -1,5 +1,7 @@
 #include "MessageIdentifiers.h"
 #include <iostream>
+#include <vector>
+#include <time.h>
 #include "RakPeerInterface.h"
 #include "RakNetStatistics.h"
 #include "RakNetTypes.h"
@@ -27,6 +29,7 @@
 
 // We copy this from Multiplayer.cpp to keep things all in one file for this example
 unsigned char GetPacketIdentifier(RakNet::Packet *p);
+std::vector<int> listaMapas();
 
 
 #ifdef _CONSOLE_2
@@ -35,6 +38,8 @@ _CONSOLE_2_SetSystemProcessParams
 
 
 int main(void){
+    std::vector<int> maps;
+    maps = listaMapas();
 	// Pointers to the interfaces of our server and client.
 	// Note we can easily have both in the same program
 	RakNet::RakPeerInterface *server=RakNet::RakPeerInterface::GetInstance();
@@ -175,7 +180,8 @@ int main(void){
 		// All messages to all clients come from the server either directly or by being
 		// relayed from other clients
 		message2[0]=0;
-		strcpy(message2, "6 ");
+		//strcpy(message2, "6 ");
+		sprintf(message2, "6 %.0f %.0f %.0f %.0f %.0f %.0f", (float)maps[0], (float)maps[1], (float)maps[2], (float)maps[3], (float)maps[4], (float)maps[5]);
 		strcat(message2, message);
 
 		// message2 is the data to send
@@ -269,6 +275,26 @@ unsigned char GetPacketIdentifier(RakNet::Packet *p){
 	}
 	else
 		return (unsigned char) p->data[0];
+}
+
+std::vector<int> listaMapas(){
+    time_t timer;
+    time(&timer);
+    srand (timer);
+    int x=0;
+    std::vector<int> nums;
+    std::vector<int> result;
+
+    for(int i=0;i<6;i++) nums.push_back(i);
+std::cout<<" sddfdfd"<<std::endl;
+    while(nums.size()!=0){
+        x = rand() % nums.size();
+        result.push_back(nums[x]);
+        nums.erase(nums.begin()+x);
+    }
+    std::cout<<result[0]<<" "<<result[1]<<" "<<result[2]<<" "<<result[3]<<" "<<result[4]<<" "<<result[5]<<" "<<std::endl;
+    return result;
+
 }
 
 

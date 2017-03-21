@@ -3185,3 +3185,373 @@
 	"PhysicBody/PBBullet.h"
 	"World.h"
 
+1488397760 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\main.cpp
+	"Master.h"
+	"Client.h"
+
+1490092190 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\master.h
+	<irrlicht.h>
+	<vector>
+
+1490090006 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\client.h
+	"MessageIdentifiers.h"
+	"RakPeerInterface.h"
+	"RakNetStatistics.h"
+	"RakNetTypes.h"
+	"BitStream.h"
+	"PacketLogger.h"
+	<assert.h>
+	<iostream>
+	<vector>
+	<string>
+	<cstdio>
+	<cstring>
+	<stdlib.h>
+	"RakNetTypes.h"
+	"Kbhit.h"
+	"WindowsIncludes.h"
+	"Kbhit.h"
+	<unistd.h>
+	"Gets.h"
+	"SecureHandshake.h"
+	"Player.h"
+	"PlayerRed.h"
+
+1490091048 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\player.h
+	"Cogible.h"
+
+1489685871 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\cogible.h
+	"PhysicBody/PhysicBody.h"
+	<Box2D/Box2D.h>
+	"GameResource.h"
+	"GameObject.h"
+	<irrlicht.h>
+
+1489681720 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\physicbody.h
+	<Box2D/Box2D.h>
+
+1489604002 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
+	<iostream>
+
+1490023773 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+	"GameResource.h"
+
+1488553637 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\irrmanager.h
+	<irrlicht.h>
+	"GameResource.h"
+
+1490088179 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\playerred.h
+	"Player.h"
+
+1490027976 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bala.cpp
+	"Bala.h"
+	"World.h"
+	"PhysicBody/PBBullet.h"
+
+1490026884 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bala.h
+	"GameObject.h"
+
+1490022530 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
+	<vector>
+	<Box2D/Box2D.h>
+	"GameResource.h"
+	"RVector.h"
+	"Client.h"
+
+1490091992 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\rvector.h
+
+1490028342 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
+	"PhysicBody.h"
+
+1490031533 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
+	"PhysicBody/PBDeadPlayer.h"
+	"PhysicBody/PBAlivePlayer.h"
+	"Bot.h"
+	"World.h"
+	"PathFinding/Lista.h"
+	<ctime>
+	<stdlib.h>
+
+1489679044 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdeadplayer.h
+	"PhysicBody.h"
+
+1489681061 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbaliveplayer.h
+	"PhysicBody.h"
+
+1490091719 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bot.h
+	"World.h"
+
+1489448307 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\lista.h
+	<PathFinding/Nodo.h>
+	<Box2D/Box2D.h>
+
+1488809824 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\nodo.h
+	<Box2D/Box2D.h>
+	<irrlicht.h>
+	<iostream>
+	<vector>
+
+1488552419 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\camera.cpp
+	"Camera.h"
+	"World.h"
+	"Player.h"
+
+1488821088 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\camera.h
+	"IrrManager.h"
+	<Box2D/Box2D.h>
+	<vector>
+
+1490024137 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\cogible.cpp
+	"PhysicBody/PBCogibleReleased.h"
+	"PhysicBody/PBCogibleCatched.h"
+	"IrrManager.h"
+	"Cogible.h"
+	"Spawner.h"
+	"World.h"
+
+1489679041 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblereleased.h
+	"PhysicBody.h"
+
+1489679039 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblecatched.h
+	"PhysicBody.h"
+
+1489683533 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\spawner.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1488397076 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\debuginfo.cpp
+	"DebugInfo.h"
+
+1488397075 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\debuginfo.h
+	"IrrManager.h"
+	"World.h"
+
+1489427687 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\escopeta.cpp
+	"PhysicBody/PBCogibleReleased.h"
+	"PhysicBody/PBCogibleCatched.h"
+	"Escopeta.h"
+	"World.h"
+	"IrrManager.h"
+	"Bala.h"
+
+1488821102 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\escopeta.h
+	"Usable.h"
+
+1489349812 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\usable.h
+	"Cogible.h"
+
+1490023956 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
+	"GameObject.h"
+	"World.h"
+	<iostream>
+
+1489417903 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\granada.cpp
+	"PhysicBody/PBCogibleReleased.h"
+	"PhysicBody/PBCogibleCatched.h"
+	"IrrManager.h"
+	"Granada.h"
+	"World.h"
+
+1488821117 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\granada.h
+	"Usable.h"
+
+1488555002 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\hud.cpp
+	"HUD.h"
+	"World.h"
+
+1488554113 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\hud.h
+	"IrrManager.h"
+
+1490031570 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
+	"IrrManager.h"
+	"MyEventReceiver.h"
+	"DebugInfo.h"
+	"HUD.h"
+
+1488397075 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\myeventreceiver.h
+	<irrlicht.h>
+
+1490030658 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\map.cpp
+	"Map.h"
+	"IrrManager.h"
+	"Platform.h"
+	"Spawner.h"
+	"Muelle.h"
+	"Teleport.h"
+	"Cogible.h"
+	"Pistola.h"
+	"Escopeta.h"
+	"Granada.h"
+	"Bot.h"
+	"PathFinding/Nodo.h"
+	"PathFinding/Lista.h"
+	"GameObject.h"
+	"PhysicBody/PBDeadPlayer.h"
+
+1488916879 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\map.h
+	"World.h"
+	<sstream>
+	<irrlicht.h>
+
+1489424855 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\platform.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1489424865 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\muelle.h
+	"GameObject.h"
+	<irrlicht.h>
+
+1489424856 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\teleport.h
+	<irrlicht.h>
+	"GameObject.h"
+
+1488817282 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pistola.h
+	"Usable.h"
+
+1490032064 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\master.cpp
+	"Master.h"
+	"World.h"
+	"IrrManager.h"
+	<ctime>
+	<stdlib.h>
+
+1489426325 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\muelle.cpp
+	"Muelle.h"
+	"World.h"
+	"IrrManager.h"
+	"PhysicBody/PBDefault.h"
+
+1489679045 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefault.h
+	"PhysicBody.h"
+
+1490032113 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\mycontactlistener.cpp
+	"MyContactListener.h"
+	"Teleport.h"
+	"Cogible.h"
+	"Spawner.h"
+	"Muelle.h"
+	"Player.h"
+	"Bala.h"
+
+1490031350 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\mycontactlistener.h
+	"World.h"
+
+1488595830 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\myeventreceiver.cpp
+	"MyEventReceiver.h"
+	"IrrManager.h"
+	"Player.h"
+	"World.h"
+
+1490032305 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbaliveplayer.cpp
+	"PhysicBody/PBAlivePlayer.h"
+	"World.h"
+
+1490028910 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbbullet.cpp
+	"PhysicBody/PBBullet.h"
+	"World.h"
+
+1490026986 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblecatched.cpp
+	"PhysicBody/PBCogibleCatched.h"
+	"World.h"
+
+1490023469 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblereleased.cpp
+	"PhysicBody/PBCogibleReleased.h"
+	"World.h"
+
+1490032435 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdeadplayer.cpp
+	"PhysicBody/PBDeadPlayer.h"
+	"World.h"
+
+1489680194 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefault.cpp
+	"PhysicBody/PBDefault.h"
+	"World.h"
+
+1489680201 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefaultsensor.cpp
+	"PhysicBody/PBDefaultSensor.h"
+	"World.h"
+
+1489679046 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefaultsensor.h
+	"PhysicBody/PhysicBody.h"
+
+1490022623 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbspawner.cpp
+	"PhysicBody/PBSpawner.h"
+	"World.h"
+
+1489681058 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbspawner.h
+	"PhysicBody.h"
+
+1489681657 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\physicbody.cpp
+	"PhysicBody/PhysicBody.h"
+	"World.h"
+
+1490026603 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\pistola.cpp
+	"PhysicBody/PBCogibleReleased.h"
+	"PhysicBody/PBCogibleCatched.h"
+	"IrrManager.h"
+	"Pistola.h"
+	"World.h"
+	"Bala.h"
+
+1490022524 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\platform.cpp
+	"Platform.h"
+	"World.h"
+	"PhysicBody/PBDefault.h"
+	"PhysicBody/PBDefaultSensor.h"
+
+1489684308 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\spawner.cpp
+	"PhysicBody/PBSpawner.h"
+	"IrrManager.h"
+	"Escopeta.h"
+	"Pistola.h"
+	"Granada.h"
+	"Spawner.h"
+	"World.h"
+
+1489447668 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\teleport.cpp
+	"PhysicBody/PBDefault.h"
+	"Teleport.h"
+	"World.h"
+
+1490029476 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\usable.cpp
+	"Spawner.h"
+	"Usable.h"
+
+1490029153 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
+	"PathFinding/Lista.h"
+	"World.h"
+	"MyContactListener.h"
+	"IrrManager.h"
+	"PlayerRed.h"
+	"Platform.h"
+	"Spawner.h"
+	"Cogible.h"
+	"Camera.h"
+	"Player.h"
+	"Bala.h"
+	"Bot.h"
+	"Map.h"
+	"GameObject.h"
+	"PhysicBody/PBAlivePlayer.h"
+
+1490089854 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\client.cpp
+	"Client.h"
+	"World.h"
+
+1490091246 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+	"PhysicBody/PBDeadPlayer.h"
+	"PhysicBody/PBAlivePlayer.h"
+	"MyEventReceiver.h"
+	"Player.h"
+	"Usable.h"
+	"Client.h"
+	"World.h"
+
+1490090723 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
+	"PhysicBody/PBDeadPlayer.h"
+	"PhysicBody/PBAlivePlayer.h"
+	"PlayerRed.h"
+	"World.h"
+	"Usable.h"
+

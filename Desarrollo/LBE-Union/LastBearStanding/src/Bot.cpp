@@ -129,3 +129,19 @@ void Bot::calcularPathfinding(Nodo* objetivo){
      } 
    }
 }
+
+void Bot::morir(){
+    if(!muerto){
+        paraMorir = false;
+        if(cogiendo) Soltar();
+        estado = MUERTO_DORMIDO;
+        m_id = m_gameObject.SetMode(new PBDeadPlayer);
+        if(direccion > 0 )
+            m_gameObject.SetAngularVelocity(-0.5f);
+        else
+            m_gameObject.SetAngularVelocity(0.5f);
+        muerto = true;
+        m_pClient->enviarMuerto(mando);
+    }
+}
+

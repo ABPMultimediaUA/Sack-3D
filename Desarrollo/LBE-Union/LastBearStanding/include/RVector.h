@@ -8,8 +8,9 @@ class RVector{
         RVector &operator=(const RVector &) = delete; //no copiable
         explicit RVector(){}
         ~RVector(){
-            for(int i = 0 ; i<m_rs.size() ; i++)
+            for(int i = 0 ; i<m_rs.size() ; i++){
                 if(m_rs.at(i))delete m_rs.at(i);
+            }
             m_rs.clear();
             std::vector<A*>().swap(m_rs);
             //std::vector<A*>(m_rs).swap(m_rs);

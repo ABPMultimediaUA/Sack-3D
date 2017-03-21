@@ -2,6 +2,7 @@
 #define MASTER_H
 
 #include <irrlicht.h>
+#include <vector>
 
 struct Num2Map {
      int num;
@@ -17,6 +18,7 @@ class Master{
         void InstanciaMundo();
         virtual ~Master(){}
     private:
+        std::vector<int> mapList;
     	bool finPartida;
         irr::f32 timeFPS;
         irr::ITimer* timerFPS;
@@ -24,6 +26,7 @@ class Master{
         irr::ITimer* timerFinPartida;
         irr::f32 time2SyncClient;
         int puntuaciones[4];
+        int game;
         const Num2Map maps[7] = {
               {  1         , L"media/Maps/MapFinding1.tmx" }
             , {  2         , L"media/Maps/MapFinding2.tmx" }

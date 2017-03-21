@@ -47,16 +47,23 @@ void Master::Update(){
     }
 }
 void Master::InstanciaMundo(){
+    mapList = Client::Inst()->getMaps();
+    std::cout<<mapList[0]<<" "<<mapList[1]<<" "<<mapList[2]<<" "<<mapList[3]<<" "<<mapList[4]<<" "<<mapList[5]<<" "<<std::endl;
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
-    int mapa = rand()%numDeMapas+1;
     const Num2Map * it = maps;
     while(it->num != 0){
-        if(it->num == mapa){
+        if(it->num == (mapList[game]+1)){
+            std::cout<<"MAPA "<<it->num<<"and"<<(mapList[game]+1)<<std::endl;
             World::Inst()->inicializaVariables(it->map,puntuaciones);
+            game++;
             break;
         }
         it++;
+    }
+    if(it->num == 0){
+        game=0;
+        InstanciaMundo();
     }
 }
 bool Master::Run(){

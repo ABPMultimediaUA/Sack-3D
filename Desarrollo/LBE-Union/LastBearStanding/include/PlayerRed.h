@@ -5,7 +5,7 @@
 
 class PlayerRed: public Player{
     public:
-        PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[]);
+        PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[], int ve=0, int sal=0);
         virtual void actualiza();
         virtual ~PlayerRed();
         virtual void mover(int mov);
@@ -22,6 +22,7 @@ class PlayerRed: public Player{
         virtual void morir();
         virtual void morirRed();
         virtual void usar();
+        virtual void fingirMuerte();
 
     protected:
         int estadoAntiguo;

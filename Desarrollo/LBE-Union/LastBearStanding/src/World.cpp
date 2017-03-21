@@ -4,6 +4,7 @@
 #include "MyContactListener.h"
 #include "IrrManager.h"
 #include "PlayerRed.h"
+#include "Teleport.h"
 #include "Platform.h"
 #include "Spawner.h"
 #include "Cogible.h"

@@ -40,14 +40,22 @@ void Player::mover(){
     dir = 0;
     int id2 = (*m_pClient->getIdCliente())-'0';
     if(mando == id2){
-        if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){moviendo = direccion = dir = -1;}
-        else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){moviendo = direccion = dir = 1;}
-        else{moviendo = 0;}
+        if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){
+            moviendo = direccion = dir = -1;
+        }
+        else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){
+            moviendo = direccion = dir = 1;
+        }
+        else{
+                moviendo = 0;
+        }
     }
-    if(moviendo != moviendoA){m_pClient->enviarMoviendo(moviendo);
-    moviendoA = moviendo;}
-    m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel, m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(dir);
+    if(moviendo != moviendoA){
+        m_pClient->enviarMoviendo(moviendo);
+        moviendoA = moviendo;
+    }
+    m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
+    if(cogiendo) objCogido->setDireccion(moviendo);
 }
 void Player::saltar(){
     if(muerto)
@@ -76,6 +84,7 @@ void Player::saltar(){
     }
 }
 void Player::fingirMuerte(){
+    m_pClient->enviarHacerseMuerto();
     if(cogiendo) Soltar();
     if(muerto)
         return;

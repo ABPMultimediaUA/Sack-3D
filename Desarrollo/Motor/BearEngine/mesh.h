@@ -55,6 +55,7 @@ class Mesh : public TRecurso
            ~EntradaMalla();
            void InitMesh(const modeloIndexado& model);
             void Draw();
+          private:
             enum{
                 POSITION_VB,
                 TEXCOORD_VB,
@@ -65,11 +66,11 @@ class Mesh : public TRecurso
             };
 
          //   void processMesh(aiMesh* mesh, const aiScene* scene)
-
+            //void clear(){}
             GLuint m_vertexArrayObject;
             GLuint m_vertexArrayBuffers[NUM_BUFFERS];
             unsigned int m_drawCount;
-            void clear(){}
+
 
         };
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1490019889 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
+1490120389 source:d:\mis cosas\universidad\motor\tag\bearengine\main.cpp
 	<iostream>
 	<GL/glew.h>
 	<stdlib.h>
@@ -34,14 +34,15 @@
 1489675072 source:d:\mis cosas\universidad\motor\tag\bearengine\tnodo.cpp
 	"tnodo.h"
 
-1489680265 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
+1490120042 source:d:\mis cosas\universidad\motor\tag\bearengine\mesh.cpp
 	"mesh.h"
 	<vector>
 	<iostream>
 	<assimp/cimport.h>
+	<assimp/Importer.hpp>
 	<assimp/postprocess.h>
 
-1489503384 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
+1490025374 d:\mis cosas\universidad\motor\tag\bearengine\mesh.h
 	<glm/glm.hpp>
 	<GL/glew.h>
 	"modeloindexado.h"

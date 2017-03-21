@@ -4,7 +4,9 @@
 #include <iostream>
 
 #include <assimp/cimport.h>
+#include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
+
 
 
 /*
@@ -29,7 +31,7 @@ Mesh::Mesh( const char* fileName){
         MallasLeidas.push_back( new Mesh::EntradaMalla(scene->mMeshes[i],scene));
     }
     std::cout<< "modelo cargado con exito "<< fileName<<std::endl;
-
+    aiReleaseImport(scene);
 }
 
 Mesh::Mesh(float alto, float ancho, float prof){
@@ -46,9 +48,10 @@ Mesh::~Mesh()
     //glDeleteVertexArrays(1, &m_vertexArrayObject);
     std::cout<<"Leidas: "<<MallasLeidas.size()<<std::endl;
     for(int i = 0; i< MallasLeidas.size();i++){
-        delete MallasLeidas.at(i);
+        delete MallasLeidas[i];
         std::cout<<"BORRADO"<<std::endl;
     }
+
     MallasLeidas.clear();
 }
 
@@ -66,9 +69,6 @@ void  Mesh::setNombre( char* name){
 
 
 Mesh::EntradaMalla::~EntradaMalla(){ /*INCOMPLETO */
-    std::cout<<"ENTRA"<<std::endl;
-
-
    if(m_vertexArrayBuffers[POSITION_VB]){
         std::cout<<"1"<<std::endl;
            glDeleteBuffers(1, &m_vertexArrayBuffers[POSITION_VB]);}
@@ -100,7 +100,6 @@ Mesh::EntradaMalla::~EntradaMalla(){ /*INCOMPLETO */
 
   //  glGenBuffers(glsizei, gluint buffers);
   //  glDeleteBuffers()
-    std::cout<<"SALE"<<std::endl;
 }
 
 Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){

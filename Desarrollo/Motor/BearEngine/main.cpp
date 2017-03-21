@@ -108,6 +108,7 @@ int main(int argc, char* argv[])
    // transf4->trasladar(glm::vec3(-0.5,0,0));
 
     TEntidad * malla1  =new TEntidadMalla();// motorsito.crearMalla("./res/cubo.obj");
+    TEntidad * malla2  =new TEntidadMalla();// motorsito.crearMalla("./res/cubo.obj");
    // TEntidad * malla2  =motorsito.crearMalla("./res/bear.obj");
     //TEntidad * malla3  =motorsito.crearMalla("./res/bear.obj");
     TEntidad * malla4  =motorsito.crearMalla("./res/andador.obj");
@@ -115,10 +116,10 @@ int main(int argc, char* argv[])
     //TEntidad * malla5  =motorsito.crearMalla("./res/cubo.obj");
     //TEntidad * malla6  =motorsito.crearMalla("./res/cubo.obj");
 
-    motorsito.crearCuboEn(0.05,0.05,0.05,glm::vec3(0,0,-0.05));
+   /* motorsito.crearCuboEn(0.05,0.05,0.05,glm::vec3(0,0,-0.05));
     motorsito.crearCuboEn(0.05,0.05,0.05,glm::vec3(0,0.06,-0.05));
     motorsito.crearCuboEn(0.05,0.005,0.005,glm::vec3(0,-0.06,-0.05));
-    motorsito.crearCuboEn(0.05,0.05,0.05,glm::vec3(0,-0.12,-0.05));
+    motorsito.crearCuboEn(0.05,0.05,0.05,glm::vec3(0,-0.12,-0.05));*/
 
     TEntidad * cam = motorsito.crearCamara(glm::vec3(0,0,-4), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f,1000.0f);
 
@@ -187,10 +188,14 @@ int main(int argc, char* argv[])
     int cami=1; //Borrar
     int camaraActual=0; //Borrar
     float alberto=0; //Borrar
+    int contador=0;
     glm::vec3 traslado=glm::vec3(0,0,0); //Borrar
     while(!motorsito.IsClosed()){
         motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
        shader.Bind();
+    motorsito.cambiarMalla(malla2, "./res/Oso.obj");
+    motorsito.borrarMalla("./res/Oso.obj");
+    std::cout<<contador++<<std::endl;
        motorsito.draw(&shader);
 
        malla= motorsito.UpdateDisplay();
@@ -271,15 +276,16 @@ alberto=alberto+0.01;
 //std::cout<<"AL "<<alberto<<" Camara "<<cami<<std::endl;
 
 }
-
+/*
     delete(transf1);
-    delete(transf2);
+    delete(transf2);*/
     delete(malla1);
+    delete(malla2);/*
     delete(cam);
     delete(nodoTrans1);
     delete(nodoTrans2);
     delete(nodoMalla1);
-
+*/
     std::cout << "Bye world!" << std::endl;
     return 0;
 }

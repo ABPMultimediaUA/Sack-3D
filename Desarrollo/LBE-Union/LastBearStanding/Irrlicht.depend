@@ -3217,7 +3217,7 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1490091048 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\player.h
+1490095337 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\player.h
 	"Cogible.h"
 
 1489685871 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\cogible.h
@@ -3230,7 +3230,7 @@
 1489681720 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\physicbody.h
 	<Box2D/Box2D.h>
 
-1489604002 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
+1490099068 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
 	<iostream>
 
 1490023773 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
@@ -3260,12 +3260,12 @@
 	"RVector.h"
 	"Client.h"
 
-1490091992 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\rvector.h
+1490099183 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\rvector.h
 
 1490028342 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
 	"PhysicBody.h"
 
-1490031533 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
+1490092476 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"Bot.h"
@@ -3410,7 +3410,7 @@
 1488817282 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1490032064 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\master.cpp
+1490092348 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
@@ -3518,12 +3518,13 @@
 	"Spawner.h"
 	"Usable.h"
 
-1490029153 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
+1490092106 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
 	"World.h"
 	"MyContactListener.h"
 	"IrrManager.h"
 	"PlayerRed.h"
+	"Teleport.h"
 	"Platform.h"
 	"Spawner.h"
 	"Cogible.h"
@@ -3554,4 +3555,17 @@
 	"PlayerRed.h"
 	"World.h"
 	"Usable.h"
+
+1490094081 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdnode.cpp
+	"PhysicBody/PBNode.h"
+	"World.h"
+
+1490094072 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbnode.h
+	"PhysicBody/PhysicBody.h"
+
+1490098598 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameresource.cpp
+	"GameResource.h"
+
+1490098534 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\rvector.cpp
+	"RVector.h"
 

@@ -1,13 +1,10 @@
 #ifndef GAMERESOURCE_H
 #define GAMERESOURCE_H
 
-#include <iostream>
 
 template <class A>
 class GameResource{
     public:
-    	GameResource(const GameResource &) = delete; //no copiable
-    	GameResource &operator=(const GameResource &) = delete; //no copiable
 	    explicit GameResource(A *a = NULL):m_t(a){}
 	    void Reset(A *a = NULL){
 	        if(m_t){
@@ -24,6 +21,8 @@ class GameResource{
 	        }
 	    }
     private:
+    	GameResource(const GameResource &){}
+    	GameResource &operator=(const GameResource &){}
 	    A *m_t;
 };
 

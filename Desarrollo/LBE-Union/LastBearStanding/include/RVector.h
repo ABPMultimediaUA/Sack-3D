@@ -4,17 +4,13 @@
 template <class A>
 class RVector{
     public:
-        RVector(const RVector &) = delete; //no copiable
-        RVector &operator=(const RVector &) = delete; //no copiable
         explicit RVector(){}
         ~RVector(){
-            for(int i = 0 ; i<m_rs.size() ; i++){
+            for(unsigned int i = 0 ; i<m_rs.size() ; i++){
                 if(m_rs.at(i))delete m_rs.at(i);
             }
             m_rs.clear();
             std::vector<A*>().swap(m_rs);
-            //std::vector<A*>(m_rs).swap(m_rs);
-            //m_rs.shrink_to_fit();
         }
         bool Add(A *a = NULL){
             if(a){
@@ -33,6 +29,8 @@ class RVector{
         A* Get(int i){return m_rs.at(i);}
         int Size(){return m_rs.size();}
     private:
+        RVector(const RVector &){};
+        RVector &operator=(const RVector &){}; 
         std::vector<A*> m_rs;
 };
 

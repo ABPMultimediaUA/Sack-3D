@@ -45,8 +45,8 @@ class Player: public Cogible{
         virtual void setParaMorir(bool aux);
         virtual int  getDireccion();
         virtual char* getIp();
-        virtual void setClientPort(char aux[]);
-        virtual void setServerPort(char aux[]);
+        void setClientPort(char aux[]);
+        void setServerPort(char aux[]);
         virtual int getEstado();
         virtual char* getId();
         virtual char* getServerPort();

@@ -3,6 +3,7 @@
 #include "Bot.h"
 #include "World.h"
 #include "PathFinding/Lista.h"
+#include "PathFinding/Nodo.h"
 #include <ctime>
 #include <stdlib.h>
 

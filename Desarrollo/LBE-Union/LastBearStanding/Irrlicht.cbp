@@ -105,6 +105,8 @@
 		<Unit filename="src/Muelle.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
+		<Unit filename="src/PathFinding/Lista.cpp" />
+		<Unit filename="src/PathFinding/Nodo.cpp" />
 		<Unit filename="src/PhysicBody/PBAlivePlayer.cpp" />
 		<Unit filename="src/PhysicBody/PBBullet.cpp" />
 		<Unit filename="src/PhysicBody/PBCogibleCatched.cpp" />

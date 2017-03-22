@@ -3189,7 +3189,7 @@
 	"Master.h"
 	"Client.h"
 
-1490092190 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\master.h
+1490100066 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\master.h
 	<irrlicht.h>
 	<vector>
 
@@ -3220,25 +3220,24 @@
 1490095337 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1489685871 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\cogible.h
+1490169945 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\cogible.h
 	"PhysicBody/PhysicBody.h"
-	<Box2D/Box2D.h>
 	"GameResource.h"
+	<Box2D/Box2D.h>
 	"GameObject.h"
 	<irrlicht.h>
 
 1489681720 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\physicbody.h
 	<Box2D/Box2D.h>
 
-1490099068 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
-	<iostream>
+1490170295 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
 
-1490023773 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
+1490169962 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
 	"IrrManager.h"
 	<Box2D/Box2D.h>
 	"GameResource.h"
 
-1488553637 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\irrmanager.h
+1490169970 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
@@ -3253,24 +3252,25 @@
 1490026884 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bala.h
 	"GameObject.h"
 
-1490022530 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
+1490169930 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
 	"RVector.h"
 	"Client.h"
 
-1490099183 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\rvector.h
+1490169697 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\rvector.h
 
 1490028342 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
 	"PhysicBody.h"
 
-1490092476 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
+1490171519 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"Bot.h"
 	"World.h"
 	"PathFinding/Lista.h"
+	"PathFinding/Nodo.h"
 	<ctime>
 	<stdlib.h>
 
@@ -3280,17 +3280,15 @@
 1489681061 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbaliveplayer.h
 	"PhysicBody.h"
 
-1490091719 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bot.h
+1490169512 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bot.h
 	"World.h"
 
-1489448307 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\lista.h
-	<PathFinding/Nodo.h>
+1490171589 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\lista.h
 	<Box2D/Box2D.h>
+	<Vector>
 
-1488809824 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\nodo.h
+1490171627 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pathfinding\nodo.h
 	<Box2D/Box2D.h>
-	<irrlicht.h>
-	<iostream>
 	<vector>
 
 1488552419 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\camera.cpp
@@ -3342,7 +3340,7 @@
 1489349812 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1490023956 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
+1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
 	"GameObject.h"
 	"World.h"
 	<iostream>
@@ -3373,7 +3371,7 @@
 1488397075 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1490030658 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\map.cpp
+1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -3410,7 +3408,7 @@
 1488817282 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1490092348 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\master.cpp
+1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
@@ -3540,7 +3538,7 @@
 	"Client.h"
 	"World.h"
 
-1490091246 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"MyEventReceiver.h"
@@ -3549,7 +3547,7 @@
 	"Client.h"
 	"World.h"
 
-1490090723 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
+1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"PlayerRed.h"
@@ -3939,4 +3937,14 @@
 	"Map.h"
 	"GameObject.h"
 	"PhysicBody/PBAlivePlayer.h"
+
+1490171715 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\pathfinding\lista.cpp
+	"PathFinding/Lista.h"
+	"PathFinding/Nodo.h"
+	<iostream>
+
+1490171741 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\pathfinding\nodo.cpp
+	"PathFinding/Nodo.h"
+	<irrlicht.h>
+	<iostream>
 

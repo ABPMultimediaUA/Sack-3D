@@ -7,6 +7,8 @@
 class DebugInfo;
 class HUD;
 class MyEventReceiver;
+
+
 class IrrMngr{
     public:
         static IrrMngr* Inst();

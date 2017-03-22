@@ -1,7 +1,6 @@
 #ifndef RVECTOR_H
 #define RVECTOR_H
 
-#include<iostream>
 
 template <class A>
 class RVector{
@@ -9,10 +8,8 @@ class RVector{
         explicit RVector(){}
         ~RVector(){
             for(unsigned int i = 0 ; i<m_rs.size() ; i++){
-                std::cout<<"A BORRAR "<<std::endl;
                 if(m_rs.at(i))delete m_rs.at(i);
             }
-            std::cout<<"Acaba BORRAR "<<std::endl;
             m_rs.clear();
             std::vector<A*>().swap(m_rs);
         }

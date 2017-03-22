@@ -2,14 +2,16 @@
 #define COGIBLE_H
 
 #include "PhysicBody/PhysicBody.h"
-#include <Box2D/Box2D.h>
 #include "GameResource.h"
+#include <Box2D/Box2D.h>
 #include "GameObject.h"
 #include <irrlicht.h>
 
 class Spawner;
 class World;
 class IrrMngr;
+
+
 class Cogible{
     public:
         Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);

@@ -1,7 +1,9 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
 #include "PhysicBody/PBCotton.h"
+#include "PhysicBody/PBCotton.h"
 #include "MyEventReceiver.h"
+#include "Particle.h"
 #include "Player.h"
 #include "Usable.h"
 #include "Client.h"
@@ -106,6 +108,15 @@ void Player::fingirMuerte(){
 }
 void Player::morir(){
     if(!muerto){
+        b2Vec2 pos = m_gameObject.GetPosition();
+        pos.y *= -1;
+        for (int i = 0; i < 25; ++i){
+            irr::core::vector3df tam;
+            tam.X = ((float)(rand()%10)/50.f)+0.01f;
+            tam.Y = tam.X;
+            tam.Z = 1;
+            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0), 5000));
+        }
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;

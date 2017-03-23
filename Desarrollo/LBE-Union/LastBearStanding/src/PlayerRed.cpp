@@ -1,6 +1,8 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
+#include "PhysicBody/PBCotton.h"
 #include "PlayerRed.h"
+#include "Particle.h"
 #include "World.h"
 #include "Usable.h"
 
@@ -92,6 +94,9 @@ std::cout<<"FGJBDVHBDKD"<<std::endl;
         else
             m_gameObject.SetAngularVelocity(0.5f);
         muerto = true;
+        //for (int i = 0; i < 5; ++i){
+        //    m_pWorld->AddParticle(new Particle(new PBCotton(),m_gameObject.GetPosition(),irr::core::vector3df(.1f,.1f,.1f), irr::video::SColor(255,0,0,0), b2Vec2(rand()%10,rand()%20-10), 5000));
+        //}
 
 }
 void PlayerRed::fingirMuerte(){

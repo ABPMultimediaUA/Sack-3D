@@ -6,6 +6,7 @@
 #include "PlayerRed.h"
 #include "Teleport.h"
 #include "Metralla.h"
+#include "Particle.h"
 #include "Platform.h"
 #include "Spawner.h"
 #include "Cogible.h"
@@ -100,22 +101,18 @@ int World::Update(int fps){
   IrrMngr::Inst()->beginScene();
   world.Get()->Step(TIMESTEP, VELITER, POSITER);
   world.Get()->ClearForces();
-  for (int i = 0; i < m_Balas.Size(); ++i){
-    if(m_Balas.Get(i)){
-      m_Balas.Get(i)->actualiza();
-      if(m_Balas.Get(i)->getDestruir()){
-          m_Balas.Remove(i);
-      }
-    }
-  }
-  for (int i = 0; i < m_Metrallas.Size(); ++i){
-    if(m_Metrallas.Get(i)){
-      m_Metrallas.Get(i)->actualiza();
-      if(m_Metrallas.Get(i)->getDestruir()){
-          m_Metrallas.Remove(i);
-      }
-    }
-  }
+  UpdateBalas();
+  UpdateParticles();
+  UpdateMetrallas();
+  UpdateCogibles();
+  UpdateSpawners();
+  int players;
+  players = UpdatePlayers();
+  camara.Get()->update(TimeStamp, fps);
+  return players;
+}
+
+void World::UpdateCogibles(){
   for (int i = 0; i < m_Cogibles.Size(); ++i){
     if(m_Cogibles.Get(i)){
       m_Cogibles.Get(i)->actualiza();
@@ -124,11 +121,18 @@ int World::Update(int fps){
       }
     }
   }
-  for (int i = 0; i < m_Spawners.Size(); ++i){
-    if(m_Spawners.Get(i)){
-      m_Spawners.Get(i)->actualiza();
+}
+void World::UpdateBalas(){
+  for (int i = 0; i < m_Balas.Size(); ++i){
+    if(m_Balas.Get(i)){
+      m_Balas.Get(i)->actualiza();
+      if(m_Balas.Get(i)->getDestruir()){
+          m_Balas.Remove(i);
+      }
     }
   }
+}
+int World::UpdatePlayers(){
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
     if(m_Players.Get(i)){
@@ -136,6 +140,32 @@ int World::Update(int fps){
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }
-  camara.Get()->update(TimeStamp, fps);
   return players;
+}
+void World::UpdateSpawners(){
+  for (int i = 0; i < m_Spawners.Size(); ++i){
+    if(m_Spawners.Get(i)){
+      m_Spawners.Get(i)->actualiza();
+    }
+  }
+}
+void World::UpdateMetrallas(){
+  for (int i = 0; i < m_Metrallas.Size(); ++i){
+    if(m_Metrallas.Get(i)){
+      m_Metrallas.Get(i)->actualiza();
+      if(m_Metrallas.Get(i)->getDestruir()){
+          m_Metrallas.Remove(i);
+      }
+    }
+  }
+}
+void World::UpdateParticles(){
+  for (int i = 0; i < m_Particles.Size(); ++i){
+    if(m_Particles.Get(i)){
+      m_Particles.Get(i)->actualiza();
+      if(m_Particles.Get(i)->getDestruir()){
+          m_Particles.Remove(i);
+      }
+    }
+  }
 }

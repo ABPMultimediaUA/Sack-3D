@@ -1,5 +1,6 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
+#include "PhysicBody/PBCotton.h"
 #include "MyEventReceiver.h"
 #include "Player.h"
 #include "Usable.h"

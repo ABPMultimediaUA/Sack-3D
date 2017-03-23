@@ -1,5 +1,6 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
+#include "PhysicBody/PBCotton.h"
 #include "Bot.h"
 #include "World.h"
 #include "PathFinding/Lista.h"

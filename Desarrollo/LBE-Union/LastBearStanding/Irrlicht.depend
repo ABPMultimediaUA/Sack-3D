@@ -3252,7 +3252,7 @@
 1490266705 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bala.h
 	"GameObject.h"
 
-1490267355 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
+1490271881 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
@@ -3264,9 +3264,10 @@
 1490028342 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
 	"PhysicBody.h"
 
-1490259758 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
+1490272945 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"Bot.h"
 	"World.h"
 	"PathFinding/Lista.h"
@@ -3521,7 +3522,7 @@
 	"Spawner.h"
 	"Usable.h"
 
-1490267464 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
+1490272026 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
 	"PathFinding/Nodo.h"
 	"MyContactListener.h"
@@ -3529,6 +3530,7 @@
 	"PlayerRed.h"
 	"Teleport.h"
 	"Metralla.h"
+	"Particle.h"
 	"Platform.h"
 	"Spawner.h"
 	"Cogible.h"
@@ -3545,9 +3547,10 @@
 	"Client.h"
 	"World.h"
 
-1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+1490272951 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"MyEventReceiver.h"
 	"Player.h"
 	"Usable.h"
@@ -3962,12 +3965,26 @@
 1490267595 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\metralla.h
 	"GameObject.h"
 
-1490267842 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\metralla.cpp
+1490270681 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\metralla.cpp
 	"PhysicBody/PBBullet.h"
 	"Metralla.h"
 	"World.h"
 
 1490269875 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbgranadareleased.cpp
 	"PhysicBody/PBGranadaReleased.h"
+	"World.h"
+
+1490271043 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\particle.cpp
+	"Particle.h"
+	"World.h"
+
+1490271200 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\particle.h
+	"GameObject.h"
+
+1490272290 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcotton.h
+	"PhysicBody.h"
+
+1490273115 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
+	"PhysicBody/PBCotton.h"
 	"World.h"
 

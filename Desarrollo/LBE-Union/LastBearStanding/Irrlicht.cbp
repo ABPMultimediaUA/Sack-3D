@@ -63,12 +63,14 @@
 		</Unit>
 		<Unit filename="include/MyContactListener.h" />
 		<Unit filename="include/MyEventReceiver.h" />
+		<Unit filename="include/Particle.h" />
 		<Unit filename="include/PathFinding/Lista.h" />
 		<Unit filename="include/PathFinding/Nodo.h" />
 		<Unit filename="include/PhysicBody/PBAlivePlayer.h" />
 		<Unit filename="include/PhysicBody/PBBullet.h" />
 		<Unit filename="include/PhysicBody/PBCogibleCatched.h" />
 		<Unit filename="include/PhysicBody/PBCogibleReleased.h" />
+		<Unit filename="include/PhysicBody/PBCotton.h" />
 		<Unit filename="include/PhysicBody/PBDeadPlayer.h" />
 		<Unit filename="include/PhysicBody/PBDefault.h" />
 		<Unit filename="include/PhysicBody/PBDefaultSensor.h" />
@@ -108,12 +110,14 @@
 		<Unit filename="src/Muelle.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
+		<Unit filename="src/Particle.cpp" />
 		<Unit filename="src/PathFinding/Lista.cpp" />
 		<Unit filename="src/PathFinding/Nodo.cpp" />
 		<Unit filename="src/PhysicBody/PBAlivePlayer.cpp" />
 		<Unit filename="src/PhysicBody/PBBullet.cpp" />
 		<Unit filename="src/PhysicBody/PBCogibleCatched.cpp" />
 		<Unit filename="src/PhysicBody/PBCogibleReleased.cpp" />
+		<Unit filename="src/PhysicBody/PBCotton.cpp" />
 		<Unit filename="src/PhysicBody/PBDeadPlayer.cpp" />
 		<Unit filename="src/PhysicBody/PBDefault.cpp" />
 		<Unit filename="src/PhysicBody/PBDefaultSensor.cpp" />

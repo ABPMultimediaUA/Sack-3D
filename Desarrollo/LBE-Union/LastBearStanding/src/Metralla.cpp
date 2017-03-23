@@ -2,7 +2,7 @@
 #include "Metralla.h"
 #include "World.h"
 
-Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false){
+Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(1000){
     m_pIrrMngr = IrrMngr::Inst();
     m_id = m_gameObject.Inicialize(
 	    		new PBBullet()

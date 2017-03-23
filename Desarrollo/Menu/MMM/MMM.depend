@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1490273830 source:c:\users\jose\desktop\mmm\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+
+1490280793 source:d:\mis cosas\universidad\abp\menu\mmm\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+

@@ -85,7 +85,7 @@ void PBDefault::InitFixtures(b2Vec2 tam){
     b2PolygonShape polyShape;
     polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.1f;
+    fixtureDef.friction = 0.5f;
     fixtureDef.restitution  = 0.f;
     fixtureDef.density  =  2.0f;
     fixtureDef.filter.categoryBits = m_category;

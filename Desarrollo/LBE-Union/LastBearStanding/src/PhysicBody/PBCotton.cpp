@@ -15,6 +15,10 @@ int PBCotton::Inicialize( b2Vec2 pos, b2Vec2 tam){
 	DestroyBody();
 	InitBody(pos,tam);
     InitFixtures(tam);
+    b2Vec2 vel;
+    vel.y = ((float)(rand()%10)/50.f)+0.01f;
+    vel.x = (((float)(rand()%20)/50.f)-.5f)+0.01f;
+    SetLinearVelocity(vel);
     return m_bodyId;
 }
 b2Vec2 PBCotton::GetPosition(){
@@ -81,15 +85,16 @@ void PBCotton::InitBody(b2Vec2 pos,b2Vec2 tam){
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
+    //m_pBody->SetGravityScale( 0.01f );
 }
 void PBCotton::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
     polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.1f;
-    fixtureDef.restitution  = .2f;
-    fixtureDef.density  =  .01f;
+    fixtureDef.friction =       0.8f;
+    fixtureDef.restitution  =   .2f;
+    fixtureDef.density  =       1;
     fixtureDef.filter.categoryBits = M_PARTICULA;
     fixtureDef.filter.maskBits = M_PARTICULA|M_SUELO;
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);

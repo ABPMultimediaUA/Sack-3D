@@ -84,7 +84,15 @@ void PlayerRed::CogerTirar(int idCogible){
     }
 }
 void PlayerRed::morirRed(){
-std::cout<<"FGJBDVHBDKD"<<std::endl;
+        b2Vec2 pos = m_gameObject.GetPosition();
+        pos.y *= -1;
+        for (int i = 0; i < 25; ++i){
+            irr::core::vector3df tam;
+            tam.X = ((float)(rand()%10)/50.f)+0.01f;
+            tam.Y = tam.X;
+            tam.Z = 1;
+            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0), 5000));
+        }
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
@@ -94,9 +102,6 @@ std::cout<<"FGJBDVHBDKD"<<std::endl;
         else
             m_gameObject.SetAngularVelocity(0.5f);
         muerto = true;
-        //for (int i = 0; i < 5; ++i){
-        //    m_pWorld->AddParticle(new Particle(new PBCotton(),m_gameObject.GetPosition(),irr::core::vector3df(.1f,.1f,.1f), irr::video::SColor(255,0,0,0), b2Vec2(rand()%10,rand()%20-10), 5000));
-        //}
 
 }
 void PlayerRed::fingirMuerte(){

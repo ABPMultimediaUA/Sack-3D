@@ -87,14 +87,14 @@ void PBDeadPlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
     m_pBody->SetUserData((void*)m_bodyId);
 }
 void PBDeadPlayer::InitFixtures(b2Vec2 tam){
-    float friction = .5f,
-    	  restitution = 0.5f,
-    	  density = 0.8f;
+    float friction = .8f,
+    	  restitution = 0.2f,
+    	  density = 2;
 
 	b2FixtureDef fixtureDef;
     b2CircleShape circleShape1;
-    circleShape1.m_p.Set(0,-0.5f);
-    circleShape1.m_radius = (tam.x)/2;
+    circleShape1.m_p.Set(0,-.3f);
+    circleShape1.m_radius = (tam.y)/6.f;
     fixtureDef.shape = &circleShape1;
     fixtureDef.friction = friction;
     fixtureDef.restitution  = restitution;
@@ -105,8 +105,8 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
 
     b2FixtureDef fixtureDef2;
     b2CircleShape circleShape2;
-    circleShape2.m_p.Set(0,0.5f);
-    circleShape2.m_radius = (tam.x)/2;
+    circleShape2.m_p.Set(0,.3f);
+    circleShape2.m_radius = (tam.y)/6.f;
     fixtureDef2.shape = &circleShape2;
     fixtureDef2.friction = friction;
     fixtureDef2.restitution  =restitution;

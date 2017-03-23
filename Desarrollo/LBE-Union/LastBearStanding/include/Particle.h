@@ -5,7 +5,7 @@
 
 class Particle{
     public:
-        Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,  irr::video::SColor color, b2Vec2 vel, int tiempoVida);
+        Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,  irr::video::SColor color,  int tiempoVida);
         virtual ~Particle();
         void actualiza();
         void setDestruir(bool aux){ m_destruir = aux;}

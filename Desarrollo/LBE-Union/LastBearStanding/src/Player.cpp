@@ -8,7 +8,7 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.7f, 1.8f,.7f),color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.7f, 1.5f,.7f),color),mando(numMando){
     m_pClient = Client::Inst();
     vel = 7;
     moviendoA = 0;
@@ -33,7 +33,7 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
 }
 void Player::actualiza(){
     if(teletransportado)teletransportar();
-    if(paraMorir)morir();
+    if(!muerto && paraMorir)morir();
     m_gameObject.Update();
     mover();
 }

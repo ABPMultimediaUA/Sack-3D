@@ -45,3 +45,7 @@ void MyEventReceiver::ClickE(){
 void MyEventReceiver::ClickEscape(){
   IrrMngr::Inst()->Close();
 }
+void MyEventReceiver::ClickF12(){
+  IrrMngr::Inst()->SwitchDebugMode();
+  World::Inst()->SwitchDebugMode();
+}

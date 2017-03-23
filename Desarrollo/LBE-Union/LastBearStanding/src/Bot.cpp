@@ -100,7 +100,7 @@ void Bot::calcularPathfinding(Nodo* objetivo){
      //std::cout<<std::endl;
 
      if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x || nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
-           nodoActual = new Nodo(nodoInicial->getPosicion(), nodoInicial->getNumero(), 0, NULL);
+           nodoActual = new Nodo(nodoInicial->getPosicion(), irr::core::vector3df(0.1f,0.1f,0.1f), nodoInicial->getNumero(), 0, NULL);
            listaAbierta.insertar(nodoActual);
            while( listaAbierta.getTamanyo() > 0 && listaAbierta.buscaNodo2( nodoDestino->getPosicion().x, nodoDestino->getPosicion().y) == NULL) {
                nodoActual = listaAbierta.getMenorCosto();
@@ -117,7 +117,7 @@ void Bot::calcularPathfinding(Nodo* objetivo){
                            posicion.x = lista->buscaNumero(numero)->getPosicion().x;
                            posicion.y = lista->buscaNumero(numero)->getPosicion().y;
                            int coste = abs(posicion.x-nodoDestino->getPosicion().x) + abs(posicion.y -nodoDestino->getPosicion().y);
-                           Nodo* aux = new Nodo (posicion, numero, coste, nodoActual);
+                           Nodo* aux = new Nodo (posicion, irr::core::vector3df(0.1f,0.1f,0.1f),  numero, coste, nodoActual);
                            listaAbierta.insertar(aux);
                        }
                }

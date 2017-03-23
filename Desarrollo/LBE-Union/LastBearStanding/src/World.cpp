@@ -1,6 +1,6 @@
 
 #include "PathFinding/Lista.h"
-#include "World.h"
+#include "PathFinding/Nodo.h"
 #include "MyContactListener.h"
 #include "IrrManager.h"
 #include "PlayerRed.h"
@@ -10,6 +10,7 @@
 #include "Cogible.h"
 #include "Camera.h"
 #include "Player.h"
+#include "World.h"
 #include "Bala.h"
 #include "Bot.h"
 #include "Map.h"
@@ -32,7 +33,7 @@ void World::Reset(){
   pinstance = new World;
 
 }
-World::World(){
+World::World():m_debugMode(false){
 	world.Reset(new b2World(b2Vec2(0.0f, -9.8f), true));
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
@@ -78,6 +79,19 @@ int World::getGanador(){
     if(!m_Players.Get(i)->getMuerto())return i;
   }
   return 0;
+}
+void  World::SwitchDebugMode(){
+  if(m_debugMode){
+    m_debugMode = false;
+  }
+  else{
+    m_debugMode = true;
+  }
+  for (int i = 0; i < m_Nodos.Size(); ++i){
+    if(m_Nodos.Get(i)){
+      m_Nodos.Get(i)->SetVisible(m_debugMode);
+    }
+  }
 }
 int World::Update(int fps){
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;

@@ -15,11 +15,11 @@ void IrrMngr::Reset(){
     smgr->clear();
 }
 void IrrMngr::Close(){device->closeDevice();}
-IrrMngr::IrrMngr(){
+IrrMngr::IrrMngr():m_debugMode(false){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(1280,1280*9/16), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(600,600*9/16), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");
@@ -37,7 +37,8 @@ void IrrMngr::InstanciaVariables(int* puntuaciones){
 void IrrMngr::Update(){
 	smgr->drawAll();
 	hud.Get()->Draw();
-	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
+	if(m_debugMode)
+		debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
 	endScene();
 }
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
@@ -51,6 +52,15 @@ irr::scene::IMesh* IrrMngr::createCubeMesh(irr::core::vector3df pos, irr::core::
 	smgr->addMeshSceneNode(mesh)->setPosition(pos);
     smgr->getMeshManipulator()->setVertexColors(mesh, color);
     return  mesh;
+}
+
+void  IrrMngr::SwitchDebugMode(){
+  if(m_debugMode){
+    m_debugMode = false;
+  }
+  else{
+    m_debugMode = true;
+  }
 }
 irr::io::IXMLReader* IrrMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
 float IrrMngr::getTime(){return timer->getTime();}

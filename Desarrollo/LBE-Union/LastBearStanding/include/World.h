@@ -33,6 +33,7 @@ enum MascaraColisiones {
     M_COGIBLESENSOR  = 0x0040,
     M_PINCHO         = 0x0080,
     M_SPAWNER        = 0x0100,
+    M_NODO           = 0x0200,
 };
 
 enum UserDatas {
@@ -46,6 +47,7 @@ enum UserDatas {
     DATA_SUELO           = 8,
     DATA_PINCHO          = 9,
     DATA_SPAWNER         = 10,
+    DATA_NODO            = 11,
 };
 
 class World{
@@ -58,6 +60,7 @@ class World{
         void creaCuboMierda(int x, int y);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
+        void  SwitchDebugMode();
         Lista* getListaNodos();
         int getGanador();
         void Reset();
@@ -69,6 +72,7 @@ class World{
         std::vector<Muelle*>    GetMuelles(){   return m_Muelles.Get();  }
         std::vector<Spawner*>   GetSpawners(){  return m_Spawners.Get(); }
         std::vector<Platform*>  GetPlatforms(){ return m_Platforms.Get();}
+        std::vector<Nodo*>      GetNodos(){     return m_Nodos.Get();    }
         Cogible*  AddCogible (Cogible *x ) {m_Cogibles.Add(x); return x;}
         Bala*     AddBala    (Bala *x    ) {m_Balas.Add(x);    return x;}
         Teleport* AddTeleport(Teleport *x) {m_Teleports.Add(x);return x;}
@@ -79,11 +83,12 @@ class World{
         Nodo*     AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
         b2RevoluteJoint* joint;
     private:
-        static World* pinstance;
-        GameResource<b2World> world;
         GameResource<MyContactListener> contactListener;
-        float DeltaTime;
-        float TimeStamp;
+        static World*          pinstance;
+        GameResource<b2World>  world;
+        float                  DeltaTime;
+        float                  TimeStamp;
+        bool                   m_debugMode;
         GameResource<Camera>   camara;
         GameResource<Map>      m_Mapa;
         RVector<Teleport>      m_Teleports;

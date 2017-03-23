@@ -27,18 +27,20 @@ class MyContactListener: public b2ContactListener{
         void PlayerCogibleEnd();
         void PlayerBala();
         void PlayerPincho();
+        void PlayerNodo();
         void TeleportBala();
         void TeleportCogible();
         void PiesPlayerBegin();
         void PiesPlayerEnd();
         void BalaBegin();
     private:
-    	const Contact2Method beginContact[10] = {
+    	const Contact2Method beginContact[11] = {
               { DATA_PLAYER         , DATA_MUELLE         , PlayerMuelle        }
             , { DATA_PLAYER         , DATA_TELEPORT       , PlayerTeleport      }
             , { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleBegin  }
             , { DATA_PLAYER         , DATA_BALA           , PlayerBala          }
             , { DATA_PLAYER         , DATA_PINCHO         , PlayerPincho        }
+            , { DATA_PLAYER         , DATA_NODO           , PlayerNodo          }
             , { DATA_TELEPORT       , DATA_BALA           , TeleportBala        }
             , { DATA_TELEPORT       , DATA_COGIBLE        , TeleportCogible     }
             , { DATA_PLAYER_PIES    , 0                   , PiesPlayerBegin     }
@@ -50,12 +52,14 @@ class MyContactListener: public b2ContactListener{
             , { DATA_PLAYER_PIES    , 0                   , PiesPlayerEnd       }
             , { 0                   , 0                   , 0                   }
         };
+        World* m_pWorld;
         b2Contact* contact;
         Player* GetPlayer();
         Cogible* GetCogible();
         Muelle* GetMuelle();
         Teleport* GetTeleport();
         Bala* GetBala();
+        Nodo* GetNodo();
 };
 
 #endif

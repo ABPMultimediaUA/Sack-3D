@@ -1,13 +1,24 @@
+#include "PhysicBody/PBDefaultSensor.h"
 #include "PathFinding/Nodo.h"
-#include <irrlicht.h>
 #include <iostream>
+#include "World.h"
 
 
-Nodo::Nodo(b2Vec2 posicion, int num, int coste, Nodo *nodoPadre){
+Nodo::Nodo(b2Vec2 posicion, irr::core::vector3df tam,int num, int coste, Nodo *nodoPadre){
     m_posicion = posicion;
     m_numero = num;
     m_pNextNodo = NULL;
     m_pNodoPadre = nodoPadre;
+    m_id = m_gameObject.Inicialize(
+        new PBDefaultSensor()
+        ,M_NODO
+        ,M_PLAYER
+        ,DATA_NODO
+        ,posicion
+        ,tam
+        ,irr::video::SColor(10,150,0,150)
+    );
+    m_gameObject.SetVisible(false);
     if(m_pNodoPadre != NULL)
         m_coste = coste + m_pNodoPadre->getCostoTotal();
     m_coste = coste;
@@ -43,4 +54,10 @@ void Nodo::addAdyacente (int n){
 }
 std::vector<int> Nodo::getAdyacentes(){
     return m_Adyacentes;
+}
+int Nodo::GetId(){
+    return m_id;
+}
+void Nodo::SetVisible(bool aux){
+    m_gameObject.SetVisible(aux);
 }

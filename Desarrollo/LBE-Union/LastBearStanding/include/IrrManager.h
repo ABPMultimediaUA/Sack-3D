@@ -32,6 +32,7 @@ class IrrMngr{
         irr::video::IVideoDriver* getDriver();
         irr::gui::IGUIEnvironment* getGUI();
         irr::ITimer* getTimer();
+        void  SwitchDebugMode();
         virtual ~IrrMngr();
     private:
         static IrrMngr* pinstance;
@@ -43,6 +44,7 @@ class IrrMngr{
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;
         GameResource<HUD> hud;
+        bool m_debugMode;
 };
 
 #endif

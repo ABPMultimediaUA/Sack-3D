@@ -19,7 +19,7 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(600*16/9,600), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(350*16/9,350), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");

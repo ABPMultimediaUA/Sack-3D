@@ -22,14 +22,16 @@ PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[]
 }
 PlayerRed::~PlayerRed(){}
 void PlayerRed::mover(int mov){
-    if(primera){
-        primera=false;
+    if(!muerto && !fingiendoMuerte){
+        if(primera){
+            primera=false;
+        }
+        if(moviendo == 1){direccion = moviendo = mov;}
+        else if(moviendo == -1){direccion = moviendo = mov;}
+        else{moviendo = mov;}
+        m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
+        if(cogiendo) objCogido->setDireccion(direccion);
     }
-    if(moviendo == 1){direccion = moviendo = mov;}
-    else if(moviendo == -1){direccion = moviendo = mov;}
-    else{moviendo = mov;}
-    m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(direccion);
 }
 
 void PlayerRed::actualiza(){

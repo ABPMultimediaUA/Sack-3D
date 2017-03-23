@@ -4182,7 +4182,7 @@
 1490107498 c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1490282884 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
+1490294713 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
@@ -4306,7 +4306,7 @@
 	"PhysicBody/PBCogibleReleased.h"
 	"World.h"
 
-1490286879 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
+1490293893 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
 	"PhysicBody/PBCotton.h"
 	"World.h"
 

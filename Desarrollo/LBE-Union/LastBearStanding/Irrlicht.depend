@@ -4399,11 +4399,13 @@
 	"GameObject.h"
 	"PhysicBody/PBAlivePlayer.h"
 
-1490291597 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+1490292784 source:c:\users\pcj\contacts\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"PhysicBody/PBCotton.h"
+	"PhysicBody/PBCotton.h"
 	"MyEventReceiver.h"
+	"Particle.h"
 	"Player.h"
 	"Usable.h"
 	"Client.h"

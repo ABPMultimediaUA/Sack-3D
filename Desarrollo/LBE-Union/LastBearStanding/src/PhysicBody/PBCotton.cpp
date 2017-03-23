@@ -89,12 +89,12 @@ void PBCotton::InitBody(b2Vec2 pos,b2Vec2 tam){
 }
 void PBCotton::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
-    b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
-    fixtureDef.shape = &polyShape;
+    b2CircleShape circleShape1;
+    circleShape1.m_radius = (tam.y)/2;
+    fixtureDef.shape = &circleShape1;
     fixtureDef.friction =       0.8f;
     fixtureDef.restitution  =   .2f;
-    fixtureDef.density  =       1;
+    fixtureDef.density  =       10;
     fixtureDef.filter.categoryBits = M_PARTICULA;
     fixtureDef.filter.maskBits = M_PARTICULA|M_SUELO;
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);

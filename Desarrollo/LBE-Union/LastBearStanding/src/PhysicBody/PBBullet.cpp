@@ -89,7 +89,7 @@ void PBBullet::InitFixtures(b2Vec2 tam){
     polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0.1f;
-    fixtureDef.restitution  = 0.f;
+    fixtureDef.restitution  = .99f;
     fixtureDef.density  =  2.0f;
     fixtureDef.filter.categoryBits = M_BALA;
     fixtureDef.filter.maskBits = M_SUELO|M_TELEPORT|M_PLAYER;

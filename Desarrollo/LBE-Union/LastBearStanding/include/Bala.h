@@ -20,7 +20,6 @@ class Bala{
         float desviacion;
         irr::f32 time2Kill;
         irr::ITimer* timer2Kill;
-        b2Fixture* balaFixture;
         b2Vec2 m_vel;
         b2Vec2 nextPos;
         int dir;

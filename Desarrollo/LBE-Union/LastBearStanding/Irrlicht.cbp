@@ -57,6 +57,7 @@
 		<Unit filename="include/IrrManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Master.h" />
+		<Unit filename="include/Metralla.h" />
 		<Unit filename="include/Muelle.h">
 			<Option target="Release" />
 		</Unit>
@@ -71,6 +72,7 @@
 		<Unit filename="include/PhysicBody/PBDeadPlayer.h" />
 		<Unit filename="include/PhysicBody/PBDefault.h" />
 		<Unit filename="include/PhysicBody/PBDefaultSensor.h" />
+		<Unit filename="include/PhysicBody/PBGranadaReleased.h" />
 		<Unit filename="include/PhysicBody/PBSpawner.h" />
 		<Unit filename="include/PhysicBody/PhysicBody.h" />
 		<Unit filename="include/Pistola.h" />
@@ -102,6 +104,7 @@
 		<Unit filename="src/IrrManager.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Master.cpp" />
+		<Unit filename="src/Metralla.cpp" />
 		<Unit filename="src/Muelle.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
@@ -114,6 +117,7 @@
 		<Unit filename="src/PhysicBody/PBDeadPlayer.cpp" />
 		<Unit filename="src/PhysicBody/PBDefault.cpp" />
 		<Unit filename="src/PhysicBody/PBDefaultSensor.cpp" />
+		<Unit filename="src/PhysicBody/PBGranadaReleased.cpp" />
 		<Unit filename="src/PhysicBody/PBSpawner.cpp" />
 		<Unit filename="src/PhysicBody/PhysicBody.cpp" />
 		<Unit filename="src/Pistola.cpp" />

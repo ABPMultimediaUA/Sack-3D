@@ -3,7 +3,7 @@
 #include "PhysicBody/PBBullet.h"
 
 Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
-dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
+dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     m_pIrrMngr = IrrMngr::Inst();
     irr::core::vector3df tam;
     switch(tipo){
@@ -13,7 +13,6 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP){
     }
     pos.x = pos.x + dir;
     m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
-    destruir = false;
     timer2Kill = m_pIrrMngr->getTimer();
     time2Kill = timer2Kill->getTime();
     if(dir>0)m_vel.x = velocidad;

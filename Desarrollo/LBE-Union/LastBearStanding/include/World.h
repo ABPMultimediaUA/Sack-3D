@@ -22,6 +22,7 @@ class Platform;
 class PlayerRed;
 class DebugInfo;
 class Map;
+class Metralla;
 class MyContactListener;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
@@ -73,6 +74,7 @@ class World{
         std::vector<Spawner*>   GetSpawners(){  return m_Spawners.Get(); }
         std::vector<Platform*>  GetPlatforms(){ return m_Platforms.Get();}
         std::vector<Nodo*>      GetNodos(){     return m_Nodos.Get();    }
+        std::vector<Metralla*>  GetMetrallas(){ return m_Metrallas.Get();}
         Cogible*  AddCogible (Cogible *x ) {m_Cogibles.Add(x); return x;}
         Bala*     AddBala    (Bala *x    ) {m_Balas.Add(x);    return x;}
         Teleport* AddTeleport(Teleport *x) {m_Teleports.Add(x);return x;}
@@ -81,6 +83,7 @@ class World{
         Spawner*  AddSpawner (Spawner *x ) {m_Spawners.Add(x); return x;}
         Platform* AddPlatform(Platform *x) {m_Platforms.Add(x);return x;}
         Nodo*     AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
+        Metralla* AddMetralla(Metralla *x) {m_Metrallas.Add(x);return x;}
         b2RevoluteJoint* joint;
     private:
         GameResource<MyContactListener> contactListener;
@@ -99,6 +102,7 @@ class World{
         RVector<Spawner>       m_Spawners;
         RVector<Platform>      m_Platforms;
         RVector<Nodo>          m_Nodos;
+        RVector<Metralla>          m_Metrallas;
 };
 
 #endif

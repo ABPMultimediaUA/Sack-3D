@@ -5,6 +5,7 @@
 #include "IrrManager.h"
 #include "PlayerRed.h"
 #include "Teleport.h"
+#include "Metralla.h"
 #include "Platform.h"
 #include "Spawner.h"
 #include "Cogible.h"
@@ -104,6 +105,14 @@ int World::Update(int fps){
       m_Balas.Get(i)->actualiza();
       if(m_Balas.Get(i)->getDestruir()){
           m_Balas.Remove(i);
+      }
+    }
+  }
+  for (int i = 0; i < m_Metrallas.Size(); ++i){
+    if(m_Metrallas.Get(i)){
+      m_Metrallas.Get(i)->actualiza();
+      if(m_Metrallas.Get(i)->getDestruir()){
+          m_Metrallas.Remove(i);
       }
     }
   }

@@ -15,6 +15,12 @@ void Particle::actualiza(){
     m_gameObject.Update();
     if(m_pIrrMngr->getTime()-m_time2Kill>m_tiempoVida){m_destruir = true;}
 }
+void Particle::SetAngularVelocity(float imp){
+    m_gameObject.SetAngularVelocity(imp);
+}
+void Particle::SetLinearVelocity(b2Vec2 vel){
+    m_gameObject.SetLinearVelocity(vel);
+}
 int Particle::GetId(){
     return m_id;
 }

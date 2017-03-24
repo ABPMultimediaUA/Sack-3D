@@ -79,7 +79,6 @@ void PBCotton::DestroyBody(){
 }
 void PBCotton::InitBody(b2Vec2 pos,b2Vec2 tam){
     b2BodyDef bodyDef;
-    bodyDef.bullet = true;
     bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
     bodyDef.type = b2_dynamicBody;
     m_pBody = m_pWorld->CreateBody(&bodyDef);

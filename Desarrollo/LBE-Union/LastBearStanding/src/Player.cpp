@@ -1,7 +1,6 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
 #include "PhysicBody/PBCotton.h"
-#include "PhysicBody/PBCotton.h"
 #include "MyEventReceiver.h"
 #include "Particle.h"
 #include "Player.h"
@@ -115,7 +114,7 @@ void Player::morir(){
             tam.X = ((float)(rand()%10)/50.f)+0.01f;
             tam.Y = tam.X;
             tam.Z = 1;
-            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0), 5000));
+            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
         }
         paraMorir = false;
         if(cogiendo) Soltar();

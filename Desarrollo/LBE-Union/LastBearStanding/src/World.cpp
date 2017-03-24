@@ -19,10 +19,8 @@
 #include "GameObject.h"
 #include "PhysicBody/PBAlivePlayer.h"
 
-#define VELITER 20              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
-#define POSITER 20              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
-#define TIMESTEP 0.1333f       //TIEMPO DE REFRESCO
-
+const int World::velocityIterations = 8;
+const int World::positionIterations = 3;
 World* World::pinstance = NULL;
 World* World::Inst(){
 	if(!pinstance){
@@ -54,21 +52,6 @@ void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
   TimeStamp = IrrMngr::Inst()->getTime();
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
 }
-b2Body* World::CreateBox(int x , int y){
-    b2BodyDef bodyDef;
-    b2FixtureDef fixtureDef;
-    bodyDef.position.Set(x,y);
-    bodyDef.type = b2_dynamicBody;
-    b2Body* body  = world.Get()->CreateBody(&bodyDef);
-    b2PolygonShape polyShape;
-    polyShape.SetAsBox(16,16);
-    fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
-    body->CreateFixture(&fixtureDef);
-    return body;
-}
 Player* World::getPlayer(int mando){
   for(int i = 0; i < m_Players.Size(); ++i){
      if(m_Players.Get(i) && m_Players.Get(i)->getMando() == mando)
@@ -99,7 +82,7 @@ int World::Update(int fps){
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
-  world.Get()->Step(TIMESTEP, VELITER, POSITER);
+  world.Get()->Step(1.f/fps*2, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();
   UpdateParticles();

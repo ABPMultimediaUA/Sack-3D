@@ -3252,7 +3252,7 @@
 1490266705 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\bala.h
 	"GameObject.h"
 
-1490271881 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
+1490354234 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
@@ -3341,7 +3341,7 @@
 1489349812 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
+1490355294 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
 	"GameObject.h"
 	"World.h"
 	<iostream>
@@ -3366,7 +3366,7 @@
 1488554113 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1490262239 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
+1490348888 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
@@ -3448,7 +3448,7 @@
 	"Player.h"
 	"World.h"
 
-1490262007 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbaliveplayer.cpp
+1490355098 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbaliveplayer.cpp
 	"PhysicBody/PBAlivePlayer.h"
 	"World.h"
 
@@ -3464,11 +3464,11 @@
 	"PhysicBody/PBCogibleReleased.h"
 	"World.h"
 
-1490032435 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdeadplayer.cpp
+1490353530 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdeadplayer.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"World.h"
 
-1489680194 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefault.cpp
+1490353493 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefault.cpp
 	"PhysicBody/PBDefault.h"
 	"World.h"
 
@@ -3490,10 +3490,12 @@
 	"PhysicBody/PhysicBody.h"
 	"World.h"
 
-1490026603 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\pistola.cpp
+1490351473 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\pistola.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
+	"PhysicBody/PBCap.h"
 	"IrrManager.h"
+	"Particle.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
@@ -3522,7 +3524,7 @@
 	"Spawner.h"
 	"Usable.h"
 
-1490272026 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
+1490355276 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
 	"PathFinding/Nodo.h"
 	"MyContactListener.h"
@@ -3547,20 +3549,23 @@
 	"Client.h"
 	"World.h"
 
-1490272951 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+1490350167 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"PhysicBody/PBCotton.h"
 	"MyEventReceiver.h"
+	"Particle.h"
 	"Player.h"
 	"Usable.h"
 	"Client.h"
 	"World.h"
 
-1490169512 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
+1490350183 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"PlayerRed.h"
+	"Particle.h"
 	"World.h"
 	"Usable.h"
 
@@ -3974,17 +3979,17 @@
 	"PhysicBody/PBGranadaReleased.h"
 	"World.h"
 
-1490271043 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\particle.cpp
+1490350736 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\particle.cpp
 	"Particle.h"
 	"World.h"
 
-1490271200 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\particle.h
+1490350447 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\particle.h
 	"GameObject.h"
 
 1490272290 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcotton.h
 	"PhysicBody.h"
 
-1490273115 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
+1490353082 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
 	"PhysicBody/PBCotton.h"
 	"World.h"
 
@@ -4410,4 +4415,11 @@
 	"Usable.h"
 	"Client.h"
 	"World.h"
+
+1490353070 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcap.cpp
+	"PhysicBody/PBCap.h"
+	"World.h"
+
+1490349696 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcap.h
+	"PhysicBody.h"
 

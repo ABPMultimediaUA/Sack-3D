@@ -60,8 +60,6 @@ class World{
         World();
         virtual ~World(){}
         void inicializaVariables(irr::core::stringw mapFile,int* puntuaciones);
-        b2Body* CreateBox(int x,int y);
-        void creaCuboMierda(int x, int y);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
         void  SwitchDebugMode();
@@ -99,6 +97,8 @@ class World{
     private:
         GameResource<MyContactListener> contactListener;
         static World*          pinstance;
+        static const int       velocityIterations;
+        static const int       positionIterations;
         GameResource<b2World>  world;
         float                  DeltaTime;
         float                  TimeStamp;

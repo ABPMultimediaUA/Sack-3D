@@ -98,7 +98,7 @@ void PBAlivePlayer::InitFixtures(b2Vec2 tam){
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
     fixtureDef.restitution  = 0;
-    fixtureDef.density  = 10.0f;
+    fixtureDef.density  = 1;
     fixtureDef.filter.categoryBits = M_PLAYER;
     fixtureDef.filter.maskBits = M_BALA|M_NODO|M_SUELO|M_TELEPORT|M_MUELLE|M_COGIBLESENSOR;
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);

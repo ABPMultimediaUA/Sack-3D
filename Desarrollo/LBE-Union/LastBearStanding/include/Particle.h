@@ -5,9 +5,11 @@
 
 class Particle{
     public:
-        Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,  irr::video::SColor color,  int tiempoVida);
+        Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,  irr::video::SColor color,  int tiempoVida = 5000);
         virtual ~Particle();
         void actualiza();
+        void SetAngularVelocity(float imp);
+        void SetLinearVelocity(b2Vec2 vel);
         void setDestruir(bool aux){ m_destruir = aux;}
         int getDestruir(){return m_destruir;}
         int GetId();

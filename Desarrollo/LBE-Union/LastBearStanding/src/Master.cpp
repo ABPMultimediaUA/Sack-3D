@@ -40,7 +40,6 @@ void Master::Update(){
 
             puntuaciones[World::Inst()->getGanador()]++;
             std::cout<<"1 solo player vivo"<<std::endl;
-            World::Inst()->
             World::Inst()->Reset();
             InstanciaMundo();
             finPartida = false;

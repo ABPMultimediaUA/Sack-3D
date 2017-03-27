@@ -29,14 +29,16 @@ void PlayerRed::mover(int mov){
         if(moviendo == 1){direccion = moviendo = mov;}
         else if(moviendo == -1){direccion = moviendo = mov;}
         else{moviendo = mov;}
+        std::cout<<"direecion "<<mov<<std::endl;
         m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
-        if(cogiendo) objCogido->setDireccion(direccion);
+        if(cogiendo) objCogido->SetLinearVelocity(m_gameObject.GetLinearVelocity());
     }
 }
 
 void PlayerRed::actualiza(){
     m_gameObject.Update();
-    mover(moviendo);
+    if(cogiendo) objCogido->setDireccion(direccion);
+    //mover(moviendo);
 }
 
 void PlayerRed::setPos(){

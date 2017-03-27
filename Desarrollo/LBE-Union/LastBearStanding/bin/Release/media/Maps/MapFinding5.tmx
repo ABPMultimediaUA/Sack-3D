@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1086">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1089">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -14,7 +14,7 @@
  <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
- <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+ <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2" columns="64">
   <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
   <tile id="226">
    <animation>

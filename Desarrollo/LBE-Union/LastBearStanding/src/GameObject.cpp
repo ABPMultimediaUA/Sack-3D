@@ -11,9 +11,7 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
     m_id = -1;
 }
 GameObject::~GameObject(){
-    std::cout<<"BORRANDO PASO FINAL "<<std::endl;
     if(m_pNode)m_pNode->remove();
-     std::cout<<"BORRANDO PASO FINAL acabado "<<std::endl;
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
     m_tam = tam;

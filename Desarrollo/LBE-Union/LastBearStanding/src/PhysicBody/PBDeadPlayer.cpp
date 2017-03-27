@@ -10,7 +10,9 @@ PBDeadPlayer::PBDeadPlayer(){
     m_mask = 0;
 }
 PBDeadPlayer::~PBDeadPlayer(){
+    std::cout<<"ENTROOOOOOOOOOOOOOOOOO"<<std::endl;
     DestroyBody();
+    std::cout<<"SALGOOOOOOOOOOOOOOOOOO"<<std::endl;
 }
 int PBDeadPlayer::Inicialize( b2Vec2 pos, b2Vec2 tam){
 	DestroyBody();
@@ -65,17 +67,27 @@ void PBDeadPlayer::Release(){
     PhysicBody::DefRelease();
 }
 void PBDeadPlayer::DestroyFixtures(){
+   /* std::cout<<"ENTROOOOOOOOOOOOOOOOOO1"<<std::endl;
 	for (b2Fixture* f = m_pBody->GetFixtureList(); f;){
+            std::cout<<"ENTROOOOOOOOOOOOOOOOOO2"<<std::endl;
         b2Fixture* fixtureToDestroy = f;
+    std::cout<<"ENTROOOOOOOOOOOOOOOOOO3"<<std::endl;
         f = f->GetNext();
-        m_pBody->DestroyFixture( fixtureToDestroy );
-    }
+        std::cout<<"ENTROOOOOOOOOOOOOOOOOO4"<<fixtureToDestroy<<std::endl;
+        if(fixtureToDestroy) m_pBody->DestroyFixture( fixtureToDestroy );
+         std::cout<<"ENTROOOOOOOOOOOOOOOOOO5"<<std::endl;
+    }*/
 }
 void PBDeadPlayer::DestroyBody(){
+    std::cout<<"ENTROOOOOOOOOOOOOOOOOO1"<<std::endl;
     if(m_pWorld && m_pBody){
+            std::cout<<"ENTROOOOOOOOOOOOOOOOOO2"<<std::endl;
        DestroyFixtures();
+    std::cout<<"ENTROOOOOOOOOOOOOOOOOO3"<<std::endl;
         m_pWorld->DestroyBody(m_pBody);
+        std::cout<<"ENTROOOOOOOOOOOOOOOOOO4"<<std::endl;
         m_pBody = NULL;
+        std::cout<<"ENTROOOOOOOOOOOOOOOOOO5"<<std::endl;
 	}
 }
 void PBDeadPlayer::InitBody(b2Vec2 pos,b2Vec2 tam){

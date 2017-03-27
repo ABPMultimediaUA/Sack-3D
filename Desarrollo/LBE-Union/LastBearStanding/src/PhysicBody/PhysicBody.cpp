@@ -46,6 +46,10 @@ int PhysicBody::GenerateId(){
 	c_id++;
 	return c_id;
 }
+
+b2Body* PhysicBody:: GetBody(){
+    return m_pBody;
+}
 b2Body* PhysicBody::GetBodyWithId(int id){
 	m_pWorld = World::Inst()->GetWorld();
 	for ( b2Body* b = m_pWorld->GetBodyList(); b; b = b->GetNext()){

@@ -20,22 +20,27 @@ Master::Master(){
     timerFinPartida = IrrMngr::Inst()->getTimer();
     timerFPS = IrrMngr::Inst()->getTimer();
     timeFPS = timerFPS->getTime();
+    std::cout<<"aaaaaaaaaaaacabo"<<std::endl;
 }
 void Master::Update(){
     if(IrrMngr::Inst()->getTime()-timeFPS>FPS){
+            //std::cout<<"empiezo update"<<std::endl;
         int fps = 1000/(IrrMngr::Inst()->getTime()-timeFPS);
         timeFPS = timerFPS->getTime();
         int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
-            if(playersVivos <= 1){
 
+            if(playersVivos <= 1){
+                    std::cout<<"empiezo update2"<<std::endl;
                 timeFinPartida = timerFinPartida->getTime();
                 finPartida = true;
             }
         }
         else if(IrrMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
+
             puntuaciones[World::Inst()->getGanador()]++;
             std::cout<<"1 solo player vivo"<<std::endl;
+            World::Inst()->
             World::Inst()->Reset();
             InstanciaMundo();
             finPartida = false;
@@ -46,7 +51,9 @@ void Master::Update(){
             Client::Inst()->enviar();
             time2SyncClient = IrrMngr::Inst()->getTime();
         }
+        //std::cout<<"acabo update"<<std::endl;
     }
+
 }
 void Master::InstanciaMundo(){
     std::cout<<"empiesa instancia"<<std::endl;
@@ -60,6 +67,7 @@ void Master::InstanciaMundo(){
             std::cout<<"MAPA "<<it->num<<"and"<<(mapList[game]+1)<<std::endl;
             World::Inst()->inicializaVariables(it->map,puntuaciones);
             game++;
+            std::cout<<"fin "<<std::endl;
             break;
         }
         it++;

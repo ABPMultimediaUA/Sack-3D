@@ -70,9 +70,11 @@ void MyContactListener::PlayerCogibleEnd(){
     GetPlayer()->setPuedoCoger(false);
 }
 void MyContactListener::PlayerPincho(){
+     std::cout<<"choca-playerybala "<<std::endl;
     GetPlayer()->setParaMorir(true);
 }
 void MyContactListener::PlayerBala(){
+    std::cout<<"choca-playerybala "<<std::endl;
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
 }

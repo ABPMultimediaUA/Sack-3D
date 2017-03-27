@@ -63,6 +63,7 @@ Camera::update(float time, int fps){
     flowCam.erase(flowCam.begin());
     camera->setPosition(irr::core::vector3df(aux.X,aux.Y, -z));
     camera->setTarget(irr::core::vector3df(aux.X,aux.Y, 0));
+
     porcentUpdate += porcentGap;
 
 }

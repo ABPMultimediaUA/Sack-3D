@@ -42,6 +42,7 @@ Lista* World::getListaNodos(){
   return m_Mapa.Get()->getListaNodos();
 }
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
+    std::cout<<"entroooreoeroo"<<std::endl;
   m_Mapa.Reset(new Map(mapFile));
   camara.Reset(new Camera());
   for (int i = 0; i < m_Players.Size(); ++i){
@@ -82,7 +83,7 @@ int World::Update(int fps){
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
-  world.Get()->Step(1.f/fps*2, velocityIterations, positionIterations);
+  world.Get()->Step(1.f/15*2, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();
   UpdateParticles();
@@ -120,6 +121,8 @@ int World::UpdatePlayers(){
   for (int i = 0; i < m_Players.Size(); ++i){
     if(m_Players.Get(i)){
       m_Players.Get(i)->actualiza();
+      //std::cout<<"player "<<i<<" "<<m_Players.Get(i)->getEstado()<<std::endl;
+      /*std::cout<<"pos"<<m_Players.Get(i)->getPosition().x<<std::endl;*/
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }

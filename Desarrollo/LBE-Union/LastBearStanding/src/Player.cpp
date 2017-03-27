@@ -30,7 +30,7 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
     eventReceiver = IrrMngr::Inst()->getEventReciever();
 }
  Player::~Player(){
-     std::cout<<"muere player"<<std::endl;
+     std::cout<<"muere player"<<id<<std::endl;
 }
 void Player::actualiza(){
     if(teletransportado)teletransportar();
@@ -183,7 +183,7 @@ void Player::usar(){
         usable->usar();
     }
 }
-b2Vec2 Player::getPosition(){return m_gameObject.GetPosition();}
+b2Vec2 Player::getPosition(){/*std::cout<<"ggggggggggggX-"<<m_gameObject.GetPosition().x<<" gggggggggggggggY-"<<m_gameObject.GetPosition().y<<std::endl;*/return m_gameObject.GetPosition();}
 int Player::getMando(){return mando;}
 bool Player::getSaltando(){return saltando;}
 bool Player::getDobleSaltando(){return dobleSaltando;}
@@ -199,7 +199,7 @@ void Player::setPuedoCoger(bool aux){puedoCoger = aux;}
 void Player::setObjCogido(Cogible* aux){objCogido = aux;}
 void Player::setObjPuedoCoger(Cogible* aux){objPuedoCoger = aux;}
 void Player::setNextPos(b2Vec2 pos){teletransportado=true; nextPos = pos;}
-void Player::setParaMorir(bool aux){paraMorir = aux;}
+void Player::setParaMorir(bool aux){std::cout<<"setparamorir "<<std::endl;paraMorir = aux;}
 int Player::getDireccion(){return direccion;}
 char* Player::getIp(){return ip;}
 char* Player::getId(){return id;}

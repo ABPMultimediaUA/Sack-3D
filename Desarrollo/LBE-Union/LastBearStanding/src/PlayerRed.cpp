@@ -93,6 +93,7 @@ void PlayerRed::morirRed(){
             tam.X = ((float)(rand()%10)/50.f)+0.01f;
             tam.Y = tam.X;
             tam.Z = 1;
+            std::cout<<"en playerred "<<std::endl;
             m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
         }
         paraMorir = false;

@@ -10,7 +10,9 @@ PBAlivePlayer::PBAlivePlayer(){
     m_mask = 0;
 }
 PBAlivePlayer::~PBAlivePlayer(){
+    std::cout<<"ENTROOOOOOOOOOOOOOOOOO"<<std::endl;
     DestroyBody();
+    std::cout<<"SALGOOOOOOOOOOOOOOOOOO"<<std::endl;
 }
 int PBAlivePlayer::Inicialize(b2Vec2 pos, b2Vec2 tam){
 	DestroyBody();
@@ -86,7 +88,9 @@ void PBAlivePlayer::DestroyBody(){
 void PBAlivePlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
 	b2BodyDef bodyDef;
     bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+
     bodyDef.type = b2_dynamicBody;
+
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);

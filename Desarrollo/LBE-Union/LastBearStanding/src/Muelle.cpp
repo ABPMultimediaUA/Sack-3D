@@ -5,6 +5,7 @@
 
 Muelle::Muelle(float f, b2Vec2 pos, irr::core::vector3df tam,irr::video::SColor color){
     m_fuerza = f;
+    std::cout<<"mueelle "<<std::endl;
     m_id = m_gameObject.Inicialize(
         new PBDefault()
         ,M_MUELLE

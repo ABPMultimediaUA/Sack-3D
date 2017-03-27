@@ -52,7 +52,12 @@ irr::scene::IMeshSceneNode* GameObject::getNode(){
 	return m_pNode;
 }
 b2Vec2 GameObject::GetPosition(){
+    //std::cout<<"DOY "<<m_pPhysicBody->GetPosition().x<<" y "<<m_pPhysicBody->GetPosition().y<<std::endl;
     return m_pPhysicBody->GetPosition();
+}
+PhysicBody* GameObject::GetBody(){
+    //std::cout<<"DOY "<<m_pPhysicBody->GetPosition().x<<" y "<<m_pPhysicBody->GetPosition().y<<std::endl;
+    return m_pPhysicBody;
 }
 float GameObject::GetRotation(){
     return m_pPhysicBody->GetRotation();
@@ -90,6 +95,7 @@ void GameObject::SetLinearVelocity(b2Vec2 vel){
     m_pPhysicBody->SetLinearVelocity(vel);
 }
 void GameObject::SetPosition(b2Vec2 pos){
+     //std::cout<<"sX-"<<pos.x<<" sY-"<<pos.y<<std::endl;
     m_pPhysicBody->SetPosition(pos);
 }
 void GameObject::SetMargin(b2Vec2 margin){

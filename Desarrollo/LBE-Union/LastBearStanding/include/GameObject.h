@@ -33,6 +33,7 @@ class GameObject{
         virtual void   SetMargin(b2Vec2 margin);
         virtual void   Catch(int id);
         virtual void   Release();
+        virtual PhysicBody* GetBody();
     private:
         GameResource<PhysicBody> m_GRphysicBody;
         PhysicBody *m_pPhysicBody;

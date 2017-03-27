@@ -3582,15 +3582,15 @@
 1490098534 source:c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\src\rvector.cpp
 	"RVector.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\main.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\main.cpp
 	"Master.h"
 	"Client.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\master.h
+1490552563 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\master.h
 	<irrlicht.h>
 	<vector>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\client.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\client.h
 	"MessageIdentifiers.h"
 	"RakPeerInterface.h"
 	"RakNetStatistics.h"
@@ -3614,97 +3614,97 @@
 	"Player.h"
 	"PlayerRed.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\player.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\player.h
 	"Cogible.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\cogible.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\cogible.h
 	"PhysicBody/PhysicBody.h"
-	<Box2D/Box2D.h>
 	"GameResource.h"
+	<Box2D/Box2D.h>
 	"GameObject.h"
 	<irrlicht.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\physicbody.h
+1490620426 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\physicbody.h
 	<Box2D/Box2D.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\gameresource.h
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
+1490619614 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\gameobject.h
 	"IrrManager.h"
 	<Box2D/Box2D.h>
 	"GameResource.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\irrmanager.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\irrmanager.h
 	<irrlicht.h>
 	"GameResource.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\playerred.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\bala.cpp
+1490550580 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 	"PhysicBody/PBBullet.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\bala.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\bala.h
 	"GameObject.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\world.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\world.h
 	<vector>
 	<Box2D/Box2D.h>
 	"GameResource.h"
 	"RVector.h"
 	"Client.h"
 
-1490107799 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\rvector.h
+1490626938 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\rvector.h
 	<iostream>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbbullet.h
 	"PhysicBody.h"
 
-1490101312 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\bot.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"Bot.h"
 	"World.h"
 	"PathFinding/Lista.h"
+	"PathFinding/Nodo.h"
 	<ctime>
 	<stdlib.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdeadplayer.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdeadplayer.h
 	"PhysicBody.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbaliveplayer.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbaliveplayer.h
 	"PhysicBody.h"
 
-1490100817 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\bot.h
+1490104417 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\bot.h
 	"World.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pathfinding\lista.h
-	<PathFinding/Nodo.h>
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pathfinding\lista.h
 	<Box2D/Box2D.h>
+	<Vector>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pathfinding\nodo.h
-	<Box2D/Box2D.h>
-	<irrlicht.h>
-	<iostream>
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pathfinding\nodo.h
+	"GameObject.h"
 	<vector>
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\camera.cpp
+1490553757 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\camera.cpp
 	"Camera.h"
 	"World.h"
 	"Player.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\camera.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\camera.h
 	"IrrManager.h"
 	<Box2D/Box2D.h>
 	<vector>
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\client.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\client.cpp
 	"Client.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\cogible.cpp
+1490625456 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\cogible.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
 	"IrrManager.h"
@@ -3712,24 +3712,24 @@
 	"Spawner.h"
 	"World.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblereleased.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblereleased.h
 	"PhysicBody.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblecatched.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcogiblecatched.h
 	"PhysicBody.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\spawner.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\spawner.h
 	"GameObject.h"
 	<irrlicht.h>
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\debuginfo.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\debuginfo.cpp
 	"DebugInfo.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\debuginfo.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\debuginfo.h
 	"IrrManager.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\escopeta.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\escopeta.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
 	"Escopeta.h"
@@ -3737,44 +3737,47 @@
 	"IrrManager.h"
 	"Bala.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\escopeta.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\usable.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\usable.h
 	"Cogible.h"
 
-1490107400 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
+1490626362 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\gameobject.cpp
 	"GameObject.h"
 	"World.h"
 	<iostream>
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\granada.cpp
-	"PhysicBody/PBCogibleReleased.h"
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\granada.cpp
+	"PhysicBody/PBGranadaReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
 	"IrrManager.h"
+	"Metralla.h"
+	"Spawner.h"
 	"Granada.h"
 	"World.h"
+	"Client.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\granada.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\granada.h
 	"Usable.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\hud.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\hud.cpp
 	"HUD.h"
 	"World.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\hud.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\hud.h
 	"IrrManager.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\irrmanager.cpp
 	"IrrManager.h"
 	"MyEventReceiver.h"
 	"DebugInfo.h"
 	"HUD.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\myeventreceiver.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1490107079 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\map.cpp
+1490626320 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -3791,43 +3794,44 @@
 	"GameObject.h"
 	"PhysicBody/PBDeadPlayer.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\map.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\map.h
 	"World.h"
 	<sstream>
 	<irrlicht.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\platform.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\platform.h
 	"GameObject.h"
 	<irrlicht.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\muelle.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\muelle.h
 	"GameObject.h"
 	<irrlicht.h>
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\teleport.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\teleport.h
 	<irrlicht.h>
 	"GameObject.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pistola.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1490103453 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\master.cpp
+1490617182 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
 	<ctime>
 	<stdlib.h>
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\muelle.cpp
+1490550643 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
 	"PhysicBody/PBDefault.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefault.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefault.h
 	"PhysicBody.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\mycontactlistener.cpp
+1490551773 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\mycontactlistener.cpp
+	"Pathfinding/Nodo.h"
 	"MyContactListener.h"
 	"Teleport.h"
 	"Cogible.h"
@@ -3835,89 +3839,96 @@
 	"Muelle.h"
 	"Player.h"
 	"Bala.h"
+	"Bot.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\mycontactlistener.h
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\mycontactlistener.h
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\myeventreceiver.cpp
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\myeventreceiver.cpp
 	"MyEventReceiver.h"
 	"IrrManager.h"
 	"Player.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbaliveplayer.cpp
+1490627357 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbaliveplayer.cpp
 	"PhysicBody/PBAlivePlayer.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbbullet.cpp
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbbullet.cpp
 	"PhysicBody/PBBullet.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblecatched.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblecatched.cpp
 	"PhysicBody/PBCogibleCatched.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblereleased.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcogiblereleased.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdeadplayer.cpp
+1490627839 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdeadplayer.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefault.cpp
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefault.cpp
 	"PhysicBody/PBDefault.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefaultsensor.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbdefaultsensor.cpp
 	"PhysicBody/PBDefaultSensor.h"
 	"World.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefaultsensor.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbdefaultsensor.h
 	"PhysicBody/PhysicBody.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbspawner.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbspawner.cpp
 	"PhysicBody/PBSpawner.h"
 	"World.h"
 
-1490099394 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbspawner.h
+1490102994 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbspawner.h
 	"PhysicBody.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\physicbody.cpp
+1490625467 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\physicbody.cpp
 	"PhysicBody/PhysicBody.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\pistola.cpp
+1490551240 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\pistola.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
+	"PhysicBody/PBCap.h"
 	"IrrManager.h"
+	"Particle.h"
 	"Pistola.h"
 	"World.h"
 	"Bala.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\platform.cpp
+1490552082 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"PhysicBody/PBDefault.h"
 	"PhysicBody/PBDefaultSensor.h"
 
-1490107399 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\player.cpp
+1490626278 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"MyEventReceiver.h"
+	"Particle.h"
 	"Player.h"
 	"Usable.h"
 	"Client.h"
 	"World.h"
 
-1490102607 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
+1490618080 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\playerred.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
+	"PhysicBody/PBCotton.h"
 	"PlayerRed.h"
+	"Particle.h"
 	"World.h"
 	"Usable.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\spawner.cpp
+1490550679 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\spawner.cpp
 	"PhysicBody/PBSpawner.h"
 	"IrrManager.h"
 	"Escopeta.h"
@@ -3926,27 +3937,30 @@
 	"Spawner.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\teleport.cpp
+1490550688 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\teleport.cpp
 	"PhysicBody/PBDefault.h"
 	"Teleport.h"
 	"World.h"
 
-1490099394 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\usable.cpp
+1490102994 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\usable.cpp
 	"Spawner.h"
 	"Usable.h"
 
-1490104617 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\world.cpp
+1490624284 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
-	"World.h"
+	"PathFinding/Nodo.h"
 	"MyContactListener.h"
 	"IrrManager.h"
 	"PlayerRed.h"
 	"Teleport.h"
+	"Metralla.h"
+	"Particle.h"
 	"Platform.h"
 	"Spawner.h"
 	"Cogible.h"
 	"Camera.h"
 	"Player.h"
+	"World.h"
 	"Bala.h"
 	"Bot.h"
 	"Map.h"
@@ -4422,4 +4436,51 @@
 
 1490349696 c:\users\jpuerto\desktop\abp\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcap.h
 	"PhysicBody.h"
+
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcotton.h
+	"PhysicBody.h"
+
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbgranadareleased.h
+	"PhysicBody.h"
+
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\metralla.h
+	"GameObject.h"
+
+1490550633 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\metralla.cpp
+	"PhysicBody/PBBullet.h"
+	"Metralla.h"
+	"World.h"
+
+1490550653 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\particle.cpp
+	"Particle.h"
+	"World.h"
+
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\particle.h
+	"GameObject.h"
+
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\pathfinding\lista.cpp
+	"PathFinding/Lista.h"
+	"PathFinding/Nodo.h"
+	<iostream>
+
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\pathfinding\nodo.cpp
+	"PhysicBody/PBDefaultSensor.h"
+	"PathFinding/Nodo.h"
+	<iostream>
+	"World.h"
+
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcap.cpp
+	"PhysicBody/PBCap.h"
+	"World.h"
+
+1490533256 d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\include\physicbody\pbcap.h
+	"PhysicBody.h"
+
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbcotton.cpp
+	"PhysicBody/PBCotton.h"
+	"World.h"
+
+1490533256 source:d:\development\sack-3d\desarrollo\lbe-union\lastbearstanding\src\physicbody\pbgranadareleased.cpp
+	"PhysicBody/PBGranadaReleased.h"
+	"World.h"
 

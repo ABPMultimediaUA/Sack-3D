@@ -22,6 +22,7 @@ class PhysicBody{
         virtual void   SetMask(uint16 i) = 0;
         virtual void   Catch(int id) = 0;
         virtual void   Release() = 0;
+        virtual b2Body* GetBody();
 
     protected:
         virtual void   InitFixtures(b2Vec2 tam) = 0;

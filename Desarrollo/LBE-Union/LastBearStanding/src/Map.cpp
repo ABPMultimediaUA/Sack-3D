@@ -106,7 +106,9 @@ void Map::AddPlayer(){
       }
    }
    else{
-     //World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
+        std::cout<<"ENTRA A ADDBOT"<<std::endl;
+     World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
+   std::cout<<"SALE A ADDBOT"<<std::endl;
    }
    numPlayer++;
 }

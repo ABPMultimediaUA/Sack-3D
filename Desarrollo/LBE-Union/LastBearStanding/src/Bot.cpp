@@ -20,7 +20,7 @@ void Bot::InicializaVariables(){
     lista = World::Inst()->getListaNodos();
     //std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
     //std::cout<<"Lista de nodos del Mapa"<<std::endl;
-    //lista->imprimirLista();
+    lista->imprimirLista();
     calcularPathfinding(lista->buscaNumero(rand() % lista->getTamanyo()));
     muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }

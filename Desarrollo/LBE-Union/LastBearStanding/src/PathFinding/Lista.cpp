@@ -15,8 +15,11 @@ Nodo *Lista::getHead(){
     return head;
 }
 Nodo *Lista::getUltimo(){
+            std::cout<<"FIN"<<std::endl;
     Nodo *aux;
+            std::cout<<"FIN2"<<std::endl;
     aux = head;
+            std::cout<<"FIN3"<<std::endl;
     if(aux){
         while(aux->getNextNodo() != NULL){
             aux = aux->getNextNodo();

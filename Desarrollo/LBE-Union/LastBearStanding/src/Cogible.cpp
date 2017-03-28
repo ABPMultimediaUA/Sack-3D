@@ -46,7 +46,6 @@ void Cogible::teletransportar(){
 }
 void     Cogible::setDireccion(int d){
     if(d != 0){
-            std::cout<<"entro"<<std::endl;
         dir = d;
         m_gameObject.SetMargin(b2Vec2(0.5f*d,0));
     }

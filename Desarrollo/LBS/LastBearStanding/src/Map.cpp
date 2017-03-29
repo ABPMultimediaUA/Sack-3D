@@ -109,7 +109,7 @@ void Map::AddPincho(){
      World::Inst()->AddPlatform(new Platform(true,b2Vec2(x,y+height),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddNodo(){
-    Nodo *a = World::Inst()->AddNodo(new Nodo(b2Vec2(x,y),irr::core::vector3df(width, height, 10), name, 0, NULL));
+    Nodo *a = World::Inst()->AddNodo(new Nodo(b2Vec2(x,y),irr::core::vector3df(1.5, height, 10), name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);
     std::string token;

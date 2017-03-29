@@ -14,7 +14,7 @@
  <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
- <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+ <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2" columns="64">
   <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
   <tile id="226">
    <animation>
@@ -32,8 +32,8 @@
   <object id="1046" name="6" type="3,5,7" gid="692172" x="46" y="52" width="1" height="1"/>
   <object id="1047" name="7" type="6,8" gid="692172" x="54" y="46" width="1" height="1"/>
   <object id="1048" name="8" type="7,9,22" gid="692172" x="64" y="46" width="1" height="1"/>
-  <object id="1049" name="9" type="8,23,24,25" gid="692172" x="69" y="37" width="1" height="1"/>
-  <object id="1050" name="10" type="11,23,24,25" gid="692172" x="80" y="37" width="1" height="1"/>
+  <object id="1049" name="9" type="8,25" gid="692172" x="69" y="38" width="1" height="1"/>
+  <object id="1050" name="10" type="11,25" gid="692172" x="80" y="38" width="1" height="1"/>
   <object id="1051" name="11" type="10,12,22" gid="692172" x="85" y="46" width="1" height="1"/>
   <object id="1052" name="12" type="11,13" gid="692172" x="96" y="46" width="1" height="1"/>
   <object id="1053" name="13" type="12,14,16" gid="692172" x="103" y="52" width="1" height="1"/>
@@ -46,9 +46,7 @@
   <object id="1060" name="20" type="16,17,18" gid="692172" x="103" y="64" width="1" height="1"/>
   <object id="1061" name="21" type="0,22" gid="692172" x="68" y="70" width="1" height="1"/>
   <object id="1063" name="22" type="19,21" gid="692172" x="74" y="70" width="1" height="1"/>
-  <object id="1067" name="23" type="8,9,24,25" gid="692172" x="69" y="38" width="1" height="1"/>
-  <object id="1068" name="24" type="10,11,23,25" gid="692172" x="80" y="38" width="1" height="1"/>
-  <object id="1079" name="25" type="23,24" gid="692172" x="74" y="38" width="1" height="1"/>
+  <object id="1079" name="25" type="9,10" gid="692172" x="74" y="38" width="1" height="1"/>
  </objectgroup>
  <objectgroup color="#26a410" name="Colisiones">
   <object id="486" x="52" y="70" width="46" height="1"/>
@@ -67,7 +65,7 @@
  <objectgroup name="Muelles"/>
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="43" y="64" width="1" height="1"/>
+  <object id="1002" gid="271" x="71" y="38" width="1" height="1"/>
   <object id="1003" gid="271" x="93" y="70" width="1" height="1"/>
   <object id="1069" gid="271" x="92" y="58" width="1" height="1"/>
   <object id="1070" gid="271" x="43" y="52" width="1" height="1"/>

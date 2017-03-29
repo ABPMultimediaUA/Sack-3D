@@ -38,17 +38,14 @@ void Bot::InicializaVariables(){
 
 void Bot::actualiza(){
     Player::actualiza();
-    //if(mando==3) std::cout<<"Estado:: "<<estadoBot<<std::endl;
 
     switch(estadoBot){
 
         case 0: {
-            //Estado de buscar Arma o huir sin estar armado
             buscaArma();
             break;
         }
         case 1: {
-            //Estado de buscar jugador o huir estando armado
             buscaJugador();
             break;
         }
@@ -329,12 +326,14 @@ void Bot::saltar(){
    if(muerto || fingiendoMuerte)
         return;
     if(!saltando){
-        //if(abs(m_gameObject.GetPosition().y) - abs(nodoy) >= 7) salto = 15;
-        //else                                                    salto = 12;
-        b2Vec2 velV = m_gameObject.GetLinearVelocity();
-        velV.y = salto;
-        m_gameObject.SetLinearVelocity(velV);
-        m_pClient->enviarSalto(1, mando);
+      //float gapY = abs(m_gameObject.GetPosition().y - nodoy);
+      //float gapX = abs(m_gameObject.GetPosition().x - nodox);
+      //salto = (gapY*3);
+      //std::cout<<"gapX: "<<gapX<<" gapY: "<<gapY<<" salto: "<<salto<<std::endl;
+      b2Vec2 velV = m_gameObject.GetLinearVelocity();
+      velV.y = salto;
+      m_gameObject.SetLinearVelocity(velV);
+      m_pClient->enviarSalto(1, mando);
     }
 }
 

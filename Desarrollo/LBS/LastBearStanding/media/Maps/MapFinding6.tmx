@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1262">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1265">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -15,7 +15,7 @@
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
  <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
-  <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
+  <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
    <animation>
     <frame tileid="119" duration="100"/>
@@ -26,9 +26,9 @@
   <object id="618" name="0" type="1,2" gid="692172" x="24" y="43" width="1" height="1"/>
   <object id="1220" name="1" type="0,18,20" gid="692172" x="49" y="43" width="1" height="1"/>
   <object id="1221" name="2" type="0,3" gid="692172" x="19" y="50" width="1" height="1"/>
-  <object id="1222" name="3" type="2,4,5" gid="692172" x="29" y="50" width="1" height="1"/>
-  <object id="1223" name="4" type="3,5,18" gid="692172" x="39" y="50" width="1" height="1"/>
-  <object id="1224" name="5" type="3,4,6,29" gid="692172" x="34" y="57" width="1" height="1"/>
+  <object id="1222" name="3" type="2" gid="692172" x="27" y="50" width="1" height="1"/>
+  <object id="1223" name="4" type="5,18" gid="692172" x="39" y="50" width="1" height="1"/>
+  <object id="1224" name="5" type="4,6,29" gid="692172" x="34" y="57" width="1" height="1"/>
   <object id="1225" name="6" type="5,7" gid="692172" x="41" y="60" width="1" height="1"/>
   <object id="1226" name="7" type="6,8" gid="692172" x="45" y="63" width="1" height="1"/>
   <object id="1227" name="8" type="6,11" gid="692172" x="54" y="65" width="1" height="1"/>
@@ -75,6 +75,7 @@
   <object id="1100" x="63" y="56" width="18" height="2"/>
   <object id="1101" x="58" y="54" width="45" height="2"/>
   <object id="1250" x="103" y="55" width="20" height="7"/>
+  <object id="1263" x="30" y="44" width="1" height="6"/>
  </objectgroup>
  <objectgroup name="Teleports" visible="0"/>
  <objectgroup name="Muelles" visible="0"/>
@@ -89,13 +90,14 @@
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1251" name="1" type="2" gid="692377" x="62" y="24" width="1" height="1"/>
+  <object id="1251" name="1" type="1" gid="692377" x="62" y="24" width="1" height="1"/>
   <object id="1252" name="2" type="1" gid="692377" x="113" y="21" width="1" height="1"/>
   <object id="1253" name="2" type="1" gid="692377" x="120" y="48" width="1" height="1"/>
   <object id="1254" name="2" type="1" gid="692377" x="101" y="61" width="1" height="1"/>
   <object id="1256" name="1" type="1" gid="692377" x="27" y="57" width="1" height="1"/>
   <object id="1258" name="1" type="1" gid="692377" x="24" y="43" width="1" height="1"/>
-  <object id="1259" name="1" type="2" gid="692377" x="19" y="50" width="1" height="1"/>
+  <object id="1259" name="1" type="1" gid="692377" x="19" y="50" width="1" height="1"/>
   <object id="1260" name="1" type="1" gid="692377" x="71" y="40" width="1" height="1"/>
+  <object id="1264" name="2" type="1" gid="692377" x="27" y="50" width="1" height="1"/>
  </objectgroup>
 </map>

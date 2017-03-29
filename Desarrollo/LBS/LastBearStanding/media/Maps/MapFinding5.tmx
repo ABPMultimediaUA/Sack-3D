@@ -15,7 +15,7 @@
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
  <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
-  <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
+  <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
    <animation>
     <frame tileid="119" duration="100"/>

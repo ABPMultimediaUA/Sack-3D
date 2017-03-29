@@ -14,8 +14,8 @@
  <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
  </tileset>
- <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2" columns="64">
-  <image source="../../../../../Documents/GitHub/ABP/Sack-3D/Desarrollo/LBE+bot/LastBearStanding/media/Maps/tileset.png" width="1024" height="631"/>
+ <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
    <animation>
     <frame tileid="119" duration="100"/>
@@ -65,7 +65,7 @@
  <objectgroup name="Muelles"/>
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="71" y="38" width="1" height="1"/>
+  <object id="1002" gid="271" x="35" y="64" width="1" height="1"/>
   <object id="1003" gid="271" x="93" y="70" width="1" height="1"/>
   <object id="1069" gid="271" x="92" y="58" width="1" height="1"/>
   <object id="1070" gid="271" x="43" y="52" width="1" height="1"/>
@@ -75,11 +75,11 @@
  </objectgroup>
  <objectgroup name="Spawners">
   <object id="1071" name="2" type="1" gid="692377" x="74" y="38" width="1" height="1"/>
-  <object id="1072" name="1" type="2" gid="692377" x="118" y="64" width="1" height="1"/>
-  <object id="1073" name="1" type="2" gid="692377" x="31" y="64" width="1" height="1"/>
-  <object id="1074" name="1" type="2" gid="692377" x="68" y="70" width="1" height="1"/>
+  <object id="1072" name="1" type="1" gid="692377" x="118" y="64" width="1" height="1"/>
+  <object id="1073" name="1" type="1" gid="692377" x="31" y="64" width="1" height="1"/>
+  <object id="1074" name="1" type="1" gid="692377" x="68" y="70" width="1" height="1"/>
   <object id="1075" name="1" type="1" gid="692377" x="80" y="70" width="1" height="1"/>
-  <object id="1077" name="1" type="2" gid="692377" x="37" y="52" width="1" height="1"/>
+  <object id="1077" name="1" type="1" gid="692377" x="37" y="52" width="1" height="1"/>
   <object id="1078" name="2" type="1" gid="692377" x="112" y="52" width="1" height="1"/>
  </objectgroup>
 </map>

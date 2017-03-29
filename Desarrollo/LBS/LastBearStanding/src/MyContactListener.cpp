@@ -70,11 +70,9 @@ void MyContactListener::PlayerCogibleEnd(){
     GetPlayer()->setPuedoCoger(false);
 }
 void MyContactListener::PlayerPincho(){
-     std::cout<<"choca-playerybala "<<std::endl;
     GetPlayer()->setParaMorir(true);
 }
 void MyContactListener::PlayerBala(){
-    std::cout<<"choca-playerybala "<<std::endl;
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
 }
@@ -82,8 +80,10 @@ void MyContactListener::PlayerBala(){
 void MyContactListener::PlayerNodo(){
     Bot* bot = dynamic_cast<Bot*>(GetPlayer());
     if(bot){
-        std::cout<<"Bot colisiona con nodo: "<<GetNodo()->GetId()<<std::endl;
-        //bot->colisionConNodo(GetNodo());
+        Nodo* nodo = GetNodo();
+        if(nodo){
+            bot->colisionConNodo(nodo->getNumero());
+        }
     }
 }
 void MyContactListener::TeleportBala(){Teleport* tp = GetTeleport();

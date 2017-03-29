@@ -10,9 +10,7 @@ PBAlivePlayer::PBAlivePlayer(){
     m_mask = 0;
 }
 PBAlivePlayer::~PBAlivePlayer(){
-    std::cout<<"ENTROOOOOOOOOOOOOOOOOO"<<std::endl;
     DestroyBody();
-    std::cout<<"SALGOOOOOOOOOOOOOOOOOO"<<std::endl;
 }
 int PBAlivePlayer::Inicialize(b2Vec2 pos, b2Vec2 tam){
 	DestroyBody();

@@ -29,7 +29,7 @@ void Bot::InicializaVariables(){
             aux = nodos.at(i);
     }
 
-    //std::cout<<"Soy bot "<<mando<<" y voy a ir al spawn nodo "<<aux->getNumero()<<std::endl;
+    std::cout<<"Soy bot "<<mando<<" y voy a ir al spawn nodo "<<aux->getNumero()<<std::endl;
     Nodo* aux2 = getMas(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     calcularPathfinding(aux2, aux);
     if(pathfinding->getTamanyo() != 0)

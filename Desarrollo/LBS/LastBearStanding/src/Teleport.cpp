@@ -4,7 +4,6 @@
 
 Teleport::Teleport(int tpId, int partner, b2Vec2 pos)
 :m_teleportId(tpId),m_partner(partner){
-    std::cout<<"teleport "<<std::endl;
     m_id = m_gameObject.Inicialize(
         new PBDefault()
         ,M_TELEPORT

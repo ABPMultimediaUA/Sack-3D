@@ -18,7 +18,6 @@ void Pistola::usar(){
         if(m_pIrrMngr->getTime()-timeCadencia > cadencia ){
             float desvBala = rand()% 3 - 3;
 	    	m_pWorld->AddBala(new Bala(b2Vec2(m_gameObject.GetPosition().x,-(m_gameObject.GetPosition().y)), 300, 10, desvBala, dir,1));
-	    	std::cout<<"en pistola "<<std::endl;
             Particle *cap = m_pWorld->AddParticle(new Particle(new PBCap(),b2Vec2(m_gameObject.GetPosition().x,-(m_gameObject.GetPosition().y)),irr::core::vector3df(0.2f,.1f,.1f), irr::video::SColor(255,229, 229, 59)));
 	    	b2Vec2 capVel;
 	    	capVel.x = dir*rand()%3;

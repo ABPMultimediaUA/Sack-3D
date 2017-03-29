@@ -12,7 +12,6 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
         case 3:tam = irr::core::vector3df(0.1f,0.1f,0.1f);break;
     }
     pos.x = pos.x + dir;
-    std::cout<<"bala "<<std::endl;
     m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
     timer2Kill = m_pIrrMngr->getTimer();
     time2Kill = timer2Kill->getTime();

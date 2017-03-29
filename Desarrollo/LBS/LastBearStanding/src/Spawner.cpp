@@ -14,7 +14,6 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
     cadencia = 2000;
     timer = m_pIrrMngr->getTimer();
     time = timer->getTime();
-    std::cout<<"spawner "<<std::endl;
     m_id = m_gameObject.Inicialize(
         new PBSpawner()
         ,pos
@@ -42,7 +41,6 @@ void Spawner::soltar(){
     cogiendo = false;
 }
 void Spawner::generar(){
-    std::cout<<"Sarma "<<std::endl;
     switch(tipo){
         case 1: objCogido = m_pWorld->AddCogible(new Pistola(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y)));  break;
         case 2: objCogido = m_pWorld->AddCogible(new Escopeta(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y))); break;

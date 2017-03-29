@@ -53,23 +53,18 @@ Lista* Map::getListaNodos(){
   return nodos.Get();
 }
 void Map::AddSpawner(){
-    //std::cout<<"spawn "<<std::endl;
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,b2Vec2(x,y)));
 }
 void Map::AddPlatform(){
-    //std::cout<<"plat "<<std::endl;
     World::Inst()->AddPlatform(new Platform(false,b2Vec2(x,y+height),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddMuelle(){
-    //std::cout<<"muelle "<<std::endl;
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
 }
 void Map::AddTeleport(){
-    //std::cout<<"tele "<<std::endl;
      World::Inst()->AddTeleport(new Teleport(name, typeInt, b2Vec2(x,y)));
 }
 void Map::AddArma(){
-    //std::cout<<"arma "<<std::endl;
     switch(name){
          case 1:{
               World::Inst()->AddCogible(new  Pistola(NULL, typeInt,b2Vec2(x,y)));
@@ -96,8 +91,6 @@ void Map::AddPlayer(){
    }
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
-           // std::cout<<"num playerRed "<<Client::Inst()->getNumPlayersRed()<<std::endl;
-            //std::cout<<"i "<<i<<std::endl;
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
         std::cout<<"playerRed "<<Client::Inst()->playersRed[i].id<<std::endl;
         World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',color, Client::Inst()->playersRed[i].id));
@@ -107,19 +100,15 @@ void Map::AddPlayer(){
    }
    else{
         if(numPlayer > Client::Inst()->getNumPlayersRed()){
-        std::cout<<"ENTRA A ADDBOT"<<std::endl;
      World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
-   std::cout<<"SALE A ADDBOT"<<std::endl;
    }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-    //std::cout<<"pincho "<<std::endl;
      World::Inst()->AddPlatform(new Platform(true,b2Vec2(x,y+height),irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddNodo(){
-    //std::cout<<"nodo "<<std::endl;
     Nodo *a = World::Inst()->AddNodo(new Nodo(b2Vec2(x,y),irr::core::vector3df(width, height, 10), name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);

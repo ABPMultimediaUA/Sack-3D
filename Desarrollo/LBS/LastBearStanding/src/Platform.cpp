@@ -6,7 +6,6 @@
 
 Platform::Platform(bool mata, b2Vec2 pos, irr::core::vector3df tam,irr::video::SColor color){
     if(!mata){
-            std::cout<<"plat "<<std::endl;
         m_id = m_gameObject.Inicialize(
             new PBDefault()
             ,M_SUELO
@@ -18,7 +17,6 @@ Platform::Platform(bool mata, b2Vec2 pos, irr::core::vector3df tam,irr::video::S
         );
     }
     else{
-        std::cout<<"plat1 "<<std::endl;
         m_id = m_gameObject.Inicialize(
             new PBDefaultSensor()
             ,M_SUELO

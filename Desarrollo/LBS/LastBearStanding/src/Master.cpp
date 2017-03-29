@@ -34,7 +34,6 @@ void Master::Update(){
             }
         }
         else if(IrrMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
-
             puntuaciones[World::Inst()->getGanador()]++;
             World::Inst()->Reset();
             InstanciaMundo();

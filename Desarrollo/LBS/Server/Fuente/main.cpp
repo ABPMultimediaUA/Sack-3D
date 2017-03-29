@@ -286,7 +286,6 @@ std::vector<int> listaMapas(){
     std::vector<int> result;
 
     for(int i=0;i<6;i++) nums.push_back(i);
-std::cout<<" sddfdfd"<<std::endl;
     while(nums.size()!=0){
         x = rand() % nums.size();
         result.push_back(nums[x]);

@@ -4932,7 +4932,7 @@
 	"Master.h"
 	"Client.h"
 
-1490631445 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\master.h
+1490781638 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\master.h
 	<irrlicht.h>
 	<vector>
 
@@ -4987,7 +4987,7 @@
 1490111098 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\playerred.h
 	"Player.h"
 
-1490712232 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\bala.cpp
+1490780466 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\bala.cpp
 	"Bala.h"
 	"World.h"
 	"PhysicBody/PBBullet.h"
@@ -5092,7 +5092,7 @@
 1490111098 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\escopeta.h
 	"Usable.h"
 
-1490712280 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\gameobject.cpp
+1490780493 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\gameobject.cpp
 	"GameObject.h"
 	"World.h"
 	<iostream>
@@ -5132,7 +5132,7 @@
 1490284052 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\myeventreceiver.h
 	<irrlicht.h>
 
-1490728624 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\map.cpp
+1490780529 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\map.cpp
 	"Map.h"
 	"IrrManager.h"
 	"Platform.h"
@@ -5169,19 +5169,19 @@
 1490111098 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\pistola.h
 	"Usable.h"
 
-1490712280 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\master.cpp
+1490781574 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\master.cpp
 	"Master.h"
 	"World.h"
 	"IrrManager.h"
 	<ctime>
 	<stdlib.h>
 
-1490712232 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\metralla.cpp
+1490780569 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\metralla.cpp
 	"PhysicBody/PBBullet.h"
 	"Metralla.h"
 	"World.h"
 
-1490712232 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\muelle.cpp
+1490780574 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\muelle.cpp
 	"Muelle.h"
 	"World.h"
 	"IrrManager.h"
@@ -5190,7 +5190,7 @@
 1490111098 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\physicbody\pbdefault.h
 	"PhysicBody.h"
 
-1490712232 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\mycontactlistener.cpp
+1490780651 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\mycontactlistener.cpp
 	"Pathfinding/Nodo.h"
 	"MyContactListener.h"
 	"Teleport.h"
@@ -5210,7 +5210,7 @@
 	"Player.h"
 	"World.h"
 
-1490631445 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\particle.cpp
+1490780750 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\particle.cpp
 	"Particle.h"
 	"World.h"
 
@@ -5231,7 +5231,7 @@
 1490111098 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\physicbody\pbdefaultsensor.h
 	"PhysicBody/PhysicBody.h"
 
-1490712232 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\physicbody\pbaliveplayer.cpp
+1490780841 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\physicbody\pbaliveplayer.cpp
 	"PhysicBody/PBAlivePlayer.h"
 	"World.h"
 
@@ -5261,7 +5261,7 @@
 1490284052 c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\include\physicbody\pbcotton.h
 	"PhysicBody.h"
 
-1490725563 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\physicbody\pbdeadplayer.cpp
+1490780869 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\physicbody\pbdeadplayer.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"World.h"
 
@@ -5288,7 +5288,7 @@
 	"PhysicBody/PhysicBody.h"
 	"World.h"
 
-1490631445 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\pistola.cpp
+1490780757 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\pistola.cpp
 	"PhysicBody/PBCogibleReleased.h"
 	"PhysicBody/PBCogibleCatched.h"
 	"PhysicBody/PBCap.h"
@@ -5298,13 +5298,13 @@
 	"World.h"
 	"Bala.h"
 
-1490631445 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\platform.cpp
+1490780764 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\platform.cpp
 	"Platform.h"
 	"World.h"
 	"PhysicBody/PBDefault.h"
 	"PhysicBody/PBDefaultSensor.h"
 
-1490727268 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\player.cpp
+1490780779 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\player.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"PhysicBody/PBCotton.h"
@@ -5315,7 +5315,7 @@
 	"Client.h"
 	"World.h"
 
-1490712280 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\playerred.cpp
+1490780784 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\playerred.cpp
 	"PhysicBody/PBDeadPlayer.h"
 	"PhysicBody/PBAlivePlayer.h"
 	"PhysicBody/PBCotton.h"
@@ -5324,7 +5324,7 @@
 	"World.h"
 	"Usable.h"
 
-1490726337 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\spawner.cpp
+1490780793 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\spawner.cpp
 	"PhysicBody/PBSpawner.h"
 	"IrrManager.h"
 	"Escopeta.h"
@@ -5333,7 +5333,7 @@
 	"Spawner.h"
 	"World.h"
 
-1490631445 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\teleport.cpp
+1490780798 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\teleport.cpp
 	"PhysicBody/PBDefault.h"
 	"Teleport.h"
 	"World.h"
@@ -5342,7 +5342,7 @@
 	"Spawner.h"
 	"Usable.h"
 
-1490727159 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\world.cpp
+1490780820 source:c:\users\jpuerto\desktop\abp\desarrollo\lbs\lastbearstanding\src\world.cpp
 	"PathFinding/Lista.h"
 	"PathFinding/Nodo.h"
 	"MyContactListener.h"

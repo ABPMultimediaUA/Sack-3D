@@ -99,7 +99,7 @@ void Map::AddPlayer(){
       }
    }
    else{
-        if(numPlayer > Client::Inst()->getNumPlayersRed()){
+        if(id == 0 && numPlayer > Client::Inst()->getNumPlayersRed()){
      World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
    }
    }

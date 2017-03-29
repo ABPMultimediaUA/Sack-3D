@@ -87,7 +87,6 @@ void Client::iniciar(){
 }
 
 void Client::enviar(int idb){
-
     char aux[60];
     char id[30];
     int muer;
@@ -175,11 +174,9 @@ void Client::enviarMoviendo(int moviendo, int idb){
     if(idb!=-1) idUsada=idb;
     else idUsada=idPlayerInt;
 
-
     b2Vec2 posicion = World::Inst()->getPlayer(idUsada)->getPosition();
     auxiliarx = posicion.x * 1000000;
     auxiliary = posicion.y * 1000000;
-
     // ---------- ID
         if(strcmp(World::Inst()->getPlayer(idUsada)->getId(), "") == 0){ strncpy(id, "-1", sizeof(id));}
         else{strncpy(id, World::Inst()->getPlayer(idUsada)->getId(), sizeof(id));}
@@ -317,6 +314,7 @@ void Client::analizarPaquete1(){
             p->setDireccion(dir);
             p->setMuerto(muerto);
             p->setPos();
+
         }
     }
 }
@@ -355,7 +353,6 @@ void Client::analizarPaquete4(){
 
 
         for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
-
             if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), params[1].var) == 0){
                 PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
                 p->setx(x);

@@ -11,7 +11,7 @@ class Lista;
 class Nodo;
 class Bot: public Player{
     public:
-        Bot(b2Vec2 pos, int mando,irr::video::SColor color);
+        Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]);
         virtual ~Bot(){}
         b2Vec2 getSpawnCercano();
         void buscaArma();
@@ -25,6 +25,7 @@ class Bot: public Player{
         virtual void actualiza();
         virtual void muevo(int x, int y);
         virtual void mover();
+        //virtual void CogerTirar();
         virtual void morir();
         void imprimirNodos();
         virtual void saltar();

@@ -54,7 +54,7 @@ void Player::mover(){
         }
     }
     if(moviendo != moviendoA){
-        m_pClient->enviarMoviendo(moviendo);
+        m_pClient->enviarMoviendo(moviendo, mando);
         moviendoA = moviendo;
     }
     m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
@@ -76,18 +76,18 @@ void Player::saltar(){
         b2Vec2 velV = m_gameObject.GetLinearVelocity();
         velV.y = salto;
         m_gameObject.SetLinearVelocity(velV);
-        m_pClient->enviarSalto(1);
+        m_pClient->enviarSalto(1, mando);
     }
     else if(!dobleSaltando){
         b2Vec2 velV = m_gameObject.GetLinearVelocity();
         velV.y = salto*3/4;
         m_gameObject.SetLinearVelocity(velV);
         dobleSaltando = true;
-        m_pClient->enviarSalto(2);
+        m_pClient->enviarSalto(2, mando);
     }
 }
 void Player::fingirMuerte(){
-    m_pClient->enviarHacerseMuerto();
+    m_pClient->enviarHacerseMuerto(mando);
     if(cogiendo) Soltar();
     if(muerto)
         return;
@@ -124,7 +124,7 @@ void Player::morir(){
         else
             m_gameObject.SetAngularVelocity(0.5f);
         muerto = true;
-        m_pClient->enviarMuerto();
+        m_pClient->enviarMuerto(mando);
     }
 }
 void Player::CogerTirar(){
@@ -137,12 +137,12 @@ void Player::CogerTirar(){
                 objCogido->setDireccion(1);
                 m_gameObject.Catch(objCogido->GetId());
                 cogiendo = true;
-                m_pClient->enviarCogido(objCogido->GetId());
+                m_pClient->enviarCogido(objCogido->GetId(),mando);
             }
         }
         else if(cogiendo){
             Soltar();
-            m_pClient->enviarCogido(-1);
+            m_pClient->enviarCogido(-1, mando);
         }
     }
 }
@@ -178,7 +178,7 @@ void Player::teletransportar(){
 }
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
-        m_pClient->enviarUsar();
+        m_pClient->enviarUsar(mando);
         usable->usar();
     }
 }

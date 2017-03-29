@@ -16,6 +16,7 @@ Master::Master(){
     World::Inst();
     InstanciaMundo();
     IrrMngr::Inst();
+    time2SyncClient = 0;
     IrrMngr::Inst()->InstanciaVariables(puntuaciones);
     timerFinPartida = IrrMngr::Inst()->getTimer();
     timerFPS = IrrMngr::Inst()->getTimer();
@@ -41,6 +42,7 @@ void Master::Update(){
         }
         IrrMngr::Inst()->Update();
         Client::Inst()->recibir();
+        //std::cout<<"SETEO AL PLAYER "<<IrrMngr::Inst()->getTime()<<" "<<time2SyncClient<<std::endl;
         if(IrrMngr::Inst()->getTime()>(time2SyncClient+5000)){
             Client::Inst()->enviar();
             time2SyncClient = IrrMngr::Inst()->getTime();
@@ -50,7 +52,7 @@ void Master::Update(){
 }
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();
-    std::cout<<mapList[0]<<" "<<mapList[1]<<" "<<mapList[2]<<" "<<mapList[3]<<" "<<mapList[4]<<" "<<mapList[5]<<" "<<std::endl;
+    //std::cout<<mapList[0]<<" "<<mapList[1]<<" "<<mapList[2]<<" "<<mapList[3]<<" "<<mapList[4]<<" "<<mapList[5]<<" "<<std::endl;
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     const Num2Map * it = maps;

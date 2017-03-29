@@ -10,9 +10,7 @@ PBDeadPlayer::PBDeadPlayer(){
     m_mask = 0;
 }
 PBDeadPlayer::~PBDeadPlayer(){
-    std::cout<<"ENTROOOOOOOOOOOOOOOOOO"<<std::endl;
     DestroyBody();
-    std::cout<<"SALGOOOOOOOOOOOOOOOOOO"<<std::endl;
 }
 int PBDeadPlayer::Inicialize( b2Vec2 pos, b2Vec2 tam){
 	DestroyBody();

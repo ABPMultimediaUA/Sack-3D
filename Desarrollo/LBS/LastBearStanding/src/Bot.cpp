@@ -8,7 +8,8 @@
 #include <ctime>
 #include <stdlib.h>
 
-Bot::Bot(b2Vec2 pos, int mando,irr::video::SColor color):Player( pos,  mando,color){
+Bot::Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]):Player( pos,  mando,color){
+    strncpy(id, idr, sizeof(id));
     enMuelle = false;
     salto = 20.0f;
     vel = 5;
@@ -29,7 +30,6 @@ void Bot::InicializaVariables(){
             aux = nodos.at(i);
     }
 
-    std::cout<<"Soy bot "<<mando<<" y voy a ir al spawn nodo "<<aux->getNumero()<<std::endl;
     Nodo* aux2 = getMas(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     calcularPathfinding(aux2, aux);
     if(pathfinding->getTamanyo() != 0)
@@ -170,7 +170,6 @@ void Bot::mover(){
     if(direccion != direccionA){
         direccionA = direccion;
         m_pClient->enviarMoviendo(dir, mando);
-        //std::cout<<"ENVIOMOV"<<dir<<std::endl;
     }
     m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
@@ -336,6 +335,26 @@ void Bot::saltar(){
       m_pClient->enviarSalto(1, mando);
     }
 }
+/*
+void Bot::CogerTirar(){
+    if(!muerto && !fingiendoMuerte){
+        if(puedoCoger && !cogiendo){
+            Usable* usable = dynamic_cast<Usable*>(objPuedoCoger);
+            if(usable && usable->getUsos()){
+                objCogido = objPuedoCoger;
+                objCogido->setCogido(true);
+                objCogido->setDireccion(1);
+                m_gameObject.Catch(objCogido->GetId());
+                cogiendo = true;
+                m_pClient->enviarCogido(objCogido->GetId(), mando);
+            }
+        }
+        else if(cogiendo){
+            Soltar();
+            m_pClient->enviarCogido(-1, mando);
+        }
+    }
+}*/
 
 void Bot::morir(){
     if(!muerto && World::Inst()->getVivos() >1){std::cout<<"SOY BOT: "<<mando<<" Y MUERO"<<std::endl;

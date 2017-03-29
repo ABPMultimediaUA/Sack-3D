@@ -78,7 +78,7 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
-    irr::video::SColor color;
+        irr::video::SColor color;
     switch(numPlayer){
         case 0: color = irr::video::SColor(150,150, 0,0)  ; break;
         case 1: color = irr::video::SColor(150,0, 150,0)  ; break;
@@ -92,16 +92,23 @@ void Map::AddPlayer(){
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
-        std::cout<<"playerRed "<<Client::Inst()->playersRed[i].id<<std::endl;
         World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',color, Client::Inst()->playersRed[i].id));
         playerRed++;
         }
       }
    }
    else{
-        if(id == 0 && numPlayer > Client::Inst()->getNumPlayersRed()){
-     World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color));
-   }
+        if(numPlayer > Client::Inst()->getNumPlayersRed()){
+            if(id == 0){
+                char aux[30];
+                sprintf(aux, "%.0f", (float)numPlayer);
+                World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color, aux));
+            }else{
+               char aux[30];
+               sprintf(aux, "%.0f", (float)numPlayer);
+               World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,color, aux));
+            }
+        }
    }
    numPlayer++;
 }

@@ -65,14 +65,14 @@
   <object id="1002" gid="271" x="67" y="45" width="1" height="1"/>
   <object id="1003" gid="271" x="97" y="45" width="1" height="1"/>
   <object id="1033" gid="271" x="87" y="55" width="1" height="1"/>
-  <object id="1034" gid="271" x="67" y="34" width="1" height="1"/>
+  <object id="1034" gid="271" x="75" y="34" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1011" name="1" type="2" gid="205" x="85" y="26" width="1" height="1"/>
-  <object id="1012" name="1" type="2" gid="205" x="64" y="34" width="1" height="1"/>
+  <object id="1011" name="1" type="1" gid="205" x="85" y="26" width="1" height="1"/>
+  <object id="1012" name="1" type="1" gid="205" x="64" y="34" width="1" height="1"/>
   <object id="1013" name="1" type="1" gid="205" x="58" y="45" width="1" height="1"/>
   <object id="1025" name="2" type="1" gid="205" x="92" y="55" width="1" height="1"/>
   <object id="1026" name="1" type="1" gid="205" x="101" y="55" width="1" height="1"/>

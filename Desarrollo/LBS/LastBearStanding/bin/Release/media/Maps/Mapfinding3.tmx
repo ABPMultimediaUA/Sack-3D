@@ -34,15 +34,15 @@
   <object id="1087" name="8" type="7,9,10,19" gid="692172" x="61" y="69" width="1" height="1"/>
   <object id="1088" name="9" type="8,11" gid="692172" x="66" y="63" width="1" height="1"/>
   <object id="1089" name="10" type="7" gid="692172" x="88" y="69" width="1" height="1"/>
-  <object id="1090" name="17" type="15" gid="692172" x="90" y="63" width="1" height="1"/>
+  <object id="1090" name="17" type="0" gid="692172" x="90" y="63" width="1" height="1"/>
   <object id="1091" name="12" type="13" gid="692172" x="89" y="55" width="1" height="1"/>
-  <object id="1098" name="16" type="8" gid="692172" x="42" y="36" width="1" height="1"/>
+  <object id="1098" name="16" type="11" gid="692172" x="42" y="36" width="1" height="1"/>
   <object id="1099" name="14" type="6,12" gid="692172" x="84" y="44" width="1" height="1"/>
   <object id="1110" name="11" type="9,17" gid="692172" x="79" y="63" width="1" height="1"/>
   <object id="1121" name="13" type="1,12" gid="692172" x="61" y="55" width="1" height="1"/>
-  <object id="1145" name="15" type="18" gid="692172" x="88" y="30" width="1" height="1"/>
-  <object id="1151" name="18" type="0" gid="692172" x="75" y="30" width="1" height="1"/>
-  <object id="1152" name="19" type="0" gid="692172" x="43" y="69" width="1" height="1"/>
+  <object id="1145" name="15" type="18" gid="692172" x="77" y="30" width="1" height="1"/>
+  <object id="1151" name="18" type="8" gid="692172" x="91" y="30" width="1" height="1"/>
+  <object id="1152" name="19" type="15" gid="692172" x="43" y="69" width="1" height="1"/>
  </objectgroup>
  <objectgroup color="#26a410" name="Colisiones">
   <object id="486" x="43" y="69" width="48" height="1"/>
@@ -64,24 +64,24 @@
   <object id="1143" x="83" y="44" width="3" height="3"/>
  </objectgroup>
  <objectgroup name="Teleports">
-  <object id="1074" name="1" type="2" gid="692172" x="43" y="35" width="1" height="1"/>
-  <object id="1075" name="2" type="1" gid="692172" x="44" y="68" width="1" height="1"/>
-  <object id="1129" name="4" type="1" gid="692172" x="76" y="29" width="1" height="1"/>
-  <object id="1130" name="3" type="4" gid="692172" x="89" y="62" width="1" height="1"/>
+  <object id="1074" name="1" type="3" gid="692172" x="43" y="35" width="1" height="1"/>
+  <object id="1075" name="2" type="4" gid="692172" x="44" y="68" width="1" height="1"/>
+  <object id="1129" name="4" type="2" gid="692172" x="90" y="29" width="1" height="1"/>
+  <object id="1130" name="3" type="1" gid="692172" x="89" y="62" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Muelles"/>
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="69" y="55" width="1" height="1"/>
-  <object id="1119" gid="271" x="86" y="69" width="1" height="1"/>
-  <object id="1127" gid="271" x="73" y="47" width="1" height="1"/>
-  <object id="1128" gid="271" x="73" y="63" width="1" height="1"/>
+  <object id="1002" gid="271" x="82" y="55" width="1" height="1"/>
+  <object id="1119" gid="271" x="81" y="63" width="1" height="1"/>
+  <object id="1127" gid="271" x="56" y="36" width="1" height="1"/>
+  <object id="1128" gid="271" x="79" y="30" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
- <objectgroup name="Spawners">
-  <object id="1144" name="2" type="1" gid="692377" x="88" y="30" width="1" height="1"/>
+ <objectgroup name="Spawners" visible="0">
+  <object id="1144" name="2" type="1" gid="692377" x="77" y="30" width="1" height="1"/>
   <object id="1147" name="1" type="1" gid="692377" x="79" y="47" width="1" height="1"/>
   <object id="1148" name="1" type="2" gid="692377" x="61" y="55" width="1" height="1"/>
   <object id="1149" name="1" type="1" gid="692377" x="75" y="69" width="1" height="1"/>

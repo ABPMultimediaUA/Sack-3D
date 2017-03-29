@@ -45,8 +45,8 @@
  <objectgroup name="Muelles" visible="0"/>
  <objectgroup name="Armas" visible="0"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="15" y="58" width="1" height="1"/>
-  <object id="1003" gid="271" x="65" y="65" width="1" height="1"/>
+  <object id="1002" gid="271" x="23" y="58" width="1" height="1"/>
+  <object id="1003" gid="271" x="58" y="65" width="1" height="1"/>
   <object id="1040" gid="271" x="65" y="58" width="1" height="1"/>
   <object id="1044" gid="271" x="15" y="65" width="1" height="1"/>
  </objectgroup>

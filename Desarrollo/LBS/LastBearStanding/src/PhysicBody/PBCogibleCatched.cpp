@@ -83,6 +83,7 @@ void PBCogibleCatched::InitBody(b2Vec2 pos,b2Vec2 tam){
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
+    m_pBody->SetGravityScale( 0 );
 }
 void PBCogibleCatched::InitFixtures(b2Vec2 tam){
 	b2FixtureDef fixtureDef;

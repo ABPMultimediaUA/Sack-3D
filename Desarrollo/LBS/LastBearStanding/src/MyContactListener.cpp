@@ -81,7 +81,7 @@ void MyContactListener::PlayerNodo(){
     Bot* bot = dynamic_cast<Bot*>(GetPlayer());
     if(bot){
         Nodo* nodo = GetNodo();
-        if(nodo){
+        if(nodo && bot->getMuerto() == false){
             bot->colisionConNodo(nodo->getNumero());
         }
     }

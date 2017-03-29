@@ -26,6 +26,7 @@ class TTransform : public TEntidad
         void endDraw(std::vector<glm::mat4>* pila);
         int getTipo();
 
+
     protected:
 
     private:

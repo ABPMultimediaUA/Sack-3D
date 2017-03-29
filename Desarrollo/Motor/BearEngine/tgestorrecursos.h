@@ -11,7 +11,7 @@ class TGestorRecursos
         virtual ~TGestorRecursos();
         TRecurso * getRecurso( char * nombre, int tipo);
         void borrarRecurso(char * nombre);
-
+        void verRecursos();
     protected:
 
     private:

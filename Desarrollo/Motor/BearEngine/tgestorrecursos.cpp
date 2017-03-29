@@ -3,7 +3,7 @@
 
 TGestorRecursos::TGestorRecursos()
 {
-    //ctor
+
 }
 
 TGestorRecursos::~TGestorRecursos()
@@ -83,4 +83,10 @@ void TGestorRecursos::borrarRecurso(char * nombre){
         }
     }
 }
-
+void TGestorRecursos::verRecursos(){
+    std::cout<<std::endl;
+    for(int i =0; i<recursos.size();i++){
+        std::cout<<recursos[i]->GetNombre()<<", ";
+    }
+      std::cout<<std::endl;
+}

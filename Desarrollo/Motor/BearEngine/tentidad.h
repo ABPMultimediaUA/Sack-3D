@@ -13,6 +13,7 @@ class TEntidad
         virtual void endDraw(std::vector<glm::mat4>* pila)  =0;
         virtual int getTipo()=0;
 
+
     protected:
 
     private:

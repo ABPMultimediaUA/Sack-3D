@@ -1,5 +1,13 @@
 #include "tmotorbear.h"
 
+#include <stdio.h>
+#include <string.h>
+char* Concat(char* base, char* anya){
+     char * dev = (char *) malloc(1 + strlen(base)+ strlen(anya) );
+      strcpy(dev, base);
+      strcat(dev, anya);
+      return dev;
+}
 TMotorBear::TMotorBear(int width, int height, const std::string& title)
 {
     arbolEscena = new TNodo(1);
@@ -31,8 +39,6 @@ TNodo* TMotorBear::crearNodo(TNodo* padre, TEntidad * ent, char* nom){
     devolv->setEntidad(ent);
     devolv->setPadre(padre);
     padre->addHijo(devolv);
-
-
     return devolv;
 }
 
@@ -52,6 +58,11 @@ void TMotorBear::transformarEntidad(TEntidad* entity, float tipo, glm::vec3 vec)
     }
 }
 
+void TMotorBear::escalarEntidad(TEntidad* entity, glm::vec3 vec){
+     TTransform* trans = static_cast<TTransform*>(entity);
+     trans->escalar(vec);
+}
+
 
 //Camera * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
 TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
@@ -60,8 +71,11 @@ TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect,
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
 TEntidad* TMotorBear::crearMalla( char* file){
+
     TEntidadMalla* mesh = new TEntidadMalla();
+
     mesh->setMalla(static_cast<Mesh*> (gestorRecursos->getRecurso(file, 0)));
+
     return mesh ;
 }
 TEntidad* TMotorBear::crearMalla( float alto, float ancho, float prof){
@@ -80,7 +94,104 @@ TNodo* TMotorBear::crearCuboEn(float alto, float ancho, float prof, glm::vec3 ve
 
 return nodoMalla6;
 }
+/***********************<OBJETOS>******************************************************/
+TNodo* TMotorBear::crearObjetoMallaCompleto(TNodo* padre, char * filename, char * name){
 
+    std::cout<<"HOLAAA"<<std::endl;
+    TEntidad* rotacion = crearTransform();
+    TEntidad* escalado = crearTransform();
+    TEntidad* traslacion = crearTransform();
+
+    TEntidad* mallaE = crearMalla(filename);
+
+
+    char* rot=  "Rotacion de ";
+    char* es=   "Escalado de ";
+    char* tra=  "Traslacion de ";
+
+
+
+    TNodo* transformacionRota = crearNodo(padre,rotacion,Concat(rot, name));;
+    TNodo* transformacionEscala = crearNodo(transformacionRota,escalado,Concat(es, name));
+    TNodo* transformacionTraslada = crearNodo(transformacionEscala,traslacion, Concat(tra, name));
+    TNodo* malla = crearNodo(transformacionTraslada,mallaE, name);
+
+return malla;
+}
+
+void TMotorBear::RotarObjeto(TNodo* malla,float grados,glm::vec3 vec){
+
+    TNodo* nodoRot= malla->getPadre();//Taslacion
+    nodoRot=nodoRot->getPadre();//Escalado
+    nodoRot=nodoRot->getPadre();//Rotacion
+    TTransform * trans =static_cast<TTransform*>(nodoRot->getEntidad());
+    trans->rotar(grados,vec);
+
+}
+void TMotorBear::EscalarObjeto(TNodo* malla,glm::vec3 vec){
+
+    TNodo* nodoEs= malla->getPadre();//Traslacion
+    nodoEs = nodoEs->getPadre(); //Escalado
+    TTransform * trans =static_cast<TTransform*>(nodoEs->getEntidad());
+    trans->escalar(vec);
+}
+
+void TMotorBear::TrasladarObjeto(TNodo* malla, glm::vec3 vec){
+    TNodo* nodoTras= malla->getPadre(); //Traslacion
+    TTransform * trans =static_cast<TTransform*>(nodoTras->getEntidad());
+    trans->trasladar(vec);
+}
+
+
+void TMotorBear::cambiarNodoOrigen(TNodo* nodoObjeto, TNodo* PadreNuevo){
+    TTransform * trans;
+    TNodo* Origen;//El nodo origen es el que hay por encima de rotacion;
+    TNodo* NodoRot = obtenerRotacion(nodoObjeto);
+    char* nombre;
+    Origen = NodoRot->getPadre();//Nodo Del Origen
+    Origen->remHijo(NodoRot);
+    PadreNuevo->addHijo(NodoRot);
+
+    reiniciarTransPropias(nodoObjeto);
+}
+
+void TMotorBear::reiniciarTransPropias(TNodo* nodoMalla){
+    TNodo * nodo= nodoMalla->getPadre(); //Tras
+    ReinciarTrans(nodo);
+
+    nodo=nodo->getPadre(); //Es
+    ReinciarTrans(nodo);
+
+    nodo=nodo->getPadre(); //Rot
+    ReinciarTrans(nodo);
+}
+
+ TNodo* TMotorBear::obtenerRotacion(TNodo* nodoMalla){
+    TNodo*  NodoRot = nodoMalla->getPadre();    //Tras
+            NodoRot = NodoRot->getPadre();      //Es
+            NodoRot = NodoRot->getPadre();      //Rot
+return NodoRot;
+ }
+ TNodo* TMotorBear::obtenerEscalado(TNodo* nodoMalla){
+    TNodo*  NodoEs = nodoMalla->getPadre();    //Tras
+            NodoEs = NodoEs->getPadre();      //Es
+return NodoEs;
+ }
+
+ TNodo* TMotorBear::obtenerTraslacion(TNodo* nodoMalla){
+    TNodo*    NodoTras = nodoMalla->getPadre();    //Tras
+return NodoTras;
+ }
+
+
+ void TMotorBear::ReinciarTrans(TNodo* nodoTrans){
+    TTransform * trans;
+
+    trans = static_cast<TTransform*>(nodoTrans->getEntidad());
+    trans->identidad();
+ }
+
+/***********************</OBJETOS>******************************************************/
 
 
 void TMotorBear::cambiarMalla(TEntidad* mesh, char* file){
@@ -103,6 +214,23 @@ void TMotorBear::transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec){ 
 void TMotorBear::borrarMalla(char * nombre){
     gestorRecursos->borrarRecurso(nombre);
 }
+
+void TMotorBear::animarMalla(TNodo* nodoMalla){
+    TEntidadMalla* malla;
+
+   // std::cout<<"ENTRA"<<std::endl;
+    malla= static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
+    malla->animar();
+   // std::cout<<"SALE"<<std::endl;
+}
+
+    //DEBUG
+        void TMotorBear::verMallas(TNodo* nodoMalla){
+           TEntidadMalla* malla;
+
+            malla= static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
+            malla->verMallas();
+        }
 
 void TMotorBear::registrarCamara(TNodo* camera){
    // std::cout<<"Entra registro camara"<<std::endl;
@@ -196,14 +324,14 @@ glm::mat4 TMotorBear::obtenerMatCam(){
     }
     std::cout<<std::endl;*/
 //mat = mat * glm::inverse(glm::mat4());
-/*
-   glm::vec3 pos =glm::vec3(mat * glm::vec4(glm::vec3(0,0,0), 1.0));
+
+  /* glm::vec3 pos =glm::vec3(mat * glm::vec4(glm::vec3(0,0,0), 1.0));
 
     for(int i =0; i<3;i++){
         std::cout<<pos[i]<<",";
     }
-    std::cout<<std::endl;
-*/
+    std::cout<<std::endl;*/
+
     return mat;
 }
 
@@ -288,6 +416,12 @@ void TMotorBear::Clear(float r, float g, float b, float a){
 int TMotorBear::UpdateDisplay(){
   return  escena->Update(verCamaraActiva());
 }
+////////////////GESTOR RECURSOS
+    //DEBUG
+            void TMotorBear::verRecursos(){
+                gestorRecursos->verRecursos();
+            }
+
 
 // TNodo* verCamaraActiva();
 //void TMotorBear::activarLuz(TLuz* luz){}

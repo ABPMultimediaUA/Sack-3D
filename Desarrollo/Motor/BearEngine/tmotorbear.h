@@ -32,10 +32,30 @@ class TMotorBear
         TNodo* getRaiz();
         TNodo* crearNodo(TNodo* padre, TEntidad * ent, char* nom);
 
+////OBjetos (Alto Nivel del Motor)
+        TNodo* crearObjetoMallaCompleto(TNodo* padre, char * filename,  char * name);
+
+        void RotarObjeto(TNodo* malla,float grados, glm::vec3 vec);
+        void EscalarObjeto(TNodo* malla,glm::vec3 vec);
+        void TrasladarObjeto(TNodo* malla,glm::vec3 vec);
+
+        void cambiarNodoOrigen(TNodo* nodoObjeto, TNodo* PadreNuevo);
+        void reiniciarTransPropias(TNodo* nodoMalla);
+
+
+
+////////(BAJO NIVEL DEL MOTOR)
+
+        TNodo* obtenerRotacion(TNodo* nodoMalla);
+        TNodo* obtenerEscalado(TNodo* nodoMalla);
+        TNodo* obtenerTraslacion(TNodo* nodoMalla);
+
+         void ReinciarTrans(TNodo* nodoTrans);
 
 /////////////////////Transformaciones
         TEntidad * crearTransform();
         void transformarEntidad(TEntidad* entity, float tipo, glm::vec3 vec);
+        void escalarEntidad(TEntidad* entity, glm::vec3 vec);
 //////////////////////////////////////////
 
 /////////////////////Mallas
@@ -45,9 +65,10 @@ class TMotorBear
 
         void cambiarMalla(TEntidad*, char*file);
         void transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec);//necesario que el nodo arbol este ya incorporado al arbol
-
+        void animarMalla(TNodo* nodoMalla);
         void borrarMalla(char * nombre);
-
+    //DEBUG
+        void verMallas(TNodo* nodoMalla);
 //////////////////////////////////////////
 
 /////////////////////Camaras
@@ -76,7 +97,10 @@ class TMotorBear
         void draw(Shader* shad);
         glm::mat4 obtenerMatCam();
         //manejo de camaras, luces y viewports
-
+///////////////Gestor Recursos
+//DEBUG
+        void verRecursos();
+////////////////////////////////////////
     protected:
 
     private:

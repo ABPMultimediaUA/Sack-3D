@@ -18,6 +18,7 @@ TNodo::~TNodo()
 
 int TNodo::addHijo(TNodo* hijo){
     hijos.push_back(hijo);
+    hijo->setPadre(this);
     return (hijos.size()-1);
 }
 

@@ -5,6 +5,7 @@ TEntidadMalla::TEntidadMalla()
     mesh=0;
     tipo=1; //1 malla, 2 camara, 3 transformacion, 4
     activo=0;
+
 }
 
 TEntidadMalla::~TEntidadMalla()
@@ -36,7 +37,10 @@ int  TEntidadMalla::getTipo(){
 }
 
 void TEntidadMalla::setMalla(Mesh* azteca){
+
     int found =0;
+            std::cout<<"INICIO ARRAY DEL RECURSO"<<meshes.size()<<std::endl;
+
    // mesh=azteca;
    if(azteca){
     for(int i =0; i<meshes.size();i++){
@@ -48,15 +52,18 @@ void TEntidadMalla::setMalla(Mesh* azteca){
         }
     }
     if(!found){
-        std::cout<<"NO ESTA EN EL  ARRAY DEL RECURSO"<<std::endl;
+        std::cout<<"NO ESTA EN EL  ARRAY DEL RECURSO"<<meshes.size()<<std::endl;
         meshes.push_back(azteca);
         activo = meshes.size()-1;
+    std::cout<<"INTRODUCIDO EN EL  ARRAY DEL RECURSO "<<meshes.size()<<std::endl;
+
     }
 
     activarMalla(activo);
    }else{
     mesh=0;
    }
+
 //       meshes.push_back(azteca);
 }/*
 void TEntidadMalla::setMallas(std::vector<Mesh*>* aztecas){
@@ -65,4 +72,22 @@ void TEntidadMalla::setMallas(std::vector<Mesh*>* aztecas){
 
 void TEntidadMalla::activarMalla(int i){
     mesh= meshes.at(i);
+}
+
+void TEntidadMalla::animar(){
+   // std::cout<<activo<<",";
+    activo++;
+   // std::cout<<activo<<std::endl;
+    if(activo>=meshes.size())
+        activo=0;
+
+     //     std::cout<<meshes.size()<<std::endl;
+
+    activarMalla(activo);
+}
+
+void TEntidadMalla::verMallas(){
+    for(int i=0; i<meshes.size();i++){
+        std::cout<<meshes[i]->GetNombre()<<std::endl;
+    }
 }

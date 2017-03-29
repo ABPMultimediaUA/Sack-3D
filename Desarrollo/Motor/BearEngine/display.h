@@ -3,6 +3,8 @@
 
 
 #include<SDL.h>
+#include <SDL_image.h>
+
 #include <string>
 #include "camera.h"
 #include "tnodo.h"
@@ -28,6 +30,8 @@ class Display
         Display& operator=(const Display& other){}
 
         SDL_Window* m_window;
+        SDL_Surface *windowSurface;
+        SDL_Surface *fondo;
         SDL_GLContext m_glContext;
         bool m_isClosed;
           int malla;

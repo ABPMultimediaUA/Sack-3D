@@ -15,7 +15,7 @@ class Camera : public TEntidad
         Camera(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
            m_perspective = glm::perspective(fov, aspect, zNear, zFar);
            esPerspectiva=1;
-      //      m_paralela = glm::ortho(-5.0, 5.0, -5.0, 5.0, 1, 20);
+         //m_paralela = glm::ortho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
 
             m_position = pos;
             m_forward = glm::vec3(0,0,1);

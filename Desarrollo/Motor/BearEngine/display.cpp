@@ -23,6 +23,12 @@ Display::Display(int width, int height, const std::string& title)
 
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     m_glContext = SDL_GL_CreateContext(m_window);
+    windowSurface = nullptr;
+     windowSurface = SDL_GetWindowSurface(m_window);
+    fondo = nullptr;
+    fondo = IMG_Load("res/fondo.jpg");
+    if(fondo == nullptr)
+        std::cout<<"ERROR CARGA IMG: "<<IMG_GetError()<<std::endl;
 
     GLenum status = glewInit();
 
@@ -39,7 +45,10 @@ Display::Display(int width, int height, const std::string& title)
 Display::~Display()
 {
     SDL_GL_DeleteContext(m_glContext);
+    SDL_FreeSurface(fondo);
     SDL_DestroyWindow(m_window);
+     fondo = nullptr;
+    m_window = nullptr;
     SDL_QUIT;
 }
 
@@ -118,6 +127,8 @@ int Display::Update(TNodo* TfCamera){
             }
         }
     }
+
+
     return malla;
 }
 

@@ -35,7 +35,10 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-
+/*
+#define WIDTH 1920
+#define HEIGHT 1280
+*/
 
 int main(int argc, char* argv[])
 {
@@ -68,7 +71,7 @@ int main(int argc, char* argv[])
 
     TEntidad *transf5 = motorsito.crearTransform();
     TEntidad *transf6 = motorsito.crearTransform();
-    motorsito.transformarEntidad(transf6,0,glm::vec3(1,-4,0));
+   // motorsito.transformarEntidad(transf6,0,glm::vec3(1,-4,0));
 
 //    transf6->trasladar(glm::vec3(1,-4,0));
 
@@ -99,6 +102,7 @@ int main(int argc, char* argv[])
 
     TEntidad *transf15 = motorsito.crearTransform();
     TEntidad *transf16 = motorsito.crearTransform();
+    TEntidad *transfEsc = motorsito.crearTransform();
 
 //    motorsito.transformarEntidad(transf14,0,glm::vec3(1,0,0));
 
@@ -107,11 +111,20 @@ int main(int argc, char* argv[])
 
    // transf4->trasladar(glm::vec3(-0.5,0,0));
 
-    TEntidad * malla1  =new TEntidadMalla();// motorsito.crearMalla("./res/cubo.obj");
-    TEntidad * malla2  =new TEntidadMalla();// motorsito.crearMalla("./res/cubo.obj");
-   // TEntidad * malla2  =motorsito.crearMalla("./res/bear.obj");
+    //TEntidad * malla1  =new TEntidadMalla();// motorsito.crearMalla("./res/cubo.obj");
+    TEntidad * malla1  =motorsito.crearMalla("./res/andador1.obj");
+    motorsito.cambiarMalla(malla1,"./res/andador2.obj");
+    motorsito.cambiarMalla(malla1,"./res/andador3.obj");
+    motorsito.cambiarMalla(malla1,"./res/andador4.obj");
+    motorsito.cambiarMalla(malla1,"./res/andador5.obj");
+    motorsito.cambiarMalla(malla1,"./res/andador6.obj");
+
+
+    TEntidad * malla2  =motorsito.crearMalla("./res/cubo.obj");
+  //  TEntidad * malla2  =motorsito.crearMalla("./res/cubo.obj");
     //TEntidad * malla3  =motorsito.crearMalla("./res/bear.obj");
-    TEntidad * malla4  =motorsito.crearMalla("./res/andador.obj");
+ //   TEntidad * malla4  =motorsito.crearMalla("./res/andador.obj");
+//    TEntidad * malla4  =new TEntidadMalla();
     //TEntidad * malla4  =motorsito.crearMalla(3,3, 0.05);
     //TEntidad * malla5  =motorsito.crearMalla("./res/cubo.obj");
     //TEntidad * malla6  =motorsito.crearMalla("./res/cubo.obj");
@@ -132,18 +145,25 @@ int main(int argc, char* argv[])
     TNodo* nodoTrans15 = motorsito.crearNodo(motorsito.getRaiz(),transf15, "Trans15");
     TNodo* nodoTrans16 = motorsito.crearNodo(nodoTrans15,transf16, "Trans16");
     TNodo* nodoCamara1 = motorsito.crearNodo(nodoTrans16,cam,"Cam1");
+   // motorsito.transformarEntidad(transf16,0,glm::vec3(0,65,100));
 
     TNodo* nodoTrans3 = motorsito.crearNodo(motorsito.getRaiz(),transf3,"Trans3");
     TNodo* nodoTrans4 = motorsito.crearNodo(nodoTrans3,transf4,"Trans4");
     TNodo* nodoCamara2 = motorsito.crearNodo(nodoTrans4,camDos, "cam2");
 
 
+/**PRUEBAS PARA HUD CON CAMARA**/ //HUD NECESITA UN SHADER PROPIO QUE NO LE AFECTE LA LUZ Y APLIQUE TEXTURA
+    //TNodo* nodoTrans5 = motorsito.crearNodo(motorsito.getRaiz(),transf5, "Trans5");
+    TNodo* nodoTrans5 = motorsito.crearNodo(nodoTrans16,transf5, "Trans5");
+    TNodo* nodoTransEsc = motorsito.crearNodo(nodoTrans5,transfEsc, "TransEscala");
+    TNodo* nodoTrans6 = motorsito.crearNodo(nodoTransEsc,transf6, "Trans6");
+    TNodo* nodoMalla2 = motorsito.crearNodo(nodoTrans6,malla2,"malla2");
+    motorsito.transformarEntidad(transf6,0,glm::vec3(0,-1.25,-1500));
+    motorsito.escalarEntidad(transfEsc,glm::vec3(1,0.5,0.001));
+    motorsito.transformarEntidad(transf16,0,glm::vec3(0,1.5,5));
 
-    TNodo* nodoTrans5 = motorsito.crearNodo(motorsito.getRaiz(),transf5, "Trans5");
-    TNodo* nodoTrans6 = motorsito.crearNodo(nodoTrans5,transf6, "Trans6");
-    //TNodo* nodoMalla2 = motorsito.crearNodo(nodoTrans6,malla2,"malla2");
 
-
+/**FIN PRUEBAS PARA HUD CON CAMARA**/
 
     TNodo* nodoTrans7 = motorsito.crearNodo(motorsito.getRaiz(),transf7, "Trans7");
     TNodo* nodoTrans8 = motorsito.crearNodo(nodoTrans7,transf8, "Trans8");
@@ -153,7 +173,7 @@ int main(int argc, char* argv[])
 
     TNodo* nodoTrans9 = motorsito.crearNodo(motorsito.getRaiz(),transf9, "Trans9");
     TNodo* nodoTrans10 = motorsito.crearNodo(nodoTrans9,transf10, "Trans10");
-   TNodo* nodoMalla4 = motorsito.crearNodo(nodoTrans10,malla4,"malla4");
+//   TNodo* nodoMalla4 = motorsito.crearNodo(nodoTrans10,malla4,"malla4");
 
 
 
@@ -171,6 +191,14 @@ int main(int argc, char* argv[])
     //motorsito.transformarMalla(nodoMalla6,0,glm::vec3(3,0,0));
 
 //    motorsito.transformarMalla(nodoMalla4,0,glm::vec3(0,0,-5));
+
+    TNodo* mallaPrueba= motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/Oso.obj", "Oso Prueba");
+    TNodo* mallaPrueba2= motorsito.crearObjetoMallaCompleto(mallaPrueba->getPadre(),"./res/andador.obj", "andador Prueba");
+    TNodo* mallaPrueba3= motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/Oso.obj", "Oso Prueba 2 ");
+
+    motorsito.TrasladarObjeto(mallaPrueba3,glm::vec3(20,0,0));
+    motorsito.cambiarNodoOrigen(mallaPrueba2,mallaPrueba3->getPadre());
+
     motorsito.registrarCamara(nodoCamara1);
     motorsito.activarCamara(nodoCamara1);
 
@@ -190,41 +218,60 @@ int main(int argc, char* argv[])
     float alberto=0; //Borrar
     int contador=0;
     glm::vec3 traslado=glm::vec3(0,0,0); //Borrar
+    motorsito.verMallas(nodoMalla1);
+    motorsito.verRecursos();
     while(!motorsito.IsClosed()){
         motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
        shader.Bind();
-    motorsito.cambiarMalla(malla2, "./res/Oso.obj");
-    motorsito.borrarMalla("./res/Oso.obj");
-    std::cout<<contador++<<std::endl;
-       motorsito.draw(&shader);
 
+       motorsito.draw(&shader);
+       alberto++;
+       if(alberto>=10){
+        motorsito.animarMalla(nodoMalla1);
+        alberto=0;}
        malla= motorsito.UpdateDisplay();
+
+       /*Prueba para LOD*/
+
+
+
+       /***********/
+
 /*Esto ira fuera*/
 
 /**/        if(malla ==0){
-/**/            if(actual!=0){
-/**/              motorsito.cambiarMalla(malla1, 0);
-/**/                std::cout<<"SIN MALLA"<<std::endl;
-/**/                actual=0;
-/**/            }
-/**/        }else if(malla==1){
-/**/             if(actual!=1){
-/**/              motorsito.cambiarMalla(malla1, "./res/cubo.obj");
-/**/                actual=1;
-/**/             }
-/**/        }else if(malla==2){
-/**/             if(actual!=2){
-/**/          //     motorsito.cambiarMalla(malla1, "./res/bear.obj");
-/**/                  motorsito.cambiarMalla(malla1, "./res/Oso.obj");
-/**/                actual=2;
-/**/             }
-/**/        }else if(malla==3){
-/**/             if(actual!=3){
-/**/               motorsito.cambiarMalla(malla1, 0);
-                    motorsito.borrarMalla("./res/Oso.obj");
-/**/               actual=3;
-/**/             }
-/**/        }
+            if(actual!=0){
+               //      motorsito.cambiarMalla(malla1, "./res/andador1.obj");
+              //  std::cout<<"SIN MALLA"<<std::endl;
+                   motorsito.cambiarNodoOrigen(mallaPrueba2,mallaPrueba3->getPadre());
+
+                actual=0;
+            }
+        }else if(malla==1){
+             if(actual!=1){
+           //   motorsito.cambiarMalla(malla1, "./res/andador2.obj");
+                motorsito.TrasladarObjeto(mallaPrueba3,glm::vec3(1,0,0));
+                actual=1;
+             }
+        }else if(malla==2){
+             if(actual!=2){
+          //     motorsito.cambiarMalla(malla1, "./res/bear.obj");
+          //        motorsito.cambiarMalla(malla1, "./res/andador3.obj");
+                          motorsito.TrasladarObjeto(mallaPrueba2,glm::vec3(1,0,0));
+
+                actual=2;
+             }
+        }else if(malla==3){
+             if(actual!=3){
+               //motorsito.cambiarMalla(malla1, "./res/andador4.obj");
+                   motorsito.cambiarNodoOrigen(mallaPrueba2,motorsito.getRaiz());
+
+               actual=3;
+             }
+        }
+
+        //motorsito.verMallas(nodoMalla1);
+      //  motorsito.animarMalla(nodoMalla1);
             if(cami==1){
                 if(camaraActual!=1){
                     camaraActual=1;
@@ -256,7 +303,7 @@ cont++;
 //std::cout<<traslado.x<<std::endl;
 //transf3->rotar(0.01,glm::vec3(0,0,1));
 //transf4->trasladar(traslado);
-motorsito.transformarEntidad(transf4,0,traslado);
+motorsito.transformarEntidad(transf4,0,traslado);/*
 if(alberto>=4){
 //                std::cout<<"YI"<<cami<<std::endl;
 
@@ -270,9 +317,9 @@ if(alberto>=4){
         cami=1;
     }
     alberto=0;
-}
+}*/
 //alberto++;
-alberto=alberto+0.01;
+//alberto=alberto+0.01;
 //std::cout<<"AL "<<alberto<<" Camara "<<cami<<std::endl;
 
 }
@@ -280,7 +327,7 @@ alberto=alberto+0.01;
     delete(transf1);
     delete(transf2);*/
     delete(malla1);
-    delete(malla2);/*
+    /*delete(malla2);
     delete(cam);
     delete(nodoTrans1);
     delete(nodoTrans2);

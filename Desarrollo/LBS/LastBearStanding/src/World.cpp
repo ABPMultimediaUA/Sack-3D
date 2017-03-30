@@ -72,7 +72,7 @@ int World::getGanador(){
   for (int i = 0; i < m_Players.Size(); ++i){
     if(!m_Players.Get(i)->getMuerto())return i;
   }
-  return 0;
+  return -1;
 }
 void  World::SwitchDebugMode(){
   if(m_debugMode){

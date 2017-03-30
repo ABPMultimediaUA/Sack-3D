@@ -18,6 +18,8 @@ int PBCogibleCatched::Inicialize( b2Vec2 pos, b2Vec2 tam){
     InitFixtures(tam);
 	SetAngularVelocity(0);
     SetRotation(0);
+    m_pBody->SetGravityScale( 0 );
+    m_pBody->SetLinearDamping(0);
     return m_bodyId;
 }
 b2Vec2 PBCogibleCatched::GetPosition(){
@@ -57,7 +59,7 @@ void   PBCogibleCatched::SetMask(uint16 i){
     PhysicBody::DefSetMask(i);
 }
 void PBCogibleCatched::Catch(int id){
-    PhysicBody::DefCatch(id);   
+    PhysicBody::DefCatch(id);
 }
 void PBCogibleCatched::Release(){
     PhysicBody::DefRelease();
@@ -83,19 +85,17 @@ void PBCogibleCatched::InitBody(b2Vec2 pos,b2Vec2 tam){
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
-    m_pBody->SetGravityScale( 0 );
 }
 void PBCogibleCatched::InitFixtures(b2Vec2 tam){
 	b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
     polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
     fixtureDef.shape = &polyShape;
-    fixtureDef.friction = 0.8f;
-    fixtureDef.restitution  = 0.2f;
-    fixtureDef.density  =  .0f;
-    fixtureDef.filter.categoryBits = M_COGIBLE;
-    fixtureDef.filter.maskBits = M_SUELO|M_COGIBLE|M_TELEPORT|M_MUELLE;
+    fixtureDef.friction = 0;
+    fixtureDef.restitution  = 0;
+    fixtureDef.density  =  0.0001f;
     fixtureDef.isSensor = true;
+    m_pBody->CreateFixture(&fixtureDef);
     polyShape.SetAsBox(tam.x*4,tam.y*4);
     fixtureDef.shape = &polyShape;
     fixtureDef.filter.categoryBits = M_COGIBLESENSOR;

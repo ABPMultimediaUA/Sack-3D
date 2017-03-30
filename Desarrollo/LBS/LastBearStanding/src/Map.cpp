@@ -98,17 +98,17 @@ void Map::AddPlayer(){
       }
    }
    else{
-        //if(numPlayer > Client::Inst()->getNumPlayersRed()){
-        //    if(id == 0){
-        //        char aux[30];
-        //        sprintf(aux, "%.0f", (float)numPlayer);
-        //        World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color, aux));
-        //    }else{
-        //       char aux[30];
-        //       sprintf(aux, "%.0f", (float)numPlayer);
-        //       World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,color, aux));
-        //    }
-        //}
+      if(numPlayer > Client::Inst()->getNumPlayersRed()){
+          if(id == 0){
+              char aux[30];
+              sprintf(aux, "%.0f", (float)numPlayer);
+              World::Inst()->AddPlayer(new Bot(b2Vec2(x,y),numPlayer,color, aux));
+          }else{
+             char aux[30];
+             sprintf(aux, "%.0f", (float)numPlayer);
+             World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),numPlayer,color, aux));
+          }
+      }
    }
    numPlayer++;
 }

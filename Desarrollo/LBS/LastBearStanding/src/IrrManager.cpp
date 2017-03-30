@@ -14,7 +14,7 @@ IrrMngr* IrrMngr::Inst(){
 void IrrMngr::Reset(){
     smgr->clear();
 }
-const unsigned int IrrMngr::m_windowSize = 350;
+const unsigned int IrrMngr::m_windowSize = 720;
 
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr():m_debugMode(false){

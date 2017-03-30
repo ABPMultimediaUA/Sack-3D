@@ -62,7 +62,6 @@ void PBAlivePlayer::Catch(int id){
     jointDef.localAnchorA.Set(0,0.3f);
     jointDef.localAnchorB.Set(0,0);
     m_pJoint = (b2RevoluteJoint*)m_pWorld->CreateJoint(&jointDef);
-    m_pJoint->EnableMotor(true);
 }
 void PBAlivePlayer::Release(){
     if(m_pJoint)
@@ -86,12 +85,11 @@ void PBAlivePlayer::DestroyBody(){
 void PBAlivePlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
 	b2BodyDef bodyDef;
     bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
-
     bodyDef.type = b2_dynamicBody;
-
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
+    m_pBody->SetLinearDamping(0);
 }
 void PBAlivePlayer::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;

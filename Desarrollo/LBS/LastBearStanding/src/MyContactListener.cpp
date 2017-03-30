@@ -75,6 +75,7 @@ void MyContactListener::PlayerPincho(){
 void MyContactListener::PlayerBala(){
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
+    std::cout<<"PlayerBala"<<std::endl;
 }
 
 void MyContactListener::PlayerNodo(){
@@ -112,6 +113,7 @@ void MyContactListener::TeleportCogible(){
 void MyContactListener::BalaBegin(){
     if(GetTeleport() == NULL)
         GetBala()->setDestruir(true);
+    std::cout<<"BalaBegin"<<std::endl;
 }
 Player* MyContactListener::GetPlayer(){
     for(unsigned int i = 0; i < World::Inst()->GetPlayers().size(); ++i){

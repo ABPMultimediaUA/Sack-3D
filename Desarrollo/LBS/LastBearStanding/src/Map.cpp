@@ -80,10 +80,10 @@ void Map::AddArma(){
 void Map::AddPlayer(){
         irr::video::SColor color;
     switch(numPlayer){
-        case 0: color = irr::video::SColor(150,150, 0,0)  ; break;
-        case 1: color = irr::video::SColor(150,0, 150,0)  ; break;
-        case 2: color = irr::video::SColor(150,0, 0,150)  ; break;
-        case 3: color = irr::video::SColor(150,150, 0,150); break;
+        case 0: color = irr::video::SColor(255,255, 0,0)  ; break;
+        case 1: color = irr::video::SColor(255,0, 255,0)  ; break;
+        case 2: color = irr::video::SColor(255,0, 0,255)  ; break;
+        case 3: color = irr::video::SColor(255,255, 0,255); break;
     }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){

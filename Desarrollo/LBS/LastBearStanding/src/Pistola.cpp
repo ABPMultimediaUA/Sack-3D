@@ -8,7 +8,7 @@
 #include "Bala.h"
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched(),expo,pos,irr::core::vector3df(0.4f,.2f,.02f),irr::video::SColor(255, 0, 0, 0)){
+:Usable(new PBCogibleCatched(),expo,pos,irr::core::vector3df(0.4f,.2f,.02f),irr::video::SColor(255, 255, 0, 255)){
 	usos = 10;
 	cadencia = 100;
 }

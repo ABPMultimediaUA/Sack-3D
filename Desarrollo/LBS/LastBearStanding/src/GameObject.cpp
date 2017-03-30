@@ -24,7 +24,7 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     m_id = m_pPhysicBody->Inicialize(pos, b2Vec2(tam.X,tam.Y));
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x+(m_tam.X/2), -1*(pos.y-(m_tam.Y/2)),0));
-    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/texture.jpg"));
+    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;
 }
@@ -38,7 +38,7 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
 	m_id = m_pPhysicBody->Inicialize(pos, b2Vec2(tam.X,tam.Y));
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x+(m_tam.X/2), -1*(pos.y-(m_tam.Y/2)),0));
-    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/texture.jpg"));
+    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;
 }

@@ -36,6 +36,7 @@ class IrrMngr{
         virtual ~IrrMngr();
     private:
         static IrrMngr* pinstance;
+        static const unsigned int m_windowSize;
         irr::scene::ISceneManager* smgr;
         irr::IrrlichtDevice* device;
         irr::video::IVideoDriver* driver;
@@ -44,6 +45,9 @@ class IrrMngr{
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;
         GameResource<HUD> hud;
+        irr::video::ITexture* m_backgroundImage;
+        unsigned int m_windowWidth;
+        unsigned int m_windowHeight;
         bool m_debugMode;
 };
 

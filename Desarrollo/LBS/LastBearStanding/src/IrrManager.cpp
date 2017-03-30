@@ -14,20 +14,25 @@ IrrMngr* IrrMngr::Inst(){
 void IrrMngr::Reset(){
     smgr->clear();
 }
+const unsigned int IrrMngr::m_windowSize = 350;
+
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr():m_debugMode(false){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
+	m_windowWidth = m_windowSize*16/9;
+	m_windowHeight = m_windowSize;
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(350*16/9,350), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(m_windowWidth,m_windowSize), 32, false, true, true, myEventReceiver );
 	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
-	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(1.0f, 1.0f, 1.0f));
-    smgr->setAmbientLight(irr::video::SColor(0,60,60,60));
+	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(255.0f, 255.0f, 255.0f));
+    smgr->setAmbientLight(irr::video::SColor(0,255,255,255));
 	timer = device->getTimer();
+	m_backgroundImage = driver->getTexture("media/Images/room.jpg");
 	//device->setResizable(true);
 }
 void IrrMngr::InstanciaVariables(int* puntuaciones){
@@ -64,7 +69,10 @@ void  IrrMngr::SwitchDebugMode(){
 }
 irr::io::IXMLReader* IrrMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
 float IrrMngr::getTime(){return timer->getTime();}
-void IrrMngr::beginScene(){driver->beginScene(true, true, irr::video::SColor(0,196, 218, 255));}
+void IrrMngr::beginScene(){
+	driver->beginScene(true, true, irr::video::SColor(255,255, 255, 255));
+	driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, m_windowWidth, m_windowHeight),irr::core::rect<irr::s32>(0, 0, m_backgroundImage->getSize().Width, m_backgroundImage->getSize().Height));
+}
 void IrrMngr::endScene(){driver->endScene();}
 void IrrMngr::drop(){driver->drop();}
 irr::scene::ISceneManager* IrrMngr::getManager(){return smgr;}

@@ -28,7 +28,6 @@ void Master::Update(){
         timeFPS = timerFPS->getTime();
         int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
-
             if(playersVivos <= 1){
                 timeFinPartida = timerFinPartida->getTime();
                 finPartida = true;

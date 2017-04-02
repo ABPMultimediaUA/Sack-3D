@@ -1,0 +1,305 @@
+# depslib dependency file v1.0
+1490896397 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\camera.cpp
+	"camera.h"
+	<iostream>
+
+1490896390 d:\mis cosas\universidad\motor\tag\pruebaintegracion\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1490896354 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tentidad.h
+	"glm/glm.hpp"
+	<vector>
+	"shader.h"
+
+1489511599 d:\mis cosas\universidad\motor\tag\pruebaintegracion\shader.h
+	<GL/glew.h>
+	<string>
+	<glm/glm.hpp>
+	"ttransform.h"
+	"camera.h"
+
+1491148218 d:\mis cosas\universidad\motor\tag\pruebaintegracion\ttransform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1491166787 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\display.cpp
+	"display.h"
+	<GL/glew.h>
+	"ttransform.h"
+	<iostream>
+
+1490285057 d:\mis cosas\universidad\motor\tag\pruebaintegracion\display.h
+	<SDL.h>
+	<SDL_image.h>
+	<string>
+	"camera.h"
+	"tnodo.h"
+
+1490896468 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tnodo.h
+	<vector>
+	<iostream>
+	"tentidad.h"
+	"shader.h"
+	<glm/glm.hpp>
+
+1491166744 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	<glm/glm.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tentidad.h"
+	"tmotorbear.h"
+	"Box2D/Box2D.h"
+	"foodraw.h"
+	"Box2D/Common/b2Draw.h"
+
+1490888095 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+	<assimp/cimport.h>
+	<assimp/Importer.hpp>
+	<assimp/postprocess.h>
+
+1490888070 d:\mis cosas\universidad\motor\tag\pruebaintegracion\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"modeloindexado.h"
+	"trecurso.h"
+	<assimp/scene.h>
+	<assimp/mesh.h>
+
+1485733952 d:\mis cosas\universidad\motor\tag\pruebaintegracion\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1488134390 d:\mis cosas\universidad\motor\tag\pruebaintegracion\trecurso.h
+
+1485733966 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\modeloindexado.cpp
+	"modeloindexado.h"
+
+1489511593 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1490896411 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\tentidadmalla.cpp
+	"tentidadmalla.h"
+
+1490896382 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tentidadmalla.h
+	"tentidad.h"
+	"mesh.h"
+
+1490784390 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\tgestorrecursos.cpp
+	"tgestorrecursos.h"
+	"mesh.h"
+
+1490558978 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tgestorrecursos.h
+	"trecurso.h"
+	<vector>
+
+1490896422 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\tluz.cpp
+	"tluz.h"
+
+1490896376 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tluz.h
+	"tentidad.h"
+	<glm/glm.hpp>
+	"shader.h"
+
+1491160623 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\tmotorbear.cpp
+	"tmotorbear.h"
+	<stdio.h>
+	<string.h>
+
+1491151901 d:\mis cosas\universidad\motor\tag\pruebaintegracion\tmotorbear.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tgestorrecursos.h"
+	"tentidad.h"
+	"ttransform.h"
+	"tentidadmalla.h"
+	"camera.h"
+	"tluz.h"
+	"trecurso.h"
+	"mesh.h"
+	"display.h"
+
+1491165135 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\tnodo.cpp
+	"tnodo.h"
+
+1491148133 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\ttransform.cpp
+	"ttransform.h"
+	<iostream>
+
+1490888508 source:d:\mis cosas\universidad\motor\tag\pruebaintegracion\foodraw.cpp
+	"foodraw.h"
+	<GL/gl.h>
+
+1490887076 d:\mis cosas\universidad\motor\tag\pruebaintegracion\foodraw.h
+	"Box2D/Box2D.h"
+
+1490884011 d:\mis cosas\universidad\motor\tag\pruebaintegracion\b2debugdraw.h
+
+1489511820 source:c:\users\jose\desktop\pruebaintegracion\camera.cpp
+	"camera.h"
+	<iostream>
+
+1490711654 c:\users\jose\desktop\pruebaintegracion\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1490711718 c:\users\jose\desktop\pruebaintegracion\tentidad.h
+	"glm/glm.hpp"
+	<vector>
+	"shader.h"
+
+1489511599 c:\users\jose\desktop\pruebaintegracion\shader.h
+	<GL/glew.h>
+	<string>
+	<glm/glm.hpp>
+	"ttransform.h"
+	"camera.h"
+
+1490711648 c:\users\jose\desktop\pruebaintegracion\ttransform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1490711146 source:c:\users\jose\desktop\pruebaintegracion\display.cpp
+	"display.h"
+	<GL/glew.h>
+	"ttransform.h"
+	<iostream>
+
+1490285057 c:\users\jose\desktop\pruebaintegracion\display.h
+	<SDL.h>
+	<SDL_image.h>
+	<string>
+	"camera.h"
+	"tnodo.h"
+
+1489511697 c:\users\jose\desktop\pruebaintegracion\tnodo.h
+	<vector>
+	<iostream>
+	"tentidad.h"
+	"shader.h"
+	<glm/glm.hpp>
+
+1490887081 source:c:\users\jose\desktop\pruebaintegracion\foodraw.cpp
+	"foodraw.h"
+	<GL/gl.h>
+
+1490887076 c:\users\jose\desktop\pruebaintegracion\foodraw.h
+	"Box2D/Box2D.h"
+
+1490884011 c:\users\jose\desktop\pruebaintegracion\b2debugdraw.h
+
+1490800269 source:c:\users\jose\desktop\pruebaintegracion\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+	<assimp/cimport.h>
+	<assimp/Importer.hpp>
+	<assimp/postprocess.h>
+
+1490800271 c:\users\jose\desktop\pruebaintegracion\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"modeloindexado.h"
+	"trecurso.h"
+	<assimp/scene.h>
+	<assimp/mesh.h>
+
+1485733952 c:\users\jose\desktop\pruebaintegracion\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1488134390 c:\users\jose\desktop\pruebaintegracion\trecurso.h
+
+1485733966 source:c:\users\jose\desktop\pruebaintegracion\modeloindexado.cpp
+	"modeloindexado.h"
+
+1489511593 source:c:\users\jose\desktop\pruebaintegracion\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1490713144 source:c:\users\jose\desktop\pruebaintegracion\tentidadmalla.cpp
+	"tentidadmalla.h"
+
+1490711662 c:\users\jose\desktop\pruebaintegracion\tentidadmalla.h
+	"tentidad.h"
+	"mesh.h"
+
+1490784390 source:c:\users\jose\desktop\pruebaintegracion\tgestorrecursos.cpp
+	"tgestorrecursos.h"
+	"mesh.h"
+
+1490558978 c:\users\jose\desktop\pruebaintegracion\tgestorrecursos.h
+	"trecurso.h"
+	<vector>
+
+1489511805 source:c:\users\jose\desktop\pruebaintegracion\tluz.cpp
+	"tluz.h"
+
+1489511774 c:\users\jose\desktop\pruebaintegracion\tluz.h
+	"tentidad.h"
+	<glm/glm.hpp>
+	"shader.h"
+
+1490810083 source:c:\users\jose\desktop\pruebaintegracion\tmotorbear.cpp
+	"tmotorbear.h"
+	<stdio.h>
+	<string.h>
+
+1490809878 c:\users\jose\desktop\pruebaintegracion\tmotorbear.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tgestorrecursos.h"
+	"tentidad.h"
+	"ttransform.h"
+	"tentidadmalla.h"
+	"camera.h"
+	"tluz.h"
+	"trecurso.h"
+	"mesh.h"
+	"display.h"
+
+1490717384 source:c:\users\jose\desktop\pruebaintegracion\tnodo.cpp
+	"tnodo.h"
+
+1490813898 source:c:\users\jose\desktop\pruebaintegracion\ttransform.cpp
+	"ttransform.h"
+	<iostream>
+
+1490886587 source:c:\users\jose\desktop\pruebaintegracion\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	<glm/glm.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tentidad.h"
+	"tmotorbear.h"
+	"Box2D/Box2D.h"
+	"foodraw.h"
+	"Box2D/Common/b2Draw.h"
+

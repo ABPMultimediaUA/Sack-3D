@@ -19,10 +19,23 @@ Map::Map(irr::core::stringw file){
     player = false;
     numPlayer = 0;
     playerRed = 0;
+    int a=0;
     nodos.Reset(new Lista());
-    irr::core::stringw layer;
+    irr::core::stringw layer = L"0";
+    irr::core::stringw background;
+    char backing[30];
     irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
     while (xml->read()){
+        /*if(irr::core::stringw("imagelayer") == xml->getNodeName()){
+                std::cout<<"AAAAAA"<<std::endl;
+           a=a+1;
+        }
+        if(irr::core::stringw("image") == xml->getNodeName() && a>0){
+            background=xml->getAttributeValue(L"source");
+            std::cout<<&(background)<<std::endl;
+            sprintf(backing, "s", "media/Images/room.jpg");
+            IrrMngr::Inst()->setBackgroundImage(IrrMngr::Inst()->getDriver()->getTexture("media/Images/room.jpg"));
+        }*/
         if(irr::core::stringw("objectgroup") == xml->getNodeName()){
             layer = xml->getAttributeValue(L"name");
         }

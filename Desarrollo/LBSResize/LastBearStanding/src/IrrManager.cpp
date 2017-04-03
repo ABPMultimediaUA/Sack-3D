@@ -35,6 +35,11 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	m_backgroundImage = driver->getTexture("media/Images/room.jpg");
 	//device->setResizable(true);
 }
+void IrrMngr::setBackgroundImage(irr::video::ITexture* bimage){
+  	//driver->removeTexture();
+  	m_backgroundImage = bimage;
+}
+
 void IrrMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
   	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));

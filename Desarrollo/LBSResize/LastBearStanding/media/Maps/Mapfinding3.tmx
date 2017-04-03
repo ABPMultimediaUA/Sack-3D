@@ -87,4 +87,7 @@
   <object id="1149" name="1" type="1" gid="692377" x="75" y="69" width="1" height="1"/>
   <object id="1150" name="2" type="1" gid="692377" x="88" y="69" width="1" height="1"/>
  </objectgroup>
+ <imagelayer name="Capa de Imagen 1">
+  <image source="media/Images/room.jpg" width="2880" height="1800"/>
+ </imagelayer>
 </map>

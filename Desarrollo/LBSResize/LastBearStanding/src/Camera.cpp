@@ -5,7 +5,7 @@
 
 #define MINZ            15
 #define FPS             20
-#define VIEWMARGIN      20
+#define VIEWMARGIN      5
 
 Camera::Camera(){
 	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));

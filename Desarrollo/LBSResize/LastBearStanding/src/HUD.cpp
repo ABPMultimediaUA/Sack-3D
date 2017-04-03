@@ -7,10 +7,10 @@ HUD::HUD(int* puntuaciones, int width,int height):puntuaciones(puntuaciones),m_w
 	fColor = irr::video::SColor(150,0, 0,0);
 	irr::video::SColor color(255,255, 255,255);
 	black_color = irr::video::SColor(255,0, 0,0);
-	m_hudImage_Red = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Red2.png");
-	m_hudImage_Green = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Green2.png");
-	m_hudImage_Pink = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Pink2.png");
-	m_hudImage_Yellow = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Yellow2.png");
+	m_hudImage_Red = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Red.png");
+	m_hudImage_Green = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Green.png");
+	m_hudImage_Pink = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Pink.png");
+	m_hudImage_Yellow = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Yellow.png");
     m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Red,    color);
     m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Green,  color);
     m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Pink,   color);

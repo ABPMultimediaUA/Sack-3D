@@ -22,20 +22,18 @@ Map::Map(irr::core::stringw file){
     int a=0;
     nodos.Reset(new Lista());
     irr::core::stringw layer = L"0";
-    irr::core::stringw background;
-    char backing[30];
     irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
     while (xml->read()){
-        /*if(irr::core::stringw("imagelayer") == xml->getNodeName()){
-                std::cout<<"AAAAAA"<<std::endl;
+        if(irr::core::stringw("imagelayer") == xml->getNodeName()){
            a=a+1;
         }
         if(irr::core::stringw("image") == xml->getNodeName() && a>0){
-            background=xml->getAttributeValue(L"source");
-            std::cout<<&(background)<<std::endl;
-            sprintf(backing, "s", "media/Images/room.jpg");
-            IrrMngr::Inst()->setBackgroundImage(IrrMngr::Inst()->getDriver()->getTexture("media/Images/room.jpg"));
-        }*/
+            const wchar_t* background;
+            wchar_t backing [100]= L"media/Maps/";
+            background= xml->getAttributeValue(L"source");
+            background = wcscat(backing, background);
+            IrrMngr::Inst()->setBackgroundImage(IrrMngr::Inst()->getDriver()->getTexture(background));
+        }
         if(irr::core::stringw("objectgroup") == xml->getNodeName()){
             layer = xml->getAttributeValue(L"name");
         }
@@ -70,7 +68,7 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    posi.y=posi.y+0.1f;
+    //posi.y=posi.y+0.1f;
     World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddMuelle(){

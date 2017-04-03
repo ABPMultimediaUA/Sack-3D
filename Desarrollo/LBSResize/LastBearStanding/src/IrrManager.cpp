@@ -32,7 +32,6 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(255.0f, 255.0f, 255.0f));
     smgr->setAmbientLight(irr::video::SColor(0,255,255,255));
 	timer = device->getTimer();
-	m_backgroundImage = driver->getTexture("media/Images/room.jpg");
 	//device->setResizable(true);
 }
 void IrrMngr::setBackgroundImage(irr::video::ITexture* bimage){

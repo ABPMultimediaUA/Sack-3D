@@ -60,4 +60,7 @@
   <object id="1083" name="1" type="1" gid="692377" x="63" y="65" width="1" height="1"/>
   <object id="1084" name="2" type="1" gid="692377" x="40" y="65" width="1" height="1"/>
  </objectgroup>
+ <imagelayer name="Capa de Imagen 1">
+  <image source="Background/kitchen.jpg" width="1920" height="1080"/>
+ </imagelayer>
 </map>

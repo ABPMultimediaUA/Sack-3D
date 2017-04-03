@@ -100,4 +100,7 @@
   <object id="1260" name="1" type="1" gid="692377" x="71" y="40" width="1" height="1"/>
   <object id="1264" name="2" type="1" gid="692377" x="27" y="50" width="1" height="1"/>
  </objectgroup>
+ <imagelayer name="Capa de Imagen 1">
+  <image source="Background/livingroom.jpg" width="1562" height="833"/>
+ </imagelayer>
 </map>

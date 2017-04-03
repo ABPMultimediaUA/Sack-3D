@@ -77,6 +77,7 @@ class Client{
         void analizarPaquete7();
         void analizarPaquete8();
         void setMaps(std::vector<int> mapas);
+        void singleMaps();
         std::vector<int> getMaps(){return maps;}
         bool comprobarPaquete(RakNet::Packet* p);
         char* getIdCliente(){return idCliente;}

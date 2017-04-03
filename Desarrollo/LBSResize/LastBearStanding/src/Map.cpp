@@ -57,6 +57,7 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
+    posi.y=posi.y+0.1f;
     World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddMuelle(){
@@ -117,7 +118,7 @@ void Map::AddPincho(){
      //World::Inst()->AddPlatform(new Platform(true,posi,irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddNodo(){
-    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(0.15, height/10, 1), name, 0, NULL));
+    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(0.15f, 0.1f, 1), name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);
     std::string token;

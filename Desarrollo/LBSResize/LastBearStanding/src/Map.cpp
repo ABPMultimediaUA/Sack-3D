@@ -69,7 +69,7 @@ void Map::AddSpawner(){
 }
 void Map::AddPlatform(){
     //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 186, 141, 5)));
+    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -93,10 +93,10 @@ void Map::AddArma(){
 void Map::AddPlayer(){
         irr::video::SColor color;
     switch(numPlayer){
-        case 0: color = irr::video::SColor(255,255, 0,0)  ; break;
-        case 1: color = irr::video::SColor(255,0, 255,0)  ; break;
-        case 2: color = irr::video::SColor(255,0, 0,255)  ; break;
-        case 3: color = irr::video::SColor(255,255, 0,255); break;
+        case 0: color = irr::video::SColor(255,54, 209, 147)  ; break;
+        case 1: color = irr::video::SColor(255,225, 255, 56)  ; break;
+        case 2: color = irr::video::SColor(255,255, 56, 56)  ; break;
+        case 3: color = irr::video::SColor(255,255, 56, 251); break;
     }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){

@@ -18,12 +18,12 @@ HUD::HUD(int* puntuaciones, int width,int height):puntuaciones(puntuaciones),m_w
 }
 void HUD::Draw(){
 	int increment = m_width/6;
-	int pos       = m_width/2-(increment*2);
+	int pos       = m_width/2-(increment*1.4f);
 	int posY = m_height;
-	DrawHud(0,10,  pos,               posY, 				60, -2, m_hudImage_Green );
-	DrawHud(1, 180, pos+increment,	  posY + (m_height/32), 50, 15, m_hudImage_Yellow);
-	DrawHud(2, 30, pos+(increment*2), posY + (m_height/32), 47, 12, m_hudImage_Red   );
-	DrawHud(3, 45, pos+(increment*3), posY, 				47, 12, m_hudImage_Pink  );
+	DrawHud(0, 10,  pos,               posY,  24, -7, m_hudImage_Green );
+	DrawHud(1, 180, pos+increment,	   posY , 35, -6, m_hudImage_Yellow);
+	DrawHud(2, 30,  pos+(increment*2), posY , 22, -7, m_hudImage_Red   );
+	DrawHud(3, 45,  pos+(increment*3), posY,  28, -10, m_hudImage_Pink  );
 }
 
 void HUD::DrawHud(int marcador, int angle, int x, int y, int marginX, int marginY, irr::video::ITexture* texture){

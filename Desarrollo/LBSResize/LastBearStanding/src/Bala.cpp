@@ -19,12 +19,14 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     time2Kill = timer2Kill->getTime();
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;
-    if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
+    m_vel.y=0.0f;
+    /*if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);*/
     m_gameObject.SetLinearVelocity(m_vel);
     teletransportado = false;
 }
 Bala::~Bala(){}
 void Bala::actualiza(){
+    std::cout<<"BalaBegin"<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
     if(teletransportado) teletransportar();
     m_gameObject.Update();
     if(m_pIrrMngr->getTime()-time2Kill>tiempoVida){destruir = true;}

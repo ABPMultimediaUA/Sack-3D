@@ -13,7 +13,7 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
 GameObject::~GameObject(){
     if(m_pNode)m_pNode->remove();
 }
-int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
+int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture){
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -25,11 +25,14 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
-    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    if(!texture)
+        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    else
+        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;
 }
-int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
+int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture){
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -40,7 +43,10 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
 	 m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
-    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    if(!texture)
+        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    else
+        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;
 }

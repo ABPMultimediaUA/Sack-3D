@@ -66,9 +66,9 @@ void Player::saltar(){
     if(fingiendoMuerte){
         b2Vec2 velV;
         velV.x = 0;
-        velV.y = 2;
+        velV.y = 1;
         m_gameObject.SetLinearVelocity(velV);
-        m_gameObject.SetAngularVelocity(rand()%4 - 2);
+        m_gameObject.SetAngularVelocity((rand()%10-5)/1000.f);
         m_pClient->enviarSalto(0);
         return;
     }
@@ -78,7 +78,7 @@ void Player::saltar(){
         m_gameObject.SetLinearVelocity(velV);
         m_pClient->enviarSalto(1, mando);
     }
-    else if(!dobleSaltando){
+    else if(!dobleSaltando && !fingiendoMuerte){
         b2Vec2 velV = m_gameObject.GetLinearVelocity();
         velV.y = salto*3/4;
         m_gameObject.SetLinearVelocity(velV);
@@ -171,11 +171,11 @@ void Player::Soltar(){
     objCogido->setCogido(false);
     cogiendo = false;
     puedoCoger = false;
-    if(m_gameObject.GetLinearVelocity().x > 0 )objCogido->SetAngularVelocity(-2);
-    else objCogido->SetAngularVelocity(2);
+    if(m_gameObject.GetLinearVelocity().x > 0 )objCogido->SetAngularVelocity(-0.01f);
+    else objCogido->SetAngularVelocity(0.01f);
     b2Vec2 velP = m_gameObject.GetLinearVelocity();
     velP.x*=2;
-    velP.y = velP.y*2;
+    if(velP.y == 0)velP.y = 2;
     objCogido->SetLinearVelocity(velP);
     cogiendo =false;
 }

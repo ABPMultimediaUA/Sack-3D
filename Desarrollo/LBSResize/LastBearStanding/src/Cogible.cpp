@@ -6,7 +6,7 @@
 #include "World.h"
 
 Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
-    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color);
+    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color,"media/Images/player.png");
     m_pWorld =   World::Inst();
     m_pIrrMngr = IrrMngr::Inst();
     autoDestruir = false;

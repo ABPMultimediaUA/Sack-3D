@@ -121,14 +121,14 @@ void Map::AddPlayer(){
           }else{
              char aux[30];
              sprintf(aux, "%.0f", (float)numPlayer);
-             //World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
+             World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
           }
       }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-     //World::Inst()->AddPlatform(new Platform(true,posi,irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
+     World::Inst()->AddPlatform(new Platform(true,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddNodo(){
     posi.y=posi.y-0.1;

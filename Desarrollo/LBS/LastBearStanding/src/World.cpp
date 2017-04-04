@@ -19,6 +19,7 @@
 #include "GameObject.h"
 #include "PhysicBody/PBAlivePlayer.h"
 
+const float World::Size = 2.f;
 const int World::velocityIterations = 8;
 const int World::positionIterations = 3;
 World* World::pinstance = NULL;
@@ -34,9 +35,9 @@ void World::Reset(){
 
 }
 World::World():m_debugMode(false){
-	world.Reset(new b2World(b2Vec2(0.0f, -33.0f), false));
+	world=new b2World(b2Vec2(0.0f, -9.8f), true);
 	contactListener.Reset(new MyContactListener);
-	world.Get()->SetContactListener(contactListener.Get());
+	world->SetContactListener(contactListener.Get());
 }
 Lista* World::getListaNodos(){
   return m_Mapa.Get()->getListaNodos();
@@ -88,11 +89,12 @@ void  World::SwitchDebugMode(){
   }
 }
 int World::Update(int fps){
+  std::cout<<fps<<std::endl;
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
-  world.Get()->Step(1.f/30.f, velocityIterations, positionIterations);
-  world.Get()->ClearForces();
+  float32 timeStep = 1.0f / 30.0f;
+  world->Step(timeStep, velocityIterations, positionIterations);
   UpdateBalas();
   UpdateParticles();
   UpdateMetrallas();

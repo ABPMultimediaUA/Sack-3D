@@ -7,9 +7,9 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     m_pIrrMngr = IrrMngr::Inst();
     irr::core::vector3df tam;
     switch(tipo){
-        case 1:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
-        case 2:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
-        case 3:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
+        case 1:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
+        case 2:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
+        case 3:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
     }
     pos.x = pos.x + (dir/5.0f);
     pos.x = pos.x/2.0f;

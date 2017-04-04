@@ -11,8 +11,8 @@
 Bot::Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]):Player( pos,  mando,color){
     strncpy(id, idr, sizeof(id));
     enMuelle = false;
-    salto = 20.0f;
-    vel = 5;
+    salto = 20.0f*World::Size;
+    vel = 5*World::Size;
     mandobusco=mando;
     estadoBot = 0;
 }

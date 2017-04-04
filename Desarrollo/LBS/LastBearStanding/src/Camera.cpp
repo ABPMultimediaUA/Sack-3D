@@ -5,10 +5,10 @@
 
 #define MINZ            15
 #define FPS             20
-#define VIEWMARGIN      5
+#define VIEWMARGIN      20
 
 Camera::Camera(){
-	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
+	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140*World::Size), irr::core::vector3df(0,0,0));
     timer = IrrMngr::Inst()->getTimer();
     tiempoTransc = timer->getTime();
     cenAnt = b2Vec2(0,0);
@@ -54,7 +54,7 @@ Camera::update(float time, int fps){
 	if(z<MINZ)z = MINZ;
     float incrementX = (float)abs(xMax-xMin);
     float incrementY = (float)abs(yMax-yMin);
-    float tamX = incrementX+incrementY+VIEWMARGIN;
+    float tamX = incrementX+incrementY+VIEWMARGIN*World::Size;
     float tamY = tamX*9/16;
     projMat.buildProjectionMatrixOrthoLH(tamX,tamY,-1000,1000);
     camera->setProjectionMatrix(projMat);

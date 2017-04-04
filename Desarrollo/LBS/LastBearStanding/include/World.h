@@ -60,7 +60,7 @@ class World{
         World();
         virtual ~World(){}
         void inicializaVariables(irr::core::stringw mapFile,int* puntuaciones);
-        b2World* GetWorld(){return world.Get();}
+        b2World* GetWorld(){return world;}
         Player* getPlayer(int);
         void  SwitchDebugMode();
         Lista* getListaNodos();
@@ -95,12 +95,13 @@ class World{
         Metralla* AddMetralla(Metralla *x);
         Particle* AddParticle(Particle *x);
         b2RevoluteJoint* joint;
+        const static float Size;
     private:
         GameResource<MyContactListener> contactListener;
         static World*          pinstance;
         static const int       velocityIterations;
         static const int       positionIterations;
-        GameResource<b2World>  world;
+        b2World                *world;
         float                  DeltaTime;
         float                  TimeStamp;
         bool                   m_debugMode;

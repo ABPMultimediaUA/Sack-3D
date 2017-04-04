@@ -9,7 +9,7 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.7f, 1.5f,.7f)*World::Size,color),mando(numMando){
     m_pClient = Client::Inst();
     vel = 7.0f;
     moviendoA = 0;

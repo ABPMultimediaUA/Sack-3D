@@ -7,7 +7,7 @@ Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(1000){
     m_id = m_gameObject.Inicialize(
 	    		new PBBullet()
 		    	,pos
-		    	,irr::core::vector3df(0.1f,0.1f,0.1f)
+		    	,irr::core::vector3df(0.1f,0.1f,0.1f)*World::Size
 		    	,irr::video::SColor(255,255,255,255)
 	    	);
     m_timer2Kill = m_pIrrMngr->getTimer();

@@ -93,7 +93,7 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
 
 	b2FixtureDef fixtureDef;
     b2CircleShape circleShape1;
-    circleShape1.m_p.Set(0,-.3f);
+    circleShape1.m_p.Set(0,-(tam.y)/6.f);
     circleShape1.m_radius = (tam.y)/6.f;
     fixtureDef.shape = &circleShape1;
     fixtureDef.friction = friction;
@@ -105,7 +105,7 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
 
     b2FixtureDef fixtureDef2;
     b2CircleShape circleShape2;
-    circleShape2.m_p.Set(0,.3f);
+    circleShape2.m_p.Set(0,(tam.y)/6.f);
     circleShape2.m_radius = (tam.y)/6.f;
     fixtureDef2.shape = &circleShape2;
     fixtureDef2.friction = friction;

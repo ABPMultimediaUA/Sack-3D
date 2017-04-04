@@ -52,7 +52,7 @@ Map::Map(irr::core::stringw file){
         else{
             x      = xml->getAttributeValueAsInt(L"x");
             y      = xml->getAttributeValueAsInt(L"y");
-            posi   = b2Vec2(x/10.f, y/10.f);
+            posi   = b2Vec2(x*World::Size, y*World::Size);
             width  = xml->getAttributeValueAsInt(L"width");
             height = xml->getAttributeValueAsInt(L"height");
             name   = xml->getAttributeValueAsInt(L"name");
@@ -81,10 +81,10 @@ void Map::AddSpawner(){
 }
 void Map::AddPlatform(){
     //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width*World::Size, height*World::Size, 2*World::Size),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddMuelle(){
-     World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
+     World::Inst()->AddMuelle(new Muelle(typeInt,posi));
 }
 void Map::AddTeleport(){
      World::Inst()->AddTeleport(new Teleport(name, typeInt, posi));
@@ -141,7 +141,7 @@ void Map::AddPincho(){
      //World::Inst()->AddPlatform(new Platform(true,posi,irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
 }
 void Map::AddNodo(){
-    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(0.15f, 0.1f, 1), name, 0, NULL));
+    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(1.5f, 1.f, 1)*World::Size, name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);
     std::string token;

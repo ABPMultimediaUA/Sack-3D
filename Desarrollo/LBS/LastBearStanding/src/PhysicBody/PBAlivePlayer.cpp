@@ -98,11 +98,12 @@ void PBAlivePlayer::InitFixtures(b2Vec2 tam){
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
     fixtureDef.restitution  = 0;
-    fixtureDef.density  = 20;
+    fixtureDef.density  = 1;
     fixtureDef.filter.categoryBits = M_PLAYER;
     fixtureDef.filter.maskBits = M_BALA|M_NODO|M_SUELO|M_TELEPORT|M_MUELLE|M_COGIBLESENSOR;
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)DATA_PLAYER);
+    std::cout<<tam.x/2<<" , "<<tam.y/2<<std::endl;
     polyShape.SetAsBox(tam.x/2,tam.y/2,b2Vec2(0,-tam.y), 0);
     fixtureDef.isSensor = true;
     fixtureDef.filter.maskBits = M_SUELO;

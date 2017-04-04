@@ -8,7 +8,7 @@
 #include "Client.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched,expo,pos,irr::core::vector3df(.01f,.01f,.01f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
+:Usable(new PBCogibleCatched,expo,pos,irr::core::vector3df(.1f,.1f,.1f)*World::Size,irr::video::SColor(30, 100, 30, 0)),mecha(3000){
   usada = false;
   timerIrr = IrrMngr::Inst()->getTimer();
 }

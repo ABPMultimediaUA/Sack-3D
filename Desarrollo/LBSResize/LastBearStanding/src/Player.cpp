@@ -11,10 +11,10 @@
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
 :Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
     m_pClient = Client::Inst();
-    vel = 7.0f;
+    vel = 3.0f;
     moviendoA = 0;
     moviendo = 0;
-    salto = 15.0f;
+    salto = 7.0f;
     cogiendo = false;
     puedoCoger = false;
     dobleSaltando = false;
@@ -110,13 +110,7 @@ void Player::morir(){
         pos.y *= -1;
         pos.x=pos.x/2.0f;
         pos.y=pos.y/2.0f;
-        for (int i = 0; i < 20; ++i){
-            irr::core::vector3df tam;
-            tam.X = ((float)(rand()%10)/250.f)+0.002f;
-            tam.Y = tam.X;
-            tam.Z = 0.2;
-            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
-        }
+        BloodExplosion();
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
@@ -127,6 +121,24 @@ void Player::morir(){
             m_gameObject.SetAngularVelocity(0.02f);
         muerto = true;
         m_pClient->enviarMuerto(mando);
+    }
+}
+void Player::BloodExplosion(){
+    b2Vec2 pos = m_gameObject.GetPosition();
+    pos.y *= -1;
+    pos.x=pos.x/2.0f;
+    pos.y=pos.y/2.0f;
+    for (int i = 0; i < 50; ++i){
+        irr::core::vector3df tam;
+        tam.X = ((float)(rand()%10)/250.f)+0.002f;
+        tam.Y = tam.X;
+        tam.Z = 0.2;
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0),rand()%300+300));
+        b2Vec2 capVel;
+        capVel.x = (dir*(rand()%300)/10.f)+0.5f;
+        capVel.y =((rand()%100)/10.f)+0.5f;
+        cap->SetLinearVelocity(capVel);
+        cap->SetAngularVelocity(((rand()%4)/10.f)+0.5f);
     }
 }
 void Player::CogerTirar(){

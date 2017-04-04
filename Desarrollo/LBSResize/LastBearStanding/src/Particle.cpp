@@ -8,7 +8,6 @@ Particle::Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,
     m_id = m_gameObject.Inicialize(physicBody,pos,tam,color);
     m_timer2Kill = m_pIrrMngr->getTimer();
     m_time2Kill = m_timer2Kill->getTime();
-    std::cout<<"POSPARTICULA "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
 }
 
 Particle::~Particle(){}

@@ -358,7 +358,7 @@ void Bot::CogerTirar(){
 }*/
 
 void Bot::morir(){
-    if(!muerto && World::Inst()->getVivos() >1){std::cout<<"SOY BOT: "<<mando<<" Y MUERO"<<std::endl;
+    if(!muerto && World::Inst()->getVivos() >1){
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
@@ -368,6 +368,7 @@ void Bot::morir(){
         else
             m_gameObject.SetAngularVelocity(0.5f);
         muerto = true;
+        BloodExplosion();
         m_pClient->enviarMuerto(mando);
     }
 }

@@ -117,7 +117,7 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              //World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
           }else{
              char aux[30];
              sprintf(aux, "%.0f", (float)numPlayer);

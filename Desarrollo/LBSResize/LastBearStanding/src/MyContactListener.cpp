@@ -75,7 +75,6 @@ void MyContactListener::PlayerPincho(){
 void MyContactListener::PlayerBala(){
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
-    std::cout<<"PlayerBala"<<std::endl;
 }
 
 void MyContactListener::PlayerNodo(){

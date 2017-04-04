@@ -26,7 +26,6 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
 }
 Bala::~Bala(){}
 void Bala::actualiza(){
-    std::cout<<"BalaBegin"<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
     if(teletransportado) teletransportar();
     m_gameObject.Update();
     if(m_pIrrMngr->getTime()-time2Kill>tiempoVida){destruir = true;}

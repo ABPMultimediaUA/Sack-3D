@@ -34,7 +34,7 @@ void World::Reset(){
 
 }
 World::World():m_debugMode(false){
-	world.Reset(new b2World(b2Vec2(0.0f, -33.0f), false));
+	world.Reset(new b2World(b2Vec2(0.0f, -10.0f), false));
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
 }
@@ -91,7 +91,7 @@ int World::Update(int fps){
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
-  world.Get()->Step(1.f/30.f, velocityIterations, positionIterations);
+  world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();
   UpdateParticles();

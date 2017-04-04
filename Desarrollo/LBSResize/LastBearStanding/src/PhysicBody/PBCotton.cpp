@@ -89,7 +89,7 @@ void PBCotton::InitBody(b2Vec2 pos,b2Vec2 tam){
 void PBCotton::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
     b2CircleShape circleShape1;
-    circleShape1.m_radius = (tam.y)/2;
+    circleShape1.m_radius = (tam.y);
     fixtureDef.shape = &circleShape1;
     fixtureDef.friction =       0.8f;
     fixtureDef.restitution  =   .2f;

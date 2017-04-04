@@ -45,7 +45,6 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
     return m_id;
 }
 void GameObject::Update(){
-    //std::cout<<"MARGINBALA "<<m_margin.x<<" "<<m_margin.y<<std::endl;
     m_pNode->setPosition(irr::core::vector3df(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
     m_pNode->setRotation(irr::core::vector3df(0,0,m_pPhysicBody->GetRotation()*RadToGrad));
 }

@@ -28,6 +28,7 @@ b2Vec2 PBCogibleCatched::GetPosition(){
 b2Vec2 PBCogibleCatched::GetLinearVelocity(){
 	return PhysicBody::DefGetLinearVelocity();
 }
+
 float    PBCogibleCatched::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
@@ -36,6 +37,9 @@ int    PBCogibleCatched::GetId(){
 }
 void   PBCogibleCatched::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
+}
+void   PBCogibleCatched::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
 }
 void   PBCogibleCatched::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);

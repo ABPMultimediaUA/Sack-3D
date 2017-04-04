@@ -26,11 +26,15 @@ b2Vec2 PBCap::GetLinearVelocity(){
 float    PBCap::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
+
 int    PBCap::GetId(){
     return PhysicBody::DefGetId();
 }
 void   PBCap::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
+}
+void   PBCap::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
 }
 void   PBCap::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);

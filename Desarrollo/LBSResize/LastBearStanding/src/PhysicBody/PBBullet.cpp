@@ -26,6 +26,9 @@ b2Vec2 PBBullet::GetLinearVelocity(){
 float    PBBullet::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
+void   PBBullet::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 int    PBBullet::GetId(){
     return PhysicBody::DefGetId();
 }

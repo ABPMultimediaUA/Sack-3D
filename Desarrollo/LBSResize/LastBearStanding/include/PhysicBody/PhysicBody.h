@@ -18,6 +18,7 @@ class PhysicBody{
         virtual void   SetPosition(b2Vec2 pos) = 0;
         virtual void   DestroyFixtures() = 0;
         virtual void   SetCategory(uint16 i) = 0;
+        virtual void   SetGravity(float gr) = 0;
         virtual void   SetUserData(int i) = 0;
         virtual void   SetMask(uint16 i) = 0;
         virtual void   Catch(int id) = 0;
@@ -36,6 +37,7 @@ class PhysicBody{
         float   DefGetRotation();
         int     DefGetId();
         void    DefSetRotation(float angle);
+        void    DefSetGravity(float gr);
         void    DefSetPosition(b2Vec2 pos);
 		void    DefSetAngularVelocity(float imp);
 		void    DefSetLinearVelocity(b2Vec2 vel);

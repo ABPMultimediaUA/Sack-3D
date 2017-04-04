@@ -33,6 +33,9 @@ int    PBGranadaReleased::GetId(){
 void   PBGranadaReleased::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
 }
+void   PBGranadaReleased::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 void   PBGranadaReleased::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);
 }

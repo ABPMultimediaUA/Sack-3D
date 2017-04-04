@@ -34,6 +34,9 @@ int    PBAlivePlayer::GetId(){
 void   PBAlivePlayer::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
 }
+void   PBAlivePlayer::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 void   PBAlivePlayer::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);
 }

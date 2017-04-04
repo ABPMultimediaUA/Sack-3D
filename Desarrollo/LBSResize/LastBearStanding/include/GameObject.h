@@ -21,6 +21,7 @@ class GameObject{
         virtual irr::scene::IMeshSceneNode* getNode();
         virtual int   SetMode(PhysicBody* body);
         virtual void   SetVisible(bool visible);
+        virtual void   SetGravity(float gravity);
         virtual b2Vec2 GetPosition();
         virtual float    GetRotation();
         virtual b2Vec2 GetLinearVelocity();

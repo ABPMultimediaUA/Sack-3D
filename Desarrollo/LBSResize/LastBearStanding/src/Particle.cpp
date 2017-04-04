@@ -11,6 +11,9 @@ Particle::Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,
 }
 
 Particle::~Particle(){}
+void Particle::SetGravity(float gravity){
+	m_gameObject.SetGravity(gravity);
+}
 void Particle::actualiza(){
     m_gameObject.Update();
     if(m_pIrrMngr->getTime()-m_time2Kill>m_tiempoVida){m_destruir = true;}

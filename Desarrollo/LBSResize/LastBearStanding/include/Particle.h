@@ -10,6 +10,8 @@ class Particle{
         void actualiza();
         void SetAngularVelocity(float imp);
         void SetLinearVelocity(b2Vec2 vel);
+        void 
+        SetGravity(float gravity);
         void setDestruir(bool aux){ m_destruir = aux;}
         int getDestruir(){return m_destruir;}
         int GetId();

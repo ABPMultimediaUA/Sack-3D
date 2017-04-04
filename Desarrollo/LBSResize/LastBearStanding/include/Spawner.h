@@ -18,6 +18,7 @@ class Spawner{
         void actualiza();
         void generar();
         int GetId();
+        void ParticleSpawn();
         b2Vec2 GetPosition();
         Cogible* getCogido(){return objCogido;}
         bool GetCogiendo(){return cogiendo;}

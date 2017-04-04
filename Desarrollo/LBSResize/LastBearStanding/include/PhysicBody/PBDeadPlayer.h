@@ -13,6 +13,7 @@ class PBDeadPlayer: public PhysicBody{
         virtual float  GetRotation();
         virtual int    GetId();
         virtual void   SetFixedRotation(bool fixed);
+        virtual void   SetGravity(float gr);
         virtual void   SetRotation(float angle);
 		virtual void   SetAngularVelocity(float imp);
         virtual void   SetLinearVelocity(b2Vec2 vel);

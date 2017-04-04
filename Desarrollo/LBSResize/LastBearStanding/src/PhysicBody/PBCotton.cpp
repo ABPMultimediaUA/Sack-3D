@@ -30,6 +30,9 @@ b2Vec2 PBCotton::GetLinearVelocity(){
 float    PBCotton::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
+void   PBCotton::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 int    PBCotton::GetId(){
     return PhysicBody::DefGetId();
 }

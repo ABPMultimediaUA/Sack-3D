@@ -31,6 +31,9 @@ b2Vec2 PBDeadPlayer::GetLinearVelocity(){
 float    PBDeadPlayer::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
+void   PBDeadPlayer::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 int    PBDeadPlayer::GetId(){
     return PhysicBody::DefGetId();
 }

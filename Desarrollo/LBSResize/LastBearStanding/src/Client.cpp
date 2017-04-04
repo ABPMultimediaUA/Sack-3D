@@ -1,5 +1,6 @@
 #include "Client.h"
 #include "World.h"
+#include "time.h"
 
 Client* Client::pinstance = NULL;
 Client* Client::Inst(){
@@ -31,7 +32,7 @@ void Client::PacketFunction(int aux){
 }
 
 void Client::iniciar(){
-    char auxip[64], auxserverPort[30], auxclientPort[30], mode[30];
+    char auxip[64], auxserverPort[30], auxclientPort[30], mode[30], auxautomatic[30];
     bool server = true;
     //CUIDADOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //*idCliente = '0';
@@ -44,8 +45,19 @@ void Client::iniciar(){
        run=true;
     }
     else{
-        puts("Enter the client port to listen on");
-        Gets(auxclientPort,sizeof(auxclientPort));
+        time_t timer;
+        time(&timer);
+        srand (timer);
+        int x=0, i=0;
+        std::vector<int> result;
+        while(i<6){
+            x = rand() % 9;
+            result.push_back(x);
+            i++;
+        }
+        //puts("Enter the client port to listen on");
+        for(int y=0;y<4;y++) sprintf(auxautomatic,"%s%.0f", auxautomatic, (float)result.at(y));
+        strncpy(auxclientPort,auxautomatic, sizeof(auxclientPort));
         if(strcmp(auxclientPort,"") == 0){
             server = false;
         }

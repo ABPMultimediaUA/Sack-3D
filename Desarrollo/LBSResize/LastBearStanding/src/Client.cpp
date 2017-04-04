@@ -1,6 +1,20 @@
 #include "Client.h"
 #include "World.h"
 
+
+const Type2Func Client::packetFunction[10] = {
+      { 0         , analizarPaquete0    }
+    , { 1         , analizarPaquete1    }
+    , { 2         , analizarPaquete2    }
+    , { 3         , analizarPaquete3    }
+    , { 4         , analizarPaquete4    }
+    , { 5         , analizarPaquete5    }
+    , { 6         , analizarPaquete6    }
+    , { 7         , analizarPaquete7    }
+    , { 8         , analizarPaquete8    }
+    , { -1        , 0                   }
+};
+
 Client* Client::pinstance = NULL;
 Client* Client::Inst(){
     if(!pinstance){

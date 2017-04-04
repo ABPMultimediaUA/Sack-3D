@@ -7,7 +7,6 @@
 #include "RVector.h"
 #include "Client.h"
 
-
 class Teleport;
 class Player;
 class Muelle;
@@ -25,6 +24,7 @@ class Map;
 class Metralla;
 class Particle;
 class MyContactListener;
+
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
     M_SUELO          = 0x0002,
@@ -74,26 +74,26 @@ class World{
         void UpdateSpawners();
         void UpdateMetrallas();
         void UpdateParticles();
-        std::vector<Cogible*>   GetCogibles(){  return m_Cogibles.Get(); }
-        std::vector<Bala*>      GetBalas(){     return m_Balas.Get();    }
-        std::vector<Player*>    GetPlayers(){   return m_Players.Get();  }
-        std::vector<Teleport*>  GetTeleports(){ return m_Teleports.Get();}
-        std::vector<Muelle*>    GetMuelles(){   return m_Muelles.Get();  }
-        std::vector<Spawner*>   GetSpawners(){  return m_Spawners.Get(); }
-        std::vector<Platform*>  GetPlatforms(){ return m_Platforms.Get();}
-        std::vector<Nodo*>      GetNodos(){     return m_Nodos.Get();    }
-        std::vector<Metralla*>  GetMetrallas(){ return m_Metrallas.Get();}
-        std::vector<Particle*>  GetParticles(){ return m_Particles.Get();}
-        Cogible*  AddCogible (Cogible *x ) {m_Cogibles.Add(x); return x;}
-        Bala*     AddBala    (Bala *x    ) {m_Balas.Add(x);    return x;}
-        Teleport* AddTeleport(Teleport *x) {m_Teleports.Add(x);return x;}
-        Muelle*   AddMuelle  (Muelle *x  ) {m_Muelles.Add(x);  return x;}
-        Player*   AddPlayer  (Player *x  ) {m_Players.Add(x);  return x;}
-        Spawner*  AddSpawner (Spawner *x ) {m_Spawners.Add(x); return x;}
-        Platform* AddPlatform(Platform *x) {m_Platforms.Add(x);return x;}
-        Nodo*     AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
-        Metralla* AddMetralla(Metralla *x) {m_Metrallas.Add(x);return x;}
-        Particle* AddParticle(Particle *x) {m_Particles.Add(x);return x;}
+        std::vector<Cogible*>   GetCogibles();
+        std::vector<Bala*>      GetBalas();
+        std::vector<Player*>    GetPlayers();
+        std::vector<Teleport*>  GetTeleports();
+        std::vector<Muelle*>    GetMuelles();
+        std::vector<Spawner*>   GetSpawners();
+        std::vector<Platform*>  GetPlatforms();
+        std::vector<Nodo*>      GetNodos();
+        std::vector<Metralla*>  GetMetrallas();
+        std::vector<Particle*>  GetParticles();
+        Cogible*  AddCogible (Cogible *x );
+        Bala*     AddBala    (Bala *x    );
+        Teleport* AddTeleport(Teleport *x);
+        Muelle*   AddMuelle  (Muelle *x  );
+        Player*   AddPlayer  (Player *x  );
+        Spawner*  AddSpawner (Spawner *x );
+        Platform* AddPlatform(Platform *x);
+        Nodo*     AddNodo    (Nodo *x)    ;
+        Metralla* AddMetralla(Metralla *x);
+        Particle* AddParticle(Particle *x);
         b2RevoluteJoint* joint;
     private:
         GameResource<MyContactListener> contactListener;

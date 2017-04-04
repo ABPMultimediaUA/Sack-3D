@@ -1,6 +1,6 @@
 #ifndef RVECTOR_H
 #define RVECTOR_H
-#include <iostream>
+
 
 template <class A>
 class RVector{

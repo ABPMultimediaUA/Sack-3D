@@ -161,3 +161,23 @@ void World::UpdateParticles(){
     }
   }
 }
+std::vector<Cogible*>   World::GetCogibles(){  return m_Cogibles.Get(); }
+std::vector<Bala*>      World::GetBalas(){     return m_Balas.Get();    }
+std::vector<Player*>    World::GetPlayers(){   return m_Players.Get();  }
+std::vector<Teleport*>  World::GetTeleports(){ return m_Teleports.Get();}
+std::vector<Muelle*>    World::GetMuelles(){   return m_Muelles.Get();  }
+std::vector<Spawner*>   World::GetSpawners(){  return m_Spawners.Get(); }
+std::vector<Platform*>  World::GetPlatforms(){ return m_Platforms.Get();}
+std::vector<Nodo*>      World::GetNodos(){     return m_Nodos.Get();    }
+std::vector<Metralla*>  World::GetMetrallas(){ return m_Metrallas.Get();}
+std::vector<Particle*>  World::GetParticles(){ return m_Particles.Get();}
+Cogible*  World::AddCogible (Cogible *x ) {m_Cogibles.Add(x); return x;}
+Bala*     World::AddBala    (Bala *x    ) {m_Balas.Add(x);    return x;}
+Teleport* World::AddTeleport(Teleport *x) {m_Teleports.Add(x);return x;}
+Muelle*   World::AddMuelle  (Muelle *x  ) {m_Muelles.Add(x);  return x;}
+Player*   World::AddPlayer  (Player *x  ) {m_Players.Add(x);  return x;}
+Spawner*  World::AddSpawner (Spawner *x ) {m_Spawners.Add(x); return x;}
+Platform* World::AddPlatform(Platform *x) {m_Platforms.Add(x);return x;}
+Nodo*     World::AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
+Metralla* World::AddMetralla(Metralla *x) {m_Metrallas.Add(x);return x;}
+Particle* World::AddParticle(Particle *x) {m_Particles.Add(x);return x;}

@@ -15,6 +15,18 @@
 #include "GameObject.h"
 #include "PhysicBody/PBDeadPlayer.h"
 
+const Layer2Method Map::layers[10] = {
+              { L"Spawners"       , AddSpawner    }
+            , { L"Colisiones"     , AddPlatform   }
+            , { L"Muelles"        , AddMuelle     }
+            , { L"Teleports"      , AddTeleport   }
+            , { L"Armas"          , AddArma       }
+            , { L"Players"        , AddPlayer     }
+            , { L"Pinchos"        , AddPincho     }
+            , { L"Nodos"          , AddNodo       }
+            , { L"0"              , 0             }
+        };
+
 Map::Map(irr::core::stringw file){
     player = false;
     numPlayer = 0;

@@ -103,4 +103,7 @@
   <object id="1054" name="1" type="1" gid="692377" x="116" y="70" width="1" height="1"/>
   <object id="1055" name="1" type="1" gid="692377" x="10" y="70" width="1" height="1"/>
  </objectgroup>
+ <imagelayer name="Capa de Imagen 1">
+  <image source="Background/office.jpg" width="736" height="420"/>
+ </imagelayer>
 </map>

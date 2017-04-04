@@ -17,7 +17,7 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
     m_id = m_gameObject.Inicialize(
         new PBSpawner()
         ,pos
-        ,irr::core::vector3df(1.f,.2f,1.f)
+        ,irr::core::vector3df(0.05f,.035f,0.01f)
         ,irr::video::SColor(255, 255, 255, 255)
     );
     generar();

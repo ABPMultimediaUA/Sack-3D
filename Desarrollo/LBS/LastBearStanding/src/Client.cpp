@@ -1,6 +1,20 @@
 #include "Client.h"
 #include "World.h"
 
+
+const Type2Func Client::packetFunction[10] = {
+      { 0         , analizarPaquete0    }
+    , { 1         , analizarPaquete1    }
+    , { 2         , analizarPaquete2    }
+    , { 3         , analizarPaquete3    }
+    , { 4         , analizarPaquete4    }
+    , { 5         , analizarPaquete5    }
+    , { 6         , analizarPaquete6    }
+    , { 7         , analizarPaquete7    }
+    , { 8         , analizarPaquete8    }
+    , { -1        , 0                   }
+};
+
 Client* Client::pinstance = NULL;
 Client* Client::Inst(){
     if(!pinstance){
@@ -31,58 +45,67 @@ void Client::PacketFunction(int aux){
 }
 
 void Client::iniciar(){
-    char auxip[64], auxserverPort[30], auxclientPort[30];
+    char auxip[64], auxserverPort[30], auxclientPort[30], mode[30];
     bool server = true;
     //CUIDADOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //*idCliente = '0';
     //-------------------------------------------------------------------------
-    puts("Enter the client port to listen on");
-    Gets(auxclientPort,sizeof(auxclientPort));
-    if(strcmp(auxclientPort,"") == 0){
-        server = false;
+    puts("Select Single(s) or Multiplayer(m) mode");
+    Gets(mode,sizeof(mode));
+    if(strcmp(mode,"s") == 0){
+        singleMaps();
+       *idCliente = '0';
+       run=true;
     }
-    if(server){
-        puts("Enter IP to connect to");
-        //Gets(auxip,sizeof(auxip));
-        //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-        strncpy(auxip, "127.0.0.1", sizeof(auxip));
-
-        puts("Enter the port to connect to");
-        //Gets(auxserverPort,sizeof(auxserverPort));
-        strncpy(auxserverPort, "3333", sizeof(auxserverPort));
-
-        RakNet::SocketDescriptor socketDescriptor(atoi(auxclientPort),0);
-        socketDescriptor.socketFamily=AF_INET;
-        client->Startup(8,&socketDescriptor, 1);
-        client->SetOccasionalPing(true);
-
-        #if LIBCAT_SECURITY==1
-            char public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
-            FILE *fp = fopen("publicKey.dat","rb");
-            fread(public_key,sizeof(public_key),1,fp);
-            fclose(fp);
-        #endif
-
-        #if LIBCAT_SECURITY==1
-            RakNet::PublicKey pk;
-            pk.remoteServerPublicKey=public_key;
-            pk.publicKeyMode=RakNet::PKM_USE_KNOWN_PUBLIC_KEY;
-            bool b = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"), &pk)==RakNet::CONNECTION_ATTEMPT_STARTED;
-            #else
-            RakNet::ConnectionAttemptResult car = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"));
-            RakAssert(car==RakNet::CONNECTION_ATTEMPT_STARTED);
-        #endif
-
-        printf("\nMy IP addresses:\n");
-        unsigned int i;
-        for (i=0; i < client->GetNumberOfAddresses(); i++)
-        {
-            printf("%i. %s\n", i+1, client->GetLocalIP(i));
+    else{
+        puts("Enter the client port to listen on");
+        Gets(auxclientPort,sizeof(auxclientPort));
+        if(strcmp(auxclientPort,"") == 0){
+            server = false;
         }
+        if(server){
+            puts("Enter IP to connect to");
+            //Gets(auxip,sizeof(auxip));
+            //strncpy(auxip, "192.168.1.6", sizeof(auxip));
+            strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
-        printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
+            puts("Enter the port to connect to");
+            //Gets(auxserverPort,sizeof(auxserverPort));
+            strncpy(auxserverPort, "3333", sizeof(auxserverPort));
 
-        while(!run){recibir();}
+            RakNet::SocketDescriptor socketDescriptor(atoi(auxclientPort),0);
+            socketDescriptor.socketFamily=AF_INET;
+            client->Startup(8,&socketDescriptor, 1);
+            client->SetOccasionalPing(true);
+
+            #if LIBCAT_SECURITY==1
+                char public_key[cat::EasyHandshake::PUBLIC_KEY_BYTES];
+                FILE *fp = fopen("publicKey.dat","rb");
+                fread(public_key,sizeof(public_key),1,fp);
+                fclose(fp);
+            #endif
+
+            #if LIBCAT_SECURITY==1
+                RakNet::PublicKey pk;
+                pk.remoteServerPublicKey=public_key;
+                pk.publicKeyMode=RakNet::PKM_USE_KNOWN_PUBLIC_KEY;
+                bool b = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"), &pk)==RakNet::CONNECTION_ATTEMPT_STARTED;
+                #else
+                RakNet::ConnectionAttemptResult car = client->Connect(auxip, atoi(auxserverPort), "Rumpelstiltskin", (int) strlen("Rumpelstiltskin"));
+                RakAssert(car==RakNet::CONNECTION_ATTEMPT_STARTED);
+            #endif
+
+            printf("\nMy IP addresses:\n");
+            unsigned int i;
+            for (i=0; i < client->GetNumberOfAddresses(); i++)
+            {
+                printf("%i. %s\n", i+1, client->GetLocalIP(i));
+            }
+
+            printf("My GUID is %s\n", client->GetGuidFromSystemAddress(RakNet::UNASSIGNED_SYSTEM_ADDRESS).ToString());
+
+            while(!run){recibir();}
+        }
     }
 }
 
@@ -441,6 +464,14 @@ void Client::setMaps(std::vector<int> mapas){
     for(int i=0;i<mapas.size();i++){
         maps.push_back(mapas[i]);
     }
+}
+
+void Client::singleMaps(){
+
+    std::vector<int> result;
+    for(int i=0;i<6;i++)result.push_back(i);
+
+    setMaps(result);
 }
 
 Client::~Client()

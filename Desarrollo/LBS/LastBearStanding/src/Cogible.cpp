@@ -31,7 +31,7 @@ void Cogible::setCogido(bool aux){
     }
     else{
         m_id = m_gameObject.SetMode(new PBCogibleReleased());
-        m_gameObject.SetMargin(b2Vec2(0.5f*dir,0));
+        m_gameObject.SetMargin(b2Vec2(0.1f*dir,0));
     }
     cogido = aux;
 }
@@ -47,7 +47,7 @@ void Cogible::teletransportar(){
 void     Cogible::setDireccion(int d){
     if(d != 0){
         dir = d;
-        m_gameObject.SetMargin(b2Vec2(0.5f*d,0));
+        m_gameObject.SetMargin(b2Vec2(0.1f*d,0));
     }
 }
 b2Vec2   Cogible::GetPosition(){return m_gameObject.GetPosition();}

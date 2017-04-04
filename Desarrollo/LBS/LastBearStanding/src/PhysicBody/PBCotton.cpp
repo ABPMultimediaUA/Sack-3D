@@ -16,8 +16,8 @@ int PBCotton::Inicialize( b2Vec2 pos, b2Vec2 tam){
 	InitBody(pos,tam);
     InitFixtures(tam);
     b2Vec2 vel;
-    vel.y = ((float)(rand()%10)/50.f)+0.01f;
-    vel.x = (((float)(rand()%20)/50.f)-.5f)+0.01f;
+    vel.y = (((float)(rand()%5)));
+    vel.x = (((float)(rand()%2)));
     SetLinearVelocity(vel);
     return m_bodyId;
 }
@@ -79,7 +79,7 @@ void PBCotton::DestroyBody(){
 }
 void PBCotton::InitBody(b2Vec2 pos,b2Vec2 tam){
     b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*(pos.y-(tam.y)));
     bodyDef.type = b2_dynamicBody;
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();

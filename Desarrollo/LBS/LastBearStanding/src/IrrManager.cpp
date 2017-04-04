@@ -14,7 +14,7 @@ IrrMngr* IrrMngr::Inst(){
 void IrrMngr::Reset(){
     smgr->clear();
 }
-const unsigned int IrrMngr::m_windowSize = 720;
+const unsigned int IrrMngr::m_windowSize = 600;
 
 void IrrMngr::Close(){device->closeDevice();}
 IrrMngr::IrrMngr():m_debugMode(false){
@@ -32,9 +32,13 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	smgr->addLightSceneNode(0, irr::core::vector3df(-15,5,-10),irr::video::SColorf(255.0f, 255.0f, 255.0f));
     smgr->setAmbientLight(irr::video::SColor(0,255,255,255));
 	timer = device->getTimer();
-	m_backgroundImage = driver->getTexture("media/Images/room.jpg");
 	//device->setResizable(true);
 }
+void IrrMngr::setBackgroundImage(irr::video::ITexture* bimage){
+  	//driver->removeTexture();
+  	m_backgroundImage = bimage;
+}
+
 void IrrMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
   	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));

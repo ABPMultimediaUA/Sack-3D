@@ -24,8 +24,9 @@ void Bot::InicializaVariables(){
     nodos = World::Inst()->GetNodos();
     Nodo* aux ;
     posicionSpawn = getSpawnCercano();
-
+    std::cout<<"POSICION SPAWN "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
     for(int i = 0; i< nodos.size(); i++){
+        std::cout<<"MIRO NODO "<<i<<" "<<nodos.at(i)->getPosicion().x<<" "<<nodos.at(i)->getPosicion().y<<std::endl;
         if(nodos.at(i)->getPosicion() ==  posicionSpawn )
             aux = nodos.at(i);
     }
@@ -38,7 +39,7 @@ void Bot::InicializaVariables(){
 
 void Bot::actualiza(){
     Player::actualiza();
-
+/*
     switch(estadoBot){
 
         case 0: {
@@ -55,7 +56,7 @@ void Bot::actualiza(){
         case 3: {
           break;
         }
-    }
+    }*/
 }
 
 void Bot::buscaArma(){

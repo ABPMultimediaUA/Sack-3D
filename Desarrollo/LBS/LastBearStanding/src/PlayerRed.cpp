@@ -37,6 +37,7 @@ void PlayerRed::mover(int mov){
 
 void PlayerRed::actualiza(){
     m_gameObject.Update();
+    mover(moviendo);
 }
 
 void PlayerRed::setPos(){
@@ -88,11 +89,13 @@ void PlayerRed::CogerTirar(int idCogible){
 void PlayerRed::morirRed(){
         b2Vec2 pos = m_gameObject.GetPosition();
         pos.y *= -1;
-        for (int i = 0; i < 25; ++i){
+        pos.x=pos.x/2.0f;
+        pos.y=pos.y/2.0f;
+        for (int i = 0; i < 20; ++i){
             irr::core::vector3df tam;
-            tam.X = ((float)(rand()%10)/50.f)+0.01f;
+            tam.X = ((float)(rand()%10)/250.f)+0.002f;
             tam.Y = tam.X;
-            tam.Z = 1;
+            tam.Z = 0.2;
             m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
         }
         paraMorir = false;
@@ -100,9 +103,9 @@ void PlayerRed::morirRed(){
         estado = MUERTO_DORMIDO;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.5f);
+            m_gameObject.SetAngularVelocity(-0.02f);
         else
-            m_gameObject.SetAngularVelocity(0.5f);
+            m_gameObject.SetAngularVelocity(0.02f);
         muerto = true;
 
 }
@@ -114,9 +117,9 @@ void PlayerRed::fingirMuerte(){
         fingiendoMuerte = true;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.5f);
+            m_gameObject.SetAngularVelocity(-0.02f);
         else
-            m_gameObject.SetAngularVelocity(0.5f);
+            m_gameObject.SetAngularVelocity(0.02f);
     }
     else{
         fingiendoMuerte = false;

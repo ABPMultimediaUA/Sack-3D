@@ -33,6 +33,7 @@ class IrrMngr{
         irr::gui::IGUIEnvironment* getGUI();
         irr::ITimer* getTimer();
         void  SwitchDebugMode();
+        void setBackgroundImage(irr::video::ITexture* bimage);
         virtual ~IrrMngr();
     private:
         static IrrMngr* pinstance;

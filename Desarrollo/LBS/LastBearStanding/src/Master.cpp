@@ -8,6 +8,16 @@
 #include <ctime>
 #include <stdlib.h>
 
+const Num2Map Master::maps[7] = {
+              {  1         , L"media/Maps/MapFinding1.tmx" }
+            , {  2         , L"media/Maps/MapFinding2.tmx" }
+            , {  3         , L"media/Maps/MapFinding3.tmx" }
+            , {  4         , L"media/Maps/MapFinding4.tmx" }
+            , {  5         , L"media/Maps/MapFinding5.tmx" }
+            , {  6         , L"media/Maps/MapFinding6.tmx" }
+            , {  0         , L"0"                          }
+        };
+
 Master::Master(){
     for (int i = 0; i < 4; ++i){
         puntuaciones[i] = 0;
@@ -42,7 +52,7 @@ void Master::Update(){
         IrrMngr::Inst()->Update();
         Client::Inst()->recibir();
         //std::cout<<"SETEO AL PLAYER "<<IrrMngr::Inst()->getTime()<<" "<<time2SyncClient<<std::endl;
-        if(IrrMngr::Inst()->getTime()>(time2SyncClient+5000)){
+        if(IrrMngr::Inst()->getTime()>(time2SyncClient+1000)){
             Client::Inst()->enviar();
             time2SyncClient = IrrMngr::Inst()->getTime();
         }

@@ -54,7 +54,7 @@ void   PBDefault::SetMask(uint16 i){
     PhysicBody::DefSetMask(i);
 }
 void PBDefault::Catch(int id){
-    PhysicBody::DefCatch(id);   
+    PhysicBody::DefCatch(id);
 }
 void PBDefault::Release(){
     PhysicBody::DefRelease();
@@ -75,7 +75,7 @@ void PBDefault::DestroyBody(){
 }
 void PBDefault::InitBody(b2Vec2 pos,b2Vec2 tam){
     b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*pos.y-(tam.y));
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
@@ -83,7 +83,7 @@ void PBDefault::InitBody(b2Vec2 pos,b2Vec2 tam){
 void PBDefault::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
+    polyShape.SetAsBox(tam.x,tam.y);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 1;
     fixtureDef.restitution  = 0.f;

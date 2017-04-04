@@ -9,9 +9,9 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.7f, 1.5f,.7f),color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
     m_pClient = Client::Inst();
-    vel = 7;
+    vel = 7.0f;
     moviendoA = 0;
     moviendo = 0;
     salto = 15.0f;
@@ -95,9 +95,9 @@ void Player::fingirMuerte(){
         fingiendoMuerte = true;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.5f);
+            m_gameObject.SetAngularVelocity(-0.02f);
         else
-            m_gameObject.SetAngularVelocity(0.5f);
+            m_gameObject.SetAngularVelocity(0.02f);
     }
     else{
         fingiendoMuerte = false;
@@ -108,11 +108,13 @@ void Player::morir(){
     if(!muerto){
         b2Vec2 pos = m_gameObject.GetPosition();
         pos.y *= -1;
-        for (int i = 0; i < 25; ++i){
+        pos.x=pos.x/2.0f;
+        pos.y=pos.y/2.0f;
+        for (int i = 0; i < 20; ++i){
             irr::core::vector3df tam;
-            tam.X = ((float)(rand()%10)/50.f)+0.01f;
+            tam.X = ((float)(rand()%10)/250.f)+0.002f;
             tam.Y = tam.X;
-            tam.Z = 1;
+            tam.Z = 0.2;
             m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
         }
         paraMorir = false;
@@ -120,9 +122,9 @@ void Player::morir(){
         estado = MUERTO_DORMIDO;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.5f);
+            m_gameObject.SetAngularVelocity(-0.02f);
         else
-            m_gameObject.SetAngularVelocity(0.5f);
+            m_gameObject.SetAngularVelocity(0.02f);
         muerto = true;
         m_pClient->enviarMuerto(mando);
     }
@@ -179,6 +181,7 @@ void Player::teletransportar(){
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
         m_pClient->enviarUsar(mando);
+            std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
         usable->usar();
     }
 }

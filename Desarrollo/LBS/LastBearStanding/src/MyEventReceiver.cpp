@@ -4,6 +4,17 @@
 #include "Player.h"
 #include "World.h"
 
+
+const Key2Method MyEventReceiver::keys[7] = {
+        { irr::KEY_SPACE    , ClickEspacio    }
+      , { irr::KEY_RETURN   , ClickEnter      }
+      , { irr::KEY_KEY_Q    , ClickQ          }
+      , { irr::KEY_KEY_E    , ClickE          }
+      , { irr::KEY_ESCAPE   , ClickEscape     }
+      , { irr::KEY_F12      , ClickF12        }
+      , { irr::KEY_ZOOM     , 0               }
+  };
+
 bool MyEventReceiver::OnEvent(const irr::SEvent& event){
     if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
         KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;

@@ -61,7 +61,7 @@ void PBSpawner::Catch(int id){
     jointDef.lowerAngle = 0;
     jointDef.bodyA = m_pBody;
     jointDef.bodyB = GetBodyWithId(id);
-    jointDef.localAnchorA.Set(0,0.3f);
+    jointDef.localAnchorA.Set(0,0.06f);
     jointDef.localAnchorB.Set(0,0);
     m_pJoint = (b2RevoluteJoint*)m_pWorld->CreateJoint(&jointDef);
 }
@@ -86,7 +86,7 @@ void PBSpawner::DestroyBody(){
 }
 void PBSpawner::InitBody(b2Vec2 pos,b2Vec2 tam){
     b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*pos.y-(tam.y));
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);

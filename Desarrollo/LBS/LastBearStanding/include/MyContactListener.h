@@ -34,24 +34,8 @@ class MyContactListener: public b2ContactListener{
         void PiesPlayerEnd();
         void BalaBegin();
     private:
-    	const Contact2Method beginContact[11] = {
-              { DATA_PLAYER         , DATA_MUELLE         , PlayerMuelle        }
-            , { DATA_PLAYER         , DATA_TELEPORT       , PlayerTeleport      }
-            , { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleBegin  }
-            , { DATA_PLAYER         , DATA_BALA           , PlayerBala          }
-            , { DATA_PLAYER         , DATA_PINCHO         , PlayerPincho        }
-            , { DATA_PLAYER         , DATA_NODO           , PlayerNodo          }
-            , { DATA_TELEPORT       , DATA_BALA           , TeleportBala        }
-            , { DATA_TELEPORT       , DATA_COGIBLE        , TeleportCogible     }
-            , { DATA_PLAYER_PIES    , 0                   , PiesPlayerBegin     }
-            , { DATA_BALA           , 0                   , BalaBegin           }
-            , { 0                   , 0                   , 0                   }
-        };
-        const Contact2Method endContact[3] = {
-              { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleEnd    }
-            , { DATA_PLAYER_PIES    , 0                   , PiesPlayerEnd       }
-            , { 0                   , 0                   , 0                   }
-        };
+    	const static Contact2Method beginContact[11];
+        const static Contact2Method endContact[3];
         World* m_pWorld;
         b2Contact* contact;
         Player* GetPlayer();

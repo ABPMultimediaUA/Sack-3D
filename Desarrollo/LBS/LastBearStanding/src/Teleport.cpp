@@ -10,7 +10,7 @@ Teleport::Teleport(int tpId, int partner, b2Vec2 pos)
         ,M_BALA|M_COGIBLE|M_PLAYER
         ,DATA_TELEPORT
         ,pos
-        ,irr::core::vector3df(0.5f, 3.f, 1.f)
+        ,irr::core::vector3df(0.05f, 0.3f, 0.1f)
         ,irr::video::SColor(0, 100, 100, 255)
     );
     m_id = m_gameObject.GetId();

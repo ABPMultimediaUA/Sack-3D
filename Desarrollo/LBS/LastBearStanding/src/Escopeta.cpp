@@ -6,7 +6,7 @@
 #include "Bala.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched, expo,pos,irr::core::vector3df(0.7f,0.2f,0.02f),irr::video::SColor(255, 0, 255, 0)){
+:Usable(new PBCogibleCatched, expo,pos,irr::core::vector3df(0.07f,0.02f,0.002f),irr::video::SColor(255, 0, 255, 0)){
     usos = 5;
 }
 Escopeta::~Escopeta(){}

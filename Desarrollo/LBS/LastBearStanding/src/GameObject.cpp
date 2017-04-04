@@ -15,29 +15,31 @@ GameObject::~GameObject(){
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
     m_tam = tam;
-    m_pos = pos;
+    m_pos.x = pos.x*2.0f;
+    m_pos.y = pos.y*2.0f;
     m_GRphysicBody.Reset(physicBody);
     m_pPhysicBody = m_GRphysicBody.Get();
     m_pPhysicBody->SetCategory(category);
     m_pPhysicBody->SetUserData(userdata);
     m_pPhysicBody->SetMask(mask);
-    m_id = m_pPhysicBody->Inicialize(pos, b2Vec2(tam.X,tam.Y));
-    m_pNode = m_pIrrMngr->addCubeSceneNode(tam,color);
-    m_pNode->setPosition(irr::core::vector3df(pos.x+(m_tam.X/2), -1*(pos.y-(m_tam.Y/2)),0));
+    m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
+    m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
+    m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
     m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;
 }
 int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
     m_tam = tam;
-    m_pos = pos;
+    m_pos.x = pos.x*2.0f;
+    m_pos.y = pos.y*2.0f;
 	m_GRphysicBody.Reset(physicBody);
     m_pPhysicBody = m_GRphysicBody.Get();
     m_pWorld   = World::Inst();
     m_pIrrMngr = IrrMngr::Inst();
-	m_id = m_pPhysicBody->Inicialize(pos, b2Vec2(tam.X,tam.Y));
-    m_pNode = m_pIrrMngr->addCubeSceneNode(tam,color);
-    m_pNode->setPosition(irr::core::vector3df(pos.x+(m_tam.X/2), -1*(pos.y-(m_tam.Y/2)),0));
+	 m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
+    m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
+    m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
     m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
     m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
     return m_id;

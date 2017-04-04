@@ -77,6 +77,7 @@ class Client{
         void analizarPaquete7();
         void analizarPaquete8();
         void setMaps(std::vector<int> mapas);
+        void singleMaps();
         std::vector<int> getMaps(){return maps;}
         bool comprobarPaquete(RakNet::Packet* p);
         char* getIdCliente(){return idCliente;}
@@ -95,18 +96,7 @@ class Client{
         irr::f32 timer;
         bool run;
         int iterador;
-        const Type2Func packetFunction[10] = {
-              { 0         , analizarPaquete0    }
-            , { 1         , analizarPaquete1    }
-            , { 2         , analizarPaquete2    }
-            , { 3         , analizarPaquete3    }
-            , { 4         , analizarPaquete4    }
-            , { 5         , analizarPaquete5    }
-            , { 6         , analizarPaquete6    }
-            , { 7         , analizarPaquete7    }
-            , { 8         , analizarPaquete8    }
-            , { -1        , 0                   }
-        };
+        const static Type2Func packetFunction[10];
 
 };
 

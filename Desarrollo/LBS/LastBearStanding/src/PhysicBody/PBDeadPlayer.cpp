@@ -80,7 +80,7 @@ void PBDeadPlayer::DestroyBody(){
 }
 void PBDeadPlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
 	b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*(pos.y-(tam.y)));
     bodyDef.type = b2_dynamicBody;
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();

@@ -59,7 +59,7 @@ void PBAlivePlayer::Catch(int id){
      b2RevoluteJointDef jointDef;
     jointDef.bodyA = m_pBody;
     jointDef.bodyB = GetBodyWithId(id);
-    jointDef.localAnchorA.Set(0,0.3f);
+    jointDef.localAnchorA.Set(0,0.06f);
     jointDef.localAnchorB.Set(0,0);
     m_pJoint = (b2RevoluteJoint*)m_pWorld->CreateJoint(&jointDef);
 }
@@ -84,7 +84,7 @@ void PBAlivePlayer::DestroyBody(){
 }
 void PBAlivePlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
 	b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*(pos.y-(tam.y)));
     bodyDef.type = b2_dynamicBody;
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
@@ -94,16 +94,16 @@ void PBAlivePlayer::InitBody(b2Vec2 pos,b2Vec2 tam){
 void PBAlivePlayer::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
-    polyShape.SetAsBox((tam.x/2),(tam.y/2));
+    polyShape.SetAsBox((tam.x),(tam.y));
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0;
     fixtureDef.restitution  = 0;
-    fixtureDef.density  = 1;
+    fixtureDef.density  = 20;
     fixtureDef.filter.categoryBits = M_PLAYER;
     fixtureDef.filter.maskBits = M_BALA|M_NODO|M_SUELO|M_TELEPORT|M_MUELLE|M_COGIBLESENSOR;
     b2Fixture* fixture = m_pBody->CreateFixture(&fixtureDef);
     fixture->SetUserData((void*)DATA_PLAYER);
-    polyShape.SetAsBox(tam.x/4,tam.y/4,b2Vec2(0,-tam.y/2), 0);
+    polyShape.SetAsBox(tam.x/2,tam.y/2,b2Vec2(0,-tam.y), 0);
     fixtureDef.isSensor = true;
     fixtureDef.filter.maskBits = M_SUELO;
     b2Fixture* sensorFixture = m_pBody->CreateFixture(&fixtureDef);

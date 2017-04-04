@@ -75,7 +75,7 @@ void PBDefaultSensor::DestroyBody(){
 }
 void PBDefaultSensor::InitBody(b2Vec2 pos,b2Vec2 tam){
     b2BodyDef bodyDef;
-    bodyDef.position.Set(pos.x+(tam.x/2),-1*(pos.y-(tam.y/2)));
+    bodyDef.position.Set(pos.x+(tam.x),-1*(pos.y-(tam.y)));
     m_pBody = m_pWorld->CreateBody(&bodyDef);
     m_bodyId = PhysicBody::GenerateId();
     m_pBody->SetUserData((void*)m_bodyId);
@@ -83,7 +83,7 @@ void PBDefaultSensor::InitBody(b2Vec2 pos,b2Vec2 tam){
 void PBDefaultSensor::InitFixtures(b2Vec2 tam){
     b2FixtureDef fixtureDef;
     b2PolygonShape polyShape;
-    polyShape.SetAsBox(tam.x/2.0f,tam.y/2.0f);
+    polyShape.SetAsBox(tam.x,tam.y);
     fixtureDef.shape = &polyShape;
     fixtureDef.friction = 0.8f;
     fixtureDef.restitution  = 0.2f;

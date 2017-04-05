@@ -30,9 +30,9 @@ void Bot::InicializaVariables(){
     posicionSpawn = getSpawnCercano(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     std::cout<<"POS Spawn: "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
     for(int i = 0; i< nodos.size(); i++){
-        b2Vec2 posNodo = nodos.at(i)->getPosicion(); 
+        b2Vec2 posNodo = nodos.at(i)->getPosicion();
 
-        if( abs(posNodo.x-posicionSpawn.x) <= 0.1 && abs( posNodo.y-posicionSpawn.y)<= 0.1) 
+        if( abs(posNodo.x-posicionSpawn.x) <= 0.1 && abs( posNodo.y-posicionSpawn.y)<= 0.1)
             aux = nodos.at(i);
     }
 
@@ -205,11 +205,11 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
      Nodo* nodoInicial = inicial;
      Nodo* nodoDestino = objetivo;
      Nodo* nodoActual;
-     
+
      std::cout<<std::endl;
      std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
      std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
-     
+
      if(nodoInicial == NULL || nodoDestino == NULL){
       std::cout<<"Inicial: "<<nodoInicial<<" Destino: "<<nodoDestino<<std::endl;
         std::cout<<"NODO INICIAL O DESTINO ES IGUAL A NULL"<<std::endl;
@@ -219,7 +219,7 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
      Lista listaAbierta;
      Lista listaCerrada;
 
-     
+
      std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getPosicion().x<<" "<<nodoInicial->getPosicion().y<<"]"<<std::endl;
      std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getPosicion().x<<" "<<nodoDestino->getPosicion().y<<"]"<<std::endl;
      std::cout<<std::endl;
@@ -378,6 +378,7 @@ void Bot::morir(){
     if(!muerto && World::Inst()->getVivos() >1){
       std::cout<<"******************************SOY BOT: "<<mando<<" Y MUERO"<<std::endl;
         paraMorir = false;
+                BloodExplosion();
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);

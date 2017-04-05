@@ -28,7 +28,7 @@ void Bot::InicializaVariables(){
         //if(mando == 1) std::cout<<"NODO: "<<nodos.at(i)->getNumero()<<" POS: "<<nodos.at(i)->getPosicion().x<<" "<<nodos.at(i)->getPosicion().y<<std::endl;
     }
     posicionSpawn = getSpawnCercano(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
-    std::cout<<"POS Spawn: "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
+    //std::cout<<"POS Spawn: "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
     for(int i = 0; i< nodos.size(); i++){
         b2Vec2 posNodo = nodos.at(i)->getPosicion();
 
@@ -84,7 +84,7 @@ void Bot::buscaArma(){
                         aux = nodos.at(i);
                 }
 
-                std::cout<<"SOY BOT "<<mando<<" y BUSCO ARMA"<<std::endl;
+                //std::cout<<"SOY BOT "<<mando<<" y BUSCO ARMA"<<std::endl;
                 calcularPathfinding(nodoFinIni,aux);
 
                 if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) pathfinding->remove(pathfinding->getUltimo()->getPosicion());
@@ -131,7 +131,7 @@ void Bot::buscaJugador(){
             }
         }
         temp = getCercanoTotal(players.at(mandobusco)->GetPosition().x,players.at(mandobusco)->GetPosition().y);
-        std::cout<<"SOY BOT "<<mando<<" y BUSCO JUGADOR: "<<mandobusco<<std::endl;
+        //std::cout<<"SOY BOT "<<mando<<" y BUSCO JUGADOR: "<<mandobusco<<std::endl;
         calcularPathfinding(nodoFinIni,temp);
         if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) pathfinding->remove(pathfinding->getUltimo()->getPosicion());
         else if(players.at(mando)->getMuerto() == false) colisionConNodo(pathfinding->getUltimo()->getNumero());
@@ -206,13 +206,13 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
      Nodo* nodoDestino = objetivo;
      Nodo* nodoActual;
 
-     std::cout<<std::endl;
-     std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
-     std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
+     //std::cout<<std::endl;
+     //std::cout<<"Empieza la la construccion del pathfinding"<<std::endl;
+     //std::cout<<"Soy el BOT numero: "<<mando<<std::endl;
 
      if(nodoInicial == NULL || nodoDestino == NULL){
-      std::cout<<"Inicial: "<<nodoInicial<<" Destino: "<<nodoDestino<<std::endl;
-        std::cout<<"NODO INICIAL O DESTINO ES IGUAL A NULL"<<std::endl;
+      //std::cout<<"Inicial: "<<nodoInicial<<" Destino: "<<nodoDestino<<std::endl;
+        //std::cout<<"NODO INICIAL O DESTINO ES IGUAL A NULL"<<std::endl;
         return;
      }
 
@@ -220,16 +220,16 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
      Lista listaCerrada;
 
 
-     std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getPosicion().x<<" "<<nodoInicial->getPosicion().y<<"]"<<std::endl;
-     std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getPosicion().x<<" "<<nodoDestino->getPosicion().y<<"]"<<std::endl;
-     std::cout<<std::endl;
+     //std::cout<<"Nodo inicial: "<<nodoInicial->getNumero()<<" Datos["<<nodoInicial->getPosicion().x<<" "<<nodoInicial->getPosicion().y<<"]"<<std::endl;
+     //std::cout<<"Nodo destino: "<<nodoDestino->getNumero()<<" Datos["<<nodoDestino->getPosicion().x<<" "<<nodoDestino->getPosicion().y<<"]"<<std::endl;
+    // std::cout<<std::endl;
 
      if(nodoInicial->getPosicion().x == nodoDestino->getPosicion().x && nodoInicial->getPosicion().y == nodoDestino->getPosicion().y){
           pathfinding = new Lista();
           pathfinding->insertar(nodoInicial);
-          std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
+          //std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
           nodoFinIni= pathfinding->getHead();
-          pathfinding->imprimirLista();
+          //pathfinding->imprimirLista();
      }
      else if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x || nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
            nodoActual = new Nodo(nodoInicial->getPosicion(), irr::core::vector3df(0.1f,0.1f,0.1f), nodoInicial->getNumero(), 0, NULL);
@@ -264,10 +264,10 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
                pathfinding->insertar(nodoActual);
                nodoActual = nodoActual->getPadre();
            }
-           std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
+           //std::cout<<"<<<<<<<<<PATHFINDING>>>>>>>>>"<<std::endl;
            nodoFinIni= pathfinding->getHead();
-           pathfinding->imprimirLista();
-           std::cout<<std::endl;
+           //pathfinding->imprimirLista();
+           //std::cout<<std::endl;
      }
 }
 
@@ -333,7 +333,7 @@ Nodo *Bot::getCercanoTotal(float x, float y){
     float buscoY = posY/10.0f;
 
     float buscoX = x/2;
-    std::cout<<"Pos busco: "<<buscoX<<" "<<buscoY<<std::endl;
+    //std::cout<<"Pos busco: "<<buscoX<<" "<<buscoY<<std::endl;
     Nodo *aux = NULL;
     int dif = 200;
 
@@ -376,7 +376,7 @@ void Bot::saltar(){
 
 void Bot::morir(){
     if(!muerto && World::Inst()->getVivos() >1){
-      std::cout<<"******************************SOY BOT: "<<mando<<" Y MUERO"<<std::endl;
+      //std::cout<<"******************************SOY BOT: "<<mando<<" Y MUERO"<<std::endl;
         paraMorir = false;
                 BloodExplosion();
         if(cogiendo) Soltar();

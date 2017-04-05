@@ -91,13 +91,7 @@ void PlayerRed::morirRed(){
         pos.y *= -1;
         pos.x=pos.x/2.0f;
         pos.y=pos.y/2.0f;
-        for (int i = 0; i < 20; ++i){
-            irr::core::vector3df tam;
-            tam.X = ((float)(rand()%10)/250.f)+0.002f;
-            tam.Y = tam.X;
-            tam.Z = 0.2;
-            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
-        }
+        BloodExplosion();
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
@@ -107,7 +101,6 @@ void PlayerRed::morirRed(){
         else
             m_gameObject.SetAngularVelocity(0.02f);
         muerto = true;
-
 }
 void PlayerRed::fingirMuerte(){
     if(cogiendo) Soltar();

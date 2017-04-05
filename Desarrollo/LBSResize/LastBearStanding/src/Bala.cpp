@@ -20,7 +20,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;
     m_vel.y=0.0f;
-    /*if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);*/
+    if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
     m_gameObject.SetLinearVelocity(m_vel);
     teletransportado = false;
 }

@@ -16,8 +16,8 @@ PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[]
         salto = sal;
     }
     else{
-        vel=7;
-        salto = 15;
+        vel=3.0f;
+        salto = 7.0f;
     }
 }
 PlayerRed::~PlayerRed(){}

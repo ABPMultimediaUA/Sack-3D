@@ -165,7 +165,7 @@ void Bot::mover(){
             //salto = (abs(m_gameObject.GetPosition().y) - abs(nodoy)) *4;
             saltar();
         }
-        if( (abs(m_gameObject.GetPosition().x - nodox) < 0.1) ){
+        if( (abs(m_gameObject.GetPosition().x - nodox) < 0.08) ){
             if(pathfinding->getTamanyo() == 1){saltando = false;}
 
             if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){
@@ -287,7 +287,7 @@ b2Vec2 Bot::getSpawnCercano(float x, float y){
     for(int i = 0; i< spawners.size(); i++){
         float coste = abs(spawners.at(i)->GetPosition().x - buscoX) + abs(spawners.at(i)->GetPosition().y-buscoY);
         //std::cout<<"Spawn: "<<i<< " coste: "<<coste<<std::endl;
-        if(coste<dif){
+        if(coste<dif && spawners.at(i)->GetCogiendo() == true){
             //std::cout<<"Numero Spawn: "<<i<<std::endl;
             dif = coste;
             pos = spawners.at(i)->GetPosition();

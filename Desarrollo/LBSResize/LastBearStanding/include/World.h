@@ -52,6 +52,7 @@ enum UserDatas {
     DATA_SPAWNER         = 10,
     DATA_NODO            = 11,
     DATA_PARTICULA       = 12,
+    DATA_METRALLA        = 13,
 };
 
 class World{

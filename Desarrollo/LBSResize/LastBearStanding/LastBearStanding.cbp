@@ -76,6 +76,7 @@
 		<Unit filename="include/PhysicBody/PBDefault.h" />
 		<Unit filename="include/PhysicBody/PBDefaultSensor.h" />
 		<Unit filename="include/PhysicBody/PBGranadaReleased.h" />
+		<Unit filename="include/PhysicBody/PBMetralla.h" />
 		<Unit filename="include/PhysicBody/PBSpawner.h" />
 		<Unit filename="include/PhysicBody/PhysicBody.h" />
 		<Unit filename="include/Pistola.h" />
@@ -124,6 +125,7 @@
 		<Unit filename="src/PhysicBody/PBDefault.cpp" />
 		<Unit filename="src/PhysicBody/PBDefaultSensor.cpp" />
 		<Unit filename="src/PhysicBody/PBGranadaReleased.cpp" />
+		<Unit filename="src/PhysicBody/PBMetralla.cpp" />
 		<Unit filename="src/PhysicBody/PBSpawner.cpp" />
 		<Unit filename="src/PhysicBody/PhysicBody.cpp" />
 		<Unit filename="src/Pistola.cpp" />

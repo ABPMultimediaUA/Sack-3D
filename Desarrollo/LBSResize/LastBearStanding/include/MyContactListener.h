@@ -8,6 +8,7 @@ class Player;
 class Cogible;
 class Muelle;
 class Teleport;
+class Mertalla;
 class Bala;
 struct Contact2Method {
      unsigned long A;
@@ -27,6 +28,7 @@ class MyContactListener: public b2ContactListener{
         void PlayerCogibleEnd();
         void PlayerBala();
         void PlayerPincho();
+        void PlayerMetralla();
         void PlayerNodo();
         void TeleportBala();
         void TeleportCogible();
@@ -34,13 +36,14 @@ class MyContactListener: public b2ContactListener{
         void PiesPlayerEnd();
         void BalaBegin();
     private:
-    	const Contact2Method beginContact[11] = {
+        const Contact2Method beginContact[12] = {
               { DATA_PLAYER         , DATA_MUELLE         , PlayerMuelle        }
             , { DATA_PLAYER         , DATA_TELEPORT       , PlayerTeleport      }
             , { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleBegin  }
             , { DATA_PLAYER         , DATA_BALA           , PlayerBala          }
             , { DATA_PLAYER         , DATA_PINCHO         , PlayerPincho        }
             , { DATA_PLAYER         , DATA_NODO           , PlayerNodo          }
+            , { DATA_PLAYER         , DATA_METRALLA       , PlayerMetralla      }
             , { DATA_TELEPORT       , DATA_BALA           , TeleportBala        }
             , { DATA_TELEPORT       , DATA_COGIBLE        , TeleportCogible     }
             , { DATA_PLAYER_PIES    , 0                   , PiesPlayerBegin     }
@@ -60,6 +63,7 @@ class MyContactListener: public b2ContactListener{
         Teleport* GetTeleport();
         Bala* GetBala();
         Nodo* GetNodo();
+        Metralla* GetMetralla();
 };
 
 #endif

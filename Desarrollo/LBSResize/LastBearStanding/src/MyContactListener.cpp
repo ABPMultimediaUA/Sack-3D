@@ -2,6 +2,7 @@
 #include "MyContactListener.h"
 #include "Teleport.h"
 #include "Cogible.h"
+#include "Metralla.h"
 #include "Spawner.h"
 #include "Muelle.h"
 #include "Player.h"
@@ -75,6 +76,9 @@ void MyContactListener::PlayerPincho(){
 void MyContactListener::PlayerBala(){
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
+}
+void MyContactListener::PlayerMetralla(){
+    GetPlayer()->setParaMorir(true);
 }
 
 void MyContactListener::PlayerNodo(){
@@ -164,6 +168,15 @@ Nodo* MyContactListener::GetNodo(){
         if(World::Inst()->GetNodos().at(i)->GetId() ==  (int)contact->GetFixtureA()->GetBody()->GetUserData()
         || World::Inst()->GetNodos().at(i)->GetId() ==  (int)contact->GetFixtureB()->GetBody()->GetUserData() ){
             return World::Inst()->GetNodos().at(i);
+        }
+    }
+    return NULL;
+}
+Metralla* MyContactListener::GetMetralla(){
+    for(unsigned int i = 0; i < World::Inst()->GetMetrallas().size(); ++i){
+        if(World::Inst()->GetMetrallas().at(i)->GetId() ==  (int)contact->GetFixtureA()->GetBody()->GetUserData()
+        || World::Inst()->GetMetrallas().at(i)->GetId() ==  (int)contact->GetFixtureB()->GetBody()->GetUserData() ){
+            return World::Inst()->GetMetrallas().at(i);
         }
     }
     return NULL;

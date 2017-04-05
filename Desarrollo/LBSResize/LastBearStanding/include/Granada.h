@@ -4,7 +4,7 @@
 
 #include "Usable.h"
 
-#define PARTICULAS 10
+#define PARTICULAS 25
 
 class Granada:public Usable{
     public:
@@ -12,6 +12,7 @@ class Granada:public Usable{
         ~Granada();
         void actualiza();           
         void setCogido(bool aux);
+        void Explosion();
         void usar();                
     private:
         unsigned int timerGranada; 

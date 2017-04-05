@@ -22,7 +22,7 @@
    </animation>
   </tile>
  </tileset>
- <objectgroup name="Nodos" opacity="0.91">
+ <objectgroup name="Nodos" visible="0" opacity="0.91">
   <object id="618" name="0" type="6,10" gid="692172" x="14" y="41" width="1" height="1"/>
   <object id="619" name="1" type="2,11" gid="692172" x="31" y="42" width="1" height="1"/>
   <object id="620" name="2" type="1,18" gid="692172" x="39" y="42" width="1" height="1"/>
@@ -84,7 +84,7 @@
  </objectgroup>
  <objectgroup name="Teleports" visible="0"/>
  <objectgroup name="Muelles" visible="0"/>
- <objectgroup name="Armas" visible="0"/>
+ <objectgroup name="Armas"/>
  <objectgroup name="Players">
   <object id="1002" gid="271" x="42" y="70" width="1" height="1"/>
   <object id="1003" gid="271" x="107" y="70" width="1" height="1"/>
@@ -94,12 +94,12 @@
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
- <objectgroup name="Spawners" visible="0">
+ <objectgroup name="Spawners">
   <object id="1045" name="2" type="1" gid="692377" x="9" y="47" width="1" height="1"/>
   <object id="1047" name="2" type="1" gid="692377" x="58" y="42" width="1" height="1"/>
   <object id="1048" name="2" type="1" gid="692377" x="117" y="47" width="1" height="1"/>
-  <object id="1052" name="1" type="1" gid="692377" x="53" y="62" width="1" height="1"/>
-  <object id="1053" name="1" type="1" gid="692377" x="73" y="62" width="1" height="1"/>
+  <object id="1052" name="3" type="1" gid="692377" x="53" y="62" width="1" height="1"/>
+  <object id="1053" name="1" type="3" gid="692377" x="73" y="62" width="1" height="1"/>
   <object id="1054" name="1" type="1" gid="692377" x="116" y="70" width="1" height="1"/>
   <object id="1055" name="1" type="1" gid="692377" x="10" y="70" width="1" height="1"/>
  </objectgroup>

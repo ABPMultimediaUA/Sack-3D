@@ -194,7 +194,7 @@ void Player::teletransportar(){
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
         m_pClient->enviarUsar(mando);
-            std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
+        //std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
         usable->usar();
     }
 }

@@ -42,6 +42,10 @@ void MyEventReceiver::ClickE(){
     int id = (*Client::Inst()->getIdCliente())-'0';
   World::Inst()->getPlayer(id)->CogerTirar();
 }
+void MyEventReceiver::ClickP(){
+    int id = (*Client::Inst()->getIdCliente())-'0';
+    std::cout<<"Posicon Plyaer: "<<World::Inst()->getPlayer(id)->getPosition().x<<" "<<World::Inst()->getPlayer(id)->getPosition().y<<std::endl;
+}
 void MyEventReceiver::ClickEscape(){
   IrrMngr::Inst()->Close();
 }

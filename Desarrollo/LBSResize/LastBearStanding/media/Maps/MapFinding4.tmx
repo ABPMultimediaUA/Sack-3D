@@ -59,7 +59,7 @@
   <object id="1069" name="2" type="1" gid="692377" x="28" y="51" width="1" height="1"/>
   <object id="1070" name="1" type="1" gid="692377" x="64" y="65" width="1" height="1"/>
  </objectgroup>
- <imagelayer name="Capa de Imagen 1">
+ <imagelayer name="Capa de Imagen 1" visible="0">
   <image source="Background/bathroom.jpg" width="1280" height="718"/>
  </imagelayer>
 </map>

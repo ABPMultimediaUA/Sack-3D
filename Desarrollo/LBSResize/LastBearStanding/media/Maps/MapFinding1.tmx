@@ -22,7 +22,7 @@
    </animation>
   </tile>
  </tileset>
- <objectgroup name="Nodos" visible="0" opacity="0.91">
+ <objectgroup name="Nodos" opacity="0.91">
   <object id="618" name="0" type="6,10" gid="692172" x="14" y="41" width="1" height="1"/>
   <object id="619" name="1" type="2,11" gid="692172" x="31" y="42" width="1" height="1"/>
   <object id="620" name="2" type="1,18" gid="692172" x="39" y="42" width="1" height="1"/>
@@ -48,8 +48,8 @@
   <object id="697" name="22" type="18,21,25,29" gid="692172" x="41" y="56" width="1" height="1"/>
   <object id="700" name="23" type="20,24,26,30" gid="692172" x="85" y="56" width="1" height="1"/>
   <object id="701" name="24" type="16,23,31" gid="692172" x="95" y="56" width="1" height="1"/>
-  <object id="702" name="25" type="22,27,29" gid="692172" x="52" y="62" width="1" height="1"/>
-  <object id="705" name="26" type="23,27,30" gid="692172" x="74" y="62" width="1" height="1"/>
+  <object id="702" name="25" type="22,27,29" gid="692172" x="53" y="62" width="1" height="1"/>
+  <object id="705" name="26" type="23,27,30" gid="692172" x="73" y="62" width="1" height="1"/>
   <object id="706" name="27" type="25,26" gid="692172" x="63" y="64" width="1" height="1"/>
   <object id="707" name="28" type="29,33" gid="692172" x="26" y="70" width="1" height="1"/>
   <object id="708" name="29" type="25,28" gid="692172" x="45" y="70" width="1" height="1"/>
@@ -57,7 +57,7 @@
   <object id="710" name="31" type="30,32" gid="692172" x="100" y="70" width="1" height="1"/>
   <object id="1028" name="33" type="28" gid="692172" x="10" y="70" width="1" height="1"/>
   <object id="1031" name="32" type="31" gid="692172" x="116" y="70" width="1" height="1"/>
-  <object id="1059" name="34" type="14" gid="692172" x="58" y="42" width="1" height="1"/>
+  <object id="1059" name="34" type="14" gid="692172" x="59" y="42" width="1" height="1"/>
  </objectgroup>
  <objectgroup color="#26a410" name="Colisiones">
   <object id="484" x="13" y="41" width="3" height="25"/>
@@ -96,7 +96,7 @@
  </objectgroup>
  <objectgroup name="Spawners">
   <object id="1045" name="2" type="1" gid="692377" x="9" y="47" width="1" height="1"/>
-  <object id="1047" name="2" type="1" gid="692377" x="58" y="42" width="1" height="1"/>
+  <object id="1047" name="2" type="1" gid="692377" x="59" y="42" width="1" height="1"/>
   <object id="1048" name="2" type="1" gid="692377" x="117" y="47" width="1" height="1"/>
   <object id="1052" name="3" type="1" gid="692377" x="53" y="62" width="1" height="1"/>
   <object id="1053" name="1" type="3" gid="692377" x="73" y="62" width="1" height="1"/>

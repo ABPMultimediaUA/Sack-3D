@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1080">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1082">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -73,14 +73,14 @@
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
- <objectgroup name="Spawners" visible="0">
+ <objectgroup name="Spawners">
   <object id="1071" name="2" type="1" gid="692377" x="73" y="16" width="1" height="1"/>
   <object id="1072" name="1" type="1" gid="692377" x="117" y="42" width="1" height="1"/>
   <object id="1073" name="1" type="1" gid="692377" x="30" y="42" width="1" height="1"/>
   <object id="1074" name="1" type="1" gid="692377" x="67" y="48" width="1" height="1"/>
   <object id="1075" name="1" type="1" gid="692377" x="79" y="48" width="1" height="1"/>
-  <object id="1077" name="1" type="1" gid="692377" x="36" y="30" width="1" height="1"/>
   <object id="1078" name="2" type="1" gid="692377" x="111" y="30" width="1" height="1"/>
+  <object id="1081" name="2" type="1" gid="205" x="36" y="30" width="1" height="1"/>
  </objectgroup>
  <imagelayer name="Capa de Imagen 1" visible="0">
   <image source="Background/garden.jpg" width="1600" height="900"/>

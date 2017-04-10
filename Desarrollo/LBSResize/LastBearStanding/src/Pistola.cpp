@@ -9,7 +9,7 @@
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched(),expo,pos,irr::core::vector3df(0.04f,.02f,.02f),irr::video::SColor(255, 255, 0, 255)){
-	usos = 10;
+	usos = 5;
 	cadencia = 100;
 }
 Pistola::~Pistola(){}

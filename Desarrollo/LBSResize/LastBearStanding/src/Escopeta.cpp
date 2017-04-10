@@ -9,7 +9,7 @@
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched, expo,pos,irr::core::vector3df(0.07f,0.02f,0.002f),irr::video::SColor(255, 0, 255, 0)){
-    usos = 5;
+    usos = 3;
 }
 Escopeta::~Escopeta(){}
 void Escopeta::usar(){

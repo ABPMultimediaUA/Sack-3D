@@ -54,8 +54,10 @@ void Master::InstanciaMundo(){
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     const Num2Map * it = maps;
+    //std::cout<<"MAPS "<<mapList[0]<<" "<<mapList[1]<<mapList[2]<<mapList[3]<<mapList[4]<<mapList[5]<<std::endl;
     while(it->num != 0){
         if(it->num == (mapList[game]+1)){
+            //std::cout<<"MAP "<<mapList[game]+1<<std::endl;
             World::Inst()->inicializaVariables(it->map,puntuaciones);
             game++;
             break;

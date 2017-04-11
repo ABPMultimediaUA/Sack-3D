@@ -1,4 +1,3 @@
-
 #ifndef MAP_H
 #define MAP_H
 
@@ -25,6 +24,7 @@ class Map{
 		void AddPlayer();
 		void AddPincho();
         void AddNodo();
+        int getTimeMapa();
         Lista* getListaNodos();
     private:
     	const Layer2Method layers[9] = {
@@ -51,6 +51,9 @@ class Map{
         int numPlayer;
         int playerRed;
         GameResource<Lista> nodos;
+        
+        irr::f32 timeEspera;
+        irr::ITimer* timerEspera;
 };
 
 #endif

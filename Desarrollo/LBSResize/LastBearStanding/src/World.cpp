@@ -41,6 +41,9 @@ World::World():m_debugMode(false){
 Lista* World::getListaNodos(){
   return m_Mapa.Get()->getListaNodos();
 }
+int World::getTime(){
+  return m_Mapa.Get()->getTimeMapa();
+}
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
   m_Mapa.Reset(new Map(mapFile));
   camara.Reset(new Camera());

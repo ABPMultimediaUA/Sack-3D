@@ -60,7 +60,15 @@ Map::Map(irr::core::stringw file){
             }
         }
     }
+    timerEspera = IrrMngr::Inst()->getTimer();
+    timeEspera = timerEspera->getTime();
 }
+
+int Map::getTimeMapa(){
+    int time = (int) IrrMngr::Inst()->getTime()-timeEspera;
+    return time;
+}
+
 Lista* Map::getListaNodos(){
   return nodos.Get();
 }

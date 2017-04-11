@@ -43,8 +43,9 @@ void MyEventReceiver::ClickE(){
   World::Inst()->getPlayer(id)->CogerTirar();
 }
 void MyEventReceiver::ClickP(){
-    int id = (*Client::Inst()->getIdCliente())-'0';
-    std::cout<<"Posicon Plyaer: "<<World::Inst()->getPlayer(id)->getPosition().x<<" "<<World::Inst()->getPlayer(id)->getPosition().y<<std::endl;
+    //int id = (*Client::Inst()->getIdCliente())-'0';
+    //std::cout<<"Posicon Plyaer: "<<World::Inst()->getPlayer(id)->getPosition().x<<" "<<World::Inst()->getPlayer(id)->getPosition().y<<std::endl;
+    std::cout<<"Time de Mapa: "<<World::Inst()->getTime()<<std::endl;
 }
 void MyEventReceiver::ClickEscape(){
   IrrMngr::Inst()->Close();

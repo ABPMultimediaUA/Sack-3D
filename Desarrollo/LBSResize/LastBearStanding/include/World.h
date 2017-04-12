@@ -65,7 +65,7 @@ class World{
         Player* getPlayer(int);
         void  SwitchDebugMode();
         Lista* getListaNodos();
-        int getTime();
+        int getTimeMapa();
         int getGanador();
         void Reset();
         int getVivos();

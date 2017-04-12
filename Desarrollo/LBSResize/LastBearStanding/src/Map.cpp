@@ -64,7 +64,7 @@ Map::Map(irr::core::stringw file){
     timeEspera = timerEspera->getTime();
 }
 
-int Map::getTimeMapa(){
+int Map::getTime(){
     int time = (int) IrrMngr::Inst()->getTime()-timeEspera;
     return time;
 }

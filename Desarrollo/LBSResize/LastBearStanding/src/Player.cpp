@@ -33,7 +33,7 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
  Player::~Player(){
 }
 void Player::actualiza(){
-    if(World::Inst()->getTime()>3000){
+    if(World::Inst()->getTimeMapa()>3000){
         if(teletransportado)teletransportar();
         if(!muerto && paraMorir)morir();
         m_gameObject.Update();

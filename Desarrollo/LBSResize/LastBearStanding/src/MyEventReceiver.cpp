@@ -11,7 +11,7 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event){
             const Key2Method * it = keys;
             while(it->keyCode != irr::KEY_ZOOM ){
                 if(it->keyCode == event.KeyInput.Key){
-                    (this->*it->Key2Method::p)();
+                    if(World::Inst()->getTimeMapa() > 3000)  (this->*it->Key2Method::p)();
                     break;
                 }
                 it++;
@@ -21,7 +21,7 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event){
     return true;
 }
 bool MyEventReceiver::IsKeyDown(irr::EKEY_CODE keyCode) const{
-return KeyIsDown[keyCode];
+  return KeyIsDown[keyCode];
 }
 MyEventReceiver::MyEventReceiver(){
   for (irr::u32 i=0; i<irr::KEY_KEY_CODES_COUNT; ++i)KeyIsDown[i]= false;
@@ -45,7 +45,7 @@ void MyEventReceiver::ClickE(){
 void MyEventReceiver::ClickP(){
     //int id = (*Client::Inst()->getIdCliente())-'0';
     //std::cout<<"Posicon Plyaer: "<<World::Inst()->getPlayer(id)->getPosition().x<<" "<<World::Inst()->getPlayer(id)->getPosition().y<<std::endl;
-    std::cout<<"Time de Mapa: "<<World::Inst()->getTime()<<std::endl;
+    std::cout<<"Time de Mapa: "<<World::Inst()->getTimeMapa()<<std::endl;
 }
 void MyEventReceiver::ClickEscape(){
   IrrMngr::Inst()->Close();

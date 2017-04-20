@@ -87,8 +87,11 @@ void Bot::buscaArma(){
                 //std::cout<<"SOY BOT "<<mando<<" y BUSCO ARMA"<<std::endl;
                 calcularPathfinding(nodoFinIni,aux);
 
-                if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) pathfinding->remove(pathfinding->getUltimo()->getPosicion());
-                else if(players.at(mando)->getMuerto() == false) colisionConNodo(pathfinding->getUltimo()->getNumero());
+                if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) 
+                    pathfinding->remove(pathfinding->getUltimo()->getPosicion());
+                  
+                else if(players.at(mando)->getMuerto() == false) 
+                    colisionConNodo(pathfinding->getUltimo()->getNumero());
 
                 if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
                     muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);

@@ -49,7 +49,7 @@
   <object id="1242" name="23" type="21,24" gid="692172" x="88" y="31" width="1" height="1"/>
   <object id="1243" name="24" type="13,23,25" gid="692172" x="92" y="28" width="1" height="1"/>
   <object id="1244" name="25" type="24,26" gid="692172" x="98" y="21" width="1" height="1"/>
-  <object id="1245" name="26" type="15,33" gid="692172" x="113" y="21" width="1" height="1"/>
+  <object id="1245" name="26" type="25,33" gid="692172" x="113" y="21" width="1" height="1"/>
   <object id="1246" name="27" type="21,28" gid="692172" x="74" y="24" width="1" height="1"/>
   <object id="1247" name="28" type="18,27" gid="692172" x="62" y="24" width="1" height="1"/>
   <object id="1257" name="29" type="5" gid="692172" x="27" y="57" width="1" height="1"/>

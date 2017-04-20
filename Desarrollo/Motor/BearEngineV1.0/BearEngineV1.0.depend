@@ -1,0 +1,142 @@
+# depslib dependency file v1.0
+1490896397 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\camera.cpp
+	"camera.h"
+	<iostream>
+
+1490896390 d:\mis cosas\universidad\motor\tag\bearenginev1.0\camera.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1490896354 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tentidad.h
+	"glm/glm.hpp"
+	<vector>
+	"shader.h"
+
+1489511599 d:\mis cosas\universidad\motor\tag\bearenginev1.0\shader.h
+	<GL/glew.h>
+	<string>
+	<glm/glm.hpp>
+	"ttransform.h"
+	"camera.h"
+
+1491321908 d:\mis cosas\universidad\motor\tag\bearenginev1.0\ttransform.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"tentidad.h"
+
+1491327452 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\display.cpp
+	"display.h"
+	<GL/glew.h>
+	"ttransform.h"
+	<iostream>
+
+1490285057 d:\mis cosas\universidad\motor\tag\bearenginev1.0\display.h
+	<SDL.h>
+	<SDL_image.h>
+	<string>
+	"camera.h"
+	"tnodo.h"
+
+1491317359 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tnodo.h
+	<vector>
+	<iostream>
+	"tentidad.h"
+	"shader.h"
+	<glm/glm.hpp>
+
+1491404501 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\main.cpp
+	<iostream>
+	<GL/glew.h>
+	<stdlib.h>
+	<stdio.h>
+	<glm/glm.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tentidad.h"
+	"tmotorbear.h"
+	"Box2D/Box2D.h"
+
+1491323126 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tmotorbear.h
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	"shader.h"
+	"tnodo.h"
+	"tgestorrecursos.h"
+	"tentidad.h"
+	"ttransform.h"
+	"tentidadmalla.h"
+	"camera.h"
+	"tluz.h"
+	"trecurso.h"
+	"mesh.h"
+	"display.h"
+
+1490558978 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tgestorrecursos.h
+	"trecurso.h"
+	<vector>
+
+1488134390 d:\mis cosas\universidad\motor\tag\bearenginev1.0\trecurso.h
+
+1491322681 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tentidadmalla.h
+	"tentidad.h"
+	"mesh.h"
+
+1490888070 d:\mis cosas\universidad\motor\tag\bearenginev1.0\mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+	"modeloindexado.h"
+	"trecurso.h"
+	<assimp/scene.h>
+	<assimp/mesh.h>
+
+1485733952 d:\mis cosas\universidad\motor\tag\bearenginev1.0\modeloindexado.h
+	"glm/glm.hpp"
+	<iostream>
+	<vector>
+
+1490896376 d:\mis cosas\universidad\motor\tag\bearenginev1.0\tluz.h
+	"tentidad.h"
+	<glm/glm.hpp>
+	"shader.h"
+
+1491401254 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\mesh.cpp
+	"mesh.h"
+	<vector>
+	<iostream>
+	<assimp/cimport.h>
+	<assimp/Importer.hpp>
+	<assimp/postprocess.h>
+
+1485733966 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\modeloindexado.cpp
+	"modeloindexado.h"
+
+1489511593 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\shader.cpp
+	"shader.h"
+	<iostream>
+	<fstream>
+	<direct.h>
+	<vector>
+
+1491401087 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\tentidadmalla.cpp
+	"tentidadmalla.h"
+
+1491405864 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\tgestorrecursos.cpp
+	"tgestorrecursos.h"
+	"mesh.h"
+
+1490896422 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\tluz.cpp
+	"tluz.h"
+
+1491401445 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\tmotorbear.cpp
+	"tmotorbear.h"
+	<stdio.h>
+	<string.h>
+
+1491321275 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\tnodo.cpp
+	"tnodo.h"
+
+1491322105 source:d:\mis cosas\universidad\motor\tag\bearenginev1.0\ttransform.cpp
+	"ttransform.h"
+	<iostream>
+

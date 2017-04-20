@@ -21,7 +21,7 @@ class Lista{
         Nodo *getMenorCosto();
         void *remove (b2Vec2 posicion);
         void *insertar(Nodo *nodo);
-        Nodo *buscaNodo2(int x, int y);
+        Nodo *buscaNodo2(float x, float y);
     private:
         int tamanyo;
         std::vector<int> cercanos;

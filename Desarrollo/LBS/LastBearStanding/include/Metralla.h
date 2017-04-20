@@ -9,6 +9,7 @@ class Metralla{
         virtual ~Metralla();
         void actualiza();
         void setDestruir(bool aux){ m_destruir = aux;}
+        void SetLinearVelocity(b2Vec2 vel);
         int getDestruir(){return m_destruir;}
         int GetId();
 

@@ -34,6 +34,9 @@ int    PBSpawner::GetId(){
 void   PBSpawner::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
 }
+void   PBSpawner::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 void   PBSpawner::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);
 }

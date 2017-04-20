@@ -14,6 +14,7 @@ class PBDefaultSensor: public PhysicBody{
         virtual int    GetId();
         virtual void   SetFixedRotation(bool fixed);
         virtual void   SetRotation(float angle);
+        virtual void   SetGravity(float gr);
 		virtual void   SetAngularVelocity(float imp);
         virtual void   SetLinearVelocity(b2Vec2 vel);
         virtual void   SetPosition(b2Vec2 pos);

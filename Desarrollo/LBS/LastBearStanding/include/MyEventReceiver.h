@@ -17,12 +17,22 @@ class MyEventReceiver: public irr::IEventReceiver{
 		void ClickEspacio();
 		void ClickEnter();
 		void ClickQ();
+    void ClickP();
 		void ClickE();
     void ClickEscape();
 		void ClickF12();
     private:
     	bool KeyIsDown[irr::KEY_KEY_CODES_COUNT];
-    	const static Key2Method keys[7];
+    	const Key2Method keys[8] = {
+              { irr::KEY_SPACE    , ClickEspacio    }
+            , { irr::KEY_RETURN   , ClickEnter      }
+            , { irr::KEY_KEY_Q    , ClickQ          }
+            , { irr::KEY_KEY_E    , ClickE      	  }
+            , { irr::KEY_KEY_P    , ClickP          }
+            , { irr::KEY_ESCAPE   , ClickEscape     }
+            , { irr::KEY_F12      , ClickF12        }
+            , { irr::KEY_ZOOM     , 0               }
+        };
 };
 
 #endif

@@ -32,6 +32,9 @@ int    PBDefaultSensor::GetId(){
 void   PBDefaultSensor::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
 }
+void   PBDefaultSensor::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 void   PBDefaultSensor::SetFixedRotation(bool fixed){
 	PhysicBody::DefSetFixedRotation(fixed);
 }

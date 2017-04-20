@@ -7,9 +7,9 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     m_pIrrMngr = IrrMngr::Inst();
     irr::core::vector3df tam;
     switch(tipo){
-        case 1:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
-        case 2:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
-        case 3:tam = irr::core::vector3df(0.2f,0.2f,0.2f)*World::Size;break;
+        case 1:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
+        case 2:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
+        case 3:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
     }
     pos.x = pos.x + (dir/5.0f);
     pos.x = pos.x/2.0f;
@@ -20,13 +20,12 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;
     m_vel.y=0.0f;
-    /*if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);*/
+    if(desviacion != 0 )m_vel.y = (((rand()% 10000) / 10000.0)*desviacion)-(desviacion/2);
     m_gameObject.SetLinearVelocity(m_vel);
     teletransportado = false;
 }
 Bala::~Bala(){}
 void Bala::actualiza(){
-    std::cout<<"BalaBegin"<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
     if(teletransportado) teletransportar();
     m_gameObject.Update();
     if(m_pIrrMngr->getTime()-time2Kill>tiempoVida){destruir = true;}

@@ -31,6 +31,9 @@ b2Vec2 PBDeadPlayer::GetLinearVelocity(){
 float    PBDeadPlayer::GetRotation(){
     return PhysicBody::DefGetRotation();
 }
+void   PBDeadPlayer::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 int    PBDeadPlayer::GetId(){
     return PhysicBody::DefGetId();
 }
@@ -93,8 +96,8 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
 
 	b2FixtureDef fixtureDef;
     b2CircleShape circleShape1;
-    circleShape1.m_p.Set(0,-(tam.y)/6.f);
-    circleShape1.m_radius = (tam.y)/6.f;
+    circleShape1.m_p.Set(0,-(tam.y/2.f));
+    circleShape1.m_radius = (tam.y)/3.f;
     fixtureDef.shape = &circleShape1;
     fixtureDef.friction = friction;
     fixtureDef.restitution  = restitution;
@@ -105,8 +108,8 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
 
     b2FixtureDef fixtureDef2;
     b2CircleShape circleShape2;
-    circleShape2.m_p.Set(0,(tam.y)/6.f);
-    circleShape2.m_radius = (tam.y)/6.f;
+    circleShape2.m_p.Set(0,(tam.y/2.f));
+    circleShape2.m_radius = (tam.y)/3.f;
     fixtureDef2.shape = &circleShape2;
     fixtureDef2.friction = friction;
     fixtureDef2.restitution  =restitution;
@@ -114,10 +117,4 @@ void PBDeadPlayer::InitFixtures(b2Vec2 tam){
     fixtureDef.filter.maskBits = M_SUELO;
     b2Fixture* personFixture2 = m_pBody->CreateFixture(&fixtureDef2);
     personFixture2->SetUserData((void*)DATA_PLAYER);
-    //circleShape1.m_radius = 1;
-    //fixtureDef2.isSensor = true;
-    //fixtureDef2.filter.maskBits = 1;
-    //fixtureDef2.filter.categoryBits = 2;
-    //b2Fixture* areaFixure = m_pBody->CreateFixture(&fixtureDef2);
-    //areaFixure->SetUserData((void*)DATA_COGIBLE_SENSOR);
 }

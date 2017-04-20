@@ -23,6 +23,7 @@ class Player: public Cogible{
         virtual void CogerTirar();
         virtual void morir();
         virtual void usar();
+        virtual void BloodExplosion();
         virtual void fingirMuerte();
         virtual void recibeImpulso(float fuerza);
         virtual void Soltar();

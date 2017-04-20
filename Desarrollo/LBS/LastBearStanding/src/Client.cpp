@@ -1,19 +1,6 @@
 #include "Client.h"
 #include "World.h"
-
-
-const Type2Func Client::packetFunction[10] = {
-      { 0         , analizarPaquete0    }
-    , { 1         , analizarPaquete1    }
-    , { 2         , analizarPaquete2    }
-    , { 3         , analizarPaquete3    }
-    , { 4         , analizarPaquete4    }
-    , { 5         , analizarPaquete5    }
-    , { 6         , analizarPaquete6    }
-    , { 7         , analizarPaquete7    }
-    , { 8         , analizarPaquete8    }
-    , { -1        , 0                   }
-};
+#include "time.h"
 
 Client* Client::pinstance = NULL;
 Client* Client::Inst(){
@@ -45,7 +32,7 @@ void Client::PacketFunction(int aux){
 }
 
 void Client::iniciar(){
-    char auxip[64], auxserverPort[30], auxclientPort[30], mode[30];
+    char auxip[64], auxserverPort[30], auxclientPort[30], mode[30], auxautomatic[30];
     bool server = true;
     //CUIDADOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //*idCliente = '0';
@@ -58,16 +45,27 @@ void Client::iniciar(){
        run=true;
     }
     else{
-        puts("Enter the client port to listen on");
-        Gets(auxclientPort,sizeof(auxclientPort));
+        time_t timer;
+        time(&timer);
+        srand (timer);
+        int x=0, i=0;
+        std::vector<int> result;
+        while(i<6){
+            x = rand() % 9;
+            result.push_back(x);
+            i++;
+        }
+        //puts("Enter the client port to listen on");
+        for(int y=0;y<4;y++) sprintf(auxautomatic,"%s%.0f", auxautomatic, (float)result.at(y));
+        strncpy(auxclientPort,auxautomatic, sizeof(auxclientPort));
         if(strcmp(auxclientPort,"") == 0){
             server = false;
         }
         if(server){
             puts("Enter IP to connect to");
-            //Gets(auxip,sizeof(auxip));
+            Gets(auxip,sizeof(auxip));
             //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-            strncpy(auxip, "127.0.0.1", sizeof(auxip));
+            //strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
             puts("Enter the port to connect to");
             //Gets(auxserverPort,sizeof(auxserverPort));

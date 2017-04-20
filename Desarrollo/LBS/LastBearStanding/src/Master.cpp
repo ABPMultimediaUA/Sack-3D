@@ -8,16 +8,6 @@
 #include <ctime>
 #include <stdlib.h>
 
-const Num2Map Master::maps[7] = {
-              {  1         , L"media/Maps/MapFinding1.tmx" }
-            , {  2         , L"media/Maps/MapFinding2.tmx" }
-            , {  3         , L"media/Maps/MapFinding3.tmx" }
-            , {  4         , L"media/Maps/MapFinding4.tmx" }
-            , {  5         , L"media/Maps/MapFinding5.tmx" }
-            , {  6         , L"media/Maps/MapFinding6.tmx" }
-            , {  0         , L"0"                          }
-        };
-
 Master::Master(){
     for (int i = 0; i < 4; ++i){
         puntuaciones[i] = 0;
@@ -61,12 +51,13 @@ void Master::Update(){
 }
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();
-    //std::cout<<mapList[0]<<" "<<mapList[1]<<" "<<mapList[2]<<" "<<mapList[3]<<" "<<mapList[4]<<" "<<mapList[5]<<" "<<std::endl;
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     const Num2Map * it = maps;
+    //std::cout<<"MAPS "<<mapList[0]<<" "<<mapList[1]<<mapList[2]<<mapList[3]<<mapList[4]<<mapList[5]<<std::endl;
     while(it->num != 0){
         if(it->num == (mapList[game]+1)){
+            //std::cout<<"MAP "<<mapList[game]+1<<std::endl;
             World::Inst()->inicializaVariables(it->map,puntuaciones);
             game++;
             break;

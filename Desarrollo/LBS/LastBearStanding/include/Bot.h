@@ -13,7 +13,7 @@ class Bot: public Player{
     public:
         Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]);
         virtual ~Bot(){}
-        b2Vec2 getSpawnCercano();
+        b2Vec2 getSpawnCercano(float x, float y);
         void buscaArma();
         void colisionConNodo(int nodo);
         void buscoSpawn();
@@ -21,9 +21,10 @@ class Bot: public Player{
         Nodo* getMas(float x, float y);
         Nodo* getCercanoTotal(float x, float y);
         Nodo* buscaNumero(int i);
+        void despega();
         virtual void teletransportar();
         virtual void actualiza();
-        virtual void muevo(int x, int y);
+        virtual void muevo(float x, float y);
         virtual void mover();
         //virtual void CogerTirar();
         virtual void morir();

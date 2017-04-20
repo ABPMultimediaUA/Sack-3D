@@ -177,7 +177,7 @@ void *Lista::insertar(Nodo *nodo){
     }
     return 0;
 }
-Nodo *Lista::buscaNodo2(int x, int y){
+Nodo *Lista::buscaNodo2(float x, float y){
     Nodo *aux;
     aux = head;
     while(aux!=NULL){

@@ -32,6 +32,9 @@ void   PhysicBody::DefSetLinearVelocity(b2Vec2 vel){
 void PhysicBody::DefSetCategory(uint16 i){
 	m_category = i;
 }
+void PhysicBody::DefSetGravity(float gr){
+	m_pBody->SetGravityScale(gr);
+}
 void PhysicBody::DefSetUserData(int i){
 	m_userData = i;
 }

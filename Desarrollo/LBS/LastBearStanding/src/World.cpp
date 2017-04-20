@@ -19,7 +19,6 @@
 #include "GameObject.h"
 #include "PhysicBody/PBAlivePlayer.h"
 
-const float World::Size = 2.f;
 const int World::velocityIterations = 8;
 const int World::positionIterations = 3;
 World* World::pinstance = NULL;
@@ -35,12 +34,15 @@ void World::Reset(){
 
 }
 World::World():m_debugMode(false){
-	world=new b2World(b2Vec2(0.0f, -9.8f), true);
+	world.Reset(new b2World(b2Vec2(0.0f, -10.0f), false));
 	contactListener.Reset(new MyContactListener);
-	world->SetContactListener(contactListener.Get());
+	world.Get()->SetContactListener(contactListener.Get());
 }
 Lista* World::getListaNodos(){
   return m_Mapa.Get()->getListaNodos();
+}
+int World::getTimeMapa(){
+  return m_Mapa.Get()->getTime();
 }
 void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
   m_Mapa.Reset(new Map(mapFile));
@@ -89,12 +91,11 @@ void  World::SwitchDebugMode(){
   }
 }
 int World::Update(int fps){
-  std::cout<<fps<<std::endl;
   DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = IrrMngr::Inst()->getTime();
   IrrMngr::Inst()->beginScene();
-  float32 timeStep = 1.0f / 30.0f;
-  world->Step(timeStep, velocityIterations, positionIterations);
+  world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
+  world.Get()->ClearForces();
   UpdateBalas();
   UpdateParticles();
   UpdateMetrallas();
@@ -163,23 +164,3 @@ void World::UpdateParticles(){
     }
   }
 }
-std::vector<Cogible*>   World::GetCogibles(){  return m_Cogibles.Get(); }
-std::vector<Bala*>      World::GetBalas(){     return m_Balas.Get();    }
-std::vector<Player*>    World::GetPlayers(){   return m_Players.Get();  }
-std::vector<Teleport*>  World::GetTeleports(){ return m_Teleports.Get();}
-std::vector<Muelle*>    World::GetMuelles(){   return m_Muelles.Get();  }
-std::vector<Spawner*>   World::GetSpawners(){  return m_Spawners.Get(); }
-std::vector<Platform*>  World::GetPlatforms(){ return m_Platforms.Get();}
-std::vector<Nodo*>      World::GetNodos(){     return m_Nodos.Get();    }
-std::vector<Metralla*>  World::GetMetrallas(){ return m_Metrallas.Get();}
-std::vector<Particle*>  World::GetParticles(){ return m_Particles.Get();}
-Cogible*  World::AddCogible (Cogible *x ) {m_Cogibles.Add(x); return x;}
-Bala*     World::AddBala    (Bala *x    ) {m_Balas.Add(x);    return x;}
-Teleport* World::AddTeleport(Teleport *x) {m_Teleports.Add(x);return x;}
-Muelle*   World::AddMuelle  (Muelle *x  ) {m_Muelles.Add(x);  return x;}
-Player*   World::AddPlayer  (Player *x  ) {m_Players.Add(x);  return x;}
-Spawner*  World::AddSpawner (Spawner *x ) {m_Spawners.Add(x); return x;}
-Platform* World::AddPlatform(Platform *x) {m_Platforms.Add(x);return x;}
-Nodo*     World::AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
-Metralla* World::AddMetralla(Metralla *x) {m_Metrallas.Add(x);return x;}
-Particle* World::AddParticle(Particle *x) {m_Particles.Add(x);return x;}

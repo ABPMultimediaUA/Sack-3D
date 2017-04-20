@@ -15,18 +15,6 @@
 #include "GameObject.h"
 #include "PhysicBody/PBDeadPlayer.h"
 
-const Layer2Method Map::layers[10] = {
-              { L"Spawners"       , AddSpawner    }
-            , { L"Colisiones"     , AddPlatform   }
-            , { L"Muelles"        , AddMuelle     }
-            , { L"Teleports"      , AddTeleport   }
-            , { L"Armas"          , AddArma       }
-            , { L"Players"        , AddPlayer     }
-            , { L"Pinchos"        , AddPincho     }
-            , { L"Nodos"          , AddNodo       }
-            , { L"0"              , 0             }
-        };
-
 Map::Map(irr::core::stringw file){
     player = false;
     numPlayer = 0;
@@ -52,7 +40,7 @@ Map::Map(irr::core::stringw file){
         else{
             x      = xml->getAttributeValueAsInt(L"x");
             y      = xml->getAttributeValueAsInt(L"y");
-            posi   = b2Vec2(x*World::Size, y*World::Size);
+            posi   = b2Vec2(x/10.f, y/10.f);
             width  = xml->getAttributeValueAsInt(L"width");
             height = xml->getAttributeValueAsInt(L"height");
             name   = xml->getAttributeValueAsInt(L"name");
@@ -72,21 +60,31 @@ Map::Map(irr::core::stringw file){
             }
         }
     }
+    timerEspera = IrrMngr::Inst()->getTimer();
+    timeEspera = timerEspera->getTime();
 }
+
+int Map::getTime(){
+    int time = (int) IrrMngr::Inst()->getTime()-timeEspera;
+    return time;
+}
+
 Lista* Map::getListaNodos(){
   return nodos.Get();
 }
 void Map::AddSpawner(){
+    posi.y=posi.y-0.035f;
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
     //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width*World::Size, height*World::Size, 2*World::Size),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddMuelle(){
-     World::Inst()->AddMuelle(new Muelle(typeInt,posi));
+     World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
 }
 void Map::AddTeleport(){
+    posi.y=posi.y-0.15f;
      World::Inst()->AddTeleport(new Teleport(name, typeInt, posi));
 }
 void Map::AddArma(){
@@ -127,21 +125,22 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              //World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
           }else{
-             char aux[30];
-             sprintf(aux, "%.0f", (float)numPlayer);
-             //World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
+              char aux[30];
+              sprintf(aux, "%.0f", (float)numPlayer);
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
           }
       }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-     //World::Inst()->AddPlatform(new Platform(true,posi,irr::core::vector3df(width, height, 2),irr::video::SColor(255, 186, 141, 5)));
+     World::Inst()->AddPlatform(new Platform(true,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddNodo(){
-    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(1.5f, 1.f, 1)*World::Size, name, 0, NULL));
+    posi.y=posi.y-0.1;
+    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(0.15f, 0.1f, 1), name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);
     std::string token;

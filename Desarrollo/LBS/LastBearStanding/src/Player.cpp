@@ -1,6 +1,7 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "PhysicBody/PBAlivePlayer.h"
 #include "PhysicBody/PBCotton.h"
+
 #include "MyEventReceiver.h"
 #include "Particle.h"
 #include "Player.h"
@@ -9,12 +10,12 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.7f, 1.5f,.7f)*World::Size,color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
     m_pClient = Client::Inst();
-    vel = 7.0f;
+    vel = 3.0f;
     moviendoA = 0;
     moviendo = 0;
-    salto = 15.0f;
+    salto = 7.0f;
     cogiendo = false;
     puedoCoger = false;
     dobleSaltando = false;
@@ -32,10 +33,12 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
  Player::~Player(){
 }
 void Player::actualiza(){
-    if(teletransportado)teletransportar();
-    if(!muerto && paraMorir)morir();
-    m_gameObject.Update();
-    mover();
+    if(World::Inst()->getTimeMapa()>3000){
+        if(teletransportado)teletransportar();
+        if(!muerto && paraMorir)morir();
+        m_gameObject.Update();
+        mover();
+    }
 }
 void Player::mover(){
     if(muerto || fingiendoMuerte)
@@ -66,9 +69,9 @@ void Player::saltar(){
     if(fingiendoMuerte){
         b2Vec2 velV;
         velV.x = 0;
-        velV.y = 2;
+        velV.y = 1;
         m_gameObject.SetLinearVelocity(velV);
-        m_gameObject.SetAngularVelocity(rand()%4 - 2);
+        m_gameObject.SetAngularVelocity((rand()%10-5)/1000.f);
         m_pClient->enviarSalto(0);
         return;
     }
@@ -78,7 +81,7 @@ void Player::saltar(){
         m_gameObject.SetLinearVelocity(velV);
         m_pClient->enviarSalto(1, mando);
     }
-    else if(!dobleSaltando){
+    else if(!dobleSaltando && !fingiendoMuerte){
         b2Vec2 velV = m_gameObject.GetLinearVelocity();
         velV.y = salto*3/4;
         m_gameObject.SetLinearVelocity(velV);
@@ -110,13 +113,7 @@ void Player::morir(){
         pos.y *= -1;
         pos.x=pos.x/2.0f;
         pos.y=pos.y/2.0f;
-        for (int i = 0; i < 20; ++i){
-            irr::core::vector3df tam;
-            tam.X = ((float)(rand()%10)/250.f)+0.002f;
-            tam.Y = tam.X;
-            tam.Z = 0.2;
-            m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0)));
-        }
+        BloodExplosion();
         paraMorir = false;
         if(cogiendo) Soltar();
         estado = MUERTO_DORMIDO;
@@ -127,6 +124,24 @@ void Player::morir(){
             m_gameObject.SetAngularVelocity(0.02f);
         muerto = true;
         m_pClient->enviarMuerto(mando);
+    }
+}
+void Player::BloodExplosion(){
+    b2Vec2 pos = m_gameObject.GetPosition();
+    pos.y *= -1;
+    pos.x=pos.x/2.0f;
+    pos.y=pos.y/2.0f;
+    for (int i = 0; i < 50; ++i){
+        irr::core::vector3df tam;
+        tam.X = ((float)(rand()%10)/250.f)+0.002f;
+        tam.Y = tam.X;
+        tam.Z = 0.2;
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0),rand()%300+300));
+        b2Vec2 capVel;
+        capVel.x = (dir*(rand()%300)/10.f)+0.5f;
+        capVel.y =((rand()%100)/10.f)+0.5f;
+        cap->SetLinearVelocity(capVel);
+        cap->SetAngularVelocity(((rand()%4)/10.f)+0.5f);
     }
 }
 void Player::CogerTirar(){
@@ -159,11 +174,11 @@ void Player::Soltar(){
     objCogido->setCogido(false);
     cogiendo = false;
     puedoCoger = false;
-    if(m_gameObject.GetLinearVelocity().x > 0 )objCogido->SetAngularVelocity(-2);
-    else objCogido->SetAngularVelocity(2);
+    if(m_gameObject.GetLinearVelocity().x > 0 )objCogido->SetAngularVelocity(-0.01f);
+    else objCogido->SetAngularVelocity(0.01f);
     b2Vec2 velP = m_gameObject.GetLinearVelocity();
     velP.x*=2;
-    velP.y = velP.y*2;
+    if(velP.y == 0)velP.y = 2;
     objCogido->SetLinearVelocity(velP);
     cogiendo =false;
 }
@@ -181,7 +196,7 @@ void Player::teletransportar(){
 void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
         m_pClient->enviarUsar(mando);
-            std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
+        //std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
         usable->usar();
     }
 }

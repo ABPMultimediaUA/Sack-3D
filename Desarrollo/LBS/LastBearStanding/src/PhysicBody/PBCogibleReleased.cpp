@@ -30,6 +30,9 @@ float    PBCogibleReleased::GetRotation(){
 int    PBCogibleReleased::GetId(){
     return PhysicBody::DefGetId();
 }
+void   PBCogibleReleased::SetGravity(float gr){
+    PhysicBody::DefSetGravity(gr);
+}
 void   PBCogibleReleased::SetRotation(float angle){
 	PhysicBody::DefSetRotation(angle);
 }

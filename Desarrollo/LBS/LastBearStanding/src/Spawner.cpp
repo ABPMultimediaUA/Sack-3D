@@ -1,5 +1,7 @@
 #include "PhysicBody/PBSpawner.h"
+#include "PhysicBody/PBCotton.h"
 #include "IrrManager.h"
+#include "Particle.h"
 #include "Escopeta.h"
 #include "Pistola.h"
 #include "Granada.h"
@@ -41,6 +43,7 @@ void Spawner::soltar(){
     cogiendo = false;
 }
 void Spawner::generar(){
+    ParticleSpawn();
     switch(tipo){
         case 1: objCogido = m_pWorld->AddCogible(new Pistola(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y)));  break;
         case 2: objCogido = m_pWorld->AddCogible(new Escopeta(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y))); break;
@@ -48,6 +51,25 @@ void Spawner::generar(){
     }
     cogiendo = true;
     coger(objCogido);
+}
+
+void Spawner::ParticleSpawn(){
+    b2Vec2 pos = m_gameObject.GetPosition();
+    pos.y *= -1;
+    pos.x=pos.x/2.0f;
+    pos.y=pos.y/2.0f;
+    for (int i = 0; i < 20; ++i){
+        irr::core::vector3df tam;
+        tam.X = (rand()%10)/500.f;
+        tam.Y = tam.X;
+        tam.Z = 0.2;
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,229, 225, 11),rand()%300+300));
+        cap->SetGravity(0.05f);
+        b2Vec2 capVel;
+        capVel.x = (rand()%10-5)/10.f;
+        capVel.y = (rand()%10)/10.f;
+        cap->SetLinearVelocity(capVel);
+    }
 }
 int Spawner::GetId(){return m_id;}
 b2Vec2 Spawner::GetPosition(){

@@ -14,13 +14,14 @@ const float RadToGrad = 180.f / 3.14159265f;
 class GameObject{
     public:
         GameObject();
-        virtual int Inicialize(PhysicBody *physicBody,uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
-        virtual int Inicialize(PhysicBody *physicBody,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
+        virtual int Inicialize(PhysicBody *physicBody,uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture = NULL);
+        virtual int Inicialize(PhysicBody *physicBody,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture = NULL);
         virtual ~GameObject();
         virtual void Update();
         virtual irr::scene::IMeshSceneNode* getNode();
         virtual int   SetMode(PhysicBody* body);
         virtual void   SetVisible(bool visible);
+        virtual void   SetGravity(float gravity);
         virtual b2Vec2 GetPosition();
         virtual float    GetRotation();
         virtual b2Vec2 GetLinearVelocity();

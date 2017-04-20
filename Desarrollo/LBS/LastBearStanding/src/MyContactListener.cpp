@@ -2,31 +2,12 @@
 #include "MyContactListener.h"
 #include "Teleport.h"
 #include "Cogible.h"
+#include "Metralla.h"
 #include "Spawner.h"
 #include "Muelle.h"
 #include "Player.h"
 #include "Bala.h"
 #include "Bot.h"
-
-
-const Contact2Method MyContactListener::beginContact[11] = {
-      { DATA_PLAYER         , DATA_MUELLE         , PlayerMuelle        }
-    , { DATA_PLAYER         , DATA_TELEPORT       , PlayerTeleport      }
-    , { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleBegin  }
-    , { DATA_PLAYER         , DATA_BALA           , PlayerBala          }
-    , { DATA_PLAYER         , DATA_PINCHO         , PlayerPincho        }
-    , { DATA_PLAYER         , DATA_NODO           , PlayerNodo          }
-    , { DATA_TELEPORT       , DATA_BALA           , TeleportBala        }
-    , { DATA_TELEPORT       , DATA_COGIBLE        , TeleportCogible     }
-    , { DATA_PLAYER_PIES    , 0                   , PiesPlayerBegin     }
-    , { DATA_BALA           , 0                   , BalaBegin           }
-    , { 0                   , 0                   , 0                   }
-};
-const Contact2Method MyContactListener::endContact[3] = {
-      { DATA_PLAYER         , DATA_COGIBLE_SENSOR , PlayerCogibleEnd    }
-    , { DATA_PLAYER_PIES    , 0                   , PiesPlayerEnd       }
-    , { 0                   , 0                   , 0                   }
-};
 
 MyContactListener::MyContactListener(){
     //World::Inst()  = World::Inst();
@@ -95,7 +76,9 @@ void MyContactListener::PlayerPincho(){
 void MyContactListener::PlayerBala(){
     GetPlayer()->setParaMorir(true);
     GetBala()->setDestruir(true);
-    std::cout<<"PlayerBala"<<std::endl;
+}
+void MyContactListener::PlayerMetralla(){
+    GetPlayer()->setParaMorir(true);
 }
 
 void MyContactListener::PlayerNodo(){
@@ -185,6 +168,15 @@ Nodo* MyContactListener::GetNodo(){
         if(World::Inst()->GetNodos().at(i)->GetId() ==  (int)contact->GetFixtureA()->GetBody()->GetUserData()
         || World::Inst()->GetNodos().at(i)->GetId() ==  (int)contact->GetFixtureB()->GetBody()->GetUserData() ){
             return World::Inst()->GetNodos().at(i);
+        }
+    }
+    return NULL;
+}
+Metralla* MyContactListener::GetMetralla(){
+    for(unsigned int i = 0; i < World::Inst()->GetMetrallas().size(); ++i){
+        if(World::Inst()->GetMetrallas().at(i)->GetId() ==  (int)contact->GetFixtureA()->GetBody()->GetUserData()
+        || World::Inst()->GetMetrallas().at(i)->GetId() ==  (int)contact->GetFixtureB()->GetBody()->GetUserData() ){
+            return World::Inst()->GetMetrallas().at(i);
         }
     }
     return NULL;

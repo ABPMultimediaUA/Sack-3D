@@ -23,8 +23,8 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	m_windowWidth = m_windowSize*16/9;
 	m_windowHeight = m_windowSize;
 	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(m_windowWidth,m_windowSize), 32, false, true, true, myEventReceiver );
-	//device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
+	//device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(m_windowWidth,m_windowSize), 32, false, true, true, myEventReceiver );
+	device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
 	driver = device->getVideoDriver();
 	device->setWindowCaption(L"Last Bear Standing");
 	smgr = device->getSceneManager();
@@ -75,7 +75,8 @@ irr::io::IXMLReader* IrrMngr::createXMLReader(irr::core::stringw file){return de
 float IrrMngr::getTime(){return timer->getTime();}
 void IrrMngr::beginScene(){
 	driver->beginScene(true, true, irr::video::SColor(255,255, 255, 255));
-	driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, m_windowWidth, m_windowHeight),irr::core::rect<irr::s32>(0, 0, m_backgroundImage->getSize().Width, m_backgroundImage->getSize().Height));
+	//driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, m_windowWidth, m_windowHeight),irr::core::rect<irr::s32>(0, 0, m_backgroundImage->getSize().Width, m_backgroundImage->getSize().Height));
+	driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, driver->getScreenSize().Width, driver->getScreenSize().Width),irr::core::rect<irr::s32>(0, 0, driver->getScreenSize().Width, driver->getScreenSize().Width));
 }
 void IrrMngr::endScene(){driver->endScene();}
 void IrrMngr::drop(){driver->drop();}

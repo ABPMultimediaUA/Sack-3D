@@ -24,9 +24,9 @@ void Bot::InicializaVariables(){
     nodos = World::Inst()->GetNodos();
     Nodo* aux  = NULL;
 
-    for(int i = 0; i< nodos.size(); i++){
+    /*for(int i = 0; i< nodos.size(); i++){
         //if(mando == 1) std::cout<<"NODO: "<<nodos.at(i)->getNumero()<<" POS: "<<nodos.at(i)->getPosicion().x<<" "<<nodos.at(i)->getPosicion().y<<std::endl;
-    }
+    }*/
     posicionSpawn = getSpawnCercano(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     //std::cout<<"POS Spawn: "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
     for(int i = 0; i< nodos.size(); i++){

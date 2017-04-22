@@ -3,7 +3,7 @@
 #include "World.h"
 #include "Player.h"
 
-#define MINZ            15
+#define MINZ            3
 #define FPS             20
 #define VIEWMARGIN      1
 
@@ -65,6 +65,7 @@ GameCamera::update(float time, int fps){
             flowCam.push_back(irr::core::vector3df(cenX,cenY,0));
             irr::core::vector3df aux = flowCam[0];
             flowCam.erase(flowCam.begin());
+            IrrMngr::Inst()->SetBearCameraPosition(aux.X,aux.Y-(tamY/8.f), z);
             camera->setPosition(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), -z));
             camera->setTarget(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), 0));
             porcentUpdate += porcentGap;

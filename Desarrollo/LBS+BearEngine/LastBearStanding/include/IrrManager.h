@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include "GameResource.h"
+#include "glm/glm.hpp"
 
 class DebugInfo;
 class HUD;
@@ -29,6 +30,13 @@ class IrrMngr{
         irr::scene::IMeshSceneNode* addCubeSceneNode(int tam , irr::video::SColor color);
         irr::scene::IMeshSceneNode* addCubeSceneNode(irr::core::vector3df tam, irr::video::SColor color);
         irr::io::IXMLReader* createXMLReader(irr::core::stringw file);
+        //BearEngine
+        TNodo* CreateBearNode(int id,glm::vec3 pos, glm::vec3 tam);
+        void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
+        void SetBearCubeRotation(TNodo* nodo, float rot);
+        void SetBearCameraPosition(float x, float y, float z);
+        void RemoveBearNode(int id);
+        //BearEngine
         irr::scene::ISceneManager* getManager();
         MyEventReceiver* getEventReciever();
         irr::IrrlichtDevice* getDevice();
@@ -52,6 +60,7 @@ class IrrMngr{
         GameResource<TMotorBear> m_gMotorBear;
         GameResource<Shader> m_gShader;
         TMotorBear* m_motorBear;
+        TNodo* m_camara;
         Shader* m_shader;
         irr::video::ITexture* m_backgroundImage;
         unsigned int m_windowWidth;

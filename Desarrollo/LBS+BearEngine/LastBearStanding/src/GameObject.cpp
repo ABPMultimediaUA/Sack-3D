@@ -12,6 +12,7 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
 }
 GameObject::~GameObject(){
     if(m_pNode)m_pNode->remove();
+    if(m_bearNodo)m_pIrrMngr->RemoveBearNode(m_id);
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture){
     m_tam = tam;
@@ -23,6 +24,9 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     m_pPhysicBody->SetUserData(userdata);
     m_pPhysicBody->SetMask(mask);
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
+    //BearEngine
+    m_bearNodo = m_pIrrMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0),glm::vec3(tam.X,tam.Y,0));
+    //BearEngine
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
     if(!texture)
@@ -41,6 +45,9 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
     m_pWorld   = World::Inst();
     m_pIrrMngr = IrrMngr::Inst();
 	 m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.X,tam.Y));
+    //BearEngine
+    m_bearNodo = m_pIrrMngr->CreateBearNode(m_id,glm::vec3(m_pos.x,m_pos.y,0),glm::vec3(tam.X,tam.Y,0));
+    //BearEngine
     m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
     m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
     if(!texture)
@@ -51,8 +58,10 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
     return m_id;
 }
 void GameObject::Update(){
-    m_pNode->setPosition(irr::core::vector3df(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
-    m_pNode->setRotation(irr::core::vector3df(0,0,m_pPhysicBody->GetRotation()*RadToGrad));
+    m_pIrrMngr->SetBearCubePosition(m_bearNodo,glm::vec3(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
+    m_pIrrMngr->SetBearCubeRotation(m_bearNodo,m_pPhysicBody->GetRotation());
+    //m_pNode->setPosition(irr::core::vector3df(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
+    //m_pNode->setRotation(irr::core::vector3df(0,0,m_pPhysicBody->GetRotation()*RadToGrad));
 }
 irr::scene::IMeshSceneNode* GameObject::getNode(){
 	return m_pNode;

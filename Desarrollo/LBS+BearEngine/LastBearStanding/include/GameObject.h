@@ -7,6 +7,7 @@
 
 class World;
 class PhysicBody;
+class TNodo;
 
 
 const float RadToGrad = 180.f / 3.14159265f;
@@ -40,6 +41,7 @@ class GameObject{
         PhysicBody *m_pPhysicBody;
         irr::scene::IMeshSceneNode* m_pNode;
         irr::core::vector3df m_tam;
+        TNodo* m_bearNodo;
         IrrMngr *m_pIrrMngr;
         World *m_pWorld;
         b2Vec2 m_margin;

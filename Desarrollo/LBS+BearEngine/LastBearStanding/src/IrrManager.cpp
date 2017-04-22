@@ -5,7 +5,7 @@
 #include "HUD.h"
 #include "../BearEngine/include/shader.h"
 #include "../BearEngine/include/tmotorbear.h"
-
+#include <sstream>
 IrrMngr* IrrMngr::pinstance = 0;
 IrrMngr* IrrMngr::Inst(){
 	if(pinstance == 0){
@@ -40,10 +40,10 @@ IrrMngr::IrrMngr():m_debugMode(false){
     m_gShader.Reset(new Shader("../BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
     m_shader = m_gShader.Get();
-    TNodo* camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, (float)1080/(float)720, 0.01f,1000.0f);
-    m_motorBear->activarCamara(camara);
-    TNodo* cubo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "../BearEngine/res/cubo.obj","Cubo");
-    m_motorBear->TrasladarObjeto(camara,glm::vec3(0,0,10));
+    m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, (float)1080/(float)720, 0.01f,1000.0f);
+    m_motorBear->activarCamara(m_camara);
+    m_motorBear->TrasladarObjeto(m_camara,glm::vec3(10,-10,10));
+    //TNodo* cubo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "../BearEngine/res/cubo.obj","Cubo");
 }
 void IrrMngr::setBackgroundImage(irr::video::ITexture* bimage){
   	//driver->removeTexture();
@@ -56,7 +56,6 @@ void IrrMngr::InstanciaVariables(int* puntuaciones){
 }
 void IrrMngr::Update(){
     m_motorBear->Clear(0.0f,1.15f,0.3f,1.0f);
-
 	//smgr->drawAll();
 	m_shader->Bind();
 	//hud.Get()->Draw();
@@ -67,6 +66,32 @@ void IrrMngr::Update(){
 	m_motorBear->draw(m_shader);
 	m_motorBear->UpdateDisplay();
 }
+//BearEngine
+TNodo* IrrMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
+    std::ostringstream strm;
+    strm << id;
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "../BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	//std::cout<<id<<","<<(char*)strm.str().c_str()<<std::endl;
+	m_motorBear->TrasladarObjeto(nodo,pos);
+	m_motorBear->EscalarObjeto(nodo,tam);
+    return nodo;
+}
+void IrrMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
+	m_motorBear->TrasladarObjeto(nodo,pos);
+}
+void IrrMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
+	m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+}
+void IrrMngr::SetBearCameraPosition(float x, float y, float z){
+    m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));
+}
+void IrrMngr::RemoveBearNode(int id){
+    std::ostringstream strm;
+    strm << id;
+    m_motorBear->borrarRecurso((char*)strm.str().c_str());
+    std::cout<<(char*)strm.str().c_str()<<std::endl;
+}
+//BearEngine
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
 	irr::scene::IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
 	irr::scene::IMeshSceneNode* node = smgr->addMeshSceneNode(mesh);

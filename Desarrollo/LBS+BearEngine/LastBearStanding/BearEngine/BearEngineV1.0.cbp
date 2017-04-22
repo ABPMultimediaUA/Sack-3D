@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="BearEngineV1.0" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/BearEngineV1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/BearEngineV1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/camera.h" />
+		<Unit filename="include/display.h" />
+		<Unit filename="include/mesh.h" />
+		<Unit filename="include/modeloindexado.h" />
+		<Unit filename="include/shader.h" />
+		<Unit filename="include/tentidad.h" />
+		<Unit filename="include/tentidadmalla.h" />
+		<Unit filename="include/tgestorrecursos.h" />
+		<Unit filename="include/tluz.h" />
+		<Unit filename="include/tmotorbear.h" />
+		<Unit filename="include/tnodo.h" />
+		<Unit filename="include/trecurso.h" />
+		<Unit filename="include/ttransform.h" />
+		<Unit filename="src/camera.cpp" />
+		<Unit filename="src/display.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/modeloindexado.cpp" />
+		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/tentidadmalla.cpp" />
+		<Unit filename="src/tgestorrecursos.cpp" />
+		<Unit filename="src/tluz.cpp" />
+		<Unit filename="src/tmotorbear.cpp" />
+		<Unit filename="src/tnodo.cpp" />
+		<Unit filename="src/ttransform.cpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="C:\Users\PCJ\Contacts\Desktop\LBS\LastBearStanding\BearEngine\include" />
+			</code_completion>
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

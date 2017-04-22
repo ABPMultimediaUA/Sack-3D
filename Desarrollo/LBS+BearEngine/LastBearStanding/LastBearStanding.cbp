@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LasBearStanding" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Irrlicht" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Irrlicht" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="BearEngine/include/camera.h" />
+		<Unit filename="BearEngine/include/display.h" />
+		<Unit filename="BearEngine/include/mesh.h" />
+		<Unit filename="BearEngine/include/modeloindexado.h" />
+		<Unit filename="BearEngine/include/shader.h" />
+		<Unit filename="BearEngine/include/tentidad.h" />
+		<Unit filename="BearEngine/include/tentidadmalla.h" />
+		<Unit filename="BearEngine/include/tgestorrecursos.h" />
+		<Unit filename="BearEngine/include/tluz.h" />
+		<Unit filename="BearEngine/include/tmotorbear.h" />
+		<Unit filename="BearEngine/include/tnodo.h" />
+		<Unit filename="BearEngine/include/trecurso.h" />
+		<Unit filename="BearEngine/include/ttransform.h" />
+		<Unit filename="BearEngine/src/camera.cpp" />
+		<Unit filename="BearEngine/src/display.cpp" />
+		<Unit filename="BearEngine/src/mesh.cpp" />
+		<Unit filename="BearEngine/src/modeloindexado.cpp" />
+		<Unit filename="BearEngine/src/shader.cpp" />
+		<Unit filename="BearEngine/src/tentidadmalla.cpp" />
+		<Unit filename="BearEngine/src/tgestorrecursos.cpp" />
+		<Unit filename="BearEngine/src/tluz.cpp" />
+		<Unit filename="BearEngine/src/tmotorbear.cpp" />
+		<Unit filename="BearEngine/src/tnodo.cpp" />
+		<Unit filename="BearEngine/src/ttransform.cpp" />
+		<Unit filename="include/Bala.h" />
+		<Unit filename="include/Bot.h" />
+		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Client.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Cogible.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/DebugInfo.h" />
+		<Unit filename="include/Escopeta.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/GameResource.h" />
+		<Unit filename="include/Granada.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/HUD.h" />
+		<Unit filename="include/IrrManager.h" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/Master.h" />
+		<Unit filename="include/Metralla.h" />
+		<Unit filename="include/Muelle.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/MyContactListener.h" />
+		<Unit filename="include/MyEventReceiver.h" />
+		<Unit filename="include/Particle.h" />
+		<Unit filename="include/PathFinding/Lista.h" />
+		<Unit filename="include/PathFinding/Nodo.h" />
+		<Unit filename="include/PhysicBody/PBAlivePlayer.h" />
+		<Unit filename="include/PhysicBody/PBBullet.h" />
+		<Unit filename="include/PhysicBody/PBCap.h" />
+		<Unit filename="include/PhysicBody/PBCogibleCatched.h" />
+		<Unit filename="include/PhysicBody/PBCogibleReleased.h" />
+		<Unit filename="include/PhysicBody/PBCotton.h" />
+		<Unit filename="include/PhysicBody/PBDeadPlayer.h" />
+		<Unit filename="include/PhysicBody/PBDefault.h" />
+		<Unit filename="include/PhysicBody/PBDefaultSensor.h" />
+		<Unit filename="include/PhysicBody/PBGranadaReleased.h" />
+		<Unit filename="include/PhysicBody/PBMetralla.h" />
+		<Unit filename="include/PhysicBody/PBSpawner.h" />
+		<Unit filename="include/PhysicBody/PhysicBody.h" />
+		<Unit filename="include/Pistola.h" />
+		<Unit filename="include/Platform.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/PlayerRed.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/RVector.h" />
+		<Unit filename="include/Spawner.h" />
+		<Unit filename="include/Teleport.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="include/Usable.h" />
+		<Unit filename="include/World.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/Bot.cpp" />
+		<Unit filename="src/Camera.cpp" />
+		<Unit filename="src/Client.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Cogible.cpp" />
+		<Unit filename="src/DebugInfo.cpp" />
+		<Unit filename="src/Escopeta.cpp" />
+		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/Granada.cpp" />
+		<Unit filename="src/HUD.cpp" />
+		<Unit filename="src/IrrManager.cpp" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Master.cpp" />
+		<Unit filename="src/Metralla.cpp" />
+		<Unit filename="src/Muelle.cpp" />
+		<Unit filename="src/MyContactListener.cpp" />
+		<Unit filename="src/MyEventReceiver.cpp" />
+		<Unit filename="src/Particle.cpp" />
+		<Unit filename="src/PathFinding/Lista.cpp" />
+		<Unit filename="src/PathFinding/Nodo.cpp" />
+		<Unit filename="src/PhysicBody/PBAlivePlayer.cpp" />
+		<Unit filename="src/PhysicBody/PBBullet.cpp" />
+		<Unit filename="src/PhysicBody/PBCap.cpp" />
+		<Unit filename="src/PhysicBody/PBCogibleCatched.cpp" />
+		<Unit filename="src/PhysicBody/PBCogibleReleased.cpp" />
+		<Unit filename="src/PhysicBody/PBCotton.cpp" />
+		<Unit filename="src/PhysicBody/PBDeadPlayer.cpp" />
+		<Unit filename="src/PhysicBody/PBDefault.cpp" />
+		<Unit filename="src/PhysicBody/PBDefaultSensor.cpp" />
+		<Unit filename="src/PhysicBody/PBGranadaReleased.cpp" />
+		<Unit filename="src/PhysicBody/PBMetralla.cpp" />
+		<Unit filename="src/PhysicBody/PBSpawner.cpp" />
+		<Unit filename="src/PhysicBody/PhysicBody.cpp" />
+		<Unit filename="src/Pistola.cpp" />
+		<Unit filename="src/Platform.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/PlayerRed.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/Spawner.cpp" />
+		<Unit filename="src/Teleport.cpp" />
+		<Unit filename="src/Usable.cpp" />
+		<Unit filename="src/World.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1071">
+ <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="2497" name="tileset" tilewidth="1" tileheight="1" tilecount="646144" columns="1024">
+  <image source="tileset.png" width="1024" height="631"/>
+ </tileset>
+ <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+ </tileset>
+ <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <objectgroup name="Nodos" opacity="0.91">
+  <object id="618" name="0" type="1,3,8,9" gid="692172" x="44" y="65" width="1" height="1"/>
+  <object id="619" name="1" type="0,2,3" gid="692172" x="50" y="58" width="1" height="1"/>
+  <object id="620" name="2" type="1,4,9" gid="692172" x="59" y="58" width="1" height="1"/>
+  <object id="1051" name="3" type="0,1,7" gid="692172" x="38" y="58" width="1" height="1"/>
+  <object id="1052" name="4" type="2,5" gid="692172" x="54" y="51" width="1" height="1"/>
+  <object id="1053" name="5" type="4,6" gid="692172" x="46" y="51" width="1" height="1"/>
+  <object id="1054" name="6" type="5,7" gid="692172" x="28" y="51" width="1" height="1"/>
+  <object id="1059" name="7" type="3,6,8" gid="692172" x="23" y="58" width="1" height="1"/>
+  <object id="1061" name="8" type="0,7" gid="692172" x="17" y="65" width="1" height="1"/>
+  <object id="1062" name="9" type="0,2" gid="692172" x="64" y="65" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup color="#26a410" name="Colisiones">
+  <object id="486" x="13" y="65" width="56" height="1"/>
+  <object id="657" x="27" y="51" width="29" height="1"/>
+  <object id="1045" x="49" y="58" width="12" height="1"/>
+  <object id="1049" x="21" y="58" width="19" height="1"/>
+ </objectgroup>
+ <objectgroup name="Teleports" visible="0"/>
+ <objectgroup name="Muelles" visible="0"/>
+ <objectgroup name="Armas" visible="0"/>
+ <objectgroup name="Players">
+  <object id="1002" gid="271" x="19" y="65" width="1" height="1"/>
+  <object id="1003" gid="271" x="62" y="65" width="1" height="1"/>
+  <object id="1040" gid="271" x="54" y="58" width="1" height="1"/>
+  <object id="1044" gid="271" x="32" y="58" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup name="Pinchos">
+  <object id="1018" x="-41" y="77" width="202" height="3"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="1063" name="2" type="1" gid="692377" x="54" y="51" width="1" height="1"/>
+  <object id="1064" name="1" type="1" gid="692377" x="44" y="65" width="1" height="1"/>
+  <object id="1068" name="1" type="1" gid="692377" x="17" y="65" width="1" height="1"/>
+  <object id="1069" name="2" type="1" gid="692377" x="28" y="51" width="1" height="1"/>
+  <object id="1070" name="1" type="1" gid="692377" x="64" y="65" width="1" height="1"/>
+ </objectgroup>
+ <imagelayer name="Capa de Imagen 1" visible="0">
+  <image source="Background/bathroom.jpg" width="1280" height="718"/>
+ </imagelayer>
+</map>

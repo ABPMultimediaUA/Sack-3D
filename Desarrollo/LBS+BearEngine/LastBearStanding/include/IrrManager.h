@@ -35,7 +35,8 @@ class IrrMngr{
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
         void SetBearCameraPosition(float x, float y, float z);
-        void RemoveBearNode(int id);
+        void RemoveBearNode(TNodo* nodo);
+        void IsBearVisible(TNodo* nodo, bool visible);
         //BearEngine
         irr::scene::ISceneManager* getManager();
         MyEventReceiver* getEventReciever();

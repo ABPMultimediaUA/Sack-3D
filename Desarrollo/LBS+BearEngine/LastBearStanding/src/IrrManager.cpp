@@ -85,11 +85,15 @@ void IrrMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
 void IrrMngr::SetBearCameraPosition(float x, float y, float z){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));
 }
-void IrrMngr::RemoveBearNode(int id){
-    std::ostringstream strm;
-    strm << id;
-    m_motorBear->borrarRecurso((char*)strm.str().c_str());
-    std::cout<<(char*)strm.str().c_str()<<std::endl;
+void IrrMngr::RemoveBearNode(TNodo* nodo){
+    m_motorBear->borrarObjeto(nodo);
+}
+void IrrMngr::IsBearVisible(TNodo* nodo, bool visible){
+    if(visible)
+        m_motorBear->hacerVisibleObjeto(nodo);
+    else
+        m_motorBear->hacerInvisibleObjeto(nodo);
+
 }
 //BearEngine
 irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){

@@ -8,11 +8,13 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
     m_GRphysicBody.Reset(NULL);
     m_pPhysicBody = NULL;
     m_pNode = NULL;
+    m_bearNodo = NULL;
     m_id = -1;
 }
 GameObject::~GameObject(){
     if(m_pNode)m_pNode->remove();
-    if(m_bearNodo)m_pIrrMngr->RemoveBearNode(m_id);
+    //if(m_bearNodo)m_pIrrMngr->RemoveBearNode(m_bearNodo);
+    m_pIrrMngr->IsBearVisible(m_bearNodo,false);
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture){
     m_tam = tam;
@@ -97,6 +99,7 @@ int GameObject::SetMode(PhysicBody* body){
 }
 void GameObject::SetVisible(bool visible){
     m_pNode->setVisible(visible);
+    m_pIrrMngr->IsBearVisible(m_bearNodo,visible);
 }
 void GameObject::SetFixedRotation(bool fixed){
     m_pPhysicBody->SetFixedRotation(fixed);

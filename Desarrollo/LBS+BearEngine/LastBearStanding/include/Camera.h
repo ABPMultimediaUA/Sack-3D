@@ -8,18 +8,16 @@
 class GameCamera{
     public:
         GameCamera();
-        virtual ~GameCamera();
+        ~GameCamera();
         update(float time,int fps);
     private:
-        
-    	irr::scene::ICameraSceneNode* camera;
         irr::ITimer* timer;
         float tiempoTransc;
         float updateT;
         double porcentUpdate;
         double porcentGap;
-        std::vector<irr::core::vector3df> flowCam;
-        irr::core::matrix4 projMat;
+        std::vector<glm::vec3> flowCam;
+        //irr::core::matrix4 projMat;
         b2Vec2 cenAnt;
         b2Vec2 cenSig;
         int fpsAnt;

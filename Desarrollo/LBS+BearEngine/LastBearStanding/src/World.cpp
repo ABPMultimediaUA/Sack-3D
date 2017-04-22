@@ -93,7 +93,6 @@ void  World::SwitchDebugMode(){
 int World::Update(int fps){
   DeltaTime = BearMngr::Inst()->getTime() - TimeStamp;
   TimeStamp = BearMngr::Inst()->getTime();
-  BearMngr::Inst()->beginScene();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();

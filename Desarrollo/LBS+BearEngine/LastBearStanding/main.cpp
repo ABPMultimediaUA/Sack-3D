@@ -7,5 +7,4 @@ int main(int argc, char* argv[]){
 	while(m.Run()){
         m.Update();
 	}
-	m.Drop();
 }

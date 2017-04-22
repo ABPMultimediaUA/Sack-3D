@@ -48,7 +48,6 @@ void MyEventReceiver::ClickP(){
     std::cout<<"Time de Mapa: "<<World::Inst()->getTimeMapa()<<std::endl;
 }
 void MyEventReceiver::ClickEscape(){
-  BearMngr::Inst()->Close();
 }
 void MyEventReceiver::ClickF12(){
   BearMngr::Inst()->SwitchDebugMode();

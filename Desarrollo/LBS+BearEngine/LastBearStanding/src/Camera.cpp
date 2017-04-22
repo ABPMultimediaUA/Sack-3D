@@ -8,7 +8,6 @@
 #define VIEWMARGIN      1
 
 GameCamera::GameCamera(){
-	camera = BearMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
     timer = BearMngr::Inst()->getTimer();
     tiempoTransc = timer->getTime();
     cenAnt = b2Vec2(0,0);
@@ -18,11 +17,10 @@ GameCamera::GameCamera(){
     porcentUpdate = 0.0f;
     updateT = 1000.f/60.f;
     for(int i = 0; i<0 ;i++){
-        flowCam.push_back(irr::core::vector3df(0,0,0));
+        flowCam.push_back(glm::vec3(0,0,0));
     }
 }
 GameCamera::~GameCamera(){
-    camera->remove();
 }
 GameCamera::update(float time, int fps){
     int vivos = 0;
@@ -60,14 +58,11 @@ GameCamera::update(float time, int fps){
             float tamX = incrementX+(incrementY*2.2f)+VIEWMARGIN;
             if(tamX<5)tamX = 5;
             float tamY = tamX*9/16;
-            projMat.buildProjectionMatrixOrthoLH(tamX,tamY,-1000,1000);
-            camera->setProjectionMatrix(projMat);
-            flowCam.push_back(irr::core::vector3df(cenX,cenY,0));
-            irr::core::vector3df aux = flowCam[0];
+            //projMat.buildProjectionMatrixOrthoLH(tamX,tamY,-1000,1000);
+            flowCam.push_back(glm::vec3(cenX,cenY,0));
+            glm::vec3 aux = flowCam[0];
             flowCam.erase(flowCam.begin());
-            BearMngr::Inst()->SetBearCameraPosition(aux.X,aux.Y-(tamY/8.f), z);
-            camera->setPosition(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), -z));
-            camera->setTarget(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), 0));
+            BearMngr::Inst()->SetBearCameraPosition(aux.x,aux.y-(tamY/8.f), z);
             porcentUpdate += porcentGap;
         }
 }

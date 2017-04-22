@@ -70,8 +70,6 @@ void Master::InstanciaMundo(){
     }
 }
 bool Master::Run(){
-    return BearMngr::Inst()->getDevice()->run();
-}
-void Master::Drop(){
-    return BearMngr::Inst()->drop();
+    BearMngr::Inst()->getDevice()->run();
+    return !BearMngr::Inst()->IsClosed();
 }

@@ -19,16 +19,8 @@ class BearMngr{
         BearMngr();
         void Update();
         void InstanciaVariables(int* puntuaciones);
-        void Reset();
-        void beginScene();
-        void endScene();
-        void drop();
         float getTime();
-        void Close();
         irr::gui::IGUIFont* getFont();
-        irr::scene::IMesh* createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam,  irr::video::SColor color);
-        irr::scene::IMeshSceneNode* addCubeSceneNode(int tam , irr::video::SColor color);
-        irr::scene::IMeshSceneNode* addCubeSceneNode(irr::core::vector3df tam, irr::video::SColor color);
         irr::io::IXMLReader* createXMLReader(irr::core::stringw file);
         //BearEngine
         TNodo* CreateBearNode(int id,glm::vec3 pos, glm::vec3 tam);
@@ -37,6 +29,7 @@ class BearMngr{
         void SetBearCameraPosition(float x, float y, float z);
         void RemoveBearNode(TNodo* nodo);
         void IsBearVisible(TNodo* nodo, bool visible);
+        bool IsClosed();
         //BearEngine
         irr::scene::ISceneManager* getManager();
         MyEventReceiver* getEventReciever();

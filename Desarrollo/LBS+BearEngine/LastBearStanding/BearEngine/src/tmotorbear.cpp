@@ -103,8 +103,9 @@ TNodo* TMotorBear::crearObjetoCamaraCompleto(TNodo* padre, char * name, const gl
 
     TEntidad* cam = crearCamara(pos, fov, aspect, zNear, zFar);
     TNodo* transTras = crearTransObj(padre, name);
-
+    transTras->setVisible(1);
     TNodo* nodoCamara = crearNodo(transTras,cam, name);
+    nodoCamara->setVisible(1);
     registrarCamara(nodoCamara);
     return nodoCamara;
 }
@@ -115,8 +116,9 @@ TNodo* TMotorBear::crearObjetoMallaCompleto(TNodo* padre, char * filename, char 
     TEntidad* mallaE = crearMalla(filename);
 
     TNodo* transTras = crearTransObj(padre, name);
-
+    transTras->setVisible(1);
     TNodo* malla = crearNodo(transTras,mallaE, name);
+    malla->setVisible(1);
 
 return malla;
 }
@@ -195,6 +197,27 @@ void TMotorBear::reiniciarTransPropias(TNodo* nodoMalla){
     TNodo*    NodoTras = nodoMalla->getPadre();    //Tras
 return NodoTras;
  }
+
+ void  TMotorBear::borrarObjeto(TNodo* nodoObjeto){
+    if( nodoObjeto != arbolEscena){
+        TNodo* padreObjeto=0;
+        TNodo* transObjeto=0;
+        transObjeto = nodoObjeto->getPadre();
+        padreObjeto = transObjeto->getPadre();
+
+std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
+        padreObjeto->remHijo(transObjeto);
+        delete(transObjeto);
+        verArbol();
+    }
+ }
+
+void TMotorBear::hacerInvisibleObjeto(TNodo* nodoObjeto){
+    nodoObjeto->setVisible(0);
+}
+void TMotorBear::hacerVisibleObjeto(TNodo* nodoObjeto){
+    nodoObjeto->setVisible(1);
+}
 
 /*
  void TMotorBear::ReinciarTrans(TNodo* nodoTrans){

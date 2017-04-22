@@ -23,6 +23,8 @@ class TNodo
         TNodo* getPadre();
         int esRaiz();
         void draw(Shader* shad, std::vector<glm::mat4>* pila);
+        void setVisible(int visi);
+        int getVisible();
 
         //Debug
             void verArbol();
@@ -34,7 +36,7 @@ class TNodo
         char* nombreEntidad;
         std::vector<TNodo*> hijos;
         TNodo* padre;
-
+        int visible;
 
 };
 

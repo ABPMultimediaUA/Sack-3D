@@ -53,7 +53,9 @@ class TMotorBear
         void reiniciarRotacion(TNodo* nodoMalla);
         void reiniciarEscalado(TNodo* nodoMalla);
 
-
+        void borrarObjeto(TNodo* nodoObjeto);
+        void hacerInvisibleObjeto(TNodo* nodoObjeto);
+        void hacerVisibleObjeto(TNodo* nodoObjeto);
 ////////(BAJO NIVEL DEL MOTOR)
 
 

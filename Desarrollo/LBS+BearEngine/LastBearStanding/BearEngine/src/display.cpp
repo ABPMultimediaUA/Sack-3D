@@ -134,6 +134,15 @@ int Display::Update(TNodo* TfCamera){
                 case SDLK_m:
                     malla=malla+1;
                     if(malla>=4) malla=0;
+                    break;
+                case SDLK_j:
+                        if(malla!=5){
+
+                            malla=5;
+                        }else{
+                            malla=6;
+                            }
+                    break;
                 default:
                     break;
 

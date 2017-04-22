@@ -90,9 +90,9 @@ void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
    if(entidad){
      //   std::cout<<"Hay entidad "<<nombreEntidad<<std::endl;
 
-
-        entidad->begingDraw(shad,  pila);
-
+    if(visible){
+            entidad->begingDraw(shad,  pila);
+        }
 
     }
 
@@ -101,8 +101,16 @@ void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
     }
 
     if(entidad){
-        entidad->endDraw(pila);
-
+        if(visible){
+            entidad->endDraw(pila);
+        }
     }
 
 }
+
+  void TNodo::setVisible(int visi){
+    visible=visi;
+  }
+  int TNodo::getVisible(){
+    return visible;
+  }

@@ -5,18 +5,18 @@
 
 class Particle{
     public:
-        Particle(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam,  irr::video::SColor color,  int tiempoVida = 5000);
+        Particle(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam,  irr::video::SColor color,  int tiempoVida = 5000);
         virtual ~Particle();
         void actualiza();
         void SetAngularVelocity(float imp);
         void SetLinearVelocity(b2Vec2 vel);
-        void 
+        void
         SetGravity(float gravity);
         void setDestruir(bool aux){ m_destruir = aux;}
         int getDestruir(){return m_destruir;}
         int GetId();
     private:
-        IrrMngr     *m_pIrrMngr;
+        BearMngr     *m_pBearMngr;
         int 	     m_tiempoVida;
         irr::f32     m_time2Kill;
         irr::ITimer* m_timer2Kill;

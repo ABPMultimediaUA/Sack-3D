@@ -1,6 +1,6 @@
 #include "PhysicBody/PBSpawner.h"
 #include "PhysicBody/PBCotton.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "Particle.h"
 #include "Escopeta.h"
 #include "Pistola.h"
@@ -11,15 +11,15 @@
 Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
 :tipo(tipo),modelo(modelo),m_pos(pos){
     m_pWorld = World::Inst();
-    m_pIrrMngr = IrrMngr::Inst();
+    m_pBearMngr = BearMngr::Inst();
     cogiendo = true;
     cadencia = 2000;
-    timer = m_pIrrMngr->getTimer();
+    timer = m_pBearMngr->getTimer();
     time = timer->getTime();
     m_id = m_gameObject.Inicialize(
         new PBSpawner()
         ,pos
-        ,irr::core::vector3df(0.05f,.035f,0.01f)
+        ,glm::vec3(0.05f,.035f,0.01f)
         ,irr::video::SColor(255, 255, 255, 255)
     );
     generar();
@@ -27,7 +27,7 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
 Spawner::~Spawner(){}
 
 void Spawner::actualiza(){
-    if(!cogiendo && m_pIrrMngr->getTime()-time>cadencia){
+    if(!cogiendo && m_pBearMngr->getTime()-time>cadencia){
         generar();
     }
 }
@@ -59,10 +59,10 @@ void Spawner::ParticleSpawn(){
     pos.x=pos.x/2.0f;
     pos.y=pos.y/2.0f;
     for (int i = 0; i < 20; ++i){
-        irr::core::vector3df tam;
-        tam.X = (rand()%10)/500.f;
-        tam.Y = tam.X;
-        tam.Z = 0.2;
+        glm::vec3 tam;
+        tam.x = (rand()%10)/500.f;
+        tam.y = tam.x;
+        tam.z = 0.02f;
         Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,229, 225, 11),rand()%300+300));
         cap->SetGravity(0.05f);
         b2Vec2 capVel;

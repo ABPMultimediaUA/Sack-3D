@@ -1,7 +1,7 @@
 #ifndef HUD_H
 #define HUD_H
 
-#include "IrrManager.h"
+#include "BearManager.h"
 
 class HUD{
     public:
@@ -11,7 +11,7 @@ class HUD{
         void Draw();
 
     private:
-        IrrMngr* m_irrMngr;
+        BearMngr* m_BearMngr;
         irr::video::ITexture* m_hudImage_Red;
         irr::video::ITexture* m_hudImage_Green;
         irr::video::ITexture* m_hudImage_Yellow;

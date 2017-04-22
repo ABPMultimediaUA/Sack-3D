@@ -1,6 +1,6 @@
 
 #include "MyEventReceiver.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "Player.h"
 #include "World.h"
 
@@ -48,9 +48,9 @@ void MyEventReceiver::ClickP(){
     std::cout<<"Time de Mapa: "<<World::Inst()->getTimeMapa()<<std::endl;
 }
 void MyEventReceiver::ClickEscape(){
-  IrrMngr::Inst()->Close();
+  BearMngr::Inst()->Close();
 }
 void MyEventReceiver::ClickF12(){
-  IrrMngr::Inst()->SwitchDebugMode();
+  BearMngr::Inst()->SwitchDebugMode();
   World::Inst()->SwitchDebugMode();
 }

@@ -232,7 +232,7 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
           //pathfinding->imprimirLista();
      }
      else if(nodoInicial->getPosicion().x != nodoDestino->getPosicion().x || nodoInicial->getPosicion().y != nodoDestino->getPosicion().y){
-           nodoActual = new Nodo(nodoInicial->getPosicion(), irr::core::vector3df(0.1f,0.1f,0.1f), nodoInicial->getNumero(), 0, NULL);
+           nodoActual = new Nodo(nodoInicial->getPosicion(), glm::vec3(0.1f,0.1f,0.1f), nodoInicial->getNumero(), 0, NULL);
            listaAbierta.insertar(nodoActual);
            while( listaAbierta.getTamanyo() > 0 && listaAbierta.buscaNodo2( nodoDestino->getPosicion().x, nodoDestino->getPosicion().y ) == NULL) {
 
@@ -253,7 +253,7 @@ void Bot::calcularPathfinding(Nodo* inicial, Nodo* objetivo){
                            posicion.x = buscaNumero(numero)->getPosicion().x;
                            posicion.y = buscaNumero(numero)->getPosicion().y;
                            int coste = abs(posicion.x-nodoDestino->getPosicion().x) + abs(posicion.y -nodoDestino->getPosicion().y);
-                           Nodo* aux = new Nodo (posicion, irr::core::vector3df(0.1f,0.1f,0.1f),  numero, coste, nodoActual);
+                           Nodo* aux = new Nodo (posicion, glm::vec3(0.1f,0.1f,0.1f),  numero, coste, nodoActual);
                            listaAbierta.insertar(aux);
                        }
                }

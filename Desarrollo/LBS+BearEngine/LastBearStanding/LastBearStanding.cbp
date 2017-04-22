@@ -60,6 +60,7 @@
 		<Unit filename="BearEngine/src/tnodo.cpp" />
 		<Unit filename="BearEngine/src/ttransform.cpp" />
 		<Unit filename="include/Bala.h" />
+		<Unit filename="include/BearManager.h" />
 		<Unit filename="include/Bot.h" />
 		<Unit filename="include/Camera.h" />
 		<Unit filename="include/Client.h">
@@ -78,7 +79,6 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/HUD.h" />
-		<Unit filename="include/IrrManager.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Master.h" />
 		<Unit filename="include/Metralla.h" />
@@ -118,6 +118,7 @@
 		<Unit filename="include/World.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/BearManager.cpp" />
 		<Unit filename="src/Bot.cpp" />
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/Client.cpp">
@@ -129,7 +130,6 @@
 		<Unit filename="src/GameObject.cpp" />
 		<Unit filename="src/Granada.cpp" />
 		<Unit filename="src/HUD.cpp" />
-		<Unit filename="src/IrrManager.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Master.cpp" />
 		<Unit filename="src/Metralla.cpp" />

@@ -3,7 +3,7 @@
 #include "World.h"
 
 Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(300){
-    m_pIrrMngr = IrrMngr::Inst();
+    m_pBearMngr = BearMngr::Inst();
     int i = rand()%3;
     irr::video::SColor color;
     switch(i){
@@ -17,8 +17,8 @@ Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(300){
     		color = irr::video::SColor(255,100,100,100);
     	break;
     }
-    m_id = m_gameObject.Inicialize(new PBMetralla(),pos,irr::core::vector3df(0.03f,0.03f,0.03f),color);
-    m_timer2Kill = m_pIrrMngr->getTimer();
+    m_id = m_gameObject.Inicialize(new PBMetralla(),pos,glm::vec3(0.03f,0.03f,0.03f),color);
+    m_timer2Kill = m_pBearMngr->getTimer();
     m_time2Kill = m_timer2Kill->getTime();
     m_gameObject.SetLinearVelocity(vel);
 }
@@ -27,7 +27,7 @@ Metralla::~Metralla(){
 }
 void Metralla::actualiza(){
     m_gameObject.Update();
-    if(m_pIrrMngr->getTime()-m_time2Kill>m_tiempoVida){m_destruir = true;}
+    if(m_pBearMngr->getTime()-m_time2Kill>m_tiempoVida){m_destruir = true;}
 }
 void Metralla::SetLinearVelocity(b2Vec2 vel){
     m_gameObject.SetLinearVelocity(vel);

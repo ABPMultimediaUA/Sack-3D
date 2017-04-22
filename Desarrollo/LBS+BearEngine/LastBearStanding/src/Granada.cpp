@@ -1,7 +1,7 @@
 #include "PhysicBody/PBGranadaReleased.h"
 #include "PhysicBody/PBCogibleCatched.h"
 #include "PhysicBody/PBCotton.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "Metralla.h"
 #include "Spawner.h"
 #include "Granada.h"
@@ -10,9 +10,9 @@
 #include "Client.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched,expo,pos,irr::core::vector3df(.05f,.05f,.05f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
+:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
   usada = false;
-  timerIrr = IrrMngr::Inst()->getTimer();
+  timerIrr = BearMngr::Inst()->getTimer();
 }
 Granada::~Granada(){}
 void Granada::actualiza(){

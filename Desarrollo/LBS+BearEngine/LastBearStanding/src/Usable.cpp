@@ -3,9 +3,9 @@
 
 #define TIME2DESTROY 3000
 
-Usable::Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color)
+Usable::Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color)
 :Cogible(physicBody,expo,pos,tam,color){
-    timerCadencia = m_pIrrMngr->getTimer();
+    timerCadencia = m_pBearMngr->getTimer();
     timeCadencia = 0;
     usando = false;
     usos = 1;
@@ -21,11 +21,11 @@ void Usable::actualiza(){
 void Usable::CompruebaVida(){
     if(!cogido){
         if(!killCountDown){
-            timer2Kill = m_pIrrMngr->getTimer();
+            timer2Kill = m_pBearMngr->getTimer();
             time2Kill = timer2Kill->getTime();
             killCountDown = true;
         }
-        else if(m_pIrrMngr->getTime()-time2Kill>TIME2DESTROY){
+        else if(m_pBearMngr->getTime()-time2Kill>TIME2DESTROY){
             autoDestruir = true;
         }
     }

@@ -7,7 +7,7 @@
 
 
 class Cogible;
-class IrrMngr;
+class BearMngr;
 class World;
 class Spawner{
     public:
@@ -23,7 +23,7 @@ class Spawner{
         Cogible* getCogido(){return objCogido;}
         bool GetCogiendo(){return cogiendo;}
     private:
-        IrrMngr *m_pIrrMngr;
+        BearMngr *m_pBearMngr;
         World *m_pWorld;
         b2Vec2 m_pos;
         GameObject m_gameObject;

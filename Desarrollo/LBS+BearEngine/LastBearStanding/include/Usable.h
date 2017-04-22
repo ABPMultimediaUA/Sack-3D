@@ -5,7 +5,7 @@
 
 class Usable : public Cogible{
     public:
-        Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
+        Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color);
         virtual ~Usable();
         virtual void usar();
         virtual void actualiza();

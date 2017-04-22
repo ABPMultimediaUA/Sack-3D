@@ -14,7 +14,7 @@ class Metralla{
         int GetId();
 
     private:
-        IrrMngr     *m_pIrrMngr;
+        BearMngr     *m_pBearMngr;
         int 	     m_tiempoVida;
         irr::f32     m_time2Kill;
         irr::ITimer* m_timer2Kill;

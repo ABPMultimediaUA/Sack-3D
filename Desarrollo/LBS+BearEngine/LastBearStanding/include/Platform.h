@@ -7,7 +7,7 @@
 
 class Platform{
     public:
-        Platform(bool mata, b2Vec2 pos, irr::core::vector3df tam,irr::video::SColor color);
+        Platform(bool mata, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color);
         ~Platform();
         int GetId();
     private:

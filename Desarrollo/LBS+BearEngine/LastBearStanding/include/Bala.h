@@ -15,7 +15,7 @@ class Bala{
         int GetId();
     private:
         GameObject m_gameObject;
-        IrrMngr *m_pIrrMngr;
+        BearMngr *m_pBearMngr;
         int tiempoVida;
         float desviacion;
         irr::f32 time2Kill;

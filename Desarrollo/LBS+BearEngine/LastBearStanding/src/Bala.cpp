@@ -4,18 +4,18 @@
 
 Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
 dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
-    m_pIrrMngr = IrrMngr::Inst();
-    irr::core::vector3df tam;
+    m_pBearMngr = BearMngr::Inst();
+    glm::vec3 tam;
     switch(tipo){
-        case 1:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
-        case 2:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
-        case 3:tam = irr::core::vector3df(0.02f,0.02f,0.02f);break;
+        case 1:tam = glm::vec3(0.02f,0.02f,0.02f);break;
+        case 2:tam = glm::vec3(0.02f,0.02f,0.02f);break;
+        case 3:tam = glm::vec3(0.02f,0.02f,0.02f);break;
     }
     pos.x = pos.x + (dir/5.0f);
     pos.x = pos.x/2.0f;
     pos.y = pos.y/2.0f;
     m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
-    timer2Kill = m_pIrrMngr->getTimer();
+    timer2Kill = m_pBearMngr->getTimer();
     time2Kill = timer2Kill->getTime();
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;
@@ -28,7 +28,7 @@ Bala::~Bala(){}
 void Bala::actualiza(){
     if(teletransportado) teletransportar();
     m_gameObject.Update();
-    if(m_pIrrMngr->getTime()-time2Kill>tiempoVida){destruir = true;}
+    if(m_pBearMngr->getTime()-time2Kill>tiempoVida){destruir = true;}
 }
 void Bala::teletransportar(){
     teletransportado = false;

@@ -4,7 +4,7 @@
 #include "World.h"
 
 
-Nodo::Nodo(b2Vec2 posicion, irr::core::vector3df tam,int num, int coste, Nodo *nodoPadre){
+Nodo::Nodo(b2Vec2 posicion, glm::vec3 tam,int num, int coste, Nodo *nodoPadre){
     m_posicion = posicion;
     m_numero = num;
     m_pNextNodo = NULL;

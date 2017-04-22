@@ -10,7 +10,7 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),color),mando(numMando){
     m_pClient = Client::Inst();
     vel = 3.0f;
     moviendoA = 0;
@@ -28,7 +28,7 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
     direccion = 0;
     expuesto = false;
     strncpy(id, m_pClient->getIdCliente(), sizeof(id));
-    eventReceiver = IrrMngr::Inst()->getEventReciever();
+    eventReceiver = BearMngr::Inst()->getEventReciever();
 }
  Player::~Player(){
 }
@@ -132,10 +132,10 @@ void Player::BloodExplosion(){
     pos.x=pos.x/2.0f;
     pos.y=pos.y/2.0f;
     for (int i = 0; i < 50; ++i){
-        irr::core::vector3df tam;
-        tam.X = ((float)(rand()%10)/250.f)+0.002f;
-        tam.Y = tam.X;
-        tam.Z = 0.2;
+        glm::vec3 tam;
+        tam.x = ((float)(rand()%10)/250.f)+0.002f;
+        tam.y = tam.x;
+        tam.z = 0.02f;
         Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0),rand()%300+300));
         b2Vec2 capVel;
         capVel.x = (dir*(rand()%300)/10.f)+0.5f;

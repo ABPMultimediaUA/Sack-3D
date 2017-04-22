@@ -1,25 +1,25 @@
 
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "MyEventReceiver.h"
 #include "DebugInfo.h"
 #include "HUD.h"
 #include "../BearEngine/include/shader.h"
 #include "../BearEngine/include/tmotorbear.h"
 #include <sstream>
-IrrMngr* IrrMngr::pinstance = 0;
-IrrMngr* IrrMngr::Inst(){
+BearMngr* BearMngr::pinstance = 0;
+BearMngr* BearMngr::Inst(){
 	if(pinstance == 0){
-		pinstance = new IrrMngr;
+		pinstance = new BearMngr;
 	}
 	return pinstance;
 }
-void IrrMngr::Reset(){
+void BearMngr::Reset(){
     smgr->clear();
 }
-const unsigned int IrrMngr::m_windowSize = 600;
+const unsigned int BearMngr::m_windowSize = 600;
 
-void IrrMngr::Close(){device->closeDevice();}
-IrrMngr::IrrMngr():m_debugMode(false){
+void BearMngr::Close(){device->closeDevice();}
+BearMngr::BearMngr():m_debugMode(false){
 	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	m_windowWidth = m_windowSize*16/9;
@@ -45,16 +45,16 @@ IrrMngr::IrrMngr():m_debugMode(false){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(10,-10,10));
     //TNodo* cubo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "../BearEngine/res/cubo.obj","Cubo");
 }
-void IrrMngr::setBackgroundImage(irr::video::ITexture* bimage){
+void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
   	//driver->removeTexture();
   	m_backgroundImage = bimage;
 }
 
-void IrrMngr::InstanciaVariables(int* puntuaciones){
+void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
   	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
-void IrrMngr::Update(){
+void BearMngr::Update(){
     m_motorBear->Clear(0.0f,1.15f,0.3f,1.0f);
 	//smgr->drawAll();
 	m_shader->Bind();
@@ -67,7 +67,7 @@ void IrrMngr::Update(){
 	m_motorBear->UpdateDisplay();
 }
 //BearEngine
-TNodo* IrrMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
+TNodo* BearMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
     std::ostringstream strm;
     strm << id;
 	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
@@ -76,19 +76,19 @@ TNodo* IrrMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
 	m_motorBear->EscalarObjeto(nodo,tam);
     return nodo;
 }
-void IrrMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
+void BearMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
 	m_motorBear->TrasladarObjeto(nodo,pos);
 }
-void IrrMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
+void BearMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
 	m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
 }
-void IrrMngr::SetBearCameraPosition(float x, float y, float z){
+void BearMngr::SetBearCameraPosition(float x, float y, float z){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));
 }
-void IrrMngr::RemoveBearNode(TNodo* nodo){
+void BearMngr::RemoveBearNode(TNodo* nodo){
     m_motorBear->borrarObjeto(nodo);
 }
-void IrrMngr::IsBearVisible(TNodo* nodo, bool visible){
+void BearMngr::IsBearVisible(TNodo* nodo, bool visible){
     if(visible)
         m_motorBear->hacerVisibleObjeto(nodo);
     else
@@ -96,20 +96,20 @@ void IrrMngr::IsBearVisible(TNodo* nodo, bool visible){
 
 }
 //BearEngine
-irr::scene::IMeshSceneNode* IrrMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
+irr::scene::IMeshSceneNode* BearMngr::addCubeSceneNode(irr::core::vector3df tam,irr::video::SColor color){
 	irr::scene::IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
 	irr::scene::IMeshSceneNode* node = smgr->addMeshSceneNode(mesh);
     smgr->getMeshManipulator()->setVertexColors(node->getMesh(), color);
 	return node;
 }
-irr::scene::IMesh* IrrMngr::createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam, irr::video::SColor color){
+irr::scene::IMesh* BearMngr::createCubeMesh(irr::core::vector3df pos, irr::core::vector3df tam, irr::video::SColor color){
 	irr::scene::IMesh* mesh = smgr->getGeometryCreator()->createCubeMesh(tam);
 	smgr->addMeshSceneNode(mesh)->setPosition(pos);
     smgr->getMeshManipulator()->setVertexColors(mesh, color);
     return  mesh;
 }
 
-void  IrrMngr::SwitchDebugMode(){
+void  BearMngr::SwitchDebugMode(){
   if(m_debugMode){
     m_debugMode = false;
   }
@@ -117,19 +117,19 @@ void  IrrMngr::SwitchDebugMode(){
     m_debugMode = true;
   }
 }
-irr::io::IXMLReader* IrrMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
-float IrrMngr::getTime(){return timer->getTime();}
-void IrrMngr::beginScene(){
+irr::io::IXMLReader* BearMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
+float BearMngr::getTime(){return timer->getTime();}
+void BearMngr::beginScene(){
 	driver->beginScene(true, true, irr::video::SColor(255,255, 255, 255));
 	//driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, m_windowWidth, m_windowHeight),irr::core::rect<irr::s32>(0, 0, m_backgroundImage->getSize().Width, m_backgroundImage->getSize().Height));
 	driver->draw2DImage(m_backgroundImage,irr::core::rect<irr::s32>(0, 0, driver->getScreenSize().Width, driver->getScreenSize().Width),irr::core::rect<irr::s32>(0, 0, driver->getScreenSize().Width, driver->getScreenSize().Width));
 }
-void IrrMngr::endScene(){driver->endScene();}
-void IrrMngr::drop(){driver->drop();}
-irr::scene::ISceneManager* IrrMngr::getManager(){return smgr;}
-MyEventReceiver* IrrMngr::getEventReciever(){return myEventReceiver;}
-irr::IrrlichtDevice* IrrMngr::getDevice(){return device;}
-irr::video::IVideoDriver* IrrMngr::getDriver(){return driver;}
-irr::gui::IGUIEnvironment* IrrMngr::getGUI(){return guienv;}
-irr::ITimer* IrrMngr::getTimer(){return timer;}
-IrrMngr::~IrrMngr(){}
+void BearMngr::endScene(){driver->endScene();}
+void BearMngr::drop(){driver->drop();}
+irr::scene::ISceneManager* BearMngr::getManager(){return smgr;}
+MyEventReceiver* BearMngr::getEventReciever(){return myEventReceiver;}
+irr::IrrlichtDevice* BearMngr::getDevice(){return device;}
+irr::video::IVideoDriver* BearMngr::getDriver(){return driver;}
+irr::gui::IGUIEnvironment* BearMngr::getGUI(){return guienv;}
+irr::ITimer* BearMngr::getTimer(){return timer;}
+BearMngr::~BearMngr(){}

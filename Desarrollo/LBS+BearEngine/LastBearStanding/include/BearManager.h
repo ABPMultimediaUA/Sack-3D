@@ -1,5 +1,5 @@
-#ifndef IRRMANAGER_H
-#define IRRMANAGER_H
+#ifndef BEARMANAGER_H
+#define BEARMANAGER_H
 
 #include <irrlicht.h>
 #include "GameResource.h"
@@ -13,10 +13,10 @@ class TNodo;
 class Shader;
 
 
-class IrrMngr{
+class BearMngr{
     public:
-        static IrrMngr* Inst();
-        IrrMngr();
+        static BearMngr* Inst();
+        BearMngr();
         void Update();
         void InstanciaVariables(int* puntuaciones);
         void Reset();
@@ -46,9 +46,9 @@ class IrrMngr{
         irr::ITimer* getTimer();
         void  SwitchDebugMode();
         void setBackgroundImage(irr::video::ITexture* bimage);
-        virtual ~IrrMngr();
+        virtual ~BearMngr();
     private:
-        static IrrMngr* pinstance;
+        static BearMngr* pinstance;
         static const unsigned int m_windowSize;
         irr::scene::ISceneManager* smgr;
         irr::IrrlichtDevice* device;

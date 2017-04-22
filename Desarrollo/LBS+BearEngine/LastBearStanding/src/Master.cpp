@@ -4,7 +4,7 @@
 #define FPS 1.f/30.f*1000.f
 
 #include "World.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include <ctime>
 #include <stdlib.h>
 
@@ -15,16 +15,16 @@ Master::Master(){
     finPartida = false;
     World::Inst();
     InstanciaMundo();
-    IrrMngr::Inst();
+    BearMngr::Inst();
     time2SyncClient = 0;
-    IrrMngr::Inst()->InstanciaVariables(puntuaciones);
-    timerFinPartida = IrrMngr::Inst()->getTimer();
-    timerFPS = IrrMngr::Inst()->getTimer();
+    BearMngr::Inst()->InstanciaVariables(puntuaciones);
+    timerFinPartida = BearMngr::Inst()->getTimer();
+    timerFPS = BearMngr::Inst()->getTimer();
     timeFPS = timerFPS->getTime();
 }
 void Master::Update(){
-    if(IrrMngr::Inst()->getTime()-timeFPS>FPS){
-        int fps = 1000/(IrrMngr::Inst()->getTime()-timeFPS);
+    if(BearMngr::Inst()->getTime()-timeFPS>FPS){
+        int fps = 1000/(BearMngr::Inst()->getTime()-timeFPS);
         timeFPS = timerFPS->getTime();
         int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
@@ -33,18 +33,18 @@ void Master::Update(){
                 finPartida = true;
             }
         }
-        else if(IrrMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
+        else if(BearMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
             World::Inst()->Reset();
             InstanciaMundo();
             finPartida = false;
         }
-        IrrMngr::Inst()->Update();
+        BearMngr::Inst()->Update();
         Client::Inst()->recibir();
-        //std::cout<<"SETEO AL PLAYER "<<IrrMngr::Inst()->getTime()<<" "<<time2SyncClient<<std::endl;
-        if(IrrMngr::Inst()->getTime()>(time2SyncClient+1000)){
+        //std::cout<<"SETEO AL PLAYER "<<BearMngr::Inst()->getTime()<<" "<<time2SyncClient<<std::endl;
+        if(BearMngr::Inst()->getTime()>(time2SyncClient+1000)){
             Client::Inst()->enviar();
-            time2SyncClient = IrrMngr::Inst()->getTime();
+            time2SyncClient = BearMngr::Inst()->getTime();
         }
     }
 
@@ -70,8 +70,8 @@ void Master::InstanciaMundo(){
     }
 }
 bool Master::Run(){
-    return IrrMngr::Inst()->getDevice()->run();
+    return BearMngr::Inst()->getDevice()->run();
 }
 void Master::Drop(){
-    return IrrMngr::Inst()->drop();
+    return BearMngr::Inst()->drop();
 }

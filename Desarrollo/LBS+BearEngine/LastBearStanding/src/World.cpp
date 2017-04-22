@@ -2,7 +2,7 @@
 #include "PathFinding/Lista.h"
 #include "PathFinding/Nodo.h"
 #include "MyContactListener.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "PlayerRed.h"
 #include "Teleport.h"
 #include "Metralla.h"
@@ -52,8 +52,8 @@ void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
       bot->InicializaVariables();
     }
   }
-  TimeStamp = IrrMngr::Inst()->getTime();
-  DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
+  TimeStamp = BearMngr::Inst()->getTime();
+  DeltaTime = BearMngr::Inst()->getTime() - TimeStamp;
 }
 Player* World::getPlayer(int mando){
   for(int i = 0; i < m_Players.Size(); ++i){
@@ -91,9 +91,9 @@ void  World::SwitchDebugMode(){
   }
 }
 int World::Update(int fps){
-  DeltaTime = IrrMngr::Inst()->getTime() - TimeStamp;
-  TimeStamp = IrrMngr::Inst()->getTime();
-  IrrMngr::Inst()->beginScene();
+  DeltaTime = BearMngr::Inst()->getTime() - TimeStamp;
+  TimeStamp = BearMngr::Inst()->getTime();
+  BearMngr::Inst()->beginScene();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();

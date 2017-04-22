@@ -2,19 +2,19 @@
 #include "World.h"
 
 HUD::HUD(int* puntuaciones, int width,int height):puntuaciones(puntuaciones),m_width(width),m_height(height){
-    m_irrMngr = IrrMngr::Inst();
-    font = IrrMngr::Inst()->getGUI()->getFont("media/Fuentes/hud.bmp");
+    m_BearMngr = BearMngr::Inst();
+    font = BearMngr::Inst()->getGUI()->getFont("media/Fuentes/hud.bmp");
 	fColor = irr::video::SColor(150,0, 0,0);
 	irr::video::SColor color(255,255, 255,255);
 	black_color = irr::video::SColor(255,0, 0,0);
-	m_hudImage_Red = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Red.png");
-	m_hudImage_Green = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Green.png");
-	m_hudImage_Pink = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Pink.png");
-	m_hudImage_Yellow = m_irrMngr->getDriver()->getTexture("media/Images/Hud/hud_Yellow.png");
-    m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Red,    color);
-    m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Green,  color);
-    m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Pink,   color);
-    m_irrMngr->getDriver()->makeColorKeyTexture(m_hudImage_Yellow, color);
+	m_hudImage_Red = m_BearMngr->getDriver()->getTexture("media/Images/Hud/hud_Red.png");
+	m_hudImage_Green = m_BearMngr->getDriver()->getTexture("media/Images/Hud/hud_Green.png");
+	m_hudImage_Pink = m_BearMngr->getDriver()->getTexture("media/Images/Hud/hud_Pink.png");
+	m_hudImage_Yellow = m_BearMngr->getDriver()->getTexture("media/Images/Hud/hud_Yellow.png");
+    m_BearMngr->getDriver()->makeColorKeyTexture(m_hudImage_Red,    color);
+    m_BearMngr->getDriver()->makeColorKeyTexture(m_hudImage_Green,  color);
+    m_BearMngr->getDriver()->makeColorKeyTexture(m_hudImage_Pink,   color);
+    m_BearMngr->getDriver()->makeColorKeyTexture(m_hudImage_Yellow, color);
 }
 void HUD::Draw(){
 	int increment = m_width/6;
@@ -38,6 +38,6 @@ void HUD::DrawHud(int marcador, int angle, int x, int y, int marginX, int margin
 	irr::core::rect<irr::s32> position ( posX, posY, posX+(width*3/5),  posY+(height*3/5));
 	irr::core::rect<irr::s32> imageRect( 0, 0, width  ,  height  );
 
-    m_irrMngr->getDriver()->draw2DImage(texture,position,imageRect,NULL,NULL,true);
+    m_BearMngr->getDriver()->draw2DImage(texture,position,imageRect,NULL,NULL,true);
 	font->draw(irr::core::stringw(puntuaciones[marcador]),irr::core::rect<irr::s32>(posX+marginX,posY+marginY,20,50),black_color);
 }

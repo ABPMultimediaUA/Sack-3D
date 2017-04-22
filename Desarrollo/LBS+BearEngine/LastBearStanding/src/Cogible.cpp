@@ -1,14 +1,14 @@
 #include "PhysicBody/PBCogibleReleased.h"
 #include "PhysicBody/PBCogibleCatched.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "Cogible.h"
 #include "Spawner.h"
 #include "World.h"
 
-Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color){
+Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color){
     m_id = m_gameObject.Inicialize(physicBody,pos,tam,color,"media/Images/player.png");
     m_pWorld =   World::Inst();
-    m_pIrrMngr = IrrMngr::Inst();
+    m_pBearMngr = BearMngr::Inst();
     autoDestruir = false;
     cogido = false;
     teletransportado = false;

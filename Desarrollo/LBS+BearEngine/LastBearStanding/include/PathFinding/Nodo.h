@@ -6,7 +6,7 @@
 
 class Nodo{
     public:
-        Nodo(b2Vec2 posicion, irr::core::vector3df tam,int num, int coste, Nodo *nodoPadre);
+        Nodo(b2Vec2 posicion, glm::vec3 tam,int num, int coste, Nodo *nodoPadre);
         ~Nodo();
         void setPadre(Nodo *nodo, int g);
         void setNext(Nodo *nodo);
@@ -25,7 +25,7 @@ class Nodo{
         Nodo* m_pNextNodo;
         int m_numero;
         std::vector<int> m_Adyacentes;
-        b2Vec2 m_posicion; 
+        b2Vec2 m_posicion;
         GameObject m_gameObject;
         int m_id;
 };

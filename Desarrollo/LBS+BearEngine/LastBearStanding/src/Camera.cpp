@@ -8,8 +8,8 @@
 #define VIEWMARGIN      1
 
 GameCamera::GameCamera(){
-	camera = IrrMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
-    timer = IrrMngr::Inst()->getTimer();
+	camera = BearMngr::Inst()->getManager()->addCameraSceneNode(0, irr::core::vector3df(0,0,-140), irr::core::vector3df(0,0,0));
+    timer = BearMngr::Inst()->getTimer();
     tiempoTransc = timer->getTime();
     cenAnt = b2Vec2(0,0);
     cenSig = b2Vec2(0,0);
@@ -65,7 +65,7 @@ GameCamera::update(float time, int fps){
             flowCam.push_back(irr::core::vector3df(cenX,cenY,0));
             irr::core::vector3df aux = flowCam[0];
             flowCam.erase(flowCam.begin());
-            IrrMngr::Inst()->SetBearCameraPosition(aux.X,aux.Y-(tamY/8.f), z);
+            BearMngr::Inst()->SetBearCameraPosition(aux.X,aux.Y-(tamY/8.f), z);
             camera->setPosition(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), -z));
             camera->setTarget(irr::core::vector3df(aux.X,aux.Y-(tamY/8.f), 0));
             porcentUpdate += porcentGap;

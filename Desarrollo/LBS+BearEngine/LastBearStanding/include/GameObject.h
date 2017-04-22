@@ -1,7 +1,7 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-#include "IrrManager.h"
+#include "BearManager.h"
 #include <Box2D/Box2D.h>
 #include "GameResource.h"
 
@@ -15,8 +15,8 @@ const float RadToGrad = 180.f / 3.14159265f;
 class GameObject{
     public:
         GameObject();
-        virtual int Inicialize(PhysicBody *physicBody,uint16 category, uint16 mask, int userdata, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture = NULL);
-        virtual int Inicialize(PhysicBody *physicBody,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture = NULL);
+        virtual int Inicialize(PhysicBody *physicBody,uint16 category, uint16 mask, int userdata, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *texture = NULL);
+        virtual int Inicialize(PhysicBody *physicBody,b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *texture = NULL);
         virtual ~GameObject();
         virtual void Update();
         virtual int   SetMode(PhysicBody* body);
@@ -38,9 +38,9 @@ class GameObject{
     private:
         GameResource<PhysicBody> m_GRphysicBody;
         PhysicBody *m_pPhysicBody;
-        irr::core::vector3df m_tam;
+        glm::vec3 m_tam;
         TNodo* m_bearNodo;
-        IrrMngr *m_pIrrMngr;
+        BearMngr *m_pBearMngr;
         World *m_pWorld;
         b2Vec2 m_margin;
         b2Vec2 m_pos;

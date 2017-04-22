@@ -1,6 +1,6 @@
 
 #include "Map.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "Platform.h"
 #include "Spawner.h"
 #include "Muelle.h"
@@ -22,7 +22,7 @@ Map::Map(irr::core::stringw file){
     int a=0;
     nodos.Reset(new Lista());
     irr::core::stringw layer = L"0";
-    irr::io::IXMLReader* xml = IrrMngr::Inst()->createXMLReader(file);
+    irr::io::IXMLReader* xml = BearMngr::Inst()->createXMLReader(file);
     while (xml->read()){
         if(irr::core::stringw("imagelayer") == xml->getNodeName()){
            a=a+1;
@@ -32,7 +32,7 @@ Map::Map(irr::core::stringw file){
             wchar_t backing [100]= L"media/Maps/";
             background= xml->getAttributeValue(L"source");
             background = wcscat(backing, background);
-            IrrMngr::Inst()->setBackgroundImage(IrrMngr::Inst()->getDriver()->getTexture(background));
+            BearMngr::Inst()->setBackgroundImage(BearMngr::Inst()->getDriver()->getTexture(background));
         }
         if(irr::core::stringw("objectgroup") == xml->getNodeName()){
             layer = xml->getAttributeValue(L"name");
@@ -60,12 +60,12 @@ Map::Map(irr::core::stringw file){
             }
         }
     }
-    timerEspera = IrrMngr::Inst()->getTimer();
+    timerEspera = BearMngr::Inst()->getTimer();
     timeEspera = timerEspera->getTime();
 }
 
 int Map::getTime(){
-    int time = (int) IrrMngr::Inst()->getTime()-timeEspera;
+    int time = (int) BearMngr::Inst()->getTime()-timeEspera;
     return time;
 }
 
@@ -78,7 +78,7 @@ void Map::AddSpawner(){
 }
 void Map::AddPlatform(){
     //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -136,11 +136,11 @@ void Map::AddPlayer(){
    numPlayer++;
 }
 void Map::AddPincho(){
-     World::Inst()->AddPlatform(new Platform(true,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddNodo(){
     posi.y=posi.y-0.1;
-    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,irr::core::vector3df(0.15f, 0.1f, 1), name, 0, NULL));
+    Nodo *a = World::Inst()->AddNodo(new Nodo(posi,glm::vec3(0.15f, 0.1f, 1), name, 0, NULL));
     std::string A( typeString.begin(), typeString.end() );
     std::istringstream ss(A);
     std::string token;

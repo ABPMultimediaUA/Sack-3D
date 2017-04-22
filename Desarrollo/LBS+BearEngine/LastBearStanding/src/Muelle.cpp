@@ -1,9 +1,9 @@
 #include "Muelle.h"
 #include "World.h"
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "PhysicBody/PBDefault.h"
 
-Muelle::Muelle(float f, b2Vec2 pos, irr::core::vector3df tam,irr::video::SColor color){
+Muelle::Muelle(float f, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color){
     m_fuerza = f;
     m_id = m_gameObject.Inicialize(
         new PBDefault()

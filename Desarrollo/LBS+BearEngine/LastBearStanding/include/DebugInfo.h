@@ -1,7 +1,7 @@
 #ifndef DEBUGINFO_H
 #define DEBUGINFO_H
 
-#include "IrrManager.h"
+#include "BearManager.h"
 #include "World.h"
 
 class DebugInfo{

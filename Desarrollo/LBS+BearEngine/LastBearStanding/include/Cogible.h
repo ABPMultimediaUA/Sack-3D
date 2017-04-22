@@ -9,12 +9,12 @@
 
 class Spawner;
 class World;
-class IrrMngr;
+class BearMngr;
 
 
 class Cogible{
     public:
-        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color);
+        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, glm::vec3 tam, irr::video::SColor color);
         virtual ~Cogible();
         virtual void actualiza();
         virtual void teletransportar();
@@ -37,7 +37,7 @@ class Cogible{
     protected:
         GameObject m_gameObject;
         World *m_pWorld;
-        IrrMngr *m_pIrrMngr;
+        BearMngr *m_pBearMngr;
         Spawner* expositor;
         bool autoDestruir ;
         bool cogido ;

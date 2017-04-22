@@ -37,7 +37,7 @@ IrrMngr::IrrMngr():m_debugMode(false){
 	//device->setResizable(true);
 
 	m_gMotorBear.Reset(new TMotorBear(1080,720,"Last Bear Standing"));
-    m_gShader.Reset(new Shader("../BearEngine/res/basicShaderLuz"));
+    m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
     m_shader = m_gShader.Get();
     m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, (float)1080/(float)720, 0.01f,1000.0f);
@@ -70,7 +70,7 @@ void IrrMngr::Update(){
 TNodo* IrrMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
     std::ostringstream strm;
     strm << id;
-	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "../BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
 	//std::cout<<id<<","<<(char*)strm.str().c_str()<<std::endl;
 	m_motorBear->TrasladarObjeto(nodo,pos);
 	m_motorBear->EscalarObjeto(nodo,tam);

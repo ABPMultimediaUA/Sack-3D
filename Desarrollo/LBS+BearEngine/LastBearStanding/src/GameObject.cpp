@@ -7,12 +7,10 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
     m_pIrrMngr = IrrMngr::Inst();
     m_GRphysicBody.Reset(NULL);
     m_pPhysicBody = NULL;
-    m_pNode = NULL;
     m_bearNodo = NULL;
     m_id = -1;
 }
 GameObject::~GameObject(){
-    if(m_pNode)m_pNode->remove();
     //if(m_bearNodo)m_pIrrMngr->RemoveBearNode(m_bearNodo);
     m_pIrrMngr->IsBearVisible(m_bearNodo,false);
 }
@@ -29,13 +27,10 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     //BearEngine
     m_bearNodo = m_pIrrMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0),glm::vec3(tam.X,tam.Y,0));
     //BearEngine
-    m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
-    m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
-    if(!texture)
-        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
-    else
-        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
-    m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+    //if(!texture)
+    //    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    //else
+    //    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
     return m_id;
 }
 int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture){
@@ -50,23 +45,16 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, irr::core::vector
     //BearEngine
     m_bearNodo = m_pIrrMngr->CreateBearNode(m_id,glm::vec3(m_pos.x,m_pos.y,0),glm::vec3(tam.X,tam.Y,0));
     //BearEngine
-    m_pNode = m_pIrrMngr->addCubeSceneNode(tam*2.0f,color);
-    m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
-    if(!texture)
-        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
-    else
-        m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
-    m_pNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+    //m_pNode->setPosition(irr::core::vector3df(pos.x*2.0f+(m_tam.X), -1*(pos.y*2.0f)-(m_tam.Y),0));
+    //if(!texture)
+    //    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture("media/Images/texture.jpg"));
+    //else
+    //    m_pNode->setMaterialTexture(0,m_pIrrMngr->getDriver()->getTexture(texture));
     return m_id;
 }
 void GameObject::Update(){
     m_pIrrMngr->SetBearCubePosition(m_bearNodo,glm::vec3(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
     m_pIrrMngr->SetBearCubeRotation(m_bearNodo,m_pPhysicBody->GetRotation());
-    //m_pNode->setPosition(irr::core::vector3df(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
-    //m_pNode->setRotation(irr::core::vector3df(0,0,m_pPhysicBody->GetRotation()*RadToGrad));
-}
-irr::scene::IMeshSceneNode* GameObject::getNode(){
-	return m_pNode;
 }
 b2Vec2 GameObject::GetPosition(){
     return m_pPhysicBody->GetPosition();
@@ -98,7 +86,6 @@ int GameObject::SetMode(PhysicBody* body){
     return m_id;
 }
 void GameObject::SetVisible(bool visible){
-    m_pNode->setVisible(visible);
     m_pIrrMngr->IsBearVisible(m_bearNodo,visible);
 }
 void GameObject::SetFixedRotation(bool fixed){

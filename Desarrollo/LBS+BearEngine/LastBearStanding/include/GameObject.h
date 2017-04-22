@@ -19,7 +19,6 @@ class GameObject{
         virtual int Inicialize(PhysicBody *physicBody,b2Vec2 pos, irr::core::vector3df tam, irr::video::SColor color,char *texture = NULL);
         virtual ~GameObject();
         virtual void Update();
-        virtual irr::scene::IMeshSceneNode* getNode();
         virtual int   SetMode(PhysicBody* body);
         virtual void   SetVisible(bool visible);
         virtual void   SetGravity(float gravity);
@@ -39,7 +38,6 @@ class GameObject{
     private:
         GameResource<PhysicBody> m_GRphysicBody;
         PhysicBody *m_pPhysicBody;
-        irr::scene::IMeshSceneNode* m_pNode;
         irr::core::vector3df m_tam;
         TNodo* m_bearNodo;
         IrrMngr *m_pIrrMngr;

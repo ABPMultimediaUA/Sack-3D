@@ -2,14 +2,14 @@
 #include "Camera.h"
 #include "World.h"
 #include "Player.h"
+#include "SDL.h"
 
 #define MINZ            3
 #define FPS             20
 #define VIEWMARGIN      1
 
 GameCamera::GameCamera(){
-    timer = BearMngr::Inst()->getTimer();
-    tiempoTransc = timer->getTime();
+    tiempoTransc = SDL_GetTicks();
     cenAnt = b2Vec2(0,0);
     cenSig = b2Vec2(0,0);
     porcentGap = 0.2f;
@@ -40,8 +40,8 @@ GameCamera::update(float time, int fps){
         }
     }
     	if(vivos>0){
-            if(time - tiempoTransc > updateT || abs(fpsAnt - fps) >= 5){
-                tiempoTransc = timer->getTime();
+            if(SDL_GetTicks() - tiempoTransc > updateT || abs(fpsAnt - fps) >= 5){
+                tiempoTransc = SDL_GetTicks();
                 porcentUpdate = 0;
                 cenAnt = b2Vec2(cenSig.x,cenSig.y);
                 cenSig = b2Vec2((xMin + xMax)/2,(yMin + yMax)/2);

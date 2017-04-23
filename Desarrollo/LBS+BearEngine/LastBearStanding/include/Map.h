@@ -52,8 +52,7 @@ class Map{
         int playerRed;
         GameResource<Lista> nodos;
 
-        irr::f32 timeEspera;
-        irr::ITimer* timerEspera;
+        uint32 timeEspera;
 };
 
 #endif

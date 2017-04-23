@@ -7,6 +7,7 @@
 #include "BearManager.h"
 #include <ctime>
 #include <stdlib.h>
+#include "SDL.h"
 
 Master::Master(){
     for (int i = 0; i < 4; ++i){
@@ -18,22 +19,20 @@ Master::Master(){
     BearMngr::Inst();
     time2SyncClient = 0;
     BearMngr::Inst()->InstanciaVariables(puntuaciones);
-    timerFinPartida = BearMngr::Inst()->getTimer();
-    timerFPS = BearMngr::Inst()->getTimer();
-    timeFPS = timerFPS->getTime();
+    timeFPS = SDL_GetTicks();
 }
 void Master::Update(){
-    if(BearMngr::Inst()->getTime()-timeFPS>FPS){
-        int fps = 1000/(BearMngr::Inst()->getTime()-timeFPS);
-        timeFPS = timerFPS->getTime();
+    if(SDL_GetTicks()-timeFPS>FPS){
+        int fps = 1000/(SDL_GetTicks()-timeFPS);
+        timeFPS = SDL_GetTicks();
         int playersVivos = World::Inst()->Update(fps);
         if(!finPartida){
             if(playersVivos <= 1){
-                timeFinPartida = timerFinPartida->getTime();
+                timeFinPartida = SDL_GetTicks();
                 finPartida = true;
             }
         }
-        else if(BearMngr::Inst()->getTime()-timeFinPartida>FINPARTIDA){
+        else if(SDL_GetTicks()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
             World::Inst()->Reset();
             InstanciaMundo();
@@ -41,10 +40,9 @@ void Master::Update(){
         }
         BearMngr::Inst()->Update();
         Client::Inst()->recibir();
-        //std::cout<<"SETEO AL PLAYER "<<BearMngr::Inst()->getTime()<<" "<<time2SyncClient<<std::endl;
-        if(BearMngr::Inst()->getTime()>(time2SyncClient+1000)){
+        if(SDL_GetTicks()>(time2SyncClient+1000)){
             Client::Inst()->enviar();
-            time2SyncClient = BearMngr::Inst()->getTime();
+            time2SyncClient = SDL_GetTicks();
         }
     }
 

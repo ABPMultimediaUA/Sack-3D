@@ -16,10 +16,8 @@ class Usable : public Cogible{
 	    int usos;
         int cadencia;
         bool killCountDown;
-        irr::f32 time2Kill;
-        irr::f32 timeCadencia;
-        irr::ITimer* timer2Kill;
-        irr::ITimer* timerCadencia;
+        uint32 time2Kill;
+        uint32 timeCadencia;
 };
 
 #endif

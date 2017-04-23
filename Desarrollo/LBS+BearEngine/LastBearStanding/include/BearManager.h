@@ -19,7 +19,6 @@ class BearMngr{
         BearMngr();
         void Update();
         void InstanciaVariables(int* puntuaciones);
-        float getTime();
         irr::gui::IGUIFont* getFont();
         irr::io::IXMLReader* createXMLReader(irr::core::stringw file);
         //BearEngine
@@ -36,7 +35,6 @@ class BearMngr{
         irr::IrrlichtDevice* getDevice();
         irr::video::IVideoDriver* getDriver();
         irr::gui::IGUIEnvironment* getGUI();
-        irr::ITimer* getTimer();
         void  SwitchDebugMode();
         void setBackgroundImage(irr::video::ITexture* bimage);
         virtual ~BearMngr();
@@ -46,7 +44,6 @@ class BearMngr{
         irr::scene::ISceneManager* smgr;
         irr::IrrlichtDevice* device;
         irr::video::IVideoDriver* driver;
-        irr::ITimer* timer;
         irr::gui::IGUIEnvironment* guienv;
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;

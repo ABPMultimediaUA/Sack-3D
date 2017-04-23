@@ -14,6 +14,7 @@
 #include "PathFinding/Lista.h"
 #include "GameObject.h"
 #include "PhysicBody/PBDeadPlayer.h"
+#include "SDL.h"
 
 Map::Map(irr::core::stringw file){
     player = false;
@@ -60,12 +61,11 @@ Map::Map(irr::core::stringw file){
             }
         }
     }
-    timerEspera = BearMngr::Inst()->getTimer();
-    timeEspera = timerEspera->getTime();
+    timeEspera = SDL_GetTicks();
 }
 
 int Map::getTime(){
-    int time = (int) BearMngr::Inst()->getTime()-timeEspera;
+    int time = (int) SDL_GetTicks()-timeEspera;
     return time;
 }
 

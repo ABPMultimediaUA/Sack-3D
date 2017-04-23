@@ -26,7 +26,6 @@ BearMngr::BearMngr():m_debugMode(false){
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
-	timer = device->getTimer();
 	m_gMotorBear.Reset(new TMotorBear(1080,720,"Last Bear Standing"));
     m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
@@ -94,11 +93,9 @@ void  BearMngr::SwitchDebugMode(){
   }
 }
 irr::io::IXMLReader* BearMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
-float BearMngr::getTime(){return timer->getTime();}
 irr::scene::ISceneManager* BearMngr::getManager(){return smgr;}
 MyEventReceiver* BearMngr::getEventReciever(){return myEventReceiver;}
 irr::IrrlichtDevice* BearMngr::getDevice(){return device;}
 irr::video::IVideoDriver* BearMngr::getDriver(){return driver;}
 irr::gui::IGUIEnvironment* BearMngr::getGUI(){return guienv;}
-irr::ITimer* BearMngr::getTimer(){return timer;}
 BearMngr::~BearMngr(){}

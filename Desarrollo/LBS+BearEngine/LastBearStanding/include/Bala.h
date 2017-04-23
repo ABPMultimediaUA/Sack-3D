@@ -18,8 +18,7 @@ class Bala{
         BearMngr *m_pBearMngr;
         int tiempoVida;
         float desviacion;
-        irr::f32 time2Kill;
-        irr::ITimer* timer2Kill;
+        uint32 time2Kill;
         b2Vec2 m_vel;
         b2Vec2 nextPos;
         int dir;

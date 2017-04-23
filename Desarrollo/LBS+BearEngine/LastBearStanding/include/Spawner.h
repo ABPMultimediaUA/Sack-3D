@@ -27,8 +27,7 @@ class Spawner{
         World *m_pWorld;
         b2Vec2 m_pos;
         GameObject m_gameObject;
-        irr::f32 time;
-        irr::ITimer* timer;
+        uint32 time;
         Cogible* objCogido;
         bool cogiendo;
         int cadencia;

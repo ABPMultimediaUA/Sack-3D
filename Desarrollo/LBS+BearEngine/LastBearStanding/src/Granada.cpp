@@ -8,16 +8,17 @@
 #include "Particle.h"
 #include "World.h"
 #include "Client.h"
+#include "SDL.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
   usada = false;
-  timerIrr = BearMngr::Inst()->getTimer();
+  timerGranada = SDL_GetTicks();
 }
 Granada::~Granada(){}
 void Granada::actualiza(){
   Cogible::actualiza();
-  if(!autoDestruir && timerIrr->getTime() - timerGranada > mecha && usada){
+  if(!autoDestruir && SDL_GetTicks() - timerGranada > mecha && usada){
     Explosion();
     autoDestruir = true;
   }
@@ -41,7 +42,7 @@ void Granada::usar(){
   if(!usada){
         int id = (*Client::Inst()->getIdCliente())-'0';
         World::Inst()->getPlayer(id)->CogerTirar();
-        timerGranada = timerIrr->getTime();
+        timerGranada = SDL_GetTicks();
         usada=true;
     }
 }

@@ -11,8 +11,7 @@ class GameCamera{
         ~GameCamera();
         update(float time,int fps);
     private:
-        irr::ITimer* timer;
-        float tiempoTransc;
+        uint32 tiempoTransc;
         float updateT;
         double porcentUpdate;
         double porcentGap;

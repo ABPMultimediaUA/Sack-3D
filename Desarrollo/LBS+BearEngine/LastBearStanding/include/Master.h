@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include <vector>
+#include "Box2D/Box2D.h"
 
 struct Num2Map {
      int num;
@@ -19,11 +20,9 @@ class Master{
     private:
         std::vector<int> mapList;
     	bool finPartida;
-        irr::f32 timeFPS;
-        irr::ITimer* timerFPS;
-    	irr::f32 timeFinPartida;
-        irr::ITimer* timerFinPartida;
-        irr::f32 time2SyncClient;
+        uint32 timeFPS;
+    	uint32 timeFinPartida;
+        uint32 time2SyncClient;
         int puntuaciones[4];
         int game;
         const Num2Map maps[7] = {

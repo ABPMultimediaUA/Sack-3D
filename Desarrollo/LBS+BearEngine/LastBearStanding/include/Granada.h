@@ -15,8 +15,7 @@ class Granada:public Usable{
         void Explosion();
         void usar();                
     private:
-        unsigned int timerGranada; 
-        irr::ITimer* timerIrr;      
+        uint32 timerGranada;     
         b2Body* particulas[PARTICULAS];
         int mecha;
         bool usada;

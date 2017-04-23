@@ -7,6 +7,7 @@
 #include "Granada.h"
 #include "Spawner.h"
 #include "World.h"
+#include "SDL.h"
 
 Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
 :tipo(tipo),modelo(modelo),m_pos(pos){
@@ -14,8 +15,7 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
     m_pBearMngr = BearMngr::Inst();
     cogiendo = true;
     cadencia = 2000;
-    timer = m_pBearMngr->getTimer();
-    time = timer->getTime();
+    time = SDL_GetTicks();
     m_id = m_gameObject.Inicialize(
         new PBSpawner()
         ,pos
@@ -27,7 +27,7 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
 Spawner::~Spawner(){}
 
 void Spawner::actualiza(){
-    if(!cogiendo && m_pBearMngr->getTime()-time>cadencia){
+    if(!cogiendo && SDL_GetTicks()-time>cadencia){
         generar();
     }
 }
@@ -39,7 +39,7 @@ void Spawner::coger(Cogible *obj){
 }
 void Spawner::soltar(){
     m_gameObject.Release();
-    time = timer->getTime();
+    time = SDL_GetTicks();
     cogiendo = false;
 }
 void Spawner::generar(){

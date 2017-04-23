@@ -1,6 +1,7 @@
 #include "PhysicBody/PBMetralla.h"
 #include "Metralla.h"
 #include "World.h"
+#include "SDL.h"
 
 Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(300){
     m_pBearMngr = BearMngr::Inst();
@@ -18,8 +19,7 @@ Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(300){
     	break;
     }
     m_id = m_gameObject.Inicialize(new PBMetralla(),pos,glm::vec3(0.03f,0.03f,0.03f),color);
-    m_timer2Kill = m_pBearMngr->getTimer();
-    m_time2Kill = m_timer2Kill->getTime();
+    m_time2Kill = SDL_GetTicks();
     m_gameObject.SetLinearVelocity(vel);
 }
 
@@ -27,7 +27,7 @@ Metralla::~Metralla(){
 }
 void Metralla::actualiza(){
     m_gameObject.Update();
-    if(m_pBearMngr->getTime()-m_time2Kill>m_tiempoVida){m_destruir = true;}
+    if(SDL_GetTicks()-m_time2Kill>m_tiempoVida){m_destruir = true;}
 }
 void Metralla::SetLinearVelocity(b2Vec2 vel){
     m_gameObject.SetLinearVelocity(vel);

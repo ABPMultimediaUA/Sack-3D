@@ -1,6 +1,7 @@
 #include "Bala.h"
 #include "World.h"
 #include "PhysicBody/PBBullet.h"
+#include "SDL.h"
 
 Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
 dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
@@ -15,8 +16,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     pos.x = pos.x/2.0f;
     pos.y = pos.y/2.0f;
     m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
-    timer2Kill = m_pBearMngr->getTimer();
-    time2Kill = timer2Kill->getTime();
+    time2Kill = SDL_GetTicks();
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;
     m_vel.y=0.0f;
@@ -28,7 +28,7 @@ Bala::~Bala(){}
 void Bala::actualiza(){
     if(teletransportado) teletransportar();
     m_gameObject.Update();
-    if(m_pBearMngr->getTime()-time2Kill>tiempoVida){destruir = true;}
+    if(SDL_GetTicks()-time2Kill>tiempoVida){destruir = true;}
 }
 void Bala::teletransportar(){
     teletransportado = false;

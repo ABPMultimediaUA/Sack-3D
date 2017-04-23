@@ -16,6 +16,7 @@
 #include "Bala.h"
 #include "Bot.h"
 #include "Map.h"
+#include "SDL.h"
 #include "GameObject.h"
 #include "PhysicBody/PBAlivePlayer.h"
 
@@ -52,8 +53,8 @@ void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
       bot->InicializaVariables();
     }
   }
-  TimeStamp = BearMngr::Inst()->getTime();
-  DeltaTime = BearMngr::Inst()->getTime() - TimeStamp;
+  TimeStamp = SDL_GetTicks();
+  DeltaTime = SDL_GetTicks() - TimeStamp;
 }
 Player* World::getPlayer(int mando){
   for(int i = 0; i < m_Players.Size(); ++i){
@@ -91,8 +92,8 @@ void  World::SwitchDebugMode(){
   }
 }
 int World::Update(int fps){
-  DeltaTime = BearMngr::Inst()->getTime() - TimeStamp;
-  TimeStamp = BearMngr::Inst()->getTime();
+  DeltaTime = SDL_GetTicks() - TimeStamp;
+  TimeStamp = SDL_GetTicks();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
   world.Get()->ClearForces();
   UpdateBalas();

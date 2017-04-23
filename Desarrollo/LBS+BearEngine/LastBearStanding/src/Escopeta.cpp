@@ -6,6 +6,7 @@
 #include "World.h"
 #include "BearManager.h"
 #include "Bala.h"
+#include "SDL.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched, expo,pos,glm::vec3(0.07f,0.02f,0.002f),irr::video::SColor(255, 0, 255, 0)){
@@ -14,7 +15,7 @@ Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
 Escopeta::~Escopeta(){}
 void Escopeta::usar(){
     if(usos){
-        if(m_pBearMngr->getTime()-timeCadencia > cadencia ){
+        if(SDL_GetTicks()-timeCadencia > cadencia ){
             for(int i=0; i<10; i++){
                 float desvBala = rand()% 10 - 10;
                 float velBala = rand()% 3 + 10;
@@ -25,7 +26,8 @@ void Escopeta::usar(){
             capVel.x = (dir*(rand()%16+0.5f)/10.f)+0.5f;
             capVel.y =((rand()%19+0.5f)/10.f)+0.5f;
             cap->SetLinearVelocity(capVel);
-            cap->SetAngularVelocity(((rand()%4+0.5f)/10.f)+0.5f);timeCadencia = timerCadencia->getTime();
+            cap->SetAngularVelocity(((rand()%4+0.5f)/10.f)+0.5f);
+            timeCadencia = SDL_GetTicks();
             usos--;
         }
     }else{CompruebaVida();}

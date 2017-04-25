@@ -5,6 +5,8 @@ TNodo::TNodo(int cepa )// cepa 1 es raiz, 0 no es raiz
     raiz=cepa;
     entidad=0;
 
+    padre=NULL;
+
 }
 
 TNodo::~TNodo()
@@ -49,6 +51,7 @@ char* TNodo::getNombreEntidad(){
 }
 
 void TNodo::verArbol(){
+    std::cout<<"A"<<std::endl;
    if(esRaiz()){
        std::cout<<"ARBOL DE ESCENA"<<std::endl;
        std::cout<<std::endl;
@@ -59,8 +62,11 @@ void TNodo::verArbol(){
                 std::cout<<std::endl;
     }
     if(getPadre()){
+                      std::cout<<"B"<<std::endl;
+
         std::cout<<"|PADRE "<<getPadre()->getNombreEntidad()<<" |";
     }
+
     std::cout<<std::endl;
     for(int i =0; i<hijos.size(); i++){
         hijos[i]->verArbol();

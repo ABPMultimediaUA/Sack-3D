@@ -115,6 +115,9 @@ class TMotorBear
 //DEBUG
         void verRecursos();
 ////////////////////////////////////////
+
+        SDL_Texture* CreaTextura(const std::string &archivo);
+        void RenderTextura(SDL_Texture *tex, int x, int y);
     protected:
 
     private:

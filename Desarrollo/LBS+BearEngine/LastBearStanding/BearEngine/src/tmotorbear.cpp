@@ -477,3 +477,10 @@ int TMotorBear::UpdateDisplay(){
 
 // TNodo* verCamaraActiva();
 //void TMotorBear::activarLuz(TLuz* luz){}
+
+SDL_Texture* TMotorBear::CreaTextura(const std::string &archivo){
+  escena->CreaTextura(archivo);
+}
+void TMotorBear::RenderTextura(SDL_Texture *tex, int x, int y){
+  escena->RenderTextura(tex,x,y);
+}

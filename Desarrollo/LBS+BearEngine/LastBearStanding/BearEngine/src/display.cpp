@@ -68,6 +68,14 @@ SDL_Texture* Display::CreaTextura(const std::string &archivo){
     SDL_FreeSurface(imagenCargada);
     return texture;
 }
+void Display::RenderTextura(SDL_Texture *tex, int x, int y){
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(ren, tex, NULL, &dst);
+}
 int Display::Update(TNodo* TfCamera){
 //void Display::Update(){
 

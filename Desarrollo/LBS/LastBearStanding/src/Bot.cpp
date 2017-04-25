@@ -71,7 +71,8 @@ void Bot::buscaArma(){
 
     else if(pathfinding->getTamanyo()<1){
         despega();
-        CogerTirar();
+        //aqui debe haber una condicion qe sea si cogible esta cogido = true, que no haga cogerTirar
+        if(spawners.at(spawnbusco)->GetCogiendo() == true)  CogerTirar();
 
         if(cogiendo) estadoBot = 1;
         else if(World::Inst()->getVivos() >1){
@@ -87,10 +88,10 @@ void Bot::buscaArma(){
                 //std::cout<<"SOY BOT "<<mando<<" y BUSCO ARMA"<<std::endl;
                 calcularPathfinding(nodoFinIni,aux);
 
-                if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) 
+                if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false)
                     pathfinding->remove(pathfinding->getUltimo()->getPosicion());
-                  
-                else if(players.at(mando)->getMuerto() == false) 
+
+                else if(players.at(mando)->getMuerto() == false)
                     colisionConNodo(pathfinding->getUltimo()->getNumero());
 
                 if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
@@ -136,8 +137,11 @@ void Bot::buscaJugador(){
         temp = getCercanoTotal(players.at(mandobusco)->GetPosition().x,players.at(mandobusco)->GetPosition().y);
         //std::cout<<"SOY BOT "<<mando<<" y BUSCO JUGADOR: "<<mandobusco<<std::endl;
         calcularPathfinding(nodoFinIni,temp);
-        if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) pathfinding->remove(pathfinding->getUltimo()->getPosicion());
-        else if(players.at(mando)->getMuerto() == false) colisionConNodo(pathfinding->getUltimo()->getNumero());
+
+        if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false)
+            pathfinding->remove(pathfinding->getUltimo()->getPosicion());
+        else if(players.at(mando)->getMuerto() == false)
+            colisionConNodo(pathfinding->getUltimo()->getNumero());
 
         //pathfinding->imprimirLista();
         if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
@@ -147,11 +151,8 @@ void Bot::buscaJugador(){
 
 void Bot::colisionConNodo(int nodo){
 
-    if(pathfinding->getUltimo() && pathfinding->getUltimo()->getNumero() == nodo ){
-        //std::cout<<"COLISION BOT: "<<mando<<" NODO: "<<nodo<<std::endl;
+    if(pathfinding->getUltimo() && pathfinding->getUltimo()->getNumero() == nodo){
         pathfinding->remove(pathfinding->getUltimo()->getPosicion());
-        //if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
-            //muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
     }
 }
 
@@ -292,6 +293,7 @@ b2Vec2 Bot::getSpawnCercano(float x, float y){
         //std::cout<<"Spawn: "<<i<< " coste: "<<coste<<std::endl;
         if(coste<dif && spawners.at(i)->GetCogiendo() == true){
             //std::cout<<"Numero Spawn: "<<i<<std::endl;
+            spawnbusco = i;
             dif = coste;
             pos = spawners.at(i)->GetPosition();
             pos.y = pos.y - 0.065;

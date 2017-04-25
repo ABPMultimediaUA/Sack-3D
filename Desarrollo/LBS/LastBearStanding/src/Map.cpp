@@ -78,7 +78,7 @@ void Map::AddSpawner(){
 }
 void Map::AddPlatform(){
     //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, irr::core::vector3df(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 0, 255,60/*255, 71, 33, 11*/)));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));

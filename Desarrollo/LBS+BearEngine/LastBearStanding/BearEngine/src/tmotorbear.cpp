@@ -199,6 +199,7 @@ return NodoTras;
  }
 
  void  TMotorBear::borrarObjeto(TNodo* nodoObjeto){
+  if(nodoObjeto){
     if( nodoObjeto != arbolEscena){
         TNodo* padreObjeto=0;
         TNodo* transObjeto=0;
@@ -208,7 +209,8 @@ return NodoTras;
 std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
         padreObjeto->remHijo(transObjeto);
         delete(transObjeto);
-        verArbol();
+      //  verArbol();
+    }
     }
  }
 
@@ -475,3 +477,10 @@ int TMotorBear::UpdateDisplay(){
 
 // TNodo* verCamaraActiva();
 //void TMotorBear::activarLuz(TLuz* luz){}
+
+SDL_Texture* TMotorBear::CreaTextura(const std::string &archivo){
+  escena->CreaTextura(archivo);
+}
+void TMotorBear::RenderTextura(SDL_Texture *tex, int x, int y){
+  escena->RenderTextura(tex,x,y);
+}

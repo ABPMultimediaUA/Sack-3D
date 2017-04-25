@@ -21,6 +21,9 @@ class Display
 
         bool IsClosed();
 
+        SDL_Texture* CreaTextura(const std::string &archivo);
+        void RenderTextura(SDL_Texture *tex, int x, int y);
+
         virtual ~Display();
 
     protected:
@@ -32,6 +35,7 @@ class Display
         SDL_Window* m_window;
         SDL_Surface *windowSurface;
         SDL_Surface *fondo;
+        SDL_Renderer *ren;
         SDL_GLContext m_glContext;
         bool m_isClosed;
           int malla;

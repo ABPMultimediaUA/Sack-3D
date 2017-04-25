@@ -29,8 +29,8 @@ int encontrado=0;
     //    std::cout<<"HOLI"<<std::endl;
         recu= recursos.at(i);
         if(recu->GetNombre()== nombre){
-            std::cout<<"Recurso Encontrado"<<std::endl;
-            std::cout<<recu->GetNombre()<<std::endl;
+           // std::cout<<"Recurso Encontrado"<<std::endl;
+           // std::cout<<recu->GetNombre()<<std::endl;
 
             recu=recursos.at(i);
             encontrado=1;

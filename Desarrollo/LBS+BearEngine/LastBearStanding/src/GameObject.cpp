@@ -11,8 +11,7 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
     m_id = -1;
 }
 GameObject::~GameObject(){
-    //if(m_bearNodo)m_pBearMngr->RemoveBearNode(m_bearNodo);
-    m_pBearMngr->IsBearVisible(m_bearNodo,false);
+    if(m_bearNodo)m_pBearMngr->RemoveBearNode(m_bearNodo);
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *texture){
     m_tam = tam;

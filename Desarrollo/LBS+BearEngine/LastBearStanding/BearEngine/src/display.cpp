@@ -24,7 +24,8 @@ Display::Display(int width, int height, const std::string& title)
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     m_glContext = SDL_GL_CreateContext(m_window);
     windowSurface = NULL;
-     windowSurface = SDL_GetWindowSurface(m_window);
+    windowSurface = SDL_GetWindowSurface(m_window);
+    ren = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     //fondo = NULL;
     //fondo = IMG_Load("res/fondo.jpg");
     //if(fondo == NULL)
@@ -60,7 +61,21 @@ void Display::Clear(float r, float g, float b, float a){
 bool Display::IsClosed(){
     return m_isClosed;
 }
+SDL_Texture* Display::CreaTextura(const std::string &archivo){
+    SDL_Texture *texture       = NULL;
+    SDL_Surface *imagenCargada = IMG_Load(archivo.c_str());
+    texture = SDL_CreateTextureFromSurface(ren, imagenCargada);
+    SDL_FreeSurface(imagenCargada);
+    return texture;
+}
+void Display::RenderTextura(SDL_Texture *tex, int x, int y){
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
 
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(ren, tex, NULL, &dst);
+}
 int Display::Update(TNodo* TfCamera){
 //void Display::Update(){
 

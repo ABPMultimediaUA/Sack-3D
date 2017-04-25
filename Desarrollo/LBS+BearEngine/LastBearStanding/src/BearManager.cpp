@@ -26,13 +26,12 @@ BearMngr::BearMngr():m_debugMode(false){
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
-	m_gMotorBear.Reset(new TMotorBear(1080,720,"Last Bear Standing"));
+	m_gMotorBear.Reset(new TMotorBear(m_windowSize*16/9,m_windowSize,"Last Bear Standing"));
     m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
     m_shader = m_gShader.Get();
-    m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, (float)1080/(float)720, 0.01f,1000.0f);
+    m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, 16.f/9.f, 0.01f,1000.0f);
     m_motorBear->activarCamara(m_camara);
-    m_motorBear->TrasladarObjeto(m_camara,glm::vec3(10,-10,10));
 }
 void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
   	m_backgroundImage = bimage;

@@ -112,22 +112,46 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
         glm::vec3 position;
         glm::vec2 uV;
         glm::vec3 normal;
+        glm::vec3 color;
         position.x= mesh->mVertices[i].x;
         position.y= mesh->mVertices[i].y;
         position.z= mesh->mVertices[i].z;
         model.positions.push_back(position);
-        uV.x=0; // Cambiar cuando texturas
-        uV.y=0; // Cambiar cuando texturas
+       if(mesh->HasTextureCoords(0)){
+        uV.x= mesh->mTextureCoords[0][i].x; // Cambiar cuando texturas
+        uV.y= mesh->mTextureCoords[0][i].y;// Cambiar cuando texturas
+       }else{
+        uV.x=800;
+        uV.y=800;
+       }
+
+
         model.texCoords.push_back(uV);
         if(mesh->HasNormals()){
-            normal.x  = mesh->mNormals[i].x;
-            normal.y  = mesh->mNormals[i].y;
-            normal.z  = mesh->mNormals[i].z;
+            normal.x  = mesh->mNormals[0].x;
+            normal.y  = mesh->mNormals[0].y;
+            normal.z  = mesh->mNormals[0].z;
             model.normals.push_back(normal);
          }else{
             model.CalcNormals();
             model.normals.push_back(normal);
          }
+
+/*
+        if(mesh->HasVertexColors(0)){
+            std::cout<<"HOLAAAA"<<std::endl;
+            color.x  = mesh->mColors[i]->r;
+            color.y  = mesh->mColors[i]->g;
+            color.z  = mesh->mColors[i]->b;
+            model.color.push_back(color);
+           }else{
+            //std::cout<<"NADAAAAA"<<std::endl;
+           // model.CalcNormals();
+            color.x  = 0;
+            color.y  = 0;
+            color.z  = 0;
+            model.color.push_back(color);
+         }*/
         }
         for(int i =0; i<mesh->mNumFaces;i++){
             aiFace  face=mesh->mFaces[i];
@@ -156,7 +180,7 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
         glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 0, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[TEXCOORD_VB]);
-        glBufferData(GL_ARRAY_BUFFER, model.positions.size() * sizeof(model.texCoords[0]), &model.texCoords[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
+        glBufferData(GL_ARRAY_BUFFER, model.texCoords.size() * sizeof(model.texCoords[0]), &model.texCoords[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
 
         glEnableVertexAttribArray(1);
         glVertexAttribPointer(1,2, GL_FLOAT, GL_FALSE, 0, 0);
@@ -170,6 +194,12 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vertexArrayBuffers[INDEX_VB]);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, model.indices.size() * sizeof(model.indices[0]), &model.indices[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
+
+        glEnableVertexAttribArray(3);
+        glVertexAttribPointer(3,3, GL_FLOAT, GL_FALSE, 0, 0);
+
+        glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[COLOR_VB]);
+        glBufferData(GL_ARRAY_BUFFER, model.color.size() * sizeof(model.color[0]), &model.color[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
 
 
 
@@ -196,15 +226,15 @@ Mesh::EntradaMalla::EntradaMalla(float alto, float ancho, float prof){
     numIndices = 36;
 
 
-Vertex vertices[]{       Vertex(glm::vec3(-x  ,   -y    ,   -z), glm::vec2(1.0,1.0)), //0 abajo  Derecha
-                         Vertex(glm::vec3(-x  ,   y     ,   -z), glm::vec2(1.0,0.0)),  //1 arriba Derecha
-                         Vertex(glm::vec3(x   ,   y     ,   -z), glm::vec2(0.0,0.0)),  //2 arriba izquierda
-                         Vertex(glm::vec3(x   ,   -y    ,   -z), glm::vec2(0.0,1.0)),  //3 abajo izquierda
+Vertex vertices[]{       Vertex(glm::vec3(-x  ,   -y    ,   -z), glm::vec2(1.0,1.0), glm::vec3()), //0 abajo  Derecha
+                         Vertex(glm::vec3(-x  ,   y     ,   -z), glm::vec2(1.0,0.0),  glm::vec3()),  //1 arriba Derecha
+                         Vertex(glm::vec3(x   ,   y     ,   -z), glm::vec2(0.0,0.0), glm::vec3()),  //2 arriba izquierda
+                         Vertex(glm::vec3(x   ,   -y    ,   -z), glm::vec2(0.0,1.0), glm::vec3()),  //3 abajo izquierda
 
-                         Vertex(glm::vec3(-x  ,   -y    ,   z), glm::vec2(0.0,1.0)), //4 abajo  Derecha
-                         Vertex(glm::vec3(-x  ,   y     ,   z), glm::vec2(0.0,0.0)), //5 arriba Derecha
-                         Vertex(glm::vec3(x   ,   y     ,   z), glm::vec2(1.0,0.0)),  //6 arriba izquierda
-                         Vertex(glm::vec3(x   ,   -y    ,   z), glm::vec2(1.0,1.0))   //7 abajo izquierda
+                         Vertex(glm::vec3(-x  ,   -y    ,   z), glm::vec2(0.0,1.0), glm::vec3()), //4 abajo  Derecha
+                         Vertex(glm::vec3(-x  ,   y     ,   z), glm::vec2(0.0,0.0), glm::vec3()), //5 arriba Derecha
+                         Vertex(glm::vec3(x   ,   y     ,   z), glm::vec2(1.0,0.0), glm::vec3()),  //6 arriba izquierda
+                         Vertex(glm::vec3(x   ,   -y    ,   z), glm::vec2(1.0,1.0), glm::vec3())   //7 abajo izquierda
 /*LAS NORMALES DEL CUBO ESTAN MAL PUESTAS*/
     };
 

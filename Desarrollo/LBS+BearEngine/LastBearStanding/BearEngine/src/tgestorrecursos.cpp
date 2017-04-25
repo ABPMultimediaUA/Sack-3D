@@ -1,5 +1,6 @@
 #include "../include/tgestorrecursos.h"
 #include "../include/mesh.h"
+#include "../include/texture.h"
 
 TGestorRecursos::TGestorRecursos()
 {
@@ -56,6 +57,29 @@ int encontrado=0;
             std::cout<<recu->GetNombre()<<std::endl;
             std::cout<<std::endl;
           //  delete(mesh); Peta
+        }
+        if(tipo ==1){
+
+            Texture* textura = new Texture(nombre);
+
+
+            recu=textura;
+
+            recu->setNombre(nombre);
+
+            recu->setTipo(tipo);
+
+            std::cout<<"Textura Cargada"<<std::endl;
+
+
+
+            recursos.push_back(recu);
+
+            std::cout<<recu->GetNombre()<<std::endl;
+
+
+            std::cout<<std::endl;
+
         }
     }
     return recu;

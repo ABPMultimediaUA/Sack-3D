@@ -3,7 +3,7 @@
 
 #include "../include/tentidad.h"
 #include "../include/mesh.h"
-
+class Texture;
 
 class TEntidadMalla : public TEntidad
 {
@@ -22,7 +22,7 @@ class TEntidadMalla : public TEntidad
         //void setRecurso();
         void setMalla(Mesh* azteca);
 //      void setMallas(std::vector<Mesh*>* aztecas);
-
+     void setTextura(TRecurso* textura);
       void activarMalla(int i);
       void verInformacionEMalla();
 
@@ -33,7 +33,7 @@ class TEntidadMalla : public TEntidad
         Mesh* mesh;
         std::vector<Mesh*> meshes;
         int activo;
-
+        Texture* texturaM;
 };
 
 #endif // TENTIDADMALLA_H

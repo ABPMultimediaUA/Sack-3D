@@ -74,6 +74,14 @@ TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect,
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
+
+void TMotorBear::asignarTextura(TNodo* nodoMalla, char* textura){
+    TEntidad* entidad = nodoMalla->getEntidad();
+    TEntidadMalla* malla = static_cast<TEntidadMalla*> (entidad);
+    malla->setTextura(gestorRecursos->getRecurso(textura,1));
+}
+
+
 TEntidad* TMotorBear::crearMalla( char* file){
 
     TEntidadMalla* mesh = new TEntidadMalla();
@@ -206,7 +214,7 @@ return NodoTras;
         transObjeto = nodoObjeto->getPadre();
         padreObjeto = transObjeto->getPadre();
 
-std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
+//std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
         padreObjeto->remHijo(transObjeto);
         delete(transObjeto);
       //  verArbol();

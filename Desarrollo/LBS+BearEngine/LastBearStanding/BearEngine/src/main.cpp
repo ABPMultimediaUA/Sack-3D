@@ -106,7 +106,7 @@ motorsito.crearMalla("./res/cubo.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador7.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador8.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
-    motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
+   // motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
     motorsito.EscalarObjeto(malla,glm::vec3(1,1,1.0));
    // motorsito.RotarObjeto(malla,glm::vec3(0,glm::radians(90.0),0));
 /*
@@ -149,8 +149,7 @@ motorsito.crearMalla("./res/cubo.obj");
    motorsito.verMallas(malla);
 //   motorsito.verMallas(mallaD);
  int alberto =0;
- int mostrado=1;
- int mesh=0;
+    motorsito.asignarTextura(malla,"./res/textu.jpg");
    std::cout<<std::endl;
     while(!motorsito.IsClosed()){
          motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
@@ -172,24 +171,9 @@ motorsito.crearMalla("./res/cubo.obj");
 
 
         motorsito.draw(&shader);
-     mesh=  motorsito.UpdateDisplay();
+    motorsito.UpdateDisplay();
       // if(motorsito.UpdateDisplay()==5){
-       if(mesh==5){
-            if(mostrado){
-            motorsito.hacerInvisibleObjeto(malla);
-          //  mesh=0;
-            mostrado=0;
-            motorsito.verArbol();
-            }
-       }
-        if(mesh==6){
-            if(!mostrado){
-            motorsito.hacerVisibleObjeto(malla);
-          //  mesh=0;
-            mostrado=1;
-            motorsito.verArbol();
-            }
-       }
+
         alberto++;
     }
     delete(cuboCae);

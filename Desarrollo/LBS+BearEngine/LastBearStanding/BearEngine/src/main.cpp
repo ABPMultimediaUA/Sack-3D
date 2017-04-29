@@ -108,7 +108,7 @@ motorsito.crearMalla("./res/cubo.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
     motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
     motorsito.EscalarObjeto(malla,glm::vec3(1,1,1.0));
-   // motorsito.RotarObjeto(malla,glm::vec3(0,glm::radians(90.0),0));
+   // motorsito.RotarObjeto(malla,glm::vec3(0,glm::radians(45.0),0));
 /*
     TNodo* mallaSu = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Suelo Estatico");
     motorsito.TrasladarObjeto(mallaSu,glm::vec3(staticBodySu->GetPosition().x ,staticBodySu->GetPosition().y,0));*/
@@ -152,6 +152,7 @@ motorsito.crearMalla("./res/cubo.obj");
  int mostrado=1;
  int mesh=0;
    std::cout<<std::endl;
+   motorsito.asignarTextura(malla,"./res/anda.png");
     while(!motorsito.IsClosed()){
          motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
 

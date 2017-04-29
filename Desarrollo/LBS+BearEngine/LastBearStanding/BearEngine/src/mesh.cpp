@@ -116,9 +116,23 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
         position.y= mesh->mVertices[i].y;
         position.z= mesh->mVertices[i].z;
         model.positions.push_back(position);
-        uV.x=0; // Cambiar cuando texturas
-        uV.y=0; // Cambiar cuando texturas
-        model.texCoords.push_back(uV);
+     //   uV.x=0; // Cambiar cuando texturas
+       // uV.y=0; // Cambiar cuando texturas
+       // model.texCoords.push_back(uV);
+
+
+       if(mesh->HasTextureCoords(0)) {
+
+			uV.x = mesh->mTextureCoords[0][i].x;
+			uV.y = mesh->mTextureCoords[0][i].y;
+			//std::cout<<mesh->mTextureCoords[0][i].x<<" "<<mesh->mTextureCoords[0][i].y<<std::endl;
+		}else{
+            uV.x=0;
+            uV.y=1;
+		}
+		 model.texCoords.push_back(uV);
+
+
         if(mesh->HasNormals()){
             normal.x  = mesh->mNormals[i].x;
             normal.y  = mesh->mNormals[i].y;
@@ -156,7 +170,7 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
         glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 0, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[TEXCOORD_VB]);
-        glBufferData(GL_ARRAY_BUFFER, model.positions.size() * sizeof(model.texCoords[0]), &model.texCoords[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
+        glBufferData(GL_ARRAY_BUFFER, model.texCoords.size() * sizeof(model.texCoords[0]), &model.texCoords[0], GL_STATIC_DRAW);//GL_STATIC_DRAW nunva se va a cambiar a la hora de dibujar
 
         glEnableVertexAttribArray(1);
         glVertexAttribPointer(1,2, GL_FLOAT, GL_FALSE, 0, 0);

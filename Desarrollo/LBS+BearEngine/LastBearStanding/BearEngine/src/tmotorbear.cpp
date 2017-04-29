@@ -427,6 +427,12 @@ void TMotorBear::activarLuces(){
     }
 }
 
+void TMotorBear::asignarTextura(TNodo* nodoMalla, char* file ){
+    TEntidadMalla* malla = static_cast<TEntidadMalla*>(nodoMalla->getEntidad());
+    malla->setTextura(gestorRecursos->getRecurso(file,1));
+
+}
+
 void TMotorBear::activaLuz(int numero){ //QUE NO SE TE OLVIDE IMPLEMENTAR ESTO JOPUTA
     //LLamadas a shaderç
     TNodo* nodo = registroLuces[numero];

@@ -106,6 +106,7 @@ class TMotorBear
         void activarLuces();
         void activaLuz(int numero);
 //////////////////////////////////////////
+        void asignarTextura(TNodo* nodoMalla, char* file );
 
         void draw(Shader* shad);
         glm::mat4 obtenerMatCam();

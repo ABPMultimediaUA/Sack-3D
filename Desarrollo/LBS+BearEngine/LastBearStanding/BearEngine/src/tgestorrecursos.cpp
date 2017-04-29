@@ -1,5 +1,6 @@
 #include "../include/tgestorrecursos.h"
 #include "../include/mesh.h"
+#include "../include/texture.h"
 
 TGestorRecursos::TGestorRecursos()
 {
@@ -52,6 +53,24 @@ int encontrado=0;
             recu->setNombre(nombre);
             recu->setTipo(tipo);
             std::cout<<"Malla Cargada"<<std::endl;
+            recursos.push_back(recu);
+            std::cout<<recu->GetNombre()<<std::endl;
+            std::cout<<std::endl;
+          //  delete(mesh); Peta
+        }
+        else if(tipo==1){
+
+            //Cargar fichero ,y apilar en el vector
+            //Mesh* mesh = new Mesh(nombre);
+            Texture* text = new Texture(nombre);
+           // std::cout<<mesh<<std::endl;
+          //  TRecursoMalla* malla= new TRecursoMalla;
+            //malla->SetMeshes(load->getMeshes());
+          // malla->SetMesh(mesh);
+            recu=text;
+            recu->setNombre(nombre);
+            recu->setTipo(tipo);
+            std::cout<<"Textura Cargada"<<std::endl;
             recursos.push_back(recu);
             std::cout<<recu->GetNombre()<<std::endl;
             std::cout<<std::endl;

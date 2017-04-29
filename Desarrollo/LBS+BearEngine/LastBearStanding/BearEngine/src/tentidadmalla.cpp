@@ -1,11 +1,12 @@
 #include "../include/tentidadmalla.h"
+#include "../include/texture.h"
 
 TEntidadMalla::TEntidadMalla()
 {
     mesh=0;
     tipo=1; //1 malla, 2 camara, 3 transformacion, 4
     activo=0;
-
+    texturaM=0;
 }
 
 TEntidadMalla::~TEntidadMalla()
@@ -21,7 +22,9 @@ void TEntidadMalla::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
    //     std::cout<<pila<<std::endl;
 
     shad->Update( pila->at(pos));
-
+ if(texturaM){
+      //  std::cout<<"Se aplica textura"<<std::endl;
+        texturaM->Bind(0);}
   if(mesh)  mesh->Draw();
  /*  for(int i=0;i<meshes->size();i++){
         meshes->at(i)->Draw();
@@ -97,4 +100,8 @@ void TEntidadMalla::verInformacionEMalla(){
     verMallas();
     std::cout<<"Malla activa "<<meshes[activo]->GetNombre()<<std::endl;
 }
+
+ void TEntidadMalla::setTextura(TRecurso* textura){
+    texturaM = static_cast<Texture*> (textura);
+ }
 

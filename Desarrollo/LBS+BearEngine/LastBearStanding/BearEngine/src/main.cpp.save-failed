@@ -1,0 +1,194 @@
+#include <iostream>
+
+#ifndef GLEW_STATIC
+#define GLEW_STATIC
+#include <GL/glew.h>
+#endif
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <glm/glm.hpp>
+
+#include "../include/shader.h"
+#include "../include/tnodo.h"
+//Entidades
+#include "../include/tentidad.h"
+//Recursos
+//Gestor
+#include "../include/tmotorbear.h"
+#include "Box2D/Box2D.h"
+
+
+
+#define WIDTH 1080
+#define HEIGHT 720
+
+using namespace std;
+
+b2BodyDef * DinamicBodyDef(float x, float y, float angle){
+        b2BodyDef * dinam = new b2BodyDef();
+        dinam->type= b2_dynamicBody;
+        dinam->position.Set(x,y);
+        dinam->angle = angle;
+        return dinam;
+    }
+
+b2BodyDef * StaticBodyDef(float x, float y, float angle){
+        b2BodyDef * stat = new b2BodyDef();
+        stat->type= b2_staticBody;
+        stat->position.Set(x,y);
+        stat->angle = angle;
+        return stat;
+    }
+
+b2PolygonShape * crearShape(float x, float y){
+        b2PolygonShape* polyShape = new b2PolygonShape ;
+        polyShape->SetAsBox(x, y);
+        return polyShape;
+    }
+
+
+
+b2FixtureDef* CrearFixture(b2PolygonShape* shape, float density, float restitution){
+
+        b2FixtureDef * fixture = new b2FixtureDef();
+        fixture->shape=shape;
+        fixture->density= density;
+        fixture->restitution=restitution;
+        return fixture;
+}
+
+int main(int argc, char* argv[])
+{
+
+    TMotorBear motorsito(WIDTH, HEIGHT, "Bear Engine");
+const b2Color verde(0,1,0);
+int32 cuatro = 4;
+    b2Vec2 gravity(0.0f, -10.0f);
+    b2World world(gravity,true);
+    //Shader shader("./res/basicShaderToon");
+    Shader shader("./res/basicShaderLuz");
+motorsito.crearMalla("./res/cubo.obj");
+//Camara
+    TNodo* nodoCam= motorsito.crearObjetoCamaraCompleto(motorsito.getRaiz(),"Camara",glm::vec3(0,0,-4), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f,1000.0f);
+ //   motorsito.transformarEntidad(nodoCam->getPadre()->getEntidad(),0.0f,glm::vec3(0,5,30));
+ motorsito.TrasladarObjeto(nodoCam,glm::vec3(0,0,10));
+    motorsito.activarCamara(nodoCam);
+    /*TNodo* MallaHud = motorsito.crearObjetoMallaCompleto(nodoCam->getPadre(),"./res/cubo.obj","Cubo HUD");
+     motorsito.TrasladarObjeto(MallaHud,glm::vec3(0,-1.5,-3));
+     motorsito.EscalarObjeto(MallaHud, glm::vec3(2.5,1,0.01));
+*/
+////////
+    b2BodyDef* cuboCae = DinamicBodyDef(1,50 ,0); //Cubo que cae
+    b2BodyDef* cuboStatico = StaticBodyDef(0,0,0);
+    b2BodyDef* cuboSuelo = StaticBodyDef(5,-2,0);
+
+    b2Body* staticBody = world.CreateBody(cuboStatico);
+    b2Body* staticBodySu = world.CreateBody(cuboSuelo);
+    b2Body* dinamicBody = world.CreateBody(cuboCae);
+
+    b2PolygonShape * staticShape = crearShape(1,2.5);
+    b2PolygonShape * sueloShape = crearShape(600,1);
+    b2PolygonShape * dinamicShape = crearShape(1,1);
+
+    staticBody->CreateFixture(CrearFixture(staticShape, 1, 0));
+    staticBodySu->CreateFixture(CrearFixture(sueloShape, 1, 0));
+    dinamicBody->CreateFixture(CrearFixture(dinamicShape, 1, 0.1));
+
+    TNodo* malla = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/andador0.obj","Humano Estatico");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador1b.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador2.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador3.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");
+   /* motorsito.cambiarMalla(malla->getEntidad(),"./res/andador4.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador5.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador6.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador7.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador8.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
+    motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
+    motorsito.EscalarObjeto(malla,glm::vec3(1,1,1.0));
+   // motorsito.RotarObjeto(malla,glm::vec3(0,glm::radians(90.0),0));
+/*
+    TNodo* mallaSu = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Suelo Estatico");
+    motorsito.TrasladarObjeto(mallaSu,glm::vec3(staticBodySu->GetPosition().x ,staticBodySu->GetPosition().y,0));*/
+  // motorsito.EscalarObjeto(mallaSu,glm::vec3(600.0,1,1.0));
+
+/*
+    TNodo* mallaD = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Humano Dinamico");
+    motorsito.EscalarObjeto(mallaD,glm::vec3(1,1,1.0f));
+    motorsito.TrasladarObjeto(mallaD,glm::vec3(dinamicBody->GetPosition().x ,dinamicBody->GetPosition().y,0));
+*/
+    /*Tamanyo que ocupa el objeto*/
+   /* TNodo* mallaPro = motorsito.crearObjetoMallaCompleto(malla->getPadre(), "./res/cubo.obj", "CuboLargo");
+    motorsito.EscalarObjeto(mallaPro,glm::vec3(1,2.5,1.0f));
+   motorsito.TrasladarObjeto(mallaPro,glm::vec3(0,0,-2));*/
+ //   motorsito.RotarObjeto(mallaPro,glm::vec3(0,glm::radians(-90.0),0));
+
+  //  motorsito.cambiarNodoOrigen(mallaPro,malla->getPadre());
+
+  /*  TNodo* mallaProD = motorsito.crearObjetoMallaCompleto(mallaD->getPadre(), "./res/cubo.obj", "CuboLargo");
+    motorsito.EscalarObjeto(mallaProD,glm::vec3(1,1,1.0f));
+    motorsito.RotarObjeto(mallaProD,glm::vec3(0,glm::radians(-90.0),0));
+
+*/
+    /*c*****************************/
+
+  //  TTransform * trans = static_cast<TTransform*>(mallaD->getPadre()->getEntidad());
+  //  TTransform * transS = static_cast<TTransform*>(mallaSu->getPadre()->getEntidad());
+  //  glm::vec3 posT = trans->GetPos();
+  //  glm::vec3 posS = transS->GetPos();
+   float i=0;
+   std::cout<<std::endl;
+   motorsito.verArbol();
+
+   motorsito.verDetallesTransformaciones(nodoCam->getPadre());
+   motorsito.verDetallesTransformaciones(malla->getPadre());
+//   motorsito.verDetallesTransformaciones(mallaD->getPadre());
+
+   motorsito.verMallas(malla);
+//   motorsito.verMallas(mallaD);
+ int alberto =0;
+ int borrado=0;
+   std::cout<<std::endl;
+    while(!motorsito.IsClosed()){
+         motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
+
+         world.Step(1/20.0,8,3);
+
+        i = i+0.01;
+       // motorsito.RotarObjeto(mallaPro,glm::vec3(0,0,i)); //Prueba transformacion local-global
+
+      /*  motorsito.RotarObjeto(mallaD,glm::vec3(0,0,dinamicBody->GetAngle()));
+        motorsito.TrasladarObjeto(mallaD,glm::vec3(dinamicBody->GetPosition().x ,dinamicBody->GetPosition().y,0));*/
+        shader.Bind();
+/* Ejecutable animacion
+       if(alberto==15){
+            motorsito.animarMalla(malla);
+            alberto=0;
+               motorsito.verMallas(malla);
+        }*/
+
+
+        motorsito.draw(&shader);
+    // mesh=  motorsito.UpdateDisplay();
+       if(motorsito.UpdateDisplay()==5){
+            if(!borrado){
+            motorsito.hacerInvisibleObjeto(malla);
+          //  mesh=0;
+            borrado=1;
+            motorsito->verArbol();
+            }
+       }
+
+        alberto++;
+    }
+    delete(cuboCae);
+    delete(cuboStatico);
+    delete(cuboSuelo);
+
+    delete(staticShape);
+    delete(sueloShape);
+    delete(dinamicShape);
+    return 0;
+}

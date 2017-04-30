@@ -40,8 +40,10 @@
 		<Unit filename="BearEngine/include/mesh.h" />
 		<Unit filename="BearEngine/include/modeloindexado.h" />
 		<Unit filename="BearEngine/include/shader.h" />
+		<Unit filename="BearEngine/include/stb_image.h" />
 		<Unit filename="BearEngine/include/tentidad.h" />
 		<Unit filename="BearEngine/include/tentidadmalla.h" />
+		<Unit filename="BearEngine/include/texture.h" />
 		<Unit filename="BearEngine/include/tgestorrecursos.h" />
 		<Unit filename="BearEngine/include/tluz.h" />
 		<Unit filename="BearEngine/include/tmotorbear.h" />
@@ -53,7 +55,11 @@
 		<Unit filename="BearEngine/src/mesh.cpp" />
 		<Unit filename="BearEngine/src/modeloindexado.cpp" />
 		<Unit filename="BearEngine/src/shader.cpp" />
+		<Unit filename="BearEngine/src/stb_image.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="BearEngine/src/tentidadmalla.cpp" />
+		<Unit filename="BearEngine/src/texture.cpp" />
 		<Unit filename="BearEngine/src/tgestorrecursos.cpp" />
 		<Unit filename="BearEngine/src/tluz.cpp" />
 		<Unit filename="BearEngine/src/tmotorbear.cpp" />

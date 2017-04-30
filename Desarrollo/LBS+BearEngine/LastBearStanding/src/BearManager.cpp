@@ -51,10 +51,12 @@ void BearMngr::Update(){
 	m_motorBear->UpdateDisplay();
 }
 //BearEngine
-TNodo* BearMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam){
+TNodo* BearMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
     std::ostringstream strm;
     strm << id;
 	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	if(texture)
+        m_motorBear->asignarTextura(nodo,texture);
 	m_motorBear->TrasladarObjeto(nodo,pos);
 	m_motorBear->EscalarObjeto(nodo,tam);
     return nodo;

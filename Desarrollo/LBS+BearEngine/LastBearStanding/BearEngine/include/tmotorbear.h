@@ -38,8 +38,7 @@ class TMotorBear
 
 ////OBjetos (Alto Nivel del Motor)
 
-        TNodo* crearObjetoLuzAmbiente(TNodo*padre, glm::vec3 colorLuz);
-        TNodo* crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name);
+        TNodo* crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name, int tipoLuz);
         TNodo* crearObjetoMallaCompleto(TNodo* padre, char * filename,  char * name);
         TNodo* crearObjetoCamaraCompleto(TNodo* padre, char * name, const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
 
@@ -102,16 +101,15 @@ class TMotorBear
 //////////////////////////////////////////
 
 ///////////////////////Luces
-
-        TEntidad *crearLuz(glm::vec3 colorLuz, char* nombre);
+        void dibujarLuces(Shader* shad);
+        void dibujarLuz(Shader* shad, TNodo* nodoLuz);
+        TEntidad *crearLuz(glm::vec3 colorLuz, char* nombre, int tipoLuz);
         void cambiarLuz(TLuz* luz, glm::vec3 colorLuz);
         void registrarLuz(TNodo* luz);
         glm::vec3 InteLuz(int posicion);
         void activarLuces();
         void activaLuz(int numero);
-
-        TEntidad* crearLuzAmbiente(glm::vec3 colorLuz);
-        TEntidad *crearLuzNoAmbiente(glm::vec3 colorLuz, glm::vec3 posLuz, char* nombreLuz);
+        TEntidad *crearLuzNoAmbiente(glm::vec3 colorLuz, glm::vec3 posLuz, char* nombreLuz, int tipoLuz);
 //////////////////////////////////////////
         void asignarTextura(TNodo* nodoMalla, char* file );
 

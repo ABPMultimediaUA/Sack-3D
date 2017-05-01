@@ -104,35 +104,35 @@ int Display::Update(TNodo* TfCamera){
                    // tras->trasladar(glm::vec3(-1,0,0));
                   tras->SetPos(tras->GetPos()+glm::vec3(-1,0,0));
 
-                    tras->GetPos().x-1;
+                    tras->GetPos().x-0.1;
                     break;
                 case SDLK_s:
                     //camera->GetPosition()+= glm::vec3(0,0,-1);
                   //  tras->trasladar(glm::vec3(0,-1,0));
                   tras->SetPos(tras->GetPos()+glm::vec3(0,-1,0));
 
-                    tras->GetPos().y-1;
+                    tras->GetPos().y-0.1;
                     break;
                 case SDLK_d:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
                    // tras->trasladar(glm::vec3(1,0,0));
                   tras->SetPos(tras->GetPos()+glm::vec3(1,0,0));
 
-                    tras->GetPos().x+1;
+                    tras->GetPos().x+0.1;
                     break;
                     case SDLK_q:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
                     //tras->trasladar(glm::vec3(0,0,1));
                   tras->SetPos(tras->GetPos()+glm::vec3(0,0,1));
 
-                    tras->GetPos().z+1;
+                    tras->GetPos().z+0.1;
                     break;
                     case SDLK_e:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
                    // tras->trasladar(glm::vec3(0,0,-1));
                   tras->SetPos(tras->GetPos()+glm::vec3(0,0,-1));
 
-                    tras->GetPos().z-1;
+                    tras->GetPos().z-0.1;
                     break;
                     case SDLK_r:
                     //camera->GetPosition()+= glm::vec3(-1,0,0);
@@ -150,14 +150,7 @@ int Display::Update(TNodo* TfCamera){
                     malla=malla+1;
                     if(malla>=4) malla=0;
                     break;
-                case SDLK_j:
-                        if(malla!=5){
 
-                            malla=5;
-                        }else{
-                            malla=6;
-                            }
-                    break;
                 default:
                     break;
 

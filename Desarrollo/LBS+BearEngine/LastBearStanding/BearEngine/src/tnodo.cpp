@@ -97,8 +97,10 @@ void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
      //   std::cout<<"Hay entidad "<<nombreEntidad<<std::endl;
 
     if(visible){
-           // std::cout<<"Dibujando "<<nombreEntidad<<std::endl;
+        //    std::cout<<"Dibujando "<<nombreEntidad<<" "<<entidad->getTipo()<<std::endl;
             entidad->begingDraw(shad,  pila);
+          //  std::cout<<"Dibujado "<<nombreEntidad<<" "<<std::endl;
+
         }
 
     }

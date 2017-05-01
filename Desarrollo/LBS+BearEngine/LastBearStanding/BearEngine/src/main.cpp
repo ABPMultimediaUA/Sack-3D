@@ -70,14 +70,18 @@ int32 cuatro = 4;
     Shader shader("./res/basicShaderLuz");
 motorsito.crearMalla("./res/cubo.obj");
 //Camara
-    TNodo* nodoCam= motorsito.crearObjetoCamaraCompleto(motorsito.getRaiz(),"Camara",glm::vec3(0,0,-4), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f,1000.0f);
- //   motorsito.transformarEntidad(nodoCam->getPadre()->getEntidad(),0.0f,glm::vec3(0,5,30));
- motorsito.TrasladarObjeto(nodoCam,glm::vec3(0,0,10));
+    TNodo* nodoCam= motorsito.crearObjetoCamaraCompleto(motorsito.getRaiz(),"Camara",glm::vec3(0,0,10), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f,1000.0f);
+    //   motorsito.transformarEntidad(nodoCam->getPadre()->getEntidad(),0.0f,glm::vec3(0,5,30));
+ //motorsito.TrasladarObjeto(nodoCam,glm::vec3(0,0,));
     motorsito.activarCamara(nodoCam);
+//TTransform* transLuzD = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
+  TNodo* nodoMallaLuz = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Cubo Pos camara");
+    motorsito.EscalarObjeto(nodoMallaLuz,glm::vec3(0.2,0.2,0.2));
 
-    TNodo* nodoLuzAmb = motorsito.crearObjetoLuzAmbiente(motorsito.getRaiz(),glm::vec3(1.0f,1.0f, 1.0f));
-   //TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(motorsito.getRaiz(),glm::vec3(0.0f,0.0f,1.0f),glm::vec3(-5.0f,-5.0f,0.0f),"lightDiff");
+    TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(nodoMallaLuz->getPadre(),glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,0),"lightUno", 1);//glm::vec3(5.0f,0.0f,-1.0f),"lightDiff", 1);
+   // TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(motorsito.getRaiz(),glm::vec3(0.0f,1.0f,0.0f), glm::vec3(0,0,0),"lightDiff", 1);//glm::vec3(5.0f,0.0f,-1.0f),"lightDiff", 1);
 
+    motorsito.TrasladarObjeto(nodoMallaLuz, glm::vec3(5,5,5));
     /*TNodo* MallaHud = motorsito.crearObjetoMallaCompleto(nodoCam->getPadre(),"./res/cubo.obj","Cubo HUD");
      motorsito.TrasladarObjeto(MallaHud,glm::vec3(0,-1.5,-3));
      motorsito.EscalarObjeto(MallaHud, glm::vec3(2.5,1,0.01));
@@ -112,6 +116,9 @@ motorsito.crearMalla("./res/cubo.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
     motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
     motorsito.EscalarObjeto(malla,glm::vec3(1,1,1.0));
+
+  //  motorsito.RotarObjeto(cub,glm::vec3(0,45,0));
+
    // motorsito.RotarObjeto(malla,glm::vec3(0,glm::radians(45.0),0));
 /*
     TNodo* mallaSu = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Suelo Estatico");
@@ -155,8 +162,14 @@ motorsito.verArbol();
  int alberto =0;
  int mostrado=1;
  int mesh=0;
+ int cami=0;
+ TTransform* transLuz;
+ TLuz* luzDif;
+ transLuz = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
+ luzDif = static_cast<TLuz*> (nodoLuzDiff->getEntidad());
    std::cout<<std::endl;
    motorsito.asignarTextura(malla,"./res/anda.png");
+
     while(!motorsito.IsClosed()){
          motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
 
@@ -164,7 +177,10 @@ motorsito.verArbol();
 
         i = i+0.01;
        // motorsito.RotarObjeto(mallaPro,glm::vec3(0,0,i)); //Prueba transformacion local-global
+      //  std::cout<<luzDif->getPos().x<<" "<<luzDif->getPos().y<<" "<<luzDif->getPos().z<<" "<<std::endl;
+    //   std::cout<<transLuz->GetPos().x<<" "<<transLuz->GetPos().y<<" "<<transLuz->GetPos().z<<" "<<std::endl;
 
+        luzDif->setPosicion(luzDif->getPos().x-0.1,luzDif->getPos().y,luzDif->getPos().z);
       /*  motorsito.RotarObjeto(mallaD,glm::vec3(0,0,dinamicBody->GetAngle()));
         motorsito.TrasladarObjeto(mallaD,glm::vec3(dinamicBody->GetPosition().x ,dinamicBody->GetPosition().y,0));*/
         shader.Bind();
@@ -177,9 +193,11 @@ motorsito.verArbol();
 
 
         motorsito.draw(&shader);
-     mesh=  motorsito.UpdateDisplay();
+    motorsito.UpdateDisplay();
+
+
       // if(motorsito.UpdateDisplay()==5){
-       if(mesh==5){
+      /* if(mesh==5){
             if(mostrado){
             motorsito.hacerInvisibleObjeto(malla);
           //  mesh=0;
@@ -194,7 +212,7 @@ motorsito.verArbol();
             mostrado=1;
             motorsito.verArbol();
             }
-       }
+       }*/
         alberto++;
     }
     delete(cuboCae);

@@ -2,12 +2,15 @@
 
 #include <stdio.h>
 #include <string.h>
+#ifndef _CONCAT
+#define _CONCAT
 char* Concat(char* base, char* anya){
      char * dev = (char *) malloc(1 + strlen(base)+ strlen(anya) );
       strcpy(dev, base);
       strcat(dev, anya);
       return dev;
 }
+#endif // _CONCAT
 TMotorBear::TMotorBear(int width, int height, const std::string& title)
 {
     arbolEscena = new TNodo(1);
@@ -107,27 +110,20 @@ TNodo* TMotorBear::crearObjetoCamaraCompleto(TNodo* padre, char * name, const gl
     TNodo* nodoCamara = crearNodo(transTras,cam, name);
     nodoCamara->setVisible(1);
     registrarCamara(nodoCamara);
+    TrasladarObjeto(nodoCamara,pos);
     return nodoCamara;
 }
 
-TNodo* TMotorBear::crearObjetoLuzAmbiente(TNodo*padre, glm::vec3 colorLuz){
-    TEntidad* luzAmbiente = crearLuzAmbiente(colorLuz);
-    TNodo* transTras = crearTransObj(padre, "Luz Ambiente");
-    transTras->setVisible(1);
-    TNodo* nodoLuzAmbiente = crearNodo(transTras,luzAmbiente, "Luz Ambiente");
-    nodoLuzAmbiente->setVisible(1);
-    registrarLuz(nodoLuzAmbiente);
-    return nodoLuzAmbiente;
-}
 
-TNodo* TMotorBear::crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name){
-    TEntidad* luz = crearLuzNoAmbiente(colorLuz,pos,name);
+
+TNodo* TMotorBear::crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name, int tipoLuz){
+    TEntidad* luz = crearLuzNoAmbiente(colorLuz,pos,name, tipoLuz);
     TNodo* transTras = crearTransObj(padre, name);
     transTras->setVisible(1);
     TNodo* nodoLuz = crearNodo(transTras,luz,name);
     nodoLuz->setVisible(1);
-    registrarLuz(nodoLuz);
     TrasladarObjeto(nodoLuz, pos);
+    registrarLuz(nodoLuz);
     return nodoLuz;
 }
 
@@ -384,7 +380,7 @@ glm::mat4 TMotorBear::obtenerMatCam(){ //REHACER BIEN
    //glm::vec3 transformedR = static_cast<TTransform*> (transPadre->getEntidad())->GetRot();
    //glm::vec3 transformed =glm::vec3( static_cast<TTransform*> (transPadre->getEntidad())->GetModel() * glm::vec4(glm::vec3(0,0,0), 1.0));
    // mat = glm::inverse(mat) * static_cast<Camera*> (nodo->getEntidad())->miraA(transformed,glm::normalize(glm::vec3(0,0,-1)),glm::vec3(0,1,0));
-    mat = static_cast<Camera*> (nodo->getEntidad())->getPers()    * (static_cast<Camera*> (nodo->getEntidad())->miraA(transformedP, transformed +  glm::vec3(0,0,-1) ,glm::vec3(0,1,0)));
+    mat = static_cast<Camera*> (nodo->getEntidad())->getPers()    * (static_cast<Camera*> (nodo->getEntidad())->miraA(transformedP, transformed + glm::vec3(0,0,-1) /* glm::vec3(0,0,0)*/,glm::vec3(0,1,0)));
 
       /*for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){
@@ -400,6 +396,7 @@ glm::mat4 TMotorBear::obtenerMatCam(){ //REHACER BIEN
 
 */
 
+
     return mat;
 }
 
@@ -411,7 +408,8 @@ void TMotorBear::verDetallesTransformaciones(TNodo* nodoTrans){
 
 
 void TMotorBear::draw(Shader* shad){
-    glm::mat4 cam = obtenerMatCam(); //Camara
+    glm::mat4 cam = obtenerMatCam();
+    glm::vec3 posCam = glm::vec3( cam * glm::vec4(glm::vec3(0,0,0), 1.0)); //Camara
   /*  for(int i =0; i<4;i++){
         for(int j=0;j<4;j++){
             std::cout<<cam[i][j];
@@ -420,25 +418,26 @@ void TMotorBear::draw(Shader* shad){
    //luces
    //Viewport
    pila->push_back(cam);
+
+    GLuint cameraPosUniformLocation = glGetUniformLocation(shad->positionLocation(), "uPosCam");
+    glUniform3fv(cameraPosUniformLocation,1, &posCam[0]);
+
+    dibujarLuces(shad);
     arbolEscena->draw(shad,pila);
     pila->pop_back();
 }
 
-TEntidad* TMotorBear::crearLuzAmbiente(glm::vec3 colorLuz){
-    std::cout<<"A crear Luz Ambiente"<<std::endl;
 
-    crearLuz(colorLuz, "ambientLight");
-}
-TEntidad* TMotorBear::crearLuzNoAmbiente(glm::vec3 colorLuz, glm::vec3 posLuz, char* nombreLuz){
-    TLuz* luz = static_cast<TLuz*> ( crearLuz(colorLuz, nombreLuz));
+TEntidad* TMotorBear::crearLuzNoAmbiente(glm::vec3 colorLuz, glm::vec3 posLuz, char* nombreLuz, int tipoLuz){
+    TLuz* luz = static_cast<TLuz*> ( crearLuz(colorLuz, nombreLuz, tipoLuz));
     luz->setPosicion(posLuz.x,posLuz.y,posLuz.z);
-
+    return luz;
 }
 
 
 //TLuz* TMotorBear::crearLuz(glm::vec3 colorLuz){
-TEntidad* TMotorBear::crearLuz(glm::vec3 colorLuz, char* nombre){
-    TLuz* luz= new TLuz(colorLuz.x,colorLuz.y,colorLuz.z, nombre);
+TEntidad* TMotorBear::crearLuz(glm::vec3 colorLuz, char* nombre, int tipoLuz){
+    TLuz* luz= new TLuz(colorLuz.x,colorLuz.y,colorLuz.z, nombre, tipoLuz);
    // luz->setIntensidad(colorLuz);
     return luz;
 }
@@ -463,6 +462,29 @@ void TMotorBear::activarLuces(){
 void TMotorBear::asignarTextura(TNodo* nodoMalla, char* file ){
     TEntidadMalla* malla = static_cast<TEntidadMalla*>(nodoMalla->getEntidad());
     malla->setTextura(gestorRecursos->getRecurso(file,1));
+
+}
+
+
+void TMotorBear::dibujarLuces(Shader* shad){
+    TNodo* nodoLuz;
+    for(int i =0; i< registroLuces.size();i++){
+       nodoLuz = registroLuces.at(i);
+        dibujarLuz(shad, nodoLuz);
+    }
+}
+
+void TMotorBear::dibujarLuz(Shader* shad, TNodo* nodoLuz){
+
+    TLuz* luz = static_cast<TLuz*> (nodoLuz->getEntidad());
+    TNodo * nodoPa;
+    glm::vec3 posicion = glm::vec3();
+    nodoPa=nodoLuz->getPadre();
+    while(nodoPa != arbolEscena){
+    posicion = posicion + static_cast<TTransform*> (nodoPa->getEntidad())->GetPos();
+      nodoPa=nodoPa->getPadre();
+    }
+    luz->aplicarLuz(shad, posicion);
 
 }
 
@@ -506,6 +528,7 @@ void TMotorBear::Clear(float r, float g, float b, float a){
 //void TMotorBear::UpdateDisplay(){
 int TMotorBear::UpdateDisplay(){
   return  escena->Update(verCamaraActiva());
+  //return  escena->Update(registroLuces.at(1)->getPadre());
 }
 ////////////////GESTOR RECURSOS
     //DEBUG

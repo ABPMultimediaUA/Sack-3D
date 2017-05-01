@@ -51,7 +51,7 @@ char* TNodo::getNombreEntidad(){
 }
 
 void TNodo::verArbol(){
-    std::cout<<"A"<<std::endl;
+   // std::cout<<"A"<<std::endl;
    if(esRaiz()){
        std::cout<<"ARBOL DE ESCENA"<<std::endl;
        std::cout<<std::endl;
@@ -97,6 +97,7 @@ void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
      //   std::cout<<"Hay entidad "<<nombreEntidad<<std::endl;
 
     if(visible){
+           // std::cout<<"Dibujando "<<nombreEntidad<<std::endl;
             entidad->begingDraw(shad,  pila);
         }
 

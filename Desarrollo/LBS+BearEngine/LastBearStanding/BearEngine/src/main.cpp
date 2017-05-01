@@ -74,6 +74,10 @@ motorsito.crearMalla("./res/cubo.obj");
  //   motorsito.transformarEntidad(nodoCam->getPadre()->getEntidad(),0.0f,glm::vec3(0,5,30));
  motorsito.TrasladarObjeto(nodoCam,glm::vec3(0,0,10));
     motorsito.activarCamara(nodoCam);
+
+    TNodo* nodoLuzAmb = motorsito.crearObjetoLuzAmbiente(motorsito.getRaiz(),glm::vec3(1.0f,1.0f, 1.0f));
+   //TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(motorsito.getRaiz(),glm::vec3(0.0f,0.0f,1.0f),glm::vec3(-5.0f,-5.0f,0.0f),"lightDiff");
+
     /*TNodo* MallaHud = motorsito.crearObjetoMallaCompleto(nodoCam->getPadre(),"./res/cubo.obj","Cubo HUD");
      motorsito.TrasladarObjeto(MallaHud,glm::vec3(0,-1.5,-3));
      motorsito.EscalarObjeto(MallaHud, glm::vec3(2.5,1,0.01));
@@ -145,7 +149,7 @@ motorsito.crearMalla("./res/cubo.obj");
    motorsito.verDetallesTransformaciones(nodoCam->getPadre());
    motorsito.verDetallesTransformaciones(malla->getPadre());
 //   motorsito.verDetallesTransformaciones(mallaD->getPadre());
-
+motorsito.verArbol();
    motorsito.verMallas(malla);
 //   motorsito.verMallas(mallaD);
  int alberto =0;

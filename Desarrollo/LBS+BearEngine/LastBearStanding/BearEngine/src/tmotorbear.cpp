@@ -110,6 +110,28 @@ TNodo* TMotorBear::crearObjetoCamaraCompleto(TNodo* padre, char * name, const gl
     return nodoCamara;
 }
 
+TNodo* TMotorBear::crearObjetoLuzAmbiente(TNodo*padre, glm::vec3 colorLuz){
+    TEntidad* luzAmbiente = crearLuzAmbiente(colorLuz);
+    TNodo* transTras = crearTransObj(padre, "Luz Ambiente");
+    transTras->setVisible(1);
+    TNodo* nodoLuzAmbiente = crearNodo(transTras,luzAmbiente, "Luz Ambiente");
+    nodoLuzAmbiente->setVisible(1);
+    registrarLuz(nodoLuzAmbiente);
+    return nodoLuzAmbiente;
+}
+
+TNodo* TMotorBear::crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name){
+    TEntidad* luz = crearLuzNoAmbiente(colorLuz,pos,name);
+    TNodo* transTras = crearTransObj(padre, name);
+    transTras->setVisible(1);
+    TNodo* nodoLuz = crearNodo(transTras,luz,name);
+    nodoLuz->setVisible(1);
+    registrarLuz(nodoLuz);
+    TrasladarObjeto(nodoLuz, pos);
+    return nodoLuz;
+}
+
+
 TNodo* TMotorBear::crearObjetoMallaCompleto(TNodo* padre, char * filename, char * name){
 
     //std::cout<<"HOLAAA"<<std::endl;
@@ -402,11 +424,22 @@ void TMotorBear::draw(Shader* shad){
     pila->pop_back();
 }
 
+TEntidad* TMotorBear::crearLuzAmbiente(glm::vec3 colorLuz){
+    std::cout<<"A crear Luz Ambiente"<<std::endl;
+
+    crearLuz(colorLuz, "ambientLight");
+}
+TEntidad* TMotorBear::crearLuzNoAmbiente(glm::vec3 colorLuz, glm::vec3 posLuz, char* nombreLuz){
+    TLuz* luz = static_cast<TLuz*> ( crearLuz(colorLuz, nombreLuz));
+    luz->setPosicion(posLuz.x,posLuz.y,posLuz.z);
+
+}
+
 
 //TLuz* TMotorBear::crearLuz(glm::vec3 colorLuz){
-TEntidad* TMotorBear::crearLuz(glm::vec3 colorLuz){
-    TLuz* luz= new TLuz();
-    luz->setIntensidad(colorLuz);
+TEntidad* TMotorBear::crearLuz(glm::vec3 colorLuz, char* nombre){
+    TLuz* luz= new TLuz(colorLuz.x,colorLuz.y,colorLuz.z, nombre);
+   // luz->setIntensidad(colorLuz);
     return luz;
 }
 void TMotorBear::cambiarLuz(TLuz* luz, glm::vec3 colorLuz){

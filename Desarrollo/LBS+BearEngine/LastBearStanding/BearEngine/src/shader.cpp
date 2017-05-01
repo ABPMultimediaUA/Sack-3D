@@ -54,6 +54,11 @@ void Shader::Bind(){
 
 }
 
+
+ GLuint Shader::positionLocation(){
+    return m_program;
+}
+
 void Shader::Update(const glm::mat4& transformi){
     glm::mat4 model =  transformi;
 

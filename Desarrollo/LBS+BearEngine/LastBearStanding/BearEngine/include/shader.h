@@ -30,7 +30,7 @@ class Shader
 
         virtual ~Shader();
 
-        int positionLocation;
+        GLuint positionLocation();
 
     protected:
 

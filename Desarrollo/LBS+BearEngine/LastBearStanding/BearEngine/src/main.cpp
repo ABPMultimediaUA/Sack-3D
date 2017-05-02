@@ -75,13 +75,13 @@ motorsito.crearMalla("./res/cubo.obj");
  //motorsito.TrasladarObjeto(nodoCam,glm::vec3(0,0,));
     motorsito.activarCamara(nodoCam);
 //TTransform* transLuzD = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
-  TNodo* nodoMallaLuz = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Cubo Pos camara");
-    motorsito.EscalarObjeto(nodoMallaLuz,glm::vec3(0.2,0.2,0.2));
+  //TNodo* nodoMallaLuz = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/cubo.obj","Cubo Pos camara");
+ //   motorsito.EscalarObjeto(nodoMallaLuz,glm::vec3(0.2,0.2,0.2));
 
-    TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(nodoMallaLuz->getPadre(),glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,0),"lightUno", 1);//glm::vec3(5.0f,0.0f,-1.0f),"lightDiff", 1);
+   // TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(nodoMallaLuz->getPadre(),glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,0),"lightUno", 1);//glm::vec3(5.0f,0.0f,-1.0f),"lightDiff", 1);
    // TNodo* nodoLuzDiff = motorsito.crearObjetoLuz(motorsito.getRaiz(),glm::vec3(0.0f,1.0f,0.0f), glm::vec3(0,0,0),"lightDiff", 1);//glm::vec3(5.0f,0.0f,-1.0f),"lightDiff", 1);
 
-    motorsito.TrasladarObjeto(nodoMallaLuz, glm::vec3(5,5,5));
+   // motorsito.TrasladarObjeto(nodoMallaLuz, glm::vec3(5,5,5));
     /*TNodo* MallaHud = motorsito.crearObjetoMallaCompleto(nodoCam->getPadre(),"./res/cubo.obj","Cubo HUD");
      motorsito.TrasladarObjeto(MallaHud,glm::vec3(0,-1.5,-3));
      motorsito.EscalarObjeto(MallaHud, glm::vec3(2.5,1,0.01));
@@ -163,10 +163,13 @@ motorsito.verArbol();
  int mostrado=1;
  int mesh=0;
  int cami=0;
+ float colo=0;
+
+ glm::vec3 luzC=  glm::vec3();
  TTransform* transLuz;
  TLuz* luzDif;
- transLuz = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
- luzDif = static_cast<TLuz*> (nodoLuzDiff->getEntidad());
+// transLuz = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
+ //luzDif = static_cast<TLuz*> (nodoLuzDiff->getEntidad());
    std::cout<<std::endl;
    motorsito.asignarTextura(malla,"./res/anda.png");
 
@@ -174,15 +177,13 @@ motorsito.verArbol();
          motorsito.Clear(0.0f,0.15f,0.3f,1.0f);
 
          world.Step(1/20.0,8,3);
-
-        i = i+0.01;
+        luzC= glm::vec3(colo,0.0,0.0);
        // motorsito.RotarObjeto(mallaPro,glm::vec3(0,0,i)); //Prueba transformacion local-global
       //  std::cout<<luzDif->getPos().x<<" "<<luzDif->getPos().y<<" "<<luzDif->getPos().z<<" "<<std::endl;
     //   std::cout<<transLuz->GetPos().x<<" "<<transLuz->GetPos().y<<" "<<transLuz->GetPos().z<<" "<<std::endl;
-
-        luzDif->setPosicion(luzDif->getPos().x-0.1,luzDif->getPos().y,luzDif->getPos().z);
       /*  motorsito.RotarObjeto(mallaD,glm::vec3(0,0,dinamicBody->GetAngle()));
         motorsito.TrasladarObjeto(mallaD,glm::vec3(dinamicBody->GetPosition().x ,dinamicBody->GetPosition().y,0));*/
+        motorsito.cambiarColorLuz(luzC);
         shader.Bind();
 /* Ejecutable animacion
        if(alberto==15){
@@ -191,7 +192,7 @@ motorsito.verArbol();
                motorsito.verMallas(malla);
         }*/
 
-
+       // colo=colo+0.01;
         motorsito.draw(&shader);
     motorsito.UpdateDisplay();
 

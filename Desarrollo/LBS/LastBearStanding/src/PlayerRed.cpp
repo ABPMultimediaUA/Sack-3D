@@ -5,6 +5,7 @@
 #include "Particle.h"
 #include "World.h"
 #include "Usable.h"
+#include "Granada.h"
 
 PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[], int ve, int sal)
 :Player(pos,mando,color){
@@ -77,10 +78,15 @@ void PlayerRed::CogerTirar(int idCogible){
               objCogido = m_pWorld->GetCogibles().at(i);
             }
         }
+
         objCogido = objPuedoCoger;
         objCogido->setCogido(true);
         objCogido->setDireccion(1);
         m_gameObject.Catch(objCogido->GetId());
+        Granada* gr = dynamic_cast<Granada*>(objCogido);
+         if(gr!=NULL){
+            gr->setCogedor(mando);
+        }
         cogiendo = true;
     }else{
         Soltar();

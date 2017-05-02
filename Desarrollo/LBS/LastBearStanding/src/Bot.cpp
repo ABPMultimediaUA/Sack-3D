@@ -72,8 +72,8 @@ void Bot::buscaArma(){
     else if(pathfinding->getTamanyo()<1){
         despega();
         //aqui debe haber una condicion qe sea si cogible esta cogido = true, que no haga cogerTirar
-        if(spawners.at(spawnbusco)->GetCogiendo() == true)  CogerTirar();
-
+        //if(spawners.at(spawnbusco)->GetCogiendo() == true)  CogerTirar();
+        CogerTirar();
         if(cogiendo) estadoBot = 1;
         else if(World::Inst()->getVivos() >1){
             posicionSpawn.y = 0;

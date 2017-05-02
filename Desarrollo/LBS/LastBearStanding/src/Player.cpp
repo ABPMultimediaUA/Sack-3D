@@ -8,6 +8,7 @@
 #include "Usable.h"
 #include "Client.h"
 #include "World.h"
+#include "Granada.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
 :Cogible(new PBAlivePlayer,NULL,pos,irr::core::vector3df(.07f, 0.15f,.07f),color),mando(numMando){
@@ -148,7 +149,10 @@ void Player::CogerTirar(){
     if(!muerto && !fingiendoMuerte){
         if(puedoCoger && !cogiendo){
             Usable* usable = dynamic_cast<Usable*>(objPuedoCoger);
-            if(usable && usable->getUsos()){
+            if(usable && usable->getUsos() && !usable->getCogido()){
+                if(dynamic_cast<Granada*>(objPuedoCoger)){
+                    dynamic_cast<Granada*>(objPuedoCoger)->setCogedor(mando);
+                }
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
                 objCogido->setDireccion(1);
@@ -197,6 +201,7 @@ void Player::usar(){
     if(cogiendo)if( Usable* usable = dynamic_cast<Usable*>(objCogido)){
         m_pClient->enviarUsar(mando);
         //std::cout<<"POSPLAYER "<<m_gameObject.GetPosition().x<<" "<<m_gameObject.GetPosition().y<<std::endl;
+        std::cout<<"oli "<<std::endl;
         usable->usar();
     }
 }

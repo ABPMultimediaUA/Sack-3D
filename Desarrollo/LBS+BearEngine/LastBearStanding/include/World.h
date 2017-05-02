@@ -60,7 +60,7 @@ class World{
         static World* Inst();
         World();
         virtual ~World(){}
-        void inicializaVariables(irr::core::stringw mapFile,int* puntuaciones);
+        void inicializaVariables(const char* mapFile,int* puntuaciones);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
         void  SwitchDebugMode();

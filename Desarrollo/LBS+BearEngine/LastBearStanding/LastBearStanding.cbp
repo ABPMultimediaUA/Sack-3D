@@ -122,6 +122,7 @@
 		</Unit>
 		<Unit filename="include/Usable.h" />
 		<Unit filename="include/World.h" />
+		<Unit filename="include/tinyxml/tinyxml2.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Bala.cpp" />
 		<Unit filename="src/BearManager.cpp" />
@@ -168,6 +169,7 @@
 		<Unit filename="src/Teleport.cpp" />
 		<Unit filename="src/Usable.cpp" />
 		<Unit filename="src/World.cpp" />
+		<Unit filename="src/tinyxml/tinyxml2.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

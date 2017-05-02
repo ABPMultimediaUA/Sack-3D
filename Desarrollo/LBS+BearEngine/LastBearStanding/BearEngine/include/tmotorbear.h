@@ -38,7 +38,6 @@ class TMotorBear
 
 ////OBjetos (Alto Nivel del Motor)
 
-        TNodo* crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name, int tipoLuz);
         TNodo* crearObjetoMallaCompleto(TNodo* padre, char * filename,  char * name);
         TNodo* crearObjetoCamaraCompleto(TNodo* padre, char * name, const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
 
@@ -101,6 +100,8 @@ class TMotorBear
 //////////////////////////////////////////
 
 ///////////////////////Luces
+        void cambiarColorLuz(glm::vec3 colr);
+        void cambiarPosiLuz(glm::vec3 pos);
         void dibujarLuces(Shader* shad);
         void dibujarLuz(Shader* shad, TNodo* nodoLuz);
         TEntidad *crearLuz(glm::vec3 colorLuz, char* nombre, int tipoLuz);
@@ -127,6 +128,7 @@ class TMotorBear
     protected:
 
     private:
+        TNodo* crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos, char* name, int tipoLuz);
         Display* escena;
         TNodo* arbolEscena;
         TGestorRecursos* gestorRecursos;

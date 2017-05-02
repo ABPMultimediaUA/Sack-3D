@@ -71,9 +71,22 @@ void TMotorBear::escalarEntidad(TEntidad* entity, glm::vec3 vec){
 }
 */
 
+void TMotorBear::cambiarColorLuz(glm::vec3 colr){
+    TLuz* luz = static_cast<TLuz*> (registroLuces.at(0)->getEntidad());
+    luz->setIntensidad(colr);
+}
+
+void TMotorBear::cambiarPosiLuz(glm::vec3 pos){
+    TLuz* luz = static_cast<TLuz*> (registroLuces.at(0)->getEntidad());
+    luz->setPosicion(pos.x,pos.y,pos.z);
+}
+
 //Camera * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
 TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
     Camera* camera= new Camera( pos,  fov,  aspect,  zNear,  zFar);
+    std::cout<<"AAA"<<std::endl;
+    crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(5,5,5),"lightUno", 1);
+    std::cout<<"BB"<<std::endl;
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){

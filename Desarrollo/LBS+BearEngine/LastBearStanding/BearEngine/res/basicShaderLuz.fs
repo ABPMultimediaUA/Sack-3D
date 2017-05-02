@@ -24,7 +24,7 @@ float cosAlpha = clamp(dot(E,R),0,1);
 
 
 float   d 			= length(lightUnoPos.xyz - normal0);
-float	attenuation = 1.0/(0.25 +(0.1*d)+(0.03*d*d));
+float	attenuation = 1.0/(0.25 +(0.1*d)+(0.003*d*d));
 
 	//	d= lightDiffPos.x- normal0.x + lightDiffPos.y- normal0.y + lightDiffPos.z- normal0.z;
 

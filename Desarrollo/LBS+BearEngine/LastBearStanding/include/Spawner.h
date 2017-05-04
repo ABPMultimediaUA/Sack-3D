@@ -3,7 +3,6 @@
 #define SPAWNER_H
 
 #include "GameObject.h"
-#include <irrlicht.h>
 
 
 class Cogible;

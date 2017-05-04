@@ -64,15 +64,7 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    //float width2 = width/10.f;
-    //float height2 = height/10.f;
-    //std::cout<<width2<<" , "<<height2<<std::endl;
-    //for (float i = posi.x; i < posi.x+width2; i+=0.1f){
-    //  for (float j = posi.y; j < posi.y+height2; j+=0.1f){
-    //    World::Inst()->AddPlatform(new Platform(false,b2Vec2(i,j), glm::vec3(0.1f,0.1f, 0.1f),irr::video::SColor(255, 71, 33, 11)));
-    //  }
-    //}
-    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -95,21 +87,14 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
-        irr::video::SColor color;
-    switch(numPlayer){
-        case 0: color = irr::video::SColor(255,54, 209, 147)  ; break;
-        case 1: color = irr::video::SColor(255,225, 255, 56)  ; break;
-        case 2: color = irr::video::SColor(255,255, 56, 56)  ; break;
-        case 3: color = irr::video::SColor(255,255, 56, 251); break;
-    }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){
-      World::Inst()->AddPlayer(new Player(posi,numPlayer,color));
+      World::Inst()->AddPlayer(new Player(posi,numPlayer));
    }
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
-        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',color, Client::Inst()->playersRed[i].id));
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0', Client::Inst()->playersRed[i].id));
         playerRed++;
         }
       }
@@ -119,18 +104,18 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer, aux));
           }else{
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer, aux));
           }
       }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
 }
 void Map::AddNodo(){
 

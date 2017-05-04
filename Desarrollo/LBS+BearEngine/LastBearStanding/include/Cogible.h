@@ -5,7 +5,6 @@
 #include "GameResource.h"
 #include <Box2D/Box2D.h>
 #include "GameObject.h"
-#include <irrlicht.h>
 
 class Spawner;
 class World;
@@ -14,7 +13,7 @@ class BearMngr;
 
 class Cogible{
     public:
-        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, glm::vec3 tam, irr::video::SColor color, char *model = "BearEngine/res/cubo.obj", char *texture = NULL);
+        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, glm::vec3 tam,  char *model = "BearEngine/res/cubo.obj", char *texture = NULL);
         virtual ~Cogible();
         virtual void actualiza();
         virtual void teletransportar();

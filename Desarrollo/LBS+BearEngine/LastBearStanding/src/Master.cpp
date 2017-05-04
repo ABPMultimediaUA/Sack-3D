@@ -66,6 +66,5 @@ void Master::InstanciaMundo(){
     }
 }
 bool Master::Run(){
-    BearMngr::Inst()->getDevice()->run();
     return !BearMngr::Inst()->IsClosed();
 }

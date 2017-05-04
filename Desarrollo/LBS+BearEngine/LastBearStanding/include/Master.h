@@ -1,7 +1,6 @@
 #ifndef MASTER_H
 #define MASTER_H
 
-#include <irrlicht.h>
 #include <vector>
 #include "Box2D/Box2D.h"
 

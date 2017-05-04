@@ -5,8 +5,8 @@
 #include "Spawner.h"
 #include "World.h"
 
-Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color, char *model, char *texture){
-    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color,model,texture);
+Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture){
+    m_id = m_gameObject.Inicialize(physicBody,pos,tam,model,texture);
     m_pWorld =   World::Inst();
     m_pBearMngr = BearMngr::Inst();
     autoDestruir = false;

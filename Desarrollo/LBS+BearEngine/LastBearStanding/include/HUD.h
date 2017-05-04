@@ -7,18 +7,18 @@ class HUD{
     public:
         HUD(int*, int width,int height);
         ~HUD(){}
-        void DrawHud(int marcador, int angle, int x, int y, int marginX, int marginY, irr::video::ITexture* texture);
+        void DrawHud(int marcador, int angle, int x, int y, int marginX, int marginY);
         void Draw();
 
     private:
         BearMngr* m_BearMngr;
-        irr::video::ITexture* m_hudImage_Red;
-        irr::video::ITexture* m_hudImage_Green;
-        irr::video::ITexture* m_hudImage_Yellow;
-        irr::video::ITexture* m_hudImage_Pink;
-        irr::gui::IGUIFont* font;
-        irr::video::SColor fColor;
-        irr::video::SColor black_color;
+        //irr::video::ITexture* m_hudImage_Red;
+        //irr::video::ITexture* m_hudImage_Green;
+        //irr::video::ITexture* m_hudImage_Yellow;
+        //irr::video::ITexture* m_hudImage_Pink;
+        //irr::gui::IGUIFont* font;
+        //irr::video::SColor fColor;
+        //irr::video::SColor black_color;
         int* puntuaciones;
         int m_width;
         int m_height;

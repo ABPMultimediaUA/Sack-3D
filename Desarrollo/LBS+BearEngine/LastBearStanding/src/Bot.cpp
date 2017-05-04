@@ -8,7 +8,7 @@
 #include <ctime>
 #include <stdlib.h>
 
-Bot::Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]):Player( pos,  mando,color){
+Bot::Bot(b2Vec2 pos, int mando, char idr[]):Player( pos,  mando){
     strncpy(id, idr, sizeof(id));
     enMuelle = false;
     salto = 7.0f;

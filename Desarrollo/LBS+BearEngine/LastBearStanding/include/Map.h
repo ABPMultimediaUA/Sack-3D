@@ -3,7 +3,6 @@
 
 #include "World.h"
 #include <sstream>
-#include <irrlicht.h>
 #include <tinyxml/tinyxml2.h>
 
 class Lista;

@@ -9,8 +9,8 @@
 #include "Client.h"
 #include "World.h"
 
-Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),color,"BearEngine/res/Oso.obj","media/Images/player2.png"),mando(numMando){
+Player::Player(b2Vec2 pos, int numMando)
+:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Oso.obj","media/Images/player2.png"),mando(numMando){
     m_pClient = Client::Inst();
     vel = 3.0f;
     moviendoA = 0;
@@ -28,7 +28,6 @@ Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
     direccion = 0;
     expuesto = false;
     strncpy(id, m_pClient->getIdCliente(), sizeof(id));
-    eventReceiver = BearMngr::Inst()->getEventReciever();
 }
  Player::~Player(){
 }
@@ -46,15 +45,15 @@ void Player::mover(){
     dir = 0;
     int id2 = (*m_pClient->getIdCliente())-'0';
     if(mando == id2){
-        if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){
-            moviendo = direccion = dir = -1;
-        }
-        else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){
-            moviendo = direccion = dir = 1;
-        }
-        else{
-                moviendo = 0;
-        }
+        //if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){
+        //    moviendo = direccion = dir = -1;
+        //}
+        //else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){
+        //    moviendo = direccion = dir = 1;
+        //}
+        //else{
+        //        moviendo = 0;
+        //}
     }
     if(moviendo != moviendoA){
         m_pClient->enviarMoviendo(moviendo, mando);
@@ -136,7 +135,7 @@ void Player::BloodExplosion(){
         tam.x = ((float)(rand()%10)/250.f)+0.002f;
         tam.y = tam.x;
         tam.z = 0.02f;
-        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,100,0,0),rand()%300+300));
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300));
         b2Vec2 capVel;
         capVel.x = (dir*(rand()%300)/10.f)+0.5f;
         capVel.y =((rand()%100)/10.f)+0.5f;

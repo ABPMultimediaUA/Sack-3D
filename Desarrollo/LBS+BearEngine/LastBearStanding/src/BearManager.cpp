@@ -16,16 +16,9 @@ BearMngr* BearMngr::Inst(){
 const unsigned int BearMngr::m_windowSize = 600;
 
 BearMngr::BearMngr():m_debugMode(false){
-	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	m_windowWidth = m_windowSize*16/9;
 	m_windowHeight = m_windowSize;
-	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	//device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(m_windowWidth,m_windowSize), 32, false, true, true, myEventReceiver );
-	device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
-	driver = device->getVideoDriver();
-	smgr = device->getSceneManager();
-	guienv = device->getGUIEnvironment();
 	m_gMotorBear.Reset(new TMotorBear(m_windowSize*16/9,m_windowSize,"Last Bear Standing"));
     m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
@@ -33,13 +26,13 @@ BearMngr::BearMngr():m_debugMode(false){
     m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, 16.f/9.f, 0.01f,1000.0f);
     m_motorBear->activarCamara(m_camara);
 }
-void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
-  	m_backgroundImage = bimage;
-}
+//void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
+//  	m_backgroundImage = bimage;
+//}
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
-  	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
+  	//hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
 void BearMngr::Update(){
     m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
@@ -120,10 +113,4 @@ void  BearMngr::SwitchDebugMode(){
     m_debugMode = true;
   }
 }
-irr::io::IXMLReader* BearMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
-irr::scene::ISceneManager* BearMngr::getManager(){return smgr;}
-MyEventReceiver* BearMngr::getEventReciever(){return myEventReceiver;}
-irr::IrrlichtDevice* BearMngr::getDevice(){return device;}
-irr::video::IVideoDriver* BearMngr::getDriver(){return driver;}
-irr::gui::IGUIEnvironment* BearMngr::getGUI(){return guienv;}
 BearMngr::~BearMngr(){}

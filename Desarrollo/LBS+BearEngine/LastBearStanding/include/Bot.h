@@ -11,7 +11,7 @@ class Lista;
 class Nodo;
 class Bot: public Player{
     public:
-        Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]);
+        Bot(b2Vec2 pos, int mando, char idr[]);
         virtual ~Bot(){}
         b2Vec2 getSpawnCercano(float x, float y);
         void buscaArma();

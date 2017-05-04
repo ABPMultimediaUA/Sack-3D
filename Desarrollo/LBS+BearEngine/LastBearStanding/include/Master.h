@@ -24,7 +24,7 @@ class Master{
     	uint32 timeFinPartida;
         uint32 time2SyncClient;
         int puntuaciones[4];
-        int game;
+        int m_game;
         const Num2Map maps[7] = {
               {  1         , "media/Maps/MapFinding1.tmx" }
             , {  2         , "media/Maps/MapFinding2.tmx" }

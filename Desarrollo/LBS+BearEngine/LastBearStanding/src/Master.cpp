@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "SDL.h"
 
-Master::Master(){
+Master::Master():m_game(0){
     for (int i = 0; i < 4; ++i){
         puntuaciones[i] = 0;
     }
@@ -48,23 +48,20 @@ void Master::Update(){
 
 }
 void Master::InstanciaMundo(){
-    game = 0;
     mapList = Client::Inst()->getMaps();
-    int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     const Num2Map * it = maps;
-    //std::cout<<"MAPS "<<mapList[0]<<" "<<mapList[1]<<mapList[2]<<mapList[3]<<mapList[4]<<mapList[5]<<std::endl;
+    std::cout<<m_game<<","<<mapList[m_game]<<std::endl;
     while(it->num != 0){
-        if(it->num == (mapList[game]+1)){
-            //std::cout<<"MAP "<<mapList[game]+1<<std::endl;
+        if(it->num == (mapList[m_game]+1)){
             World::Inst()->inicializaVariables(it->map,puntuaciones);
-            game++;
+            m_game++;
             break;
         }
         it++;
     }
     if(it->num == 0){
-        game=0;
+        m_game=0;
         InstanciaMundo();
     }
 }

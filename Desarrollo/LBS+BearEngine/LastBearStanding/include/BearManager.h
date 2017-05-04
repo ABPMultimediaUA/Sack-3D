@@ -21,7 +21,6 @@ class BearMngr{
         void InstanciaVariables(int* puntuaciones);
         irr::gui::IGUIFont* getFont();
         irr::io::IXMLReader* createXMLReader(irr::core::stringw file);
-        //BearEngine
         TNodo* CreateBearCube(int id,glm::vec3 pos, glm::vec3 tam,char* texture);
         TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
@@ -30,7 +29,6 @@ class BearMngr{
         void RemoveBearNode(TNodo* nodo);
         void IsBearVisible(TNodo* nodo, bool visible);
         bool IsClosed();
-        //BearEngine
         irr::scene::ISceneManager* getManager();
         MyEventReceiver* getEventReciever();
         irr::IrrlichtDevice* getDevice();

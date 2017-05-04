@@ -48,6 +48,7 @@ void Master::Update(){
 
 }
 void Master::InstanciaMundo(){
+    game = 0;
     mapList = Client::Inst()->getMaps();
     int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));

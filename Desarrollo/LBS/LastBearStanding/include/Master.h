@@ -29,11 +29,11 @@ class Master{
         int game;
         const Num2Map maps[7] = {
               {  1         , L"media/Maps/MapFinding1.tmx" }
-            , {  2         , L"media/Maps/MapFinding2.tmx" }
-            , {  3         , L"media/Maps/MapFinding3.tmx" }
-            , {  4         , L"media/Maps/MapFinding4.tmx" }
-            , {  5         , L"media/Maps/MapFinding5.tmx" }            
-            , {  6         , L"media/Maps/MapFinding6.tmx" }
+            , {  2         , L"media/Maps/MapFinding1.tmx" }
+            , {  3         , L"media/Maps/MapFinding1.tmx" }
+            , {  4         , L"media/Maps/MapFinding1.tmx" }
+            , {  5         , L"media/Maps/MapFinding1.tmx" }
+            , {  6         , L"media/Maps/MapFinding1.tmx" }
             , {  0         , L"0"                          }
         };
 };

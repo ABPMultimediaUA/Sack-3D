@@ -45,7 +45,7 @@ Lista* World::getListaNodos(){
 int World::getTimeMapa(){
   return m_Mapa.Get()->getTime();
 }
-void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
+void World::inicializaVariables(const char* mapFile,int *puntuaciones){
   m_Mapa.Reset(new Map(mapFile));
   camara.Reset(new GameCamera());
   for (int i = 0; i < m_Players.Size(); ++i){

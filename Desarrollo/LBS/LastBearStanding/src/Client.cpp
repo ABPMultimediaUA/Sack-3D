@@ -63,9 +63,9 @@ void Client::iniciar(){
         }
         if(server){
             puts("Enter IP to connect to");
-            Gets(auxip,sizeof(auxip));
+            //Gets(auxip,sizeof(auxip));
             //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-            //strncpy(auxip, "127.0.0.1", sizeof(auxip));
+            strncpy(auxip, "127.0.0.1", sizeof(auxip));
 
             puts("Enter the port to connect to");
             //Gets(auxserverPort,sizeof(auxserverPort));
@@ -265,7 +265,7 @@ void Client::recibir(){
             //--------LLAMADA A FUNCION SEGUN PAQUETE
 
             if(comprobacion(params[0].var)){
-            //std::cout<<"tipo.-"<<params[0].var/*<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6*/<<std::endl;
+            std::cout<<"tipo.-"<<params[0].var/*<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6*/<<std::endl;
             PacketFunction(atoi(params[0].var));
 
             }
@@ -344,7 +344,8 @@ void Client::analizarPaquete2(){
 
     for(unsigned int i=0; i < World::Inst()->GetPlayers().size(); i++){
         if(strcmp(World::Inst()->GetPlayers().at(i)->getId(), params[1].var) == 0){
-            dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i))->usar();
+            PlayerRed* p = dynamic_cast<PlayerRed*>(World::Inst()->GetPlayers().at(i));
+            p->usar();
         }
     }
 }

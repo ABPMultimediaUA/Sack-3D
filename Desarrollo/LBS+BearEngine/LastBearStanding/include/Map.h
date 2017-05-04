@@ -4,17 +4,18 @@
 #include "World.h"
 #include <sstream>
 #include <irrlicht.h>
+#include <tinyxml/tinyxml2.h>
 
 class Lista;
 class Map;
 struct Layer2Method {
-    irr::core::stringw layer;
+    const char* layer;
     void (Map::*p)();
 };
 
 class Map{
     public:
-        Map(irr::core::stringw file);
+        Map(const char* doc);
         virtual ~Map(){}
         void AddSpawner();
 		void AddPlatform();
@@ -26,27 +27,29 @@ class Map{
         void AddNodo();
         int getTime();
         Lista* getListaNodos();
+        void leerElement(tinyxml2::XMLElement *element);
+        void leerObjGroup(const char* layer, tinyxml2::XMLElement *objgroup);
     private:
     	const Layer2Method layers[9] = {
-              { L"Spawners"       , AddSpawner    }
-            , { L"Colisiones"     , AddPlatform   }
-            , { L"Muelles"        , AddMuelle     }
-            , { L"Teleports"      , AddTeleport   }
-            , { L"Armas"          , AddArma       }
-            , { L"Players"        , AddPlayer     }
-            , { L"Pinchos"        , AddPincho     }
-            , { L"Nodos"          , AddNodo       }
-            , { L"0"              , 0             }
+              { "Spawners"       , AddSpawner    }
+            , { "Colisiones"     , AddPlatform   }
+            , { "Muelles"        , AddMuelle     }
+            , { "Teleports"      , AddTeleport   }
+            , { "Armas"          , AddArma       }
+            , { "Players"        , AddPlayer     }
+            , { "Pinchos"        , AddPincho     }
+            , { "Nodos"          , AddNodo       }
+            , { "0"              , 0             }
         };
-        int x;
-        int y;
+        float x;
+        float y;
         b2Vec2 posi;
         int m_id;
-        int width;
-        int height;
+        float width;
+        float height;
         int name;
         int typeInt;
-        std::wstring typeString;
+        const char* typeString;
         bool player;
         int numPlayer;
         int playerRed;

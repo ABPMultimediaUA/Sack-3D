@@ -8,16 +8,19 @@
 #include "Particle.h"
 #include "World.h"
 #include "Client.h"
+#include "Bot.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched,expo,pos,irr::core::vector3df(.05f,.05f,.05f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
   usada = false;
+  cogedor=-1;
   timerIrr = IrrMngr::Inst()->getTimer();
 }
 Granada::~Granada(){}
 void Granada::actualiza(){
   Cogible::actualiza();
   if(!autoDestruir && timerIrr->getTime() - timerGranada > mecha && usada){
+    if(cogido)World::Inst()->getPlayer(cogedor)->Soltar();
     Explosion();
     autoDestruir = true;
   }
@@ -37,12 +40,18 @@ void Granada::setCogido(bool aux){
     }
     cogido = aux;
 }
+
+void Granada::setCogedor(int aux){
+    cogedor = aux;
+}
 void Granada::usar(){
   if(!usada){
         int id = (*Client::Inst()->getIdCliente())-'0';
-        World::Inst()->getPlayer(id)->CogerTirar();
+        if(id == cogedor)World::Inst()->getPlayer(cogedor)->CogerTirar();
+        if(dynamic_cast<Bot*>(World::Inst()->getPlayer(cogedor)))World::Inst()->getPlayer(cogedor)->CogerTirar();
         timerGranada = timerIrr->getTime();
         usada=true;
+        cogedor = -1;
     }
 }
 void Granada::Explosion(){

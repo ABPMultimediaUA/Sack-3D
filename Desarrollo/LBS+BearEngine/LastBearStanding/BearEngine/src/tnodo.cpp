@@ -12,7 +12,7 @@ TNodo::TNodo(int cepa )// cepa 1 es raiz, 0 no es raiz
 TNodo::~TNodo()
 {
     //dtor
-    std::cout<<"Borrado "<<this->getNombreEntidad()<<std::endl;
+//    std::cout<<"Borrado "<<this->getNombreEntidad()<<std::endl;
     for(int i=0; i<hijos.size();i++){
         delete(hijos.at(i));
     }

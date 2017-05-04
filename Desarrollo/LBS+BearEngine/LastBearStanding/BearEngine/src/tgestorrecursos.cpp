@@ -10,9 +10,9 @@ TGestorRecursos::TGestorRecursos()
 TGestorRecursos::~TGestorRecursos()
 {
 
-   std::cout<<recursos.size()<<std::endl;
+   //std::cout<<recursos.size()<<std::endl;
    for(int i=0; i<recursos.size();i++){
-        std::cout<<recursos.at(i)->GetNombre()<<std::endl;
+//        std::cout<<recursos.at(i)->GetNombre()<<std::endl;
         borrarRecurso(recursos.at(i)->GetNombre());
         i--;
    }
@@ -25,13 +25,9 @@ TRecurso *TGestorRecursos::getRecurso(  char* nombre, int tipo){
 TRecurso* recu;
 int encontrado=0;
 
-//sstd::cout<<"Hay "<< recurs<<std::cout<<" recursos"<<std::endl;
     for(int i=0; i<recursos.size();i++){
-    //    std::cout<<"HOLI"<<std::endl;
         recu= recursos.at(i);
         if(recu->GetNombre()== nombre){
-           // std::cout<<"Recurso Encontrado"<<std::endl;
-           // std::cout<<recu->GetNombre()<<std::endl;
 
             recu=recursos.at(i);
             encontrado=1;
@@ -39,7 +35,6 @@ int encontrado=0;
         }
     }
     if(!encontrado){
-             std::cout<<"Recurso NO Encontrado CARGAR"<<std::endl;
         if(tipo==0){
 
             //Cargar fichero ,y apilar en el vector
@@ -52,10 +47,10 @@ int encontrado=0;
             recu=mesh;
             recu->setNombre(nombre);
             recu->setTipo(tipo);
-            std::cout<<"Malla Cargada"<<std::endl;
+            //std::cout<<"Malla Cargada"<<std::endl;
             recursos.push_back(recu);
-            std::cout<<recu->GetNombre()<<std::endl;
-            std::cout<<std::endl;
+            //std::cout<<recu->GetNombre()<<std::endl;
+            //std::cout<<std::endl;
           //  delete(mesh); Peta
         }
         else if(tipo==1){
@@ -70,7 +65,7 @@ int encontrado=0;
             recu=text;
             recu->setNombre(nombre);
             recu->setTipo(tipo);
-            std::cout<<"Textura Cargada"<<std::endl;
+            //std::cout<<"Textura Cargada"<<std::endl;
             recursos.push_back(recu);
             std::cout<<recu->GetNombre()<<std::endl;
             std::cout<<std::endl;
@@ -88,14 +83,14 @@ void TGestorRecursos::borrarRecurso(char * nombre){
             recu=recursos.at(i);
         if(recu->GetNombre()== nombre){
             tipo=recu->GetTipo();
-            std::cout<<"Recurso Encontrado"<<std::endl;
+           // std::cout<<"Recurso Encontrado"<<std::endl;
             if(tipo==0){
                 mesh=static_cast<Mesh*>(recursos.at(i));
                 delete(mesh);
             }
 
            recursos.erase(recursos.begin()+i);
-            std::cout<<"Recurso Borrado"<<std::endl;
+            //std::cout<<"Recurso Borrado"<<std::endl;
             break;
         }
     }

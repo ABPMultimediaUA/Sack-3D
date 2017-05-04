@@ -46,7 +46,6 @@ Map::Map(const char* doc){
 
       objectgroups = objectgroups->NextSiblingElement("objectgroup");
     }
-    std::cout<<"Fin de la lectura"<<std::endl;
     timeEspera = SDL_GetTicks();
 
 }
@@ -135,8 +134,6 @@ void Map::AddNodo(){
 
 
 void Map::leerObjGroup(const char* layer, tinyxml2::XMLElement *objgroup){
-    std::cout<<"Capa "<<layer<<std::endl;
-
     tinyxml2::XMLElement *objeto = objgroup->FirstChildElement("object");
     while(objeto){
         leerElement(objeto);
@@ -151,7 +148,6 @@ void Map::leerObjGroup(const char* layer, tinyxml2::XMLElement *objgroup){
 
         objeto = objeto->NextSiblingElement("object");
     }
-    std::cout<<"Fin Capa "<<layer<<std::endl;
 
 }
 
@@ -168,19 +164,15 @@ void Map::leerElement(tinyxml2::XMLElement *element){
     element->QueryAttribute("height", &height);
     element->QueryAttribute("width", &width);
     posi = b2Vec2(x/10.0f, y/10.0f);
-    //std::cout<<"element: "<<x<<", "<<y<<", "<<height<<", "<<width<<std::endl;
     if(element->Attribute("name") != 0){
         element->QueryAttribute("name", &name);
-        //std::cout<<"Name: "<<name<<", ";
     }
     if(element->Attribute("type") != 0){
         if(strlen(element->Attribute("type")) == 1){
             element->QueryAttribute("type", &typeInt);
-            //std::cout<<"tipoInt: "<<typeInt<<std::endl;
         }
         else{
             this->typeString=element->Attribute("type");
-            //std::cout<<"tipoString: "<<typeString<<std::endl;
         }
     }
 }

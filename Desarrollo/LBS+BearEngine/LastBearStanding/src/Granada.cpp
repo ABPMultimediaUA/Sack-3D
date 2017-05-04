@@ -11,7 +11,7 @@
 #include "SDL.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj"),mecha(3000){
+:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj","media/Images/granadatex.png"),mecha(3000){
   usada = false;
   timerGranada = SDL_GetTicks();
 }

@@ -9,7 +9,7 @@
 #include "SDL.h"
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched(),expo,pos,glm::vec3(0.04f,.02f,.02f),"BearEngine/res/pistola.obj","media/Images/pistola.png"){
+:Usable(new PBCogibleCatched(),expo,pos,glm::vec3(0.04f,.02f,.02f),"BearEngine/res/pistola.obj","media/Images/pistolatex.png"){
 	usos = 5;
 	cadencia = 100;
 }

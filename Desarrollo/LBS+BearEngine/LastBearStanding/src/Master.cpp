@@ -51,7 +51,6 @@ void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();
     srand(time(0));
     const Num2Map * it = maps;
-    std::cout<<m_game<<","<<mapList[m_game]<<std::endl;
     while(it->num != 0){
         if(it->num == (mapList[m_game]+1)){
             World::Inst()->inicializaVariables(it->map,puntuaciones);

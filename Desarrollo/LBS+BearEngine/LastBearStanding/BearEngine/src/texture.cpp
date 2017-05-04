@@ -55,8 +55,6 @@ Texture::Texture(const std::string& fileName)
 
     stbi_image_free(imageData);
 
-std::cerr<<"Textura creada"<<fileName<<std::endl;
-
 }
 
 Texture::~Texture()

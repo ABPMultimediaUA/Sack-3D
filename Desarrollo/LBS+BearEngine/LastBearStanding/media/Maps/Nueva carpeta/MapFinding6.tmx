@@ -22,7 +22,7 @@
    </animation>
   </tile>
  </tileset>
- <objectgroup name="Nodos" opacity="0.92">
+ <objectgroup name="Nodos" opacity="0.91">
   <object id="618" name="0" type="1,2,31" gid="692172" x="24" y="43" width="1" height="1"/>
   <object id="1220" name="1" type="0,18,20" gid="692172" x="49" y="43" width="1" height="1"/>
   <object id="1221" name="2" type="0,3,31" gid="692172" x="19" y="50" width="1" height="1"/>
@@ -49,7 +49,7 @@
   <object id="1242" name="23" type="21,24" gid="692172" x="88" y="31" width="1" height="1"/>
   <object id="1243" name="24" type="13,23,25" gid="692172" x="92" y="28" width="1" height="1"/>
   <object id="1244" name="25" type="24,26" gid="692172" x="98" y="21" width="1" height="1"/>
-  <object id="1245" name="26" type="25,33" gid="692172" x="113" y="21" width="1" height="1"/>
+  <object id="1245" name="26" type="15,25" gid="692172" x="113" y="21" width="1" height="1"/>
   <object id="1246" name="27" type="21,28" gid="692172" x="74" y="24" width="1" height="1"/>
   <object id="1247" name="28" type="18,27" gid="692172" x="62" y="24" width="1" height="1"/>
   <object id="1257" name="29" type="5" gid="692172" x="27" y="57" width="1" height="1"/>
@@ -87,10 +87,10 @@
  <objectgroup name="Muelles" visible="0"/>
  <objectgroup name="Armas" visible="0"/>
  <objectgroup name="Players">
-  <object id="1002" name="P1" gid="271" x="104" y="21" width="1" height="1"/>
-  <object id="1104" name="P2" gid="271" x="114" y="39" width="1" height="1"/>
+  <object id="1002" name="P1" gid="271" x="52" y="50" width="1" height="1"/>
+  <object id="1104" name="P2" gid="271" x="62" y="43" width="1" height="1"/>
   <object id="1105" name="P3" gid="271" x="44" y="50" width="1" height="1"/>
-  <object id="1106" name="P4" gid="271" x="78" y="65" width="1" height="1"/>
+  <object id="1106" name="P4" gid="271" x="38" y="43" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

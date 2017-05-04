@@ -22,7 +22,8 @@ class BearMngr{
         irr::gui::IGUIFont* getFont();
         irr::io::IXMLReader* createXMLReader(irr::core::stringw file);
         //BearEngine
-        TNodo* CreateBearNode(int id,glm::vec3 pos, glm::vec3 tam,char* texture);
+        TNodo* CreateBearCube(int id,glm::vec3 pos, glm::vec3 tam,char* texture);
+        TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
         void SetBearCameraPosition(float x, float y, float z);

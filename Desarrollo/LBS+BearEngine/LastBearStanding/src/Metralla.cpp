@@ -18,7 +18,7 @@ Metralla::Metralla(b2Vec2 pos,b2Vec2 vel):m_destruir(false),m_tiempoVida(300){
     		color = irr::video::SColor(255,100,100,100);
     	break;
     }
-    m_id = m_gameObject.Inicialize(new PBMetralla(),pos,glm::vec3(0.03f,0.03f,0.03f),color);
+    m_id = m_gameObject.Inicialize(new PBMetralla(),pos,glm::vec3(0.03f,0.03f,0.03f),color,"BearEngine/res/arma.obj");
     m_time2Kill = SDL_GetTicks();
     m_gameObject.SetLinearVelocity(vel);
 }

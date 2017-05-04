@@ -51,12 +51,12 @@ GameCamera::update(float time, int fps){
             }
             float cenX = cenAnt.x + ((cenSig.x - cenAnt.x)/(porcentGap*100)*porcentUpdate*10);
             float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);
-            z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f));
+            z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f))-1;
             if(z<MINZ)z = MINZ;
             float incrementX = (float)abs(xMax-xMin);
             float incrementY = (float)abs(yMax-yMin);
             float tamX = incrementX+(incrementY*2.2f)+VIEWMARGIN;
-            if(tamX<5)tamX = 5;
+            if(tamX<3)tamX = 3;
             float tamY = tamX*9/16;
             //projMat.buildProjectionMatrixOrthoLH(tamX,tamY,-1000,1000);
             flowCam.push_back(glm::vec3(cenX,cenY,0));

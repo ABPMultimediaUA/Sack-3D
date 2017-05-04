@@ -10,7 +10,7 @@
 #include "World.h"
 
 Player::Player(b2Vec2 pos, int numMando, irr::video::SColor color)
-:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),color),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),color,"BearEngine/res/Oso.obj","media/Images/player2.png"),mando(numMando){
     m_pClient = Client::Inst();
     vel = 3.0f;
     moviendoA = 0;

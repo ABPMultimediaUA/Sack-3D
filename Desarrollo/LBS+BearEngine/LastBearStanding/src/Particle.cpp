@@ -6,7 +6,7 @@
 Particle::Particle(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color, int tiempoVida)
 :m_destruir(false),m_tiempoVida(tiempoVida){
     m_pBearMngr = BearMngr::Inst();
-    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color);
+    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color,"BearEngine/res/arma.obj");
     m_time2Kill = SDL_GetTicks();
 }
 

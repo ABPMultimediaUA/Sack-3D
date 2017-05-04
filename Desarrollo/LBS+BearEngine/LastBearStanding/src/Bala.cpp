@@ -15,7 +15,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     pos.x = pos.x + (dir/5.0f);
     pos.x = pos.x/2.0f;
     pos.y = pos.y/2.0f;
-    m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
+    m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255),"BearEngine/res/arma.obj");
     time2Kill = SDL_GetTicks();
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;

@@ -21,6 +21,8 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
         ,pos
         ,glm::vec3(0.05f,.035f,0.01f)
         ,irr::video::SColor(255, 255, 255, 255)
+        ,"BearEngine/res/spawner.obj"
+        ,"media/Images/otro.png"
     );
     generar();
 }

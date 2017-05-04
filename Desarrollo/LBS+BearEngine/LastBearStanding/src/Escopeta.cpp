@@ -9,7 +9,7 @@
 #include "SDL.h"
 
 Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched, expo,pos,glm::vec3(0.07f,0.02f,0.002f),irr::video::SColor(255, 0, 255, 0)){
+:Usable(new PBCogibleCatched, expo,pos,glm::vec3(0.07f,0.02f,0.002f),irr::video::SColor(255, 0, 255, 0),"BearEngine/res/arma.obj"){
     usos = 3;
 }
 Escopeta::~Escopeta(){}

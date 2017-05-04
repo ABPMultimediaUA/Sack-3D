@@ -77,7 +77,14 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    //posi.y=posi.y+0.1f;
+    //float width2 = width/10.f;
+    //float height2 = height/10.f;
+    //std::cout<<width2<<" , "<<height2<<std::endl;
+    //for (float i = posi.x; i < posi.x+width2; i+=0.1f){
+    //  for (float j = posi.y; j < posi.y+height2; j+=0.1f){
+    //    World::Inst()->AddPlatform(new Platform(false,b2Vec2(i,j), glm::vec3(0.1f,0.1f, 0.1f),irr::video::SColor(255, 71, 33, 11)));
+    //  }
+    //}
     World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
 }
 void Map::AddMuelle(){

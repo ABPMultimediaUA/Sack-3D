@@ -13,7 +13,7 @@ GameObject::GameObject():m_margin(b2Vec2(0,0)){
 GameObject::~GameObject(){
     if(m_bearNodo)m_pBearMngr->RemoveBearNode(m_bearNodo);
 }
-int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *texture){
+int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *model,char *texture){
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -23,13 +23,13 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     m_pPhysicBody->SetUserData(userdata);
     m_pPhysicBody->SetMask(mask);
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.x,tam.y));
-    if(!texture)
-        m_bearNodo = m_pBearMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/texture.jpg");
+    if(!model)
+        m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/textures.jpg");
     else
-       m_bearNodo = m_pBearMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,texture);
+        m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
     return m_id;
 }
-int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *texture){
+int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color,char *model,char *texture){
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -38,10 +38,10 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, ir
     m_pWorld   = World::Inst();
     m_pBearMngr = BearMngr::Inst();
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.x,tam.y));
-    if(!texture)
-        m_bearNodo = m_pBearMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/texture.jpg");
+    if(!model)
+        m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/texture.jpg");
     else
-       m_bearNodo = m_pBearMngr->CreateBearNode(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,texture);
+       m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
     return m_id;
 }
 void GameObject::Update(){

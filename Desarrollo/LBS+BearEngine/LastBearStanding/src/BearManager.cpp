@@ -42,7 +42,7 @@ void BearMngr::InstanciaVariables(int* puntuaciones){
   	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
 void BearMngr::Update(){
-    m_motorBear->Clear(0.0f,1.15f,0.3f,1.0f);
+    m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
 	m_shader->Bind();
 	//hud.Get()->Draw();
 	//if(m_debugMode)
@@ -51,14 +51,41 @@ void BearMngr::Update(){
 	m_motorBear->UpdateDisplay();
 }
 //BearEngine
-TNodo* BearMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
+TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
     std::ostringstream strm;
     strm << id;
-	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+
+    float   width = tam.x,
+            height = tam.y;
+
+    //TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+    //m_motorBear->TrasladarObjeto(nodo,glm::vec3(-width,0,0));
+    //m_motorBear->hacerInvisibleObjeto(nodo);
+//
+    //for (float x = pos.x; x <= pos.x + width; x+=.1f){
+    //  for (float y = pos.y; y <= pos.y + height; y+=.1f){
+	//	TNodo* nodo2 = m_motorBear->crearObjetoMallaCompleto(nodo, "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	//	if(texture)
+	//        m_motorBear->asignarTextura(nodo2,texture);
+	//	m_motorBear->TrasladarObjeto(nodo2,glm::vec3(x,y,0));
+    //    m_motorBear->EscalarObjeto(nodo2,glm::vec3(0.1f,0.1f,0.1f));
+    //  }
+    //}
+    TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	 if(texture)
+        m_motorBear->asignarTextura(nodo,texture);
+	 m_motorBear->TrasladarObjeto(nodo,pos);
+	 m_motorBear->EscalarObjeto(nodo,tam);
+    return nodo;
+}
+//BearEngine
+TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
+    std::ostringstream strm;
+    strm << id;
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str());
 	if(texture)
         m_motorBear->asignarTextura(nodo,texture);
 	m_motorBear->TrasladarObjeto(nodo,pos);
-	m_motorBear->EscalarObjeto(nodo,tam);
     return nodo;
 }
 void BearMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){

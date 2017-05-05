@@ -108,6 +108,7 @@ class World{
         bool                     m_debugMode;
         GameResource<GameCamera> camara;
         GameResource<Map>        m_Mapa;
+        GameObject               m_fondo;
         RVector<Teleport>        m_Teleports;
         RVector<Player>          m_Players;
         RVector<Muelle>          m_Muelles;

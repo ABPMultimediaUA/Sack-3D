@@ -87,9 +87,9 @@
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
   <object id="1002" gid="271" x="42" y="70" width="1" height="1"/>
-  <object id="1003" gid="271" x="107" y="70" width="1" height="1"/>
-  <object id="1040" gid="271" x="65" y="48" width="1" height="1"/>
-  <object id="1044" gid="271" x="102" y="49" width="1" height="1"/>
+  <object id="1003" gid="271" x="64" y="48" width="1" height="1"/>
+  <object id="1040" gid="271" x="88" y="70" width="1" height="1"/>
+  <object id="1044" gid="271" x="53" y="48" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

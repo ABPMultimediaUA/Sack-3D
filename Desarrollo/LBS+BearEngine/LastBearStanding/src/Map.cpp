@@ -86,14 +86,21 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
+    char* texture; 
+    switch(numPlayer){
+      case 0: texture = "media/Images/Red.png"; break;
+      case 1: texture = "media/Images/Green.png"; break;
+      case 2: texture = "media/Images/Yellow.png"; break;
+      case 3: texture = "media/Images/Pink.png"; break;
+    }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){
-      World::Inst()->AddPlayer(new Player(posi,numPlayer));
+      World::Inst()->AddPlayer(new Player(posi,texture,numPlayer));
    }
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
-        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0', Client::Inst()->playersRed[i].id));
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',texture, Client::Inst()->playersRed[i].id));
         playerRed++;
         }
       }
@@ -103,11 +110,11 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new Bot(posi,numPlayer, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer,texture, aux));
           }else{
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer, aux));
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,texture, aux));
           }
       }
    }

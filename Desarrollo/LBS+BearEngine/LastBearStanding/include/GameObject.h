@@ -31,7 +31,9 @@ class GameObject{
         virtual void   SetAngularVelocity(float imp);
         virtual void   SetLinearVelocity(b2Vec2 vel);
         virtual void   SetPosition(b2Vec2 pos);
+        virtual void   SetZ(float  z);
         virtual void   SetMargin(b2Vec2 margin);
+        virtual void   SetXRotation(int rot);
         virtual void   Catch(int id);
         virtual void   Release();
         virtual PhysicBody* GetBody();
@@ -45,6 +47,7 @@ class GameObject{
         b2Vec2 m_margin;
         b2Vec2 m_pos;
         int m_id;
+        float m_z;
 };
 
 #endif // GAMEOBJECT_H

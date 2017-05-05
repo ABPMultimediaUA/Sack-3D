@@ -6,8 +6,8 @@
 #include "World.h"
 #include "Usable.h"
 
-PlayerRed::PlayerRed(b2Vec2 pos, int mando, char idr[], int ve, int sal)
-:Player(pos,mando){
+PlayerRed::PlayerRed(b2Vec2 pos, int mando,char *texture,  char idr[], int ve, int sal)
+:Player(pos,texture,mando){
     primera = true;
     strncpy(id, idr, sizeof(id));
     estadoAntiguo=LEVANTADO;

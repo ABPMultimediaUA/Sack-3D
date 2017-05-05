@@ -12,13 +12,11 @@ GameCamera::GameCamera(){
     tiempoTransc = SDL_GetTicks();
     cenAnt = b2Vec2(0,0);
     cenSig = b2Vec2(0,0);
-    zAnt = 0;
-    zSig = 0;
-    porcentGap = 0.1f;
+    porcentGap = 0.2f;
     fpsAnt = 30;
     porcentUpdate = 0.0f;
     updateT = 1000.f/60.f;
-    for(int i = 0; i<0 ;i++){
+    for(int i = 0; i<10 ;i++){
         flowCam.push_back(glm::vec3(0,0,0));
     }
 }
@@ -47,15 +45,13 @@ glm::vec3 GameCamera::update(float time, int fps){
                 porcentUpdate = 0;
                 cenAnt = b2Vec2(cenSig.x,cenSig.y);
                 cenSig = b2Vec2((xMin + xMax)/2,(yMin + yMax)/2);
-                zAnt = zSig;
-                zSig =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f))-1;
                 porcentGap = ceil(((1000.f/fps)/updateT)*10)/10;
                 updateT = 1000.f/(fps/10.0f);
                 fpsAnt = fps;
             }
             float cenX = cenAnt.x + ((cenSig.x - cenAnt.x)/(porcentGap*100)*porcentUpdate*10);
             float cenY = cenAnt.y + ((cenSig.y - cenAnt.y)/(porcentGap*100)*porcentUpdate*10);
-            z          = zAnt + ((zSig - zAnt)/(porcentGap*100)*porcentUpdate*10);;
+            z =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f))-1;
             if(z<MINZ)z = MINZ;
             float incrementX = (float)abs(xMax-xMin);
             float incrementY = (float)abs(yMax-yMin);

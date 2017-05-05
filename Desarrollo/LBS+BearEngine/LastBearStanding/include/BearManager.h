@@ -22,6 +22,7 @@ class BearMngr{
         TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
+        void SetXRotation(TNodo* nodo,float);
         void SetBearCameraPosition(float x, float y, float z);
         void RemoveBearNode(TNodo* nodo);
         void IsBearVisible(TNodo* nodo, bool visible);

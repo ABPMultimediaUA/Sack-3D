@@ -9,7 +9,7 @@ class GameCamera{
     public:
         GameCamera();
         ~GameCamera();
-        update(float time,int fps);
+        glm::vec3 update(float time,int fps);
     private:
         uint32 tiempoTransc;
         float updateT;
@@ -19,6 +19,8 @@ class GameCamera{
         //irr::core::matrix4 projMat;
         b2Vec2 cenAnt;
         b2Vec2 cenSig;
+        float zAnt;
+        float zSig;
         int fpsAnt;
 };
 #endif

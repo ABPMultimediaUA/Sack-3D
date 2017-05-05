@@ -19,6 +19,7 @@
 #include "SDL.h"
 #include "GameObject.h"
 #include "PhysicBody/PBAlivePlayer.h"
+#include "PhysicBody/PBDefault.h"
 
 const int World::velocityIterations = 8;
 const int World::positionIterations = 3;
@@ -48,11 +49,13 @@ int World::getTimeMapa(){
 void World::inicializaVariables(const char* mapFile,int *puntuaciones){
   m_Mapa.Reset(new Map(mapFile));
   camara.Reset(new GameCamera());
+  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,"media/Maps/Background/room.jpg");
   for (int i = 0; i < m_Players.Size(); ++i){
     if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){
       bot->InicializaVariables();
     }
   }
+  m_fondo.SetRotation(-90*3.14/180);
   TimeStamp = SDL_GetTicks();
   DeltaTime = SDL_GetTicks() - TimeStamp;
 }
@@ -103,7 +106,10 @@ int World::Update(int fps){
   UpdateSpawners();
   int players;
   players = UpdatePlayers();
-  camara.Get()->update(TimeStamp, fps);
+  glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
+  m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
+  m_fondo.SetZ(posCam.z-20);
+  m_fondo.Update();
   return players;
 }
 

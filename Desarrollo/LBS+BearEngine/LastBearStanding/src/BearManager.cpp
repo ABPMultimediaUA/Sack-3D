@@ -85,7 +85,11 @@ void BearMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
 	m_motorBear->TrasladarObjeto(nodo,pos);
 }
 void BearMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
-	m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+}
+void BearMngr::SetXRotation(TNodo* nodo,float rotation){
+    m_motorBear->reiniciarRotacion(nodo);
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,rotation,0));
 }
 void BearMngr::SetBearCameraPosition(float x, float y, float z){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));

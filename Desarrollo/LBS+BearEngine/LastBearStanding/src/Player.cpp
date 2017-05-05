@@ -9,8 +9,8 @@
 #include "Client.h"
 #include "World.h"
 
-Player::Player(b2Vec2 pos, int numMando)
-:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Oso.obj","media/Images/player2.png"),mando(numMando){
+Player::Player(b2Vec2 pos, char *texture, int numMando)
+:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Oso.obj",texture),mando(numMando){
     m_pClient = Client::Inst();
     vel = 3.0f;
     moviendoA = 0;
@@ -32,12 +32,12 @@ Player::Player(b2Vec2 pos, int numMando)
  Player::~Player(){
 }
 void Player::actualiza(){
-    if(World::Inst()->getTimeMapa()>3000){
+    //if(World::Inst()->getTimeMapa()>3000){
         if(teletransportado)teletransportar();
         if(!muerto && paraMorir)morir();
         m_gameObject.Update();
         mover();
-    }
+    //}
 }
 void Player::mover(){
     if(muerto || fingiendoMuerte)
@@ -135,7 +135,7 @@ void Player::BloodExplosion(){
         tam.x = ((float)(rand()%10)/250.f)+0.002f;
         tam.y = tam.x;
         tam.z = 0.02f;
-        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300));
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300,"BearEngine/res/arma.obj","media/Images/sangre.png"));
         b2Vec2 capVel;
         capVel.x = (dir*(rand()%300)/10.f)+0.5f;
         capVel.y =((rand()%100)/10.f)+0.5f;

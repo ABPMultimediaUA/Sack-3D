@@ -8,7 +8,7 @@
 #include <ctime>
 #include <stdlib.h>
 
-Bot::Bot(b2Vec2 pos, int mando, char idr[]):Player( pos,  mando){
+Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture, mando){
     strncpy(id, idr, sizeof(id));
     enMuelle = false;
     salto = 7.0f;
@@ -175,13 +175,19 @@ void Bot::mover(){
               }
             }
         }
-        else if(m_gameObject.GetPosition().x > nodox){direccion = dir = -1;}
-        else if(m_gameObject.GetPosition().x < nodox){direccion = dir = 1;}
+        else if(m_gameObject.GetPosition().x > nodox){
+          direccion = dir = -1;
+      }
+        else if(m_gameObject.GetPosition().x < nodox){
+          direccion = dir = 1;
+      }
     }
     if(direccion != direccionA){
         direccionA = direccion;
         m_pClient->enviarMoviendo(dir, mando);
     }
+    if(dir >= 0)m_gameObject.SetXRotation(0);
+    else        m_gameObject.SetXRotation(180);
     m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
 }

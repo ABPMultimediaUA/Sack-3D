@@ -2,8 +2,7 @@
 #include "World.h"
 #include <iostream>
 
-GameObject::GameObject():m_margin(b2Vec2(0,0)){
-    m_pWorld   = World::Inst();
+GameObject::GameObject():m_margin(b2Vec2(0,0)),m_z(0){
     m_pBearMngr = BearMngr::Inst();
     m_GRphysicBody.Reset(NULL);
     m_pPhysicBody = NULL;
@@ -14,6 +13,7 @@ GameObject::~GameObject(){
     if(m_bearNodo)m_pBearMngr->RemoveBearNode(m_bearNodo);
 }
 int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask, int userdata, b2Vec2 pos, glm::vec3 tam, char *model,char *texture){
+    m_pWorld   = World::Inst();
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -24,12 +24,16 @@ int GameObject::Inicialize(PhysicBody *physicBody, uint16 category, uint16 mask,
     m_pPhysicBody->SetMask(mask);
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.x,tam.y));
     if(!model)
-        m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/textures.jpg");
+        if(!texture)
+            m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/textures.jpg");
+        else
+            m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,texture);
     else
         m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
     return m_id;
 }
 int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, char *model,char *texture){
+    m_pWorld   = World::Inst();
     m_tam = tam;
     m_pos.x = pos.x*2.0f;
     m_pos.y = pos.y*2.0f;
@@ -38,14 +42,18 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, ch
     m_pWorld   = World::Inst();
     m_pBearMngr = BearMngr::Inst();
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.x,tam.y));
-    if(!model)
-        m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/texture.jpg");
+     if(!model)
+        if(!model)
+            m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/textures.jpg");
+        else
+            m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,texture);
     else
-       m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
+        m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
+    
     return m_id;
 }
 void GameObject::Update(){
-    m_pBearMngr->SetBearCubePosition(m_bearNodo,glm::vec3(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,0));
+    m_pBearMngr->SetBearCubePosition(m_bearNodo,glm::vec3(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,m_z));
     m_pBearMngr->SetBearCubeRotation(m_bearNodo,m_pPhysicBody->GetRotation());
 }
 b2Vec2 GameObject::GetPosition(){
@@ -89,6 +97,9 @@ void GameObject::SetRotation(float angle){
 void GameObject::SetAngularVelocity(float imp){
     m_pPhysicBody->SetAngularVelocity(imp);
 }
+void GameObject::SetXRotation(int rot){
+    m_pBearMngr->SetXRotation(m_bearNodo,rot*3.14/180);
+}
 void GameObject::SetLinearVelocity(b2Vec2 vel){
     m_pPhysicBody->SetLinearVelocity(vel);
 }
@@ -97,6 +108,9 @@ void GameObject::SetPosition(b2Vec2 pos){
 }
 void GameObject::SetMargin(b2Vec2 margin){
     m_margin = margin;
+}
+void GameObject::SetZ(float z){
+    m_z = z;
 }
 void GameObject::Catch(int id){
     m_pPhysicBody->Catch(id);

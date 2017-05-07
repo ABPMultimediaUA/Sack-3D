@@ -4,7 +4,7 @@
 #include "PhysicBody/PBDefault.h"
 #include "PhysicBody/PBDefaultSensor.h"
 
-Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam){
+Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam, char *texture){ 
     if(!mata){
         m_id = m_gameObject.Inicialize(
             new PBDefault()
@@ -13,6 +13,8 @@ Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam){
             ,0
             ,pos
             ,tam
+            ,NULL
+            ,texture
         );
     }
     else{

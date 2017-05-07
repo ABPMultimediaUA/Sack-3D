@@ -5,7 +5,7 @@
 
 class Bala{
     public:
-        Bala(b2Vec2 pos, int tiempoVidaP, int velocidad, float deviacionP, int dir, int tipo = 0);
+        Bala(b2Vec2 pos, int tiempoVidaP, int velocidad, float deviacionP, int dir, int tipo = 0,  char *model = "BearEngine/res/arma.obj", char *texture = NULL);
         virtual ~Bala();
         void actualiza();
         void teletransportar();

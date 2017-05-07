@@ -6,6 +6,7 @@
 #endif
 #include "../include/ttransform.h"
 
+
 #include <iostream>
 
 Display::Display(int width, int height, const std::string& title)
@@ -20,12 +21,13 @@ Display::Display(int width, int height, const std::string& title)
     SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-
+    myEventReceiver = new MyEventReceiver();
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     m_glContext = SDL_GL_CreateContext(m_window);
     windowSurface = NULL;
     windowSurface = SDL_GetWindowSurface(m_window);
     ren = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    MyEventReceiver* myEventReceiver;
     //fondo = NULL;
     //fondo = IMG_Load("res/fondo.jpg");
     //if(fondo == NULL)
@@ -87,6 +89,8 @@ int Display::Update(TNodo* TfCamera){
     SDL_Event e;
 
     while(SDL_PollEvent(&e)){
+        myEventReceiver->OnEvent(&e);
+        /*
         if(e.type == SDL_QUIT){
             m_isClosed = true;
         }else if(e.type == SDL_KEYDOWN){
@@ -155,7 +159,7 @@ int Display::Update(TNodo* TfCamera){
                     break;
 
             }
-        }
+        }*/
     }
 
 

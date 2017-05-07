@@ -5,7 +5,6 @@
 #include "glm/glm.hpp"
 
 class DebugInfo;
-class HUD;
 class MyEventReceiver;
 class TMotorBear;
 class TNodo;
@@ -22,6 +21,7 @@ class BearMngr{
         TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
+        void SetXRotation(TNodo* nodo,float);
         void SetBearCameraPosition(float x, float y, float z);
         void RemoveBearNode(TNodo* nodo);
         void IsBearVisible(TNodo* nodo, bool visible);
@@ -34,7 +34,6 @@ class BearMngr{
         static const unsigned int m_windowSize;
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;
-        GameResource<HUD> hud;
         GameResource<TMotorBear> m_gMotorBear;
         GameResource<Shader> m_gShader;
         TMotorBear* m_motorBear;

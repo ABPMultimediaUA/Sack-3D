@@ -16,7 +16,15 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "SDL.h"
 
-Map::Map(const char* doc){
+Map::Map(const char* doc,int numMapa){
+    switch(numMapa){
+      case 1:  textFondo = "media/Images/platform_blue.jpg"; break;
+      case 2:  textFondo = "media/Images/platform_pink.jpg"; break;
+      case 3:  textFondo = "media/Images/platform_red.jpg"; break;
+      case 4:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 5:  textFondo = "media/Images/platform_brown.jpg"; break;
+      default: textFondo = "media/Images/platform_pink.jpg"; break;
+    }
     player = false;
     numPlayer = 0;
     playerRed = 0;
@@ -63,7 +71,7 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
+    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -86,14 +94,21 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
+    char* texture; 
+    switch(numPlayer){
+      case 0: texture = "media/Images/Red.png"; break;
+      case 1: texture = "media/Images/Green.png"; break;
+      case 2: texture = "media/Images/Yellow.png"; break;
+      case 3: texture = "media/Images/Pink.png"; break;
+    }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){
-      World::Inst()->AddPlayer(new Player(posi,numPlayer));
+      World::Inst()->AddPlayer(new Player(posi,texture,numPlayer));
    }
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
-        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0', Client::Inst()->playersRed[i].id));
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',texture, Client::Inst()->playersRed[i].id));
         playerRed++;
         }
       }
@@ -103,18 +118,18 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new Bot(posi,numPlayer, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer,texture, aux));
           }else{
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer, aux));
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,texture, aux));
           }
       }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
+     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddNodo(){
 

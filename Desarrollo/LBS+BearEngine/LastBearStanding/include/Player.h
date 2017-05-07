@@ -14,7 +14,7 @@ class MyEventReceiver;
 class Client;
 class Player: public Cogible{
     public:
-        Player(b2Vec2 pos, int mando);
+        Player(b2Vec2 pos, char *texture,int mando);
         virtual ~Player();
         virtual void actualiza();
         virtual void teletransportar();

@@ -67,10 +67,10 @@
  <objectgroup name="Muelles"/>
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="82" y="55" width="1" height="1"/>
-  <object id="1119" gid="271" x="81" y="63" width="1" height="1"/>
-  <object id="1127" gid="271" x="56" y="36" width="1" height="1"/>
-  <object id="1161" gid="271" x="56" y="69" width="1" height="1"/>
+  <object id="1002" gid="271" x="73" y="46" width="1" height="1"/>
+  <object id="1119" gid="271" x="75" y="55" width="1" height="1"/>
+  <object id="1127" gid="271" x="58" y="46" width="1" height="1"/>
+  <object id="1161" gid="271" x="57" y="55" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

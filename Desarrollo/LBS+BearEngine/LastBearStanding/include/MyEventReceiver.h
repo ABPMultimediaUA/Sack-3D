@@ -2,36 +2,41 @@
 #ifndef MYEVENTRECEIVER_H
 #define MYEVENTRECEIVER_H
 
+#include <SDL.h>
+
 class MyEventReceiver;
 struct Key2Method{
-	int keyCode;
+  SDL_Keycode keyCode;
     void (MyEventReceiver::*p)();
 };
 class MyEventReceiver{
      public:
-     	MyEventReceiver();
+      MyEventReceiver();
         virtual ~MyEventReceiver(){}
-     //	virtual bool OnEvent(const irr::SEvent& event);
-		//virtual bool IsKeyDown(irr::EKEY_CODE keyCode)const;
-		void ClickEspacio();
-		void ClickEnter();
-		void ClickQ();
-    void ClickP();
-		void ClickE();
-    void ClickEscape();
-		void ClickF12();
+        virtual bool OnEvent(SDL_Event *event);
+    virtual bool IsKeyDown(SDL_Keycode keyCode)const;
+    void ClickEspacio();
+    void ClickEnter();
+    void ClickQ();
+        void ClickP();
+    void ClickE();
+    void ClickA();
+        void ClickEscape();
+    void ClickF12();
     private:
-    	//bool KeyIsDown[irr::KEY_KEY_CODES_COUNT];
-    	//const Key2Method keys[8] = {
-      //        { irr::KEY_SPACE    , ClickEspacio    }
-      //      , { irr::KEY_RETURN   , ClickEnter      }
-      //      , { irr::KEY_KEY_Q    , ClickQ          }
-      //      , { irr::KEY_KEY_E    , ClickE      	  }
-      //      , { irr::KEY_KEY_P    , ClickP          }
-      //      , { irr::KEY_ESCAPE   , ClickEscape     }
-      //      , { irr::KEY_F12      , ClickF12        }
-      //      , { irr::KEY_ZOOM     , 0               }
-      //  };
+      //SDL_Event event;
+      bool KeyIsDown(SDL_Keycode);
+      const Key2Method keys[9] = {
+              { SDLK_SPACE        , ClickEspacio    }
+            , { SDLK_RETURN       , ClickEnter      }
+            , { SDLK_q            , ClickQ          }
+            , { SDLK_e            , ClickE        }
+            , { SDLK_p            , ClickP          }
+            , { SDLK_ESCAPE       , ClickEscape     }
+            , { SDLK_a            , ClickA          }
+            , { SDLK_F12          , ClickF12        }
+            , { SDLK_F1           , 0               }
+      };
 };
 
 #endif

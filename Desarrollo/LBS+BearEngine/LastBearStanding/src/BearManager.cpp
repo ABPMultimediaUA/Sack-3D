@@ -32,12 +32,10 @@ BearMngr::BearMngr():m_debugMode(false){
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
-  	//hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
 void BearMngr::Update(){
     m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
 	m_shader->Bind();
-	//hud.Get()->Draw();
 	//if(m_debugMode)
 	//	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
 	m_motorBear->draw(m_shader);
@@ -85,7 +83,11 @@ void BearMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
 	m_motorBear->TrasladarObjeto(nodo,pos);
 }
 void BearMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
-	m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+}
+void BearMngr::SetXRotation(TNodo* nodo,float rotation){
+    m_motorBear->reiniciarRotacion(nodo);
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,rotation,0));
 }
 void BearMngr::SetBearCameraPosition(float x, float y, float z){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));

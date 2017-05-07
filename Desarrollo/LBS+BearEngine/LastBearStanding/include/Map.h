@@ -14,7 +14,7 @@ struct Layer2Method {
 
 class Map{
     public:
-        Map(const char* doc);
+        Map(const char* doc,int numMap);
         virtual ~Map(){}
         void AddSpawner();
 		void AddPlatform();
@@ -47,6 +47,7 @@ class Map{
         float width;
         float height;
         int name;
+        char* textFondo;
         int typeInt;
         const char* typeString;
         bool player;

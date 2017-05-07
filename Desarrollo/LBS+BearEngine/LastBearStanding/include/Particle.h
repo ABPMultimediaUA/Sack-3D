@@ -5,7 +5,7 @@
 
 class Particle{
     public:
-        Particle(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam,  int tiempoVida = 5000);
+        Particle(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam,  int tiempoVida = 5000,  char *model = "BearEngine/res/arma.obj", char *texture = NULL);
         virtual ~Particle();
         void actualiza();
         void SetAngularVelocity(float imp);

@@ -4,25 +4,24 @@
 #include "Player.h"
 #include "World.h"
 
-//bool MyEventReceiver::OnEvent(const irr::SEvent& event){
-//    if(event.EventType == irr::EET_KEY_INPUT_EVENT ){
-//        KeyIsDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
-//        if(event.KeyInput.PressedDown == true){
-//            const Key2Method * it = keys;
-//            while(it->keyCode != irr::KEY_ZOOM ){
-//                if(it->keyCode == event.KeyInput.Key){
-//                    if(World::Inst()->getTimeMapa() > 3000)  (this->*it->Key2Method::p)();
-//                    break;
-//                }
-//                it++;
-//            }
-//        }
-//    }
-//    return true;
-//}
-//bool MyEventReceiver::IsKeyDown(irr::EKEY_CODE keyCode) const{
-//  return KeyIsDown[keyCode];
-//}
+bool MyEventReceiver::OnEvent(SDL_Event *event){
+    if(event->type == SDL_KEYDOWN ){
+        //std::cout<<"-------------------------------------------------TECLA: "<<SDL_GetKeyName(event->key.keysym.sym)<<std::endl;
+            const Key2Method * it = keys;
+            while(it->keyCode != SDLK_F1){
+                if(it->keyCode == event->key.keysym.sym){
+                    if(World::Inst()->getTimeMapa() > 3000)  (this->*it->Key2Method::p)();
+                    break;
+                }
+                it++;
+            }
+    }
+    return true;
+}
+
+bool MyEventReceiver::IsKeyDown(SDL_Keycode key) const{
+  return true;
+}
 MyEventReceiver::MyEventReceiver(){
   //for (irr::u32 i=0; i<irr::KEY_KEY_CODES_COUNT; ++i)KeyIsDown[i]= false;
 }
@@ -38,6 +37,10 @@ void MyEventReceiver::ClickQ(){
     int id = (*Client::Inst()->getIdCliente())-'0';
   World::Inst()->getPlayer(id)->fingirMuerte();
 }
+void MyEventReceiver::ClickA(){
+     int id = (*Client::Inst()->getIdCliente())-'0';
+    World::Inst()->getPlayer(id)->mover();
+}
 void MyEventReceiver::ClickE(){
     int id = (*Client::Inst()->getIdCliente())-'0';
   World::Inst()->getPlayer(id)->CogerTirar();
@@ -48,6 +51,7 @@ void MyEventReceiver::ClickP(){
     std::cout<<"Time de Mapa: "<<World::Inst()->getTimeMapa()<<std::endl;
 }
 void MyEventReceiver::ClickEscape(){
+
 }
 void MyEventReceiver::ClickF12(){
   BearMngr::Inst()->SwitchDebugMode();

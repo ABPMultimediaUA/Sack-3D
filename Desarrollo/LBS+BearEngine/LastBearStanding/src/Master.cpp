@@ -53,7 +53,7 @@ void Master::InstanciaMundo(){
     const Num2Map * it = maps;
     while(it->num != 0){
         if(it->num == (mapList[m_game]+1)){
-            World::Inst()->inicializaVariables(it->map,puntuaciones);
+            World::Inst()->inicializaVariables(it->map,puntuaciones,it->num);
             m_game++;
             break;
         }

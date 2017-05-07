@@ -14,7 +14,7 @@ GameCamera::GameCamera(){
     cenSig = b2Vec2(0,0);
     zAnt = 0;
     zSig = 0;
-    porcentGap = 0.1f;
+    porcentGap = 0.01f;
     fpsAnt = 30;
     porcentUpdate = 0.0f;
     updateT = 1000.f/60.f;

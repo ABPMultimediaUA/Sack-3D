@@ -1,27 +1,19 @@
 #ifndef HUD_H
 #define HUD_H
 
-#include "BearManager.h"
-
+#include "GameObject.h"
 class HUD{
     public:
-        HUD(int*, int width,int height);
+        HUD();
         ~HUD(){}
-        void DrawHud(int marcador, int angle, int x, int y, int marginX, int marginY);
-        void Draw();
+        Inicialize(int *puntuaciones);
+        void Update(glm::vec3 pos);
 
     private:
-        BearMngr* m_BearMngr;
-        //irr::video::ITexture* m_hudImage_Red;
-        //irr::video::ITexture* m_hudImage_Green;
-        //irr::video::ITexture* m_hudImage_Yellow;
-        //irr::video::ITexture* m_hudImage_Pink;
-        //irr::gui::IGUIFont* font;
-        //irr::video::SColor fColor;
-        //irr::video::SColor black_color;
-        int* puntuaciones;
-        int m_width;
-        int m_height;
+        GameObject m_red,
+                   m_green,
+                   m_yellow,
+                   m_pink;
 };
 
 #endif

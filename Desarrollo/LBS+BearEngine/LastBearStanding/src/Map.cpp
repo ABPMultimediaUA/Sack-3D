@@ -16,7 +16,15 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "SDL.h"
 
-Map::Map(const char* doc){
+Map::Map(const char* doc,int numMapa){
+    switch(numMapa){
+      case 1:  textFondo = "media/Images/platform_blue.jpg"; break;
+      case 2:  textFondo = "media/Images/platform_pink.jpg"; break;
+      case 3:  textFondo = "media/Images/platform_red.jpg"; break;
+      case 4:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 5:  textFondo = "media/Images/platform_brown.jpg"; break;
+      default: textFondo = "media/Images/platform_pink.jpg"; break;
+    }
     player = false;
     numPlayer = 0;
     playerRed = 0;
@@ -63,7 +71,7 @@ void Map::AddSpawner(){
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
+    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -121,7 +129,7 @@ void Map::AddPlayer(){
    numPlayer++;
 }
 void Map::AddPincho(){
-     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f)));
+     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddNodo(){
 

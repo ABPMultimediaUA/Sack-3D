@@ -34,7 +34,6 @@ void Granada::setCogido(bool aux){
     }
     else{
         m_id = m_gameObject.SetMode(new PBGranadaReleased());
-        m_gameObject.SetMargin(b2Vec2(0,0));
     }
     cogido = aux;
 }

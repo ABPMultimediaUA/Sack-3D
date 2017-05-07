@@ -5,7 +5,6 @@
 #include "glm/glm.hpp"
 
 class DebugInfo;
-class HUD;
 class MyEventReceiver;
 class TMotorBear;
 class TNodo;
@@ -35,7 +34,6 @@ class BearMngr{
         static const unsigned int m_windowSize;
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;
-        GameResource<HUD> hud;
         GameResource<TMotorBear> m_gMotorBear;
         GameResource<Shader> m_gShader;
         TMotorBear* m_motorBear;

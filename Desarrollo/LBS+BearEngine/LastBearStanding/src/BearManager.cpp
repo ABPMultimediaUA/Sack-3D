@@ -32,12 +32,10 @@ BearMngr::BearMngr():m_debugMode(false){
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
-  	//hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
 void BearMngr::Update(){
     m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
 	m_shader->Bind();
-	//hud.Get()->Draw();
 	//if(m_debugMode)
 	//	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
 	m_motorBear->draw(m_shader);

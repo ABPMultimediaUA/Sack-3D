@@ -59,6 +59,8 @@ void Player::mover(){
         m_pClient->enviarMoviendo(moviendo, mando);
         moviendoA = moviendo;
     }
+    if(dir >=  0)m_gameObject.SetXRotation(0);     
+    if(dir == -1)m_gameObject.SetXRotation(180);                                                               
     m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(moviendo);
 }

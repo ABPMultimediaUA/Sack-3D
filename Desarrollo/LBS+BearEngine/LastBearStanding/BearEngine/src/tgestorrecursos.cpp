@@ -67,8 +67,8 @@ int encontrado=0;
             recu->setTipo(tipo);
             //std::cout<<"Textura Cargada"<<std::endl;
             recursos.push_back(recu);
-            std::cout<<recu->GetNombre()<<std::endl;
-            std::cout<<std::endl;
+            //std::cout<<recu->GetNombre()<<std::endl;
+            //std::cout<<std::endl;
           //  delete(mesh); Peta
         }
     }

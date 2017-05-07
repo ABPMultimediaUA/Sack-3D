@@ -46,10 +46,20 @@ Lista* World::getListaNodos(){
 int World::getTimeMapa(){
   return m_Mapa.Get()->getTime();
 }
-void World::inicializaVariables(const char* mapFile,int *puntuaciones){
-  m_Mapa.Reset(new Map(mapFile));
+void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap){
+  m_Mapa.Reset(new Map(mapFile,numMap));
   camara.Reset(new GameCamera());
-  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,"media/Maps/Background/room.jpg");
+  char* textFondo;
+  switch(numMap){
+    case 1:  textFondo = "media/Maps/Background/fridge.jpg"; break;
+    case 2:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 3:  textFondo = "media/Maps/Background/kitchen.jpg"; break;
+    case 4:  textFondo = "media/Maps/Background/bathroom.jpg"; break;
+    case 5:  textFondo = "media/Maps/Background/garden.jpg"; break;
+    default: textFondo = "media/Maps/Background/room.jpg"; break;
+  }
+  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,textFondo);
+  m_hud.Inicialize(puntuaciones);
   for (int i = 0; i < m_Players.Size(); ++i){
     if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){
       bot->InicializaVariables();
@@ -107,8 +117,9 @@ int World::Update(int fps){
   int players;
   players = UpdatePlayers();
   glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
+  m_hud.Update(posCam);
   m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
-  m_fondo.SetZ(posCam.z-20);
+  m_fondo.SetZ(posCam.z-15);
   m_fondo.Update();
   return players;
 }

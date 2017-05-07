@@ -62,7 +62,7 @@ void PBAlivePlayer::Catch(int id){
      b2RevoluteJointDef jointDef;
     jointDef.bodyA = m_pBody;
     jointDef.bodyB = GetBodyWithId(id);
-    jointDef.localAnchorA.Set(0,0.06f);
+    jointDef.localAnchorA.Set(0,0);
     jointDef.localAnchorB.Set(0,0);
     m_pJoint = (b2RevoluteJoint*)m_pWorld->CreateJoint(&jointDef);
 }

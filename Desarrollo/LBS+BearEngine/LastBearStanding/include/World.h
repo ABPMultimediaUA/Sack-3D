@@ -6,6 +6,7 @@
 #include "GameResource.h"
 #include "RVector.h"
 #include "Client.h"
+#include "HUD.h"
 
 
 class Teleport;
@@ -60,7 +61,7 @@ class World{
         static World* Inst();
         World();
         virtual ~World(){}
-        void inicializaVariables(const char* mapFile,int* puntuaciones);
+        void inicializaVariables(const char* mapFile,int* puntuaciones, int numMap);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
         void  SwitchDebugMode();
@@ -106,6 +107,7 @@ class World{
         float                    DeltaTime;
         float                    TimeStamp;
         bool                     m_debugMode;
+        HUD                      m_hud;
         GameResource<GameCamera> camara;
         GameResource<Map>        m_Mapa;
         GameObject               m_fondo;

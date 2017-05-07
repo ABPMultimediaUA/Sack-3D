@@ -31,7 +31,6 @@ void Cogible::setCogido(bool aux){
     }
     else{
         m_id = m_gameObject.SetMode(new PBCogibleReleased());
-        m_gameObject.SetMargin(b2Vec2(0.01f*dir,0));
     }
     cogido = aux;
 }
@@ -50,6 +49,10 @@ void     Cogible::setDireccion(int d){
     if(d != 0){
         dir = d;
         m_gameObject.SetMargin(b2Vec2(0.01f*d,0));
+    }
+    if(cogido){
+         if(d >= 0)m_gameObject.SetXRotation(0);
+         else        m_gameObject.SetXRotation(180);
     }
 }
 b2Vec2   Cogible::GetPosition(){return m_gameObject.GetPosition();}

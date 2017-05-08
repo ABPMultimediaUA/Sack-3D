@@ -12,6 +12,7 @@
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
 :Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj","media/Images/granadatex.png"),mecha(3000){
+  usos = 1;
   usada = false;
   cogedor=-1;
   timerGranada = SDL_GetTicks();
@@ -49,6 +50,7 @@ void Granada::usar(){
         World::Inst()->getPlayer(id)->CogerTirar();
         timerGranada = SDL_GetTicks();
         usada=true;
+        usos --;
     }
 }
 void Granada::Explosion(){

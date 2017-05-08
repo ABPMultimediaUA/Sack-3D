@@ -78,7 +78,6 @@ void PlayerRed::CogerTirar(int idCogible){
               objCogido = m_pWorld->GetCogibles().at(i);
             }
         }
-
         objCogido = objPuedoCoger;
         objCogido->setCogido(true);
         objCogido->setDireccion(1);

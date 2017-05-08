@@ -63,14 +63,14 @@
   <object id="1143" x="84" y="43" width="3" height="3"/>
   <object id="1157" x="44" y="62" width="3" height="1"/>
  </objectgroup>
- <objectgroup name="Teleports"/>
- <objectgroup name="Muelles"/>
- <objectgroup name="Armas"/>
+ <objectgroup name="Teleports" visible="0"/>
+ <objectgroup name="Muelles" visible="0"/>
+ <objectgroup name="Armas" visible="0"/>
  <objectgroup name="Players">
   <object id="1002" gid="271" x="73" y="46" width="1" height="1"/>
   <object id="1119" gid="271" x="75" y="55" width="1" height="1"/>
   <object id="1127" gid="271" x="58" y="46" width="1" height="1"/>
-  <object id="1161" gid="271" x="57" y="55" width="1" height="1"/>
+  <object id="1161" gid="271" x="56" y="55" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

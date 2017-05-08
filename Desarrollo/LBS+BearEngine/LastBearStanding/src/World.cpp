@@ -18,6 +18,7 @@
 #include "Map.h"
 #include "SDL.h"
 #include "GameObject.h"
+#include "MyEventReceiver.h"
 #include "PhysicBody/PBAlivePlayer.h"
 #include "PhysicBody/PBDefault.h"
 
@@ -104,7 +105,7 @@ void  World::SwitchDebugMode(){
     }
   }
 }
-int World::Update(int fps){
+int World::Update(int fps,MyEventReceiver *events){
   DeltaTime = SDL_GetTicks() - TimeStamp;
   TimeStamp = SDL_GetTicks();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
@@ -115,7 +116,7 @@ int World::Update(int fps){
   UpdateCogibles();
   UpdateSpawners();
   int players;
-  players = UpdatePlayers();
+  players = UpdatePlayers(events);
   glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
   m_hud.Update(posCam);
   m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
@@ -144,11 +145,11 @@ void World::UpdateBalas(){
     }
   }
 }
-int World::UpdatePlayers(){
+int World::UpdatePlayers(MyEventReceiver *events){
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
     if(m_Players.Get(i)){
-      m_Players.Get(i)->actualiza();
+      m_Players.Get(i)->actualiza(events);
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }

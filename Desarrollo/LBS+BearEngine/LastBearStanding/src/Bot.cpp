@@ -46,7 +46,7 @@ void Bot::InicializaVariables(){
         muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }
 
-void Bot::actualiza(){
+void Bot::actualiza(MyEventReceiver *events){
     Player::actualiza();
     //std::cout<<"BOT: "<<mando<<" POS: "<<m_gameObject.GetPosition().x<< " "<<m_gameObject.GetPosition().y<<std::endl;
 
@@ -165,7 +165,7 @@ void Bot::colisionConNodo(int nodo){
 }
 
 
-void Bot::mover(){
+void Bot::mover(MyEventReceiver *events ){
     if(muerto || fingiendoMuerte){
         return;
     }

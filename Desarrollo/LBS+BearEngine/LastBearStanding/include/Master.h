@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Box2D/Box2D.h"
+#include "MyEventReceiver.h"
 
 struct Num2Map {
      int num;
@@ -17,6 +18,7 @@ class Master{
         void InstanciaMundo();
         virtual ~Master(){}
     private:
+        MyEventReceiver eventReceiver;
         std::vector<int> mapList;
     	bool finPartida;
         uint32 timeFPS;

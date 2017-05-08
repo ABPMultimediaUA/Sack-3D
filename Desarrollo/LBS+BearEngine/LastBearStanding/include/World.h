@@ -26,6 +26,7 @@ class Map;
 class Metralla;
 class Particle;
 class MyContactListener;
+class MyEventReceiver;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
     M_SUELO          = 0x0002,
@@ -70,10 +71,10 @@ class World{
         int getGanador();
         void Reset();
         int getVivos();
-        int Update(int fps);
+        int Update(int fps,MyEventReceiver *events);
         void UpdateCogibles();
         void UpdateBalas();
-        int  UpdatePlayers();
+        int  UpdatePlayers(MyEventReceiver *events);
         void UpdateSpawners();
         void UpdateMetrallas();
         void UpdateParticles();

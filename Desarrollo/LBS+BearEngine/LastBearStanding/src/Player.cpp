@@ -13,6 +13,9 @@
 Player::Player(b2Vec2 pos, char *texture, int numMando)
 :Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Oso.obj",texture),mando(numMando){
     m_pClient = Client::Inst();
+    boton_saltar = false;
+    boton_coger = false;
+    boton_muerto = false;
     vel = 3.0f;
     moviendoA = 0;
     moviendo = 0;
@@ -32,29 +35,53 @@ Player::Player(b2Vec2 pos, char *texture, int numMando)
 }
  Player::~Player(){
 }
-void Player::actualiza(){
-    //if(World::Inst()->getTimeMapa()>3000){
-        if(teletransportado)teletransportar();
-        if(!muerto && paraMorir)morir();
-        m_gameObject.Update();
-        mover();
-    //}
+void Player::actualiza(MyEventReceiver *events){
+    if(events){
+        if(!boton_saltar && events->IsKeyDown(SDLK_SPACE)){
+            boton_saltar = true;
+            saltar();
+        }
+        else if( boton_saltar && !events->IsKeyDown(SDLK_SPACE)){
+            boton_saltar = false;
+        }
+        if(!boton_coger && events->IsKeyDown(SDLK_e)){
+            boton_coger = true;
+            CogerTirar();
+        }
+        else if( boton_coger && !events->IsKeyDown(SDLK_e)){
+            boton_coger = false;
+        }
+        if(!boton_muerto && events->IsKeyDown(SDLK_q)){
+            boton_muerto = true;
+            fingirMuerte();
+        }
+        else if( boton_muerto && !events->IsKeyDown(SDLK_q)){
+            boton_muerto = false;
+        }
+         if(events->IsKeyDown(SDLK_RETURN)){
+            usar();
+        }
+    }
+    if(teletransportado)teletransportar();
+    if(!muerto && paraMorir)morir();
+    m_gameObject.Update();
+    mover(events);
 }
-void Player::mover(){
+void Player::mover(MyEventReceiver *events){
     if(muerto || fingiendoMuerte)
         return;
     dir = 0;
     int id2 = (*m_pClient->getIdCliente())-'0';
     if(mando == id2){
-        //if(eventReceiver->IsKeyDown(irr::KEY_KEY_A)){
-        //    moviendo = direccion = dir = -1;
-        //}
-        //else if(eventReceiver->IsKeyDown(irr::KEY_KEY_D)){
-        //    moviendo = direccion = dir = 1;
-        //}
-        //else{
-        //        moviendo = 0;
-        //}
+        if(events && events->IsKeyDown(SDLK_a)){
+            moviendo = direccion = dir = -1;
+        }
+        else if(events && events->IsKeyDown(SDLK_d)){
+            moviendo = direccion = dir = 1;
+        }
+        else{
+                moviendo = 0;
+        }
     }
     if(moviendo != moviendoA){
         m_pClient->enviarMoviendo(moviendo, mando);
@@ -100,9 +127,9 @@ void Player::fingirMuerte(){
         fingiendoMuerte = true;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.02f);
+            m_gameObject.SetAngularVelocity(-0.001f);
         else
-            m_gameObject.SetAngularVelocity(0.02f);
+            m_gameObject.SetAngularVelocity(0.001f);
     }
     else{
         fingiendoMuerte = false;

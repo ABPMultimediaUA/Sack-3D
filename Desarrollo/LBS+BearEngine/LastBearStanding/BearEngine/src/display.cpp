@@ -27,7 +27,7 @@ Display::Display(int width, int height, const std::string& title)
     windowSurface = NULL;
     windowSurface = SDL_GetWindowSurface(m_window);
     ren = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    MyEventReceiver* myEventReceiver;
+
     //fondo = NULL;
     //fondo = IMG_Load("res/fondo.jpg");
     //if(fondo == NULL)
@@ -86,81 +86,10 @@ int Display::Update(TNodo* TfCamera){
 
     SDL_GL_SwapWindow(m_window);
 
-    SDL_Event e;
-
-    while(SDL_PollEvent(&e)){
-        myEventReceiver->OnEvent(&e);
-        /*
-        if(e.type == SDL_QUIT){
-            m_isClosed = true;
-        }else if(e.type == SDL_KEYDOWN){
-            switch(e.key.keysym.sym){ // Controles de teclado, mover la camara con WASD y salir con ESC
-                case SDLK_ESCAPE:
-                     m_isClosed = true;
-                     break;
-                case SDLK_w:
-                    //camera->GetPosition()+= glm::vec3(0,0,1);
-                  //  tras->trasladar(glm::vec3(0,1,0));
-                  tras->SetPos(tras->GetPos()+glm::vec3(0,1,0));
-                    break;
-                case SDLK_a:
-                   // camera->GetPosition()+= glm::vec3(1,0,0);
-                   // tras->trasladar(glm::vec3(-1,0,0));
-                  tras->SetPos(tras->GetPos()+glm::vec3(-1,0,0));
-
-                    tras->GetPos().x-0.1;
-                    break;
-                case SDLK_s:
-                    //camera->GetPosition()+= glm::vec3(0,0,-1);
-                  //  tras->trasladar(glm::vec3(0,-1,0));
-                  tras->SetPos(tras->GetPos()+glm::vec3(0,-1,0));
-
-                    tras->GetPos().y-0.1;
-                    break;
-                case SDLK_d:
-                    //camera->GetPosition()+= glm::vec3(-1,0,0);
-                   // tras->trasladar(glm::vec3(1,0,0));
-                  tras->SetPos(tras->GetPos()+glm::vec3(1,0,0));
-
-                    tras->GetPos().x+0.1;
-                    break;
-                    case SDLK_q:
-                    //camera->GetPosition()+= glm::vec3(-1,0,0);
-                    //tras->trasladar(glm::vec3(0,0,1));
-                  tras->SetPos(tras->GetPos()+glm::vec3(0,0,1));
-
-                    tras->GetPos().z+0.1;
-                    break;
-                    case SDLK_e:
-                    //camera->GetPosition()+= glm::vec3(-1,0,0);
-                   // tras->trasladar(glm::vec3(0,0,-1));
-                  tras->SetPos(tras->GetPos()+glm::vec3(0,0,-1));
-
-                    tras->GetPos().z-0.1;
-                    break;
-                    case SDLK_r:
-                    //camera->GetPosition()+= glm::vec3(-1,0,0);
-                 //   rot->rotar(5, glm::vec3(0,1,0));
-                  tras->SetRot(tras->GetRot()+glm::vec3(0,glm::radians(5.0),0));
-
-                   // tras->GetPos().y+1;
-                    break;
-                    case SDLK_t:
-                    //camera->GetPosition()+= glm::vec3(-1,0,0);
-                  //  rot->rotar(5, glm::vec3(1,0,0));
-                  tras->SetRot(tras->GetRot()+glm::vec3(glm::radians(5.0),0,0));
-                    break;
-                case SDLK_m:
-                    malla=malla+1;
-                    if(malla>=4) malla=0;
-                    break;
-
-                default:
-                    break;
-
-            }
-        }*/
-    }
+    //SDL_Event e;
+    //while(SDL_PollEvent(&e)){
+    //    myEventReceiver->OnEvent(&e);
+    //}
 
 
     return malla;

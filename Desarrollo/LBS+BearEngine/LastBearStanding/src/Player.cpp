@@ -8,6 +8,7 @@
 #include "Usable.h"
 #include "Client.h"
 #include "World.h"
+#include "Granada.h"
 
 Player::Player(b2Vec2 pos, char *texture, int numMando)
 :Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Oso.obj",texture),mando(numMando){
@@ -59,8 +60,8 @@ void Player::mover(){
         m_pClient->enviarMoviendo(moviendo, mando);
         moviendoA = moviendo;
     }
-    if(dir >=  0)m_gameObject.SetXRotation(0);     
-    if(dir == -1)m_gameObject.SetXRotation(180);                                                               
+    if(dir >=  0)m_gameObject.SetXRotation(0);
+    if(dir == -1)m_gameObject.SetXRotation(180);
     m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(moviendo);
 }
@@ -149,7 +150,10 @@ void Player::CogerTirar(){
     if(!muerto && !fingiendoMuerte){
         if(puedoCoger && !cogiendo){
             Usable* usable = dynamic_cast<Usable*>(objPuedoCoger);
-            if(usable && usable->getUsos()){
+            if(usable && usable->getUsos() && !usable->getCogido()){
+                if(dynamic_cast<Granada*>(objPuedoCoger)){
+                    dynamic_cast<Granada*>(objPuedoCoger)->setCogedor(mando);
+                }
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
                 objCogido->setDireccion(1);

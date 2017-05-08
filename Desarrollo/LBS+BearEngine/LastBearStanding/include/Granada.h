@@ -10,15 +10,17 @@ class Granada:public Usable{
     public:
         Granada(Spawner* expo, int modelo,b2Vec2 pos);
         ~Granada();
-        void actualiza();           
+        void actualiza();
         void setCogido(bool aux);
+        void setCogedor(int aux);
         void Explosion();
-        void usar();                
+        void usar();
     private:
-        uint32 timerGranada;     
+        uint32 timerGranada;
         b2Body* particulas[PARTICULAS];
         int mecha;
+        int cogedor;
         bool usada;
 };
 
-#endif 
+#endif

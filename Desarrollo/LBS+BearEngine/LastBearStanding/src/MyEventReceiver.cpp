@@ -4,56 +4,18 @@
 #include "Player.h"
 #include "World.h"
 
-bool MyEventReceiver::OnEvent(SDL_Event *event){
+void MyEventReceiver::OnEvent(SDL_Event *event){
     if(event->type == SDL_KEYDOWN ){
-        //std::cout<<"-------------------------------------------------TECLA: "<<SDL_GetKeyName(event->key.keysym.sym)<<std::endl;
-            const Key2Method * it = keys;
-            while(it->keyCode != SDLK_F1){
-                if(it->keyCode == event->key.keysym.sym){
-                    if(World::Inst()->getTimeMapa() > 3000)  (this->*it->Key2Method::p)();
-                    break;
-                }
-                it++;
-            }
+        KeyIsDown[event->key.keysym.sym] = true;
     }
-    return true;
+    else if(event->type == SDL_KEYUP ){
+        KeyIsDown[event->key.keysym.sym] = false;
+    }
 }
 
 bool MyEventReceiver::IsKeyDown(SDL_Keycode key) const{
-  return true;
+  return KeyIsDown[key];
 }
 MyEventReceiver::MyEventReceiver(){
-  //for (irr::u32 i=0; i<irr::KEY_KEY_CODES_COUNT; ++i)KeyIsDown[i]= false;
-}
-void MyEventReceiver::ClickEspacio(){
-  int id = (*Client::Inst()->getIdCliente())-'0';
-  World::Inst()->getPlayer(id)->saltar();
-}
-void MyEventReceiver::ClickEnter(){
-  int id = (*Client::Inst()->getIdCliente())-'0';
-  World::Inst()->getPlayer(id)->usar();
-}
-void MyEventReceiver::ClickQ(){
-    int id = (*Client::Inst()->getIdCliente())-'0';
-  World::Inst()->getPlayer(id)->fingirMuerte();
-}
-void MyEventReceiver::ClickA(){
-     int id = (*Client::Inst()->getIdCliente())-'0';
-    World::Inst()->getPlayer(id)->mover();
-}
-void MyEventReceiver::ClickE(){
-    int id = (*Client::Inst()->getIdCliente())-'0';
-  World::Inst()->getPlayer(id)->CogerTirar();
-}
-void MyEventReceiver::ClickP(){
-    //int id = (*Client::Inst()->getIdCliente())-'0';
-    //std::cout<<"Posicon Plyaer: "<<World::Inst()->getPlayer(id)->getPosition().x<<" "<<World::Inst()->getPlayer(id)->getPosition().y<<std::endl;
-    std::cout<<"Time de Mapa: "<<World::Inst()->getTimeMapa()<<std::endl;
-}
-void MyEventReceiver::ClickEscape(){
-
-}
-void MyEventReceiver::ClickF12(){
-  BearMngr::Inst()->SwitchDebugMode();
-  World::Inst()->SwitchDebugMode();
+  for (int i=0; i<128; ++i)KeyIsDown[i] = false;
 }

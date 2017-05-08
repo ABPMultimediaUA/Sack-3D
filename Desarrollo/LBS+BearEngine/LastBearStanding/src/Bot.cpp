@@ -44,7 +44,7 @@ void Bot::InicializaVariables(){
         muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }
 
-void Bot::actualiza(){
+void Bot::actualiza(MyEventReceiver *events){
     Player::actualiza();
     //std::cout<<"BOT: "<<mando<<" POS: "<<m_gameObject.GetPosition().x<< " "<<m_gameObject.GetPosition().y<<std::endl;
 
@@ -154,7 +154,7 @@ void Bot::colisionConNodo(int nodo){
 }
 
 
-void Bot::mover(){
+void Bot::mover(MyEventReceiver *events ){
     if(muerto || fingiendoMuerte){
         return;
     }
@@ -171,22 +171,22 @@ void Bot::mover(){
             if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){
               if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1){
                   muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
-              }                                                                     
-            }                                                                     
-        }                                                                     
-        else if(m_gameObject.GetPosition().x > nodox){                                                                      
-          direccion = dir = -1;      
-      }                                                                     
-        else if(m_gameObject.GetPosition().x < nodox){                                                                      
-          direccion = dir = 1; 
-      }                                                                     
-    }                                                                     
-    if(direccion != direccionA){                                                                 
+              }
+            }
+        }
+        else if(m_gameObject.GetPosition().x > nodox){
+          direccion = dir = -1;
+      }
+        else if(m_gameObject.GetPosition().x < nodox){
+          direccion = dir = 1;
+      }
+    }
+    if(direccion != direccionA){
         direccionA = direccion;
         m_pClient->enviarMoviendo(dir, mando);
-    } 
-    if(dir >=  0)m_gameObject.SetXRotation(0);     
-    if(dir == -1)m_gameObject.SetXRotation(180);                                                               
+    }
+    if(dir >=  0)m_gameObject.SetXRotation(0);
+    if(dir == -1)m_gameObject.SetXRotation(180);
     m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
     if(cogiendo) objCogido->setDireccion(dir);
 }

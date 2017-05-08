@@ -16,9 +16,9 @@ class Player: public Cogible{
     public:
         Player(b2Vec2 pos, char *texture,int mando);
         virtual ~Player();
-        virtual void actualiza();
+        virtual void actualiza(MyEventReceiver *events = NULL);
         virtual void teletransportar();
-        virtual void mover();
+        virtual void mover(MyEventReceiver *events);
         virtual void saltar();
         virtual void CogerTirar();
         virtual void morir();
@@ -67,6 +67,9 @@ class Player: public Cogible{
         int moviendoA;
         int moviendo;
         float salto ;
+        bool boton_saltar;
+        bool boton_coger;
+        bool boton_muerto;
         int mando;
         bool cogiendo;
         bool puedoCoger;

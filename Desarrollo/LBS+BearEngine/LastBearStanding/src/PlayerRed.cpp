@@ -40,7 +40,7 @@ void PlayerRed::mover(int mov){
     }
 }
 
-void PlayerRed::actualiza(){
+void PlayerRed::actualiza(MyEventReceiver *events){
     m_gameObject.Update();
     mover(moviendo);
 }

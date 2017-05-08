@@ -5,12 +5,14 @@
 #include "World.h"
 
 void MyEventReceiver::OnEvent(SDL_Event *event){
-    if(event->type == SDL_KEYDOWN ){
-        KeyIsDown[event->key.keysym.sym] = true;
-    }
-    else if(event->type == SDL_KEYUP ){
-        KeyIsDown[event->key.keysym.sym] = false;
-    }
+    if(event->key.keysym.sym>=0 && event->key.keysym.sym<=128){
+    	if(event->type == SDL_KEYDOWN ){
+	        KeyIsDown[event->key.keysym.sym] = true;
+	    }
+	    else if(event->type == SDL_KEYUP ){
+	        KeyIsDown[event->key.keysym.sym] = false;
+	    }
+	}
 }
 
 bool MyEventReceiver::IsKeyDown(SDL_Keycode key) const{

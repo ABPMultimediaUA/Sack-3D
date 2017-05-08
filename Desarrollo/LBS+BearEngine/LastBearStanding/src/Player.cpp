@@ -127,9 +127,9 @@ void Player::fingirMuerte(){
         fingiendoMuerte = true;
         m_id = m_gameObject.SetMode(new PBDeadPlayer);
         if(direccion > 0 )
-            m_gameObject.SetAngularVelocity(-0.02f);
+            m_gameObject.SetAngularVelocity(-0.001f);
         else
-            m_gameObject.SetAngularVelocity(0.02f);
+            m_gameObject.SetAngularVelocity(0.001f);
     }
     else{
         fingiendoMuerte = false;

@@ -26,6 +26,7 @@ void Master::Update(){
     while(SDL_PollEvent(&e)){
         eventReceiver.OnEvent(&e);
     }
+    if(eventReceiver.IsKeyDown(SDLK_ESCAPE))SDL_Quit();
     if(SDL_GetTicks()-timeFPS>FPS){
         int fps = 1000/(SDL_GetTicks()-timeFPS);
         timeFPS = SDL_GetTicks();

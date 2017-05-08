@@ -27,6 +27,7 @@ Display::Display(int width, int height, const std::string& title)
     windowSurface = NULL;
     windowSurface = SDL_GetWindowSurface(m_window);
     ren = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
     //fondo = NULL;
     //fondo = IMG_Load("res/fondo.jpg");
     //if(fondo == NULL)

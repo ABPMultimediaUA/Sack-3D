@@ -19,16 +19,13 @@ BearMngr::BearMngr():m_debugMode(false){
 	myEventReceiver = new MyEventReceiver();
 	m_windowWidth = m_windowSize*16/9;
 	m_windowHeight = m_windowSize;
-	m_gMotorBear.Reset(new TMotorBear(m_windowSize*16/9,m_windowSize,"Last Bear Standing"));
+	m_gMotorBear.Reset(new TMotorBear(m_windowWidth,m_windowHeight,"Last Bear Standing"));
     m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
     m_shader = m_gShader.Get();
     m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, 16.f/9.f, 0.01f,1000.0f);
     m_motorBear->activarCamara(m_camara);
 }
-//void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
-//  	m_backgroundImage = bimage;
-//}
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());

@@ -47,13 +47,13 @@
  <objectgroup name="Players">
   <object id="1002" gid="271" x="53" y="58" width="1" height="1"/>
   <object id="1003" gid="271" x="81" y="65" width="1" height="1"/>
-  <object id="1040" gid="271" x="87" y="58" width="1" height="1"/>
+  <object id="1040" gid="271" x="79" y="58" width="1" height="1"/>
   <object id="1044" gid="271" x="51" y="65" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
- <objectgroup name="Spawners" visible="0">
+ <objectgroup name="Spawners">
   <object id="1080" name="1" type="1" gid="692377" x="43" y="58" width="1" height="1"/>
   <object id="1081" name="1" type="1" gid="692377" x="43" y="65" width="1" height="1"/>
   <object id="1082" name="1" type="1" gid="692377" x="89" y="58" width="1" height="1"/>

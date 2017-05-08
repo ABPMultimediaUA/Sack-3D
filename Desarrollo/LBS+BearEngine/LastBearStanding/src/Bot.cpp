@@ -108,8 +108,13 @@ void Bot::buscaJugador(){
                   estadoBot = 0;
               }
           }
+
+
     }
-    if(mando != mandobusco && players.at(mandobusco)->getMuerto()==false
+    else if(!cogiendo){
+        estadoBot = 0;
+    }
+    if(cogiendo && mando != mandobusco && players.at(mandobusco)->getMuerto()==false
           && abs(players.at(mandobusco)->GetPosition().x - m_gameObject.GetPosition().x)<3
           && abs(players.at(mandobusco)->GetPosition().y - m_gameObject.GetPosition().y)<0.2  ){
 

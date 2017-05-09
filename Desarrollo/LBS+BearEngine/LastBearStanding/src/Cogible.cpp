@@ -45,14 +45,16 @@ void Cogible::teletransportar(){
     m_gameObject.SetRotation(m_gameObject.GetRotation());
     m_gameObject.SetLinearVelocity(velActual);
 }
-void     Cogible::setDireccion(int d){
+/*if(lastDir ==  0)       m_gameObject.SetXRotation(0);
+    else if(lastDir == -1)  m_gameObject.SetXRotation(180);*/
+void Cogible::setDireccion(int d){
     if(d != 0){
         dir = d;
         m_gameObject.SetMargin(b2Vec2(0.01f*d,0));
     }
     if(cogido){
-         if(d >= 0)m_gameObject.SetXRotation(0);
-         else        m_gameObject.SetXRotation(180);
+         if(d == 1)         m_gameObject.SetXRotation(0);
+         else if(d == -1)   m_gameObject.SetXRotation(180);
     }
 }
 b2Vec2   Cogible::GetPosition(){return m_gameObject.GetPosition();}

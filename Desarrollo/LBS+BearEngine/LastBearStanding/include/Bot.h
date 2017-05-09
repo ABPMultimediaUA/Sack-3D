@@ -41,6 +41,7 @@ class Bot: public Player{
         bool primera;
         int direccion;
         int direccionA;
+        int lastDir;
         Nodo* nodoFinIni;
         float nodox;
         float nodoy;

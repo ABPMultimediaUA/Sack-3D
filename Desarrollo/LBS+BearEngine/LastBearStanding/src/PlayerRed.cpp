@@ -5,9 +5,10 @@
 #include "Particle.h"
 #include "World.h"
 #include "Usable.h"
+#include "Granada.h"
 
-PlayerRed::PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[], int ve, int sal)
-:Player(pos,mando,color){
+PlayerRed::PlayerRed(b2Vec2 pos, int mando,char *texture,  char idr[], int ve, int sal)
+:Player(pos,texture,mando){
     primera = true;
     strncpy(id, idr, sizeof(id));
     estadoAntiguo=LEVANTADO;
@@ -29,13 +30,17 @@ void PlayerRed::mover(int mov){
         if(moviendo == 1){direccion = moviendo = mov;}
         else if(moviendo == -1){direccion = moviendo = mov;}
         else{moviendo = mov;}
+
+        if(dir >=  0)m_gameObject.SetXRotation(0);
+        if(dir == -1)m_gameObject.SetXRotation(180);
+
         m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
         if(cogiendo) objCogido->SetLinearVelocity(m_gameObject.GetLinearVelocity());
         if(cogiendo) objCogido->setDireccion(mov);
     }
 }
 
-void PlayerRed::actualiza(){
+void PlayerRed::actualiza(MyEventReceiver *events){
     m_gameObject.Update();
     mover(moviendo);
 }
@@ -81,6 +86,10 @@ void PlayerRed::CogerTirar(int idCogible){
         objCogido->setCogido(true);
         objCogido->setDireccion(1);
         m_gameObject.Catch(objCogido->GetId());
+        Granada* gr = dynamic_cast<Granada*>(objCogido);
+         if(gr!=NULL){
+            gr->setCogedor(mando);
+        }
         cogiendo = true;
     }else{
         Soltar();

@@ -5,8 +5,8 @@
 
 class PlayerRed: public Player{
     public:
-        PlayerRed(b2Vec2 pos, int mando, irr::video::SColor color, char idr[], int ve=0, int sal=0);
-        virtual void actualiza();
+        PlayerRed(b2Vec2 pos, int mando,char *texture,   char idr[], int ve=0, int sal=0);
+        virtual void actualiza(MyEventReceiver *events);
         virtual ~PlayerRed();
         virtual void mover(int mov);
         virtual void setx(long int aux);

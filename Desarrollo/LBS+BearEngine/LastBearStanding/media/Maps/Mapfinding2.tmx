@@ -65,10 +65,10 @@
  <objectgroup name="Muelles"/>
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
-  <object id="1002" gid="271" x="34" y="42" width="1" height="1"/>
-  <object id="1003" gid="271" x="92" y="48" width="1" height="1"/>
-  <object id="1069" gid="271" x="107" y="30" width="1" height="1"/>
-  <object id="1070" gid="271" x="56" y="24" width="1" height="1"/>
+  <object id="1002" gid="271" x="62" y="48" width="1" height="1"/>
+  <object id="1003" gid="271" x="83" y="48" width="1" height="1"/>
+  <object id="1069" gid="271" x="88" y="36" width="1" height="1"/>
+  <object id="1070" gid="271" x="58" y="36" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
@@ -83,6 +83,6 @@
   <object id="1081" name="2" type="1" gid="205" x="36" y="30" width="1" height="1"/>
  </objectgroup>
  <imagelayer name="Capa de Imagen 1" visible="0">
-  <image source="Background/garden.jpg" width="1600" height="900"/>
+  <image source="Background/garden.jpg" width="1920" height="1080"/>
  </imagelayer>
 </map>

@@ -11,7 +11,6 @@ Teleport::Teleport(int tpId, int partner, b2Vec2 pos)
         ,DATA_TELEPORT
         ,pos
         ,glm::vec3(0.05f, 0.3f, 0.1f)
-        ,irr::video::SColor(0, 100, 100, 255)
     );
     m_id = m_gameObject.GetId();
 }

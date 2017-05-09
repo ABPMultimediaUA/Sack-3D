@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "SDL.h"
 
-Master::Master(){
+Master::Master():m_game(0){
     for (int i = 0; i < 4; ++i){
         puntuaciones[i] = 0;
     }
@@ -22,10 +22,15 @@ Master::Master(){
     timeFPS = SDL_GetTicks();
 }
 void Master::Update(){
+    SDL_Event e;
+    while(SDL_PollEvent(&e)){
+        eventReceiver.OnEvent(&e);
+    }
+    if(eventReceiver.IsKeyDown(SDLK_ESCAPE))SDL_Quit();
     if(SDL_GetTicks()-timeFPS>FPS){
         int fps = 1000/(SDL_GetTicks()-timeFPS);
         timeFPS = SDL_GetTicks();
-        int playersVivos = World::Inst()->Update(fps);
+        int playersVivos = World::Inst()->Update(fps,&eventReceiver);
         if(!finPartida){
             if(playersVivos <= 1){
                 timeFinPartida = SDL_GetTicks();
@@ -49,25 +54,21 @@ void Master::Update(){
 }
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();
-    int numDeMapas =(sizeof((maps))/sizeof((maps[0]))-1);
     srand(time(0));
     const Num2Map * it = maps;
-    //std::cout<<"MAPS "<<mapList[0]<<" "<<mapList[1]<<mapList[2]<<mapList[3]<<mapList[4]<<mapList[5]<<std::endl;
     while(it->num != 0){
-        if(it->num == (mapList[game]+1)){
-            //std::cout<<"MAP "<<mapList[game]+1<<std::endl;
-            World::Inst()->inicializaVariables(it->map,puntuaciones);
-            game++;
+        if(it->num == (mapList[m_game]+1)){
+            World::Inst()->inicializaVariables(it->map,puntuaciones,it->num);
+            m_game++;
             break;
         }
         it++;
     }
     if(it->num == 0){
-        game=0;
+        m_game=0;
         InstanciaMundo();
     }
 }
 bool Master::Run(){
-    BearMngr::Inst()->getDevice()->run();
     return !BearMngr::Inst()->IsClosed();
 }

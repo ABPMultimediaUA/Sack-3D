@@ -16,52 +16,46 @@
 #include "PhysicBody/PBDeadPlayer.h"
 #include "SDL.h"
 
-Map::Map(irr::core::stringw file){
+Map::Map(const char* doc,int numMapa){
+    switch(numMapa){
+      case 1:  textFondo = "media/Images/platform_blue.jpg"; break;
+      case 2:  textFondo = "media/Images/platform_pink.jpg"; break;
+      case 3:  textFondo = "media/Images/platform_red.jpg"; break;
+      case 4:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 5:  textFondo = "media/Images/platform_brown.jpg"; break;
+      default: textFondo = "media/Images/platform_pink.jpg"; break;
+    }
     player = false;
     numPlayer = 0;
     playerRed = 0;
     int a=0;
     nodos.Reset(new Lista());
-    irr::core::stringw layer = L"0";
-    irr::io::IXMLReader* xml = BearMngr::Inst()->createXMLReader(file);
-    while (xml->read()){
-        if(irr::core::stringw("imagelayer") == xml->getNodeName()){
-           a=a+1;
-        }
-        if(irr::core::stringw("image") == xml->getNodeName() && a>0){
-            const wchar_t* background;
-            wchar_t backing [100]= L"media/Maps/";
-            background= xml->getAttributeValue(L"source");
-            background = wcscat(backing, background);
-            BearMngr::Inst()->setBackgroundImage(BearMngr::Inst()->getDriver()->getTexture(background));
-        }
-        if(irr::core::stringw("objectgroup") == xml->getNodeName()){
-            layer = xml->getAttributeValue(L"name");
-        }
-        else{
-            x      = xml->getAttributeValueAsInt(L"x");
-            y      = xml->getAttributeValueAsInt(L"y");
-            posi   = b2Vec2(x/10.f, y/10.f);
-            width  = xml->getAttributeValueAsInt(L"width");
-            height = xml->getAttributeValueAsInt(L"height");
-            name   = xml->getAttributeValueAsInt(L"name");
-            if(layer == L"Nodos")
-              typeString = xml->getAttributeValue(L"type");
-            else
-              typeInt    = xml->getAttributeValueAsInt(L"type");
-            if (irr::core::stringw("object") == xml->getNodeName()){
-                const Layer2Method * it = layers;
-                while(it->layer != L"0"){
-                   if(it->layer == layer){
-                      (this->*it->Layer2Method::p)();
-                      break;
-                   }
-                   it++;
-                }
-            }
-        }
+
+    const char* layer = "0";
+    tinyxml2::XMLDocument xml_doc;
+    tinyxml2::XMLError eResult= xml_doc.LoadFile(doc);
+    if(eResult != tinyxml2::XML_SUCCESS){
+        std::cout<<"ERROR al abrir fichero"<<std::endl;
+    }
+
+     tinyxml2::XMLElement *mapa = xml_doc.FirstChildElement("map");
+    //ATRIBUTOS DEL MAPA
+    /*
+    mapa->QueryAttribute("width", &m_width);
+    mapa->QueryAttribute("height", &m_height);
+    mapa->QueryAttribute("tilewidth", &tilewidth);
+    mapa->QueryAttribute("tileheight", &tileheight);
+    */
+
+    tinyxml2::XMLElement *objectgroups = mapa->FirstChildElement("objectgroup");
+    while(objectgroups){
+      layer = objectgroups->Attribute("name");
+      leerObjGroup(layer, objectgroups);
+
+      objectgroups = objectgroups->NextSiblingElement("objectgroup");
     }
     timeEspera = SDL_GetTicks();
+
 }
 
 int Map::getTime(){
@@ -73,12 +67,11 @@ Lista* Map::getListaNodos(){
   return nodos.Get();
 }
 void Map::AddSpawner(){
-    posi.y=posi.y-0.035f;
+     posi.y=posi.y-0.035f;
      World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
 }
 void Map::AddPlatform(){
-    //posi.y=posi.y+0.1f;
-    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+    World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddMuelle(){
      World::Inst()->AddMuelle(new Muelle(typeInt, b2Vec2(x,y)));
@@ -101,21 +94,21 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
-        irr::video::SColor color;
+    char* texture; 
     switch(numPlayer){
-        case 0: color = irr::video::SColor(255,54, 209, 147)  ; break;
-        case 1: color = irr::video::SColor(255,225, 255, 56)  ; break;
-        case 2: color = irr::video::SColor(255,255, 56, 56)  ; break;
-        case 3: color = irr::video::SColor(255,255, 56, 251); break;
+      case 0: texture = "media/Images/Red.png"; break;
+      case 1: texture = "media/Images/Green.png"; break;
+      case 2: texture = "media/Images/Yellow.png"; break;
+      case 3: texture = "media/Images/Pink.png"; break;
     }
     int id = (*Client::Inst()->getIdCliente())-'0';
     if(numPlayer == id){
-      World::Inst()->AddPlayer(new Player(posi,numPlayer,color));
+      World::Inst()->AddPlayer(new Player(posi,texture,numPlayer));
    }
    if(playerRed < Client::Inst()->getNumPlayersRed()){
        for(int i=0;i<Client::Inst()->getNumPlayersRed()&&playerRed<Client::Inst()->getNumPlayersRed();i++){
         if(numPlayer==(*Client::Inst()->playersRed[i].id)-'0'){
-        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',color, Client::Inst()->playersRed[i].id));
+        World::Inst()->AddPlayer(new PlayerRed(b2Vec2(x,y),(*Client::Inst()->playersRed[i].id)-'0',texture, Client::Inst()->playersRed[i].id));
         playerRed++;
         }
       }
@@ -125,29 +118,78 @@ void Map::AddPlayer(){
           if(id == 0){
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new Bot(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new Bot(posi,numPlayer,texture, aux));
           }else{
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,color, aux));
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,texture, aux));
           }
       }
    }
    numPlayer++;
 }
 void Map::AddPincho(){
-     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),irr::video::SColor(255, 71, 33, 11)));
+     World::Inst()->AddPlatform(new Platform(true,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
 }
 void Map::AddNodo(){
+
     posi.y=posi.y-0.1;
     Nodo *a = World::Inst()->AddNodo(new Nodo(posi,glm::vec3(0.15f, 0.1f, 1), name, 0, NULL));
-    std::string A( typeString.begin(), typeString.end() );
-    std::istringstream ss(A);
-    std::string token;
-    while(std::getline(ss, token, ',')) {
-        int integer = atoi( token.c_str() );
-        a->addAdyacente(integer);
+    char * token;
+    char str[100];
+    strcpy(str, typeString);
+    token = strtok (str,",");
+    while (token != NULL){
+        int i = atoi(token);
+        a->addAdyacente(i);
+        token = strtok (NULL, ",");
     }
     nodos.Get()->insertar(a);
 }
+
+
+void Map::leerObjGroup(const char* layer, tinyxml2::XMLElement *objgroup){
+    tinyxml2::XMLElement *objeto = objgroup->FirstChildElement("object");
+    while(objeto){
+        leerElement(objeto);
+        const Layer2Method * it = layers;
+        while(it->layer != "0"){
+             if(strcmp(it->layer, layer) == 0 ){
+                 (this->*it->Layer2Method::p)();
+                 break;
+             }
+             it++;
+        }
+
+        objeto = objeto->NextSiblingElement("object");
+    }
+
+}
+
+void Map::leerElement(tinyxml2::XMLElement *element){
+    /*
+    //variables de los object
+    float x, y, height, width;
+    const char * name;
+    const char * type;
+    */
+
+    element->QueryAttribute("x", &x);
+    element->QueryAttribute("y", &y);
+    element->QueryAttribute("height", &height);
+    element->QueryAttribute("width", &width);
+    posi = b2Vec2(x/10.0f, y/10.0f);
+    if(element->Attribute("name") != 0){
+        element->QueryAttribute("name", &name);
+    }
+    if(element->Attribute("type") != 0){
+        if(strlen(element->Attribute("type")) == 1){
+            element->QueryAttribute("type", &typeInt);
+        }
+        else{
+            this->typeString=element->Attribute("type");
+        }
+    }
+}
+
 

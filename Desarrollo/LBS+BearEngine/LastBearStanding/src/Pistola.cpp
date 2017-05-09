@@ -9,7 +9,7 @@
 #include "SDL.h"
 
 Pistola::Pistola(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched(),expo,pos,glm::vec3(0.04f,.02f,.02f),irr::video::SColor(255, 255, 0, 255)){
+:Usable(new PBCogibleCatched(),expo,pos,glm::vec3(0.04f,.02f,.02f),"BearEngine/res/pistola.obj","media/Images/pistolatex.png"){
 	usos = 5;
 	cadencia = 100;
 }
@@ -19,7 +19,7 @@ void Pistola::usar(){
         if(SDL_GetTicks()-timeCadencia > cadencia ){
             float desvBala = /*rand()% 3 - 3*/0;
 	    	m_pWorld->AddBala(new Bala(b2Vec2(m_gameObject.GetPosition().x,-(m_gameObject.GetPosition().y)), 300, 10, desvBala, dir,1));
-            Particle *cap = m_pWorld->AddParticle(new Particle(new PBCap(),b2Vec2(m_gameObject.GetPosition().x/2.0f,-(m_gameObject.GetPosition().y/2.0f)),glm::vec3(0.006f,.006f,0.006f), irr::video::SColor(255,229, 229, 59)));
+            Particle *cap = m_pWorld->AddParticle(new Particle(new PBCap(),b2Vec2(m_gameObject.GetPosition().x/2.0f,-(m_gameObject.GetPosition().y/2.0f)),glm::vec3(0.006f,.006f,0.006f)));
 	    	b2Vec2 capVel;
 	    	capVel.x = (dir*(rand()%6)/10.f)+0.5f;
 	    	capVel.y =((rand()%9)/10.f)+0.5f;

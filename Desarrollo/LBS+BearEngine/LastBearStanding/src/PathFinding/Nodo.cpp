@@ -16,7 +16,8 @@ Nodo::Nodo(b2Vec2 posicion, glm::vec3 tam,int num, int coste, Nodo *nodoPadre){
         ,DATA_NODO
         ,posicion
         ,tam
-        ,irr::video::SColor(10,150,0,150)
+        ,"BearEngine/res/spawner.obj"
+        ,"media/Images/otro.png"
     );
     m_gameObject.SetVisible(false);
     if(m_pNodoPadre != NULL)

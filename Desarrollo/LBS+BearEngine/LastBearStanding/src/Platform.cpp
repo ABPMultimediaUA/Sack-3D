@@ -4,7 +4,7 @@
 #include "PhysicBody/PBDefault.h"
 #include "PhysicBody/PBDefaultSensor.h"
 
-Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color){
+Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam, char *texture){ 
     if(!mata){
         m_id = m_gameObject.Inicialize(
             new PBDefault()
@@ -13,7 +13,8 @@ Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color
             ,0
             ,pos
             ,tam
-            ,color
+            ,NULL
+            ,texture
         );
     }
     else{
@@ -24,7 +25,6 @@ Platform::Platform(bool mata, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color
             ,DATA_PINCHO
             ,pos
             ,tam
-            ,color
         );
         m_gameObject.SetVisible(false);
     }

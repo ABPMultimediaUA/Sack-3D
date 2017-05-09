@@ -6,6 +6,7 @@
 #include "GameResource.h"
 #include "RVector.h"
 #include "Client.h"
+#include "HUD.h"
 
 
 class Teleport;
@@ -25,6 +26,7 @@ class Map;
 class Metralla;
 class Particle;
 class MyContactListener;
+class MyEventReceiver;
 enum MascaraColisiones {
     M_PLAYER         = 0x0001,
     M_SUELO          = 0x0002,
@@ -60,7 +62,7 @@ class World{
         static World* Inst();
         World();
         virtual ~World(){}
-        void inicializaVariables(irr::core::stringw mapFile,int* puntuaciones);
+        void inicializaVariables(const char* mapFile,int* puntuaciones, int numMap);
         b2World* GetWorld(){return world.Get();}
         Player* getPlayer(int);
         void  SwitchDebugMode();
@@ -69,10 +71,10 @@ class World{
         int getGanador();
         void Reset();
         int getVivos();
-        int Update(int fps);
+        int Update(int fps,MyEventReceiver *events);
         void UpdateCogibles();
         void UpdateBalas();
-        int  UpdatePlayers();
+        int  UpdatePlayers(MyEventReceiver *events);
         void UpdateSpawners();
         void UpdateMetrallas();
         void UpdateParticles();
@@ -106,8 +108,10 @@ class World{
         float                    DeltaTime;
         float                    TimeStamp;
         bool                     m_debugMode;
+        HUD                      m_hud;
         GameResource<GameCamera> camara;
         GameResource<Map>        m_Mapa;
+        GameObject               m_fondo;
         RVector<Teleport>        m_Teleports;
         RVector<Player>          m_Players;
         RVector<Muelle>          m_Muelles;

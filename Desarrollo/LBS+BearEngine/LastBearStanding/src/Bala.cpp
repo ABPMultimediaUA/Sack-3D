@@ -3,7 +3,7 @@
 #include "PhysicBody/PBBullet.h"
 #include "SDL.h"
 
-Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo):
+Bala::Bala( b2Vec2 pos,  int tiempoVidaP, int velocidad, float deviacionP, int dir,int tipo,  char *model, char *texture):
 dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     m_pBearMngr = BearMngr::Inst();
     glm::vec3 tam;
@@ -15,7 +15,7 @@ dir(dir),tiempoVida(tiempoVidaP),desviacion(deviacionP),destruir(false){
     pos.x = pos.x + (dir/5.0f);
     pos.x = pos.x/2.0f;
     pos.y = pos.y/2.0f;
-    m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,irr::video::SColor(255,255,255,255));
+    m_id = m_gameObject.Inicialize(new PBBullet(),pos,tam,model,texture);
     time2Kill = SDL_GetTicks();
     if(dir>0)m_vel.x = velocidad;
     else     m_vel.x = -velocidad;

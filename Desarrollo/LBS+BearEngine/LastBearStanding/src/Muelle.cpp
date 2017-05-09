@@ -3,7 +3,7 @@
 #include "BearManager.h"
 #include "PhysicBody/PBDefault.h"
 
-Muelle::Muelle(float f, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color){
+Muelle::Muelle(float f, b2Vec2 pos, glm::vec3 tam){
     m_fuerza = f;
     m_id = m_gameObject.Inicialize(
         new PBDefault()
@@ -12,7 +12,6 @@ Muelle::Muelle(float f, b2Vec2 pos, glm::vec3 tam,irr::video::SColor color){
         ,DATA_MUELLE
         ,pos
         ,tam
-        ,color
     );
 }
 Muelle::~Muelle(){}

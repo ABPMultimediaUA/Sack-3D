@@ -20,7 +20,8 @@ Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
         new PBSpawner()
         ,pos
         ,glm::vec3(0.05f,.035f,0.01f)
-        ,irr::video::SColor(255, 255, 255, 255)
+        ,"BearEngine/res/spawner.obj"
+        ,"media/Images/otro.png"
     );
     generar();
 }
@@ -63,7 +64,7 @@ void Spawner::ParticleSpawn(){
         tam.x = (rand()%10)/500.f;
         tam.y = tam.x;
         tam.z = 0.02f;
-        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, irr::video::SColor(255,229, 225, 11),rand()%300+300));
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam, rand()%300+300));
         cap->SetGravity(0.05f);
         b2Vec2 capVel;
         capVel.x = (rand()%10-5)/10.f;

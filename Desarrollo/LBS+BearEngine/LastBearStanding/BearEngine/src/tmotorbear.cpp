@@ -131,9 +131,9 @@ void TMotorBear::cambiarPosiLuz(glm::vec3 pos){
 //Camera * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
 TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
     Camera* camera= new Camera( pos,  fov,  aspect,  zNear,  zFar);
-    std::cout<<"AAA"<<std::endl;
+//    std::cout<<"AAA"<<std::endl;
     crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(5,5,5),"lightUno", 1);
-    std::cout<<"BB"<<std::endl;
+    //std::cout<<"BB"<<std::endl;
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
@@ -284,7 +284,7 @@ return NodoTras;
         transObjeto = nodoObjeto->getPadre();
         padreObjeto = transObjeto->getPadre();
 
-std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
+//std::cout<<"PADRE "<<        padreObjeto->getNombreEntidad()<<std::endl;
         padreObjeto->remHijo(transObjeto);
         delete(transObjeto);
       //  verArbol();

@@ -8,6 +8,8 @@
 #include <string>
 #include "camera.h"
 #include "../include/tnodo.h"
+#include "MyEventReceiver.h"
+
 
 
 class Display
@@ -31,14 +33,14 @@ class Display
 
         Display(const Display& other){}
         Display& operator=(const Display& other){}
-
+        MyEventReceiver* myEventReceiver;
         SDL_Window* m_window;
         SDL_Surface *windowSurface;
         SDL_Surface *fondo;
         SDL_Renderer *ren;
         SDL_GLContext m_glContext;
         bool m_isClosed;
-          int malla;
+        int malla;
 
 };
 

@@ -11,18 +11,25 @@
 #include "SDL.h"
 
 Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),irr::video::SColor(30, 100, 30, 0)),mecha(3000){
+:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj","media/Images/granadatex.png"),mecha(3000){
+  usos = 1;
   usada = false;
+  cogedor=-1;
   timerGranada = SDL_GetTicks();
 }
 Granada::~Granada(){}
 void Granada::actualiza(){
   Cogible::actualiza();
   if(!autoDestruir && SDL_GetTicks() - timerGranada > mecha && usada){
+    if(cogido)World::Inst()->getPlayer(cogedor)->Soltar();
     Explosion();
     autoDestruir = true;
   }
 }
+void Granada::setCogedor(int aux){
+    cogedor = aux;
+}
+
 void Granada::setCogido(bool aux){
     if(aux){
         if(expuesto){
@@ -34,7 +41,6 @@ void Granada::setCogido(bool aux){
     }
     else{
         m_id = m_gameObject.SetMode(new PBGranadaReleased());
-        m_gameObject.SetMargin(b2Vec2(0,0));
     }
     cogido = aux;
 }
@@ -44,6 +50,7 @@ void Granada::usar(){
         World::Inst()->getPlayer(id)->CogerTirar();
         timerGranada = SDL_GetTicks();
         usada=true;
+        usos --;
     }
 }
 void Granada::Explosion(){

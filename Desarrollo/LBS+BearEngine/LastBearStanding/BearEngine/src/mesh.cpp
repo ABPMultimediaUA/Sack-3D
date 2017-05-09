@@ -28,11 +28,11 @@ Mesh::Mesh( const char* fileName){
         return;
     }
 
-    std::cout<< "El modelo esta compuesto por "<<scene->mRootNode->mNumChildren<<" Mallas"<<std::endl;
+//    std::cout<< "El modelo esta compuesto por "<<scene->mRootNode->mNumChildren<<" Mallas"<<std::endl;
     for(int i =0;i< scene->mNumMeshes;i++){
         MallasLeidas.push_back( new Mesh::EntradaMalla(scene->mMeshes[i],scene));
     }
-    std::cout<< "modelo cargado con exito "<< fileName<<std::endl;
+//    std::cout<< "modelo cargado con exito "<< fileName<<std::endl;
     aiReleaseImport(scene);
     }
 }
@@ -162,7 +162,7 @@ Mesh::EntradaMalla::EntradaMalla(aiMesh* mesh, const aiScene* scene){
             }
         }
    //     Mesh* mesha = new Mesh();
-        std::cout<<"En esta Malla hay "<<mesh->mNumVertices<<" Vertices y "<<mesh->mNumFaces<<" Caras"<<std::endl;
+        //std::cout<<"En esta Malla hay "<<mesh->mNumVertices<<" Vertices y "<<mesh->mNumFaces<<" Caras"<<std::endl;
 
     //  std::cout<<"Hay "<<mesh->mNumVertices<<" Vertices"std::endl;
 

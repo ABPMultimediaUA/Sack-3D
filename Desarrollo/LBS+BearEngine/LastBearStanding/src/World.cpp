@@ -18,7 +18,9 @@
 #include "Map.h"
 #include "SDL.h"
 #include "GameObject.h"
+#include "MyEventReceiver.h"
 #include "PhysicBody/PBAlivePlayer.h"
+#include "PhysicBody/PBDefault.h"
 
 const int World::velocityIterations = 8;
 const int World::positionIterations = 3;
@@ -45,14 +47,26 @@ Lista* World::getListaNodos(){
 int World::getTimeMapa(){
   return m_Mapa.Get()->getTime();
 }
-void World::inicializaVariables(irr::core::stringw mapFile,int *puntuaciones){
-  m_Mapa.Reset(new Map(mapFile));
+void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap){
+  m_Mapa.Reset(new Map(mapFile,numMap));
   camara.Reset(new GameCamera());
+  char* textFondo;
+  switch(numMap){
+    case 1:  textFondo = "media/Maps/Background/fridge.jpg"; break;
+    case 2:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 3:  textFondo = "media/Maps/Background/kitchen.jpg"; break;
+    case 4:  textFondo = "media/Maps/Background/bathroom.jpg"; break;
+    case 5:  textFondo = "media/Maps/Background/garden.jpg"; break;
+    default: textFondo = "media/Maps/Background/room.jpg"; break;
+  }
+  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,textFondo);
+  m_hud.Inicialize(puntuaciones);
   for (int i = 0; i < m_Players.Size(); ++i){
     if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){
       bot->InicializaVariables();
     }
   }
+  m_fondo.SetRotation(-90*3.14/180);
   TimeStamp = SDL_GetTicks();
   DeltaTime = SDL_GetTicks() - TimeStamp;
 }
@@ -91,7 +105,7 @@ void  World::SwitchDebugMode(){
     }
   }
 }
-int World::Update(int fps){
+int World::Update(int fps,MyEventReceiver *events){
   DeltaTime = SDL_GetTicks() - TimeStamp;
   TimeStamp = SDL_GetTicks();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
@@ -102,8 +116,12 @@ int World::Update(int fps){
   UpdateCogibles();
   UpdateSpawners();
   int players;
-  players = UpdatePlayers();
-  camara.Get()->update(TimeStamp, fps);
+  players = UpdatePlayers(events);
+  glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
+  m_hud.Update(posCam);
+  m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
+  m_fondo.SetZ(posCam.z-15);
+  m_fondo.Update();
   return players;
 }
 
@@ -127,11 +145,11 @@ void World::UpdateBalas(){
     }
   }
 }
-int World::UpdatePlayers(){
+int World::UpdatePlayers(MyEventReceiver *events){
   int players = 0;
   for (int i = 0; i < m_Players.Size(); ++i){
     if(m_Players.Get(i)){
-      m_Players.Get(i)->actualiza();
+      m_Players.Get(i)->actualiza(events);
     }
     if(!m_Players.Get(i)->getMuerto())players++;
   }

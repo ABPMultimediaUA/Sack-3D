@@ -5,8 +5,8 @@
 #include "Spawner.h"
 #include "World.h"
 
-Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, irr::video::SColor color){
-    m_id = m_gameObject.Inicialize(physicBody,pos,tam,color,"media/Images/player.png");
+Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture){
+    m_id = m_gameObject.Inicialize(physicBody,pos,tam,model,texture);
     m_pWorld =   World::Inst();
     m_pBearMngr = BearMngr::Inst();
     autoDestruir = false;
@@ -31,14 +31,15 @@ void Cogible::setCogido(bool aux){
     }
     else{
         m_id = m_gameObject.SetMode(new PBCogibleReleased());
-        m_gameObject.SetMargin(b2Vec2(0.1f*dir,0));
     }
     cogido = aux;
 }
 void Cogible::teletransportar(){
     teletransportado = false;
-    if(dir != 0) nextPos.x += (dir*2);
-    else nextPos.x += 1.5f;
+    if(dir != 0){
+        nextPos.x += (dir*2);
+    }
+    else{ nextPos.x += 1.5f;}
     b2Vec2 velActual = m_gameObject.GetLinearVelocity();
     m_gameObject.SetPosition(b2Vec2(nextPos.x,nextPos.y));
     m_gameObject.SetRotation(m_gameObject.GetRotation());
@@ -47,7 +48,11 @@ void Cogible::teletransportar(){
 void     Cogible::setDireccion(int d){
     if(d != 0){
         dir = d;
-        m_gameObject.SetMargin(b2Vec2(0.1f*d,0));
+        m_gameObject.SetMargin(b2Vec2(0.01f*d,0));
+    }
+    if(cogido){
+         if(d >= 0)m_gameObject.SetXRotation(0);
+         else        m_gameObject.SetXRotation(180);
     }
 }
 b2Vec2   Cogible::GetPosition(){return m_gameObject.GetPosition();}

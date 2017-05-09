@@ -93,7 +93,6 @@ class Client{
         static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;
-        irr::f32 timer;
         bool run;
         int iterador;
         const Type2Func packetFunction[10] = {

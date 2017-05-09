@@ -2,7 +2,6 @@
 #ifndef TELEPORT_H
 #define TELEPORT_H
 
-#include <irrlicht.h>
 #include "GameObject.h"
 
 

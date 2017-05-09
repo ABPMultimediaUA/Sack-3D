@@ -11,7 +11,7 @@ class Lista;
 class Nodo;
 class Bot: public Player{
     public:
-        Bot(b2Vec2 pos, int mando,irr::video::SColor color, char idr[]);
+        Bot(b2Vec2 pos, int mando, char *texture, char idr[]);
         virtual ~Bot(){}
         b2Vec2 getSpawnCercano(float x, float y);
         void buscaArma();
@@ -23,9 +23,9 @@ class Bot: public Player{
         Nodo* buscaNumero(int i);
         void despega();
         virtual void teletransportar();
-        virtual void actualiza();
+        virtual void actualiza(MyEventReceiver *events);
         virtual void muevo(float x, float y);
-        virtual void mover();
+        virtual void mover(MyEventReceiver *events = NULL);
         //virtual void CogerTirar();
         virtual void morir();
         void imprimirNodos();

@@ -16,56 +16,75 @@ BearMngr* BearMngr::Inst(){
 const unsigned int BearMngr::m_windowSize = 600;
 
 BearMngr::BearMngr():m_debugMode(false){
-	irr::IrrlichtDevice *nulldevice = irr::createDevice(irr::video::EDT_NULL);
 	myEventReceiver = new MyEventReceiver();
 	m_windowWidth = m_windowSize*16/9;
 	m_windowHeight = m_windowSize;
-	irr::core::dimension2d<irr::u32> deskres = nulldevice->getVideoModeList()->getDesktopResolution();
-	//device = createDevice( irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(m_windowWidth,m_windowSize), 32, false, true, true, myEventReceiver );
-	device = createDevice( irr::video::EDT_OPENGL, deskres, 32, true, true, true, myEventReceiver );
-	driver = device->getVideoDriver();
-	smgr = device->getSceneManager();
-	guienv = device->getGUIEnvironment();
-	m_gMotorBear.Reset(new TMotorBear(m_windowSize*16/9,m_windowSize,"Last Bear Standing"));
+	m_gMotorBear.Reset(new TMotorBear(m_windowWidth,m_windowHeight,"Last Bear Standing"));
     m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
     m_shader = m_gShader.Get();
     m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, 16.f/9.f, 0.01f,1000.0f);
     m_motorBear->activarCamara(m_camara);
 }
-void BearMngr::setBackgroundImage(irr::video::ITexture* bimage){
-  	m_backgroundImage = bimage;
-}
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
   	debugInfo.Reset(new DebugInfo());
-  	hud.Reset(new HUD(puntuaciones,smgr->getVideoDriver()->getScreenSize().Width,smgr->getVideoDriver()->getScreenSize().Height));
 }
 void BearMngr::Update(){
-    m_motorBear->Clear(0.0f,1.15f,0.3f,1.0f);
+    m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
 	m_shader->Bind();
-	//hud.Get()->Draw();
 	//if(m_debugMode)
 	//	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
 	m_motorBear->draw(m_shader);
 	m_motorBear->UpdateDisplay();
 }
 //BearEngine
-TNodo* BearMngr::CreateBearNode(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
+TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
     std::ostringstream strm;
     strm << id;
-	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+
+    float   width = tam.x,
+            height = tam.y;
+
+    //TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+    //m_motorBear->TrasladarObjeto(nodo,glm::vec3(-width,0,0));
+    //m_motorBear->hacerInvisibleObjeto(nodo);
+//
+    //for (float x = pos.x; x <= pos.x + width; x+=.1f){
+    //  for (float y = pos.y; y <= pos.y + height; y+=.1f){
+	//	TNodo* nodo2 = m_motorBear->crearObjetoMallaCompleto(nodo, "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	//	if(texture)
+	//        m_motorBear->asignarTextura(nodo2,texture);
+	//	m_motorBear->TrasladarObjeto(nodo2,glm::vec3(x,y,0));
+    //    m_motorBear->EscalarObjeto(nodo2,glm::vec3(0.1f,0.1f,0.1f));
+    //  }
+    //}
+    TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+	 if(texture)
+        m_motorBear->asignarTextura(nodo,texture);
+	 m_motorBear->TrasladarObjeto(nodo,pos);
+	 m_motorBear->EscalarObjeto(nodo,tam);
+    return nodo;
+}
+//BearEngine
+TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
+    std::ostringstream strm;
+    strm << id;
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str());
 	if(texture)
         m_motorBear->asignarTextura(nodo,texture);
 	m_motorBear->TrasladarObjeto(nodo,pos);
-	m_motorBear->EscalarObjeto(nodo,tam);
     return nodo;
 }
 void BearMngr::SetBearCubePosition(TNodo* nodo,glm::vec3 pos ){
 	m_motorBear->TrasladarObjeto(nodo,pos);
 }
 void BearMngr::SetBearCubeRotation(TNodo* nodo,float rot ){
-	m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,0,rot));
+}
+void BearMngr::SetXRotation(TNodo* nodo,float rotation){
+    m_motorBear->reiniciarRotacion(nodo);
+    m_motorBear->RotarObjeto(nodo,glm::vec3(0,rotation,0));
 }
 void BearMngr::SetBearCameraPosition(float x, float y, float z){
     m_motorBear->TrasladarObjeto(m_camara,glm::vec3(x,y,z));
@@ -93,10 +112,4 @@ void  BearMngr::SwitchDebugMode(){
     m_debugMode = true;
   }
 }
-irr::io::IXMLReader* BearMngr::createXMLReader(irr::core::stringw file){return device->getFileSystem()->createXMLReader(file);}
-irr::scene::ISceneManager* BearMngr::getManager(){return smgr;}
-MyEventReceiver* BearMngr::getEventReciever(){return myEventReceiver;}
-irr::IrrlichtDevice* BearMngr::getDevice(){return device;}
-irr::video::IVideoDriver* BearMngr::getDriver(){return driver;}
-irr::gui::IGUIEnvironment* BearMngr::getGUI(){return guienv;}
 BearMngr::~BearMngr(){}

@@ -10,10 +10,10 @@ class DebugInfo{
         virtual ~DebugInfo(){}
         void Draw(int fps);
     private:
-        irr::gui::IGUIFont* font;
-        irr::video::SColor fColor;
-        irr::video::SColor rectColor;
-        irr::core::rect<int> rect;
+        //irr::gui::IGUIFont* font;
+        //irr::video::SColor fColor;
+        //irr::video::SColor rectColor;
+        //irr::core::rect<int> rect;
 };
 
 #endif // DEBUGINFO_H

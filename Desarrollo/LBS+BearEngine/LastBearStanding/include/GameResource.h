@@ -5,8 +5,8 @@
 template <class A>
 class GameResource{
     public:
-	    explicit GameResource(A *a = NULL):m_t(a){}
-	    void Reset(A *a = NULL){
+	    explicit GameResource(A *a = 0):m_t(a){}
+	    void Reset(A *a = 0){
 	        if(m_t){
 	        	delete m_t;
 	        }

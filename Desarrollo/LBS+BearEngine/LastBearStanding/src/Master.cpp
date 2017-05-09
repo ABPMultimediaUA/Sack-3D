@@ -50,7 +50,6 @@ void Master::Update(){
             time2SyncClient = SDL_GetTicks();
         }
     }
-
 }
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();

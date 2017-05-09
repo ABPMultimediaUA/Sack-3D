@@ -29,11 +29,11 @@ int TNodo::addHijo(TNodo* hijo){
 int TNodo::remHijo(TNodo* hijo){
     int borrado=0;
     int cont=0;
-    for(std::vector<TNodo*>::iterator i = hijos.begin() ; i != hijos.end();++i){
-    //for(int i=0; i<hijos.size();i++){
-        if((*i)==hijo){
+    //for(std::vector<TNodo*>::iterator i = hijos.begin() ; i != hijos.end();++i){
+    for(int i=0; i<hijos.size();i++){
+        if(hijos[i]==hijo){
              hijos.erase(hijos.begin()+cont);
-             (*i)->setPadre(NULL);
+             hijo->setPadre(NULL);
              borrado=1;
         }
         cont++;

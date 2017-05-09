@@ -43,11 +43,11 @@ void TMotorBear::crearShader(const std::string& fileName){
 }
 
 void TMotorBear::crearShadersBasicos(){
-    crearShader("./res/basicShader");
+    crearShader("BearEngine/res//basicShader");
     std::cout<<"BasicShader"<<std::endl;
-    crearShader("./res/basicShaderLuz");
+    crearShader("BearEngine/res//basicShaderLuz");
     std::cout<<"BasicShaderLuz"<<std::endl;
- //   crearShader("./res/basicShaderToon");
+ //   crearShader("BearEngine/res//basicShaderToon");
     std::cout<<"BasicShaderToon"<<std::endl;
 }
 

@@ -8,7 +8,6 @@ class DebugInfo;
 class MyEventReceiver;
 class TMotorBear;
 class TNodo;
-class Shader;
 
 
 class BearMngr{
@@ -17,7 +16,7 @@ class BearMngr{
         BearMngr();
         void Update();
         void InstanciaVariables(int* puntuaciones);
-        TNodo* CreateBearCube(int id,glm::vec3 pos, glm::vec3 tam,char* texture);
+        TNodo* CreateBearCube(int id,glm::vec3 pos, glm::vec3 tam,char* texture, bool shader = 1);
         TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
@@ -35,10 +34,8 @@ class BearMngr{
         MyEventReceiver* myEventReceiver;
         GameResource<DebugInfo> debugInfo;
         GameResource<TMotorBear> m_gMotorBear;
-        GameResource<Shader> m_gShader;
         TMotorBear* m_motorBear;
         TNodo* m_camara;
-        Shader* m_shader;
         //irr::video::ITexture* m_backgroundImage;
         unsigned int m_windowWidth;
         unsigned int m_windowHeight;

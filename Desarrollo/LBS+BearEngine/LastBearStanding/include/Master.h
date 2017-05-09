@@ -28,9 +28,9 @@ class Master{
         int m_game;
         const Num2Map maps[7] = {
               {  1         , "media/Maps/MapFinding1.tmx" }
-            , {  2         , "media/Maps/MapFinding1.tmx" }
-            , {  4         , "media/Maps/MapFinding1.tmx" }
-            , {  5         , "media/Maps/MapFinding1.tmx" }
+            , {  2         , "media/Maps/MapFinding2.tmx" }
+            , {  4         , "media/Maps/MapFinding3.tmx" }
+            , {  5         , "media/Maps/MapFinding4.tmx" }
             , {  6         , "media/Maps/MapFinding1.tmx" }
             , {  3         , "media/Maps/MapFinding1.tmx" }
             , {  0         , "0"                          }

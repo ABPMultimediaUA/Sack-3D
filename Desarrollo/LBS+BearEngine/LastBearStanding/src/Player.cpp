@@ -165,7 +165,7 @@ void Player::BloodExplosion(){
         tam.x = ((float)(rand()%10)/250.f)+0.002f;
         tam.y = tam.x;
         tam.z = 0.02f;
-        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300,"BearEngine/res/arma.obj","media/Images/sangre.png"));
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300,"BearEngine/res/arma.obj","media/Images/Red.png"));
         b2Vec2 capVel;
         capVel.x = (dir*(rand()%300)/10.f)+0.5f;
         capVel.y =((rand()%100)/10.f)+0.5f;

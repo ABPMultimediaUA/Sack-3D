@@ -12,7 +12,7 @@ class MyEventReceiver{
       virtual void OnEvent(SDL_Event *event);
     virtual bool IsKeyDown(SDL_Keycode keyCode)const;
     private:
-      bool KeyIsDown[128];
+      bool KeyIsDown[124];
 
 };
 

@@ -20,14 +20,16 @@ Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture,
 
 
 void Bot::InicializaVariables(){
+    std::cout<<"Soy Bot: "<<mando<<std::endl;
+
     players = World::Inst()->GetPlayers();
     spawners = World::Inst()->GetSpawners();
     nodos = World::Inst()->GetNodos();
     Nodo* aux  = NULL;
 
-    for(int i = 0; i< nodos.size(); i++){
-        //if(mando == 1) std::cout<<"NODO: "<<nodos.at(i)->getNumero()<<" POS: "<<nodos.at(i)->getPosicion().x<<" "<<nodos.at(i)->getPosicion().y<<std::endl;
-    }
+    /*for(int i = 0; i< nodos.size(); i++){
+        if(mando == 1) std::cout<<"NODO: "<<nodos.at(i)->getNumero()<<" POS: "<<nodos.at(i)->getPosicion().x<<" "<<nodos.at(i)->getPosicion().y<<std::endl;
+    }*/
     posicionSpawn = getSpawnCercano(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     //std::cout<<"POS Spawn: "<<posicionSpawn.x<<" "<<posicionSpawn.y<<std::endl;
     for(int i = 0; i< nodos.size(); i++){
@@ -38,8 +40,8 @@ void Bot::InicializaVariables(){
     }
 
     Nodo* aux2 = getMas(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
+    std::cout<<"Nodos: "<<aux<<" "<<aux2<<std::endl;
     calcularPathfinding(aux2, aux);
-
     if(pathfinding->getTamanyo() != 0)
         muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }
@@ -137,12 +139,16 @@ void Bot::buscaJugador(){
             }
         }
         temp = getCercanoTotal(players.at(mandobusco)->GetPosition().x,players.at(mandobusco)->GetPosition().y);
+
         //std::cout<<"SOY BOT "<<mando<<" y BUSCO JUGADOR: "<<mandobusco<<std::endl;
         calcularPathfinding(nodoFinIni,temp);
         if(pathfinding->getTamanyo()>1 && players.at(mando)->getMuerto() == false) pathfinding->remove(pathfinding->getUltimo()->getPosicion());
         else if(players.at(mando)->getMuerto() == false) colisionConNodo(pathfinding->getUltimo()->getNumero());
 
-        //pathfinding->imprimirLista();
+        /*if(mando ==3) {
+            std::cout<<"PathFinding bot 2: "<<std::endl;
+            pathfinding->imprimirLista();
+        }*/
         if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
             muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
     }
@@ -302,11 +308,16 @@ b2Vec2 Bot::getSpawnCercano(float x, float y){
             pos.y = pos.y - 0.065;
         }
     }
-    //std::cout<<"NODO QUE SALE: "<<aux<<std::endl;
+
     return pos;
+
+
 }
 
 Nodo *Bot::getMas(float x, float y){
+    /*if(mando == 2){
+        std::cout<<"Pos entra: "<<x<<" "<<y<<std::endl;
+    }*/
     float pos2 = -10*(y/2);
     int posY = (int) pos2;
     float buscoY = posY/10.0f;
@@ -319,8 +330,8 @@ Nodo *Bot::getMas(float x, float y){
 
     for(int i = 0; i< nodos.size(); i++){
         int vamos2 = 10*nodos.at(i)->getPosicion().y;
-        //std::cout<<"NODO EN Y: "<<vamos2<<" BUSOC Y: "<<vamos1<<std::endl;
-        if(abs(vamos2 - vamos1)<=0.1){
+        //if(mando == 2) std::cout<<"NODO EN Y: "<<vamos2<<" BUSOC Y: "<<vamos1<<std::endl;
+        if(abs(vamos2 - vamos1)<=1){
             float coste = abs(nodos.at(i)->getPosicion().x - buscoX);
             //std::cout<<"NODO NUM: "<<nodos.at(i)->getNumero()<<" coste: "<<coste<<std::endl;
             if(coste<dif){

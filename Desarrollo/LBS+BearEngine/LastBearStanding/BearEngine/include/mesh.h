@@ -8,6 +8,7 @@
 #endif // GLEW_STATIC
 #include "../include/modeloindexado.h"
 #include "trecurso.h"
+#include "tmaterial.h"
 
 #include <assimp/scene.h>
 #include <assimp/mesh.h>
@@ -45,15 +46,17 @@ class Mesh : public TRecurso
         int GetTipo();
         void setNombre( char* name);
         void setTipo(int tipo);
-
+        void asignarMatM(TMaterial* m);
     protected:
 
     private:
         struct EntradaMalla{
 
           public:
+
            EntradaMalla(aiMesh *mesh, const aiScene* scene);
            EntradaMalla(float ancho, float alto, float prof);
+            void asignarMatEM(TMaterial* m);
            ~EntradaMalla();
            void InitMesh(const modeloIndexado& model);
             void Draw();
@@ -80,7 +83,6 @@ class Mesh : public TRecurso
         char* nombre;
         int type;
         Mesh(const Mesh& other){}
-
         void operator=(const Mesh& other){}
 
         //void InitMesh(const IndexedModel& model);

@@ -16,6 +16,8 @@ Mesh::Mesh()
 
 
 Mesh::Mesh( const char* fileName){
+
+    if(fileName){
     const aiScene* scene = aiImportFile(fileName,
                               aiProcess_GenSmoothNormals    |   aiProcess_Triangulate |
                               aiProcess_CalcTangentSpace    |   aiProcess_FlipUVs);
@@ -32,6 +34,7 @@ Mesh::Mesh( const char* fileName){
     }
     std::cout<< "modelo cargado con exito "<< fileName<<std::endl;
     aiReleaseImport(scene);
+    }
 }
 
 Mesh::Mesh(float alto, float ancho, float prof){
@@ -55,6 +58,12 @@ Mesh::~Mesh()
     MallasLeidas.clear();
 }
 
+void Mesh::asignarMatM(TMaterial* m){
+      for(int i = 0; i< MallasLeidas.size();i++){
+        MallasLeidas.at(i)->asignarMatEM(m);
+      }
+}
+
 char* Mesh::GetNombre(){
         return nombre;
  }
@@ -66,7 +75,9 @@ void  Mesh::setNombre( char* name){
 }void  Mesh::setTipo(int tipo){
     type= tipo;
 }
+void Mesh::EntradaMalla::asignarMatEM(TMaterial* m){
 
+}
 
 Mesh::EntradaMalla::~EntradaMalla(){ /*INCOMPLETO */
    if(m_vertexArrayBuffers[POSITION_VB]){

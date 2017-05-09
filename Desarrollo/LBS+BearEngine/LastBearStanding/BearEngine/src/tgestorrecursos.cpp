@@ -18,26 +18,33 @@ TGestorRecursos::~TGestorRecursos()
    }
 }
 
+void TGestorRecursos::almacenarRecurso(TRecurso* recur){
+    recursos.push_back(recur);
+}
 
 TRecurso *TGestorRecursos::getRecurso(  char* nombre, int tipo){
+
 //TRecurso *TGestorRecursos::getRecurso( const std::string& nombre, int tipo){
 
 TRecurso* recu;
 int encontrado=0;
+             std::cout<<"Recurso "<<nombre<<std::endl;
 
 //sstd::cout<<"Hay "<< recurs<<std::cout<<" recursos"<<std::endl;
-    for(int i=0; i<recursos.size();i++){
+    for(std::vector<TRecurso*>::iterator i = recursos.begin() ; i != recursos.end();++i){
+
+   // for(int i=0; i<recursos.size();i++){
     //    std::cout<<"HOLI"<<std::endl;
-        recu= recursos.at(i);
+        recu= *i;
         if(recu->GetNombre()== nombre){
            // std::cout<<"Recurso Encontrado"<<std::endl;
            // std::cout<<recu->GetNombre()<<std::endl;
 
-            recu=recursos.at(i);
             encontrado=1;
-            return recursos.at(i);
+            return *i;
         }
     }
+
     if(!encontrado){
              std::cout<<"Recurso NO Encontrado CARGAR"<<std::endl;
         if(tipo==0){
@@ -76,7 +83,11 @@ int encontrado=0;
             std::cout<<std::endl;
           //  delete(mesh); Peta
         }
+        else if(tipo==2){ //Material
+            std::cout<<"ERROR LOS MATERIALES SIEMPRE ESTAN CARGADOS"<<std::endl;
+        }
     }
+
     return recu;
 
 }

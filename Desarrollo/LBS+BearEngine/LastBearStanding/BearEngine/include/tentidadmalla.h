@@ -3,12 +3,13 @@
 
 #include "../include/tentidad.h"
 #include "../include/mesh.h"
+#include "tmaterial.h"
 class Texture;
 
 class TEntidadMalla : public TEntidad
 {
     public:
-        TEntidadMalla();
+        TEntidadMalla(Shader* shad);
         virtual ~TEntidadMalla();
         void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
         void endDraw(std::vector<glm::mat4>* pila);
@@ -18,7 +19,7 @@ class TEntidadMalla : public TEntidad
 
         void setName(char * name);
 
-
+        void asignarMat(TMaterial* mat);
         //void setRecurso();
         void setMalla(Mesh* azteca);
 //      void setMallas(std::vector<Mesh*>* aztecas);
@@ -35,6 +36,8 @@ class TEntidadMalla : public TEntidad
         std::vector<Mesh*> meshes;
         int activo;
         Texture* texturaM;
+        TMaterial* materialM;
+        Shader* shadP;
 
 };
 

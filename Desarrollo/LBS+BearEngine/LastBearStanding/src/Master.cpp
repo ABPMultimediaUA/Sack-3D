@@ -85,7 +85,6 @@ void Master::UpdateGame(){
             time2SyncClient = SDL_GetTicks();
         }
     }
-
 }
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();

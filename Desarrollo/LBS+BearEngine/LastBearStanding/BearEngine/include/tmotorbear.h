@@ -38,7 +38,7 @@ class TMotorBear
 
 ////OBjetos (Alto Nivel del Motor)
 
-        TNodo* crearObjetoMallaCompleto(TNodo* padre, char * filename,  char * name);
+        TNodo* crearObjetoMallaCompleto(TNodo* padre, char * filename,  char * name, int idShad);
         TNodo* crearObjetoCamaraCompleto(TNodo* padre, char * name, const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
 
 
@@ -73,7 +73,7 @@ class TMotorBear
 //////////////////////////////////////////
 
 /////////////////////Mallas
-        TEntidad* crearMalla( char* file);
+        TEntidad* crearMalla( char* file, int idS);
         TEntidad* crearMalla( float alto, float ancho, float prof);
         TNodo* crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec);
 
@@ -98,7 +98,13 @@ class TMotorBear
         //void UpdateDisplay();
         int UpdateDisplay();
 //////////////////////////////////////////
-
+////SHADERS
+        void crearShader(const std::string& fileName);
+        void crearShadersBasicos();
+        int getShaderProgram(int posVec);
+////////////
+///////HUD
+        TNodo* obtenerPadreCamara();
 ///////////////////////Luces
         void cambiarColorLuz(glm::vec3 colr);
         void cambiarPosiLuz(glm::vec3 pos);
@@ -114,9 +120,19 @@ class TMotorBear
 //////////////////////////////////////////
         void asignarTextura(TNodo* nodoMalla, char* file );
 
-        void draw(Shader* shad);
+      //  void draw(Shader* shad);
+        void draw();
         glm::mat4 obtenerMatCam();
         //manejo de camaras, luces y viewports
+
+
+
+////MATERIALES
+
+        void materialesColoresBasicos();
+        void asignarMaterial(TNodo* nodoMalla, char* nombreMat);
+
+/////////////////////
 ///////////////Gestor Recursos
         void borrarRecurso(char * nombre);
 //DEBUG
@@ -136,7 +152,10 @@ class TMotorBear
         std::vector<TNodo*> registroCamara;
         std::vector<TNodo*>  registroLuces;
         std::vector<glm::mat4>* pila;
+        std::vector<Shader*> shadersMot;
+        std::vector<TNodo*> hudNodos;
         TNodo* camaraActiva;
+
 //        std::vector<Luces*> registroLuces; Cuando haya luces
         //Luces, Camaras,viewports
 };

@@ -16,6 +16,7 @@ Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture,
     mandobusco=mando;
     estadoBot = 0;
     cogido = false;
+    lastDir = 0;
 }
 
 
@@ -186,20 +187,21 @@ void Bot::mover(MyEventReceiver *events ){
             }
         }
         else if(m_gameObject.GetPosition().x > nodox){
-          direccion = dir = -1;
+          direccion = lastDir = dir = -1;
       }
         else if(m_gameObject.GetPosition().x < nodox){
-          direccion = dir = 1;
+          direccion = lastDir = dir = 1;
       }
     }
     if(direccion != direccionA){
         direccionA = direccion;
         m_pClient->enviarMoviendo(dir, mando);
     }
-    if(dir >=  0)m_gameObject.SetXRotation(0);
-    if(dir == -1)m_gameObject.SetXRotation(180);
+    if(lastDir ==  1)m_gameObject.SetXRotation(0);
+    if(lastDir == -1)m_gameObject.SetXRotation(180);
+    
     m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(dir);
+    if(cogiendo) objCogido->setDireccion(lastDir);
 }
 
 void Bot::muevo(float x, float y){

@@ -37,7 +37,7 @@ Texture::Texture(const std::string& fileName)
 
      int width, height, numComponents;
 
-    unsigned char* imageData   = stbi_load(fileName.c_str(), &width, &height, &numComponents, 4);
+    unsigned char* imageData   = stbi_load(fileName.c_str(), &width, &height, &numComponents, STBI_rgb_alpha);
 
     if( imageData == NULL){
         std::cerr<<"Fallo al cargar la textura: "<<fileName<<std::endl;
@@ -68,7 +68,7 @@ void Texture::Bind(unsigned int unit){
 
     glActiveTexture(GL_TEXTURE0+unit);
     glBindTexture(GL_TEXTURE_2D, m_texture);
-
+   // glDisable(GL_TEXTURE0+unit);
 }
 
 

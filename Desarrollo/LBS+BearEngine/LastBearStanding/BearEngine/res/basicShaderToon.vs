@@ -8,9 +8,6 @@ varying vec2 texCoord0;
 varying vec3 normal0;
 
 uniform mat4 transform;
-
-
-
 void main(){
 	texCoord0 = texCoord;
 	normal0= (transform * vec4(normal, 0.0)).xyz;

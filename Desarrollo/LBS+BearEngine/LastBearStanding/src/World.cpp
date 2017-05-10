@@ -59,7 +59,7 @@ void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap
     case 5:  textFondo = "media/Maps/Background/garden.jpg"; break;
     default: textFondo = "media/Maps/Background/room.jpg"; break;
   }
-  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,textFondo);
+  m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,textFondo, false);
   m_hud.Inicialize(puntuaciones);
   for (int i = 0; i < m_Players.Size(); ++i){
     if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){

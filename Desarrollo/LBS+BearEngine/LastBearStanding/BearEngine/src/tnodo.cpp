@@ -28,12 +28,15 @@ int TNodo::addHijo(TNodo* hijo){
 
 int TNodo::remHijo(TNodo* hijo){
     int borrado=0;
+    int cont=0;
+    //for(std::vector<TNodo*>::iterator i = hijos.begin() ; i != hijos.end();++i){
     for(int i=0; i<hijos.size();i++){
         if(hijos[i]==hijo){
-             hijos.erase(hijos.begin()+i);
+             hijos.erase(hijos.begin()+cont);
              hijo->setPadre(NULL);
              borrado=1;
         }
+        cont++;
     }
     return borrado;
 }
@@ -68,8 +71,9 @@ void TNodo::verArbol(){
     }
 
     std::cout<<std::endl;
-    for(int i =0; i<hijos.size(); i++){
-        hijos[i]->verArbol();
+//    for(int i =0; i<hijos.size(); i++){
+    for(std::vector<TNodo*>::iterator i = hijos.begin() ; i != hijos.end();++i){
+        (*i)->verArbol();
     }
     if(!hijos.size()){
         std::cout<<std::endl;
@@ -105,8 +109,8 @@ void TNodo::draw(Shader* shad, std::vector<glm::mat4>* pila){
 
     }
 
-    for(int i=0; i<hijos.size();i++){
-        hijos.at(i)->draw(shad, pila);
+    for(std::vector<TNodo*>::iterator i = hijos.begin() ; i != hijos.end();++i){
+      (*i)->draw(shad, pila);
     }
 
     if(entidad){

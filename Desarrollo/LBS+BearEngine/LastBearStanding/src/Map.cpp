@@ -55,7 +55,6 @@ Map::Map(const char* doc,int numMapa){
       objectgroups = objectgroups->NextSiblingElement("objectgroup");
     }
     timeEspera = SDL_GetTicks();
-
 }
 
 int Map::getTime(){
@@ -94,7 +93,7 @@ void Map::AddArma(){
     }
  }
 void Map::AddPlayer(){
-    char* texture; 
+    char* texture;
     switch(numPlayer){
       case 0: texture = "media/Images/Red.png"; break;
       case 1: texture = "media/Images/Green.png"; break;

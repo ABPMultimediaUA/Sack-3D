@@ -3,7 +3,6 @@
 #include "MyEventReceiver.h"
 #include "DebugInfo.h"
 #include "HUD.h"
-#include "../BearEngine/include/shader.h"
 #include "../BearEngine/include/tmotorbear.h"
 #include <sstream>
 BearMngr* BearMngr::pinstance = 0;
@@ -16,51 +15,34 @@ BearMngr* BearMngr::Inst(){
 const unsigned int BearMngr::m_windowSize = 600;
 
 BearMngr::BearMngr():m_debugMode(false){
+	myEventReceiver = new MyEventReceiver();
 	m_windowWidth = m_windowSize*16/9;
 	m_windowHeight = m_windowSize;
 	m_gMotorBear.Reset(new TMotorBear(m_windowWidth,m_windowHeight,"Last Bear Standing"));
-    m_gShader.Reset(new Shader("BearEngine/res/basicShaderLuz"));
     m_motorBear = m_gMotorBear.Get();
-    m_shader = m_gShader.Get();
-
     m_camara = m_motorBear->crearObjetoCamaraCompleto(m_motorBear->getRaiz(),"Camara",glm::vec3(0,0,0), 70.0f, 16.f/9.f, 0.01f,1000.0f);
     m_motorBear->activarCamara(m_camara);
-
 }
 
 void BearMngr::InstanciaVariables(int* puntuaciones){
-  	debugInfo.Reset(new DebugInfo());
+  	//debugInfo.Reset(new DebugInfo());
 }
 void BearMngr::Update(){
     m_motorBear->Clear(0.5f,0.5f,0.5f,1.0f);
-	m_shader->Bind();
 	//if(m_debugMode)
 	//	debugInfo.Get()->Draw(smgr->getVideoDriver()->getFPS());
-	m_motorBear->draw(m_shader);
+	m_motorBear->draw();
 	m_motorBear->UpdateDisplay();
 }
 //BearEngine
-TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* texture){
+TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* texture, bool shader){
     std::ostringstream strm;
     strm << id;
 
     float   width = tam.x,
             height = tam.y;
 
-    //TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
-    //m_motorBear->TrasladarObjeto(nodo,glm::vec3(-width,0,0));
-    //m_motorBear->hacerInvisibleObjeto(nodo);
-//
-    //for (float x = pos.x; x <= pos.x + width; x+=.1f){
-    //  for (float y = pos.y; y <= pos.y + height; y+=.1f){
-	//	TNodo* nodo2 = m_motorBear->crearObjetoMallaCompleto(nodo, "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
-	//	if(texture)
-	//        m_motorBear->asignarTextura(nodo2,texture);
-	//	m_motorBear->TrasladarObjeto(nodo2,glm::vec3(x,y,0));
-    //    m_motorBear->EscalarObjeto(nodo2,glm::vec3(0.1f,0.1f,0.1f));
-    //  }
-    //}
-    TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str());
+    TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), "BearEngine/res/cubo.obj",(char*)strm.str().c_str(),shader);
 	 if(texture)
         m_motorBear->asignarTextura(nodo,texture);
 	 m_motorBear->TrasladarObjeto(nodo,pos);
@@ -71,7 +53,7 @@ TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* textu
 TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
     std::ostringstream strm;
     strm << id;
-	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str());
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str(),1);
 	if(texture)
         m_motorBear->asignarTextura(nodo,texture);
 	m_motorBear->TrasladarObjeto(nodo,pos);

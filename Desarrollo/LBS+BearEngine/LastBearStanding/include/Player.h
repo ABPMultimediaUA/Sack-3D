@@ -57,6 +57,7 @@ class Player: public Cogible{
     protected:
         int estado;
         int direccion;
+        int lastDir;
         float x;
         float y;
         char ip[64];

@@ -20,17 +20,17 @@ void main(){
 	intensity = dot(-vec3(0,0,1)/*lightDirection*/, normalize(normal0));
 	//if(intensity>0.95)
 	if(intensity>0.5)
-		color = vec4(1.0,0.5,0.5,1.0);
+		color = vec4(0.5,0.5,0.5,1.0);
 		//color = texture2D(diffuse , texCoord0);
 	//else 	if(intensity>0.5)
 	else 	if(intensity>0.4)
 		//color = texture2D(diffuse , texCoord0);
 //		color = vec4(0.6,0.3,0.3,1.0);
-		color = vec4(1.0,0.5,0.5,1.0);
+		color = vec4(0.25,0.25,0.25,1.0);
 
 	else 	if(intensity>0.25)
 //		color = vec4(0.2,0.2,0.2,1.0);
-		color = vec4(1.0,0.5,0.5,1.0);
+		color = vec4(0.15,0.15,0.15,1.0);
 		
 		//color = vec4(0.0,0.0,0.0,1.0);		
 		//color = texture2D(diffuse , texCoord0);
@@ -40,8 +40,7 @@ void main(){
 		//color = texture2D(diffuse , texCoord0);
 		color = vec4(0.0,0.0,0.0,1.0);		
 
-	gl_FragColor = /*texture2D(diffuse, texCoord0 )**/color;
-
+	gl_FragColor = texture2D(diffuse, texCoord0 ) * color;
 
 
 }

@@ -19,6 +19,8 @@ TMotorBear::TMotorBear(int width, int height, const std::string& title)
     camaraActiva = NULL;
     escena = new Display(width,height,title);
     pila = new std::vector<glm::mat4>;
+    crearShadersBasicos();
+
 }
 void TMotorBear::verArbol(){
     arbolEscena->verArbol();
@@ -33,6 +35,25 @@ TMotorBear::~TMotorBear()
         delete(registroCamara[i]);
         i--;
     }*/
+}
+
+void TMotorBear::crearShader(const std::string& fileName){
+    Shader * shad = new Shader(fileName);
+    shadersMot.push_back(shad);
+}
+
+void TMotorBear::crearShadersBasicos(){
+    crearShader("BearEngine/res//basicShader");
+    std::cout<<"BasicShader"<<std::endl;
+    crearShader("BearEngine/res//basicShaderLuz");
+    std::cout<<"BasicShaderLuz"<<std::endl;
+ //   crearShader("BearEngine/res//basicShaderToon");
+    std::cout<<"BasicShaderToon"<<std::endl;
+}
+
+
+int TMotorBear::getShaderProgram(int posVec){
+    return  shadersMot.at(posVec)->positionLocation();
 }
 
 TNodo* TMotorBear::getRaiz(){
@@ -53,7 +74,13 @@ TEntidad * TMotorBear::crearTransform(){
     TTransform *trans = new TTransform();
     return trans;
 
-}/*
+}
+TNodo* TMotorBear::obtenerPadreCamara(){
+
+return verCamaraActiva()->getPadre();
+}
+
+/*
 void TMotorBear::transformarEntidad(TEntidad* entity, float tipo, glm::vec3 vec){ //0 = traslacion != 0 rotacion
     TTransform* trans = static_cast<TTransform*>(entity);
 
@@ -70,6 +97,26 @@ void TMotorBear::escalarEntidad(TEntidad* entity, glm::vec3 vec){
      trans->escalar(vec);
 }
 */
+
+void TMotorBear::asignarMaterial(TNodo* nodoMalla, char* nombreMat){
+    TEntidadMalla* ent = static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
+    ent->asignarMat(static_cast<TMaterial*> (gestorRecursos->getRecurso(nombreMat,2)));
+}
+
+void TMotorBear::materialesColoresBasicos(){
+    /*TMaterial* blanco   = new TMaterial(glm::vec3(1.0,1.0,1.0), "Blanco");
+    TMaterial* rojo     = new TMaterial(glm::vec3(1.0,0.0,0.0), "Rojo");
+    TMaterial* verde    = new TMaterial(glm::vec3(0.0,1.0,0.0), "Verde");
+    TMaterial* rosa     = new TMaterial(glm::vec3(0.9,0.11,0.88), "Rosa");
+    TMaterial* amarillo = new TMaterial(glm::vec3(1.0,1.0,0.0), "Amarillo");
+
+    gestorRecursos->almacenarRecurso(blanco);
+    gestorRecursos->almacenarRecurso(rojo);
+    gestorRecursos->almacenarRecurso(verde);
+    gestorRecursos->almacenarRecurso(rosa);
+    gestorRecursos->almacenarRecurso(amarillo);*/
+}
+
 
 void TMotorBear::cambiarColorLuz(glm::vec3 colr){
     TLuz* luz = static_cast<TLuz*> (registroLuces.at(0)->getEntidad());
@@ -90,18 +137,18 @@ TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect,
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
-TEntidad* TMotorBear::crearMalla( char* file){
+TEntidad* TMotorBear::crearMalla( char* file,int idS){
 
-    TEntidadMalla* mesh = new TEntidadMalla();
+    TEntidadMalla* mesh = new TEntidadMalla(shadersMot.at(idS));
 
     mesh->setMalla(static_cast<Mesh*> (gestorRecursos->getRecurso(file, 0)));
 
     return mesh ;
 }
 TEntidad* TMotorBear::crearMalla( float alto, float ancho, float prof){
-    TEntidadMalla* mesh = new TEntidadMalla();
+ /*   TEntidadMalla* mesh = new TEntidadMalla();
     mesh->setMalla( new Mesh(ancho, alto, prof));
-    return mesh ;
+    return mesh ;*/
 }
 
 TNodo* TMotorBear::crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec){
@@ -141,10 +188,10 @@ TNodo* TMotorBear::crearObjetoLuz(TNodo*padre, glm::vec3 colorLuz, glm::vec3 pos
 }
 
 
-TNodo* TMotorBear::crearObjetoMallaCompleto(TNodo* padre, char * filename, char * name){
+TNodo* TMotorBear::crearObjetoMallaCompleto(TNodo* padre, char * filename, char * name,int idShad){
 
     //std::cout<<"HOLAAA"<<std::endl;
-    TEntidad* mallaE = crearMalla(filename);
+    TEntidad* mallaE = crearMalla(filename, idShad);
 
     TNodo* transTras = crearTransObj(padre, name);
     transTras->setVisible(1);
@@ -420,7 +467,9 @@ void TMotorBear::verDetallesTransformaciones(TNodo* nodoTrans){
 }
 
 
-void TMotorBear::draw(Shader* shad){
+//void TMotorBear::draw(Shader* shad){
+void TMotorBear::draw(){
+    Shader* shad;
     glm::mat4 cam = obtenerMatCam();
     glm::vec3 posCam = glm::vec3( cam * glm::vec4(glm::vec3(0,0,0), 1.0)); //Camara
   /*  for(int i =0; i<4;i++){
@@ -431,13 +480,25 @@ void TMotorBear::draw(Shader* shad){
    //luces
    //Viewport
    pila->push_back(cam);
-
+/*
     GLuint cameraPosUniformLocation = glGetUniformLocation(shad->positionLocation(), "uPosCam");
     glUniform3fv(cameraPosUniformLocation,1, &posCam[0]);
 
     dibujarLuces(shad);
     arbolEscena->draw(shad,pila);
+    */
+    for(int i =0;i<shadersMot.size();i++){
+        shad= shadersMot.at(i);
+        shad->Bind();
+        GLuint cameraPosUniformLocation = glGetUniformLocation(shad->positionLocation(), "uPosCam");
+        glUniform3fv(cameraPosUniformLocation,1, &posCam[0]);
+
+        dibujarLuces(shad);
+        arbolEscena->draw(shad,pila);
+    }
+
     pila->pop_back();
+
 }
 
 

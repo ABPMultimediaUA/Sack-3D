@@ -31,6 +31,7 @@ Player::Player(b2Vec2 pos, char *texture, int numMando)
     estado = LEVANTADO;
     direccion = 0;
     expuesto = false;
+    lastDir = 0;
     strncpy(id, m_pClient->getIdCliente(), sizeof(id));
 }
  Player::~Player(){
@@ -74,10 +75,10 @@ void Player::mover(MyEventReceiver *events){
     int id2 = (*m_pClient->getIdCliente())-'0';
     if(mando == id2){
         if(events && events->IsKeyDown(SDLK_a)){
-            moviendo = direccion = dir = -1;
+            moviendo = lastDir = direccion = dir = -1;
         }
         else if(events && events->IsKeyDown(SDLK_d)){
-            moviendo = direccion = dir = 1;
+            moviendo = lastDir = direccion = dir = 1;
         }
         else{
                 moviendo = 0;
@@ -87,10 +88,12 @@ void Player::mover(MyEventReceiver *events){
         m_pClient->enviarMoviendo(moviendo, mando);
         moviendoA = moviendo;
     }
-    if(dir >=  0)m_gameObject.SetXRotation(0);
-    if(dir == -1)m_gameObject.SetXRotation(180);
+
+    if(lastDir ==  1)       m_gameObject.SetXRotation(0);
+    else if(lastDir == -1)  m_gameObject.SetXRotation(180);
+
     m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(moviendo);
+    if(cogiendo) objCogido->setDireccion(lastDir);
 }
 void Player::saltar(){
     if(muerto)
@@ -165,7 +168,7 @@ void Player::BloodExplosion(){
         tam.x = ((float)(rand()%10)/250.f)+0.002f;
         tam.y = tam.x;
         tam.z = 0.02f;
-        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300,"BearEngine/res/arma.obj","media/Images/sangre.png"));
+        Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+300,"BearEngine/res/arma.obj","media/Images/Red.png"));
         b2Vec2 capVel;
         capVel.x = (dir*(rand()%300)/10.f)+0.5f;
         capVel.y =((rand()%100)/10.f)+0.5f;

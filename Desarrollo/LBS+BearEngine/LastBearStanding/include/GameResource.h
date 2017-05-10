@@ -1,7 +1,6 @@
 #ifndef GAMERESOURCE_H
 #define GAMERESOURCE_H
 
-
 template <class A>
 class GameResource{
     public:
@@ -11,6 +10,7 @@ class GameResource{
 	        	delete m_t;
 	        }
 	        m_t = a;
+
 	    }
 	    A *Get() const{
 	        return m_t;

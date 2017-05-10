@@ -85,8 +85,14 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/HUD.h" />
+		<Unit filename="include/LTexture.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Master.h" />
+		<Unit filename="include/Menu.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/Metralla.h" />
 		<Unit filename="include/Muelle.h">
 			<Option target="Release" />
@@ -137,8 +143,14 @@
 		<Unit filename="src/GameObject.cpp" />
 		<Unit filename="src/Granada.cpp" />
 		<Unit filename="src/HUD.cpp" />
+		<Unit filename="src/LTexture.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Master.cpp" />
+		<Unit filename="src/Menu.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/Metralla.cpp" />
 		<Unit filename="src/Muelle.cpp" />
 		<Unit filename="src/MyContactListener.cpp" />

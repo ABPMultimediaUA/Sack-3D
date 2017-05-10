@@ -8,20 +8,54 @@
 #include <ctime>
 #include <stdlib.h>
 #include "SDL.h"
+#include "Menu.h"
 
 Master::Master():m_game(0){
     for (int i = 0; i < 4; ++i){
         puntuaciones[i] = 0;
     }
     finPartida = false;
-    World::Inst();
-    InstanciaMundo();
+    primeraInicializacion = true;
+    estado = 0;
     BearMngr::Inst();
     time2SyncClient = 0;
     BearMngr::Inst()->InstanciaVariables(puntuaciones);
     timeFPS = SDL_GetTicks();
+    menu = new Menu();
 }
 void Master::Update(){
+ switch(estado){
+        case 0:
+            UpdateMenu();
+            if(!menu->getOn()) estado++;
+            break;
+        case 1:
+            if(primeraInicializacion){
+                Client::Inst()->iniciar(menu->getGameMode(), menu->getIP());
+                InstanciaMundo();
+                //IrrMngr::Inst()->InstanciaVariables(puntuaciones);
+                primeraInicializacion=false;
+            }else{
+            UpdateGame();
+            }
+            break;
+    }
+}
+
+void Master::UpdateMenu(){
+    SDL_Event e;
+    while(SDL_PollEvent(&e)){
+        eventReceiver.OnEvent(&e);
+    }
+    if(SDL_GetTicks()-timeFPS>FPS){
+        int fps = 1000/(SDL_GetTicks()-timeFPS);
+        timeFPS = SDL_GetTicks();
+        BearMngr::Inst()->Update();
+        menu->update();
+    }
+}
+
+void Master::UpdateGame(){
     SDL_Event e;
     while(SDL_PollEvent(&e)){
         eventReceiver.OnEvent(&e);
@@ -45,6 +79,7 @@ void Master::Update(){
         }
         BearMngr::Inst()->Update();
         Client::Inst()->recibir();
+        //std::cout<<"falla"<<std::endl;
         if(SDL_GetTicks()>(time2SyncClient+1000)){
             Client::Inst()->enviar();
             time2SyncClient = SDL_GetTicks();

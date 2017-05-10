@@ -2,7 +2,7 @@
 #define CLIENT_H
 
 #include "MessageIdentifiers.h"
-
+#include <string>
 #include "RakPeerInterface.h"
 #include "RakNetStatistics.h"
 #include "RakNetTypes.h"
@@ -57,7 +57,7 @@ class Client{
         bool getRun(){return run;}
         bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
-        void iniciar();
+        void iniciar(std::string gameMode, std::string IP);
         void PacketFunction(int aux);
         void recibir();
         void enviar(int aux = -1);
@@ -90,6 +90,8 @@ class Client{
 
     private:
         std::vector<int> maps;
+        std::string gameMode;
+        std::string IP;
         static Client* pinstance;
         char idCliente[30];
         int numPlayersRed;

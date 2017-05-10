@@ -31,17 +31,21 @@ void Client::PacketFunction(int aux){
     }
 }
 
-void Client::iniciar(){
+void Client::iniciar(std::string gameModes, std::string IPs){
     char auxip[64], auxserverPort[30], auxclientPort[30], mode[30], auxautomatic[30];
     bool server = true;
+    IP.assign(IPs);
+    gameMode.assign(gameModes);
     //CUIDADOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //*idCliente = '0';
     //-------------------------------------------------------------------------
-    puts("Select Single(s) or Multiplayer(m) mode");
-    Gets(mode,sizeof(mode));
-    if(strcmp(mode,"s") == 0){
+    //puts("Select Single(s) or Multiplayer(m) mode");
+    //Gets(mode,sizeof(mode));
+    //if(strcmp(gameMode,"s") == 0){
+    if(gameMode.compare("s") == 0){
         singleMaps();
        *idCliente = '0';
+       idPlayerInt = 0;
        run=true;
     }
     else{

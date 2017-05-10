@@ -27,7 +27,10 @@ class BearMngr{
         void IsBearVisible(TNodo* nodo, bool visible);
         bool IsClosed();
         void  SwitchDebugMode();
+        TMotorBear* getMotorBear(){return m_motorBear;}
         //void setBackgroundImage(irr::video::ITexture* bimage);
+        unsigned int getWidth(){return m_windowWidth;}
+        unsigned int getHeight(){return m_windowHeight;}
         virtual ~BearMngr();
     private:
         static BearMngr* pinstance;

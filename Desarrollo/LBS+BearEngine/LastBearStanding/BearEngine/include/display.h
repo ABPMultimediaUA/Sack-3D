@@ -25,7 +25,8 @@ class Display
 
         SDL_Texture* CreaTextura(const std::string &archivo);
         void RenderTextura(SDL_Texture *tex, int x, int y);
-
+        SDL_Window* getWindow(){return m_window;}
+        SDL_Renderer* getRenderer(){return ren;}
         virtual ~Display();
 
     protected:

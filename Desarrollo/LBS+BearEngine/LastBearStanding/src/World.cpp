@@ -120,7 +120,7 @@ int World::Update(int fps,MyEventReceiver *events){
   glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
   m_hud.Update(posCam);
   m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
-  m_fondo.SetZ(posCam.z-15);
+  m_fondo.SetZ(posCam.z-35);
   m_fondo.Update();
   return players;
 }

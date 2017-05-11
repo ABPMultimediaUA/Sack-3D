@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1060">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1062">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -23,12 +23,12 @@
   </tile>
  </tileset>
  <objectgroup name="Nodos" opacity="0.91">
-  <object id="618" name="0" type="6,10" gid="692172" x="14" y="41" width="1" height="1"/>
+  <object id="618" name="0" type="6,10" gid="692172" x="14" y="43" width="1" height="1"/>
   <object id="619" name="1" type="2,11" gid="692172" x="31" y="42" width="1" height="1"/>
   <object id="620" name="2" type="1,18" gid="692172" x="39" y="42" width="1" height="1"/>
   <object id="621" name="3" type="4,20" gid="692172" x="87" y="42" width="1" height="1"/>
   <object id="622" name="4" type="3,16" gid="692172" x="95" y="42" width="1" height="1"/>
-  <object id="623" name="5" type="7,17" gid="692172" x="112" y="41" width="1" height="1"/>
+  <object id="623" name="5" type="7,17" gid="692172" x="112" y="43" width="1" height="1"/>
   <object id="624" name="6" type="0" gid="692172" x="9" y="47" width="1" height="1"/>
   <object id="627" name="7" type="5" gid="692172" x="117" y="47" width="1" height="1"/>
   <object id="628" name="8" type="9,12" gid="692172" x="57" y="34" width="1" height="1"/>
@@ -36,14 +36,14 @@
   <object id="638" name="10" type="0,11" gid="692172" x="19" y="49" width="1" height="1" rotation="1"/>
   <object id="685" name="11" type="1,10,21" gid="692172" x="26" y="49" width="1" height="1" rotation="1"/>
   <object id="687" name="12" type="2,8,18" gid="692172" x="54" y="42" width="1" height="1"/>
-  <object id="688" name="13" type="14,19" gid="692172" x="69" y="48" width="1" height="1"/>
+  <object id="688" name="13" type="14,19" gid="692172" x="68" y="48" width="1" height="1"/>
   <object id="689" name="14" type="13,34" gid="692172" x="63" y="42" width="1" height="1"/>
   <object id="690" name="15" type="3,9,20" gid="692172" x="73" y="42" width="1" height="1"/>
   <object id="691" name="16" type="4,17,24" gid="692172" x="100" y="49" width="1" height="1"/>
   <object id="692" name="17" type="5,16" gid="692172" x="107" y="49" width="1" height="1"/>
   <object id="693" name="18" type="12,19,22" gid="692172" x="47" y="48" width="1" height="1"/>
   <object id="694" name="19" type="13,18" gid="692172" x="59" y="48" width="1" height="1"/>
-  <object id="695" name="20" type="3,15,23" gid="692172" x="79" y="48" width="1" height="1"/>
+  <object id="695" name="20" type="3,15,23,35" gid="692172" x="79" y="48" width="1" height="1"/>
   <object id="696" name="21" type="11,22,28" gid="692172" x="31" y="56" width="1" height="1"/>
   <object id="697" name="22" type="18,21,25,29" gid="692172" x="41" y="56" width="1" height="1"/>
   <object id="700" name="23" type="20,24,26,30" gid="692172" x="85" y="56" width="1" height="1"/>
@@ -58,11 +58,12 @@
   <object id="1028" name="33" type="28" gid="692172" x="10" y="70" width="1" height="1"/>
   <object id="1031" name="32" type="31" gid="692172" x="116" y="70" width="1" height="1"/>
   <object id="1059" name="34" type="14" gid="692172" x="59" y="42" width="1" height="1"/>
+  <object id="1061" name="35" type="20" gid="692172" x="73" y="48" width="1" height="1"/>
  </objectgroup>
  <objectgroup color="#26a410" name="Colisiones">
-  <object id="484" x="13" y="41" width="3" height="25"/>
+  <object id="484" x="13" y="43" width="3" height="23"/>
   <object id="486" x="8" y="70" width="111" height="1"/>
-  <object id="487" x="111" y="41" width="3" height="24"/>
+  <object id="487" x="111" y="43" width="3" height="22"/>
   <object id="649" x="51" y="62" width="5" height="6"/>
   <object id="650" x="71" y="62" width="5" height="6"/>
   <object id="654" x="61" y="64" width="5" height="4"/>
@@ -87,9 +88,9 @@
  <objectgroup name="Armas"/>
  <objectgroup name="Players">
   <object id="1002" gid="271" x="42" y="70" width="1" height="1"/>
-  <object id="1003" gid="271" x="64" y="48" width="1" height="1"/>
+  <object id="1003" gid="271" x="92" y="42" width="1" height="1"/>
   <object id="1040" gid="271" x="88" y="70" width="1" height="1"/>
-  <object id="1044" gid="271" x="53" y="48" width="1" height="1"/>
+  <object id="1044" gid="271" x="35" y="42" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

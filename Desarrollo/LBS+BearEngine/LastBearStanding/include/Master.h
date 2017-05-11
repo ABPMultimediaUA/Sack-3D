@@ -38,8 +38,8 @@ class Master{
             , {  2         , "media/Maps/MapFinding2.tmx" }
             , {  4         , "media/Maps/MapFinding3.tmx" }
             , {  5         , "media/Maps/MapFinding4.tmx" }
-            , {  6         , "media/Maps/MapFinding1.tmx" }
-            , {  3         , "media/Maps/MapFinding1.tmx" }
+            , {  6         , "media/Maps/MapFinding5.tmx" }
+            , {  3         , "media/Maps/MapFinding6.tmx" }
             , {  0         , "0"                          }
         };
 };

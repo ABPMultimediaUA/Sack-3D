@@ -28,7 +28,7 @@ TRecurso *TGestorRecursos::getRecurso(  char* nombre, int tipo){
 
 TRecurso* recu;
 int encontrado=0;
-             std::cout<<"Recurso "<<nombre<<std::endl;
+             //std::cout<<"Recurso "<<nombre<<std::endl;
 
 //sstd::cout<<"Hay "<< recurs<<std::cout<<" recursos"<<std::endl;
     for(std::vector<TRecurso*>::iterator i = recursos.begin() ; i != recursos.end();++i){

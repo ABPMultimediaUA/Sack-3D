@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1211">
+ <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="2497" name="tileset" tilewidth="1" tileheight="1" tilecount="646144" columns="1024">
+  <image source="tileset.png" width="1024" height="631"/>
+ </tileset>
+ <tileset firstgid="648641" name="tileset" tilewidth="16" tileheight="16" tilecount="2497" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+ </tileset>
+ <tileset firstgid="692173" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
+  <image source="tileset.png" width="1024" height="631"/>
+  <tile id="226">
+   <animation>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <objectgroup name="Nodos" opacity="0.91">
+  <object id="618" name="0" type="2,3" gid="692172" x="65" y="68" width="1" height="1"/>
+  <object id="1176" name="1" type="2,14,16" gid="692172" x="79" y="65" width="1" height="1"/>
+  <object id="1179" name="2" type="0,1" gid="692172" x="73" y="68" width="1" height="1"/>
+  <object id="1185" name="3" type="0,12" gid="692172" x="57" y="68" width="1" height="1"/>
+  <object id="1186" name="4" type="9,15" gid="692172" x="70" y="54" width="1" height="1"/>
+  <object id="1187" name="5" type="9,10" gid="692172" x="77" y="54" width="1" height="1"/>
+  <object id="1188" name="6" type="11,13" gid="692172" x="49" y="49" width="1" height="1"/>
+  <object id="1189" name="7" type="8,15" gid="692172" x="60" y="54" width="1" height="1"/>
+  <object id="1190" name="8" type="7,11,18" gid="692172" x="57" y="49" width="1" height="1"/>
+  <object id="1191" name="9" type="4,5,19" gid="692172" x="73" y="49" width="1" height="1"/>
+  <object id="1192" name="10" type="5,14" gid="692172" x="81" y="49" width="1" height="1"/>
+  <object id="1193" name="11" type="6,8" gid="692172" x="53" y="54" width="1" height="1"/>
+  <object id="1194" name="12" type="3,13,17" gid="692172" x="51" y="65" width="1" height="1"/>
+  <object id="1196" name="13" type="12" gid="692172" x="43" y="62" width="1" height="1"/>
+  <object id="1197" name="14" type="1" gid="692172" x="87" y="62" width="1" height="1"/>
+  <object id="1198" name="15" type="4,7,16,17" gid="692172" x="65" y="60" width="1" height="1"/>
+  <object id="1199" name="16" type="1,15" gid="692172" x="73" y="60" width="1" height="1"/>
+  <object id="1200" name="17" type="12,15" gid="692172" x="56" y="60" width="1" height="1"/>
+  <object id="1207" name="18" type="8,19,21" gid="692172" x="61" y="45" width="1" height="1"/>
+  <object id="1208" name="19" type="9,18,20" gid="692172" x="69" y="45" width="1" height="1"/>
+  <object id="1209" name="20" type="19" gid="692172" x="74" y="42" width="1" height="1"/>
+  <object id="1210" name="21" type="18" gid="692172" x="56" y="42" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup color="#26a410" name="Colisiones">
+  <object id="486" x="55" y="68" width="21" height="1"/>
+  <object id="1082" x="61" y="45" width="9" height="1"/>
+  <object id="1083" x="55" y="60" width="20" height="1"/>
+  <object id="1086" x="51" y="67" width="5" height="1"/>
+  <object id="1087" x="48" y="65" width="5" height="1"/>
+  <object id="1088" x="75" y="67" width="5" height="1"/>
+  <object id="1089" x="78" y="65" width="5" height="1"/>
+  <object id="1090" x="44" y="64" width="6" height="1"/>
+  <object id="1091" x="43" y="63" width="5" height="1"/>
+  <object id="1094" x="81" y="64" width="6" height="1"/>
+  <object id="1095" x="83" y="63" width="5" height="1"/>
+  <object id="1096" x="42" y="62" width="4" height="1"/>
+  <object id="1097" x="41" y="47" width="1" height="15"/>
+  <object id="1100" x="85" y="62" width="4" height="1"/>
+  <object id="1101" x="89" y="47" width="1" height="15"/>
+  <object id="1124" x="41" y="46" width="3" height="1"/>
+  <object id="1125" x="87" y="46" width="3" height="1"/>
+  <object id="1126" x="42" y="45" width="4" height="1"/>
+  <object id="1127" x="85" y="45" width="4" height="1"/>
+  <object id="1128" x="81" y="44" width="7" height="1"/>
+  <object id="1129" x="43" y="44" width="6" height="1"/>
+  <object id="1130" x="47" y="43" width="6" height="1"/>
+  <object id="1131" x="78" y="43" width="6" height="1"/>
+  <object id="1132" x="73" y="42" width="7" height="1"/>
+  <object id="1133" x="51" y="42" width="7" height="1"/>
+  <object id="1134" x="48" y="54" width="14" height="1"/>
+  <object id="1135" x="48" y="50" width="1" height="4"/>
+  <object id="1136" x="58" y="50" width="1" height="4"/>
+  <object id="1137" x="48" y="49" width="3" height="1"/>
+  <object id="1138" x="56" y="49" width="3" height="1"/>
+  <object id="1139" x="72" y="50" width="1" height="4"/>
+  <object id="1140" x="72" y="49" width="3" height="1"/>
+  <object id="1141" x="82" y="50" width="1" height="4"/>
+  <object id="1142" x="69" y="54" width="14" height="1"/>
+  <object id="1143" x="80" y="49" width="3" height="1"/>
+  <object id="1145" x="38" y="42" width="4" height="1"/>
+  <object id="1146" x="37" y="41" width="2" height="1"/>
+  <object id="1147" x="37" y="37" width="1" height="4"/>
+  <object id="1149" x="40" y="43" width="4" height="1"/>
+  <object id="1150" x="37" y="36" width="2" height="1"/>
+  <object id="1151" x="38" y="35" width="4" height="1"/>
+  <object id="1152" x="40" y="34" width="4" height="1"/>
+  <object id="1153" x="42" y="33" width="7" height="1"/>
+  <object id="1154" x="47" y="34" width="3" height="1"/>
+  <object id="1155" x="49" y="35" width="2" height="1"/>
+  <object id="1156" x="52" y="38" width="1" height="3"/>
+  <object id="1157" x="50" y="36" width="2" height="1"/>
+  <object id="1158" x="51" y="37" width="2" height="1"/>
+  <object id="1159" x="52" y="41" width="2" height="1"/>
+  <object id="1160" x="79" y="36" width="2" height="1"/>
+  <object id="1161" x="80" y="35" width="2" height="1"/>
+  <object id="1162" x="78" y="37" width="2" height="1"/>
+  <object id="1163" x="82" y="33" width="7" height="1"/>
+  <object id="1164" x="81" y="34" width="3" height="1"/>
+  <object id="1165" x="78" y="38" width="1" height="3"/>
+  <object id="1166" x="77" y="41" width="2" height="1"/>
+  <object id="1167" x="93" y="37" width="1" height="4"/>
+  <object id="1168" x="92" y="41" width="2" height="1"/>
+  <object id="1169" x="89" y="42" width="4" height="1"/>
+  <object id="1170" x="89" y="35" width="4" height="1"/>
+  <object id="1171" x="92" y="36" width="2" height="1"/>
+  <object id="1172" x="87" y="43" width="4" height="1"/>
+  <object id="1173" x="87" y="34" width="4" height="1"/>
+  <object id="1181" x="50" y="66" width="4" height="1"/>
+  <object id="1182" x="77" y="66" width="4" height="1"/>
+ </objectgroup>
+ <objectgroup name="Teleports" visible="0"/>
+ <objectgroup name="Muelles" visible="0"/>
+ <objectgroup name="Armas" visible="0"/>
+ <objectgroup name="Players">
+  <object id="1002" gid="271" x="60" y="68" width="1" height="1"/>
+  <object id="1003" gid="271" x="70" y="68" width="1" height="1"/>
+  <object id="1040" gid="271" x="74" y="42" width="1" height="1"/>
+  <object id="1044" gid="271" x="56" y="42" width="1" height="1"/>
+ </objectgroup>
+ <objectgroup name="Pinchos">
+  <object id="1018" x="-41" y="77" width="202" height="3"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="1068" name="1" type="1" gid="692377" x="43" y="62" width="1" height="1"/>
+  <object id="1205" name="1" type="1" gid="205" x="87" y="62" width="1" height="1"/>
+ </objectgroup>
+ <imagelayer name="Capa de Imagen 1" visible="0">
+  <image source="Background/bathroom.jpg" width="1925" height="1080"/>
+ </imagelayer>
+</map>

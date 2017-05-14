@@ -57,6 +57,11 @@ void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap
     case 3:  textFondo = "media/Maps/Background/kitchen.jpg"; break;
     case 4:  textFondo = "media/Maps/Background/bathroom.jpg"; break;
     case 5:  textFondo = "media/Maps/Background/garden.jpg"; break;
+    case 6:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 7:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 8:  textFondo = "media/Maps/Background/garden.jpg"; break;
+    case 9:  textFondo = "media/Maps/Background/room.jpg"; break;    
+    case 10:  textFondo = "media/Maps/Background/garden.jpg"; break;
     default: textFondo = "media/Maps/Background/room.jpg"; break;
   }
   m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(9,16,0.01f),NULL,textFondo, false);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1062">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="128" height="72" tilewidth="1" tileheight="1" backgroundcolor="#5e8eff" nextobjectid="1064">
  <tileset firstgid="1" name="tilemap6" tilewidth="16" tileheight="16" tilecount="2496" columns="64">
   <image source="tileset.png" width="1024" height="631"/>
   <tile id="226">
@@ -52,8 +52,8 @@
   <object id="705" name="26" type="23,27,30" gid="692172" x="73" y="62" width="1" height="1"/>
   <object id="706" name="27" type="25,26" gid="692172" x="63" y="64" width="1" height="1"/>
   <object id="707" name="28" type="29,33" gid="692172" x="26" y="70" width="1" height="1"/>
-  <object id="708" name="29" type="25,28" gid="692172" x="45" y="70" width="1" height="1"/>
-  <object id="709" name="30" type="26,31" gid="692172" x="81" y="70" width="1" height="1"/>
+  <object id="708" name="29" type="25,28" gid="692172" x="46" y="70" width="1" height="1"/>
+  <object id="709" name="30" type="26,31" gid="692172" x="80" y="70" width="1" height="1"/>
   <object id="710" name="31" type="30,32" gid="692172" x="100" y="70" width="1" height="1"/>
   <object id="1028" name="33" type="28" gid="692172" x="10" y="70" width="1" height="1"/>
   <object id="1031" name="32" type="31" gid="692172" x="116" y="70" width="1" height="1"/>

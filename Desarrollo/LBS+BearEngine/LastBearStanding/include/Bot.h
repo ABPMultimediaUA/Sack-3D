@@ -18,6 +18,7 @@ class Bot: public Player{
         void colisionConNodo(int nodo);
         void buscoSpawn();
         void buscaJugador();
+        void cambiarDireccion(int direccion);
         Nodo* getMas(float x, float y);
         Nodo* getCercanoTotal(float x, float y);
         Nodo* buscaNumero(int i);

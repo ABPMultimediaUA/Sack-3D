@@ -43,7 +43,7 @@ class Master{
             , {  7         , "media/Maps/MapFinding7.tmx" }
             , {  8         , "media/Maps/MapFinding8.tmx" }
             , {  9         , "media/Maps/MapFinding9.tmx" }
-            , {  10        , "media/Maps/MapFinding10.tmx" }
+            , {  10        , "media/Maps/MapFinding0.tmx" }
             , {  11        , "0"                         }
         };
 };

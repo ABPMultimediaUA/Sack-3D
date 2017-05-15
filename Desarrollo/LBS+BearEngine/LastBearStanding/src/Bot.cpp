@@ -193,7 +193,7 @@ void Bot::mover(MyEventReceiver *events ){
         && World::Inst()->getVivos() >1){
             saltar();
         }
-        if( (abs(m_gameObject.GetPosition().x - nodox) < 0.08) ){
+        if( (abs(m_gameObject.GetPosition().x - nodox) < 0.07) ){
             if(pathfinding->getTamanyo() == 1){saltando = false;}
 
             if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){

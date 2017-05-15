@@ -21,7 +21,7 @@ Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture,
 
 
 void Bot::InicializaVariables(){
-    std::cout<<"Soy Bot: "<<mando<<std::endl;
+    //std::cout<<"Soy Bot: "<<mando<<std::endl;
 
     players = World::Inst()->GetPlayers();
     spawners = World::Inst()->GetSpawners();
@@ -41,9 +41,12 @@ void Bot::InicializaVariables(){
     }
 
     Nodo* aux2 = getMas(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
-    std::cout<<"Nodos: "<<aux<<" "<<aux2<<std::endl;
-    calcularPathfinding(aux2, aux);
-    if(pathfinding->getTamanyo() != 0)
+    //std::cout<<"Nodos: "<<aux<<" "<<aux2<<std::endl;
+
+    if(aux && aux2) 
+        calcularPathfinding(aux2, aux);
+
+    if(pathfinding && pathfinding->getTamanyo() != 0)
         muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
 }
 
@@ -94,8 +97,8 @@ void Bot::buscaArma(){
                 }
 
                 //std::cout<<"SOY BOT "<<mando<<" y BUSCO ARMA"<<std::endl;
-                if(mando == 1) std::cout<<"SOY BOT: "<<mando<<std::endl;
-                if(mando == 1) std::cout<<" INI AND AUX "<<nodoFinIni<<" "<<aux<<std::endl;
+                //if(mando == 1) std::cout<<"SOY BOT: "<<mando<<std::endl;
+                //if(mando == 1) std::cout<<" INI AND AUX "<<nodoFinIni<<" "<<aux<<std::endl;
 
                 calcularPathfinding(nodoFinIni,aux);
 

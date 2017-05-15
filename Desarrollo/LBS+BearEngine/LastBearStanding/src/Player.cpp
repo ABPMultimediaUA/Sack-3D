@@ -93,7 +93,9 @@ void Player::mover(MyEventReceiver *events){
     else if(lastDir == -1)  m_gameObject.SetXRotation(180);
 
     m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(lastDir);
+   
+    if(cogiendo) 
+        objCogido->setDireccion(lastDir);
 }
 void Player::saltar(){
     if(muerto)

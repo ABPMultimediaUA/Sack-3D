@@ -22,7 +22,7 @@ class LTexture
 		~LTexture();
 
 		//Loads image at specified path
-		bool loadFromFile( std::string path );
+		bool loadFromFile( std::string path, SDL_Renderer* gRenderer );
         bool loadFromRenderedText( std::string textureText, SDL_Color textColor, SDL_Window* gWindow, SDL_Renderer* gRenderer, TTF_Font *gFont );
 		//#ifdef _SDL_TTF_H
 		//Creates image from font string

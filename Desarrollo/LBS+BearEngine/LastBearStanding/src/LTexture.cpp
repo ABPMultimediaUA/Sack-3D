@@ -1,6 +1,6 @@
 #include "LTexture.h"
 #include "Menu.h"
-
+#include <iostream>
 LTexture::LTexture()
 {
     	//Initialize
@@ -44,8 +44,8 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 	return mTexture != NULL;
 }
 
-bool LTexture::loadFromFile( std::string path )
-{/*
+bool LTexture::loadFromFile( std::string path, SDL_Renderer* gRenderer   )
+{
 	//Get rid of preexisting texture
 	free();
 
@@ -82,7 +82,7 @@ bool LTexture::loadFromFile( std::string path )
 
 	//Return success
 	mTexture = newTexture;
-	return mTexture != NULL;*/
+	return mTexture != NULL;
 }
 
 void LTexture::free()
@@ -120,7 +120,7 @@ void LTexture::render( int x, int y, SDL_Renderer* gRenderer, SDL_Rect* clip, do
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
-
+    std::cout<<"x"<<x<<"y"<<y<<std::endl;
 	//Set clip rendering dimensions
 	if( clip != NULL )
 	{

@@ -85,6 +85,9 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/HUD.h" />
+		<Unit filename="include/LButton.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/LTexture.h">
 			<Option target="Release" />
 		</Unit>
@@ -143,6 +146,9 @@
 		<Unit filename="src/GameObject.cpp" />
 		<Unit filename="src/Granada.cpp" />
 		<Unit filename="src/HUD.cpp" />
+		<Unit filename="src/LButton.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/LTexture.cpp">
 			<Option target="Release" />
 		</Unit>

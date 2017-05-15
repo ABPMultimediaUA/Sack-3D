@@ -26,6 +26,8 @@ class Display
         void RenderTextura(SDL_Texture *tex, int x, int y);
         SDL_Window* getWindow(){return m_window;}
         SDL_Renderer* getRenderer(){return ren;}
+        SDL_Surface* getWindowSurface(){return windowSurface;}
+        SDL_Surface* getFondoSurface(){return fondo;}
         virtual ~Display();
 
     protected:

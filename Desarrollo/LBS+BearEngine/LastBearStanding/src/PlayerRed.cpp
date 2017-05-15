@@ -26,22 +26,25 @@ void PlayerRed::mover(int mov){
     if(!muerto && !fingiendoMuerte){
 
         if(primera) primera=false;
-        
+
         if(moviendo == 1){
-            direccion = moviendo = mov; 
-            std::cout<<"DIRECCION 1111"<<std::endl;}
+            direccion = moviendo = mov;
+            //std::cout<<"DIRECCION 1111"<<std::endl;
+            }
         else if(moviendo == -1){
-            direccion = moviendo = mov; 
-            std::cout<<"DIRECCION -1-1-1-1"<<std::endl;}
+            direccion = moviendo = mov;
+            //std::cout<<"DIRECCION -1-1-1-1"<<std::endl;
+            }
         else{
-            moviendo = mov;  
-            std::cout<<"DIRECCION 000000"<<std::endl;}
+            moviendo = mov;
+            //std::cout<<"DIRECCION 000000"<<std::endl;
+            }
 
         if(mov ==  1)        m_gameObject.SetXRotation(0);
         else if(mov == -1)   m_gameObject.SetXRotation(180);
 
         m_gameObject.SetLinearVelocity(b2Vec2 (moviendo*vel, m_gameObject.GetLinearVelocity().y));
-        
+
         if(cogiendo) objCogido->SetLinearVelocity(m_gameObject.GetLinearVelocity());
         if(cogiendo) objCogido->setDireccion(mov);
     }

@@ -93,6 +93,7 @@ void Master::InstanciaMundo(){
     while(it->num != 0){
         if(it->num == (mapList[m_game]+1)){
             World::Inst()->inicializaVariables(it->map,puntuaciones,it->num);
+            //std::cout<<"MAPAS: "<<it->num;
             m_game++;
             break;
         }

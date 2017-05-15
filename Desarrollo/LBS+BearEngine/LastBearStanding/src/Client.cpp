@@ -54,7 +54,7 @@ void Client::iniciar(std::string gameModes, std::string IPs){
         srand (timer);
         int x=0, i=0;
         std::vector<int> result;
-        while(i<6){
+        while(i<10){
             x = rand() % 9;
             result.push_back(x);
             i++;
@@ -471,7 +471,7 @@ void Client::setMaps(std::vector<int> mapas){
 void Client::singleMaps(){
 
     std::vector<int> result;
-    for(int i=0;i<6;i++)result.push_back(i);
+    for(int i=0;i<10;i++)result.push_back(i);
 
     setMaps(result);
 }

@@ -2,6 +2,21 @@
 #include "LTexture.h"
 #include "BearManager.h"
 #include "../BearEngine/include/tmotorbear.h"
+
+//Button constants
+/*const int BUTTON_WIDTH = 300;
+const int BUTTON_HEIGHT = 200;
+const int TOTAL_BUTTONS = 4;
+
+enum LButtonSprite
+{
+    BUTTON_SPRITE_MOUSE_OUT = 0,
+    BUTTON_SPRITE_MOUSE_OVER_MOTION = 1,
+    BUTTON_SPRITE_MOUSE_DOWN = 2,
+    BUTTON_SPRITE_MOUSE_UP = 3,
+    BUTTON_SPRITE_TOTAL = 4
+};*/
+
 class TMotorBear;
 Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
 {
@@ -9,6 +24,9 @@ Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
         //The window renderer
         gRenderer = BearMngr::Inst()->getMotorBear()->getEscena()->getRenderer();
 
+        gWindowSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getWindowSurface();
+
+        gFondoSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getFondoSurface();
         SCREEN_HEIGHT = BearMngr::Inst()->getHeight();
         SCREEN_WIDTH = BearMngr::Inst()->getWidth();
         on = true;
@@ -20,6 +38,7 @@ Menu::~Menu()
 }
 
 void Menu::update(){
+
 
     //Start up SDL and create window
 	if( !init() )
@@ -42,24 +61,30 @@ void Menu::update(){
 			SDL_Event e;
 
 			//Set text color as black
-			SDL_Color textColor = { 0, 0, 0, 0xFF };
+			SDL_Color textColor = { 255, 255, 255, 0xFF };
 
 			//The current input text.
 			std::string inputText = "";
 			gInputTextTexture.loadFromRenderedText( inputText.c_str(), textColor, gWindow, gRenderer, gFont);
 
 			//Enable text input
+
 			SDL_StartTextInput();
 
 			//While application is running
 			while( !quit )
-			{
+			{   gButtonSpriteSheetTexture.loadFromFile( "button1.png", gRenderer );
 				//The rerender text flag
 				bool renderText = false;
-
+               // SDL_RenderPresent( gRenderer );
 				//Handle events on queue
 				while( SDL_PollEvent( &e ) != 0 )
 				{
+				     //Handle button events
+                    for( int i = 0; i < TOTAL_BUTTONS; ++i )
+                    {
+                        gButtons[ i ].handleEvent( &e );
+                    }
 					//User requests quit
 					if( e.key.keysym.sym == SDLK_1 )
 					{
@@ -114,7 +139,10 @@ void Menu::update(){
 						}
 					}
 				}
-
+                				//Apply the image
+			//SDL_BlitSurface( gFondoSurface, NULL, gWindowSurface, NULL );
+			//Update the surface
+			//SDL_UpdateWindowSurface( gWindow );
 				//Rerender text if needed
 				if( renderText )
 				{
@@ -132,13 +160,27 @@ void Menu::update(){
 					}
 				}
 
+
 				//Clear screen
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 				SDL_RenderClear( gRenderer );
 
+                //Render texture to screen
+                SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
+
 				//Render text textures
 				gPromptTextTexture.render( ( SCREEN_WIDTH - gPromptTextTexture.getWidth() ) / 2, 0, gRenderer);
 				gInputTextTexture.render( ( SCREEN_WIDTH - gInputTextTexture.getWidth() ) / 2, gPromptTextTexture.getHeight(), gRenderer );
+                std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
+                //Render buttons
+                for( int i = 0; i < TOTAL_BUTTONS; ++i )
+                {
+                    std::cout<<TOTAL_BUTTONS<<std::endl;
+                    if(gButtons[ i ].getState()!=1)
+                    gButtonSpriteSheetTexture.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                    else
+                    gButtonSpriteSheetTexturePressed.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                }
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
@@ -147,6 +189,8 @@ void Menu::update(){
 
 			//Disable text input
 			SDL_StopTextInput();
+
+
 		}
 	}
 
@@ -210,6 +254,14 @@ bool Menu::init()
 				}
 			}
 		}
+
+		//Initialize PNG loading
+        int imgFlags = IMG_INIT_PNG;
+        if( !( IMG_Init( imgFlags ) & imgFlags ) )
+        {
+            printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+            success = false;
+        }
 	}
 
 	return success;
@@ -221,7 +273,7 @@ bool Menu::loadMedia()
 	bool success = true;
 
 	//Open the font
-	gFont = TTF_OpenFont( "lazy.ttf", 28 );
+	gFont = TTF_OpenFont( "media/Fuentes/Gloria.ttf", 28 );
 	if( gFont == NULL )
 	{
 		printf( "Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError() );
@@ -230,7 +282,7 @@ bool Menu::loadMedia()
 	else
 	{
 		//Render the prompt
-		SDL_Color textColor = { 0, 0, 0, 0xFF };
+		SDL_Color textColor = { 255, 255, 255, 0xFF };
 		if( !gPromptTextTexture.loadFromRenderedText( "Select Single(s) or Multiplayer(m) mode:", textColor, gWindow, gRenderer, gFont ) )
 		{
 			printf( "Failed to render prompt text!\n" );
@@ -238,7 +290,76 @@ bool Menu::loadMedia()
 		}
 	}
 
+	//Load PNG texture
+    gTexture = loadTexture( "diablo2.png" );
+    if( gTexture == NULL )
+    {
+        printf( "Failed to load texture image!\n" );
+        success = false;
+    }
+
+    if( !gButtonSpriteSheetTexture.loadFromFile( "button1.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressed.loadFromFile( "buttonPressed.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	//Set sprites
+		for( int i = 0; i < BUTTON_SPRITE_TOTAL; ++i )
+		{
+			gSpriteClips[ i ].x = 0;
+			gSpriteClips[ i ].y = 1 * 200;
+			gSpriteClips[ i ].w = BUTTON_WIDTH;
+			gSpriteClips[ i ].h = BUTTON_HEIGHT;
+		}
+
+		//Set buttons in corners
+		gButtons[ 0 ].setPosition( 0, 0 );
+		gButtons[ 1 ].setPosition( SCREEN_WIDTH - BUTTON_WIDTH, 0 );
+		gButtons[ 2 ].setPosition( 0, SCREEN_HEIGHT - BUTTON_HEIGHT );
+		gButtons[ 3 ].setPosition( SCREEN_WIDTH - BUTTON_WIDTH, SCREEN_HEIGHT - BUTTON_HEIGHT );
+	//Load splash image
+	/*gFondoSurface = SDL_LoadBMP( "diablo2.bmp" );
+	if( gFondoSurface == NULL )
+	{
+		printf( "Unable to load image %s! SDL Error: %s\n", "diablo2.bmp", SDL_GetError() );
+		success = false;
+	}*/
+
 	return success;
+}
+
+SDL_Texture* Menu::loadTexture( std::string path )
+{
+    //The final texture
+    SDL_Texture* newTexture = NULL;
+
+    //Load image at specified path
+    SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
+    if( loadedSurface == NULL )
+    {
+        printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
+    }
+    else
+    {
+    //Create texture from surface pixels
+    newTexture = SDL_CreateTextureFromSurface( gRenderer, loadedSurface );
+    if( newTexture == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+    }
+
+    //Get rid of old loaded surface
+    SDL_FreeSurface( loadedSurface );
+    }
+
+    return newTexture;
 }
 
 void Menu::close()

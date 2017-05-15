@@ -10,11 +10,18 @@
 #include <sstream>
 #include <iostream>
 #include "LTexture.h"
+#include "LButton.h"
 
 //Screen dimension constants
 //const int SCREEN_WIDTH = 640;
 //const int SCREEN_HEIGHT = 480;
 
+//Button constants
+const int BUTTON_WIDTH = 300;
+const int BUTTON_HEIGHT = 200;
+const int TOTAL_BUTTONS = 4;
+
+//class LButton;
 class Menu
 {
     public:
@@ -23,6 +30,8 @@ class Menu
         bool init();
         //Loads media
         bool loadMedia();
+
+        SDL_Texture* loadTexture( std::string path );
         //Frees media and shuts down SDL
         void close();
 
@@ -43,9 +52,22 @@ class Menu
         SDL_Renderer* gRenderer = NULL;
         //Globally used font
         TTF_Font *gFont = NULL;
+        SDL_Texture* gTexture = NULL;
+        SDL_Surface *gWindowSurface;
+        SDL_Surface *gFondoSurface;
         //Scene textures
         LTexture gPromptTextTexture;
         LTexture gInputTextTexture;
+
+        SDL_Rect gSpriteClips[ BUTTON_SPRITE_TOTAL ];
+        LTexture gButtonSpriteSheetTexture;
+        LTexture gButtonSpriteSheetTexturePressed;
+        //LTexture gButtonSpriteSheetTexture;
+        //LTexture gButtonSpriteSheetTexture;
+
+        //Buttons objects
+        LButton gButtons[ TOTAL_BUTTONS ];
+
         int SCREEN_WIDTH;
         int SCREEN_HEIGHT;
         std::string gameMode;
@@ -58,3 +80,4 @@ class Menu
 //#ifdef _SDL_TTF_H
 
 //#endif
+

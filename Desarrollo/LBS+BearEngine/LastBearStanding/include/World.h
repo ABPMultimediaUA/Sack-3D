@@ -105,13 +105,20 @@ class World{
         static const int         velocityIterations;
         static const int         positionIterations;
         GameResource<b2World>    world;
+        uint32                   timeStart;
         float                    DeltaTime;
         float                    TimeStamp;
-        bool                     m_debugMode;
+        float                    m_CountDownZ;
+        bool                     m_debugMode,
+                                 m_start;
         HUD                      m_hud;
         GameResource<GameCamera> camara;
         GameResource<Map>        m_Mapa;
         GameObject               m_fondo;
+        GameObject               m_CountDown1;
+        GameObject               m_CountDown2;
+        GameObject               m_CountDown3;
+        GameObject               m_CountDownGO;
         RVector<Teleport>        m_Teleports;
         RVector<Player>          m_Players;
         RVector<Muelle>          m_Muelles;

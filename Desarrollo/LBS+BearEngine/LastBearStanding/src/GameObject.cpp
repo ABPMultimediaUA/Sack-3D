@@ -71,6 +71,9 @@ b2Vec2 GameObject::GetLinearVelocity(){
 int GameObject::GetId(){
     return m_id;
 }
+float GameObject::GetZ(){
+    return m_z;
+}
 void GameObject::SetGravity(float gravity){
     m_pPhysicBody->SetGravity(gravity);
 }

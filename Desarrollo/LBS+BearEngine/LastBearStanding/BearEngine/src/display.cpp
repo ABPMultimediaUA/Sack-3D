@@ -23,6 +23,7 @@ Display::Display(int width, int height, const std::string& title)
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_DisplayMode dm;
     SDL_GetDesktopDisplayMode(0, &dm);
+    SDL_ShowCursor(false);
     int widthx=dm.w-1;
     int heighty=dm.w*9/16;
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, widthx, heighty, SDL_WINDOW_OPENGL);

@@ -36,10 +36,11 @@ void World::Reset(){
   pinstance = new World;
 
 }
-World::World():m_debugMode(false){
+World::World():m_debugMode(false),m_start(false),m_CountDownZ(-10){
 	world.Reset(new b2World(b2Vec2(0.0f, -10.0f), false));
 	contactListener.Reset(new MyContactListener);
 	world.Get()->SetContactListener(contactListener.Get());
+  timeStart = SDL_GetTicks();
 }
 Lista* World::getListaNodos(){
   return m_Mapa.Get()->getListaNodos();
@@ -65,8 +66,14 @@ void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap
     default: textFondo = "media/Maps/Background/room.jpg"; break;
   }
   SDL_DisplayMode dm;
-    SDL_GetDesktopDisplayMode(0, &dm);
+  SDL_GetDesktopDisplayMode(0, &dm);
   m_fondo.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(dm.h/45.f,dm.w/45.f,0.01f),NULL,textFondo, false);
+  m_CountDown1.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(1,1,0.01f),NULL,"media/Images/CountDown1.png", false);
+  m_CountDown2.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(1,1,0.01f),NULL,"media/Images/CountDown2.png", false);
+  m_CountDown3.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(1,1,0.01f),NULL,"media/Images/CountDown3.png", false);
+  m_CountDownGO.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(1,1,0.01f),NULL,"media/Images/CountDownGO.png", false);
+  
+
   m_hud.Inicialize(puntuaciones);
   for (int i = 0; i < m_Players.Size(); ++i){
     if(Bot* bot = dynamic_cast<Bot*>(m_Players.Get(i))){
@@ -74,6 +81,10 @@ void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap
     }
   }
   m_fondo.SetRotation(-90*3.14/180);
+  m_CountDown1.SetRotation(-90*3.14/180);
+  m_CountDown2.SetRotation(-90*3.14/180);
+  m_CountDown3.SetRotation(-90*3.14/180);
+  m_CountDownGO.SetRotation(-90*3.14/180);
   TimeStamp = SDL_GetTicks();
   DeltaTime = SDL_GetTicks() - TimeStamp;
 }
@@ -116,20 +127,41 @@ int World::Update(int fps,MyEventReceiver *events){
   DeltaTime = SDL_GetTicks() - TimeStamp;
   TimeStamp = SDL_GetTicks();
   world.Get()->Step(1.f/20.f, velocityIterations, positionIterations);
-  world.Get()->ClearForces();
-  UpdateBalas();
-  UpdateParticles();
-  UpdateMetrallas();
-  UpdateCogibles();
-  UpdateSpawners();
-  int players;
-  players = UpdatePlayers(events);
+  //world.Get()->ClearForces();
+  int players = 4;
   glm::vec3 posCam = camara.Get()->update(TimeStamp, fps);
   m_hud.Update(posCam);
+  if(m_start){
+    UpdateBalas();
+    UpdateParticles();
+    UpdateMetrallas();
+    UpdateCogibles();
+    UpdateSpawners();
+    players = UpdatePlayers(events);
+  }
+  else if(m_CountDownGO.GetZ()>posCam.z){
+      m_start = true;
+  }
   m_fondo.SetPosition(b2Vec2(posCam.x,posCam.y));
   m_fondo.SetZ(posCam.z-35);
+  m_CountDown1.SetPosition(b2Vec2(posCam.x,posCam.y));
+  m_CountDown2.SetPosition(b2Vec2(posCam.x,posCam.y));
+  m_CountDown3.SetPosition(b2Vec2(posCam.x,posCam.y));
+  m_CountDownGO.SetPosition(b2Vec2(posCam.x,posCam.y));
+
+  m_CountDownZ += 0.5f;
+  m_CountDownGO.SetZ(posCam.z + (m_CountDownZ) - 30);
+  m_CountDown1.SetZ( posCam.z + (m_CountDownZ) - 20);
+  m_CountDown2.SetZ( posCam.z + (m_CountDownZ) - 10);
+  m_CountDown3.SetZ( posCam.z + m_CountDownZ );
+
   m_fondo.Update();
+  m_CountDown1.Update();
+  m_CountDown2.Update();
+  m_CountDown3.Update();
+  m_CountDownGO.Update();
   return players;
+
 }
 
 void World::UpdateCogibles(){

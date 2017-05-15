@@ -26,6 +26,7 @@ class GameObject{
         virtual float    GetRotation();
         virtual b2Vec2 GetLinearVelocity();
         virtual int    GetId();
+        virtual float  GetZ();
         virtual void   SetFixedRotation(bool fixed);
         virtual void   SetRotation(float angle);
         virtual void   SetAngularVelocity(float imp);

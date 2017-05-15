@@ -36,7 +36,7 @@
   <object id="1148" name="10" type="11,13" gid="692172" x="50" y="35" width="1" height="1"/>
   <object id="1149" name="11" type="4,10" gid="692172" x="57" y="37" width="1" height="1"/>
   <object id="1150" name="12" type="2,13" gid="692172" x="36" y="41" width="1" height="1"/>
-  <object id="1151" name="13" type="2,10,12" gid="692172" x="44" y="37" width="1" height="1"/>
+  <object id="1151" name="13" type="10,12" gid="692172" x="44" y="37" width="1" height="1"/>
   <object id="1152" name="14" type="4,5,9,15" gid="692172" x="68" y="35" width="1" height="1"/>
   <object id="1153" name="15" type="0,5,14" gid="692172" x="75" y="33" width="1" height="1"/>
   <object id="1154" name="16" type="6,7,8" gid="692172" x="88" y="34" width="1" height="1"/>

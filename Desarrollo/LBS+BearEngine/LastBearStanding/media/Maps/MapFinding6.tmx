@@ -92,10 +92,10 @@
  <objectgroup name="Muelles" visible="0"/>
  <objectgroup name="Armas" visible="0"/>
  <objectgroup name="Players">
-  <object id="1002" name="P1" gid="271" x="75" y="54" width="1" height="1"/>
+  <object id="1002" name="P1" gid="271" x="72" y="65" width="1" height="1"/>
   <object id="1104" name="P2" gid="271" x="114" y="39" width="1" height="1"/>
-  <object id="1105" name="P3" gid="271" x="22" y="50" width="1" height="1"/>
-  <object id="1106" name="P4" gid="271" x="56" y="65" width="1" height="1"/>
+  <object id="1105" name="P3" gid="271" x="39" y="43" width="1" height="1"/>
+  <object id="1106" name="P4" gid="271" x="58" y="50" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>

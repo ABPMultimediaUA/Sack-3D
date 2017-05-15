@@ -19,7 +19,7 @@
 //Button constants
 const int BUTTON_WIDTH = 300;
 const int BUTTON_HEIGHT = 200;
-const int TOTAL_BUTTONS = 4;
+const int TOTAL_BUTTONS = 3;
 
 //class LButton;
 class Menu
@@ -62,6 +62,10 @@ class Menu
         SDL_Rect gSpriteClips[ BUTTON_SPRITE_TOTAL ];
         LTexture gButtonSpriteSheetTexture;
         LTexture gButtonSpriteSheetTexturePressed;
+        LTexture gButtonSpriteSheetTexture2;
+        LTexture gButtonSpriteSheetTexturePressed2;
+        LTexture gButtonSpriteSheetTexture3;
+        LTexture gButtonSpriteSheetTexturePressed3;
         //LTexture gButtonSpriteSheetTexture;
         //LTexture gButtonSpriteSheetTexture;
 
@@ -70,6 +74,8 @@ class Menu
 
         int SCREEN_WIDTH;
         int SCREEN_HEIGHT;
+        int BUTTON_WIDTH;
+        int BUTTON_HEIGHT;
         std::string gameMode;
         std::string IP;
         bool on;

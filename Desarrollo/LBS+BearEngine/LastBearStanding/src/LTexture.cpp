@@ -56,7 +56,7 @@ bool LTexture::loadFromFile( std::string path, SDL_Renderer* gRenderer   )
 	SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
 	if( loadedSurface == NULL )
 	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
+		//printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
 	}
 	else
 	{
@@ -120,7 +120,7 @@ void LTexture::render( int x, int y, SDL_Renderer* gRenderer, SDL_Rect* clip, do
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
-    std::cout<<"x"<<x<<"y"<<y<<std::endl;
+    //std::cout<<"x"<<x<<"y"<<y<<std::endl;
 	//Set clip rendering dimensions
 	if( clip != NULL )
 	{

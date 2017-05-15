@@ -28,6 +28,8 @@ class Display
         SDL_Renderer* getRenderer(){return ren;}
         SDL_Surface* getWindowSurface(){return windowSurface;}
         SDL_Surface* getFondoSurface(){return fondo;}
+        int getWidth(){return widthx;}
+        int getHeight(){return heighty;}
         virtual ~Display();
 
     protected:
@@ -42,6 +44,8 @@ class Display
         SDL_GLContext m_glContext;
         bool m_isClosed;
         int malla;
+        int heighty;
+        int widthx;
 
 };
 

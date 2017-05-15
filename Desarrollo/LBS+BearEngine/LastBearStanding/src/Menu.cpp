@@ -27,9 +27,11 @@ Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
         gWindowSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getWindowSurface();
 
         gFondoSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getFondoSurface();
-        SCREEN_HEIGHT = BearMngr::Inst()->getHeight();
-        SCREEN_WIDTH = BearMngr::Inst()->getWidth();
+        SCREEN_HEIGHT = BearMngr::Inst()->getMotorBear()->getEscena()->getHeight();
+        SCREEN_WIDTH = BearMngr::Inst()->getMotorBear()->getEscena()->getWidth();
         on = true;
+        BUTTON_HEIGHT = SCREEN_HEIGHT / 10;
+        BUTTON_WIDTH = SCREEN_HEIGHT / 6;
 }
 
 Menu::~Menu()
@@ -73,7 +75,7 @@ void Menu::update(){
 
 			//While application is running
 			while( !quit )
-			{   gButtonSpriteSheetTexture.loadFromFile( "button1.png", gRenderer );
+			{   gButtonSpriteSheetTexture.loadFromFile( "media/Images/singleplayer-btn.png", gRenderer );
 				//The rerender text flag
 				bool renderText = false;
                // SDL_RenderPresent( gRenderer );
@@ -92,8 +94,7 @@ void Menu::update(){
 					}
 					if( e.key.keysym.sym == SDLK_KP_ENTER )
 					{
-						gameMode.assign(inputText);
-						quit = true;
+
 					}
 					if( e.key.keysym.sym == SDLK_3 )
 					{
@@ -124,7 +125,7 @@ void Menu::update(){
 						}
 						//Obtain
 						else if( e.key.keysym.sym == SDLK_0 ){
-                            std::cout<<inputText<<std::endl;
+                            //std::cout<<inputText<<std::endl;
 						}
 					}
 					//Special text input event
@@ -171,28 +172,55 @@ void Menu::update(){
 				//Render text textures
 				gPromptTextTexture.render( ( SCREEN_WIDTH - gPromptTextTexture.getWidth() ) / 2, 0, gRenderer);
 				gInputTextTexture.render( ( SCREEN_WIDTH - gInputTextTexture.getWidth() ) / 2, gPromptTextTexture.getHeight(), gRenderer );
-                std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
+                //std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
                 //Render buttons
-                for( int i = 0; i < TOTAL_BUTTONS; ++i )
-                {
-                    std::cout<<TOTAL_BUTTONS<<std::endl;
-                    if(gButtons[ i ].getState()!=1)
-                    gButtonSpriteSheetTexture.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
-                    else
-                    gButtonSpriteSheetTexturePressed.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
-                }
+                    for( int i = 0; i < TOTAL_BUTTONS; ++i )
+                    {
+                        //std::cout<<TOTAL_BUTTONS<<std::endl;
+                        if(i==0){
+                            if(gButtons[ i ].getState()==0)
+                            gButtonSpriteSheetTexture.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if (gButtons[ i ].getState()==1)
+                            gButtonSpriteSheetTexturePressed.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if  (gButtons[ i ].getState()==2 && i==0){
+                            gameMode.assign("s");
+                            quit = true;
+                            }
+                        }
+                        if(i==1){
+                            if(gButtons[ i ].getState()==0)
+                            gButtonSpriteSheetTexture2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if (gButtons[ i ].getState()==1)
+                            gButtonSpriteSheetTexturePressed2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if  (gButtons[ i ].getState()==2 ){
+                            gameMode.assign("s");
+                            quit = true;
+                            }
+                        }
+                        if(i==2){
+                            if(gButtons[ i ].getState()==0)
+                            gButtonSpriteSheetTexture3.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if (gButtons[ i ].getState()==1)
+                            gButtonSpriteSheetTexturePressed3.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            else if  (gButtons[ i ].getState()==2 ){
+                            gameMode.assign("s");
+                            quit = true;
+                            }
+                        }
+                    }
+
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
 			}
-
+	}
 
 			//Disable text input
 			SDL_StopTextInput();
 
 
 		}
-	}
+
 
 	//Free resources and close SDL
 	close();
@@ -291,20 +319,44 @@ bool Menu::loadMedia()
 	}
 
 	//Load PNG texture
-    gTexture = loadTexture( "diablo2.png" );
+    gTexture = loadTexture( "media/Images/background.png" );
     if( gTexture == NULL )
     {
         printf( "Failed to load texture image!\n" );
         success = false;
     }
 
-    if( !gButtonSpriteSheetTexture.loadFromFile( "button1.png", gRenderer ) )
+    if( !gButtonSpriteSheetTexture.loadFromFile( "media/Images/singleplayer-btn.png", gRenderer ) )
 	{
 		printf( "Failed to load button sprite texture!\n" );
 		success = false;
 	}
 
-	if( !gButtonSpriteSheetTexturePressed.loadFromFile( "buttonPressed.png", gRenderer ) )
+	if( !gButtonSpriteSheetTexturePressed.loadFromFile( "media/Images/singleplayer-btn-hover.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexture2.loadFromFile( "media/Images/multiplayer-btn.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressed2.loadFromFile( "media/Images/multiplayer-btn-hover.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexture3.loadFromFile( "media/Images/exit-btn.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressed3.loadFromFile( "media/Images/exit-btn-hover.png", gRenderer ) )
 	{
 		printf( "Failed to load button sprite texture!\n" );
 		success = false;
@@ -320,10 +372,10 @@ bool Menu::loadMedia()
 		}
 
 		//Set buttons in corners
-		gButtons[ 0 ].setPosition( 0, 0 );
-		gButtons[ 1 ].setPosition( SCREEN_WIDTH - BUTTON_WIDTH, 0 );
-		gButtons[ 2 ].setPosition( 0, SCREEN_HEIGHT - BUTTON_HEIGHT );
-		gButtons[ 3 ].setPosition( SCREEN_WIDTH - BUTTON_WIDTH, SCREEN_HEIGHT - BUTTON_HEIGHT );
+		gButtons[ 0 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.8f );
+		gButtons[ 1 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.8f + 1.5f* BUTTON_HEIGHT  );
+		gButtons[ 2 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.5f + 5* BUTTON_HEIGHT );
+		//gButtons[ 3 ].setPosition( SCREEN_WIDTH/3, SCREEN_HEIGHT - BUTTON_HEIGHT );
 	//Load splash image
 	/*gFondoSurface = SDL_LoadBMP( "diablo2.bmp" );
 	if( gFondoSurface == NULL )

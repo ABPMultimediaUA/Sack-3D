@@ -9,10 +9,10 @@ HUD::Inicialize(int *puntuaciones){
 	m_yellow.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.001f),NULL,"media/Images/Hud/hud_Yellow.png", false);
 	m_pink.Inicialize(  new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.001f),NULL,"media/Images/Hud/hud_Pink.png", false);
 
-    m_redPoints.Inicialize(   new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.002f),NULL,contadores[puntuaciones[0]%6], false);
-    m_greenPoints.Inicialize( new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.002f),NULL,contadores[puntuaciones[1]%6], false);
-    m_yellowPoints.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.002f),NULL,contadores[puntuaciones[2]%6], false);
-    m_pinkPoints.Inicialize(  new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.002f),NULL,contadores[puntuaciones[3]%6], false);
+    m_redPoints.Inicialize(   new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.005f),NULL,contadores[puntuaciones[0]%6], false);
+    m_greenPoints.Inicialize( new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.005f),NULL,contadores[puntuaciones[1]%6], false);
+    m_yellowPoints.Inicialize(new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.005f),NULL,contadores[puntuaciones[2]%6], false);
+    m_pinkPoints.Inicialize(  new PBDefault(),0,0,0,b2Vec2(0,0),glm::vec3(0.4f ,0.2f ,0.005f),NULL,contadores[puntuaciones[3]%6], false);
 
  	m_red.SetRotation(    -105 * 3.14 / 180);
  	m_green.SetRotation(  -95 * 3.14 / 180);
@@ -31,10 +31,10 @@ void HUD::Update(glm::vec3 pos){
 	m_yellowPoints.SetPosition( b2Vec2(pos.x + 0.4f    , pos.y - 1 ));
 	m_pinkPoints.SetPosition(   b2Vec2(pos.x + 1.2f    , pos.y - 1 ));
 
-	m_redPoints.SetZ(pos.z    - 2.6f );
-	m_greenPoints.SetZ(pos.z  - 2.6f );
-	m_yellowPoints.SetZ(pos.z - 2.6f );
-	m_pinkPoints.SetZ(pos.z   - 2.6f );
+	m_redPoints.SetZ(pos.z    - 2.58f );
+	m_greenPoints.SetZ(pos.z  - 2.58f );
+	m_yellowPoints.SetZ(pos.z - 2.58f );
+	m_pinkPoints.SetZ(pos.z   - 2.58f );
 
 	m_redPoints.Update();
 	m_greenPoints.Update();

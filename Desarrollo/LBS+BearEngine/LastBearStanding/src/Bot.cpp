@@ -43,7 +43,7 @@ void Bot::InicializaVariables(){
     Nodo* aux2 = getMas(m_gameObject.GetPosition().x, m_gameObject.GetPosition().y);
     //std::cout<<"Nodos: "<<aux<<" "<<aux2<<std::endl;
 
-    if(aux && aux2) 
+    if(aux && aux2)
         calcularPathfinding(aux2, aux);
 
     if(pathfinding && pathfinding->getTamanyo() != 0)
@@ -136,6 +136,7 @@ void Bot::buscaJugador(){
           && abs(players.at(mandobusco)->GetPosition().x - m_gameObject.GetPosition().x)<3
           && abs(players.at(mandobusco)->GetPosition().y - m_gameObject.GetPosition().y)<0.2  ){
 
+          cambiarDireccion(1);
           usar();
     }
     else if(cogiendo && World::Inst()->getVivos() >1 && pathfinding->getTamanyo()<1){
@@ -168,6 +169,26 @@ void Bot::buscaJugador(){
         if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1)
             muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
     }
+}
+
+void Bot::cambiarDireccion(int direccion){
+    b2Vec2 posDispara =  m_gameObject.GetPosition();
+    b2Vec2 posObjetivo = players.at(mandobusco)->GetPosition();
+
+    //std::cout<<"Voy a dispararr"<<std::endl;
+
+    //std::cout<<"Dispara y Objetivo:"<<posDispara.x<<" "<<posObjetivo.x<<std::endl;
+
+    /*if(posDispara.x - posObjetivo.x > 0){
+        m_gameObject.SetXRotation(180);
+        if(cogiendo) objCogido->setDireccion(-1);
+    }
+    else if (posDispara.x - posObjetivo.x < 0){
+        m_gameObject.SetXRotation(0);
+        if(cogiendo) objCogido->setDireccion(-1);
+    }*/
+  /*if(lastDir ==  1)m_gameObject.SetXRotation(0);
+    if(lastDir == -1)m_gameObject.SetXRotation(180);*/
 }
 
 void Bot::colisionConNodo(int nodo){

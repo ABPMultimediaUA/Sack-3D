@@ -12,7 +12,7 @@ Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture,
     strncpy(id, idr, sizeof(id));
     enMuelle = false;
     salto = 7.0f;
-    vel = 2.5f;
+    vel = 2.1f;
     mandobusco=mando;
     estadoBot = 0;
     cogido = false;
@@ -133,8 +133,9 @@ void Bot::buscaJugador(){
         estadoBot = 0;
     }
     if(cogiendo && mando != mandobusco && players.at(mandobusco)->getMuerto()==false
-          && abs(players.at(mandobusco)->GetPosition().x - m_gameObject.GetPosition().x)<3
-          && abs(players.at(mandobusco)->GetPosition().y - m_gameObject.GetPosition().y)<0.2  ){
+          && abs(players.at(mandobusco)->GetPosition().x - m_gameObject.GetPosition().x)<2.5
+          && abs(players.at(mandobusco)->GetPosition().y - m_gameObject.GetPosition().y)<0.2  
+          && !saltando){
 
           cambiarDireccion(1);
           usar();
@@ -394,19 +395,16 @@ Nodo *Bot::getMas(float x, float y){
 }
 
 Nodo *Bot::getCercanoTotal(float x, float y){
-    //std::cout<<"Pos entra: "<<x<<" "<<y<<std::endl;
     float pos2 = -10*(y/2);
     int posY = (int) pos2;
     float buscoY = posY/10.0f;
 
     float buscoX = x/2;
-    //std::cout<<"Pos busco: "<<buscoX<<" "<<buscoY<<std::endl;
     Nodo *aux = NULL;
-    int dif = 200;
+    float dif = 200;
 
     for(int i = 0; i< nodos.size(); i++){
-      int coste = abs(nodos.at(i)->getPosicion().y - buscoY) + abs(nodos.at(i)->getPosicion().x - buscoX);
-      //std::cout<<"COSTE: "<<coste<<" NODO: "<<nodos.at(i)->getNumero()<<std::endl;
+      float coste = abs(nodos.at(i)->getPosicion().y - buscoY) + abs(nodos.at(i)->getPosicion().x - buscoX);
       if(coste<dif){
           dif = coste;
           aux = nodos.at(i);

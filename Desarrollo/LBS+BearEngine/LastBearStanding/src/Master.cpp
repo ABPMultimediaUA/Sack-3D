@@ -78,7 +78,7 @@ void Master::UpdateGame(){
         }
         else if(SDL_GetTicks()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
-            if(puntuaciones[World::Inst()->getGanador()]==5){
+            if(puntuaciones[World::Inst()->getGanador()]==1){
                 estado++;
                 finPartidaObject->setWinner(World::Inst()->getGanador());
 

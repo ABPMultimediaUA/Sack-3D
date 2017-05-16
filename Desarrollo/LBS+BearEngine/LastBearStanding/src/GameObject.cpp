@@ -62,6 +62,9 @@ void GameObject::AddModel(char* model){
 void GameObject::NextFrame(){
     m_pBearMngr->NextFrame(m_bearNodo);
 }
+void GameObject::ResetAnimacion(){
+    m_pBearMngr->ResetAnimacion(m_bearNodo);
+}
 b2Vec2 GameObject::GetPosition(){
     return m_pPhysicBody->GetPosition();
 }

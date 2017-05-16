@@ -55,6 +55,10 @@ void BearMngr::AddModel(TNodo* nodo, char* model){
 void BearMngr::NextFrame(TNodo* nodo){
     m_motorBear->animarMalla(nodo);
 }
+void BearMngr::ResetAnimacion(TNodo* nodo){
+    m_motorBear->resetAnimacion(nodo);
+}
+
 //BearEngine
 TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
     std::ostringstream strm;

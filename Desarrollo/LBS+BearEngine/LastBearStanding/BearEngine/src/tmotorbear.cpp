@@ -342,6 +342,13 @@ void TMotorBear::animarMalla(TNodo* nodoMalla){
     malla->animar();
    // std::cout<<"SALE"<<std::endl;
 }
+void TMotorBear::resetAnimacion(TNodo* nodoMalla){
+    TEntidadMalla* malla;
+
+   // std::cout<<"ENTRA"<<std::endl;
+    malla= static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
+    malla->resetAnimacion();
+}
 
     //DEBUG
         void TMotorBear::verMallas(TNodo* nodoMalla){

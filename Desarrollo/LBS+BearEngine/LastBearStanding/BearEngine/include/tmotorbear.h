@@ -81,6 +81,7 @@ class TMotorBear
         void cambiarMalla(TEntidad*, char*file);
      //   void transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec);//necesario que el nodo arbol este ya incorporado al arbol
         void animarMalla(TNodo* nodoMalla);
+        void resetAnimacion(TNodo* nodoMalla);
     //DEBUG
         void verMallas(TNodo* nodoMalla);
 

@@ -21,6 +21,7 @@ class GameObject{
         virtual void Update();
         virtual void AddModel(char* model);
         virtual void NextFrame();
+        virtual void ResetAnimacion();
         virtual int   SetMode(PhysicBody* body);
         virtual void   SetVisible(bool visible);
         virtual void   SetGravity(float gravity);

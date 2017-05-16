@@ -11,7 +11,7 @@
 #include "Granada.h"
 
 Player::Player(b2Vec2 pos, char *texture, int numMando)
-:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/Correr/osoCorrer1.obj",texture),mando(numMando){
+:Cogible(new PBAlivePlayer,NULL,pos,glm::vec3(.07f, 0.15f,.07f),"BearEngine/res/oso.obj",texture),mando(numMando){
     time2Animation = SDL_GetTicks();
     m_pClient = Client::Inst();
     boton_saltar = false;
@@ -34,6 +34,7 @@ Player::Player(b2Vec2 pos, char *texture, int numMando)
     expuesto = false;
     lastDir = 0;
     strncpy(id, m_pClient->getIdCliente(), sizeof(id));
+    m_gameObject.AddModel("BearEngine/res/Correr/osoCorrer1.obj");
     m_gameObject.AddModel("BearEngine/res/Correr/osoCorrer2.obj");
     m_gameObject.AddModel("BearEngine/res/Correr/osoCorrer3.obj");
     m_gameObject.AddModel("BearEngine/res/Correr/osoCorrer4.obj");
@@ -43,9 +44,12 @@ Player::Player(b2Vec2 pos, char *texture, int numMando)
  Player::~Player(){
 }
 void Player::actualiza(MyEventReceiver *events){
-    if(SDL_GetTicks()-time2Animation>100){
+    if(!muerto  && SDL_GetTicks()-time2Animation>100){
         m_gameObject.NextFrame();
         time2Animation = SDL_GetTicks();
+    }
+    if(m_gameObject.GetLinearVelocity().x <= 1 && m_gameObject.GetLinearVelocity().x >= -1){
+        m_gameObject.ResetAnimacion();
     }
     if(events){
         if(!boton_saltar && events->IsKeyDown(SDLK_SPACE)){

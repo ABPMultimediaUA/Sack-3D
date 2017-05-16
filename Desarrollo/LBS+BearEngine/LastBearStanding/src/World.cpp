@@ -53,8 +53,8 @@ void World::inicializaVariables(const char* mapFile,int *puntuaciones,int numMap
   camara.Reset(new GameCamera());
   char* textFondo;
   switch(numMap){
-    case 1:  textFondo = "media/Maps/Background/fridge.jpg"; break;
-    case 2:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 1:  textFondo = "media/Maps/Background/room.jpg"; break;
+    case 2:  textFondo = "media/Maps/Background/fridge.jpg"; break;
     case 3:  textFondo = "media/Maps/Background/kitchen.jpg"; break;
     case 4:  textFondo = "media/Maps/Background/bathroom.jpg"; break;
     case 5:  textFondo = "media/Maps/Background/garden.jpg"; break;

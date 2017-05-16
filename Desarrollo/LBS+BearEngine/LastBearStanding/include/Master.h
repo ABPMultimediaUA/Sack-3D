@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Box2D/Box2D.h"
+#include "FinPartida.h"
 #include "MyEventReceiver.h"
 
 class Menu;
@@ -18,6 +19,7 @@ class Master{
         void Update();
         void UpdateGame();
         void UpdateMenu();
+        void UpdateFinPartida();
         bool Run();
         void InstanciaMundo();
         virtual ~Master(){}
@@ -33,17 +35,18 @@ class Master{
         int m_game;
         int estado;
         Menu* menu;
+        FinPartida* finPartidaObject;
         const Num2Map maps[11] = {
               {  1         , "media/Maps/MapFinding1.tmx" }
-            , {  2         , "media/Maps/MapFinding1.tmx" }
-            , {  3         , "media/Maps/MapFinding1.tmx" }
-            , {  4         , "media/Maps/MapFinding1.tmx" }
-            , {  5         , "media/Maps/MapFinding1.tmx" }
-            , {  6         , "media/Maps/MapFinding1.tmx" }
-            , {  7         , "media/Maps/MapFinding1.tmx" }
-            , {  8         , "media/Maps/MapFinding1.tmx" }
-            , {  9         , "media/Maps/MapFinding1.tmx" }
-            , {  10        , "media/Maps/MapFinding1.tmx" }
+            , {  2         , "media/Maps/MapFinding2.tmx" }
+            , {  3         , "media/Maps/MapFinding3.tmx" }
+            , {  4         , "media/Maps/MapFinding4.tmx" }
+            , {  5         , "media/Maps/MapFinding5.tmx" }
+            , {  6         , "media/Maps/MapFinding6.tmx" }
+            , {  7         , "media/Maps/MapFinding7.tmx" }
+            , {  8         , "media/Maps/MapFinding8.tmx" }
+            , {  9         , "media/Maps/MapFinding9.tmx" }
+            , {  10        , "media/Maps/MapFinding0.tmx" }
             , {  11        , "0"                         }
         };
 };

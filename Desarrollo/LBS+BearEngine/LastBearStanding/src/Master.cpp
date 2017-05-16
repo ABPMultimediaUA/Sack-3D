@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "SDL.h"
 #include "Menu.h"
+#include "FinPartida.h"
 
 Master::Master():m_game(0){
     for (int i = 0; i < 4; ++i){
@@ -22,6 +23,7 @@ Master::Master():m_game(0){
     BearMngr::Inst()->InstanciaVariables(puntuaciones);
     timeFPS = SDL_GetTicks();
     menu = new Menu();
+    finPartidaObject = new FinPartida;
 }
 void Master::Update(){
  switch(estado){
@@ -38,6 +40,9 @@ void Master::Update(){
             }else{
             UpdateGame();
             }
+            break;
+        case 2:
+            UpdateFinPartida();
             break;
     }
 }
@@ -73,9 +78,15 @@ void Master::UpdateGame(){
         }
         else if(SDL_GetTicks()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
+            if(puntuaciones[World::Inst()->getGanador()]==5){
+                estado++;
+                finPartidaObject->setWinner(World::Inst()->getGanador());
+
+            }else{
+
             World::Inst()->Reset();
             InstanciaMundo();
-            finPartida = false;
+            finPartida = false;}
         }
         BearMngr::Inst()->Update();
         Client::Inst()->recibir();
@@ -86,6 +97,20 @@ void Master::UpdateGame(){
         }
     }
 }
+
+void Master::UpdateFinPartida(){
+    SDL_Event e;
+    while(SDL_PollEvent(&e)){
+        eventReceiver.OnEvent(&e);
+    }
+    if(SDL_GetTicks()-timeFPS>FPS){
+        int fps = 1000/(SDL_GetTicks()-timeFPS);
+        timeFPS = SDL_GetTicks();
+        BearMngr::Inst()->Update();
+        finPartidaObject->update();
+    }
+}
+
 void Master::InstanciaMundo(){
     mapList = Client::Inst()->getMaps();
     srand(time(0));

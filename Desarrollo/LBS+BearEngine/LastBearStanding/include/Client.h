@@ -84,7 +84,7 @@ class Client{
         int getNumPlayersRed(){return numPlayersRed;}
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
-        TParams params [7];
+        TParams params [11];
 
     protected:
 

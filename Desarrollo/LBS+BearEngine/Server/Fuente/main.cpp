@@ -181,7 +181,7 @@ int main(void){
 		// relayed from other clients
 		message2[0]=0;
 		//strcpy(message2, "6 ");
-		sprintf(message2, "6 %.0f %.0f %.0f %.0f %.0f %.0f", (float)maps[0], (float)maps[1], (float)maps[2], (float)maps[3], (float)maps[4], (float)maps[5]);
+		sprintf(message2, "6 %.0f %.0f %.0f %.0f %.0f %.0f %.0f %.0f %.0f %.0f", (float)maps[0], (float)maps[1], (float)maps[2], (float)maps[3], (float)maps[4], (float)maps[5], (float)maps[6], (float)maps[7], (float)maps[8], (float)maps[9]);
 		strcat(message2, message);
 
 		// message2 is the data to send
@@ -285,13 +285,13 @@ std::vector<int> listaMapas(){
     std::vector<int> nums;
     std::vector<int> result;
 
-    for(int i=0;i<6;i++) nums.push_back(i);
+    for(int i=0;i<10;i++) nums.push_back(i);
     while(nums.size()!=0){
         x = rand() % nums.size();
         result.push_back(nums[x]);
         nums.erase(nums.begin()+x);
     }
-    std::cout<<result[0]<<" "<<result[1]<<" "<<result[2]<<" "<<result[3]<<" "<<result[4]<<" "<<result[5]<<" "<<std::endl;
+    std::cout<<result[0]<<" "<<result[1]<<" "<<result[2]<<" "<<result[3]<<" "<<result[4]<<" "<<result[5]<<" "<<result[6]<<" "<<result[7]<<" "<<result[8]<<" "<<result[9]<<std::endl;
     return result;
 
 }

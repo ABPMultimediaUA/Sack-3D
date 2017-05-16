@@ -28,7 +28,7 @@ class LButton
         LButton();
         ~LButton();
         //Sets top left position
-        void setPosition( int x, int y );
+        void setPosition( int x, int y, int width, int height );
 
         //Handles mouse event
         void handleEvent( SDL_Event* e );
@@ -45,6 +45,8 @@ class LButton
 
         //Currently used global sprite
         LButtonSprite mCurrentSprite;
+        int BUTTON_WIDTH;
+        int BUTTON_HEIGHT;
 };
 
 #endif // LBUTTON_H

@@ -17,8 +17,8 @@
 //const int SCREEN_HEIGHT = 480;
 
 //Button constants
-const int BUTTON_WIDTH = 300;
-const int BUTTON_HEIGHT = 200;
+/*const int BUTTON_WIDTH = 300;
+const int BUTTON_HEIGHT = 200;*/
 const int TOTAL_BUTTONS = 3;
 
 //class LButton;
@@ -62,16 +62,19 @@ class Menu
         SDL_Rect gSpriteClips[ BUTTON_SPRITE_TOTAL ];
         LTexture gButtonSpriteSheetTexture;
         LTexture gButtonSpriteSheetTexturePressed;
+        LTexture gButtonSpriteSheetTexturePressedClicked;
         LTexture gButtonSpriteSheetTexture2;
         LTexture gButtonSpriteSheetTexturePressed2;
+        LTexture gButtonSpriteSheetTexturePressedClicked2;
         LTexture gButtonSpriteSheetTexture3;
         LTexture gButtonSpriteSheetTexturePressed3;
+        LTexture gButtonSpriteSheetPanel;
         //LTexture gButtonSpriteSheetTexture;
         //LTexture gButtonSpriteSheetTexture;
 
         //Buttons objects
         LButton gButtons[ TOTAL_BUTTONS ];
-
+        bool ipPanel;
         int SCREEN_WIDTH;
         int SCREEN_HEIGHT;
         int BUTTON_WIDTH;

@@ -69,7 +69,8 @@ void Client::iniciar(std::string gameModes, std::string IPs){
             puts("Enter IP to connect to");
             //Gets(auxip,sizeof(auxip));
             //strncpy(auxip, "192.168.1.6", sizeof(auxip));
-            strncpy(auxip, "127.0.0.1", sizeof(auxip));
+            const char * c = IP.c_str();
+            strncpy(auxip, c, sizeof(auxip));
 
             puts("Enter the port to connect to");
             //Gets(auxserverPort,sizeof(auxserverPort));

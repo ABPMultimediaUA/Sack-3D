@@ -9,14 +9,19 @@ LButton::LButton()
     mCurrentSprite = BUTTON_SPRITE_MOUSE_OUT;
 }
 
-void LButton::setPosition( int x, int y )
+void LButton::setPosition( int x, int y, int width, int height )
 {
     mPosition.x = x;
     mPosition.y = y;
+
+    BUTTON_WIDTH = width;
+    BUTTON_HEIGHT = height;
+
 }
 
 void LButton::handleEvent( SDL_Event* e )
 {
+    if(mCurrentSprite<2){
     //If mouse event happened
     if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
     {
@@ -59,22 +64,20 @@ void LButton::handleEvent( SDL_Event* e )
             {
                 case SDL_MOUSEMOTION:
                 mCurrentSprite = BUTTON_SPRITE_MOUSE_OVER_MOTION;
-                //std::cout<<"HE PULSADO"<<std::endl;
                 break;
 
                 case SDL_MOUSEBUTTONDOWN:
                 mCurrentSprite = BUTTON_SPRITE_MOUSE_DOWN;
-                std::cout<<"HE PULSADO"<<std::endl;
                 break;
 
                 case SDL_MOUSEBUTTONUP:
                 mCurrentSprite = BUTTON_SPRITE_MOUSE_UP;
-                std::cout<<"HE SOLTADO"<<std::endl;
                 break;
             }
         }
         //std::cout<<"raton"<<"x"<<x<<" y"<<y<<std::endl;
-       std::cout<<"state"<<mCurrentSprite<<std::endl;
+       //std::cout<<"state"<<mCurrentSprite<<std::endl;
+    }
     }
 }
 

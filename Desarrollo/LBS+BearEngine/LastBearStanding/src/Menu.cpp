@@ -11,7 +11,7 @@ const int TOTAL_BUTTONS = 4;
 enum LButtonSprite
 {
     BUTTON_SPRITE_MOUSE_OUT = 0,
-    BUTTON_SPRITE_MOUSE_OVER_MOTION = 1,
+      = 1,
     BUTTON_SPRITE_MOUSE_DOWN = 2,
     BUTTON_SPRITE_MOUSE_UP = 3,
     BUTTON_SPRITE_TOTAL = 4
@@ -32,6 +32,8 @@ Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
         on = true;
         BUTTON_HEIGHT = SCREEN_HEIGHT / 10;
         BUTTON_WIDTH = SCREEN_HEIGHT / 6;
+
+        ipPanel = false;
 }
 
 Menu::~Menu()
@@ -92,9 +94,10 @@ void Menu::update(){
 					{
 
 					}
-					if( e.key.keysym.sym == SDLK_KP_ENTER )
+					if( e.key.keysym.sym == SDLK_RETURN )
 					{
-
+                        std::cout<<"LA IP ES "<<inputText<<std::endl;
+                        quit = true;
 					}
 					if( e.key.keysym.sym == SDLK_3 )
 					{
@@ -126,7 +129,7 @@ void Menu::update(){
 						//Obtain
 						else if( e.key.keysym.sym == SDLK_0 ){
                             //std::cout<<inputText<<std::endl;
-						}
+						}else if(e.key.keysym.sym == SDLK_ESCAPE) SDL_Quit();
 					}
 					//Special text input event
 					else if( e.type == SDL_TEXTINPUT )
@@ -169,9 +172,12 @@ void Menu::update(){
                 //Render texture to screen
                 SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
 
+                //Render IP-panel
+                if(ipPanel)gButtonSpriteSheetPanel.render(SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f + 2.1f* BUTTON_HEIGHT, gRenderer);
+
 				//Render text textures
-				gPromptTextTexture.render( ( SCREEN_WIDTH - gPromptTextTexture.getWidth() ) / 2, 0, gRenderer);
-				gInputTextTexture.render( ( SCREEN_WIDTH - gInputTextTexture.getWidth() ) / 2, gPromptTextTexture.getHeight(), gRenderer );
+				//gPromptTextTexture.render( ( SCREEN_WIDTH - gPromptTextTexture.getWidth() ) / 2, 0, gRenderer);
+				gInputTextTexture.render( SCREEN_WIDTH/2.15f, SCREEN_HEIGHT/3.3f + 2.8f* BUTTON_HEIGHT, gRenderer );
                 //std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
                 //Render buttons
                     for( int i = 0; i < TOTAL_BUTTONS; ++i )
@@ -183,6 +189,7 @@ void Menu::update(){
                             else if (gButtons[ i ].getState()==1)
                             gButtonSpriteSheetTexturePressed.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             else if  (gButtons[ i ].getState()==2 && i==0){
+                            gButtonSpriteSheetTexturePressedClicked.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             gameMode.assign("s");
                             quit = true;
                             }
@@ -192,9 +199,11 @@ void Menu::update(){
                             gButtonSpriteSheetTexture2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             else if (gButtons[ i ].getState()==1)
                             gButtonSpriteSheetTexturePressed2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
-                            else if  (gButtons[ i ].getState()==2 ){
-                            gameMode.assign("s");
-                            quit = true;
+                            else if  (gButtons[ i ].getState()>=2 ){
+                            gButtonSpriteSheetTexturePressedClicked2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                            gameMode.assign("m");
+                            IP.assign(inputText);
+                            ipPanel=true;
                             }
                         }
                         if(i==2){
@@ -203,8 +212,7 @@ void Menu::update(){
                             else if (gButtons[ i ].getState()==1)
                             gButtonSpriteSheetTexturePressed3.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             else if  (gButtons[ i ].getState()==2 ){
-                            gameMode.assign("s");
-                            quit = true;
+                            SDL_Quit();
                             }
                         }
                     }
@@ -338,6 +346,12 @@ bool Menu::loadMedia()
 		success = false;
 	}
 
+	if( !gButtonSpriteSheetTexturePressedClicked.loadFromFile( "media/Images/singleplayer-btn-clicked.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
 	if( !gButtonSpriteSheetTexture2.loadFromFile( "media/Images/multiplayer-btn.png", gRenderer ) )
 	{
 		printf( "Failed to load button sprite texture!\n" );
@@ -345,6 +359,12 @@ bool Menu::loadMedia()
 	}
 
 	if( !gButtonSpriteSheetTexturePressed2.loadFromFile( "media/Images/multiplayer-btn-hover.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressedClicked2.loadFromFile( "media/Images/multiplayer-btn-clicked.png", gRenderer ) )
 	{
 		printf( "Failed to load button sprite texture!\n" );
 		success = false;
@@ -362,6 +382,12 @@ bool Menu::loadMedia()
 		success = false;
 	}
 
+	if( !gButtonSpriteSheetPanel.loadFromFile( "media/Images/ip-panel.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
 	//Set sprites
 		for( int i = 0; i < BUTTON_SPRITE_TOTAL; ++i )
 		{
@@ -372,9 +398,9 @@ bool Menu::loadMedia()
 		}
 
 		//Set buttons in corners
-		gButtons[ 0 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.8f );
-		gButtons[ 1 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.8f + 1.5f* BUTTON_HEIGHT  );
-		gButtons[ 2 ].setPosition( SCREEN_WIDTH/2.8f, SCREEN_HEIGHT/3.5f + 5* BUTTON_HEIGHT );
+		gButtons[ 0 ].setPosition( SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f, BUTTON_WIDTH, BUTTON_HEIGHT );
+		gButtons[ 1 ].setPosition( SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f + 1.5f* BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT  );
+		gButtons[ 2 ].setPosition( SCREEN_WIDTH/2.4f, SCREEN_HEIGHT/3.3f + 5* BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT );
 		//gButtons[ 3 ].setPosition( SCREEN_WIDTH/3, SCREEN_HEIGHT - BUTTON_HEIGHT );
 	//Load splash image
 	/*gFondoSurface = SDL_LoadBMP( "diablo2.bmp" );

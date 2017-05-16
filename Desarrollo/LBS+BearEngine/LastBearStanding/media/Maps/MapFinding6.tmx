@@ -24,7 +24,7 @@
  </tileset>
  <objectgroup name="Nodos" opacity="0.92">
   <object id="618" name="0" type="1,2,37" gid="692172" x="24" y="43" width="1" height="1"/>
-  <object id="1220" name="1" type="0,18,20,37" gid="692172" x="49" y="43" width="1" height="1"/>
+  <object id="1220" name="1" type="0,18,37" gid="692172" x="49" y="43" width="1" height="1"/>
   <object id="1221" name="2" type="0,3,31" gid="692172" x="19" y="50" width="1" height="1"/>
   <object id="1222" name="3" type="2,5" gid="692172" x="29" y="50" width="1" height="1"/>
   <object id="1223" name="4" type="5,18,38" gid="692172" x="39" y="50" width="1" height="1"/>
@@ -43,7 +43,7 @@
   <object id="1236" name="17" type="10,18" gid="692172" x="61" y="50" width="1" height="1"/>
   <object id="1237" name="18" type="1,4,17,20" gid="692172" x="54" y="50" width="1" height="1"/>
   <object id="1238" name="19" type="20,22,30" gid="692172" x="66" y="43" width="1" height="1"/>
-  <object id="1239" name="20" type="1,18,19" gid="692172" x="59" y="43" width="1" height="1"/>
+  <object id="1239" name="20" type="18,19" gid="692172" x="59" y="43" width="1" height="1"/>
   <object id="1240" name="21" type="22,23,27" gid="692172" x="80" y="31" width="1" height="1"/>
   <object id="1241" name="22" type="12,19,21,30" gid="692172" x="74" y="37" width="1" height="1"/>
   <object id="1242" name="23" type="21,24" gid="692172" x="88" y="31" width="1" height="1"/>
@@ -51,7 +51,7 @@
   <object id="1244" name="25" type="24,26" gid="692172" x="98" y="21" width="1" height="1"/>
   <object id="1245" name="26" type="25,33" gid="692172" x="113" y="21" width="1" height="1"/>
   <object id="1246" name="27" type="21,28" gid="692172" x="74" y="24" width="1" height="1"/>
-  <object id="1247" name="28" type="18,27" gid="692172" x="62" y="24" width="1" height="1"/>
+  <object id="1247" name="28" type="18,27" gid="692172" x="60" y="24" width="1" height="1"/>
   <object id="1257" name="29" type="5" gid="692172" x="27" y="57" width="1" height="1"/>
   <object id="1261" name="30" type="19,22" gid="692172" x="71" y="40" width="1" height="1"/>
   <object id="1267" name="31" type="2,32" gid="692172" x="14" y="43" width="1" height="1"/>
@@ -71,7 +71,7 @@
   <object id="1084" x="70" y="40" width="6" height="3"/>
   <object id="1085" x="73" y="37" width="3" height="3"/>
   <object id="1086" x="91" y="28" width="3" height="3"/>
-  <object id="1091" x="61" y="24" width="15" height="1"/>
+  <object id="1091" x="59" y="24" width="17" height="1"/>
   <object id="1092" x="14" y="50" width="17" height="1"/>
   <object id="1093" x="38" y="50" width="25" height="1"/>
   <object id="1094" x="26" y="57" width="13" height="3"/>
@@ -101,7 +101,7 @@
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1251" name="2" type="1" gid="692377" x="62" y="24" width="1" height="1"/>
+  <object id="1251" name="2" type="1" gid="692377" x="60" y="24" width="1" height="1"/>
   <object id="1252" name="2" type="1" gid="692377" x="113" y="21" width="1" height="1"/>
   <object id="1253" name="2" type="1" gid="692377" x="120" y="47" width="1" height="1"/>
   <object id="1254" name="2" type="1" gid="692377" x="101" y="61" width="1" height="1"/>

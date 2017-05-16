@@ -138,6 +138,7 @@ void Bot::buscaJugador(){
 
           cambiarDireccion(1);
           usar();
+          cambiarDireccion(-1);
     }
     else if(cogiendo && World::Inst()->getVivos() >1 && pathfinding->getTamanyo()<1){
         Nodo* temp;
@@ -172,23 +173,29 @@ void Bot::buscaJugador(){
 }
 
 void Bot::cambiarDireccion(int direccion){
-    b2Vec2 posDispara =  m_gameObject.GetPosition();
-    b2Vec2 posObjetivo = players.at(mandobusco)->GetPosition();
+    if(direccion == 1){
 
-    //std::cout<<"Voy a dispararr"<<std::endl;
+        b2Vec2 posDispara =  m_gameObject.GetPosition();
+        b2Vec2 posObjetivo = players.at(mandobusco)->GetPosition();
 
-    //std::cout<<"Dispara y Objetivo:"<<posDispara.x<<" "<<posObjetivo.x<<std::endl;
-
-    /*if(posDispara.x - posObjetivo.x > 0){
-        m_gameObject.SetXRotation(180);
-        if(cogiendo) objCogido->setDireccion(-1);
+        if(posDispara.x - posObjetivo.x > 0){
+            m_gameObject.SetXRotation(0);
+            lastDir = dir = -1;
+            if(cogiendo) objCogido->setDireccion(-1);
+            m_gameObject.SetLinearVelocity(b2Vec2 (-1*vel,m_gameObject.GetLinearVelocity().y));
+        }
+        else if (posDispara.x - posObjetivo.x < 0){
+            m_gameObject.SetXRotation(180);
+            lastDir = dir = 1;
+            if(cogiendo) objCogido->setDireccion(1);
+            m_gameObject.SetLinearVelocity(b2Vec2 (1*vel,m_gameObject.GetLinearVelocity().y));
+        }
+   
     }
-    else if (posDispara.x - posObjetivo.x < 0){
-        m_gameObject.SetXRotation(0);
-        if(cogiendo) objCogido->setDireccion(-1);
-    }*/
-  /*if(lastDir ==  1)m_gameObject.SetXRotation(0);
-    if(lastDir == -1)m_gameObject.SetXRotation(180);*/
+    else if(direccion == -1){
+          m_gameObject.SetLinearVelocity(b2Vec2 (0*vel,m_gameObject.GetLinearVelocity().y));
+          //std::cout<<"LA PONGO A 0 LA VELOCIADAD"<<std::endl;
+    }
 }
 
 void Bot::colisionConNodo(int nodo){
@@ -203,42 +210,46 @@ void Bot::colisionConNodo(int nodo){
 
 
 void Bot::mover(MyEventReceiver *events ){
-    if(muerto || fingiendoMuerte){
-        return;
-    }
-    direccion = dir = 0;
-    if(moviendo == true){
-        if((abs(m_gameObject.GetPosition().x - nodox) >= 0.2)
-        && (abs(m_gameObject.GetPosition().x - nodox) <= 2.6)
-        && (abs(m_gameObject.GetPosition().y) - abs(nodoy) >= 0.2)
-        && World::Inst()->getVivos() >1){
-            saltar();
+    //if(World::Inst()->getVivos() >1){    
+        if(muerto || fingiendoMuerte){
+            return;
         }
-        if( (abs(m_gameObject.GetPosition().x - nodox) < 0.07) ){
-            if(pathfinding->getTamanyo() == 1){saltando = false;}
-
-            if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){
-              if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1){
-                  muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
-              }
+        direccion = dir = 0;
+        if(moviendo == true){
+            if((abs(m_gameObject.GetPosition().x - nodox) >= 0.2)
+            && (abs(m_gameObject.GetPosition().x - nodox) <= 2.6)
+            && (abs(m_gameObject.GetPosition().y) - abs(nodoy) >= 0.2)
+            && World::Inst()->getVivos() >1){
+                saltar();
             }
-        }
-        else if(m_gameObject.GetPosition().x > nodox){
-          direccion = lastDir = dir = -1;
-      }
-        else if(m_gameObject.GetPosition().x < nodox){
-          direccion = lastDir = dir = 1;
-      }
-    }
-    if(direccion != direccionA){
-        direccionA = direccion;
-        m_pClient->enviarMoviendo(dir, mando);
-    }
-    if(lastDir ==  1)m_gameObject.SetXRotation(0);
-    if(lastDir == -1)m_gameObject.SetXRotation(180);
+            if( (abs(m_gameObject.GetPosition().x - nodox) < 0.07) ){
+                if(pathfinding->getTamanyo() == 1){saltando = false;}
 
-    m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
-    if(cogiendo) objCogido->setDireccion(lastDir);
+                if((!saltando || enMuelle) &&  pathfinding->getTamanyo() >= 1){
+                  if(pathfinding->getTamanyo() != 0 && World::Inst()->getVivos() >1){
+                      muevo(pathfinding->getUltimo()->getPosicion().x,pathfinding->getUltimo()->getPosicion().y);
+                  }
+                }
+            }
+            else if(m_gameObject.GetPosition().x > nodox){
+              direccion = lastDir = dir = -1;
+          }
+            else if(m_gameObject.GetPosition().x < nodox){
+              direccion = lastDir = dir = 1;
+          }
+        }
+        if(direccion != direccionA){
+            direccionA = direccion;
+            m_pClient->enviarMoviendo(dir, mando);
+        }
+        if(lastDir ==  1)m_gameObject.SetXRotation(0);
+        if(lastDir == -1)m_gameObject.SetXRotation(180);
+
+        m_gameObject.SetLinearVelocity(b2Vec2 (dir*vel,m_gameObject.GetLinearVelocity().y));
+        if(cogiendo) objCogido->setDireccion(lastDir);
+        //std::cout<<"****************************************"<<std::endl;
+        
+    //}      
 }
 
 void Bot::muevo(float x, float y){

@@ -250,6 +250,7 @@ void Client::enviarHacerseMuerto(int idb){
 }
 
 void Client::recibir(){
+
     for (p=client->Receive(); p; client->DeallocatePacket(p), p=client->Receive()){
 
             if(comprobarPaquete(p)) break;
@@ -264,13 +265,16 @@ void Client::recibir(){
 
             while(msg != NULL){
                 strncpy(params[iterador].var, msg, sizeof(params[iterador].var));
+                //std::cout<<"TEXTO "<<msg<<std::endl;
                 msg = strtok(NULL, " ");
+
                 iterador++;
             }
             //--------LLAMADA A FUNCION SEGUN PAQUETE
-
+                //std::cout<<"LLamadaFuncion"<<std::endl;
             if(comprobacion(params[0].var)){
-            //std::cout<<"tipo.-"<<params[0].var/*<<"1.-"<<param1<<" 2.-"<<param2<<" 3.-"<<param3<<" 4.-"<<param4<<" 5.-"<<param5<<" 6.-"<<param6*/<<std::endl;
+            //std::cout<<"tipo.-"<<params[0].var<<"1.-"<<params[1].var<<" 2.-"<<params[2].var<<" 3.-"<<params[3].var<<" 4.-"<<params[4].var<<" 5.-"<<params[5].var<<" 6.-"<<params[6].var<<"7.-"<<params[7].var<<" 8.-"<<params[8].var<<" 9.-"
+//            <<params[9].var<<std::endl;
             PacketFunction(atoi(params[0].var));
 
             }
@@ -411,7 +415,9 @@ void Client::analizarPaquete6(){
 
     run=true;
     std::vector<int> result;
-    for(int i=0;i<6;i++)result.push_back(atoi(params[i+1].var));
+    for(int i=0;i<10;i++){
+            result.push_back(atoi(params[i+1].var));
+    }
 
     setMaps(result);
 }
@@ -464,9 +470,11 @@ bool Client::comprobarPaquete(RakNet::Packet* p){
 }
 
 void Client::setMaps(std::vector<int> mapas){
-    for(int i=0;i<mapas.size();i++){
+     std::cout<<"setMapsINICIA"<<std::endl;
+    for(int i=0;i<6;i++){
         maps.push_back(mapas[i]);
     }
+    std::cout<<"setMapsACABA"<<std::endl;
 }
 
 void Client::singleMaps(){

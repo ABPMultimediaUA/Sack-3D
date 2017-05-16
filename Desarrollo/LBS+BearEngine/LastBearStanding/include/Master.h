@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Box2D/Box2D.h"
+#include "FinPartida.h"
 #include "MyEventReceiver.h"
 
 class Menu;
@@ -18,6 +19,7 @@ class Master{
         void Update();
         void UpdateGame();
         void UpdateMenu();
+        void UpdateFinPartida();
         bool Run();
         void InstanciaMundo();
         virtual ~Master(){}
@@ -33,6 +35,7 @@ class Master{
         int m_game;
         int estado;
         Menu* menu;
+        FinPartida* finPartidaObject;
         const Num2Map maps[11] = {
               {  1         , "media/Maps/MapFinding1.tmx" }
             , {  2         , "media/Maps/MapFinding2.tmx" }

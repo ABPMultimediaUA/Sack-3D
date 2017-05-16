@@ -18,10 +18,10 @@
 
 Map::Map(const char* doc,int numMapa){
     switch(numMapa){
-      case 1:  textFondo = "media/Images/platform_blue.jpg"; break;
-      case 2:  textFondo = "media/Images/platform_pink.jpg"; break;
+      case 1:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 2:  textFondo = "media/Images/platform_blue.jpg"; break;
       case 3:  textFondo = "media/Images/platform_red.jpg"; break;
-      case 4:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 4:  textFondo = "media/Images/platform_pink.jpg"; break;
       case 5:  textFondo = "media/Images/platform_brown.jpg"; break;
       default: textFondo = "media/Images/platform_pink.jpg"; break;
     }

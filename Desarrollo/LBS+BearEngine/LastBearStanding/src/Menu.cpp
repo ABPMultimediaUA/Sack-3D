@@ -31,7 +31,7 @@ Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
         SCREEN_WIDTH = BearMngr::Inst()->getMotorBear()->getEscena()->getWidth();
         on = true;
         BUTTON_HEIGHT = SCREEN_HEIGHT / 10;
-        BUTTON_WIDTH = SCREEN_HEIGHT / 6;
+        BUTTON_WIDTH = SCREEN_HEIGHT / 2.3f;
 
         ipPanel = false;
 }

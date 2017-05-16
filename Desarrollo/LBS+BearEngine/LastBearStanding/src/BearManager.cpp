@@ -49,6 +49,12 @@ TNodo* BearMngr::CreateBearCube(int id, glm::vec3 pos,glm::vec3 tam, char* textu
 	 m_motorBear->EscalarObjeto(nodo,tam);
     return nodo;
 }
+void BearMngr::AddModel(TNodo* nodo, char* model){
+    m_motorBear->AsignarMallaANodo(nodo,model);
+}
+void BearMngr::NextFrame(TNodo* nodo){
+    m_motorBear->animarMalla(nodo);
+}
 //BearEngine
 TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
     std::ostringstream strm;

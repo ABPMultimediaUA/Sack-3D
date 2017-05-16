@@ -43,18 +43,24 @@ int GameObject::Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, ch
     m_pBearMngr = BearMngr::Inst();
     m_id = m_pPhysicBody->Inicialize(m_pos, b2Vec2(tam.x,tam.y));
      if(!model)
-        if(!model)
+        if(!texture)
             m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,"media/Images/textures.jpg");
         else
             m_bearNodo = m_pBearMngr->CreateBearCube(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),tam,texture, shader);
     else
         m_bearNodo = m_pBearMngr->CreateBearModel(m_id,glm::vec3(pos.x*2.0f+(m_tam.x), -1*(pos.y*2.0f)-(m_tam.y),0),model,texture);
-    
+
     return m_id;
 }
 void GameObject::Update(){
     m_pBearMngr->SetBearCubePosition(m_bearNodo,glm::vec3(m_pPhysicBody->GetPosition().x+m_margin.x,m_pPhysicBody->GetPosition().y+m_margin.y,m_z));
     m_pBearMngr->SetBearCubeRotation(m_bearNodo,m_pPhysicBody->GetRotation());
+}
+void GameObject::AddModel(char* model){
+     m_pBearMngr->AddModel(m_bearNodo,model);
+}
+void GameObject::NextFrame(){
+    m_pBearMngr->NextFrame(m_bearNodo);
 }
 b2Vec2 GameObject::GetPosition(){
     return m_pPhysicBody->GetPosition();

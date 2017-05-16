@@ -18,6 +18,8 @@ class BearMngr{
         void InstanciaVariables(int* puntuaciones);
         TNodo* CreateBearCube(int id,glm::vec3 pos, glm::vec3 tam,char* texture, bool shader = 1);
         TNodo* CreateBearModel(int id,glm::vec3 pos,char* model,char* texture);
+        void   AddModel(TNodo* nodo, char* model);
+        void NextFrame(TNodo* nodo);
         void SetBearCubePosition(TNodo* nodo,glm::vec3 pos );
         void SetBearCubeRotation(TNodo* nodo, float rot);
         void SetXRotation(TNodo* nodo,float);

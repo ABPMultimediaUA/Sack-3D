@@ -76,6 +76,7 @@ class TMotorBear
         TEntidad* crearMalla( char* file, int idS);
         TEntidad* crearMalla( float alto, float ancho, float prof);
         TNodo* crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec);
+        void AsignarMallaANodo(TNodo* nodo, char*file);
 
         void cambiarMalla(TEntidad*, char*file);
      //   void transformarMalla(TNodo* nodoMalla, float tipo, glm::vec3 vec);//necesario que el nodo arbol este ya incorporado al arbol

@@ -85,6 +85,7 @@ class Player: public Cogible{
         Cogible* objPuedoCoger;
 		MyEventReceiver* eventReceiver;
 		b2Vec2 velActual;
+		uint32 time2Animation;
 };
 
 #endif

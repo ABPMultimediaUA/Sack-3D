@@ -150,7 +150,9 @@ TEntidad* TMotorBear::crearMalla( float alto, float ancho, float prof){
     mesh->setMalla( new Mesh(ancho, alto, prof));
     return mesh ;*/
 }
-
+void TMotorBear::AsignarMallaANodo(TNodo* nodo, char*file){
+    cambiarMalla(nodo->getEntidad(),file);
+}
 TNodo* TMotorBear::crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec){
 
     TNodo* nodoTrans1 = crearNodo(arbolEscena,crearTransform(), "rot");

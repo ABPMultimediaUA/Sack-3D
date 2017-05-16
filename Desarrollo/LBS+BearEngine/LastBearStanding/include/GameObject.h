@@ -19,6 +19,8 @@ class GameObject{
         virtual int Inicialize(PhysicBody *physicBody, b2Vec2 pos, glm::vec3 tam, char *model = NULL, char *texture = NULL, bool shader = 1);
         virtual ~GameObject();
         virtual void Update();
+        virtual void AddModel(char* model);
+        virtual void NextFrame();
         virtual int   SetMode(PhysicBody* body);
         virtual void   SetVisible(bool visible);
         virtual void   SetGravity(float gravity);

@@ -71,6 +71,7 @@ class Player: public Cogible{
         bool boton_saltar;
         bool boton_coger;
         bool boton_muerto;
+        bool boton_muerteBots;
         int mando;
         bool cogiendo;
         bool puedoCoger;

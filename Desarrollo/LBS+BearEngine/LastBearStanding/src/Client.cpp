@@ -471,7 +471,7 @@ bool Client::comprobarPaquete(RakNet::Packet* p){
 
 void Client::setMaps(std::vector<int> mapas){
      std::cout<<"setMapsINICIA"<<std::endl;
-    for(int i=0;i<6;i++){
+    for(int i=0;i<10;i++){
         maps.push_back(mapas[i]);
     }
     std::cout<<"setMapsACABA"<<std::endl;

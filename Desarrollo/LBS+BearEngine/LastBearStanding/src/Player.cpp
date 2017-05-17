@@ -16,6 +16,7 @@ Player::Player(b2Vec2 pos, char *texture, int numMando)
     m_pClient = Client::Inst();
     boton_saltar = false;
     boton_coger = false;
+    boton_muerteBots = false;
     boton_muerto = false;
     vel = 3.0f;
     moviendoA = 0;
@@ -66,6 +67,21 @@ void Player::actualiza(MyEventReceiver *events){
         else if( boton_coger && !events->IsKeyDown(SDLK_e)){
             boton_coger = false;
         }
+        /////////////////////////////MOD MUERTE BOTS HAHAHA/////////////////////
+        if(!boton_muerteBots && events->IsKeyDown(SDLK_k)){
+            boton_muerteBots = true;
+            std::vector<Player*> botsMuerte;
+            botsMuerte = World::Inst()->GetPlayers();
+            for(int i = 1; i<4;i++){
+                if(botsMuerte.at(i)->getMuerto() == false)
+                    botsMuerte.at(i)->morir();
+            }
+        }
+        else if( boton_muerteBots && !events->IsKeyDown(SDLK_k)){
+            boton_muerteBots = false;
+        }
+        ///////////////////////////////////////////////////////////////////////
+
         if(!boton_muerto && events->IsKeyDown(SDLK_q)){
             boton_muerto = true;
             fingirMuerte();

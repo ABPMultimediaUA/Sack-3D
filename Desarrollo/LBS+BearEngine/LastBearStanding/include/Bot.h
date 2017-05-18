@@ -34,6 +34,11 @@ class Bot: public Player{
         virtual void InicializaVariables();
         virtual void calcularPathfinding(Nodo* inicial, Nodo* objetivo);
     private:
+        int LEVEL;
+        float limitX;
+        float limitY;
+        bool saltito;
+
         int estadoBot;
         int mandobusco;
         int spawnbusco;

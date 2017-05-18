@@ -14,6 +14,7 @@ class TEntidadMalla : public TEntidad
         void begingDraw(Shader* shad, std::vector<glm::mat4>* pila);
         void endDraw(std::vector<glm::mat4>* pila);
         void animar();
+        void resetAnimacion();
         int getTipo();
         void verMallas();
 

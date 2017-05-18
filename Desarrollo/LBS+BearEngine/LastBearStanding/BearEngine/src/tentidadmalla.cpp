@@ -102,6 +102,10 @@ void TEntidadMalla::animar(){
     activarMalla(activo);
 }
 
+void TEntidadMalla::resetAnimacion(){
+    activarMalla(0);
+}
+
 void TEntidadMalla::verMallas(){
     for(int i=0; i<meshes.size();i++){
         std::cout<<meshes[i]->GetNombre()<<std::endl;

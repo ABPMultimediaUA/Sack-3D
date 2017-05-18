@@ -150,7 +150,9 @@ TEntidad* TMotorBear::crearMalla( float alto, float ancho, float prof){
     mesh->setMalla( new Mesh(ancho, alto, prof));
     return mesh ;*/
 }
-
+void TMotorBear::AsignarMallaANodo(TNodo* nodo, char*file){
+    cambiarMalla(nodo->getEntidad(),file);
+}
 TNodo* TMotorBear::crearCuboEn(float alto, float ancho, float prof, glm::vec3 vec){
 
     TNodo* nodoTrans1 = crearNodo(arbolEscena,crearTransform(), "rot");
@@ -339,6 +341,13 @@ void TMotorBear::animarMalla(TNodo* nodoMalla){
     malla= static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
     malla->animar();
    // std::cout<<"SALE"<<std::endl;
+}
+void TMotorBear::resetAnimacion(TNodo* nodoMalla){
+    TEntidadMalla* malla;
+
+   // std::cout<<"ENTRA"<<std::endl;
+    malla= static_cast<TEntidadMalla*> (nodoMalla->getEntidad());
+    malla->resetAnimacion();
 }
 
     //DEBUG

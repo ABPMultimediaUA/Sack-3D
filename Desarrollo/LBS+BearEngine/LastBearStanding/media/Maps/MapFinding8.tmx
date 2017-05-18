@@ -41,10 +41,8 @@
   <object id="1198" name="15" type="1,4,7,12,16,17" gid="692172" x="65" y="60" width="1" height="1"/>
   <object id="1199" name="16" type="1,15,17" gid="692172" x="73" y="60" width="1" height="1"/>
   <object id="1200" name="17" type="12,15,16" gid="692172" x="56" y="60" width="1" height="1"/>
-  <object id="1207" name="18" type="5,8,9,11,19,21" gid="692172" x="61" y="45" width="1" height="1"/>
-  <object id="1208" name="19" type="5,8,9,11,18,20" gid="692172" x="69" y="45" width="1" height="1"/>
-  <object id="1209" name="20" type="8,11,18,19" gid="692172" x="74" y="42" width="1" height="1"/>
-  <object id="1210" name="21" type="5,9,18,19" gid="692172" x="56" y="42" width="1" height="1"/>
+  <object id="1207" name="18" type="5,8,9,11,19" gid="692172" x="61" y="45" width="1" height="1"/>
+  <object id="1208" name="19" type="5,8,9,11,18" gid="692172" x="69" y="45" width="1" height="1"/>
  </objectgroup>
  <objectgroup color="#26a410" name="Colisiones">
   <object id="486" x="55" y="68" width="21" height="1"/>
@@ -119,8 +117,8 @@
  <objectgroup name="Players">
   <object id="1002" gid="271" x="60" y="68" width="1" height="1"/>
   <object id="1003" gid="271" x="70" y="68" width="1" height="1"/>
-  <object id="1040" gid="271" x="74" y="42" width="1" height="1"/>
-  <object id="1044" gid="271" x="56" y="42" width="1" height="1"/>
+  <object id="1040" gid="271" x="69" y="45" width="1" height="1"/>
+  <object id="1044" gid="271" x="61" y="45" width="1" height="1"/>
  </objectgroup>
  <objectgroup name="Pinchos">
   <object id="1018" x="-41" y="77" width="202" height="3"/>
@@ -128,8 +126,8 @@
  <objectgroup name="Spawners">
   <object id="1068" name="2" type="1" gid="692377" x="53" y="54" width="1" height="1"/>
   <object id="1205" name="2" type="1" gid="205" x="77" y="54" width="1" height="1"/>
-  <object id="1211" name="3" type="1" gid="205" x="61" y="45" width="1" height="1"/>
-  <object id="1212" name="3" type="1" gid="205" x="69" y="45" width="1" height="1"/>
+  <object id="1211" name="1" type="1" gid="205" x="43" y="62" width="1" height="1"/>
+  <object id="1212" name="1" type="1" gid="205" x="87" y="62" width="1" height="1"/>
  </objectgroup>
  <imagelayer name="Capa de Imagen 1" visible="0">
   <image source="Background/bathroom.jpg" width="1925" height="1080"/>

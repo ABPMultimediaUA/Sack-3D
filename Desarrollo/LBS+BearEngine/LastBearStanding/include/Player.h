@@ -71,6 +71,7 @@ class Player: public Cogible{
         bool boton_saltar;
         bool boton_coger;
         bool boton_muerto;
+        bool boton_muerteBots;
         int mando;
         bool cogiendo;
         bool puedoCoger;
@@ -85,6 +86,7 @@ class Player: public Cogible{
         Cogible* objPuedoCoger;
 		MyEventReceiver* eventReceiver;
 		b2Vec2 velActual;
+		uint32 time2Animation;
 };
 
 #endif

@@ -48,7 +48,7 @@ glm::vec3 GameCamera::update(float time, int fps){
                 cenAnt = b2Vec2(cenSig.x,cenSig.y);
                 cenSig = b2Vec2((xMin + xMax)/2,(yMin + yMax)/2);
                 zAnt = zSig;
-                zSig =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f))-1;
+                zSig =  ((abs((xMin - xMax)*100)/100.f)+( (abs((yMin - yMax)*100)/200.f)*16.f/9.f)*2)-1;
                 porcentGap = ceil(((1000.f/fps)/updateT)*10)/10;
                 updateT = 1000.f/(fps/10.0f);
                 fpsAnt = fps;

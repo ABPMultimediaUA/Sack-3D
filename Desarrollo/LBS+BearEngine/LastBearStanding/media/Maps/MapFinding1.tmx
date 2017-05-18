@@ -23,14 +23,12 @@
   </tile>
  </tileset>
  <objectgroup name="Nodos" opacity="0.91">
-  <object id="618" name="0" type="6,10" gid="692172" x="14" y="43" width="1" height="1"/>
+  <object id="618" name="0" type="1,10" gid="692172" x="14" y="43" width="1" height="1"/>
   <object id="619" name="1" type="2,11" gid="692172" x="31" y="42" width="1" height="1"/>
   <object id="620" name="2" type="1,18" gid="692172" x="39" y="42" width="1" height="1"/>
   <object id="621" name="3" type="4,20" gid="692172" x="87" y="42" width="1" height="1"/>
   <object id="622" name="4" type="3,16" gid="692172" x="95" y="42" width="1" height="1"/>
-  <object id="623" name="5" type="7,17" gid="692172" x="112" y="43" width="1" height="1"/>
-  <object id="624" name="6" type="0" gid="692172" x="9" y="47" width="1" height="1"/>
-  <object id="627" name="7" type="5" gid="692172" x="117" y="47" width="1" height="1"/>
+  <object id="623" name="5" type="17,32" gid="692172" x="112" y="43" width="1" height="1"/>
   <object id="628" name="8" type="9,12" gid="692172" x="57" y="34" width="1" height="1"/>
   <object id="637" name="9" type="8,15" gid="692172" x="70" y="34" width="1" height="1"/>
   <object id="638" name="10" type="0,11" gid="692172" x="19" y="49" width="1" height="1" rotation="1"/>
@@ -77,8 +75,6 @@
   <object id="669" x="70" y="34" width="2" height="15"/>
   <object id="670" x="99" y="49" width="12" height="1"/>
   <object id="671" x="16" y="49" width="12" height="1"/>
-  <object id="672" x="114" y="47" width="6" height="1"/>
-  <object id="673" x="7" y="47" width="6" height="1"/>
   <object id="674" x="30" y="42" width="11" height="1"/>
   <object id="686" x="86" y="42" width="11" height="1"/>
   <object id="1038" x="70" y="42" width="5" height="1"/>
@@ -96,9 +92,9 @@
   <object id="1018" x="-41" y="77" width="202" height="3"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1045" name="2" type="1" gid="692377" x="9" y="47" width="1" height="1"/>
+  <object id="1045" name="2" type="1" gid="692377" x="14" y="43" width="1" height="1"/>
   <object id="1047" name="2" type="1" gid="692377" x="59" y="42" width="1" height="1"/>
-  <object id="1048" name="2" type="1" gid="692377" x="117" y="47" width="1" height="1"/>
+  <object id="1048" name="2" type="1" gid="692377" x="112" y="43" width="1" height="1"/>
   <object id="1052" name="3" type="1" gid="692377" x="53" y="62" width="1" height="1"/>
   <object id="1053" name="3" type="1" gid="692377" x="73" y="62" width="1" height="1"/>
   <object id="1054" name="1" type="1" gid="692377" x="116" y="70" width="1" height="1"/>

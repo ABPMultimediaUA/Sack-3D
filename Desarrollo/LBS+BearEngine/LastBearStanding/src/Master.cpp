@@ -33,7 +33,7 @@ void Master::Update(){
             break;
         case 1:
             if(primeraInicializacion){
-                Client::Inst()->iniciar(menu->getGameMode(), menu->getIP());
+                Client::Inst()->iniciar(menu->getGameMode(), menu->getIP(), menu->getDifficult());
                 InstanciaMundo();
                 //IrrMngr::Inst()->InstanciaVariables(puntuaciones);
                 primeraInicializacion=false;

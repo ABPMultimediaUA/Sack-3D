@@ -31,7 +31,9 @@ void Client::PacketFunction(int aux){
     }
 }
 
-void Client::iniciar(std::string gameModes, std::string IPs){
+void Client::iniciar(std::string gameModes, std::string IPs, int difficult){
+    dificultad = difficult;
+
     char auxip[64], auxserverPort[30], auxclientPort[30], mode[30], auxautomatic[30];
     bool server = true;
     IP.assign(IPs);

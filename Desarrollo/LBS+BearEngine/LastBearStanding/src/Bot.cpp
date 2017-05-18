@@ -2,6 +2,7 @@
 #include "PhysicBody/PBAlivePlayer.h"
 #include "Bot.h"
 #include "World.h"
+#include "Client.h"
 #include "Usable.h"
 #include "PathFinding/Lista.h"
 #include "PathFinding/Nodo.h"
@@ -11,26 +12,21 @@
 Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture, mando){
     strncpy(id, idr, sizeof(id));
     //HACER GET DE LEVEL Y QUE SE ELIJA DESDE EL MENU
+    //LEVEL =
+    LEVEL = Client::Inst()->getDifficult();    //////////////// Level-> 1: Modo Rober || 2: Normal || 3: Modo Pro
 
-    LEVEL = 1;    //////////////// Level-> 1: Modo Rober || 2: Normal || 3: Modo Pro
-
-    if(LEVEL == 1){
+    if(LEVEL == 0){     //EASY
         vel = 2.1f;
         limitX = 1.7;
         limitY = 0.1;
         saltito = false;
     }
-    if(LEVEL == 2){
-        vel = 2.2f;
-        limitX = 2.1;
-        limitY = 0.1;
-        saltito = false;
-    }
-    if(LEVEL == 3){
-        vel = 2.5f;    // Este es el nivel qe teniamos al principio
+    if(LEVEL == 1){     //HARD
+        vel = 2.4f;     // Este es el nivel qe teniamos al principio
         limitX = 2.5;
         limitY = 0.2;
         saltito = true;
+
     }
 
     enMuelle = false;

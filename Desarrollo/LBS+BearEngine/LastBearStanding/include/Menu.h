@@ -19,7 +19,7 @@
 //Button constants
 /*const int BUTTON_WIDTH = 300;
 const int BUTTON_HEIGHT = 200;*/
-const int TOTAL_BUTTONS = 3;
+const int TOTAL_BUTTONS = 5;
 
 //class LButton;
 class Menu
@@ -37,6 +37,7 @@ class Menu
 
         void update();
         bool getOn(){return on;}
+        int getDifficult(){return difficult;}
         std::string getGameMode(){return gameMode;}
         std::string getIP(){return IP;}
         //bool loadFromRenderedText( std::string textureText, SDL_Color textColor );
@@ -68,6 +69,10 @@ class Menu
         LTexture gButtonSpriteSheetTexturePressedClicked2;
         LTexture gButtonSpriteSheetTexture3;
         LTexture gButtonSpriteSheetTexturePressed3;
+        LTexture gButtonSpriteSheetTexture4;
+        LTexture gButtonSpriteSheetTexturePressed4;
+        LTexture gButtonSpriteSheetTexture5;
+        LTexture gButtonSpriteSheetTexturePressed5;
         LTexture gButtonSpriteSheetPanel;
         //LTexture gButtonSpriteSheetTexture;
         //LTexture gButtonSpriteSheetTexture;
@@ -75,13 +80,16 @@ class Menu
         //Buttons objects
         LButton gButtons[ TOTAL_BUTTONS ];
         bool ipPanel;
+        bool difficultPanel;
         int SCREEN_WIDTH;
         int SCREEN_HEIGHT;
         int BUTTON_WIDTH;
         int BUTTON_HEIGHT;
         std::string gameMode;
         std::string IP;
+        int difficult;
         bool on;
+        bool desactivarDectector;
 };
 
 #endif // MENU_H

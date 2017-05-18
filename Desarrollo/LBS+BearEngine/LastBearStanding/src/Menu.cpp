@@ -34,6 +34,9 @@ Menu::Menu(/*SDL_Window* pWindow, SDL_Renderer* pRenderer*/)
         BUTTON_WIDTH = SCREEN_HEIGHT / 2.3f;
 
         ipPanel = false;
+        desactivarDectector = false;
+        difficultPanel = false;
+        difficult=2;
 }
 
 Menu::~Menu()
@@ -87,22 +90,17 @@ void Menu::update(){
 				     //Handle button events
                     for( int i = 0; i < TOTAL_BUTTONS; ++i )
                     {
-                        gButtons[ i ].handleEvent( &e );
+                        //if(!desactivarDectector) gButtons[ i ].handleEvent( &e );
+                        if(desactivarDectector && i<2){}
+                        else{
+                            gButtons[ i ].handleEvent( &e );
+                        }
                     }
 					//User requests quit
-					if( e.key.keysym.sym == SDLK_1 )
-					{
-
-					}
 					if( e.key.keysym.sym == SDLK_RETURN )
 					{
                         std::cout<<"LA IP ES "<<inputText<<std::endl;
                         quit = true;
-					}
-					if( e.key.keysym.sym == SDLK_3 )
-					{
-						inputText = inputText.substr(0, inputText.size()-1);
-						IP = inputText;
 					}
 					//Special key input
 					else if( e.type == SDL_KEYDOWN )
@@ -180,6 +178,7 @@ void Menu::update(){
 				gInputTextTexture.render( SCREEN_WIDTH/2.15f, SCREEN_HEIGHT/3.3f + 2.8f* BUTTON_HEIGHT, gRenderer );
                 //std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
                 //Render buttons
+
                     for( int i = 0; i < TOTAL_BUTTONS; ++i )
                     {
                         //std::cout<<TOTAL_BUTTONS<<std::endl;
@@ -189,9 +188,11 @@ void Menu::update(){
                             else if (gButtons[ i ].getState()==1)
                             gButtonSpriteSheetTexturePressed.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             else if  (gButtons[ i ].getState()==2 && i==0){
+                            desactivarDectector=true;
                             gButtonSpriteSheetTexturePressedClicked.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             gameMode.assign("s");
-                            quit = true;
+                            difficultPanel = true;
+                            //quit = true;
                             }
                         }
                         if(i==1){
@@ -200,6 +201,7 @@ void Menu::update(){
                             else if (gButtons[ i ].getState()==1)
                             gButtonSpriteSheetTexturePressed2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             else if  (gButtons[ i ].getState()>=2 ){
+                            desactivarDectector=true;
                             gButtonSpriteSheetTexturePressedClicked2.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
                             gameMode.assign("m");
                             IP.assign(inputText);
@@ -215,8 +217,31 @@ void Menu::update(){
                             SDL_Quit();
                             }
                         }
+                        if(difficultPanel){
+                            if(i==3){
+                                if(gButtons[ i ].getState()==0)
+                                gButtonSpriteSheetTexture4.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                else if (gButtons[ i ].getState()==1)
+                                gButtonSpriteSheetTexturePressed4.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                else if  (gButtons[ i ].getState()==2 ){
+                                gButtonSpriteSheetTexturePressed4.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                difficult=0;
+                                quit = true;
+                                }
+                            }
+                            if(i==4){
+                                if(gButtons[ i ].getState()==0)
+                                gButtonSpriteSheetTexture5.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                else if (gButtons[ i ].getState()==1)
+                                gButtonSpriteSheetTexturePressed5.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                else if  (gButtons[ i ].getState()==2 ){
+                                gButtonSpriteSheetTexturePressed5.render(gButtons[ i ].getX(), gButtons[ i ].getY(), gRenderer);
+                                difficult=1;
+                                quit = true;
+                                }
+                            }
+                        }
                     }
-
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
@@ -382,6 +407,30 @@ bool Menu::loadMedia()
 		success = false;
 	}
 
+	if( !gButtonSpriteSheetTexture4.loadFromFile( "media/Images/easy-unclicked.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressed4.loadFromFile( "media/Images/easy-clicked.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexture5.loadFromFile( "media/Images/hard-unclicked.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
+	if( !gButtonSpriteSheetTexturePressed5.loadFromFile( "media/Images/hard-clicked.png", gRenderer ) )
+	{
+		printf( "Failed to load button sprite texture!\n" );
+		success = false;
+	}
+
 	if( !gButtonSpriteSheetPanel.loadFromFile( "media/Images/ip-panel.png", gRenderer ) )
 	{
 		printf( "Failed to load button sprite texture!\n" );
@@ -401,7 +450,8 @@ bool Menu::loadMedia()
 		gButtons[ 0 ].setPosition( SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f, BUTTON_WIDTH, BUTTON_HEIGHT );
 		gButtons[ 1 ].setPosition( SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f + 1.5f* BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT  );
 		gButtons[ 2 ].setPosition( SCREEN_WIDTH/2.4f, SCREEN_HEIGHT/3.3f + 5* BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT );
-		//gButtons[ 3 ].setPosition( SCREEN_WIDTH/3, SCREEN_HEIGHT - BUTTON_HEIGHT );
+		gButtons[ 3 ].setPosition( SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f + 3.8f* BUTTON_HEIGHT, BUTTON_WIDTH/2, BUTTON_HEIGHT );
+		gButtons[ 4 ].setPosition( SCREEN_WIDTH/1.9f, SCREEN_HEIGHT/3.3f + 3.8f* BUTTON_HEIGHT, BUTTON_WIDTH/2, BUTTON_HEIGHT );
 	//Load splash image
 	/*gFondoSurface = SDL_LoadBMP( "diablo2.bmp" );
 	if( gFondoSurface == NULL )

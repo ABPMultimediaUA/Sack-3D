@@ -57,7 +57,7 @@ class Client{
         bool getRun(){return run;}
         bool comprobacion(char* aux);
         RakNet::SystemAddress clientID;
-        void iniciar(std::string gameMode, std::string IP);
+        void iniciar(std::string gameMode, std::string IP, int difficult);
         void PacketFunction(int aux);
         void recibir();
         void enviar(int aux = -1);
@@ -85,10 +85,12 @@ class Client{
         unsigned char GetPacketIdentifier(RakNet::Packet *p);
         TPlayersRed playersRed [3];
         TParams params [11];
+        int getDifficult(){ return dificultad;}
 
     protected:
 
     private:
+        int dificultad;
         std::vector<int> maps;
         std::string gameMode;
         std::string IP;

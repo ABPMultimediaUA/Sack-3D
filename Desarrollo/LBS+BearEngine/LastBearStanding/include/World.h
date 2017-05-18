@@ -98,8 +98,10 @@ class World{
         Nodo*     AddNodo    (Nodo *x)     {m_Nodos.Add(x);    return x;}
         Metralla* AddMetralla(Metralla *x) {m_Metrallas.Add(x);return x;}
         Particle* AddParticle(Particle *x) {m_Particles.Add(x);return x;}
+        void setDificultad(int dificultad){ dificil = dificultad;}
         b2RevoluteJoint* joint;
     private:
+        int dificil;
         GameResource<MyContactListener> contactListener;
         static World*            pinstance;
         static const int         velocityIterations;

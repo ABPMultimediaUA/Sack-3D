@@ -46,8 +46,8 @@ void Granada::setCogido(bool aux){
 }
 void Granada::usar(){
   if(!usada){
-        int id = (*Client::Inst()->getIdCliente())-'0';
-        World::Inst()->getPlayer(id)->CogerTirar();
+        //int id = (*Client::Inst()->getIdCliente())-'0';
+        World::Inst()->getPlayer(cogedor)->CogerTirar();
         timerGranada = SDL_GetTicks();
         usada=true;
         usos --;

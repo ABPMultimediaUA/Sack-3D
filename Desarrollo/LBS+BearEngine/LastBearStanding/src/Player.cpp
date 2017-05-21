@@ -196,16 +196,12 @@ void Player::BloodExplosion(){
     pos.x=pos.x/2.0f;
     pos.y=pos.y/2.0f;
     for (int i = 0; i < 50; ++i){
-        glm::vec3 tam;
-        tam.x = ((float)5/250.f)+0.002f;
-        tam.y = tam.x;
-        tam.z = 0.02f;
+        glm::vec3 tam(0.02f,0.02f,0.02f);
         Particle *cap = m_pWorld->AddParticle(new Particle(new PBCotton(),pos,tam,rand()%300+1000,"BearEngine/res/1.obj","media/Images/sangre.png"));
         b2Vec2 capVel;
-        capVel.x = (dir*(rand()%300)/10.f)+0.5f;
-        capVel.y =((rand()%100)/10.f)+0.5f;
+        capVel.x = dir*(rand()%10)+2;
+        capVel.y =rand()%10-5;
         cap->SetLinearVelocity(capVel);
-        cap->SetAngularVelocity(((rand()%4)/10.f)+0.5f);
     }
 }
 void Player::CogerTirar(){

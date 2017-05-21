@@ -18,12 +18,15 @@
 
 Map::Map(const char* doc,int numMapa){
     switch(numMapa){
-      case 1:  textFondo = "media/Images/platform_green.jpg"; break;
+      case 1:  textFondo = "media/Images/brown.png"; break;
       case 2:  textFondo = "media/Images/platform_blue.jpg"; break;
-      case 3:  textFondo = "media/Images/platform_red.jpg"; break;
-      case 4:  textFondo = "media/Images/platform_pink.jpg"; break;
-      case 5:  textFondo = "media/Images/platform_brown.jpg"; break;
-      default: textFondo = "media/Images/platform_pink.jpg"; break;
+      case 3:  textFondo = "media/Images/lana1.png"; break;
+      case 4:  textFondo = "media/Images/green2.png"; break;
+      case 5:  textFondo = "media/Images/black.png"; break;
+      case 6:  textFondo = "media/Images/blue.png"; break;
+      case 7:  textFondo = "media/Images/pink2.png"; break;
+      case 8:  textFondo = "media/Images/red2.png"; break;
+      default: textFondo = "media/Images/brown.png"; break;
     }
     player = false;
     numPlayer = 0;

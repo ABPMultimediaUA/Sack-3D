@@ -481,8 +481,19 @@ void Client::setMaps(std::vector<int> mapas){
 
 void Client::singleMaps(){
 
+    time_t timer;
+    time(&timer);
+    srand (timer);
+    int x=0;
+    std::vector<int> nums;
     std::vector<int> result;
-    for(int i=0;i<10;i++)result.push_back(i);
+
+    for(int i=0;i<10;i++) nums.push_back(i);
+    while(nums.size()!=0){
+        x = rand() % nums.size();
+        result.push_back(nums[x]);
+        nums.erase(nums.begin()+x);
+    }
 
     setMaps(result);
 }

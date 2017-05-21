@@ -15,7 +15,7 @@ Bot::Bot(b2Vec2 pos, int mando, char *texture, char idr[]):Player( pos, texture,
     //LEVEL =
     LEVEL = Client::Inst()->getDifficult();    //////////////// Level-> 1: Modo Rober || 2: Normal || 3: Modo Pro
 
-    if(LEVEL == 0){     //EASY
+    if(LEVEL == 0 || LEVEL == 2){     //EASY
         vel = 2.1f;
         limitX = 1.7;
         limitY = 0.1;

@@ -25,6 +25,7 @@ class Map{
 		void AddPincho();
         void AddNodo();
         int getTime();
+        int idSpawn;
         Lista* getListaNodos();
         void leerElement(tinyxml2::XMLElement *element);
         void leerObjGroup(const char* layer, tinyxml2::XMLElement *objgroup);

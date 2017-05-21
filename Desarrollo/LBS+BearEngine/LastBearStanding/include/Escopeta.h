@@ -5,7 +5,7 @@
 
 class Escopeta: public Usable{
     public:
-        Escopeta(Spawner* expo, int modelo,b2Vec2 pos);
+        Escopeta(Spawner* expo, int modelo,b2Vec2 pos, int id);
         ~Escopeta();
         void usar();
 };

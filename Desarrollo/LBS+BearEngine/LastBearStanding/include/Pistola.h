@@ -5,7 +5,7 @@
 
 class Pistola: public Usable{
     public:
-        Pistola(Spawner* expo, int modelo,b2Vec2 pos);
+        Pistola(Spawner* expo, int modelo,b2Vec2 pos, int id);
         ~Pistola();
         void usar();
 };

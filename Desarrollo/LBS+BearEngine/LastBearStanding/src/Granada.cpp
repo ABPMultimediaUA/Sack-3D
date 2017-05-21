@@ -10,8 +10,8 @@
 #include "Client.h"
 #include "SDL.h"
 
-Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj","media/Images/granadatex.png"),mecha(3000){
+Granada::Granada(Spawner* expo,int modelo,b2Vec2 pos, int id)
+:Usable(new PBCogibleCatched,expo,pos,glm::vec3(.05f,.05f,.05f),"BearEngine/res/granada.obj","media/Images/granadatex.png", id),mecha(3000){
   usos = 1;
   usada = false;
   cogedor=-1;

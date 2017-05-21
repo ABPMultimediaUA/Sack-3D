@@ -59,7 +59,7 @@ glm::vec3 GameCamera::update(float time, int fps){
             z          = zAnt + ((zSig - zAnt)/(porcentGap*100)*porcentUpdate*10);;
             if(z<MINZ)z = MINZ;
             if(z>MAXZ)z = MAXZ;
-            std::cout<<z<<std::endl;
+            //std::cout<<z<<std::endl;
             float incrementX = (float)abs(xMax-xMin);
             float incrementY = (float)abs(yMax-yMin);
             float tamX = incrementX+(incrementY*2.2f)+VIEWMARGIN;

@@ -4,8 +4,8 @@
 
 #define TIME2DESTROY 3000
 
-Usable::Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture)
-:Cogible(physicBody,expo,pos,tam,model,texture){
+Usable::Usable(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture, int id)
+:Cogible(physicBody,expo,pos,tam,model,texture, id){
     timeCadencia = 0;
     usando = false;
     usos = 1;

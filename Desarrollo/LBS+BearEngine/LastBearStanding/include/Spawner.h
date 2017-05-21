@@ -10,7 +10,7 @@ class BearMngr;
 class World;
 class Spawner{
     public:
-        Spawner(int tipo, int modelo, b2Vec2 pos);
+        Spawner(int tipo, int modelo, b2Vec2 pos, int idc);
         ~Spawner();
         void coger(Cogible *objCogido);
         void soltar();
@@ -33,6 +33,8 @@ class Spawner{
         int tipo;
         int modelo;
         int m_id;
+        int id;
+        int cont;
 };
 
 #endif // SPAWNER_H

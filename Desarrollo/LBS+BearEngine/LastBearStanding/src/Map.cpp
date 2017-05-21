@@ -28,6 +28,7 @@ Map::Map(const char* doc,int numMapa){
       case 8:  textFondo = "media/Images/red2.png"; break;
       default: textFondo = "media/Images/brown.png"; break;
     }
+    idSpawn=0;
     player = false;
     numPlayer = 0;
     playerRed = 0;
@@ -69,8 +70,9 @@ Lista* Map::getListaNodos(){
   return nodos.Get();
 }
 void Map::AddSpawner(){
+    idSpawn++;
      posi.y=posi.y-0.035f;
-     World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi));
+     World::Inst()->AddSpawner(new  Spawner(name,typeInt,posi, idSpawn));
 }
 void Map::AddPlatform(){
     World::Inst()->AddPlatform(new Platform(false,posi, glm::vec3(width/10.f, height/10.f, 2/10.f),textFondo));
@@ -83,7 +85,7 @@ void Map::AddTeleport(){
      World::Inst()->AddTeleport(new Teleport(name, typeInt, posi));
 }
 void Map::AddArma(){
-    switch(name){
+    /*switch(name){
          case 1:{
               World::Inst()->AddCogible(new  Pistola(NULL, typeInt,posi));
          break;}
@@ -93,7 +95,7 @@ void Map::AddArma(){
          case 3:{
               World::Inst()->AddCogible(new  Granada(NULL, typeInt,posi));
          break;}
-    }
+    }*/
  }
 void Map::AddPlayer(){
     char* texture;
@@ -124,7 +126,7 @@ void Map::AddPlayer(){
           }else{
               char aux[30];
               sprintf(aux, "%.0f", (float)numPlayer);
-              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,texture, aux));
+              World::Inst()->AddPlayer(new PlayerRed(posi,numPlayer,texture, aux, 2.1f, 7.0f));
           }
       }
    }

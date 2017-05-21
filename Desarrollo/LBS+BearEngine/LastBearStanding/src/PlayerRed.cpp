@@ -87,20 +87,30 @@ void PlayerRed::saltar(int i){
 }
 void PlayerRed::CogerTirar(int idCogible){
     if(idCogible!=-1){
+        std::cout<<"SOY "<<mando<<"y cojo id "<<idCogible<<std::endl;
         for (unsigned int i = 0; i <m_pWorld->GetCogibles().size(); ++i){
-            if(m_pWorld->GetCogibles().at(i)->GetId()==idCogible){
+                std::cout<<m_pWorld->GetCogibles().at(i)->GetIdc()<<std::endl;
+            if(m_pWorld->GetCogibles().at(i)->GetIdc()==idCogible){
               objCogido = m_pWorld->GetCogibles().at(i);
+              std::cout<<"ENTRO"<<std::endl;
             }
         }
-        objCogido = objPuedoCoger;
+        //objCogido = objPuedoCoger;
         objCogido->setCogido(true);
         objCogido->setDireccion(1);
         m_gameObject.Catch(objCogido->GetId());
+/*
+        if(dynamic_cast<Granada*>(objCogido)){
+            dynamic_cast<Granada*>(objCogido)->setCogedor(mando);
+            std::cout<<"SOY "<<mando<<std::endl;
+        }*/
+
         Granada* gr = dynamic_cast<Granada*>(objCogido);
          if(gr!=NULL){
             gr->setCogedor(mando);
         }
-        cogiendo = true;
+
+        cogiendo = true;;
     }else{
         Soltar();
     }

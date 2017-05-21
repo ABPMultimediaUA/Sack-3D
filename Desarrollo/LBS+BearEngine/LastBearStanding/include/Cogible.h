@@ -13,7 +13,7 @@ class BearMngr;
 
 class Cogible{
     public:
-        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, glm::vec3 tam,  char *model = "BearEngine/res/cubo.obj", char *texture = NULL);
+        Cogible(PhysicBody* physicBody ,Spawner* expo,b2Vec2 pos, glm::vec3 tam,  char *model = "BearEngine/res/cubo.obj", char *texture = NULL, int idc=0);
         virtual ~Cogible();
         virtual void actualiza();
         virtual void teletransportar();
@@ -30,6 +30,7 @@ class Cogible{
         virtual void SetLinearVelocity(b2Vec2 vel);
         virtual Spawner* getExpositor();
         virtual int GetId();
+        virtual int GetIdc();
         virtual void setNextPos(b2Vec2 pos);
         virtual void setExpuesto(bool aux);
         virtual bool getExpuesto();
@@ -48,6 +49,7 @@ class Cogible{
         float density ;
         float friction ;
         int m_id;
+        int id;
 };
 
 #endif

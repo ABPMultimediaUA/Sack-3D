@@ -8,7 +8,7 @@
 
 class Granada:public Usable{
     public:
-        Granada(Spawner* expo, int modelo,b2Vec2 pos);
+        Granada(Spawner* expo, int modelo,b2Vec2 pos, int id);
         ~Granada();
         void actualiza();
         void setCogido(bool aux);

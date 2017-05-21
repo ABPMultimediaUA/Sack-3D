@@ -8,8 +8,8 @@
 #include "Bala.h"
 #include "SDL.h"
 
-Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos)
-:Usable(new PBCogibleCatched, expo,pos,glm::vec3(0.07f,0.02f,0.002f),"BearEngine/res/escopeta.obj","media/Images/escopetatex.png"){
+Escopeta::Escopeta(Spawner* expo, int modelo,b2Vec2 pos, int id)
+:Usable(new PBCogibleCatched, expo,pos,glm::vec3(0.07f,0.02f,0.002f),"BearEngine/res/escopeta.obj","media/Images/escopetatex.png", id){
     usos = 3;
 }
 Escopeta::~Escopeta(){}

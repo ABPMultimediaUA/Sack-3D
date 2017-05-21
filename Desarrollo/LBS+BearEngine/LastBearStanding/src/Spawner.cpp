@@ -9,13 +9,15 @@
 #include "World.h"
 #include "SDL.h"
 
-Spawner::Spawner(int tipo, int modelo , b2Vec2 pos )
+Spawner::Spawner(int tipo, int modelo , b2Vec2 pos, int idc )
 :tipo(tipo),modelo(modelo),m_pos(pos){
     m_pWorld = World::Inst();
     m_pBearMngr = BearMngr::Inst();
     cogiendo = true;
     cadencia = 2000;
     time = SDL_GetTicks();
+    id=idc;
+    cont=0;
     m_id = m_gameObject.Inicialize(
         new PBSpawner()
         ,pos
@@ -45,10 +47,12 @@ void Spawner::soltar(){
 }
 void Spawner::generar(){
     ParticleSpawn();
+    int f = tipo*1000+id*100+cont;
+    cont++;
     switch(tipo){
-        case 1: objCogido = m_pWorld->AddCogible(new Pistola(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y)));  break;
-        case 2: objCogido = m_pWorld->AddCogible(new Escopeta(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y))); break;
-        case 3: objCogido = m_pWorld->AddCogible(new Granada(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y)));  break;
+        case 1: objCogido = m_pWorld->AddCogible(new Pistola(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y), f));  break;
+        case 2: objCogido = m_pWorld->AddCogible(new Escopeta(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y), f)); break;
+        case 3: objCogido = m_pWorld->AddCogible(new Granada(this,modelo,b2Vec2(m_gameObject.GetPosition().x,m_gameObject.GetPosition().y), f));  break;
     }
     cogiendo = true;
     coger(objCogido);

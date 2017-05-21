@@ -5,7 +5,7 @@
 #include "Spawner.h"
 #include "World.h"
 
-Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture){
+Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 tam, char *model, char *texture, int idc){
     m_id = m_gameObject.Inicialize(physicBody,pos,tam,model,texture);
     m_pWorld =   World::Inst();
     m_pBearMngr = BearMngr::Inst();
@@ -16,6 +16,7 @@ Cogible::Cogible(PhysicBody* physicBody ,Spawner* expo, b2Vec2 pos, glm::vec3 ta
     expuesto = true;
     if(expo == NULL)expuesto = false;
     expositor = expo;
+    id=idc;
 }
 Cogible::~Cogible(){}
 void Cogible::actualiza(){
@@ -66,6 +67,7 @@ Spawner* Cogible::getExpositor(){return expositor;}
 bool     Cogible::getCogido(){return cogido;}
 bool     Cogible::getAutoDestruir(){return autoDestruir;}
 int      Cogible::GetId(){return m_id;}
+int      Cogible::GetIdc(){return id;}
 bool     Cogible::getExpuesto(){return expuesto;}
 b2Vec2   Cogible::GetLinearVelocity(){return m_gameObject.GetLinearVelocity();}
 float    Cogible::GetRotation(){return m_gameObject.GetRotation();}

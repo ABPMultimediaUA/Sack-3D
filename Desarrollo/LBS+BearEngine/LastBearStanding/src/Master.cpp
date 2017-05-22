@@ -23,13 +23,14 @@ Master::Master():m_game(0){
     BearMngr::Inst()->InstanciaVariables(puntuaciones);
     timeFPS = SDL_GetTicks();
     menu = new Menu();
-    finPartidaObject = new FinPartida;
+    finPartidaObject = new FinPartida();
 }
 void Master::Update(){
  switch(estado){
         case 0:
+            std::cout<<"ENTRAMANU"<<std::endl;
             UpdateMenu();
-            if(!menu->getOn()) estado++;
+            if(!menu->getOn()){ estado++;}
             break;
         case 1:
             if(primeraInicializacion){
@@ -43,6 +44,17 @@ void Master::Update(){
             break;
         case 2:
             UpdateFinPartida();
+            std::cout<<"ddd"<<std::endl;
+            std::cout<<finPartidaObject->getOn()<<std::endl;
+
+            if(!finPartidaObject->getOn()){
+                    std::cout<<estado<<std::endl;
+                    delete menu;
+                    menu = NULL;
+                    menu = new Menu();
+                    estado=0;
+                    std::cout<<estado<<std::endl;
+            }
             break;
     }
 }
@@ -78,7 +90,7 @@ void Master::UpdateGame(){
         }
         else if(SDL_GetTicks()-timeFinPartida>FINPARTIDA){
             puntuaciones[World::Inst()->getGanador()]++;
-            if(puntuaciones[World::Inst()->getGanador()]==5){
+            if(puntuaciones[World::Inst()->getGanador()]==1){
                 estado++;
                 finPartidaObject->setWinner(World::Inst()->getGanador());
 

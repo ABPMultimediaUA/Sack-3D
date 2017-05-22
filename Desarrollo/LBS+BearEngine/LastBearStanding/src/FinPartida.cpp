@@ -13,7 +13,7 @@ FinPartida::FinPartida()
     gWindowSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getWindowSurface();
 
     gFondoSurface = BearMngr::Inst()->getMotorBear()->getEscena()->getFondoSurface();
-
+    on = true;
     SCREEN_HEIGHT = BearMngr::Inst()->getMotorBear()->getEscena()->getHeight();
     SCREEN_WIDTH = BearMngr::Inst()->getMotorBear()->getEscena()->getWidth();
     BUTTON_HEIGHT = SCREEN_HEIGHT / 10;
@@ -69,7 +69,7 @@ void FinPartida::update(){
                         SDL_Quit();
 					}
 
-                    else if(e.key.keysym.sym == SDLK_ESCAPE) SDL_Quit();
+                    else if(e.key.keysym.sym == SDLK_ESCAPE){ std::cout<<"UEJHRJHE"<<std::endl; quit = true; close();}
 
 					//Special text input event
 					else if( e.type == SDL_TEXTINPUT )
@@ -285,6 +285,11 @@ SDL_Texture* FinPartida::loadTexture( std::string path )
     }
 
     return newTexture;
+}
+
+void FinPartida::close(){
+std::cout<<"pongo a false"<<std::endl;
+    on=false;
 }
 
 void FinPartida::setWinner(int w){

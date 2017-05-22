@@ -25,7 +25,7 @@ class FinPartida
         void close();
 
         void update();
-
+        bool getOn(){return on;}
         void setWinner(int w);
         //bool getOn(){return on;}
         virtual ~FinPartida();
@@ -55,7 +55,7 @@ class FinPartida
         int SCREEN_HEIGHT;
         int BUTTON_WIDTH;
         int BUTTON_HEIGHT;
-
+        bool on;
         int winner;
 
 };

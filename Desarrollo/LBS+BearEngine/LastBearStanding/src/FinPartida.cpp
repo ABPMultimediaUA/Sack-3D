@@ -69,7 +69,11 @@ void FinPartida::update(){
                         SDL_Quit();
 					}
 
-                    else if(e.key.keysym.sym == SDLK_ESCAPE){ std::cout<<"UEJHRJHE"<<std::endl; quit = true; close();}
+                    else if(e.key.keysym.sym == SDLK_ESCAPE){ 
+                    	//std::cout<<"UEJHRJHE"<<std::endl; 
+                    	quit = true; 
+                    	close();
+                    }
 
 					//Special text input event
 					else if( e.type == SDL_TEXTINPUT )
@@ -288,7 +292,7 @@ SDL_Texture* FinPartida::loadTexture( std::string path )
 }
 
 void FinPartida::close(){
-std::cout<<"pongo a false"<<std::endl;
+	//std::cout<<"pongo a false"<<std::endl;
     on=false;
 }
 

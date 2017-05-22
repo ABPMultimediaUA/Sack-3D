@@ -28,7 +28,7 @@ Master::Master():m_game(0){
 void Master::Update(){
  switch(estado){
         case 0:
-            std::cout<<"ENTRAMANU"<<std::endl;
+            //std::cout<<"ENTRAMANU"<<std::endl;
             UpdateMenu();
             if(!menu->getOn()){ estado++;}
             break;
@@ -44,16 +44,16 @@ void Master::Update(){
             break;
         case 2:
             UpdateFinPartida();
-            std::cout<<"ddd"<<std::endl;
-            std::cout<<finPartidaObject->getOn()<<std::endl;
+            //std::cout<<"ddd"<<std::endl;
+            //std::cout<<finPartidaObject->getOn()<<std::endl;
 
             if(!finPartidaObject->getOn()){
-                    std::cout<<estado<<std::endl;
+                    //std::cout<<estado<<std::endl;
                     delete menu;
                     menu = NULL;
                     menu = new Menu();
                     estado=0;
-                    std::cout<<estado<<std::endl;
+                    //std::cout<<estado<<std::endl;
             }
             break;
     }

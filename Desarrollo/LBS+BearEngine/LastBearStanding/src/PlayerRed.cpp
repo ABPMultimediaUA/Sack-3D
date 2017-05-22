@@ -87,12 +87,12 @@ void PlayerRed::saltar(int i){
 }
 void PlayerRed::CogerTirar(int idCogible){
     if(idCogible!=-1){
-        std::cout<<"SOY "<<mando<<"y cojo id "<<idCogible<<std::endl;
+        //std::cout<<"SOY "<<mando<<"y cojo id "<<idCogible<<std::endl;
         for (unsigned int i = 0; i <m_pWorld->GetCogibles().size(); ++i){
                 std::cout<<m_pWorld->GetCogibles().at(i)->GetIdc()<<std::endl;
             if(m_pWorld->GetCogibles().at(i)->GetIdc()==idCogible){
               objCogido = m_pWorld->GetCogibles().at(i);
-              std::cout<<"ENTRO"<<std::endl;
+              //std::cout<<"ENTRO"<<std::endl;
             }
         }
         //objCogido = objPuedoCoger;

@@ -211,7 +211,7 @@ void Player::CogerTirar(){
             if(usable && usable->getUsos() && !usable->getCogido()){
                 if(dynamic_cast<Granada*>(objPuedoCoger)){
                     dynamic_cast<Granada*>(objPuedoCoger)->setCogedor(mando);
-                    std::cout<<"SOY "<<mando<<std::endl;
+                    //std::cout<<"SOY "<<mando<<std::endl;
                 }
                 objCogido = objPuedoCoger;
                 objCogido->setCogido(true);
@@ -219,7 +219,7 @@ void Player::CogerTirar(){
                 m_gameObject.Catch(objCogido->GetId());
                 cogiendo = true;
                 m_pClient->enviarCogido(objCogido->GetIdc(),mando);
-                std::cout<<"SOY "<<mando<<"y envio id "<<objCogido->GetIdc()<<std::endl;
+                //std::cout<<"SOY "<<mando<<"y envio id "<<objCogido->GetIdc()<<std::endl;
             }
         }
         else if(cogiendo){

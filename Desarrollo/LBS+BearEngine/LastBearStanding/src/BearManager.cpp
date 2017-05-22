@@ -63,7 +63,7 @@ void BearMngr::ResetAnimacion(TNodo* nodo){
 TNodo* BearMngr::CreateBearModel(int id, glm::vec3 pos,char* model,char* texture){
     std::ostringstream strm;
     strm << id;
-	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str(),1);
+	TNodo* nodo = m_motorBear->crearObjetoMallaCompleto(m_motorBear->getRaiz(), model,(char*)strm.str().c_str(),2);
 	if(texture)
         m_motorBear->asignarTextura(nodo,texture);
 	m_motorBear->TrasladarObjeto(nodo,pos);

@@ -47,8 +47,8 @@ void TMotorBear::crearShadersBasicos(){
     std::cout<<"BasicShader"<<std::endl;
     crearShader("BearEngine/res//basicShaderLuz");
     std::cout<<"BasicShaderLuz"<<std::endl;
- //   crearShader("BearEngine/res//basicShaderToon");
-    std::cout<<"BasicShaderToon"<<std::endl;
+    crearShader("BearEngine/res//CelShader");
+    std::cout<<"CelShader"<<std::endl;
 }
 
 
@@ -132,7 +132,7 @@ void TMotorBear::cambiarPosiLuz(glm::vec3 pos){
 TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
     Camera* camera= new Camera( pos,  fov,  aspect,  zNear,  zFar);
 //    std::cout<<"AAA"<<std::endl;
-    crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(5,5,5),"lightUno", 1);
+    crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,10),"lightUno", 1);
     //std::cout<<"BB"<<std::endl;
     return camera;
 }

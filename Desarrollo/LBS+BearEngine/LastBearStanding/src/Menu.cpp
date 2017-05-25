@@ -174,8 +174,8 @@ void Menu::update(){
                 if(ipPanel)gButtonSpriteSheetPanel.render(SCREEN_WIDTH/2.6f, SCREEN_HEIGHT/3.3f + 2.1f* BUTTON_HEIGHT, gRenderer);
 
 				//Render text textures
-				//gPromptTextTexture.render( ( SCREEN_WIDTH - gPromptTextTexture.getWidth() ) / 2, 0, gRenderer);
-				gInputTextTexture.render( SCREEN_WIDTH/2.15f, SCREEN_HEIGHT/3.3f + 2.8f* BUTTON_HEIGHT, gRenderer );
+				if(ipPanel && quit) gPromptTextTexture.render( SCREEN_WIDTH/2.4f, SCREEN_HEIGHT/3.3f + 2.8f* BUTTON_HEIGHT, gRenderer);
+				if(!quit) gInputTextTexture.render( SCREEN_WIDTH/2.15f, SCREEN_HEIGHT/3.3f + 2.8f* BUTTON_HEIGHT, gRenderer );
                 //std::cout<<"HDHDHBBDBDBHDBHDBH"<<std::endl;
                 //Render buttons
 
@@ -344,7 +344,7 @@ bool Menu::loadMedia()
 	{
 		//Render the prompt
 		SDL_Color textColor = { 255, 255, 255, 0xFF };
-		if( !gPromptTextTexture.loadFromRenderedText( "Select Single(s) or Multiplayer(m) mode:", textColor, gWindow, gRenderer, gFont ) )
+		if( !gPromptTextTexture.loadFromRenderedText( "Waiting for other players...", textColor, gWindow, gRenderer, gFont ) )
 		{
 			printf( "Failed to render prompt text!\n" );
 			success = false;

@@ -88,7 +88,7 @@ class TMotorBear
 //////////////////////////////////////////
 
 /////////////////////Camaras
-        TEntidad *crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar);
+        TEntidad *crearCamara( float fov, float aspect, float zNear, float zFar);
         void registrarCamara(TNodo* camera);
         TNodo* verCamaraActiva();
         void activarCamara(TNodo* cam);

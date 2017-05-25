@@ -57,23 +57,6 @@ void TLuz::aplicarLuz(Shader* shad, glm::vec3 pos){
 
 
 void TLuz::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
-  /*  glm::vec3 posLuzAct;
-    glm::mat4 matPosLuzAct;
-
-    GLuint lightUniformLocation = glGetUniformLocation(shad->positionLocation(), nombreLuz);
-    glUniform3fv(lightUniformLocation,1, &intensidad[0]);
-    if(luzType == 1){ //Difusa
-
-        GLuint lightPosUniformLocation = glGetUniformLocation(shad->positionLocation(), Concat(nombreLuz,"Pos"));
-
-        matPosLuzAct = pila->at(pila->size()-1);
-
-        posLuzAct = glm::vec3(matPosLuzAct * glm::vec4(glm::vec3(0,0,0), 1.0));
-        //setPosicion(posLuzAct.x,posLuzAct.y,posLuzAct.z);
-        glUniform3fv(lightPosUniformLocation,1, &posicion[0]);
-
-
-*/
 
 
 

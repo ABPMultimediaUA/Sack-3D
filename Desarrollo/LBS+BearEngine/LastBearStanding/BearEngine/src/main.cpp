@@ -69,6 +69,7 @@ int32 cuatro = 4;
     //Shader shader("./res/basicShaderToon");
    // Shader shader("./res/basicShaderToon");
 motorsito.crearMalla("./res/cubo.obj",0);
+
 //Camara
     TNodo* nodoCam= motorsito.crearObjetoCamaraCompleto(motorsito.getRaiz(),"Camara",glm::vec3(0,0,10), 70.0f, (float)WIDTH/(float)HEIGHT, 0.01f,1000.0f);
     //   motorsito.transformarEntidad(nodoCam->getPadre()->getEntidad(),0.0f,glm::vec3(0,5,30));
@@ -105,11 +106,11 @@ motorsito.crearMalla("./res/cubo.obj",0);
     staticBodySu->CreateFixture(CrearFixture(sueloShape, 1, 0));
     dinamicBody->CreateFixture(CrearFixture(dinamicShape, 1, 0.1));
 
-    TNodo* malla = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/andador0.obj","Humano Estatico 0",1);
-    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador1b.obj");
+    TNodo* malla = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/Oso.obj","Oso Estatico 0",1);
+  /*  motorsito.cambiarMalla(malla->getEntidad(),"./res/andador1b.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador2.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador3.obj");
-    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");
+    motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
    /* motorsito.cambiarMalla(malla->getEntidad(),"./res/andador4.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador5.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador6.obj");
@@ -117,7 +118,8 @@ motorsito.crearMalla("./res/cubo.obj",0);
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador8.obj");
     motorsito.cambiarMalla(malla->getEntidad(),"./res/andador0.obj");*/
     motorsito.TrasladarObjeto(malla,glm::vec3(staticBody->GetPosition().x ,staticBody->GetPosition().y,0));
-    motorsito.EscalarObjeto(malla,glm::vec3(1,1,1.0));
+    motorsito.EscalarObjeto(malla,glm::vec3(6,6,6.0));
+    motorsito.RotarObjeto(malla,glm::vec3(0,-90,0));
 
 
  //   TNodo* mallaD = motorsito.crearObjetoMallaCompleto(motorsito.getRaiz(),"./res/andador1.obj","Humano Estatico 1",0);
@@ -181,8 +183,7 @@ motorsito.verArbol();
 
 // transLuz = static_cast<TTransform*> (nodoLuzDiff->getPadre()->getEntidad());
  //luzDif = static_cast<TLuz*> (nodoLuzDiff->getEntidad());
-   std::cout<<std::endl;
-   motorsito.asignarTextura(malla,"./res/andaT.png");
+   motorsito.asignarTextura(malla,"./res/rojo.jpg");
    //motorsito.asignarTextura(mallaT,"./res/player.png");
 //   motorsito.asignarTextura(mallaC,"./res/player.png");
     //motorsito.asignarMaterial(malla,"Rojo");

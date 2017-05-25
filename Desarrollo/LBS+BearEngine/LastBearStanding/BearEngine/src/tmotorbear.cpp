@@ -49,6 +49,13 @@ void TMotorBear::crearShadersBasicos(){
     std::cout<<"BasicShaderLuz"<<std::endl;
     crearShader("BearEngine/res//CelShader");
     std::cout<<"CelShader"<<std::endl;
+    /*
+    crearShader("./res/basicShader");
+    std::cout<<"BasicShader"<<std::endl;
+    crearShader("./res/basicShaderLuz");
+    std::cout<<"BasicShaderLuz"<<std::endl;
+    crearShader("./res/CelShader");
+    std::cout<<"CelShader"<<std::endl;*/
 }
 
 
@@ -129,11 +136,11 @@ void TMotorBear::cambiarPosiLuz(glm::vec3 pos){
 }
 
 //Camera * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
-TEntidad * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
-    Camera* camera= new Camera( pos,  fov,  aspect,  zNear,  zFar);
-//    std::cout<<"AAA"<<std::endl;
+TEntidad * TMotorBear::crearCamara(float fov, float aspect, float zNear, float zFar){
+    Camera* camera= new Camera(fov,  aspect,  zNear,  zFar);
+    std::cout<<"AAA"<<std::endl;
     crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,10),"lightUno", 1);
-    //std::cout<<"BB"<<std::endl;
+    std::cout<<"BB"<<std::endl;
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
@@ -166,13 +173,14 @@ return nodoMalla6;
 /***********************<OBJETOS>******************************************************/
 TNodo* TMotorBear::crearObjetoCamaraCompleto(TNodo* padre, char * name, const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
 
-    TEntidad* cam = crearCamara(pos, fov, aspect, zNear, zFar);
+    TEntidad* cam = crearCamara(fov, aspect, zNear, zFar);
     TNodo* transTras = crearTransObj(padre, name);
     transTras->setVisible(1);
     TNodo* nodoCamara = crearNodo(transTras,cam, name);
     nodoCamara->setVisible(1);
     registrarCamara(nodoCamara);
     TrasladarObjeto(nodoCamara,pos);
+    //std::cout<<"SD"<<std::endl;
     return nodoCamara;
 }
 
@@ -622,10 +630,11 @@ int TMotorBear::UpdateDisplay(){
 
 // TNodo* verCamaraActiva();
 //void TMotorBear::activarLuz(TLuz* luz){}
-
+/*
 SDL_Texture* TMotorBear::CreaTextura(const std::string &archivo){
   escena->CreaTextura(archivo);
 }
 void TMotorBear::RenderTextura(SDL_Texture *tex, int x, int y){
   escena->RenderTextura(tex,x,y);
 }
+*/

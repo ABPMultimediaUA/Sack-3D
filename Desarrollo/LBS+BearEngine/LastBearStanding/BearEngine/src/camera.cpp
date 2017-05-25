@@ -1,5 +1,24 @@
 #include "../include/camera.h"
 #include <iostream>
+Camera::Camera(){
+	tipo=2;
+    activada=0;
+}
+
+
+Camera::Camera( float fov, float aspect, float zNear, float zFar){
+           m_perspective = glm::perspective(fov, aspect, zNear, zFar);
+           esPerspectiva=1;
+         //m_paralela = glm::ortho(-10.0, 10.0, -10.0, 10.0, -10.0, 10.0);
+
+
+            m_forward = glm::vec3(0,0,1);
+            m_up = glm::vec3(0,1,0);
+            tipo=2;
+            activada=0;
+}
+
+
 
 void Camera::begingDraw(Shader* shad, std::vector<glm::mat4>* pila){
 

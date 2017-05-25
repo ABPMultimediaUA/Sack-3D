@@ -138,9 +138,7 @@ void TMotorBear::cambiarPosiLuz(glm::vec3 pos){
 //Camera * TMotorBear::crearCamara(const glm::vec3 pos, float fov, float aspect, float zNear, float zFar){
 TEntidad * TMotorBear::crearCamara(float fov, float aspect, float zNear, float zFar){
     Camera* camera= new Camera(fov,  aspect,  zNear,  zFar);
-    std::cout<<"AAA"<<std::endl;
     crearObjetoLuz(arbolEscena,glm::vec3(1.0f,1.0f,1.0f), glm::vec3(0,0,10),"lightUno", 1);
-    std::cout<<"BB"<<std::endl;
     return camera;
 }
 //TEntidadMalla* TMotorBear::crearMalla( char* file){
